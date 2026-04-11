@@ -36,6 +36,7 @@
 > Record-Klasse nicht von weiteren Klassen ableiten (erben). Man kann
 > aber beliebig viele Interfaces implementieren. Record-Klassen sind
 > implizit final, d.h. man nicht von Record-Klassen erben.
+>
 > </details>
 
 > [!TIP]
@@ -224,7 +225,7 @@ Data"](https://dev.java/learn/using-record-to-model-immutable-data/).
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2025](#ref-LernJava))
+> -   Oracle Corporation ([2026](#ref-LernJava))
 >
 > </details>
 
@@ -295,7 +296,7 @@ Data"](https://dev.java/learn/using-record-to-model-immutable-data/).
 >
 > <div id="ref-LernJava" class="csl-entry">
 >
-> Oracle Corporation. 2025. „Learn Java". <https://dev.java/learn/>.
+> Oracle Corporation. 2026. „Learn Java". <https://dev.java/learn/>.
 >
 > </div>
 >

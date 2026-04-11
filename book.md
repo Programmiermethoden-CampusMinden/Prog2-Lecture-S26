@@ -1,4 +1,4 @@
-# IFM 2.1: Programmieren 2 (Sommer 2025)
+# IFM 2.1: Programmieren 2 (Sommer 2026)
 
 <a id="id-da39a3ee5e6b4b0d3255bfef95601890afd80709"></a>
 
@@ -34,50 +34,45 @@ nutzen und uns dieses genauer anschauen.
 #### Überblick Modulinhalte
 
 1.  Fortgeschrittene Konzepte in Java ("Classic Java")
-    -   Reguläre Ausdrücke, Annotationen, Reflection
-    -   Generische Programmierung: Generics
-    -   Parallele Programmierung: Threads
-    -   ~~CLI~~, ~~Konfiguration~~, fremde APIs nutzen[^1]
-    -   Graphische Oberflächen mit Swing[^2]
+    -   Reguläre Ausdrücke, Generics, Depencendy Injection
+    -   Fremde APIs nutzen: ANTLR
+    -   Graphische Oberflächen mit Swing
+    -   Fehlerbehandlungskonzepte
 2.  Fortgeschrittene Konzepte in Java ("FP")
     -   Default-Methoden, Funktionsinterfaces, Methodenreferenzen,
         Lambdas, Optional, Stream-API
+    -   Records, Sealed Classes, Pattern Matching
 3.  Versionierung mit Git
 4.  Softwarequalität
-    -   Testen, Coding Conventions & Smells, Refactoring, Javadoc,
-        Logging
+    -   Testen mit JUnit und Mockito
+    -   Coding Conventions & Smells, Refactoring
 5.  Entwurfsmuster
-    -   ~~Strategy~~, Template-Method, ~~Factory-Method~~,
-        ~~Singleton~~, Observer, Visitor, Command, ...
-6.  Bauen von Software
+    -   Observer, Visitor, Template-Method, Command
+6.  Tooling und Bauen von Software
+    -   Packages
+    -   Logging, Debugging
     -   Gradle, Docker, Continuous Integration (GitHub Workflows)
-
-(*durchgestrichene Themen nicht im Sommersemester 2025*)
 
 #### Team
 
 -   [Carsten
     Gips](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/carsten-gips)
     (Sprechstunde nach Vereinbarung)
--   [BC
-    George](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/birgit-christina-george)
-    (Sprechstunde nach Vereinbarung)
--   Tutoren (siehe ILIAS-Mitgliederliste)
+-   Alesia Herbertz (Tutorin)
 
 #### Kursformat
 
 <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/admin/images/fahrplan.png" width="80%" /></p>
 
-| Vorlesung (2 SWS) | Praktikum (2 SWS) |
-|:-----------------------------|:-----------------------------------------|
-| Fr, 08:00 - 09:30 Uhr (online) | G1: Fr, 09:45 - 11:15 Uhr (online, Carsten) |
-| (Carsten: *Flipped Classroom*) | G2: Fr, 11:30 - 13:00 Uhr (online, Carsten) |
-|  | G3: Fr, 09:45 - 11:15 Uhr (online, BC) |
-|  | G4: Fr, 11:30 - 13:00 Uhr (online, BC) |
+| Vorlesung (2 SWS)     | Praktikum (2 SWS)         |
+|:----------------------|:--------------------------|
+| Mo, 08:00 - 09:30 Uhr | G1: Mo, 11:30 - 13:00 Uhr |
+| (*Flipped Classroom*) | G2: Mo, 14:00 - 15:30 Uhr |
+|                       | G3: Mo, 09:45 - 11:15 Uhr |
+|                       | G4: Mi, 08:00 - 09:30 Uhr |
 
-Online-Sitzungen per Zoom (**Zugangsdaten siehe
-[ILIAS](https://www.hsbi.de/elearning/goto.php?target=crs_1486054&client_id=FH-Bielefeld)**).
-Sie *können* hierzu den Raum J101 bzw. J104 (vgl. Stundenplan) nutzen.
+Alle Sitzungen online per Zoom (**Zugangsdaten siehe
+[ILIAS](https://www.hsbi.de/elearning/goto.php/crs/1634793)**).
 
 #### Fahrplan
 
@@ -85,114 +80,100 @@ Hier finden Sie einen abonnierbaren [Google
 Kalender](https://calendar.google.com/calendar/ical/69ecbae80c817d60571a6ec968890b9b7ef0ffea5ce5dad1ef06c46eef7c530f%40group.calendar.google.com/public/basic.ics)
 mit allen Terminen der Veranstaltung zum Einbinden in Ihre Kalender-App.
 
-| Monat | Tag | Vorlesung | VL-Quiz | Praktikum |
-|:----|:---|:-------------------------------------------|:-------------|:-----|
-| April | 11\. | Orga (**Zoom**), [FAQ](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/discussions/categories/q-a) |  |  |
-|  | 18\. | **Feiertag** | **Feiertag** | **Feiertag** |
-|  | 25\. | [Einführung Versionierung](#id-ca5676bbc33258233014505568775a92741eb46d), [Git Basics](#id-668acfcb7f83e0ab677a1cc897ff2b61dc9a8577); [Lambda-Ausdrücke](#id-01cc534b930a4f8fcff3f34238f9b902b2aa94dd); [Gradle](#id-879896721406ac776eca71435136f613a3f6c9d9) | [Q01](https://www.hsbi.de/elearning/goto.php?target=tst_1527333&client_id=FH-Bielefeld) | [B01](#id-989147f48baba6a594eb9665934ae2623dc84964) |
-| Mai | 02\. | [Git-Branches](#id-097aec8f1fbaaecb9f5c7cce8f7adb057ecedd6f), [Branching-Strategien](#id-4d6861ad376a0b2e0387b1a92bfe1dde822ccb7f); [Methodenreferenzen](#id-7aa5254265b8c6ada30b38ba3de8870e51d66c9e); [Logging](#id-d34a1123257baba72f157fdf29caa69090e90127) | [Q02](https://www.hsbi.de/elearning/goto.php?target=tst_1527338&client_id=FH-Bielefeld) | [B02](#id-61b291653cdae0b4da99c50e5ab714c878aede10) |
-|  | 09\. | [Git-Remotes](#id-891ec209f76a247e09e9c1cd306bd531b6ebe897), [Git-Workflows](#id-fde0fd70583957b6ab46f130656a605feb110e95); [Stream-API](#id-b16a41dd6bcae74097deb0d66f9b50762b8c0f40); [Record-Klassen](#id-152ec8405b8a75f125fcbd1f4f3125262de1b614) | [Q03](https://www.hsbi.de/elearning/goto.php?target=tst_1527339&client_id=FH-Bielefeld) | [B03](#id-6c99b0278590e1866d400dbbb6fc3eeafad60e55) |
-|  | 16\. | **Station I** 09:00-11:00 Uhr, B40 (Aufteilung siehe [Ankündigung #997](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/discussions/997)) |  |  |
-|  | 23\. | [Einführung Testen](#id-034f87112a6be7c5c927ef1775d293b8b6d7774c), [JUnit-Basics](#id-fdac50744187e0bbb0d93a110ad70910667d5eed); [Optional](#id-bb5095c5a37b38bd48ac37be51964fb543342407); [Visitor-Pattern](#id-ff6c3f74c23480f2273b18c9777709c80ff62a7e) | [Q04](https://www.hsbi.de/elearning/goto.php?target=tst_1527340&client_id=FH-Bielefeld) | [B04](#id-d392f8d0f4dd93faa938c9737b2317ba03f5aa12) |
-|  | 30\. | [Testfallermittlung](#id-5faf7bc2998ca41cbb5f5b342c1b46d28f6d1b85), [Mocking](#id-ca381288eacf7fbdad309dee947ebee25635af6d); [Default-Methoden](#id-83d9242997f09b086df2b42d7c636f083f0ab02e); [Observer-Pattern](#id-c50f087222495d1cb378b27fc952f32b2ccb2054); [Continuous Integration (CI)](#id-4db9ebc86d71df5cc33864e90b54d42c472fdaec) | [Q05](https://www.hsbi.de/elearning/goto.php?target=tst_1527341&client_id=FH-Bielefeld) | [B05](#id-96a6e702ef5bbea0815334b0b819b91864e526c7) |
-| Juni | 06\. | [Code-Smells](#id-41be9b68119185a3c165c600670ba548b3bf2cfd), [Coding-Rules](#id-89d3bbb734edbc0c4d593538c63ca0f4828e222b), [Refactoring](#id-d5584aa5535595f1fb5da2daccb6110c719a3c59); [Javadoc](#id-1a29f4d878c0dfd2692190d1ba8be56516408629) | [Q06](https://www.hsbi.de/elearning/goto.php?target=tst_1527342&client_id=FH-Bielefeld) | [B06](#id-f80f5e162e1aaa7ad98f24b776c109c056062b7c) |
-|  | 13\. | **Station II** 09:00-10:30 Uhr, B40 (Aufteilung siehe [Ankündigung #1025](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/discussions/1025)) |  |  |
-|  | 20\. | [RegExp](#id-cfd21c65be03a9536ad286c40c0f52ec3d376712); [Template-Method-Pattern](#id-d65790dd2d165c56e13ec1cea6619359f6def01b), [Command-Pattern](#id-fa18d796f1346e2d468abc3703e53374e2005b7f); [Annotationen](#id-b7dfad1ad3e9e01252e54933152728b9552b3735) | [Q07](https://www.hsbi.de/elearning/goto.php?target=tst_1527343&client_id=FH-Bielefeld) | [B07](#id-83476d78577cf7ca1cbc9b26afe056c03f1836fc) |
-|  | 27\. | Generics: [Klassen und Methoden](#id-359cf00c9c9fee1016f00310e99654e8f237b413), [Bounds und Wildcards](#id-b5a72bc0878f8a0c3efaa1126dc28bfb1261adfb), [Type Erasure](#id-74a1e4a0fe24c2ac4e4d580db16b6f832fb2d888), [Polymorphie](#id-4c89bee19163dac6a373bfc5c5b362e8ebe61ae3); [Docker](#id-6cb84000fb9df777e413acabff7c4f83fd52fa7a) | [Q08](https://www.hsbi.de/elearning/goto.php?target=tst_1527344&client_id=FH-Bielefeld) | [B08](#id-f446a81e524a27594ec457a16742d232a92912c6) |
-| Juli | 04\. | [Intro Threads](#id-f6029a94ea1cbcba66e37c103b162b90e62bea1d), [Synchronisierung](#id-fd5317305f8c0a4a45cfacf12f8feac51a2ed5df), [Highlevel Threadkonzepte](#id-658174d5a85775f31f62a05f3f7d486f9391ba11); [Reflection](#id-cd1f3b4bd043849ddb3a3d41c9c280e6f0547ce4) | [Q09](https://www.hsbi.de/elearning/goto.php?target=tst_1527345&client_id=FH-Bielefeld) | [B09](#id-31c5e287bbe09bf1d8bf14a0cb61f2cfc1f85986) |
-| *Prüfungsphase I* | 09.07. | **Station III** 09:00-10:30 Uhr, B40 (Aufteilung siehe [Ankündigung #1032](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/discussions/1032)) |  |  |
-| *Prüfungsphase II* | 24.09.(?) | **Station IV**, B40 (Aufteilung siehe Ankündigung) |  |  |
+Abgabe der Post Mortems jeweils **Montag bis 09:00 Uhr** im
+[ILIAS](https://www.hsbi.de/elearning/goto.php/exc/1664006). Vorstellung
+der Lösung im jeweiligen Praktikum in der Abgabewoche.
 
-Abgabe der Übungsblätter jeweils **bis Fr, 08:00 Uhr** [im
-ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1514856&client_id=FH-Bielefeld),
-Vorstellung der Lösung im zugehörigen Praktikum. Bearbeitung der Quizzes
-jeweils **Sa, 00:00 Uhr (Vorwoche) bis Fr, 08:00 Uhr** [im
-ILIAS](https://www.hsbi.de/elearning/goto.php?target=fold_1514843&client_id=FH-Bielefeld).
+| Monat | Tag | Vorlesung (Mo) | Praktikum (Mo/Mi) |
+|:---|:---|:----------------------------------------------------|:-----------|
+| April | 20\. | [Orga](#id-275d783e298228506068436512433d343feb52aa) |  |
+|  | 27\. | [Git1: Basics](#id-3f96a576c2a146335959069480ebef505c4f230b); [Gradle](#id-c42edd667de90d402db4f28d772ca1c16114eede), [Packages](#id-5d06aa5bc58d232729f3c1717091eb57e22f4062) |  |
+| Mai | 04\. | [Git2: Branches](#id-7a10016b283d273774835cdf25db171813b65ae1), [Git4: Worktree](#id-5db10a4f8576b6c653205f4ea76dcf01bce19a5e); [JUnit1: Basics](#id-c427918a8c92485e77a6d81794851b621f611f3e); [CI](#id-c2fc86abf650579f63e535ec42726e2c66f4af6f) | [B01](#id-989147f48baba6a594eb9665934ae2623dc84964) |
+|  | 11\. | [Lambdas](#id-01cc534b930a4f8fcff3f34238f9b902b2aa94dd), [Methodenrefs](#id-7aa5254265b8c6ada30b38ba3de8870e51d66c9e); [Observer](#id-c50f087222495d1cb378b27fc952f32b2ccb2054), [Swing Events](#id-84e91969df75e9dc88c5187131cfbe7aa52f3db5) | [B02](#id-61b291653cdae0b4da99c50e5ab714c878aede10) |
+|  | 18\. | [Git3: Workflows](#id-c4b0283d56726aa5bcadb82cdd57653b6c8654a3); [RegExp](#id-cfd21c65be03a9536ad286c40c0f52ec3d376712); [Template-Method](#id-d65790dd2d165c56e13ec1cea6619359f6def01b) | [B03](#id-6c99b0278590e1866d400dbbb6fc3eeafad60e55) |
+|  | 25\. | **Feiertag** | **Feiertag** |
+| Juni | 01\. | [ANTLR](#id-83d8235fd174219b3470528d945d3dd848c55ad3); [Visitor](#id-ff6c3f74c23480f2273b18c9777709c80ff62a7e); [Debugging](#id-18ea2eadf0eb0b480224748543248ff96deb79cb) | [B04](#id-d392f8d0f4dd93faa938c9737b2317ba03f5aa12) |
+|  | 08\. | [JUnit2: Testfälle](#id-77793ee59748dfeaeef9cf17fee8754ae4b8fdf6), [JUnit3: Mocking](#id-b41adbc161f203df59258c2f719f8689c49108e8); [Dependency Injection](#id-11913b4c04e50a1d1269b5966a87e87d1d727a10), [Defaultmethoden](#id-83d9242997f09b086df2b42d7c636f083f0ab02e) | **Kein Praktikum (Parcoursprüfung BC)** |
+|  | 15\. | [Records](#id-152ec8405b8a75f125fcbd1f4f3125262de1b614), [Pattern Matching](#id-b97bf455cbca7e395e55b06a589bd6a34018b498), [Stream-API](#id-b16a41dd6bcae74097deb0d66f9b50762b8c0f40); [JUnit4: Property Testing](#id-6f2b911e8bd44898195f262b13bc44b5f1552e79) | [B05](#id-96a6e702ef5bbea0815334b0b819b91864e526c7) |
+|  | 22\. | [Generics1: Klassen/Methoden](#id-60c28f241488056134fe9fbda5f190e7b95c2109), [Generics2: Bounds & Wildcards](#id-527a99eb558795f85fc455275ae495d059c83c9c); [Command](#id-fa18d796f1346e2d468abc3703e53374e2005b7f); [Logging](#id-1ece2948a94e81007ac7bc47b446f7427b6014f3) | [B06](#id-f80f5e162e1aaa7ad98f24b776c109c056062b7c) |
+|  | 29\. | [Generics3: Type Erasure & Polymorphie](#id-5bc4d64bb6b6ada40444f817951b2775c3a1ec92), [Exceptions](#id-02580ddc2b10540e0114e08483e28b46e5dd9772), [Optional & Result](#id-bb5095c5a37b38bd48ac37be51964fb543342407) | [B07](#id-83476d78577cf7ca1cbc9b26afe056c03f1836fc) |
+| Juli | 06\. | [Bad Smells](#id-41be9b68119185a3c165c600670ba548b3bf2cfd), [Coding Rules](#id-89d3bbb734edbc0c4d593538c63ca0f4828e222b), [Refactoring](#id-d5584aa5535595f1fb5da2daccb6110c719a3c59); [Docker](#id-a607e9502028f3c70589ca6b6099936982adc873) | [B08](#id-f446a81e524a27594ec457a16742d232a92912c6) |
+|  | 13\. | Rückblick, [Prüfungsvorbereitung](#id-5020900ace8eaeeefbf1af116d61d159ae6dba2b) |  |
 
 #### Prüfungsform, Note und Credits
 
-**Parcoursprüfung**, 5 ECTS (PO23)
+**(Digitale) Klausur plus Studienleistung (Portfolio)**, 5 ECTS
 
-Da Sie das Programmierhandwerk erlernen und üben und vertiefen sollen,
-dürfen Sie im Rahmen dieser Lehrveranstaltung noch keine KI-gestützten
-Assistenten benutzen. Lösungen, die dennoch ganz oder teilweise unter
-Zuhilfenahme von KI-Unterstützung erstellt wurden, werden wie nicht
-abgegeben behandelt.
+-   **Studienleistung**: "Portfolio":
 
-##### Prüfung im ersten Zeitraum
+    Mindestens 6 der Übungsblätter B01..B08 erfolgreich bearbeitet
+    (inkl. Post Mortem).
 
-1.  **Quizzes**: mind. 5 der 9 Quizzes bestanden (ohne Note/Punkte)
-    (Einzelbearbeitung, fristgerecht bis zur jeweiligen Vorlesung, je
-    Quiz bis zu 3x wiederholbar, 60% pro Quiz zum Bestehen nötig)
-2.  **Praktikum**: mind. 5 der 9 Übungsblätter bestanden (ohne
-    Note/Punkte) (bis zu 3er Teams, alle Aufgaben eines Blattes
-    bearbeitet, individuelle(!) fristgerechte Abgabe der Lösungen im
-    ILIAS als aussagekräftiges [*Post
-    Mortem*](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/discussions/981)[^3],
-    Vorstellung der Lösungen im Praktikum durch jedes Teammitglied,
-    aktive Beteiligung an der Diskussion im Praktikum)
-3.  **Station I**: ILIAS-Test (30 Minuten in Minden im B40)
-4.  **Station II**: ILIAS-Test (30 Minuten in Minden im B40)
-5.  **Station III**: ILIAS-Test (30 Minuten in Minden im B40)
+-   **Gesamtnote**: (Digitale) Klausur im B40 (90 Minuten)
 
-Station I und II finden im Vorlesungsslot statt ([Aufteilung siehe
-separate
-Ankündigung](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/discussions/1025)),
-Station III im ersten Prüfungszeitraum (Termin lt. Bekanntgabe vom
-Prüfungsamt: Mi, 09.07., [Aufteilung siehe separate
-Ankündigung](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/discussions/1032)).
-Die Punkte der beiden besseren Stationen werden summiert bzw. es wird
-der Mittelwert der beiden besten prozentualen Ergebnisse ermittelt zur
-die Berechnung der Note.[^4]
+<details>
+<summary><strong>Hinweise</strong></summary>
 
-**Gesamtnote**: 4.0: ab 50%, alle 5% nächste Teilnote, 1.0: ab 95%
-(jeweils nur wenn Quizzes bestanden und Praktikum bestanden)
+-   Die Bearbeitung der Übungsblätter erfolgt individuell.
+-   Ein Team umfasst 1 Person.
+-   Die Post Mortems sind individuell zu erstellen und fristgerecht
+    abzugeben.
+-   "Aktive Beteiligung" umfasst Anwesenheit und sachbezogene Beiträge;
+    Anwesenheit/Beteiligung werden dokumentiert.
+-   "Erfolgreiche Bearbeitung" eines Blattes umfasst die individuelle
+    Bearbeitung aller Aufgaben des Blattes sowie die fristgerechte
+    Abgabe des ausreichenden Post Mortems im ILIAS. Die intensive
+    Beschäftigung mit den Aufgaben muss erkennbar sein.
 
-Bei mind. drei über das Minimum hinaus bestandenen Quizzes und/oder
-Aufgabenblättern verbessert sich die Gesamtnote um eine Teilnote.
+<!-- -->
 
-(Hinweise zur
-[Prüfungsvorbereitung](#id-5020900ace8eaeeefbf1af116d61d159ae6dba2b) für
-Station I bis III)
+-   **Post Mortem**: Jede Person beschreibt individuell(!) die
+    Bearbeitung des jeweiligen Übungsblattes zurückblickend mit mind.
+    150 bis max. 400 Wörtern (Nutzlast; Überschriften und Links zählen
+    nicht mit). Gehen Sie dabei aussagekräftig und nachvollziehbar auf
+    folgende Punkte ein:
 
-##### Prüfung im zweiten Zeitraum
+    1.  Zusammenfassung: Was wurde gemacht?
+    2.  Details: Kurze Beschreibung besonders interessanter Aspekte.
+    3.  Reflexion: Was war der schwierigste Teil? Wie haben Sie dieses
+        Problem gelöst?
+    4.  Reflexion: Was haben Sie gelernt oder (besser) verstanden?
+    5.  Link zu Ihrem Repo/Branch/PR mit den relevanten Artefakten.
 
-1.  **Station IV**: Schriftliche Prüfung (digitale Klausur) 90 Minuten
-    in Minden im B40 (Termin lt. Bekanntgabe vom Prüfungsamt:
-    voraussichtlich 24.09.)
+    Die Post Mortems geben Sie bitte pro Person bis spätestens zur
+    jeweiligen Deadline im
+    [ILIAS](https://www.hsbi.de/elearning/goto.php/exc/1664006) ab.
 
-**Gesamtnote**: 4.0: ab 50%, alle 5% nächste Teilnote, 1.0: ab 95%
+    Siehe auch
+    https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/discussions/981.
 
-(Hinweise zur
-[Prüfungsvorbereitung](#id-5020900ace8eaeeefbf1af116d61d159ae6dba2b) für
-Station IV)
+</details>
 
 #### Materialien
 
 ##### Literatur
 
-1.  ["**Java ist auch eine
-    Insel**"](https://openbook.rheinwerk-verlag.de/javainsel/index.html).
-    Ullenboom, C., Rheinwerk-Verlag, 2021. ISBN
-    [978-3-8362-8745-6](https://fhb-bielefeld.digibib.net/openurl?isbn=978-3-8362-8745-6).
+1.  ["Learn Java"](https://dev.java/learn/). Oracle Corporation, 2026.
 2.  ["**Pro Git** (Second Edition)"](https://git-scm.com/book/en/v2).
     Chacon, S. und Straub, B., Apress, 2014. ISBN
     [978-1-4842-0077-3](https://fhb-bielefeld.digibib.net/openurl?isbn=978-1-4842-0077-3).
-3.  ["The Java Tutorials"](https://docs.oracle.com/javase/tutorial/).
+3.  ["**Java ist auch eine
+    Insel**"](https://openbook.rheinwerk-verlag.de/javainsel/index.html).
+    Ullenboom, C., Rheinwerk-Verlag, 2021. ISBN
+    [978-3-8362-8745-6](https://fhb-bielefeld.digibib.net/openurl?isbn=978-3-8362-8745-6).
+4.  ["The Java Tutorials"](https://docs.oracle.com/javase/tutorial/).
     Oracle Corporation, 2024.
-4.  ["Learn Java"](https://dev.java/learn/). Oracle Corporation, 2025.
 
 ##### Tools
 
--   JDK: **Java SE 21 (LTS)**
-    ([Oracle](https://www.oracle.com/java/technologies/downloads/) oder
+-   JDK: **Java SE 25 (LTS)**
+    ([Oracle](https://www.oracle.com/java/technologies/downloads/#java25)
+    oder
     [Alternativen](https://code.visualstudio.com/docs/languages/java#_install-a-java-development-kit-jdk),
     bitte 64-bit Version nutzen)
 -   IDE: [Eclipse IDE for Java
-    Developers](https://www.eclipse.org/downloads/) oder [IntelliJ IDEA
-    (Community Edition)](https://www.jetbrains.com/idea/) oder [Visual
-    Studio Code](https://code.visualstudio.com/) oder
-    [Vim](https://www.vim.org/) oder ...
+    Developers](hhttps://www.eclipse.org/downloads/) oder [IntelliJ IDEA
+    (Community Edition)](https://www.jetbrains.com/idea/)
 -   [Git](https://git-scm.com/)
 
 #### Förderungen und Kooperationen
@@ -240,224 +221,7 @@ for a detailed list of contributing projects.
 
 ### Versionierung mit Git
 
-<a id="id-ca5676bbc33258233014505568775a92741eb46d"></a>
-
-#### Intro: Versionskontrolle in der Softwareentwicklung
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> In der Softwareentwicklung wird häufig ein Versionsmanagementsystem
-> (VCS) eingesetzt, welches die Verwaltung von Versionsständen und
-> Änderungen ermöglicht. Ein Repository sammelt dabei die verschiedenen
-> Änderungen (quasi wie eine Datenbank der Software-Versionsstände). Die
-> Software *Git* ist verbreiteter Vertreter und arbeitet mit dezentralen
-> Repositories.
->
-> Ein neues lokales Repository kann man mit `git init` anlegen. Der
-> Befehl legt den Unterordner `.git/` im aktuellen Ordner an, darin
-> befindet sich das lokale Repository und weitere von Git benötigte
-> Dateien (FINGER WEG!). Die Dateien und anderen Unterordner im
-> aktuellen Ordner können nun der Versionskontrolle hinzugefügt werden.
->
-> Den lokal vorliegenden (Versions-) Stand der Dateien im aktuellen
-> Ordner nennt man auch "Workingcopy".
->
-> Ein bereits existierendes Repo kann mit `git clone <url>` geklont
-> werden.
->
-> [GitHub](https://github.com) ist nicht Git, sondern ein kommerzieller
-> Anbieter, der das Hosten von Git-Repositories und weitere Features
-> anbietet.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Git Intro](https://youtu.be/Ac3-pZhVf_c)
-> -   [Demo Config](https://youtu.be/0noYvZvQhic)
-> -   [Demo Repo](https://youtu.be/ZaWEwIpER-U)
->
-> </details>
-
-##### Typische Probleme bei SW-Entwicklung
-
--   Was hat wer wann (und wo) geändert? Und warum?
--   Ich brauche den Stand von gestern/letzter Woche/...
--   Ich will schnell mal eine neue Idee ausprobieren ...
--   Ich arbeite an mehreren Rechnern (Synchronisation)
--   Wir müssen gemeinsam an der gleichen Codebasis arbeiten.
--   Wir arbeiten am Release v42, aber Kunde braucht schnell einen Fix
-    für v40
-
-##### Folgen SW-Entwicklung ohne Versionsverwaltung
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_zusammenarbeit_ohne_vcs.png" width="60%" /></p>
-
--   Filesystem müllt voll mit manuell versionierten Dateien/Sicherungen
-    ala `file_20120507_version2_cagi.txt`
--   Ordner/Projekte müssen dupliziert werden für neue Ideen
--   Code müllt voll mit auskommentierten Zeilen ("Könnte ja noch
-    gebraucht werden")
--   Unklar, wann welche Änderung von wem warum eingeführt wurde
--   Unbeabsichtigtes Überschreiben mit älteren Versionen beim Upload in
-    gemeinsamen Filesharing-Bereich
-
-##### Prinzip Versionsverwaltung
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/local.png" width="40%" /></p>
-
--   **Repository:** **Datenbank** mit verschiedenen Versionsständen,
-    Kommentaren, Tags etc.
-
-<!-- -->
-
--   **Workingcopy:** **Arbeitskopie** eines bestimmten Versionsstandes
-
-##### Varianten: Zentrale Versionsverwaltung (Beispiel SVN)
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised.png" width="40%" /></p>
-
-Es gibt ein zentrales Repository (typischerweise auf einem Server), von
-dem die Developer einen bestimmten Versionsstand "auschecken" (sich
-lokal kopieren) und in welches sie Änderungen wieder zurück "pushen".
-
-Zur Abfrage der Historie und zum Veröffentlichen von Änderungen benötigt
-man entsprechend immer eine Verbindung zum Server.
-
-##### Varianten: Verteilte Versionsverwaltung (Beispiel Git)
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></p>
-
-In diesem Szenario hat jeder Developer nicht nur die Workingcopy,
-sondern auch noch eine Kopie des Repositories. Zusätzlich kann es einen
-oder mehrere Server geben, auf denen dann nur das Repository vorgehalten
-wird, d.h. dort gibt es normalerweise keine Workingcopy. Damit kann
-unabhängig voneinander gearbeitet werden.
-
-Allerdings besteht nun die Herausforderung, die geänderten Repositories
-miteinander abzugleichen. Das kann zwischen dem lokalen Rechner und dem
-Server passieren, aber auch zwischen zwei "normalen" Rechnern (also
-zwischen den Developern).
-
-**Hinweis**: *GitHub ain't no Git!* Git ist eine Technologie zur
-Versionsverwaltung. Es gibt verschiedene Implementierungen und Plugins
-für IDEs und Editoren. [GitHub](https://github.com) ist dagegen *ein*
-Dienstleister, wo man Git-Repositories ablegen kann und auf diese mit
-Git (von der Konsole oder aus der IDE) zugreifen kann. Darüber hinaus
-bietet der Service aber zusätzliche Features an, beispielsweise ein
-Issue-Management oder sogenannte *Pull-Requests*. Dies hat aber zunächst
-mit Git nichts zu tun. Weitere populäre Anbieter sind beispielsweise
-[Bitbucket](https://bitbucket.org/) oder [Gitlab](https://gitlab.com)
-oder [Gitea](https://gitea.io/en-us/), wobei einige auch selbst gehostet
-werden können.
-
-##### Versionsverwaltung mit Git: Typische Arbeitsschritte
-
-1.  Repository anlegen (oder clonen)
-
-<!-- -->
-
-2.  Dateien neu erstellen (und löschen, umbenennen, verschieben)
-3.  Änderungen einpflegen ("committen")
-4.  Änderungen und Logs betrachten
-5.  Änderungen rückgängig machen
-6.  Projektstand markieren ("taggen")
-
-<!-- -->
-
-7.  Entwicklungszweige anlegen ("branchen")
-8.  Entwicklungszweige zusammenführen ("mergen")
-
-<!-- -->
-
-9.  Änderungen verteilen (verteiltes Arbeiten, Workflows)
-
-##### (Globale) Konfiguration
-
-**Minimum**:
-
--   `git config --global user.name <name>`
--   `git config --global user.email <email>`
-
-Diese Konfiguration muss man nur einmal machen.
-
-Wenn man den Schalter `--global` weglässt, gelten die Einstellungen nur
-für das aktuelle Projekt/Repo.
-
-Zumindest Namen und EMail-Adresse **muss** man setzen, da Git diese
-Information beim Anlegen der Commits speichert (== benötigt!).
-
-**Aliase**:
-
--   `git config --global alias.ci commit`
--   `git config --global alias.co checkout`
--   `git config --global alias.br branch`
--   `git config --global alias.st status`
--   `git config --global alias.ll 'log --all --graph --decorate --oneline'`
-
-Zusätzlich kann man weitere Einstellungen vornehmen, etwa auf bunte
-Ausgabe umschalten: `git config --global color.ui auto` oder Abkürzungen
-(Aliase) für Befehle definieren:
-`git config --global alias.ll 'log --all --oneline --graph --decorate'`
-...
-
-Git (und auch GitHub) hat kürzlich den Namen des Default-Branches von
-`master` auf `main` geändert. Dies kann man in Git ebenfalls selbst
-einstellen: `git config --global init.defaultBranch <name>`.
-
-Anschauen kann man sich die Einstellungen in der Textdatei
-`~/.gitconfig` oder per Befehl `git config --global -l`.
-
-##### Neues Repo anlegen
-
--   `git init`
-
-    =\> Erzeugt neues Repository im akt. Verzeichnis
-
-<!-- -->
-
--   `git clone <url>`
-
-    =\> Erzeugt (verlinkte) Kopie des Repos unter `<url>`
-
-##### Wrap-Up
-
--   Git: Versionsmanagement mit dezentralen Repositories
--   Anlegen eines lokalen Repos mit `git init`
--   Clonen eines existierenden Repos mit `git clone <url>`
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Chacon und Straub ([2014, Kap. 1](#ref-Chacon2014) und 2)
-> -   Atlassian Pty Ltd ([2022](#ref-AtlassianGit))
-> -   Github Inc. ([2022](#ref-GitCheatSheet))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k1: Ich kenne verschiedene Varianten der Versionierung
-> -   k1: Ich kann die Begriffe 'Workingcopy' und 'Repository'
->     definieren
-> -   k2: Ich kann zwischen 'Github' und 'Git' unterscheiden
-> -   k2: Ich kann auf meinem Rechner lokale Git-Repositories anlegen
-> -   k3: Ich kann mit den Git-Befehlen zum Anlegen von lokalen Repos
->     auf der Konsole umgehen
->
-> </details>
-
-<a id="id-668acfcb7f83e0ab677a1cc897ff2b61dc9a8577"></a>
+<a id="id-3f96a576c2a146335959069480ebef505c4f230b"></a>
 
 #### Basics der Versionsverwaltung mit Git (lokale Repos)
 
@@ -487,6 +251,7 @@ Anschauen kann man sich die Einstellungen in der Textdatei
 > aber "Java-Code nach Style formatiert"). Falls der Kommentar länger
 > sein soll, folgt eine Leerzeile auf die erste Zeile (Zusammenfassung)
 > und danach ein Block mit der längeren Erklärung.
+>
 > </details>
 
 > [!TIP]
@@ -997,7 +762,7 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 >
 > </details>
 
-<a id="id-097aec8f1fbaaecb9f5c7cce8f7adb057ecedd6f"></a>
+<a id="id-7a10016b283d273774835cdf25db171813b65ae1"></a>
 
 #### Git Branches: Features unabhängig entwickeln und mit Git verwalten
 
@@ -1029,6 +794,7 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 >
 > Mit `git rebase` kann die Wurzel eines Branches an eine andere Stelle
 > verschoben werden. Dies wird später bei Workflows eine Rolle spielen.
+>
 > </details>
 
 > [!TIP]
@@ -1307,7 +1073,7 @@ beim Rebasen auflösen muss, d.h. hier muss derjenige, der den Merge
 "beantragt", durch einen vorherigen Rebase den konfliktfreien Merge
 sicherstellen. Mehr dazu in
 ["Branching-Strategien"](#id-4d6861ad376a0b2e0387b1a92bfe1dde822ccb7f)
-und ["Workflows"](#id-fde0fd70583957b6ab46f130656a605feb110e95).
+und ["Workflows"](#id-c4b0283d56726aa5bcadb82cdd57653b6c8654a3).
 
     git rebase master wuppie
 
@@ -1437,42 +1203,24 @@ Man beachte aber die Änderung der Commit-IDs von `wuppie`: Aus `D` wird
 >
 > </details>
 
-<a id="id-4d6861ad376a0b2e0387b1a92bfe1dde822ccb7f"></a>
+<a id="id-5db10a4f8576b6c653205f4ea76dcf01bce19a5e"></a>
 
-#### Branching-Strategien mit Git
+#### Git Worktree
 
 > [!IMPORTANT]
 >
 > <details open>
 > <summary><strong>🎯 TL;DR</strong></summary>
 >
-> Das Erstellen und Mergen von Branches ist in Git besonders einfach.
-> Dies kann man sich in der Entwicklung zunutze machen und die einzelnen
-> Features unabhängig voneinander in eigenen Hilfs-Branches ausarbeiten.
+> Git Worktree erlaubt es, Branches in separaten Ordnern auszuchecken.
+> Diese Ordner sind mit der Workingcopy verknüpft, d.h. alle Änderungen
+> über Git-Befehle werden automatisch mit der Workingcopy
+> "synchronisiert". Im Unterschied zum erneuten Clonen hat man in den
+> verknüpften Ordnern aber nicht die gesamte Historie noch einmal neu
+> als `.git`-Ordner, sondern nur den Link auf die Workingcopy, wodurch
+> viel Platz gespart wird. Damit bilden Git Worktrees eine elegante
+> Möglichkeit, parallel an verschiedenen Branches zu arbeiten.
 >
-> Es haben sich zwei grundlegende Modelle etabliert: "Git-Flow" und
-> "GitHub Flow".
->
-> In **Git-Flow** gibt es ein umfangreiches Konzept mit verschiedenen
-> Branches für feste Aufgaben, welches sich besonders gut für
-> Entwicklungmodelle mit festen Releases eignet. Es gibt zwei
-> langlaufende Branches: `master` enthält den stabilen veröffentlichten
-> Stand, in `develop` werden die Ergebnisse der Entwicklung gesammelt.
-> Features werden in kleinen Feature-Branches entwickelt, die von
-> `develop` abzweigen und dort wieder hineinmünden. Für Releases wird
-> von `develop` ein eigener Release-Branch angelegt und nach
-> Finalisierung in den `master` und in `develop` gemergt. Fixes werden
-> vom `master` abgezweigt, und wieder in den `master` und auch nach
-> `develop` integriert. Dadurch stehen auf dem `master` immer die
-> stabilen Release-Stände zur Verfügung, und im `develop` sammeln sich
-> die Entwicklungsergebnisse.
->
-> Der **GitHub Flow** basiert auf einem deutlich schlankeren Konzept und
-> passt gut für die kontinuierliche Entwicklung ohne echte Releases.
-> Hier hat man auch wieder einen `master` als langlaufenden Branch, der
-> die stabilen Release-Stände enthält. Vom `master` zweigen direkt die
-> kleinen Feature-Branches ab und werden auch wieder direkt in den
-> `master` integriert.
 > </details>
 
 > [!TIP]
@@ -1480,701 +1228,168 @@ Man beachte aber die Änderung der Commit-IDs von `wuppie`: Aus `D` wird
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Git Branching-Strategien](https://youtu.be/v1WHIPdoA0k)
+> -   [VL Git Worktree](https://youtu.be/nDkg6WvA0bk)
+> -   [Demo Git Worktree](https://youtu.be/RtXrv0oK3-w)
 >
 > </details>
 
-##### Nutzung von Git in Projekten: Verteiltes Git (und Workflows)
+##### Git Worktree - Mehrere Branches parallel auschecken
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></p>
+###### Szenario
 
-Git ermöglicht ein einfaches und schnelles Branchen. Dies kann man mit
-entsprechenden Branching-Strategien sinnvoll für die SW-Entwicklung
-einsetzen.
+-   Sie arbeiten an einem Projekt
+-   Großes Repo mit vielen Versionen und Branches
+-   Ungesicherte Änderungen im Featurebranch
+-   Wichtige Bugfixes an alter Version nötig
 
-Im Folgenden sollen also die Frage betrachtet werden: **Wie setze ich
-Branches sinnvoll ein?**
+###### Lösungsansätze
 
-##### Umgang mit Branches: Themen-Branches
+-   `git stash` nutzen und Branch wechseln
+-   Repo erneut in anderem Ordner auschecken
 
-                    I---J---K  wuppieV1
-                   /
-              D---F  wuppie
-             /
-    A---B---C---E  master
-                 \
-                  G---H  test
+###### Probleme
 
-Branchen ist in Git sehr einfach und schnell. Deshalb wird (gerade auch
-im Vergleich mit SVN) gern und viel gebrancht.
+1.  `git stash` und `git switch`
 
-Ein häufiges anzutreffendes Modell ist dabei die Nutzung von
-**Themen-Branches**: Man hat einen Hauptzweig (`master`). Wann immer
-eine neue Idee oder ein Baustein unabhängig entwickelt werden soll/kann,
-wird ein entsprechender Themen-Branch aufgemacht. Dabei handelt es sich
-normalerweise um **kleine Einheiten**!
+    Funktioniert für die meisten Fälle relativ gut und ist daher die
+    "Lösung to go".
 
-Themenbranches haben in der Regel eine **kurze Lebensdauer**: Wenn die
-Entwicklung abgeschlossen ist, wird die Idee bzw. der Baustein in den
-Hauptzweig integriert und der Themenbranch gelöscht.
+    Aber Sie müssen später aufpassen, dass Sie auch wirklich wieder im
+    richtigen Branch sind, wenn Sie die Änderungen im Stash anwenden
+    (`git stash pop`)! Und wenn Sie mehrere Einträge in der Stash-Liste
+    haben, kann es recht schnell recht unübersichtlich werden - zu
+    welchem Branch gehören welche Einträge in der Stash-Liste?
 
--   Vorteil: Die Entwicklung im Themenbranch ist in sich gekapselt und
-    stört nicht die Entwicklung in anderen Branches (und diese stören
-    umgekehrt nicht die Entwicklung im Themenbranch).
+    Außerdem kann es gerade in größeren Projekten passieren, dass sich
+    die Konfiguration zwischenzeitlich ändert. Wenn Sie jetzt in der IDE
+    einfach auf einen alten Stand mit einer anderen Konfiguration
+    wechseln, kann es schnell passieren, dass sich die IDE "verschluckt"
+    und Sie dadurch viel Arbeit haben.
 
--   Nachteil:
+2.  Nochmal woanders auschecken
 
-    -   Mangelnder Überblick durch viele Branches
-    -   Ursprung der Themenbranches muss überlegt gewählt werden, d.h.
-        alle dort benötigten Features müssen zu dem Zeitpunkt im
-        Hauptzweig vorhanden sein
+    Im Prinzip ist das eine Möglichkeit. Sie können dann den anderen
+    Ordner in Ihrer IDE als neues Projekt öffnen und sofort starten.
 
-##### Umgang mit Branches: Langlaufende Branches
+    Aber: Sie benötigen noch einmal den Platz auf der Festplatte/SSD/...
+    wie für die ursprüngliche Workingcopy! Das kann bei alten/großen
+    Projekten schnell recht groß werden und Probleme verursachen.
 
-    A---B---D  master
-         \
-          C---E---I  develop
-               \
-                F---G---H  topic
+    Außerdem ist die Synchronisierung zwischen den beiden Workingcopies
+    (der ursprünglichen und der neuen) nicht vorhanden bzw. das müssen
+    Sie manuell per `git push` und `git pull` (in jeder Kopie des
+    Repos!) erledigen!
 
-Häufig findet man in (größeren) Projekten Branches, die über die gesamte
-Lebensdauer des Projekts existieren, sogenannte "langlaufende Branches".
+###### Git Worktree kann helfen!
 
-Normalerweise gibt es einen Branch, in dem stets der stabile Stand des
-Projekts enthalten ist. Dies ist häufig der `master`. In diesem Branch
-gibt es nur sehr wenige Commits: normalerweise nur Merges aus dem
-`develop`-Branch (etwa bei Fertigstellung einer Release-Version) und
-ggf. Fehlerbehebungen.
+**=\> Mehrere Branches gleichzeitig auschecken (als neue Ordner im
+Dateisystem)**
 
-Die aktive Entwicklung findet in einem separaten Branch statt:
-`develop`. Hier nutzt man zusätzlich Themen-Branches für die Entwicklung
-einzelner Features, die nach Fertigstellung in den `develop` gemergt
-werden.
+##### How to use Git Worktree
 
-Kleinere Projekte kommen meist mit den zwei langlaufenden Branches in
-der obigen Darstellung aus. Bei größeren Projekten finden sich häufig
-noch etliche weitere langlaufende Branches, beispielsweise "Proposed
-Updates" etc. beim Linux-Kernel.
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/linkedworktrees.png" width="80%" /></p>
 
--   Vorteile:
-    -   Mehr Struktur im Projekt durch in ihrer Semantik wohldefinierte
-        Branches
-    -   Durch weniger Commits pro Branch lässt sich die Historie
-        leichter verfolgen (u.a. auch aus bestimmter Rollen-Perspektive:
-        Entwickler, Manager, ...)
--   Nachteile: Bestimmte "ausgezeichnete" Branches; zusätzliche Regeln
-    zum Umgang mit diesen beachten
+##### Worktree anlegen
 
-##### Komplexe Branching-Strategie: Git-Flow
+<div align="center">
 
-    A---B---------------------G---J1  master
-         \                   / \ /
-          \                 /   X  fix
-           \               /     \
-            C-------------F----I--J2  develop
-             \           / \  /
-              \         /   H1  featureB
-               \       /
-                D1----D2  featureA
-                 \
-                  E1---E2---E3---E4---E5  featureC
+`git worktree add <path> <branch>`
 
-Das Git-Flow-Modell von Vincent Driessen
-([nvie.com/posts/a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/))
-zeigt einen in der Praxis überaus bewährten Umgang mit Branches. Lesen
-Sie an der angegebenen Stelle nach, besser kann man die Nutzung dieses
-eleganten Modells eigentlich nicht erklären :-)
+</div>
 
-##### Git-Flow: Hauptzweige *master* und *develop*
+Legt neuen Ordner `<path>` an und checkt darin `<branch>` als "linked
+worktree" aus.
 
-    A---B-------E---------------J  master
-         \     /               /
-          C---D---F---G---H---I---K  develop
+Mit `git worktree add ../wuppie foo` würden Sie also parallel zum
+aktuellen Ordner (wo Ihre Workingcopy enthalten ist) einen neuen Ordner
+`wuppie/` anlegen und darin den Branch `foo` auschecken.
 
-Bei Git-Flow gibt es zwei langlaufende Branches: Den `master`, der immer
-den stabilen Stand enthält und in den *nie* ein direkter Commit gemacht
-wird, sowie den `develop`, wo letztlich (ggf. über Themenbranches) die
-eigentliche Entwicklung stattfindet.
+Wenn Sie in den Ordner `wuppie` wechseln, finden Sie auch eine *Datei*
+`.git`. Darin ist lediglich der Pfad zur Workingcopy vermerkt, damit Git
+Änderungen auch in die eigentliche Workingcopy spiegeln kann. Dies ist
+der sogenannte "linked worktree".
 
-Änderungen werden zunächst im `develop` erstellt und getestet. Wenn die
-Features stabil sind, erfolgt ein Merge von `develop` in den `master`.
-Hier kann noch der Umweg über einen `release`-Branch genommen werden:
-Als "Feature-Freeze" wird vom `develop` ein `release`-Branch abgezweigt.
-Darin wird das Release dann aufpoliert, d.h. es erfolgen nur noch
-kleinere Korrekturen und Änderungen, aber keine echte Entwicklungsarbeit
-mehr. Nach Fertigstellung wird der `release` dann sowohl in den `master`
-als auch `develop` gemergt.
+Im Vergleich dazu finden Sie in der eigentlichen Workingcopy einen
+*Ordner* `.git`, der üblicherweise die gesamte Historie etc. enthält und
+entsprechend groß werden kann.
 
-##### Git-Flow: Weitere Branches als Themen-Branches
+Den Befehl `git worktree add` gibt es in verschiedenen Versionen. In der
+Kurzform `git worktree add <path>` würde ein neuer Branch angelegt und
+ausgecheckt, der der letzten Komponente von `<path>` entspricht ...
 
-    A---B---------------------I-------------K  master
-         \                   /             /
-          C------------F----H-------------J---L  develop
-           \          / \  /             /
-            \        /   G1  featureB   /
-             \      /                  /
-              D1---D2  featureA       /
-               \                     /
-                E1---E2---E3---E4---E5  featureC
+**Warnung: Nicht in selben Ordner oder in Unterordner auschecken!**
 
-Für die Entwicklung eigenständiger Features bietet es sich auch im
-Git-Flow an, vom `develop` entsprechende Themenbranches abzuzweigen und
-darin jeweils isoliert die Features zu entwickeln. Wenn diese Arbeiten
-eine gewisse Reife haben, werden die Featurebranches in den `develop`
-integriert.
+Die neuen Worktrees sollten immer **außerhalb** der Workingcopy liegen!
+Sie können Git sehr schnell sehr gründlich durcheinanderbringen, wenn
+Sie einen Worktree im selben Ordner oder in einem Unterordner anlegen.
 
-##### Git-Flow: Merging-Detail
+`git worktree` sollte nach Möglichkeit nicht zusammen mit Git Submodules
+eingesetzt werden (unstabiles Verhalten)!
 
-    ---C--------E  develop
-        \      /                 git merge --no-ff
-         D1---D2  featureA
+##### Worktree wechseln
 
-vs.
+-   Worktrees anzeigen: `git worktree list`
+-   Worktree wechseln: Ordner wechseln (IDE: neues Projekt)
 
-    ---C---D1---D2  develop      git merge
+Die Worktrees sind aus Sicht des Dateisystems einfach Ordner. Die
+`.git`-Datei verlinkt für Git den Ordner mit der ursprünglichen
+Workingcopy.
 
-Wenn beim Mergen ein "*fast forward*" möglich ist, würde Git beim Mergen
-eines (Feature-) Branches in den `develop` (oder allgemein in einen
-anderen Branch) *keinen* separaten Commit erzeugen (Situation rechts in
-der Abbildung).
+Um also mit einem Worktree arbeiten zu können, wechseln Sie einfach das
+Verzeichnis. In einer IDE würden Sie entsprechend ein neues Projekt
+anlegen. So können Sie gleichzeitig in verschiedenen Branches arbeiten.
 
-Damit erscheint der `develop`-Branch wie eine lineare Folge von Commits.
-In manchen Projekten wird dies bevorzugt, weil die Historie sehr
-übersichtlich aussieht.
+Änderungen in einem Worktree werden automatisch in die ursprüngliche
+Workingcopy gespiegelt. Analog können Sie in einem Worktree auf die
+aktuelle Historie aus der ursprünglichen Workingcopy zugreifen.
 
-Allerdings verliert man die Information, dass hier ein Feature
-entwickelt wurde und wann es in den `develop` integriert wurde (linke
-Seite in obiger Abbildung). Häufig wird deshalb ein extra Merge-Commit
-mit `git merge --no-ff <branch>` (extra Schalter "`--no-ff`") erzwungen,
-obwohl ein "*fast forward*" möglich wäre.
+*Hinweis*: Sie können in den Ordnern zwar Branches wechseln, aber nicht
+auf einen Branch, der bereits in einem anderen Ordner (Worktree)
+ausgecheckt ist. Es ist gute Praxis, dass die Ordnernamen dem
+ausgecheckten Branch (linked Worktree) entsprechen, um Verwirrungen zu
+vermeiden.
 
-Anmerkung: Man kann natürlich auch über Konventionen in den
-Commit-Kommentaren eine gewisse Übersichtlichkeit erzwingen.
-Beispielsweise könnte man vereinbaren, dass alle Commit-Kommentare zu
-einem Feature "A" mit "`feature a:`" starten müssen.
+##### Worktree löschen
 
-##### Git-Flow: Umgang mit Fehlerbehebung
+<div align="center">
 
-    A---B---D--------F1  master
-         \   \      /
-          \   E1---E2  fix
-           \        \
-            C1-------F2  develop
+`git worktree remove <worktree>`
 
-Wenn im stabilen Branch (also dem `master`) ein Problem bekannt wird,
-darf man es nicht einfach im `master` fixen. Stattdessen wird ein extra
-Branch vom `master` abgezweigt, in dem der Fix entwickelt wird. Nach
-Fertigstellung wird dieser Branch sowohl in den `master` als auch den
-`develop` gemergt, damit auch im Entwicklungszweig der Fehler behoben
-ist.
+</div>
 
-Dadurch entspricht jeder Commit im `master` einem Release.
+Sofern der Worktree "clean" ist, es also keine nicht comitteten
+Änderungen gibt, können Sie mit `git worktree remove <worktree>` einen
+Worktree `<worktree>` wieder löschen.
 
-##### Vereinfachte Braching-Strategie: GitHub Flow
-
-    A---B---C----D-----------E  master
-         \   \  /           /
-          \   ta1  topicA  /
-           \              /
-            tb1---tb2---tb3  topicB
-
-Github verfolgt eine deutlich vereinfachte Strategie: "GitHub Flow"
-(vgl. ["GitHub Flow" (S. Chacon)](https://githubflow.github.io/) bzw.
-["GitHub flow" (GitHub,
-Inc.)](https://docs.github.com/en/get-started/quickstart/github-flow)).
-
-Hier ist der stabile Stand ebenfalls immer im `master`. Features werden
-ebenso wie im Git-Flow-Modell in eigenen Feature-Branches entwickelt.
-
-Allerdings zweigen Feature-Branches *immer direkt* vom `master` ab und
-werden nach dem Test auch immer dort wieder direkt integriert (es gibt
-also keine weiteren langlaufenden Branches wie `develop` oder
-`release`).
-
-In der obigen Abbildung ist zu sehen, dass für die Entwicklung eines
-Features ein entsprechender Themenbranch vom `master` abgezweigt wird.
-Darin erfolgt dann die Entwicklung des Features, d.h. mehrere Commits.
-Das Mergen des Features in den `master` erfolgt dann aber nicht lokal,
-sondern mit einem "Pull-Request" auf dem Server: Sobald man im
-Feature-Branch einen "diskussionswürdigen" Stand hat, wird ein
-**Pull-Request** (*PR*) über die Weboberfläche aufgemacht (streng
-genommen gehört dies in die Kategorie ["Zusammenarbeit" bzw.
-"Workflows"](#id-fde0fd70583957b6ab46f130656a605feb110e95); außerdem
-gehört ein PR nicht zu Git selbst, sondern zum Tooling von Github). In
-einem PR können andere Entwickler den Code kommentieren und ergänzen.
-Jeder weitere Commit auf dem Themenbranch wird ebenfalls Bestandteil des
-Pull-Requests. Parallel laufen ggf. automatisierte Tests etc. und durch
-das Akzeptieren des PR in der Weboberfläche erfolgt schließlich der
-Merge des Feature-Branches in den `master`.
-
-##### Diskussion: Git-Flow vs. GitHub Flow
-
-In der Praxis zeigt sich, dass das Git-Flow-Modell besonders gut
-geeignet ist, wenn man tatsächlich so etwas wie "Releases" hat, die
-zudem nicht zu häufig auftreten.
-
-Das GitHub-Flow-Vorgehen bietet sich an, wenn man entweder keine
-Releases hat oder diese sehr häufig erfolgen (typisch bei agiler
-Vorgehensweise). Zudem vermeidet man so, dass die Feature-Branches zu
-lange laufen, womit normalerweise die Wahrscheinlichkeit von
-Merge-Konflikten stark steigt. **Achtung**: Da die Feature-Branches
-direkt in den `master`, also den stabilen Produktionscode gemergt
-werden, ist es hier besonders wichtig, *vor* dem Merge entsprechende
-Tests durchzuführen und den Merge erst zu machen, wenn alle Tests "grün"
-sind.
-
-Hier ein paar Einstiegsseiten für die Diskussion, die teilweise sehr
-erbittert (und mit ideologischen Zügen) geführt wird (erinnert an die
-Diskussionen, welche Linux-Distribution die bessere sei):
-
--   [Git-Flow-Modell von Vincent
-    Driessen](https://nvie.com/posts/a-successful-git-branching-model/)
--   [Kurzer Überblick über das
-    GitHub-Flow-Modell](https://guides.github.com/introduction/flow/)
--   [Diskussion des GitHub-Flow-Modells
-    (Github)](https://githubflow.github.io/)
--   [Luca Mezzalira: "Git-Flow vs Github
-    Flow"](https://lucamezzalira.com/2014/03/10/git-flow-vs-github-flow/)
--   [Scott Schacon, Autor des
-    Pro-Git-Buchs](https://scottchacon.com/2011/08/31/github-flow.html)
--   [Noch eine (längere) Betrachtung (Robin
-    Daugherty)](https://hackernoon.com/a-branching-and-releasing-strategy-that-fits-github-flow-be1b6c48eca2)
+Dabei bleibt der Ordner erhalten - Sie können ihn selbst löschen oder
+später wiederverwenden.
 
 ##### Wrap-Up
 
--   Einsatz von Themenbranches für die Entwicklung
--   Unterschiedliche Modelle:
-    -   Git-Flow: umfangreiches Konzept, gut für Entwicklung mit festen
-        Releases
-    -   GitHub Flow: deutlich schlankeres Konzept, passend für
-        kontinuierliche Entwicklung ohne echte Releases
+Git Worktree: Auschecken von Branches in separate Ordner
 
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Chacon und Straub ([2014, Kap. 3](#ref-Chacon2014))
-> -   Driessen ([2010](#ref-GitFlow))
-> -   Chacon ([2013](#ref-GitHubFlow))
-> -   GitHub Inc. ([2022b](#ref-GitHubFlowGH))
-> -   Atlassian Pty Ltd ([2022](#ref-AtlassianGit))
-> -   Github Inc. ([2022](#ref-GitCheatSheet))
->
-> </details>
+-   Anlegen: `git worktree add <path> <branch>`
+-   Anschauen: `git worktree list`
+-   Löschen: `git worktree remove <worktree>`
+
+<!-- -->
+
+-   Dokumentation: https://git-scm.com/docs/git-worktree
 
 > [!NOTE]
 >
 > <details >
 > <summary><strong>✅ Lernziele</strong></summary>
 >
-> -   k3: Ich kann mit Themenbranches in der Entwicklung arbeiten
-> -   k3: Ich kann das 'Git-Flow'-Modell anwenden
-> -   k3: Ich kann das 'GitHub Flow'-Modell anwenden
+> -   k2: Vorteile von Git Worktree
+> -   k2: Prinzipielle Arbeitsweise von Git Worktree
+> -   k3: Anlegen von Worktrees
+> -   k3: Anzeigen von Worktrees
+> -   k3: Löschen von Worktrees
 >
 > </details>
 
-<a id="id-891ec209f76a247e09e9c1cd306bd531b6ebe897"></a>
-
-#### Arbeiten mit Git Remotes (dezentrale Repos)
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Eine der Stärken von Git ist das Arbeiten mit verteilten Repositories.
-> Zu jeder Workingcopy gehört eine Kopie des Repositories, wodurch
-> jederzeit alle Informationen einsehbar sind und auch offline
-> gearbeitet werden kann. Allerdings muss man für die Zusammenarbeit mit
-> anderen Entwicklern die lokalen Repos mit den "entfernten" Repos (auf
-> dem Server oder anderen Entwicklungsrechnern) synchronisieren.
->
-> Beim Klonen eines Repositories mit `git clone <url>` wird das fremde
-> Repo mit dem Namen `origin` im lokalen Repo festgehalten. Dieser Name
-> wird auch als Präfix für die Branches in diesem Repo genutzt, d.h. die
-> Branches im Remote-Repo tauchen als `origin/<branch>` im lokalen Repo
-> auf. Diese Remote-Branches kann man nicht direkt bearbeiten, sondern
-> man muss diese Remote-Branches in einem lokalen Branch auschecken und
-> dann darin weiterarbeiten. Es können beliebig viele weitere Remotes
-> dem eigenen Repository hinzugefügt werden.
->
-> Änderungen aus einem Remote-Repo können mit `git fetch <remote>` in
-> das lokale Repo geholt werden. Dies aktualisiert **nur** die
-> Remote-Branches `<remote>/<branch>`! Die Änderungen können
-> anschließend mit `git merge <remote>/<branch>` in den aktuell in der
-> Workingcopy ausgecheckten Branch gemergt werden. (*Anmerkung*: Wenn
-> mehrere Personen an einem Branch arbeiten, will man die eigenen
-> Arbeiten in dem Branch vermutlich eher auf den aktuellen Stand des
-> Remote **rebasen** statt mergen!) Eigene Änderungen können mit
-> `git push <remote> <branch>` in das Remote-Repo geschoben werden.
->
-> Um den Umgang mit den Remote-Branches und den davon abgeleiteten
-> lokalen Branches zu vereinfachen, gibt es das Konzept der "Tracking
-> Branches". Dabei "folgt" ein lokaler Branch einem Remote-Branch. Ein
-> einfaches `git pull` oder `git push` holt dann Änderungen aus dem
-> Remote-Branch in den ausgecheckten lokalen Branch bzw. schiebt
-> Änderungen im lokalen Branch in den Remote-Branch.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Git Remotes](https://youtu.be/_uhEseblDYU)
-> -   [Demo Fetch, Pull und Push](https://youtu.be/moqywsxtEy8)
-> -   [Demo Tracking-Branches](https://youtu.be/0RoqM5Wmxfc)
-> -   [Demo Verknüpfen weiterer Remotes](https://youtu.be/jL4AvSsjjKg)
->
-> </details>
-
-##### Nutzung von Git in Projekten: Verteiltes Git (und Workflows)
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="65%" /></p>
-
-Git ermöglicht eine einfaches Zusammenarbeit in verteilten Teams.
-Nachdem wir die verschiedenen Branching-Strategien betrachtet haben,
-soll im Folgenden die Frage betrachtet werden: **Wie arbeite ich
-sinnvoll über Git mit anderen Kollegen und Teams zusammen? Welche
-Modelle haben sich etabliert?**
-
-##### Clonen kann sich lohnen ...
-
-    https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture
-
-    ---C---D---E  master
-
-=\>
-`git clone https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture`
-
-    ./Prog2-Lecture/  (lokaler Rechner)
-
-    ---C---D---E  master
-               ^origin/master
-
-Git-Repository mit der URL `<URL-Repo>` in lokalen Ordner `<directory>`
-auschecken:
-
--   `git clone <URL-Repo> [<directory>]`
--   Workingcopy ist automatisch über den Namen `origin` mit dem remote
-    Repo auf dem Server verbunden
--   Lokaler Branch `master` ist mit dem remote Branch `origin/master`
-    verbunden ("Tracking Branch", s.u.), der den Stand des
-    `master`-Branches auf dem Server spiegelt
-
-Für die URL sind verschiedene Protokolle möglich, beispielsweise:
-
--   "`file://`" für über das Dateisystem erreichbare Repositories (ohne
-    Server)
--   "`https://`" für Repo auf einem Server: Authentifikation mit
-    Username und Passwort (!)
--   "`git@`" für Repo auf einem Server: Authentifikation mit **SSH-Key**
-    (diese Variante wird im Praktikum im Zusammenspiel mit dem
-    Gitlab-Server im SW-Labor verwendet)
-
-##### Eigener und entfernter *master* entwickeln sich weiter ...
-
-    https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture
-
-    ---C---D---E---F---G  master
-
-    ./Prog2-Lecture/  (lokaler Rechner)
-
-    ---C---D---E---H  master
-               ^origin/master
-
-Nach dem Auschecken liegen (in diesem Beispiel) drei `master`-Branches
-vor:
-
-1.  Der `master` auf dem Server,
-2.  der lokale `master`, und
-3.  die lokale Referenz auf den `master`-Branch auf dem Server:
-    `origin/master`.
-
-Der lokale `master` ist ein normaler Branch und kann durch Commits
-verändert werden.
-
-Der `master` auf dem Server kann sich ebenfalls ändern, beispielsweise
-weil jemand anderes seine lokalen Änderungen mit dem Server abgeglichen
-hat (`git push`, s.u.).
-
-Der Branch `origin/master` lässt sich nicht direkt verändern! Das ist
-lediglich eine lokale Referenz auf den `master`-Branch auf dem Server
-und zeigt an, welchen Stand man bei der letzten Synchronisierung hatte.
-D.h. erst mit dem nächsten Abgleich wird sich dieser Branch ändern
-(sofern sich der entsprechende Branch auf dem Server verändert hat).
-
-*Anmerkung*: Dies gilt analog für alle anderen Branches. Allerdings wird
-nur der `origin/master` beim Clonen automatisch als lokaler Branch
-ausgecheckt.
-
-Zur Abbildung: Während man lokal arbeitet (Commit `H` auf dem lokalen
-`master`), kann es passieren, dass sich auch das remote Repo ändert. Im
-Beispiel wurden dort die beiden Commits `F` und `G` angelegt (durch
-`git push`, s.u.).
-
-Wichtig: Da in der Zwischenzeit das lokale Repo nicht mit dem Server
-abgeglichen wurde, zeigt der remote Branch `origin/master` immer noch
-auf den Commit `E`!
-
-##### Änderungen im Remote holen und Branches zusammenführen
-
-    https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture
-
-    ---C---D---E---F---G  master
-
-=\> `git fetch origin`
-
-    ./Prog2-Lecture/  (lokaler Rechner)
-
-    ---C---D---E---H  master
-                \
-                 F---G  origin/master
-
-###### Änderungen auf dem Server mit dem eigenen Repo abgleichen
-
-Mit `git fetch origin` alle Änderungen holen
-
--   Alle remote Branches werden aktualisiert und entsprechen den
-    jeweiligen Branches auf dem Server: Im Beispiel zeigt jetzt
-    `origin/master` ebenso wie der `master` auf dem Server auf den
-    Commit `G`.
--   Neue Branches auf dem Server werden ebenfalls "geholt", d.h. sie
-    liegen nach dem Fetch als entsprechende remote Branches vor
--   Auf dem Server gelöschte Branches werden nicht automatisch lokal
-    gelöscht; dies kann man mit `git fetch --prune origin` automatisch
-    erreichen
-
-*Wichtig*: Es werden nur die remote Branches aktualisiert, nicht die
-lokalen Branches!
-
-###### *master*-Branch nach "git fetch origin" zusammenführen
-
-1.  Mit `git checkout master` Workingcopy auf eigenen `master` umstellen
-2.  Mit `git merge origin/master` Änderungen am `origin/master` in
-    eigenen `master` mergen
-3.  Mit `git push origin master` eigene Änderungen ins remote Repo
-    pushen
-
-    https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture
-
-    ---C---D---E---H---I  master
-                \     /
-                 F---G
-
-    ./Prog2-Lecture/  (lokaler Rechner)
-
-    ---C---D---E---H---I  master
-                \     /^origin/master
-                 F---G
-
-*Anmerkung*: Schritt (2) kann man auch per `git pull origin master`
-erledigen ... Ein `pull` fasst `fetch` und `merge` zusammen (s.u.).
-
-*Anmerkung* Statt dem `merge` in Schritt (2) kann man auch den lokalen
-`master` auf den aktualisierten `origin/master` rebasen und vermeidet
-damit die "Raute". Der `pull` kann mit der Option "`--rebase`" auf
-"rebase" umgestellt werden (per Default wird bei `pull` ein "merge"
-ausgeführt).
-
-###### Auf dem Server ist nur ein *fast forward merge* möglich
-
-Sie können Ihre Änderungen in Ihrem lokalen `master` auch direkt in das
-remote Repo pushen, solange auf dem Server ein **fast forward merge**
-möglich ist.
-
-Wenn aber (wie in der Abbildung) der lokale und der remote `master`
-divergieren, müssen Sie den Merge wie beschrieben lokal durchführen
-(`fetch`/`merge` oder `pull`) und das Ergebnis wieder in das remote Repo
-pushen (dann ist ja wieder ein *fast forward merge* möglich, es sei
-denn, jemand hat den remote `master` in der Zwischenzeit weiter
-geschoben - dann muss die Aktualisierung erneut durchgeführt werden).
-
-<p align="right"><a href="https://youtu.be/moqywsxtEy8">Beispiel für Zusammenführen (merge und push), Anmerkung zu fast forward merge</a></p>
-
-##### Branches und Remotes
-
--   Eigenen (neuen) lokalen Branch ins remote Repo schicken
-    -   `git push <remote> <branch>`
-
-<!-- -->
-
--   Neuer Branch im remote Repo
-    -   `git fetch <remote>` holt (auch) alle neuen Branches
-    -   Lokale Änderungen an remote Branches nicht möglich! =\> **Remote
-        Branch in lokalen Branch mergen** (oder auschecken)
-
-##### Zusammenfassung: Arbeiten mit Remotes
-
-1.  Änderungen vom Server holen: `git fetch <remote>` =\> Holt alle
-    Änderungen vom Repo `<remote>` ins eigene Repo (Workingcopy bleibt
-    unangetastet!)
-
-<!-- -->
-
-2.  Aktuellen lokalen Branch auffrischen: `git merge <remote>/<branch>`
-    (oder alternativ `git pull <remote> <branch>`)
-
-<!-- -->
-
-3.  Eigene Änderungen hochladen: `git push <remote> <branch>`
-
-###### Anmerkung: *push* geht nur, wenn
-
-1.  Ziel ein "bare"-Repository ist, **und**
-2.  keine Konflikte entstehen
-
-=\> im remote Repo **nur** "fast forward"-Merge möglich
-
-=\> bei Konflikten erst `fetch` und `merge`, danach `push`
-
-**Anmerkung**: Ein "bare"-Repository enthält keine Workingcopy, sondern
-nur das Repo an sich. Die ist bei Repos, die Sie auf einem Server wie
-Gitlab oder Github anlegen, automatisch der Fall. Sie können aber auch
-lokal ein solches "bare"-Repo anlegen, indem Sie beim Initialisieren den
-Schalter `--bare` mitgeben: `git init --bare` ...
-
-###### Beispiel
-
-    git fetch origin           # alle Änderungen vom Server holen
-    git checkout master        # auf lokalen Master umschalten
-    git merge origin/master    # lokalen Master aktualisieren
-
-    ... # Herumspielen am lokalen Master
-
-    git push origin master     # lokalen Master auf Server schicken
-
-##### Vereinfachung: Tracking Branches
-
--   **Tracking Branch**: lokaler Branch, der remote Branch "verfolgt"
-    -   Beispiel: lokaler `master`-Branch folgt `origin/master` per
-        Default
-
-<!-- -->
-
--   **Vereinfachung im Workflow**:
-    -   `git pull` entspricht
-        1.  `git fetch <remote>` **plus**
-        2.  `git merge <remote>/<branch>`
-    -   `git push` entspricht `git push <remote> <branch>`
-
-Vorsicht: `pull` und `push` beziehen sich nur auf ausgecheckten Tracking
-Branch
-
-##### Einrichten von Tracking Branches
-
--   `git clone`: lokaler `master` trackt automatisch `origin/master`
-
-<!-- -->
-
--   Remote Branch als Tracking Branch einrichten:
-    1.  Änderungen aus remote Repo holen: `git fetch <remote>`
-    2.  Tracking Branch anlegen: `git checkout -t <remote>/<branch>`
-        (=\> Option `-t` richtet den remote Branch als Tracking Branch
-        ein)
-
-<!-- -->
-
--   Lokalen neuen Branch ins remote Repo schicken und als Tracking
-    Branch einrichten:
-    1.  Lokalen Branch erzeugen: `git checkout -b <branch>`
-    2.  Lokalen Branch ins Repo schicken:
-        `git push -u <remote> <branch>` (=\> Option `-u` richtet den
-        lokalen Branch als Tracking Branch ein)
-
-##### Hinzufügen eines (weiteren) Remote Repository
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_branches.png" width="65%" /></p>
-
-Sie können einem Repo beliebig viele Remotes hinzufügen:
-
-`git remote add <name> <url>`
-
-**Beispiel**: `git remote add  andi  git@github.com:andi/repo.git`
-
--   Remote `origin` wird bei `clone` automatisch angelegt
--   Ansehen der Remotes mit `git remote -v`
--   `fetch`, `push` und `pull` jeweils über den vergebenen Namen
-
-Beispiel: `git fetch andi` oder `git push origin master`
-
-##### Wrap-Up
-
--   Synchronisierung des lokalen Repos mit anderen Repos
-    -   Repo kopieren: `git clone <url>`
-    -   Interner Name fürs fremde Repo: `origin`
-    -   Änderungen vom fremden Repo holen: `git fetch <remote>`
-    -   Änderungen in lokalen Branch einpflegen:
-        `git merge <remote>/<branch>`
-    -   Eigene Änderungen ins fremde Repo schieben:
-        `git push <remote> <branch>`
-
-<!-- -->
-
--   Tracking Branches (Konzept, Anwendung)
-    -   Remote Branches können lokal nicht verändert werden:
-        -   In lokale Branches mergen, oder
-        -   Tracking Branches anlegen =\> einfaches `pull` und `push`
-            nutzen
-    -   Tracking Branches sind lokale Branches, die remote Branches
-        verfolgen ("tracken")
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Chacon und Straub ([2014, Kap. 3](#ref-Chacon2014))
-> -   Atlassian Pty Ltd ([2022](#ref-AtlassianGit))
-> -   Github Inc. ([2022](#ref-GitCheatSheet))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k3: Ich kann Clones von fremden Git-Repositories erzeugen
-> -   k3: Ich kann Änderungen vom fremden Repo holen
-> -   k3: Ich kann meine lokale Branches aktualisieren
-> -   k3: Ich kann lokale Änderungen ins fremde Repo pushen
-> -   k2: Ich kann den Unterschied zwischen lokalen Branches und
->     entfernten Branches erklären
-> -   k3: Ich kann sowohl lokale Branches als auch entfernte Branches
->     anlegen und damit arbeiten
-> -   k3: Ich kann Tracking Branches zum Vereinfachen der Arbeit anlegen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> **Synchronisierung mit Remote-Repos**
->
-> Sie haben ein Repo von github.com geklont. Beide Repos, das Original
-> auf dem Server als auch Ihre lokale Kopie, haben sich danach
-> unabhängig voneinander weiter entwickelt (siehe Skizze).
->
-> <p align="center"><img src="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/git/images/remote-branches-2.png?raw=true" width="60%" /></p>
->
-> Wie können Sie Ihre Änderung im lokalen Repo auf den Server pushen?
-> Analysieren Sie die Situation und erklären Sie zwei verschiedene
-> Lösungsansätze und geben Sie jeweils die entsprechenden Git-Befehle
-> an.
->
-> **Interaktive Git-Tutorials**: Schaffen Sie die Rätsel?
->
-> -   [Learn Git Branching](https://learngitbranching.js.org/)
-> -   [Oh My Git!](https://ohmygit.org/)
-> -   [Git Time](https://git.bradwoods.io/)
->
-> </details>
-
-<a id="id-fde0fd70583957b6ab46f130656a605feb110e95"></a>
+<a id="id-c4b0283d56726aa5bcadb82cdd57653b6c8654a3"></a>
 
 #### Zusammenarbeit: Git-Workflows und Merge-/Pull-Requests
 
@@ -2203,6 +1418,7 @@ Beispiel: `git fetch andi` oder `git push origin master`
 > eigenen Fork bekommt, trägt man das Hauptprojekt als weiteres Remote
 > in die Workingcopy ein und aktualisiert regelmäßig die Hauptbranches,
 > von denen dann auch die eigenen Feature-Branches ausgehen sollten.
+>
 > </details>
 
 > [!TIP]
@@ -2542,54 +1758,43 @@ gibt es "*Merge-Requests*" (MR). Bei Github gibt es "*Pull-Requests*"
 >
 > </details>
 
-<a id="id-ac062467754992e9039c8577556fef8750ab42ca"></a>
+<a id="id-4d6861ad376a0b2e0387b1a92bfe1dde822ccb7f"></a>
 
-### Modern Java: Funktionaler Stil und Stream-API
-
-<a id="id-01cc534b930a4f8fcff3f34238f9b902b2aa94dd"></a>
-
-#### Lambda-Ausdrücke und funktionale Interfaces
+#### Branching-Strategien mit Git
 
 > [!IMPORTANT]
 >
 > <details open>
 > <summary><strong>🎯 TL;DR</strong></summary>
 >
-> Mit einer anonymen inneren Klasse erstellt man gewissermaßen ein
-> Objekt einer "Wegwerf"-Klasse: Man leitet *on-the-fly* von einem
-> Interface ab oder erweitert eine Klasse und implementiert die
-> benötigten Methoden und erzeugt von dieser Klasse sofort eine Instanz
-> (Objekt). Diese neue Klasse ist im restlichen Code nicht sichtbar.
+> Das Erstellen und Mergen von Branches ist in Git besonders einfach.
+> Dies kann man sich in der Entwicklung zunutze machen und die einzelnen
+> Features unabhängig voneinander in eigenen Hilfs-Branches ausarbeiten.
 >
-> Anonyme innere Klassen sind beispielsweise in Swing recht nützlich,
-> wenn man einer Komponente einen Listener mitgeben will: Hier erzeugt
-> man eine anonyme innere Klasse basierend auf dem passenden
-> Listener-Interface, implementiert die entsprechenden Methoden und
-> übergibt das mit dieser Klasse erzeugte Objekt als neuen Listener der
-> Swing-Komponente.
+> Es haben sich zwei grundlegende Modelle etabliert: "Git-Flow" und
+> "GitHub Flow".
 >
-> Mit Java 8 können unter gewissen Bedingungen diese anonymen inneren
-> Klassen zu Lambda-Ausdrücken (und Methoden-Referenzen) vereinfacht
-> werden. Dazu muss die anonyme innere Klasse ein sogenanntes
-> **funktionales Interface** implementieren.
+> In **Git-Flow** gibt es ein umfangreiches Konzept mit verschiedenen
+> Branches für feste Aufgaben, welches sich besonders gut für
+> Entwicklungmodelle mit festen Releases eignet. Es gibt zwei
+> langlaufende Branches: `master` enthält den stabilen veröffentlichten
+> Stand, in `develop` werden die Ergebnisse der Entwicklung gesammelt.
+> Features werden in kleinen Feature-Branches entwickelt, die von
+> `develop` abzweigen und dort wieder hineinmünden. Für Releases wird
+> von `develop` ein eigener Release-Branch angelegt und nach
+> Finalisierung in den `master` und in `develop` gemergt. Fixes werden
+> vom `master` abgezweigt, und wieder in den `master` und auch nach
+> `develop` integriert. Dadurch stehen auf dem `master` immer die
+> stabilen Release-Stände zur Verfügung, und im `develop` sammeln sich
+> die Entwicklungsergebnisse.
 >
-> Funktionale Interfaces sind Interfaces mit *genau einer abstrakten
-> Methode*. Es können beliebig viele Default-Methoden im Interface
-> enthalten sein, und es können `public` sichtbare abstrakte Methoden
-> von `java.lang.Object` geerbt/überschrieben werden.
+> Der **GitHub Flow** basiert auf einem deutlich schlankeren Konzept und
+> passt gut für die kontinuierliche Entwicklung ohne echte Releases.
+> Hier hat man auch wieder einen `master` als langlaufenden Branch, der
+> die stabilen Release-Stände enthält. Vom `master` zweigen direkt die
+> kleinen Feature-Branches ab und werden auch wieder direkt in den
+> `master` integriert.
 >
-> Die Lambda-Ausdrücke entsprechen einer anonymen Methode: Die Parameter
-> werden aufgelistet (in Klammern), und hinter einem Pfeil kommt
-> entweder *ein* Ausdruck (Wert - gleichzeitig Rückgabewert des
-> Lambda-Ausdrucks) oder beliebig viele Anweisungen (in geschweiften
-> Klammern, mit Semikolon):
->
-> -   Form 1: `(parameters)  ->  expression`
-> -   Form 2: `(parameters)  ->  { statements; }`
->
-> Der Lambda-Ausdruck muss von der Signatur her genau der einen
-> abstrakten Methode im unterliegenden funktionalen Interface
-> entsprechen.
 > </details>
 
 > [!TIP]
@@ -2597,363 +1802,286 @@ gibt es "*Merge-Requests*" (MR). Bei Github gibt es "*Pull-Requests*"
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Lambda-Ausdrücke und funktionale
->     Interfaces](https://youtu.be/Wd8KG7xtp4c)
-> -   [Demo Anonyme innere Klasse](https://youtu.be/QEXpQwRYoYc)
-> -   [Demo Lambda-Ausdruck](https://youtu.be/2LJIxsVw4pM)
-> -   [Demo Funktionale Interfaces selbst
->     definiert](https://youtu.be/93O1oDL5_5c)
-> -   [Demo Vordefinierte funktionale Interfaces im
->     JDK](https://youtu.be/jzEw8IH8Mfc)
+> -   [VL Git Branching-Strategien](https://youtu.be/v1WHIPdoA0k)
 >
 > </details>
 
-##### Problem: Sortieren einer Studi-Liste
-
-``` java
-List<Studi> sl = new ArrayList<>();
-
-// Liste sortieren?
-sl.sort(???);  // Parameter: java.util.Comparator<Studi>
-```
-
-``` java
-public class MyCompare implements Comparator<Studi> {
-    @Override  public int compare(Studi o1, Studi o2) {
-        return o1.getCredits() - o2.getCredits();
-    }
-}
-```
-
-``` java
-// Liste sortieren?
-MyCompare mc = new MyCompare();
-sl.sort(mc);
-```
-
-Da `Comparator<T>` ein Interface ist, muss man eine extra Klasse
-anlegen, die die abstrakte Methode aus dem Interface implementiert und
-ein Objekt von dieser Klasse erzeugen und dieses dann der
-`sort()`-Methode übergeben.
-
-Die Klasse bekommt wie in Java üblich eine eigene Datei und ist damit in
-der Package-Struktur offen sichtbar und "verstopft" mir damit die
-Strukturen: Diese Klasse ist doch nur eine Hilfsklasse ... Noch
-schlimmer: Ich brauche einen Namen für diese Klasse!
-
-Den ersten Punkt könnte man über verschachtelte Klassen lösen: Die
-Hilfsklasse wird innerhalb der Klasse definiert, die das Objekt
-benötigt. Für den zweiten Punkt brauchen wir mehr Anlauf ...
-
-##### Erinnerung: Verschachtelte Klassen ("*Nested Classes*")
-
-Man kann Klassen innerhalb von Klassen definieren: Verschachtelte
-Klassen.
-
--   Implizite Referenz auf Instanz der äußeren Klasse, Zugriff auf
-    **alle** Elemente
--   **Begriffe**:
-    -   "normale" innere Klassen: "*inner classes*"
-    -   statische innere Klassen: "*static nested classes*"
--   Einsatzzweck:
-    -   Hilfsklassen: Zusätzliche Funktionalität kapseln; Nutzung
-        **nur** in äußerer Klasse
-    -   Kapselung von Rückgabewerten
-
-Sichtbarkeit: Wird u.U. von äußerer Klasse "überstimmt"
-
-###### Innere Klassen ("*Inner Classes*")
-
--   Objekt der äußeren Klasse muss existieren
--   Innere Klasse ist normales Member der äußeren Klasse
--   Implizite Referenz auf Instanz äußerer Klasse
--   Zugriff auf **alle** Elemente der äußeren Klasse
--   Sonderfall: Definition innerhalb von Methoden ("local classes")
-    -   Nur innerhalb der Methode sichtbar
-    -   Kennt zusätzlich `final` Attribute der Methode
-
-Beispiel:
-
-``` java
-public class Outer {
-    ...
-    private class Inner {
-        ...
-    }
-
-    Outer.Inner inner = new Outer().new Inner();
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/nested/StudiListNested.java">Beispiel mit Iterator als innere Klasse: nested.StudiListNested</a></p>
-
-###### Statische innere Klassen ("*Static Nested Classes*")
-
--   Keine implizite Referenz auf Objekt
--   Nur Zugriff auf Klassenmethoden und -attribute
-
-Beispiel:
-
-``` java
-class Outer {
-    ...
-    static class StaticNested {
-        ...
-    }
-}
-
-Outer.StaticNested nested = new Outer.StaticNested();
-```
-
-##### Lösung: Comparator als anonyme innere Klasse
-
-``` java
-List<Studi> sl = new ArrayList<>();
-
-// Parametrisierung mit anonymer Klasse
-sl.sort(
-        new Comparator<Studi>() {
-            @Override
-            public int compare(Studi o1, Studi o2) {
-                return o1.getCredits() - o2.getCredits();
-            }
-        });  // Semikolon nicht vergessen!!!
-```
-
-=\> Instanz einer anonymen inneren Klasse, die das Interface
-`Comparator<Studi>` implementiert
-
--   Für spezielle, einmalige Aufgabe: nur eine Instanz möglich
--   Kein Name, kein Konstruktor, oft nur eine Methode
--   Müssen Interface implementieren oder andere Klasse erweitern
-    -   Achtung Schreibweise: ohne `implements` oder `extends`!
--   Konstruktor kann auch Parameter aufweisen
--   Zugriff auf alle Attribute der äußeren Klasse plus alle `final`
-    lokalen Variablen
--   Nutzung typischerweise bei GUIs: Event-Handler etc.
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/nested/DemoAnonymousInnerClass.java">Demo: nested.DemoAnonymousInnerClass</a></p>
-
-##### Vereinfachung mit Lambda-Ausdruck
-
-``` java
-List<Studi> sl = new ArrayList<>();
-
-// Parametrisierung mit anonymer Klasse
-sl.sort(
-        new Comparator<Studi>() {
-            @Override
-            public int compare(Studi o1, Studi o2) {
-                return o1.getCredits() - o2.getCredits();
-            }
-        });  // Semikolon nicht vergessen!!!
-
-
-// Parametrisierung mit Lambda-Ausdruck
-sl.sort( (Studi o1, Studi o2) -> o1.getCredits() - o2.getCredits() );
-```
-
-**Anmerkung**: Damit für den Parameter alternativ auch ein
-Lambda-Ausdruck verwendet werden kann, muss der erwartete Parameter vom
-Typ her ein "**funktionales Interface**" (s.u.) sein!
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/nested/DemoLambda.java">Demo: nested.DemoLambda</a></p>
-
-##### Syntax für Lambdas
-
-``` java
-(Studi o1, Studi o2)  ->  o1.getCredits() - o2.getCredits()
-```
-
-Ein Lambda-Ausdruck ist eine Funktion ohne Namen und besteht aus drei
-Teilen:
-
-1.  Parameterliste (in runden Klammern),
-2.  Pfeil
-3.  Funktionskörper (rechte Seite)
-
-Falls es *genau einen* Parameter gibt, *können* die runden Klammern um
-den Parameter entfallen.
-
-Dabei kann der Funktionskörper aus *einem Ausdruck* ("*expression*")
-bestehen oder einer *Menge von Anweisungen* ("*statements"*), die dann
-in geschweifte Klammern eingeschlossen werden müssen (Block mit
-Anweisungen).
-
-Der Wert des Ausdrucks ist zugleich der Rückgabewert des
-Lambda-Ausdrucks.
-
-Varianten:
-
--   **`(parameters)  ->  expression`**
-
-<!-- -->
-
--   **`(parameters)  ->  { statements; }`**
-
-##### Quiz: Welches sind keine gültigen Lambda-Ausdrücke?
-
-1.  `() -> {}`
-2.  `() -> "wuppie"`
-3.  `() -> { return "fluppie"; }`
-4.  `(Integer i) -> return i + 42;`
-5.  `(String s) -> { "foo"; }`
-6.  `(String s) -> s.length()`
-7.  `(Studi s) -> s.getCredits() > 300`
-8.  `(List<Studi> sl) -> sl.isEmpty()`
-9.  `(int x, int y) -> { System.out.println("Erg: "); System.out.println(x+y); }`
-10. `() -> new Studi()`
-11. `s -> s.getCps() > 100 && s.getCps() < 300`
-12. `s -> { return s.getCps() > 100 && s.getCps() < 300; }`
-
-<details>
-
-Auflösung: (4) und (5)
-
-`return` ist eine Anweisung, d.h. bei (4) fehlen die geschweiften
-Klammern. `"foo"` ist ein String und als solcher ein Ausdruck, d.h. hier
-sind die geschweiften Klammern zu viel (oder man ergänze den String mit
-einem `return`, also `return "foo";` ...).
-</details>
-
-##### Definition "Funktionales Interface" ("*functional interfaces*")
-
-``` java
-@FunctionalInterface
-public interface Wuppie<T> {
-    int wuppie(T obj);
-    boolean equals(Object obj);
-    default int fluppie() { return 42; }
-}
-```
-
-`Wuppie<T>` ist ein **funktionales Interface** ("*functional
-interface*") (seit Java 8)
-
--   Hat **genau *eine* abstrakte Methode**
--   Hat evtl. weitere Default-Methoden
--   Hat evtl. weitere abstrakte Methoden, die `public` Methoden von
-    `java.lang.Object` überschreiben
-
-Die Annotation `@FunctionalInterface` selbst ist nur für den Compiler:
-Falls das Interface *kein* funktionales Interface ist, würde er beim
-Vorhandensein dieser Annotation einen Fehler werfen. Oder anders herum:
-Allein durch das Annotieren mit `@FunctionalInterface` wird aus einem
-Interface noch kein funktionales Interface! Vergleichbar mit `@Override`
-...
-
-**Während man für eine anonyme Klasse lediglich ein "normales" Interface
-(oder eine Klasse) benötigt, braucht man für Lambda-Ausdrücke zwingend
-ein passendes funktionales Interface!**
-
-*Anmerkung*: Es scheint keine einheitliche deutsche Übersetzung für den
-Begriff *functional interface* zu geben. Es wird häufig mit
-"funktionales Interface", manchmal aber auch mit "Funktionsinterface"
-übersetzt.
-
-Das in den obigen Beispielen eingesetzte Interface
-`java.util.Comparator<T>` ist also ein funktionales Interface: Es hat
-nur *eine* eigene abstrakte Methode `int compare(T o1, T o2);`.
-
-Im Package
-[java.util.function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/package-summary.html)
-sind einige wichtige funktionale Interfaces bereits vordefiniert,
-beispielsweise `Predicate` (Test, ob eine Bedingung erfüllt ist) und
-`Function` (verarbeite einen Wert und liefere einen passenden
-Ergebniswert). Diese kann man auch in eigenen Projekten nutzen!
-
-##### Quiz: Welches ist kein funktionales Interface?
-
-``` java
-public interface Wuppie {
-    int wuppie(int a);
-}
-
-public interface Fluppie extends Wuppie {
-    int wuppie(double a);
-}
-
-public interface Foo {
-}
-
-public interface Bar extends Wuppie {
-    default int bar() { return 42; }
-}
-```
-
-<details>
-
-Auflösung:
-
--   `Wuppie` hat *genau eine* abstrakte Methode =\> funktionales
-    Interface
--   `Fluppie` hat zwei abstrakte Methoden =\> **kein** funktionales
-    Interface
--   `Foo` hat gar keine abstrakte Methode =\> **kein** funktionales
-    Interface
--   `Bar` hat *genau eine* abstrakte Methode (und eine Default-Methode)
-    =\> funktionales Interface
-
-</details>
-
-##### Lambdas und funktionale Interfaces: Typprüfung
-
-``` java
-interface java.util.Comparator<T> {
-    int compare(T o1, T o2);    // abstrakte Methode
-}
-```
-
-``` java
-// Verwendung ohne weitere Typinferenz
-Comparator<Studi> c1 = (Studi o1, Studi o2) -> o1.getCredits() - o2.getCredits();
-
-// Verwendung mit Typinferenz
-Comparator<Studi> c2 = (o1, o2) -> o1.getCredits() - o2.getCredits();
-```
-
-Der Compiler prüft in etwa folgende Schritte, wenn er über einen
-Lambda-Ausdruck stolpert:
-
-1.  In welchem Kontext habe ich den Lambda-Ausdruck gesehen?
-2.  OK, der Zieltyp ist hier `Comparator<Studi>`.
-3.  Wie lautet die **eine** abstrakte Methode im
-    `Comparator<T>`-Interface?
-4.  OK, das ist `int compare(T o1, T o2);`
-5.  Da `T` hier an `Studi` gebunden ist, muss der Lambda-Ausdruck der
-    Methode `int compare(Studi o1, Studi o2);` entsprechen: 2x `Studi`
-    als Parameter und als Ergebnis ein `int`
-6.  Ergebnis:
-    a)  Cool, passt zum Lambda-Ausdruck `c1`. Fertig.
-    b)  D.h. in `c2` müssen `o1` und `o2` vom Typ `Studi` sein. Cool,
-        passt zum Lambda-Ausdruck `c2`. Fertig.
+##### Nutzung von Git in Projekten: Verteiltes Git (und Workflows)
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></p>
+
+Git ermöglicht ein einfaches und schnelles Branchen. Dies kann man mit
+entsprechenden Branching-Strategien sinnvoll für die SW-Entwicklung
+einsetzen.
+
+Im Folgenden sollen also die Frage betrachtet werden: **Wie setze ich
+Branches sinnvoll ein?**
+
+##### Umgang mit Branches: Themen-Branches
+
+                    I---J---K  wuppieV1
+                   /
+              D---F  wuppie
+             /
+    A---B---C---E  master
+                 \
+                  G---H  test
+
+Branchen ist in Git sehr einfach und schnell. Deshalb wird (gerade auch
+im Vergleich mit SVN) gern und viel gebrancht.
+
+Ein häufiges anzutreffendes Modell ist dabei die Nutzung von
+**Themen-Branches**: Man hat einen Hauptzweig (`master`). Wann immer
+eine neue Idee oder ein Baustein unabhängig entwickelt werden soll/kann,
+wird ein entsprechender Themen-Branch aufgemacht. Dabei handelt es sich
+normalerweise um **kleine Einheiten**!
+
+Themenbranches haben in der Regel eine **kurze Lebensdauer**: Wenn die
+Entwicklung abgeschlossen ist, wird die Idee bzw. der Baustein in den
+Hauptzweig integriert und der Themenbranch gelöscht.
+
+-   Vorteil: Die Entwicklung im Themenbranch ist in sich gekapselt und
+    stört nicht die Entwicklung in anderen Branches (und diese stören
+    umgekehrt nicht die Entwicklung im Themenbranch).
+
+-   Nachteil:
+
+    -   Mangelnder Überblick durch viele Branches
+    -   Ursprung der Themenbranches muss überlegt gewählt werden, d.h.
+        alle dort benötigten Features müssen zu dem Zeitpunkt im
+        Hauptzweig vorhanden sein
+
+##### Umgang mit Branches: Langlaufende Branches
+
+    A---B---D  master
+         \
+          C---E---I  develop
+               \
+                F---G---H  topic
+
+Häufig findet man in (größeren) Projekten Branches, die über die gesamte
+Lebensdauer des Projekts existieren, sogenannte "langlaufende Branches".
+
+Normalerweise gibt es einen Branch, in dem stets der stabile Stand des
+Projekts enthalten ist. Dies ist häufig der `master`. In diesem Branch
+gibt es nur sehr wenige Commits: normalerweise nur Merges aus dem
+`develop`-Branch (etwa bei Fertigstellung einer Release-Version) und
+ggf. Fehlerbehebungen.
+
+Die aktive Entwicklung findet in einem separaten Branch statt:
+`develop`. Hier nutzt man zusätzlich Themen-Branches für die Entwicklung
+einzelner Features, die nach Fertigstellung in den `develop` gemergt
+werden.
+
+Kleinere Projekte kommen meist mit den zwei langlaufenden Branches in
+der obigen Darstellung aus. Bei größeren Projekten finden sich häufig
+noch etliche weitere langlaufende Branches, beispielsweise "Proposed
+Updates" etc. beim Linux-Kernel.
+
+-   Vorteile:
+    -   Mehr Struktur im Projekt durch in ihrer Semantik wohldefinierte
+        Branches
+    -   Durch weniger Commits pro Branch lässt sich die Historie
+        leichter verfolgen (u.a. auch aus bestimmter Rollen-Perspektive:
+        Entwickler, Manager, ...)
+-   Nachteile: Bestimmte "ausgezeichnete" Branches; zusätzliche Regeln
+    zum Umgang mit diesen beachten
+
+##### Komplexe Branching-Strategie: Git-Flow
+
+    A---B---------------------G---J1  master
+         \                   / \ /
+          \                 /   X  fix
+           \               /     \
+            C-------------F----I--J2  develop
+             \           / \  /
+              \         /   H1  featureB
+               \       /
+                D1----D2  featureA
+                 \
+                  E1---E2---E3---E4---E5  featureC
+
+Das Git-Flow-Modell von Vincent Driessen
+([nvie.com/posts/a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/))
+zeigt einen in der Praxis überaus bewährten Umgang mit Branches. Lesen
+Sie an der angegebenen Stelle nach, besser kann man die Nutzung dieses
+eleganten Modells eigentlich nicht erklären :-)
+
+##### Git-Flow: Hauptzweige *master* und *develop*
+
+    A---B-------E---------------J  master
+         \     /               /
+          C---D---F---G---H---I---K  develop
+
+Bei Git-Flow gibt es zwei langlaufende Branches: Den `master`, der immer
+den stabilen Stand enthält und in den *nie* ein direkter Commit gemacht
+wird, sowie den `develop`, wo letztlich (ggf. über Themenbranches) die
+eigentliche Entwicklung stattfindet.
+
+Änderungen werden zunächst im `develop` erstellt und getestet. Wenn die
+Features stabil sind, erfolgt ein Merge von `develop` in den `master`.
+Hier kann noch der Umweg über einen `release`-Branch genommen werden:
+Als "Feature-Freeze" wird vom `develop` ein `release`-Branch abgezweigt.
+Darin wird das Release dann aufpoliert, d.h. es erfolgen nur noch
+kleinere Korrekturen und Änderungen, aber keine echte Entwicklungsarbeit
+mehr. Nach Fertigstellung wird der `release` dann sowohl in den `master`
+als auch `develop` gemergt.
+
+##### Git-Flow: Weitere Branches als Themen-Branches
+
+    A---B---------------------I-------------K  master
+         \                   /             /
+          C------------F----H-------------J---L  develop
+           \          / \  /             /
+            \        /   G1  featureB   /
+             \      /                  /
+              D1---D2  featureA       /
+               \                     /
+                E1---E2---E3---E4---E5  featureC
+
+Für die Entwicklung eigenständiger Features bietet es sich auch im
+Git-Flow an, vom `develop` entsprechende Themenbranches abzuzweigen und
+darin jeweils isoliert die Features zu entwickeln. Wenn diese Arbeiten
+eine gewisse Reife haben, werden die Featurebranches in den `develop`
+integriert.
+
+##### Git-Flow: Merging-Detail
+
+    ---C--------E  develop
+        \      /                 git merge --no-ff
+         D1---D2  featureA
+
+vs.
+
+    ---C---D1---D2  develop      git merge
+
+Wenn beim Mergen ein "*fast forward*" möglich ist, würde Git beim Mergen
+eines (Feature-) Branches in den `develop` (oder allgemein in einen
+anderen Branch) *keinen* separaten Commit erzeugen (Situation rechts in
+der Abbildung).
+
+Damit erscheint der `develop`-Branch wie eine lineare Folge von Commits.
+In manchen Projekten wird dies bevorzugt, weil die Historie sehr
+übersichtlich aussieht.
+
+Allerdings verliert man die Information, dass hier ein Feature
+entwickelt wurde und wann es in den `develop` integriert wurde (linke
+Seite in obiger Abbildung). Häufig wird deshalb ein extra Merge-Commit
+mit `git merge --no-ff <branch>` (extra Schalter "`--no-ff`") erzwungen,
+obwohl ein "*fast forward*" möglich wäre.
+
+Anmerkung: Man kann natürlich auch über Konventionen in den
+Commit-Kommentaren eine gewisse Übersichtlichkeit erzwingen.
+Beispielsweise könnte man vereinbaren, dass alle Commit-Kommentare zu
+einem Feature "A" mit "`feature a:`" starten müssen.
+
+##### Git-Flow: Umgang mit Fehlerbehebung
+
+    A---B---D--------F1  master
+         \   \      /
+          \   E1---E2  fix
+           \        \
+            C1-------F2  develop
+
+Wenn im stabilen Branch (also dem `master`) ein Problem bekannt wird,
+darf man es nicht einfach im `master` fixen. Stattdessen wird ein extra
+Branch vom `master` abgezweigt, in dem der Fix entwickelt wird. Nach
+Fertigstellung wird dieser Branch sowohl in den `master` als auch den
+`develop` gemergt, damit auch im Entwicklungszweig der Fehler behoben
+ist.
+
+Dadurch entspricht jeder Commit im `master` einem Release.
+
+##### Vereinfachte Braching-Strategie: GitHub Flow
+
+    A---B---C----D-----------E  master
+         \   \  /           /
+          \   ta1  topicA  /
+           \              /
+            tb1---tb2---tb3  topicB
+
+Github verfolgt eine deutlich vereinfachte Strategie: "GitHub Flow"
+(vgl. ["GitHub Flow" (S. Chacon)](https://githubflow.github.io/) bzw.
+["GitHub flow" (GitHub,
+Inc.)](https://docs.github.com/en/get-started/quickstart/github-flow)).
+
+Hier ist der stabile Stand ebenfalls immer im `master`. Features werden
+ebenso wie im Git-Flow-Modell in eigenen Feature-Branches entwickelt.
+
+Allerdings zweigen Feature-Branches *immer direkt* vom `master` ab und
+werden nach dem Test auch immer dort wieder direkt integriert (es gibt
+also keine weiteren langlaufenden Branches wie `develop` oder
+`release`).
+
+In der obigen Abbildung ist zu sehen, dass für die Entwicklung eines
+Features ein entsprechender Themenbranch vom `master` abgezweigt wird.
+Darin erfolgt dann die Entwicklung des Features, d.h. mehrere Commits.
+Das Mergen des Features in den `master` erfolgt dann aber nicht lokal,
+sondern mit einem "Pull-Request" auf dem Server: Sobald man im
+Feature-Branch einen "diskussionswürdigen" Stand hat, wird ein
+**Pull-Request** (*PR*) über die Weboberfläche aufgemacht (streng
+genommen gehört dies in die Kategorie ["Zusammenarbeit" bzw.
+"Workflows"](#id-c4b0283d56726aa5bcadb82cdd57653b6c8654a3); außerdem
+gehört ein PR nicht zu Git selbst, sondern zum Tooling von Github). In
+einem PR können andere Entwickler den Code kommentieren und ergänzen.
+Jeder weitere Commit auf dem Themenbranch wird ebenfalls Bestandteil des
+Pull-Requests. Parallel laufen ggf. automatisierte Tests etc. und durch
+das Akzeptieren des PR in der Weboberfläche erfolgt schließlich der
+Merge des Feature-Branches in den `master`.
+
+##### Diskussion: Git-Flow vs. GitHub Flow
+
+In der Praxis zeigt sich, dass das Git-Flow-Modell besonders gut
+geeignet ist, wenn man tatsächlich so etwas wie "Releases" hat, die
+zudem nicht zu häufig auftreten.
+
+Das GitHub-Flow-Vorgehen bietet sich an, wenn man entweder keine
+Releases hat oder diese sehr häufig erfolgen (typisch bei agiler
+Vorgehensweise). Zudem vermeidet man so, dass die Feature-Branches zu
+lange laufen, womit normalerweise die Wahrscheinlichkeit von
+Merge-Konflikten stark steigt. **Achtung**: Da die Feature-Branches
+direkt in den `master`, also den stabilen Produktionscode gemergt
+werden, ist es hier besonders wichtig, *vor* dem Merge entsprechende
+Tests durchzuführen und den Merge erst zu machen, wenn alle Tests "grün"
+sind.
+
+Hier ein paar Einstiegsseiten für die Diskussion, die teilweise sehr
+erbittert (und mit ideologischen Zügen) geführt wird (erinnert an die
+Diskussionen, welche Linux-Distribution die bessere sei):
+
+-   [Git-Flow-Modell von Vincent
+    Driessen](https://nvie.com/posts/a-successful-git-branching-model/)
+-   [Kurzer Überblick über das
+    GitHub-Flow-Modell](https://guides.github.com/introduction/flow/)
+-   [Diskussion des GitHub-Flow-Modells
+    (Github)](https://githubflow.github.io/)
+-   [Luca Mezzalira: "Git-Flow vs Github
+    Flow"](https://lucamezzalira.com/2014/03/10/git-flow-vs-github-flow/)
+-   [Scott Schacon, Autor des
+    Pro-Git-Buchs](https://scottchacon.com/2011/08/31/github-flow.html)
+-   [Noch eine (längere) Betrachtung (Robin
+    Daugherty)](https://hackernoon.com/a-branching-and-releasing-strategy-that-fits-github-flow-be1b6c48eca2)
 
 ##### Wrap-Up
 
--   Anonyme Klassen: "Wegwerf"-Innere Klassen
-    -   Müssen Interface implementieren oder Klasse erweitern
-
-<!-- -->
-
--   Java8: **Lambda-Ausdrücke** statt anonymer Klassen (**funktionales
-    Interface nötig**)
-    -   Zwei mögliche Formen:
-        -   Form 1: `(parameters)  ->  expression`
-        -   Form 2: `(parameters)  ->  { statements; }`
-    -   Im jeweiligen Kontext muss ein **funktionales Interface**
-        verwendet werden, d.h. ein Interface mit **genau** einer
-        abstrakten Methode
-    -   Der Lambda-Ausdruck muss von der Signatur her dieser einen
-        abstrakten Methode entsprechen
+-   Einsatz von Themenbranches für die Entwicklung
+-   Unterschiedliche Modelle:
+    -   Git-Flow: umfangreiches Konzept, gut für Entwicklung mit festen
+        Releases
+    -   GitHub Flow: deutlich schlankeres Konzept, passend für
+        kontinuierliche Entwicklung ohne echte Releases
 
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Urma u. a. ([2014, Kap. 3](#ref-Urma2014))
-> -   Ullenboom ([2021, Kap. 12](#ref-Ullenboom2021))
+> -   Chacon und Straub ([2014, Kap. 3](#ref-Chacon2014))
+> -   Driessen ([2010](#ref-GitFlow))
+> -   Chacon ([2013](#ref-GitHubFlow))
+> -   GitHub Inc. ([2022b](#ref-GitHubFlowGH))
+> -   Atlassian Pty Ltd ([2022](#ref-AtlassianGit))
+> -   Github Inc. ([2022](#ref-GitCheatSheet))
 >
 > </details>
 
@@ -2962,2223 +2090,17 @@ Lambda-Ausdruck stolpert:
 > <details >
 > <summary><strong>✅ Lernziele</strong></summary>
 >
-> -   k2: Ich kenne die Definition 'Funktionales Interface'
-> -   k3: Ich kann innere und anonyme Klassen praktisch einsetzen
-> -   k3: Ich kann eigene funktionale Interfaces erstellen
-> -   k3: Ich kann Lambda-Ausdrücke formulieren und einsetzen
+> -   k3: Ich kann mit Themenbranches in der Entwicklung arbeiten
+> -   k3: Ich kann das 'Git-Flow'-Modell anwenden
+> -   k3: Ich kann das 'GitHub Flow'-Modell anwenden
 >
 > </details>
 
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> **Beispiel aus einem Code-Review im
-> [Dungeon-CampusMinden/Dungeon](https://github.com/Dungeon-CampusMinden/Dungeon)**
->
-> Erklären Sie folgenden Code:
->
-> ``` java
-> public interface IFightAI {
->     void fight(Entity entity);
-> }
->
-> public class AIComponent extends Component {
->     private final IFightAI fightAI;
->
->     fightAI =
->                 entity1 -> {
->                     System.out.println("TIME TO FIGHT!");
->                     // todo replace with melee skill
->                 };
-> }
-> ```
->
-> **Spielen mit Lambdas**
->
-> Sie finden in einem Spiel folgenden Code:
->
-> ``` java
-> public class Main {
->     public static void main(String[] args) {
->         DoorTile door = new DoorTile();
->         Entity lever1 = new Entity(), lever2 = new Entity(), lever3 = new Entity();
->
->         // ganz viel Code
->
->         if (!door.isOpen() && (lever1.isOn() && (lever2.isOn() || lever3.isOn()))) door.open();
->
->         // ganz viel Code
->     }
-> }
->
-> class DoorTile {
->     public boolean isOpen() { return false; }
->     public void open() { }
-> }
-> class Entity {
->     public boolean isOn() { return false; }
-> }
-> ```
->
-> Dabei stört, dass die Verknüpfung der konkreten Objekte und Zustände
-> zum Öffnen der konkreten Tür fest (und zudem mitten) im Programm
-> hinterlegt ist.
->
-> Schreiben Sie diesen Code um: Definieren Sie eine statische
-> Hilfsmethode, die ein Door-Tile und drei Entitäten als Argument
-> entgegen nimmt und dafür einen Lambda-Ausdruck zurückliefert, mit dem
-> (a) die gezeigte Bedingung überprüft werden kann, und mit dem (falls
-> die Bedingung erfüllt ist) (b) die Aktion (`door.open()`) ausgeführt
-> werden kann. Statt der gezeigten fest codierten `if`-Abfrage soll
-> dieser Lambda-Ausdruck ausgewertet werden:
-> `doorhandle.test().accept();`.
->
-> Damit haben Sie sich eine "Factory-Method" geschrieben
-> (Entwurfsmuster), mit der diese Bedingung dynamisch erzeugt werden
-> kann (auch für andere Objekte).
->
-> Hinweis: Der Lambda-Ausdruck wird "zweistufig" sein müssen ...
->
-> **Sortieren mit Lambdas und funktionalen Interfaces**
->
-> Betrachten Sie die Klasse
-> [Student](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/challenges/lambda/Student.java).
->
-> 1.  Definieren Sie eine Methode, die das Sortieren einer
->     `Student`-Liste erlaubt. Übergeben Sie die Liste als Parameter.
-> 2.  Schaffen Sie es, das Sortierkriterium ebenfalls als Parameter zu
->     übergeben (als Lambda-Ausdruck)?
-> 3.  Definieren Sie eine weitere Methode, die wieder eine
->     `Student`-Liste als Parameter bekommt und liefern sie das erste
->     `Student`-Objekt zurück, welches einer als Lambda-Ausdruck
->     übergebenen Bedingung genügt.
-> 4.  Definieren Sie noch eine Methode, die wieder eine `Student`-Liste
->     als Parameter bekommt sowie einen Lambda-Ausdruck, welcher aus
->     einem `Student`-Objekt ein Objekt eines anderen Typen `T`
->     berechnet. Wenden Sie in der Methode den Lambda-Ausdruck auf jedes
->     Objekt der Liste an und geben sie die resultierende neue Liste als
->     Ergebnis zurück.
->
-> Verwenden Sie in dieser Aufgabe jeweils Lambda-Ausdrücke. Rufen Sie
-> alle drei/vier Methoden an einem kleinen Beispiel auf.
->
-> </details>
-
-<a id="id-7aa5254265b8c6ada30b38ba3de8870e51d66c9e"></a>
-
-#### Methoden-Referenzen
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Seit Java8 können **Referenzen auf Methoden** statt anonymer Klassen
-> eingesetzt werden (**funktionales Interface nötig**).
->
-> Dabei gibt es drei mögliche Formen:
->
-> -   Form 1: Referenz auf eine statische Methode:
->     `ClassName::staticMethodName` (wird verwendet wie
->     `(args) -> ClassName.staticMethodName(args)`)
-> -   Form 2: Referenz auf eine Instanz-Methode eines Objekts:
->     `objectref::instanceMethodName` (wird verwendet wie
->     `(args) -> objectref.instanceMethodName(args)`)
-> -   Form 3: Referenz auf eine Instanz-Methode eines Typs:
->     `ClassName::instanceMethodName` (wird verwendet wie
->     `(o1, args) -> o1.instanceMethodName(args)`)
->
-> Im jeweiligen Kontext muss ein passendes funktionales Interface
-> verwendet werden, d.h. ein Interface mit **genau** einer abstrakten
-> Methode. Die Methoden-Referenz muss von der Syntax her dieser einen
-> abstrakten Methode entsprechen (bei der dritten Form wird die Methode
-> auf dem ersten Parameter aufgerufen).
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Methoden-Referenzen](https://youtu.be/z0mfvvrsRzc)
-> -   [Demo Referenz auf statische
->     Methode](https://youtu.be/YFdPcxE_1Eo)
-> -   [Demo Referenz auf Instanz-Methode
->     (Objekt)](https://youtu.be/ImJTywhXrJo)
-> -   [Demo Referenz auf Instanz-Methode
->     (Typ)](https://youtu.be/DVz2x27WHU8)
->
-> </details>
-
-##### Beispiel: Sortierung einer Liste
-
-``` java
-List<Studi> sl = new ArrayList<Studi>();
-
-// Anonyme innere Klasse
-Collections.sort(sl, new Comparator<Studi>() {
-    @Override public int compare(Studi o1, Studi o2) {
-        return Studi.cmpCpsClass(o1, o2);
-    }
-});
-
-
-// Lambda-Ausdruck
-Collections.sort(sl, (o1, o2) -> Studi.cmpCpsClass(o1, o2));
-
-// Methoden-Referenz
-Collections.sort(sl, Studi::cmpCpsClass);
-```
-
-###### Anmerkung
-
-Für das obige Beispiel wird davon ausgegangen, dass in der Klasse
-`Studi` eine statische Methode `cmpCpsClass()` existiert:
-
-``` java
-public static int cmpCpsClass(Studi s1, Studi s2) {
-    return s1.getCps() - s2.getCps();
-}
-```
-
-Wenn man im Lambda-Ausdruck nur Methoden der eigenen Klasse aufruft,
-kann man das auch direkt per *Methoden-Referenz* abkürzen!
-
--   Erinnerung: `Comparator<T>` ist ein funktionales Interface
--   Instanzen können wie üblich durch Ableiten bzw. anonyme Klassen
-    erzeugt werden
--   Alternativ kann seit Java8 auch ein passender Lambda-Ausdruck
-    verwendet werden
--   Ab Java8: Referenzen auf passende Methoden (Signatur!) können ein
-    funktionales Interface "implementieren"
-    -   Die statische Methode
-        `static int cmpCpsClass(Studi s1, Studi s2)` hat die selbe
-        Signatur wie `int compare(Studi s1, Studi s2)` aus
-        `Comparator<Studi>`
-    -   Kann deshalb wie eine Instanz von `Comparator<Studi>` genutzt
-        werden
-    -   Name der Methode spielt dabei keine Rolle
-
-##### Überblick: Arten von Methoden-Referenzen
-
-1.  Referenz auf eine statische Methode
-    -   Form: `ClassName::staticMethodName`
-    -   Wirkung: Aufruf mit `(args) -> ClassName.staticMethodName(args)`
-
-<!-- -->
-
-2.  Referenz auf Instanz-Methode eines bestimmten Objekts
-    -   Form: `objectref::instanceMethodName`
-    -   Wirkung: Aufruf mit
-        `(args) -> objectref.instanceMethodName(args)`
-
-<!-- -->
-
-3.  Referenz auf Instanz-Methode eines bestimmten Typs
-    -   Form: `ClassName::instanceMethodName`
-    -   Wirkung: Aufruf mit
-        `(arg0, rest) -> arg0.instanceMethodName(rest)` (`arg0` ist vom
-        Typ `ClassName`)
-
-*Anmerkung*: Analog zur Referenz auf eine statische Methode gibt es noch
-die Form der Referenz auf einen Konstruktor: `ClassName::new`. Für
-Referenzen auf Konstruktoren mit mehr als 2 Parametern muss ein eigenes
-passendes funktionales Interface mit entsprechend vielen Parametern
-definiert werden ...
-
-##### Methoden-Referenz 1: Referenz auf statische Methode
-
-``` java
-public class Studi {
-    public static int cmpCpsClass(Studi s1, Studi s2) {
-        return s1.getCredits() - s2.getCredits();
-    }
-
-    public static void main(String... args) {
-        List<Studi> sl = new ArrayList<Studi>();
-
-        // Referenz auf statische Methode
-        Collections.sort(sl, Studi::cmpCpsClass);
-
-        // Entsprechender Lambda-Ausdruck
-        Collections.sort(sl, (o1, o2) -> Studi.cmpCpsClass(o1, o2));
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/methodreferences/DemoStaticMethodReference.java">Demo: methodreferences.DemoStaticMethodReference</a></p>
-
-`Collections.sort()` erwartet in diesem Szenario als zweiten Parameter
-eine Instanz von `Comparator<Studi>` mit einer Methode
-`int compare(Studi o1, Studi o2)`.
-
-Die übergebene Referenz auf die **statische Methode `cmpCpsClass` der
-Klasse `Studi`** hat die **selbe Signatur** und wird deshalb von
-`Collections.sort()` genauso genutzt wie die eigentlich erwartete
-Methode `Comparator<Studi>#compare(Studi o1, Studi o2)`, d.h. statt
-`compare(o1, o2)` wird nun für jeden Vergleich
-**`Studi.cmpCpsClass(o1, o2)`** aufgerufen.
-
-##### Methoden-Referenz 2: Referenz auf Instanz-Methode (Objekt)
-
-``` java
-public class Studi {
-    public int cmpCpsInstance(Studi s1, Studi s2) {
-        return s1.getCredits() - s2.getCredits();
-    }
-
-    public static void main(String... args) {
-        List<Studi> sl = new ArrayList<Studi>();
-        Studi holger = new Studi("Holger", 42);
-
-        // Referenz auf Instanz-Methode eines Objekts
-        Collections.sort(sl, holger::cmpCpsInstance);
-
-        // Entsprechender Lambda-Ausdruck
-        Collections.sort(sl, (o1, o2) -> holger.cmpCpsInstance(o1, o2));
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/methodreferences/DemoInstanceMethodReferenceObject.java">Demo: methodreferences.DemoInstanceMethodReferenceObject</a></p>
-
-`Collections.sort()` erwartet in diesem Szenario als zweites Argument
-wieder eine Instanz von `Comparator<Studi>` mit einer Methode
-`int compare(Studi o1, Studi o2)`.
-
-Die übergebene Referenz auf die **Instanz-Methode `cmpCpsInstance` des
-Objekts `holger`** hat die selbe Signatur und wird entsprechend von
-`Collections.sort()` genauso genutzt wie die eigentlich erwartete
-Methode `Comparator<Studi>#compare(Studi o1, Studi o2)`, d.h. statt
-`compare(o1, o2)` wird nun für jeden Vergleich
-**`holger.cmpCpsInstance(o1, o2)`** aufgerufen.
-
-##### Methoden-Referenz 3: Referenz auf Instanz-Methode (Typ)
-
-``` java
-public class Studi {
-    public int cmpCpsInstance(Studi studi) {
-        return this.getCredits() - studi.getCredits();
-    }
-
-    public static void main(String... args) {
-        List<Studi> sl = new ArrayList<Studi>();
-
-        // Referenz auf Instanz-Methode eines Typs
-        Collections.sort(sl, Studi::cmpCpsInstance);
-
-        // Entsprechender Lambda-Ausdruck
-        Collections.sort(sl, (o1, o2) -> o1.cmpCpsInstance(o2));
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/methodreferences/DemoInstanceMethodReferenceType.java">Demo: methodreferences.DemoInstanceMethodReferenceType</a></p>
-
-`Collections.sort()` erwartet in diesem Szenario als zweites Argument
-wieder eine Instanz von `Comparator<Studi>` mit einer Methode
-`int compare(Studi o1, Studi o2)`.
-
-Die übergebene Referenz auf die **Instanz-Methode `cmpCpsInstance` des
-Typs `Studi`** hat die Signatur `int cmpCpsInstance(Studi studi)` und
-wird von `Collections.sort()` so genutzt: Statt `compare(o1, o2)` wird
-nun für jeden Vergleich **`o1.cmpCpsInstance(o2)`** aufgerufen.
-
-##### Ausblick: Threads
-
-Erinnerung an bzw. Vorgriff auf ["Threads:
-Intro"](#id-f6029a94ea1cbcba66e37c103b162b90e62bea1d):
-
-``` java
-public interface Runnable {
-    void run();
-}
-```
-
-Damit lassen sich Threads auf verschiedene Arten erzeugen:
-
-``` java
-public class ThreadStarter {
-    public static void wuppie() { System.out.println("wuppie(): wuppie"); }
-}
-
-
-Thread t1 = new Thread(new Runnable() {
-    public void run() {
-        System.out.println("t1: wuppie");
-    }
-});
-
-Thread t2 = new Thread(() -> System.out.println("t2: wuppie"));
-
-Thread t3 = new Thread(ThreadStarter::wuppie);
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/methodreferences/ThreadStarter.java">Beispiel: methodreferences.ThreadStarter</a></p>
-
-##### Ausblick: Datenstrukturen als Streams
-
-Erinnerung an bzw. Vorgriff auf
-["Stream-API"](#id-b16a41dd6bcae74097deb0d66f9b50762b8c0f40):
-
-``` java
-class X {
-    public static boolean gtFour(int x) { return (x > 4) ? true : false; }
-}
-
-List<String> words = Arrays.asList("Java8", "Lambdas", "PM",
-        "Dungeon", "libGDX", "Hello", "World", "Wuppie");
-
-List<Integer> wordLengths = words.stream()
-        .map(String::length)
-        .filter(X::gtFour)
-        .sorted()
-        .collect(toList());
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/methodreferences/CollectionStreams.java">Beispiel: methodreferences.CollectionStreams</a></p>
-
--   Collections können als Datenstrom betrachtet werden: `stream()`
-    -   Iteration über die Collection, analog zu externer Iteration mit
-        `foreach`
--   Daten aus dem Strom filtern: `filter`, braucht Prädikat
--   Auf alle Daten eine Funktion anwenden: `map`
--   Daten im Strom sortieren: `sort` (auch mit Comparator)
--   Daten wieder einsammeln mit `collect`
-
-=\> Typische Elemente **funktionaler Programmierung**
-
-=\> Verweis auf Wahlfach "Spezielle Methoden der Programmierung"
-
-##### Wrap-Up
-
-Seit Java8: **Methoden-Referenzen** statt anonymer Klassen
-(**funktionales Interface nötig**)
-
--   Drei mögliche Formen:
-    -   Form 1: Referenz auf statische Methode:
-        `ClassName::staticMethodName` (verwendet wie
-        `(args) -> ClassName.staticMethodName(args)`)
-    -   Form 2: Referenz auf Instanz-Methode eines Objekts:
-        `objectref::instanceMethodName` (verwendet wie
-        `(args) -> objectref.instanceMethodName(args)`)
-    -   Form 3: Referenz auf Instanz-Methode eines Typs:
-        `ClassName::instanceMethodName` (verwendet wie
-        `(o1, args) -> o1.instanceMethodName(args)`)
-
-<!-- -->
-
--   Im jeweiligen Kontext muss ein passendes funktionales Interface
-    verwendet werden (d.h. ein Interface mit **genau** einer abstrakten
-    Methode)
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Urma u. a. ([2014, Kap. 3](#ref-Urma2014))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich verstehe die Definition von 'Funktionalen Interfaces' und
->     kann sie erklären
-> -   k3: Ich kann Methoden-Referenzen lesen und selbst formulieren
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> Betrachten Sie den folgenden Java-Code:
->
-> ``` java
-> public class Cat {
->     int gewicht;
->     public Cat(int gewicht) { this.gewicht = gewicht; }
->
->     public static void main(String... args) {
->         List<Cat> clouder = new ArrayList<>();
->         clouder.add(new Cat(100));  clouder.add(new Cat(1));  clouder.add(new Cat(10));
->
->         clouder.sort(...);
->     }
-> }
-> ```
->
-> 1.  Ergänzen Sie den Methodenaufruf `clouder.sort(...);` mit einer
->     geeigneten anonymen Klasse, daß der `clouder` aufsteigend nach
->     Gewicht sortiert wird.
-> 2.  Statt einer anonymen Klasse kann man auch Lambda-Ausdrücke
->     einsetzen. Geben Sie eine konkrete Form an.
-> 3.  Statt einer anonymen Klasse kann man auch Methodenreferenzen
->     einsetzen. Dafür gibt es mehrere Formen. Geben Sie für zwei Formen
->     der Methodenreferenz sowohl den Aufruf als auch die
->     Implementierung der entsprechenden Methoden in der Klasse `Cat`
->     an.
->
-> </details>
-
-<a id="id-b16a41dd6bcae74097deb0d66f9b50762b8c0f40"></a>
-
-#### Stream-API
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Mit der Collection-API existiert in Java die Möglichkeit, Daten auf
-> verschiedenste Weisen zu speichern (`Collection<T>`). Mit der
-> Stream-API gibt es die Möglichkeit, diese Daten in einer Art Pipeline
-> zu verarbeiten. Ein `Stream<T>` ist eine Folge von Objekten vom Typ
-> `T`. Die Verarbeitung der Daten ist "lazy", d.h. sie erfolgt erst auf
-> Anforderung (durch die terminale Operation).
->
-> Ein Stream hat eine Datenquelle und kann beispielsweise über
-> `Collection#stream()` oder `Stream.of()` angelegt werden. Streams
-> speichern keine Daten. Die Daten werden aus der verbundenen
-> Datenquelle geholt.
->
-> Auf einem Stream kann man eine Folge von intermediären Operationen wie
-> `peek()`, `map()`, `flatMap()`, `filter()`, `sorted()` ...
-> durchführen. Alle diese Operationen arbeiten auf dem Stream und
-> erzeugen einen neuen Stream als Ergebnis. Dadurch kann die typische
-> Pipeline-artige Verkettung der Operationen ermöglicht werden. Die
-> intermediären Operationen werden erst ausgeführt, wenn der Stream
-> durch eine terminale Operation geschlossen wird.
->
-> Terminale Operationen wie `count()`, `forEach()`, `allMatch()` oder
-> `collect()`
->
-> -   `collect(Collectors.toList())` (bzw. direkt mit `stream.toList()`
->     (ab Java16))
-> -   `collect(Collectors.toSet())`
-> -   `collect(Collectors.toCollection(LinkedList::new))` (als
->     `Supplier<T>`)
->
-> stoßen die Verarbeitung des Streams an und schließen den Stream damit
-> ab.
->
-> Wir können hier nur die absoluten Grundlagen betrachten. Die
-> Stream-API ist sehr groß und mächtig und lohnt die weitere
-> selbstständige Auseinandersetzung :-)
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Stream-API](https://youtu.be/zZMyk0u5hJk)
-> -   [Demo Stream-API](https://youtu.be/KBP72tCkBt8)
-> -   [Demo Vordefinierte funktionale Interfaces im
->     JDK](https://youtu.be/jzEw8IH8Mfc)
->
-> </details>
-
-##### Motivation
-
-Es wurden Studis, Studiengänge und Fachbereiche modelliert (aus Gründen
-der Übersichtlichkeit einfach als Record-Klassen).
-
-Nun soll pro Fachbereich die Anzahl der Studis ermittelt werden, die
-bereits 100 ECTS oder mehr haben. Dazu könnte man über alle Studiengänge
-im Fachbereich iterieren, und in der inneren Schleife über alle Studis
-im Studiengang. Dann filtert man alle Studis, deren ECTS größer 100 sind
-und erhöht jeweils den Zähler:
-
-``` java
-public record Studi(String name, int credits) {}
-public record Studiengang(String name, List<Studi> studis) {}
-public record Fachbereich(String name, List<Studiengang> studiengaenge) {}
-
-private static long getCountFB(Fachbereich fb) {
-    long count = 0;
-    for (Studiengang sg : fb.studiengaenge()) {
-        for (Studi s : sg.studis()) {
-            if (s.credits() > 100) count += 1;
-        }
-    }
-    return count;
-}
-```
-
-Dies ist ein Beispiel, welches klassisch in OO-Manier als Iteration über
-Klassen realisiert ist. (Inhaltlich ist es vermutlich nicht sooo
-sinnvoll.)
-
-##### Innere Schleife mit Streams umgeschrieben
-
-``` java
-private static long getCountSG(Studiengang sg) {
-    return sg.studis().stream()
-                      .map(Studi::credits)
-                      .filter(c -> c > 100)
-                      .count();
-}
-
-private static long getCountFB2(Fachbereich fb) {
-    long count = 0;
-    for (Studiengang sg : fb.studiengaenge()) {
-        count += getCountSG(sg);
-    }
-    return count;
-}
-```
-
-###### Erklärung des Beispiels
-
-Im Beispiel wurde die innere Schleife in einen Stream ausgelagert.
-
-Mit der Methode `Collection#stream()` wird aus der Collection ein neuer
-Stream erzeugt. Auf diesem wird für jedes Element durch die Methode
-`map()` die Methode `Studi#credits()` angewendet, was aus einem Strom
-von `Studi` einen Strom von `Integer` macht. Mit `filter()` wird auf
-jedes Element das Prädikat `c -> c > 100` angewendet und alle Elemente
-aus dem Strom entfernt, die der Bedingung nicht entsprechen. Am Ende
-wird mit `count()` gezählt, wie viele Elemente im Strom enthalten sind.
-
-###### Was ist ein Stream?
-
-Ein "Stream" ist ein Strom (Folge) von Daten oder Objekten. In Java wird
-die Collections-API für die Speicherung von Daten (Objekten) verwendet.
-Die Stream-API dient zur Iteration über diese Daten und entsprechend zur
-Verarbeitung der Daten. In Java speichert ein Stream keine Daten.
-
-Das Konzept kommt aus der funktionalen Programmierung und wurde in Java
-nachträglich eingebaut (wobei dieser Prozess noch lange nicht
-abgeschlossen zu sein scheint).
-
-In der funktionalen Programmierung kennt man die Konzepte "map",
-"filter" und "reduce": Die Funktion "map()" erhält als Parameter eine
-Funktion und wendet diese auf alle Elemente eines Streams an. Die
-Funktion "filter()" bekommt ein Prädikat als Parameter und prüft jedes
-Element im Stream, ob es dem Prädikat genügt (also ob das Prädikat mit
-dem jeweiligen Element zu `true` evaluiert - die anderen Objekte werden
-entfernt). Mit "reduce()" kann man Streams zu einem einzigen Wert
-zusammenfassen (denken Sie etwa an das Aufsummieren aller Elemente eines
-Integer-Streams). Zusätzlich kann man in der funktionalen Programmierung
-ohne Probleme unendliche Ströme darstellen: Die Auswertung erfolgt nur
-bei Bedarf und auch dann auch nur so weit wie nötig. Dies nennt man auch
-"*lazy evaluation*".
-
-Die Streams in Java versuchen, diese Konzepte aus der funktionalen
-Programmierung in die objektorientierte Programmierung zu übertragen.
-Ein Stream in Java hat eine Datenquelle, von wo die Daten gezogen
-werden - ein Stream speichert selbst keine Daten. Es gibt "intermediäre
-Operationen" auf einem Stream, die die Elemente verarbeiten und das
-Ergebnis als Stream zurückliefern. Daraus ergibt sich typische
-Pipeline-artige Verkettung der Operationen. Allerdings werden diese
-Operationen erst durchgeführt, wenn eine "terminale Operation" den
-Stream "abschließt". Ein Stream ohne eine terminale Operation macht also
-tatsächlich *nichts*.
-
-Die Operationen auf dem Stream sind üblicherweise zustandslos, können
-aber durchaus auch einen Zustand haben. Dies verhindert üblicherweise
-die parallele Verarbeitung der Streams. Operationen sollten aber nach
-Möglichkeit keine *Seiteneffekte* haben, d.h. keine Daten außerhalb des
-Streams modifizieren. Operationen dürfen auf keinen Fall die Datenquelle
-des Streams modifizieren!
-
-##### Erzeugen von Streams
-
-``` java
-List<String> l1 = List.of("Hello", "World", "foo", "bar", "wuppie");
-Stream<String> s1 = l1.stream();
-
-Stream<String> s2 = Stream.of("Hello", "World", "foo", "bar", "wuppie");
-
-Random random = new Random();
-Stream<Integer> s3 = Stream.generate(random::nextInt);
-
-Pattern pattern = Pattern.compile(" ");
-Stream<String> s4 = pattern.splitAsStream("Hello world! foo bar wuppie!");
-```
-
-Dies sind möglicherweise die wichtigsten Möglichkeiten, in Java einen
-Stream zu erzeugen.
-
-Ausgehend von einer Klasse aus der Collection-API kann man die Methode
-`Collection#stream()` aufrufen und bekommt einen seriellen Stream.
-
-Alternativ bietet das Interface `Stream` verschiedene statische Methoden
-wie `Stream.of()` an, mit deren Hilfe Streams angelegt werden können.
-Dies funktioniert auch mit Arrays ...
-
-Und schließlich kann man per `Stream.generate()` einen Stream anlegen,
-wobei als Argument ein "Supplier" (Interface
-`java.util.function.Supplier<T>`) übergeben werden muss. Dieses Argument
-wird dann benutzt, um die Daten für den Stream zu generieren.
-
-Wenn man aufmerksam hinschaut, findet man an verschiedensten Stellen die
-Möglichkeit, die Daten per Stream zu verarbeiten, u.a. bei regulären
-Ausdrücken.
-
-Man kann per `Collection#parallelStream()` auch parallele Streams
-erzeugen, die intern das "Fork&Join-Framework" nutzen. Allerdings sollte
-man nur dann parallele Streams anlegen, wenn dadurch tatsächlich
-Vorteile durch die Parallelisierung zu erwarten sind (Overhead!).
-
-##### Intermediäre Operationen auf Streams
-
-``` java
-private static void dummy(Studiengang sg) {
-    sg.studis().stream()
-            .peek(s -> System.out.println("Looking at: " + s.name()))
-            .map(Studi::credits)
-            .peek(c -> System.out.println("This one has: " + c + " ECTS"))
-            .filter(c -> c > 5)
-            .peek(c -> System.out.println("Filtered: " + c))
-            .sorted()
-            .forEach(System.out::println);
-}
-```
-
-An diesem (weitestgehend sinnfreien) Beispiel werden einige intermediäre
-Operationen demonstriert.
-
-Die Methode `peek()` liefert einen Stream zurück, die aus den Elementen
-des Eingabestroms bestehen. Auf jedes Element wird die Methode
-`void accept(T)` des `Consumer<T>` angewendet (Argument der Methode),
-was aber nicht zu einer Änderung der Daten führt. **Hinweis**: Diese
-Methode dient vor allem zu Debug-Zwecken! Durch den Seiteneffekt kann
-die Methode eine schlechtere Laufzeit zur Folge haben oder sogar eine
-sonst mögliche parallele Verarbeitung verhindern oder durch eine
-parallele Verarbeitung verwirrende Ergebnisse zeigen!
-
-Die Methode `map()` liefert ebenfalls einen Stream zurück, der durch die
-Anwendung der Methode `R apply(T)` der als Argument übergebenen
-`Function<T,R>` auf jedes Element des Eingabestroms entsteht. Damit
-lassen sich die Elemente des ursprünglichen Streams verändern; für jedes
-Element gibt es im Ergebnis-Stream ebenfalls ein Element (der Typ ändert
-sich, aber nicht die Anzahl der Elemente).
-
-Mit der Methode `filter()` wird ein Stream erzeugt, der alle Objekte des
-Eingabe-Streams enthält, auf denen die Anwendung der Methode
-`boolean test(T)` des Arguments `Predicate<T>` zu `true` evaluiert (der
-Typ und Inhalt der Elemente ändert sich nicht, aber die Anzahl der
-Elemente).
-
-Mit `sorted()` wird ein Stream erzeugt, der die Elemente des
-Eingabe-Streams sortiert (existiert auch mit einem `Comparator<T>` als
-Parameter).
-
-Diese Methoden sind alles **intermediäre** Operationen. Diese arbeiten
-auf einem Stream und erzeugen einen neuen Stream und werden erst dann
-ausgeführt, wenn eine terminale Operation den Stream abschließt.
-
-Dabei sind die gezeigten intermediären Methoden bis auf `sorted()` ohne
-inneren Zustand. `sorted()` ist eine Operation mit innerem Zustand (wird
-für das Sortieren benötigt). Dies kann ordentlich in Speicher und Zeit
-zuschlagen und u.U. nicht/nur schlecht parallelisierbar sein. Betrachten
-Sie den fiktiven parallelen Stream
-`stream.parallel().sorted().skip(42)`: Hier müssen erst *alle* Elemente
-sortiert werden, bevor mit `skip(42)` die ersten 42 Elemente entfernt
-werden. Dies kann auch nicht mehr parallel durchgeführt werden.
-
-Die Methode `forEach()` schließlich ist eine **terminale** Operation,
-die auf jedes Element des Eingabe-Streams die Methode `void accept(T)`
-des übergebenen `Consumer<T>` anwendet. Diese Methode ist eine
-**terminale Operation**, d.h. sie führt zur Auswertung der anderen
-*intermediären* Operationen und schließt den Stream ab.
-
-##### Was tun, wenn eine Methode Streams zurückliefert
-
-Wir konnten vorhin nur die innere Schleife in eine Stream-basierte
-Verarbeitung umbauen. Das Problem ist: Die äußere Schleife würde einen
-Stream liefern (Stream von Studiengängen), auf dem wir die
-`map`-Funktion anwenden müssten und darin dann für jeden Studiengang
-einen (inneren) Stream mit den Studis eines Studiengangs verarbeiten
-müssten.
-
-``` java
-private static long getCountSG(Studiengang sg) {
-    return sg.studis().stream().map(Studi::credits).filter(c -> c > 100).count();
-}
-
-private static long getCountFB2(Fachbereich fb) {
-    long count = 0;
-    for (Studiengang sg : fb.studiengaenge()) {
-        count += getCountSG(sg);
-    }
-    return count;
-}
-```
-
-Dafür ist die Methode `flatMap()` die Lösung. Diese Methode bekommt als
-Argument ein Objekt vom Typ
-`Function<? super T, ? extends Stream<? extends R>>` mit einer Methode
-`Stream<? extends R> apply(T)`. Die Methode `flatMap()` verarbeitet den
-Stream in zwei Schritten:
-
-1.  Mappe über alle Elemente des Eingabe-Streams mit der Funktion. Im
-    Beispiel würde also aus einem `Stream<Studiengang>` jeweils ein
-    `Stream<Stream<Studi>>`, also alle `Studiengang`-Objekte werden
-    durch je ein `Stream<Studi>`-Objekt ersetzt. Wir haben jetzt also
-    einen Stream von `Stream<Studi>`-Objekten, also einen
-    `Stream<Stream<Studi>>`.
-
-2.  "Klopfe den verschachtelten Stream wieder flach", d.h. nimm die
-    einzelnen `Studi`-Objekte aus den `Stream<Studi>`-Objekten und setze
-    diese stattdessen in den Stream. Das Ergebnis ist dann wie gewünscht
-    ein `Stream<Studi>` (Stream mit `Studi`-Objekten).
-
-``` java
-private static long getCountFB3(Fachbereich fb) {
-    return fb.studiengaenge().stream()
-            .flatMap(sg -> sg.studis().stream())
-            .map(Studi::credits)
-            .filter(c -> c > 100)
-            .count();
-}
-```
-
-Zum direkten Vergleich hier noch einmal der ursprüngliche Code mit zwei
-verschachtelten Schleifen und entsprechenden Hilfsvariablen:
-
-``` java
-private static long getCountFB(Fachbereich fb) {
-    long count = 0;
-    for (Studiengang sg : fb.studiengaenge()) {
-        for (Studi s : sg.studis()) {
-            if (s.credits() > 100) count += 1;
-        }
-    }
-    return count;
-}
-```
-
-Während `map` also eine Funktion $f: T \mapsto R$ auf alle Elemente des
-Streams anwendet und so aus einem `stream<T>` einen `stream<R>` erzeugt,
-wendet `flatMap` eine Funktion
-$f: T \mapsto \mathop{\text{stream}}\text{<}R\text{>}$ auf alle Elemente
-des Streams an und packt die Ergebnis-Streams `stream<R>` wieder aus,
-weshalb man im Ergebnis wie bei `map` aus einem `stream<T>` einen
-`stream<R>` erhält.
-
-##### Streams abschließen: Terminale Operationen
-
-``` java
-Stream<String> s = Stream.of("Hello", "World", "foo", "bar", "wuppie");
-
-long count = s.count();
-s.forEach(System.out::println);
-String first = s.findFirst().get();
-Boolean b = s.anyMatch(e -> e.length() > 3);
-
-List<String> s1 = s.collect(Collectors.toList());
-List<String> s2 = s.toList();   // ab Java16
-Set<String> s3 = s.collect(Collectors.toSet());
-List<String> s4 = s.collect(Collectors.toCollection(LinkedList::new));
-```
-
-Streams müssen mit ***einer* terminalen Operation** abgeschlossen
-werden, damit die Verarbeitung tatsächlich angestoßen wird (*lazy
-evaluation*).[^5]
-
-Es gibt viele verschiedene terminale Operationen. Wir haben bereits
-`count()` und `forEach()` gesehen. In der Sitzung zu
-["Optionals"](#id-bb5095c5a37b38bd48ac37be51964fb543342407) werden wir
-noch `findFirst()` näher kennenlernen.
-
-Daneben gibt es beispielsweise noch `allMatch()`, `anyMatch()` und
-`noneMatch()`, die jeweils ein Prädikat testen und einen Boolean
-zurückliefern (matchen alle, mind. eines oder keines der Objekte im
-Stream).
-
-Mit `min()` und `max()` kann man sich das kleinste und das größte
-Element des Streams liefern lassen. Beide Methoden benötigen dazu einen
-`Comparator<T>` als Parameter.
-
-Mit der Methode `collect()` kann man eine der drei Methoden aus
-`Collectors` über den Stream laufen lassen und eine `Collection`
-erzeugen lassen:
-
-1.  `toList()` sammelt die Elemente in ein `List`-Objekt (bzw. direkt
-    mit `stream.toList()` (ab Java16))
-2.  `toSet()` sammelt die Elemente in ein `Set`-Objekt
-3.  `toCollection()` sammelt die Elemente durch Anwendung der Methode
-    `T get()` des übergebenen `Supplier<T>`-Objekts auf
-
-Die ist nur die sprichwörtliche "Spitze des Eisbergs"! Es gibt viele
-weitere Möglichkeiten, sowohl bei den intermediären als auch den
-terminalen Operationen. Schauen Sie in die Dokumentation!
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/streams/Demo.java">Demo: streams.Demo</a></p>
-
-##### Spielregeln
-
--   Operationen dürfen nicht die Stream-Quelle modifizieren
-
--   Operationen können die Werte im Stream ändern (`map`) oder die
-    Anzahl (`filter`)
-
--   Keine Streams in Attributen/Variablen speichern oder als Argumente
-    übergeben: Sie könnten bereits "gebraucht" sein!
-
-    =\> Ein Stream sollte immer sofort nach der Erzeugung benutzt werden
-
--   Operationen auf einem Stream sollten keine Seiteneffekte
-    (Veränderungen von Variablen/Attributen außerhalb des Streams) haben
-    (dies verhindert u.U. die parallele Verarbeitung)
-
-##### Wrap-Up
-
-`Stream<T>`: Folge von Objekten vom Typ `T`, Verarbeitung "lazy"
-(Gegenstück zu `Collection<T>`: Dort werden Daten **gespeichert**, hier
-werden Daten **verarbeitet**)
-
-> [!TIP]
->
-> **Fließband-Metapher**
->
-> Einen Stream kann man sich vielleicht wie ein Fließband in einer
-> Fabrik vorstellen: Die Daten werden auf dem Fließband in eine Richtung
-> transportiert und durchlaufen verschiedene Stationen, wo auf den Daten
-> gearbeitet wird. In manchen Stationen werden Objekte vom Fließband
-> geschubst (Daten herausgefiltert), in manchen Stationen werden die
-> Objekte bearbeitet (Daten verändert), in manchen Stationen werden aus
-> mehreren Teilen neue Objekte gebaut ...
->
-> Es ist nur eine Metapher! Sie endet spätestens damit, dass die Streams
-> *lazy* sind und dass sämtliche Operationen erst dann ausgeführt
-> werden, wenn eine terminale Operation den Stream abschließt.
-
--   Neuen Stream anlegen: `Collection#stream()` oder `Stream.of()` ...
--   Intermediäre Operationen: `peek()`, `map()`, `flatMap()`,
-    `filter()`, `sorted()` ...
--   Terminale Operationen: `count()`, `forEach()`, `allMatch()`,
-    `collect()` ...
-    -   `collect(Collectors.toList())`
-    -   `collect(Collectors.toSet())`
-    -   `collect(Collectors.toCollection())` (mit `Supplier<T>`)
-
-<!-- -->
-
--   Streams speichern keine Daten
--   Intermediäre Operationen laufen erst bei Abschluss des Streams los
--   Terminale Operation führt zur Verarbeitung und Abschluss des Streams
-
-Schöne Doku: ["The Stream API"](https://dev.java/learn/api/streams/),
-und auch ["Package
-java.util.stream"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/package-summary.html).
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Oracle Corporation ([2025](#ref-LernJava))
-> -   Ullenboom ([2021, 17.3--17.6](#ref-Ullenboom2021))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich verstehe, dass Streams die Daten nicht sofort verarbeiten
->     ('lazy' Verarbeitung)
-> -   k2: Ich verstehe, dass ich mit map() den Typ (und Inhalt) von
->     Objekten im Stream, aber nicht die Anzahl verändere
-> -   k2: Ich verstehe, dass ich mit filter() die Anzahl der Objekte im
->     Stream, aber nicht deren Typ (und Inhalt) verändere
-> -   k2: Ich verstehe, warum Streams nicht in Attributen gehalten oder
->     als Parameter herumgereicht werden sollten
-> -   k3: Ich kann einen Stream erzeugen
-> -   k3: Ich kann verschiedene intermediäre Operationen verketten
-> -   k3: Ich kann mit einer terminalen Operation einen Stream
->     abschließen und damit die Berechnung durchführen
-> -   k3: Ich kann flatMap() einsetzen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> Betrachten Sie den folgenden Java-Code:
->
-> ``` java
-> record Cat(int weight){};
->
-> public class Main {
->     public static void main(String... args) {
->         List<Cat> clouder = new ArrayList<>();
->         clouder.add(new Cat(100));  clouder.add(new Cat(1));  clouder.add(new Cat(10));
->
->         sumOverWeight(8, clouder);
->     }
->
->     private static int sumOverWeight(int threshold, List<Cat> cats) {
->         int result = 0;
->         for (Cat c : cats) {
->             int weight = c.weight();
->             if (weight > threshold) {
->                 result += weight;
->             }
->         }
->         return result;
->     }
-> }
-> ```
->
-> Schreiben Sie die Methode `sumOverWeight` unter Beibehaltung der
-> Funktionalität so um, dass statt der `for`-Schleife und der
-> `if`-Abfrage Streams und Stream-Operationen eingesetzt werden. Nutzen
-> Sie passende Lambda-Ausdrücke und nach Möglichkeit Methodenreferenzen.
->
-> Betrachten Sie den folgenden Java-Code:
->
-> ``` java
-> public class Main {
->     public static String getParameterNamesJson(String[] parameterNames) {
->         if (parameterNames.length == 0) {
->             return "[]";
->         }
->
->         StringBuilder sb = new StringBuilder();
->         sb.append("[");
->         for (int i = 0; i < parameterNames.length; i++) {
->             if (i > 0) {
->                 sb.append(", ");
->             }
->             sb.append("\"").append(escapeJson(parameterNames[i])).append("\"");
->         }
->         sb.append("]");
->         return sb.toString();
->     }
->
->     private static String escapeJson(String parameterName) {
->         // does something or another ...
->     }
-> }
-> ```
->
-> Schreiben Sie die Methode `getParameterNamesJson` unter Beibehaltung
-> der Funktionalität so um, dass statt der `for`-Schleife und der
-> `if`-Abfrage Streams und Stream-Operationen eingesetzt werden. Nutzen
-> Sie passende Lambda-Ausdrücke und nach Möglichkeit auch
-> Methodenreferenzen.
->
-> </details>
-
-<a id="id-152ec8405b8a75f125fcbd1f4f3125262de1b614"></a>
-
-#### Record-Klassen
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Häufig schreibt man relativ viel *Boiler Plate Code*, um einfach ein
-> paar Daten plus den Konstruktor und die Zugriffsmethoden zu kapseln.
-> Und selbst wenn die IDE dies zum Teil abnehmen kann - lesen muss man
-> diesen Overhead trotzdem noch.
->
-> Für den Fall von Klassen mit `final` Attributen wurden in Java14 die
-> **Record-Klassen** eingeführt. Statt dem Schlüsselwort `class` wird
-> das neue Schlüsselwort `record` verwendet. Nach dem Klassennamen
-> kommen in runden Klammern die "Komponenten" - eine Auflistung der
-> Parameter für den Standardkonstruktor (Typ, Name). Daraus wird
-> automatisch ein "kanonischer Konstruktor" mit exakt diesen Parametern
-> generiert. Es werden zusätzlich `private final` Attribute generiert
-> für jede Komponente, und diese werden durch den kanonischen
-> Konstruktor gesetzt. Außerdem wird für jedes Attribut automatisch ein
-> Getter mit dem Namen des Attributs generiert (also ohne den Präfix
-> "get").
->
-> Beispiel:
->
-> ``` java
-> public record StudiR(String name, int credits) {}
-> ```
->
-> Der Konstruktor und die Getter können überschrieben werden, es können
-> auch eigene Methoden definiert werden (eigene Konstruktoren *müssen*
-> den kanonischen Konstruktor aufrufen). Es gibt außer den über die
-> Komponenten definierten Attribute keine weiteren Attribute. Da eine
-> Record-Klasse intern von `java.lang.Record` ableitet, kann eine
-> Record-Klasse nicht von weiteren Klassen ableiten (erben). Man kann
-> aber beliebig viele Interfaces implementieren. Record-Klassen sind
-> implizit final, d.h. man nicht von Record-Klassen erben.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Record-Klassen](https://youtu.be/5RMhdCsZL6Y)
-> -   [Demo Record-Klassen](https://youtu.be/jWBAXWH0MUc)
->
-> </details>
-
-##### Motivation; Klasse Studi
-
-``` java
-public class Studi {
-    private final String name;
-    private final int credits;
-
-    public Studi(String name, int credits) {
-        this.name = name;
-        this.credits = credits;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getCredits() {
-        return credits;
-    }
-}
-```
-
-##### Klasse Studi als Record
-
-``` java
-public record StudiR(String name, int credits) {}
-```
-
--   Immutable Klasse mit Feldern `String name` und `int credits` =\>
-    "`(String name, int credits)`" werden "Komponenten" des Records
-    genannt
-
--   Standardkonstruktor setzt diese Felder ("Kanonischer Konstruktor")
-
--   Getter für beide Felder:
-
-    ``` java
-    public String name() { return this.name; }
-    public int credits() { return this.credits; }
-    ```
-
-Record-Klassen wurden in Java14 eingeführt und werden immer wieder in
-neuen Releases erweitert/ergänzt.
-
-Der kanonische Konstruktor hat das Aussehen wie die Record-Deklaration,
-im Beispiel also `public StudiR(String name, int credits)`. Dabei werden
-die Komponenten über eine Kopie der Werte initialisiert.
-
-Für die Komponenten werden automatisch private Attribute mit dem selben
-Namen angelegt.
-
-Für die Komponenten werden automatisch Getter angelegt. Achtung: Die
-Namen entsprechen denen der Komponenten, es fehlt also der übliche
-"get"-Präfix!
-
-##### Eigenschaften und Einschränkungen von Record-Klassen
-
--   Records erweitern implizit die Klasse `java.lang.Record`: Keine
-    andere Klassen mehr erweiterbar! (Interfaces kein Problem)
-
--   Record-Klassen sind implizit final
-
--   Keine weiteren (Instanz-) Attribute definierbar (nur die
-    Komponenten)
-
--   Keine Setter definierbar für die Komponenten: Attribute sind final
-
--   Statische Attribute mit Initialisierung erlaubt
-
-##### Records: Prüfungen im Konstruktor
-
-Der Konstruktor ist erweiterbar:
-
-``` java
-public record StudiS(String name, int credits) {
-    public StudiS(String name, int credits) {
-        if (name == null) { throw new IllegalArgumentException("Name cannot be null!"); }
-        else { this.name = name; }
-
-        if (credits < 0) { this.credits = 0; }
-        else { this.credits = credits; }
-    }
-}
-```
-
-In dieser Form muss man die Attribute selbst setzen.
-
-Alternativ kann man die "kompakte" Form nutzen:
-
-``` java
-public record StudiT(String name, int credits) {
-    public StudiT {
-        if (name == null) { throw new IllegalArgumentException("Name cannot be null!"); }
-
-        if (credits < 0) { credits = 0; }
-    }
-}
-```
-
-In der kompakten Form kann man nur die Werte der Parameter des
-Konstruktors ändern. Das Setzen der Attribute ergänzt der Compiler nach
-dem eigenen Code.
-
-Es sind weitere Konstruktoren definierbar, diese *müssen* den
-kanonischen Konstruktor aufrufen:
-
-``` java
-public StudiT() {
-    this("", 42);
-}
-```
-
-##### Getter und Methoden
-
-Getter werden vom Compiler automatisch generiert. Dabei entsprechen die
-Methoden-Namen den Namen der Attribute:
-
-``` java
-public record StudiR(String name, int credits) {}
-
-public static void main(String... args) {
-    StudiR r = new StudiR("Sabine", 75);
-
-    int x = r.credits();
-    String y = r.name();
-}
-```
-
-Getter überschreibbar und man kann weitere Methoden definieren:
-
-``` java
-public record StudiT(String name, int credits) {
-    public int credits() { return credits + 42; }
-    public void wuppie() { System.out.println("WUPPIE"); }
-}
-```
-
-Die Komponenten/Attribute sind aber `final` und können nicht über
-Methoden geändert werden!
-
-##### Beispiel aus den Challenges
-
-In den Challenges zum Thema Optional gibt es die Klasse `Katze` in den
-[Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/challenges/optional/Katze.java).
-
-Die Katze wurde zunächst "klassisch" modelliert: Es gibt drei
-Eigenschaften `name`, `gewicht`und `lieblingsBox`. Ein Konstruktor setzt
-diese Felder und es gibt drei Getter für die einzelnen Eigenschaften.
-Das braucht 18 Zeilen Code (ohne Kommentare Leerzeilen). Zudem erzeugt
-der Boilerplate-Code relativ viel "visual noise", so dass der
-eigentliche Kern der Klasse schwerer zu erkennen ist.
-
-In einem Refactoring wurde diese Klasse durch eine äquivalente
-Record-Klasse ersetzt, die nur noch 2 Zeilen Code (je nach Code-Style
-auch nur 1 Zeile) benötigt. Gleichzeitig wurde die Les- und Wartbarkeit
-deutlich verbessert.
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_katze.png"  /></p>
-
-##### Wrap-Up
-
--   Records sind immutable Klassen:
-    -   `final` Attribute (entsprechend den Komponenten)
-    -   Kanonischer Konstruktor
-    -   Automatische Getter (Namen wie Komponenten)
--   Konstruktoren und Methoden können ergänzt/überschrieben werden
--   Keine Vererbung von Klassen möglich (kein `extends`)
-
-Schöne Doku: ["Using Record to Model Immutable
-Data"](https://dev.java/learn/using-record-to-model-immutable-data/).
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Oracle Corporation ([2025](#ref-LernJava))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich verstehe, dass Record-Klassen implizit final sind
-> -   k2: Ich weiss, dass Record-Klassen einen kanonischen Konstruktor
->     haben
-> -   k2: Ich verstehe, dass die Attribute in Record-Klassen implizit
->     final sind und automatisch angelegt und über den Konstruktor
->     gesetzt werden
-> -   k2: Ich weiss, dass die Getter in Record-Klassen so benannt sind
->     wie die Namen der Komponenten, also keinen Präfix 'get' haben
-> -   k2: Ich weiss, dass der kanonische Konstruktor ergänzt werden kann
-> -   k2: Ich weiss, dass weitere Methoden definiert werden können
-> -   k2: Ich verstehe, dass Record-Klassen nicht von anderen Klassen
->     erben können, aber Interfaces implementieren können
-> -   k3: Ich kann Record-Klassen praktisch einsetzen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> Betrachen Sie den folgenden Code:
->
-> ``` java
-> public interface Person {
->     String getName();
->     Date getBirthday();
-> }
->
-> public class Student implements Person {
->     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
->
->     private final String name;
->     private final Date birthday;
->
->     public Student(String name, String birthday) throws ParseException {
->         this.name = name;
->         this.birthday = DATE_FORMAT.parse(birthday);
->     }
->
->     public String getName() { return name; }
->     public Date getBirthday() { return birthday; }
-> }
-> ```
->
-> Schreiben Sie die Klasse `Student` in eine Record-Klasse um. Was
-> müssen Sie zusätzlich noch tun, damit die aktuelle API erhalten
-> bleibt?
->
-> </details>
-
-<a id="id-bb5095c5a37b38bd48ac37be51964fb543342407"></a>
-
-#### Optional
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Häufig hat man in Methoden den Fall, dass es keinen Wert gibt, und man
-> liefert dann `null` als "kein Wert vorhanden" zurück. Dies führt dazu,
-> dass die Aufrufer eine entsprechende `null`-Prüfung für die
-> Rückgabewerte durchführen müssen, bevor sie das Ergebnis nutzen
-> können.
->
-> `Optional` schließt elegant den Fall "kein Wert vorhanden" ein: Es
-> kann mit der Methode `Optional.ofNullable()` das Argument in ein
-> Optional verpacken (Argument != `null`) oder ein `Optional.empty()`
-> zurückliefern ("leeres" Optional, wenn Argument == `null`).
->
-> Man kann Optionals prüfen mit `isEmpty()` und `ifPresent()` und dann
-> direkt mit `ifPresent()`, `orElse()` und `orElseThrow()` auf den
-> verpackten Wert zugreifen. Besser ist aber der Zugriff über die
-> Stream-API von `Optional`: `map()`, `filter`, `flatMap()`, ... Dabei
-> gibt es keine terminalen Operationen - es handelt sich ja auch nicht
-> um einen Stream, nur die Optik erinnert daran.
->
-> `Optional` ist vor allem für Rückgabewerte gedacht, die den Fall "kein
-> Wert vorhanden" einschließen sollen. Attribute, Parameter und
-> Sammlungen sollten nicht `Optional`-Referenzen speichern, sondern
-> "richtige" (unverpackte) Werte (und eben zur Not `null`). `Optional`
-> ist kein Ersatz für `null`-Prüfung von Methoden-Parametern (nutzen Sie
-> hier beispielsweise passende Annotationen). `Optional` ist auch kein
-> Ersatz für vernünftiges Exception-Handling im Fall, dass etwas
-> Unerwartetes passiert ist. Liefern Sie **niemals** `null` zurück, wenn
-> der Rückgabetyp der Methode ein `Optional` ist!
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Optional](https://youtu.be/JDG_hUSBfSA)
-> -   [Demo Optional](https://youtu.be/vL2c0iB4uSk)
-> -   [Demo Optional: Beispiel aus der Praxis im
->     PM-Dungeon](https://youtu.be/vyN-vOV9_CU)
->
-> </details>
-
-##### Motivation
-
-``` java
-public class LSF {
-    private Set<Studi> sl;
-
-    public Studi getBestStudi() {
-        if (sl == null) return null;  // Fehler: Es gibt noch keine Sammlung
-
-        Studi best = null;
-        for (Studi s : sl) {
-            if (best == null) best = s;
-            if (best.credits() < s.credits()) best = s;
-        }
-        return best;
-    }
-}
-
-public static void main(String... args) {
-    LSF lsf = new LSF();
-
-    Studi best = lsf.getBestStudi();
-    if (best != null) {
-        String name = best.name();
-        if (name != null) {
-            // mach was mit dem Namen ...
-        }
-    }
-}
-```
-
-###### Problem: `null` wird an (zu) vielen Stellen genutzt
-
--   Es gibt keinen Wert ("not found")
--   Felder wurden (noch) nicht initialisiert
--   Es ist ein Problem oder etwas Unerwartetes aufgetreten
-
-=\> Parameter und Rückgabewerte müssen stets auf `null` geprüft werden
-(oder Annotationen wie `@NotNull` eingesetzt werden ...)
-
-###### Lösung
-
--   `Optional<T>` für Rückgabewerte, die "kein Wert vorhanden" mit
-    einschließen (statt `null` bei Abwesenheit von Werten)
--   `@NotNull`/`@Nullable` für Parameter einsetzen (oder separate
-    Prüfung)
--   Exceptions werfen in Fällen, wo ein Problem aufgetreten ist
-
-###### Anmerkungen
-
--   Verwendung von `null` auf Attribut-Ebene (Klassen-interne
-    Verwendung) ist okay!
--   `Optional<T>` ist **kein** Ersatz für `null`-Checks!
--   `null` ist **kein** Ersatz für vernünftiges Error-Handling! Das
-    häufig zu beobachtende "Irgendwas Unerwartetes ist passiert, hier
-    ist `null`" ist ein **Anti-Pattern**!
-
-###### Beispiel aus der Praxis im PM-Dungeon
-
-Schauen Sie sich einmal das Review zu den `ecs.components.ai.AITools` in
-https://github.com/Dungeon-CampusMinden/Dungeon/pull/128#pullrequestreview-1254025874
-an.
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review1.png" width="80%" /></p>
-
-Die Methode `AITools#calculateNewPath` soll in der Umgebung einer als
-Parameter übergebenen Entität nach einem Feld (`Tile`) suchen, welches
-für die Entität betretbar ist und einen Pfad von der Position der
-Entität zu diesem Feld an den Aufrufer zurückliefern.
-
-Zunächst wird in der Entität nach einer `PositionComponent` und einer
-`VelocityComponent` gesucht. Wenn es (eine) diese(r) Components nicht in
-der Entität gibt, wird der Wert `null` an den Aufrufer von
-`AITools#calculateNewPath` zurückgeliefert. (*Anmerkung*:
-Interessanterweise wird in der Methode nicht mit der `VelocityComponent`
-gearbeitet.)
-
-Dann wird in der `PositionComponent` die Position der Entität im
-aktuellen Level abgerufen. In einer Schleife werden alle Felder im
-gegebenen Radius in eine Liste gespeichert. (*Anmerkung*: Da dies über
-die `float`-Werte passiert und nicht über die Feld-Indizes wird ein
-`Tile` u.U. recht oft in der Liste abgelegt. Können Sie sich hier
-einfache Verbesserungen überlegen?)
-
-Da `level.getTileAt()` offenbar als Antwort auch `null` zurückliefern
-kann, werden nun zunächst per `tiles.removeIf(Objects::isNull);` all
-diese `null`-Werte wieder aus der Liste entfernt. Danach erfolgt die
-Prüfung, ob die verbleibenden Felder betretbar sind und nicht-betretbare
-Felder werden entfernt.
-
-Aus den verbleibenden (betretbaren) Feldern in der Liste wird nun eines
-zufällig ausgewählt und per `level.findPath()` ein Pfad von der Position
-der Entität zu diesem Feld berechnet und zurückgeliefert. (*Anmerkung*:
-Hier wird ein zufälliges Tile in der Liste der umgebenden Felder
-gewählt, von diesem die Koordinaten bestimmt, und dann noch einmal aus
-dem Level das dazugehörige Feld geholt - dabei hatte man die Referenz
-auf das Feld bereits in der Liste. Können Sie sich hier eine einfache
-Verbesserung überlegen?)
-
-Zusammengefasst:
-
--   Die als Parameter `entity` übergebene Referenz darf offenbar *nicht*
-    `null` sein. Die ersten beiden Statements in der Methode rufen auf
-    dieser Referenz Methoden auf, was bei einer `null`-Referenz zu einer
-    `NullPointer`-Exception führen würde. Hier wäre `null` ein
-    Fehlerzustand.
--   `entity.getComponent()` kann offenbar `null` zurückliefern, wenn die
-    gesuchte Component nicht vorhanden ist. Hier wird `null` als "kein
-    Wert vorhanden" genutzt, was dann nachfolgende `null`-Checks
-    notwendig macht.
--   Wenn es die gewünschten Components nicht gibt, wird dem Aufrufer der
-    Methode `null` zurückgeliefert. Hier ist nicht ganz klar, ob das
-    einfach nur "kein Wert vorhanden" ist oder eigentlich ein
-    Fehlerzustand?
--   `level.getTileAt()` kann offenbar `null` zurückliefern, wenn kein
-    Feld an der Position vorhanden ist. Hier wird `null` wieder als
-    "kein Wert vorhanden" genutzt, was dann nachfolgende `null`-Checks
-    notwendig macht (Entfernen aller `null`-Referenzen aus der Liste).
--   `level.findPath()` kann auch wieder `null` zurückliefern, wenn kein
-    Pfad berechnet werden konnte. Hier ist wieder nicht ganz klar, ob
-    das einfach nur "kein Wert vorhanden" ist oder eigentlich ein
-    Fehlerzustand? Man könnte beispielsweise in diesem Fall ein anderes
-    Feld probieren?
-
-Der Aufrufer bekommt also eine `NullPointer`-Exception, wenn der
-übergebene Parameter `entity` nicht vorhanden ist oder den Wert `null`,
-wenn in der Methode etwas schief lief oder schlicht kein Pfad berechnet
-werden konnte oder tatsächlich einen Pfad. Damit wird der Aufrufer
-gezwungen, den Rückgabewert vor der Verwendung zu untersuchen.
-
-**Allein in dieser einen kurzen Methode macht `null` so viele extra
-Prüfungen notwendig und den Code dadurch schwerer lesbar und
-fehleranfälliger! `null` wird als (unvollständige) Initialisierung und
-als Rückgabewert und für den Fehlerfall genutzt, zusätzlich ist die
-Semantik von `null` nicht immer klar.** (*Anmerkung*: Der Gebrauch von
-`null` hat nicht wirklich etwas mit "der Natur eines ECS" zu tun. Die
-Methode wurde mittlerweile komplett überarbeitet und ist in der hier
-gezeigten Form glücklicherweise nicht mehr zu finden.)
-
-Entsprechend hat sich in diesem
-[Review](https://github.com/Dungeon-CampusMinden/Dungeon/pull/128#pullrequestreview-1254025874)
-die nachfolgende Diskussion ergeben:
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review2.png" width="80%" /></p>
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review3.png" width="80%" /></p>
-
-##### Erzeugen von *Optional*-Objekten
-
-Konstruktor ist `private` ...
-
--   "Kein Wert": `Optional.empty()`
--   Verpacken eines non-`null` Elements: `Optional.of()`
-    (`NullPointerException` wenn Argument `null`!)
-
-<!-- -->
-
--   Verpacken eines "unsicheren"/beliebigen Elements:
-    `Optional.ofNullable()`
-    -   Liefert verpacktes Element, oder
-    -   `Optional.empty()`, falls Element `null` war
-
-Es sollte in der Praxis eigentlich nur wenige Fälle geben, wo ein Aufruf
-von `Optional.of()` sinnvoll ist. Ebenso ist `Optional.empty()` nur
-selten sinnvoll.
-
-Stattdessen sollte stets `Optional.ofNullable()` verwendet werden.
-
-**`null` kann nicht nicht in `Optional<T>` verpackt werden!** (Das wäre
-dann eben `Optional.empty()`.)
-
-##### LSF liefert jetzt *Optional* zurück
-
-``` java
-public class LSF {
-    private Set<Studi> sl;
-
-    public Optional<Studi> getBestStudi() throws NullPointerException {
-        // Fehler: Es gibt noch keine Sammlung
-        if (sl == null) throw new NullPointerException("There ain't any collection");
-
-        Studi best = null;
-        for (Studi s : sl) {
-            if (best == null) best = s;
-            if (best.credits() < s.credits()) best = s;
-        }
-
-        // Entweder Optional.empty() (wenn best==null) oder Optional.of(best) sonst
-        return Optional.ofNullable(best);
-    }
-}
-```
-
-Das Beispiel soll verdeutlichen, dass man im Fehlerfall nicht einfach
-`null` oder `Optional.empty()` zurückliefern soll, sondern eine passende
-Exception werfen soll.
-
-Wenn die Liste aber leer ist, stellt dies keinen Fehler dar! Es handelt
-sich um den Fall "kein Wert vorhanden". In diesem Fall wird statt `null`
-nun ein `Optional.empty()` zurückgeliefert, also ein Objekt, auf dem der
-Aufrufer die üblichen Methoden aufrufen kann.
-
-##### Zugriff auf *Optional*-Objekte
-
-In der funktionalen Programmierung gibt es schon lange das Konzept von
-`Optional`, in Haskell ist dies beispielsweise die Monade `Maybe`.
-Allerdings ist die Einbettung in die Sprache von vornherein mit
-berücksichtigt worden, insbesondere kann man hier sehr gut mit *Pattern
-Matching* in der Funktionsdefinition auf den verpackten Inhalt
-reagieren.
-
-In Java gibt es die Methode `Optional#isEmpty()`, die einen Boolean
-zurückliefert und prüft, ob es sich um ein leeres `Optional` handelt
-oder ob hier ein Wert "verpackt" ist.
-
-Für den direkten Zugriff auf die Werte gibt es die Methoden
-`Optional#orElseThrow()` und `Optional#orElse()`. Damit kann man auf den
-verpackten Wert zugreifen, oder es wird eine Exception geworfen bzw. ein
-Ersatzwert geliefert.
-
-Zusätzlich gibt es `Optional#isPresent()`, die als Parameter ein
-`java.util.function.Consumer` erwartet, also ein funktionales Interface
-mit einer Methode `void accept(T)`, die das Objekt verarbeitet.
-
-``` java
-Studi best;
-
-// Testen und dann verwenden
-if (!lsf.getBestStudi().isEmpty()) {
-    best = lsf.getBestStudi().get();
-    // mach was mit dem Studi ...
-}
-
-// Arbeite mit Consumer
-lsf.getBestStudi().ifPresent(studi -> {
-    // mach was mit dem Studi ...
-});
-
-// Studi oder Alternative (wenn Optional.empty())
-best = lsf.getBestStudi().orElse(anne);
-
-// Studi oder NoSuchElementException (wenn Optional.empty())
-best = lsf.getBestStudi().orElseThrow();
-```
-
-Es gibt noch eine Methode `get()`, die so verhält wie `orElseThrow()`.
-Da man diese Methode vom Namen her schnell mit einem Getter verwechselt,
-ist sie mittlerweile *deprecated*.
-
-*Anmerkung*: Da `getBestStudi()` eine `NullPointerException` werfen
-kann, sollte der Aufruf möglicherweise in ein `try/catch` verpackt
-werden. Dito für `orElseThrow()`.
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/optional/traditional/Demo.java">Beispiel: optional.traditional.Demo</a></p>
-
-##### Einsatz mit Stream-API
-
-``` java
-public class LSF {
-    ...
-    public Optional<Studi> getBestStudi() throws NullPointerException {
-        if (sl == null) throw new NullPointerException("There ain't any collection");
-        return sl.stream()
-                 .sorted((s1, s2) -> s2.credits() - s1.credits())
-                 .findFirst();
-    }
-}
-
-
-public static void main(String... args) {
-    ...
-    String name = lsf.getBestStudi()
-                     .map(Studi::name)
-                     .orElseThrow();
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/optional/streams/Demo.java">Beispiel: optional.streams.Demo</a></p>
-
-Im Beispiel wird in `getBestStudi()` die Sammlung als Stream betrachtet,
-über die Methode `sorted()` und den Lamda-Ausdruck für den `Comparator`
-sortiert ("falsch" herum: absteigend in den Credits der Studis in der
-Sammlung), und `findFirst()` ist die terminale Operation auf dem Stream,
-die ein `Optional<Studi>` zurückliefert: entweder den Studi mit den
-meisten Credits (verpackt in `Optional<Studi>`) oder `Optional.empty()`,
-wenn es überhaupt keine Studis in der Sammlung gab.
-
-In `main()` wird dieses `Optional<Studi>` mit den Stream-Methoden von
-`Optional<T>` bearbeitet, zunächst mit `Optional#map()`. Man braucht
-nicht selbst prüfen, ob das von `getBestStudi()` erhaltene Objekt leer
-ist oder nicht, da dies von `Optional#map()` erledigt wird: Es wendet
-die Methodenreferenz auf den verpackten Wert an (sofern dieser vorhanden
-ist) und liefert damit den Namen des Studis als `Optional<String>`
-verpackt zurück. Wenn es keinen Wert, also nur `Optional.empty()` von
-`getBestStudi()` gab, dann ist der Rückgabewert von `Optional#map()` ein
-`Optional.empty()`. Wenn der Name, also der Rückgabewert von
-`Studi::name`, `null` war, dann wird ebenfalls ein `Optional.empty()`
-zurückgeliefert. Dadurch wirft `orElseThrow()` dann eine
-`NoSuchElementException`. Man kann also direkt mit dem String `name`
-weiterarbeiten ohne extra `null`-Prüfung - allerdings will man noch ein
-Exception-Handling einbauen (dies fehlt im obigen Beispiel aus Gründen
-der Übersicht) ...
-
-##### Weitere *Optionals*
-
-Für die drei primitiven Datentypen `int`, `long` und `double` gibt es
-passende Wrapper-Klassen von `Optional<T>`: `OptionalInt`,
-`OptionalLong` und `OptionalDouble`.
-
-Diese verhalten sich analog zu `Optional<T>`, haben aber keine Methode
-`ofNullable()`, da dies hier keinen Sinn ergeben würde: Die drei
-primitiven Datentypen repräsentieren Werte - diese können nicht `null`
-sein.
-
-##### Regeln für *Optional*
-
-1.  Nutze `Optional` nur als Rückgabe für "kein Wert vorhanden"
-
-    `Optional` ist nicht als Ersatz für eine `null`-Prüfung o.ä.
-    gedacht, sondern als Repräsentation, um auch ein "kein Wert
-    vorhanden" zurückliefern zu können.
-
-<!-- -->
-
-2.  Nutze nie `null` für eine `Optional`-Variable oder einen
-    `Optional`-Rückgabewert
-
-    Wenn man ein `Optional` als Rückgabe bekommt, sollte das niemals
-    selbst eine `null`-Referenz sein. Das macht das gesamte Konzept
-    kaputt!
-
-    Nutzen Sie stattdessen `Optional.empty()`.
-
-3.  Nutze `Optional.ofNullable()` zum Erzeugen eines `Optional`
-
-    Diese Methode verhält sich "freundlich" und erzeugt automatisch ein
-    `Optional.empty()`, wenn das Argument `null` ist. Es gibt also
-    keinen Grund, dies mit einer Fallunterscheidung selbst erledigen zu
-    wollen.
-
-    Bevorzugen Sie `Optional.ofNullable()` vor einer manuellen
-    Fallunterscheidung und dem entsprechenden Einsatz von
-    `Optional.of()` und `Optional.empty()`.
-
-4.  Erzeuge keine `Optional` als Ersatz für die Prüfung auf `null`
-
-    Wenn Sie auf `null` prüfen müssen, müssen Sie auf `null` prüfen. Der
-    ersatzweise Einsatz von `Optional` macht es nur komplexer - prüfen
-    müssen Sie hinterher ja immer noch.
-
-5.  Nutze `Optional` nicht in Attributen, Methoden-Parametern und
-    Sammlungen
-
-    Nutzen Sie `Optional` vor allem für Rückgabewerte.
-
-    Attribute sollten immer direkt einen Wert haben oder `null`, analog
-    Parameter von Methoden o.ä. ... Hier hilft `Optional` nicht, Sie
-    müssten ja trotzdem eine `null`-Prüfung machen, nur eben dann über
-    den `Optional`, wodurch dies komplexer und schlechter lesbar wird.
-
-    Aus einem ähnlichen Grund sollten Sie auch in Sammlungen keine
-    `Optional` speichern!
-
-6.  Vermeide den direkten Zugriff (`ifPresent()`, `orElseThrow()` ...)
-
-    Der direkte Zugriff auf ein `Optional` entspricht dem Prüfen auf
-    `null` und dann dem Auspacken. Dies ist nicht nur Overhead, sondern
-    auch schlechter lesbar.
-
-    Vermeiden Sie den direkten Zugriff und nutzen Sie `Optional` mit den
-    Stream-Methoden. So ist dies von den Designern gedacht.
-
-##### Interessante Links
-
--   ["Using Optionals"](https://dev.java/learn/api/streams/optionals/)
--   ["What You Might Not Know About
-    Optional"](https://medium.com/javarevisited/what-you-might-not-know-about-optional-7238e3c05f63)
--   ["Experienced Developers Use These 7 Java Optional Tips to Remove
-    Code
-    Clutter"](https://medium.com/javarevisited/experienced-developers-use-these-7-java-optional-tips-to-remove-code-clutter-6e8b1a639861)
--   ["Code Smells:
-    Null"](https://blog.jetbrains.com/idea/2017/08/code-smells-null/)
--   ["Class
-    Optional"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html)
-
-##### Wrap-Up
-
-`Optional` als Rückgabe für "kein Wert vorhanden"
-
--   `Optional.ofNullable()`: Erzeugen eines `Optional`
-    -   Entweder Objekt "verpackt" (Argument != `null`)
-    -   Oder `Optional.empty()` (Argument == `null`)
--   Prüfen mit `isEmpty()` und `ifPresent()`
--   Direkter Zugriff mit `ifPresent()`, `orElse()` und `orElseThrow()`
--   Stream-API: `map()`, `filter()`, `flatMap()`, ...
-
-<!-- -->
-
--   Attribute, Parameter und Sammlungen: nicht `Optional` nutzen
--   Kein Ersatz für `null`-Prüfung!
-
-Schöne Doku: ["Using
-Optionals"](https://dev.java/learn/api/streams/optionals/).
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Oracle Corporation ([2025](#ref-LernJava))
-> -   Ullenboom ([2021, 12.6](#ref-Ullenboom2021))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kann erklären, warum Optionals vor allem für Rückgabewerte
->     gedacht sind
-> -   k2: Ich kann erklären, warum kein null zurückgeliefert werden
->     darf, wenn der Rückgabetyp ein Optional\<T\> ist
-> -   k3: Ich kann (ggf. leere) Optionals mit Optional.ofNullable()
->     erzeugen
-> -   k3: Ich kann auf Optionals klassisch über die direkten
->     Hilfsmethoden der Klasse zugreifen
-> -   k3: Ich kann auf Optionals elegant per Stream-API zugreifen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> **Optional und Stream-API**
->
-> 1.  Erklären Sie den folgenden Code-Schnipsel aus dem
->     [Dungeon](https://github.com/Dungeon-CampusMinden/Dungeon/pull/1831):
->
->     ``` java
->     Skill fireball =
->         new Skill(
->             new FireballSkill(
->                 () ->
->                     hero.fetch(CollideComponent.class)
->                         .map(cc -> cc
->                                     .center(hero)
->                                     .add(viewDirection.toPoint()))
->                         .orElseThrow(
->                             () -> MissingComponentException.build(
->                                     hero,
->                                     CollideComponent.class)),
->                 FIREBALL_RANGE,
->                 FIREBALL_SPEED,
->                 FIREBALL_DMG),
->             1);
->     ```
->
->     Hinweise:
->
->     -   `Entity#fetch`:
->         `<T extends Component> Optional<T> fetch(final Class<T> klass)`
->     -   `CollideComponent#center`: `Point center(final Entity entity)`
->     -   `Point#add`: `Point add(final Point other)`
->
-> 2.  Was würde sich ändern, wenn statt `map` ein `flatMap` verwendet
->     würde? Wie ist das bei richtigen Streams?
->
-> 3.  Was passiert im folgenden Beispiel? Warum funktioniert das auch
->     ohne terminale Stream-Operation?
->
->     ``` java
->     Game.hero()
->         .flatMap(e -> e.fetch(AmmunitionComponent.class))
->         .map(AmmunitionComponent::resetCurrentAmmunition);
->     ```
->
->     Hinweis: `Game.hero()`: `static Optional<Entity> hero()`.
->
-> 4.  Können Sie die beiden obigen Beispiele in "klassischer"
->     Schreibweise umformulieren?
->
-> **String-Handling**
->
-> Können Sie den folgenden Code so umschreiben, dass Sie statt der
-> `if`-Abfragen und der einzelnen direkten Methodenaufrufe die
-> Stream-API und `Optional<T>` nutzen?
->
-> ``` java
-> String format(final String text, String replacement) {
->     if (text.isEmpty()) {
->         return "";
->     }
->
->     final String trimmed = text.trim();
->     final String withSpacesReplaced = trimmed.replaceAll(" +", replacement);
->
->     return replacement + withSpacesReplaced + replacement;
-> }
-> ```
->
-> Ein Aufruf `format(" Hello World ... ", "_");` liefert den String
-> "`_Hello_World_..._`".
->
-> </details>
-
-<a id="id-83d9242997f09b086df2b42d7c636f083f0ab02e"></a>
-
-#### Interfaces: Default-Methoden
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Seit Java8 können Methoden in Interfaces auch fertig implementiert
-> sein: Sogenannte **Default-Methoden**.
->
-> Dazu werden die Methoden mit dem neuen Schlüsselwort `default`
-> gekennzeichnet. Die Implementierung wird an die das Interface
-> implementierenden Klassen (oder Interfaces) vererbt und kann bei
-> Bedarf überschrieben werden.
->
-> Da eine Klasse von einer anderen Klasse erben darf, aber mehrere
-> Interfaces implementieren kann, könnte es zu einer Mehrfachvererbung
-> einer Methode kommen: Eine Methode könnte beispielsweise in
-> verschiedenen Interfaces als Default-Methode angeboten werden, und
-> wenn eine Klasse diese Interfaces implementiert, steht eine Methode
-> mit der selben Signatur auf einmal mehrfach zur Verfügung. Dies muss
-> (u.U. manuell) aufgelöst werden.
->
-> Auflösung von Mehrfachvererbung:
->
-> -   Regel 1: Klassen gewinnen
-> -   Regel 2: Sub-Interfaces gewinnen
-> -   Regel 3: Methode explizit auswählen
->
-> Aktuell ist der Unterschied zu abstrakten Klassen: Interfaces können
-> **keinen Zustand** haben, d.h. keine Attribute/Felder.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Default-Methoden](https://youtu.be/qQ8BPkL9X5o)
-> -   [Demo Regel 1](https://youtu.be/gm6ttKlAEJc)
-> -   [Demo Regel 2](https://youtu.be/3j9i7iMVmMM)
-> -   [Demo Regel 3](https://youtu.be/J3gJnwz8Rf0)
->
-> </details>
-
-##### Problem: Etablierte API (Interfaces) erweitern
-
-``` java
-interface Klausur {
-    void anmelden(Studi s);
-    void abmelden(Studi s);
-}
-```
-
-=\> Nachträglich noch `void schreiben(Studi s);` ergänzen?
-
-Wenn ein Interface nachträglich erweitert wird, müssen alle Kunden (also
-alle Klassen, die das Interface implementieren) auf die neuen Signaturen
-angepasst werden. Dies kann viel Aufwand verursachen und API-Änderungen
-damit unmöglich machen.
-
-##### Default-Methoden: Interfaces mit Implementierung
-
-Seit Java8 können Interfaces auch Methoden implementieren. Es gibt zwei
-Varianten: Default-Methoden und statische Methoden.
-
-``` java
-interface Klausur {
-    void anmelden(Studi s);
-    void abmelden(Studi s);
-
-    default void schreiben(Studi s) {
-        ...     // Default-Implementierung
-    }
-
-    default void wuppie() {
-        throw new java.lang.UnsupportedOperationException();
-    }
-}
-```
-
-Methoden können in Interfaces seit Java8 implementiert werden. Für
-Default-Methoden muss das Schlüsselwort `default` vor die Signatur
-gesetzt werden. Klassen, die das Interface implementieren, können diese
-Default-Implementierung erben oder selbst neu implementieren
-(überschreiben). Alternativ kann die Klasse eine Default-Methode neu
-*deklarieren* und wird damit zur abstrakten Klasse.
-
-Dies ähnelt abstrakten Klassen. Allerdings kann in abstrakten Klassen
-neben dem Verhalten (implementierten Methoden) auch Zustand über die
-Attribute gespeichert werden.
-
-##### Problem: Mehrfachvererbung
-
-Drei Regeln zum Auflösen bei Konflikten:
-
-1.  **Klassen gewinnen**: Methoden aus Klasse oder Superklasse haben
-    höhere Priorität als Default-Methoden
-2.  **Sub-Interfaces gewinnen**: Methode aus am meisten spezialisiertem
-    Interface mit Default-Methode wird gewählt Beispiel: Wenn
-    `B extends A` dann ist `B` spezialisierter als `A`
-3.  Sonst: Klasse muss **Methode explizit auswählen**: Methode
-    überschreiben und gewünschte (geerbte) Variante aufrufen:
-    `X.super.m(...)` (`X` ist das gewünschte Interface)
-
-Auf den folgenden Folien wird dies anhand kleiner Beispiele
-verdeutlicht.
-
-##### Auflösung Mehrfachvererbung: 1. Klassen gewinnen
-
-``` java
-interface A {
-    default String hello() { return "A"; }
-}
-class C {
-    public String hello() { return "C"; }
-}
-class E extends C implements A {}
-
-
-/** Mehrfachvererbung: 1. Klassen gewinnen */
-public class DefaultTest1 {
-    public static void main(String... args) {
-        String e = new E().hello();
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/defaultmethods/rule1/DefaultTest1.java">Demo: defaultmethods.rule1.DefaultTest1</a></p>
-
-Die Klasse `E` erbt sowohl von Klasse `C` als auch vom Interface `A` die
-Methode `hello()` (Mehrfachvererbung). In diesem Fall "gewinnt" die
-Implementierung aus Klasse `C`.
-
-**1. Regel**: Klassen gewinnen immer. Deklarationen einer Methode in
-einer Klasse oder einer Oberklasse haben Vorrang von allen
-Default-Methoden.
-
-##### Auflösung Mehrfachvererbung: 2. Sub-Interfaces gewinnen
-
-``` java
-interface A {
-    default String hello() { return "A"; }
-}
-interface B extends A {
-    @Override default String hello() { return "B"; }
-}
-class D implements A, B {}
-
-
-/** Mehrfachvererbung: 2. Sub-Interfaces gewinnen */
-public class DefaultTest2 {
-    public static void main(String... args) {
-        String e = new D().hello();
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/defaultmethods/rule2/DefaultTest2.java">Demo: defaultmethods.rule2.DefaultTest2</a></p>
-
-Die Klasse `D` erbt sowohl vom Interface `A` als auch vom Interface `B`
-die Methode `hello()` (Mehrfachvererbung). In diesem Fall "gewinnt" die
-Implementierung aus Klasse `B`: Interface `B` ist spezialisierter als
-`A`.
-
-**2. Regel**: Falls Regel 1 nicht zutrifft, gewinnt die Default-Methode,
-die am meisten spezialisiert ist.
-
-##### Auflösung Mehrfachvererbung: 3. Methode explizit auswählen
-
-``` java
-interface A {
-    default String hello() { return "A"; }
-}
-interface B {
-    default String hello() { return "B"; }
-}
-class D implements A, B {
-    @Override public String hello() { return A.super.hello(); }
-}
-
-
-/** Mehrfachvererbung: 3. Methode explizit auswählen */
-public class DefaultTest3 {
-    public static void main(String... args) {
-        String e = new D().hello();
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/defaultmethods/rule3/DefaultTest3.java">Demo: defaultmethods.rule3.DefaultTest3</a></p>
-
-Die Klasse `D` erbt sowohl vom Interface `A` als auch vom Interface `B`
-die Methode `hello()` (Mehrfachvererbung). In diesem Fall *muss* zur
-Auflösung die Methode in `D` neu implementiert werden und die gewünschte
-geerbte Methode explizit aufgerufen werden. (Wenn dies unterlassen wird,
-führt das selbst bei Nicht-Nutzung der Methode `hello()` zu einem
-Compiler-Fehler!)
-
-*Achtung*: Der Aufruf der Default-Methode aus Interface `A` erfolgt mit
-`A.super.hello();` (nicht einfach durch `A.hello();`)!
-
-**3. Regel**: Falls weder Regel 1 noch 2 zutreffen bzw. die Auflösung
-noch uneindeutig ist, muss man manuell durch die explizite Angabe der
-gewünschten Methode auflösen.
-
-##### Quiz: Was kommt hier raus?
-
-``` java
-interface A {
-    default String hello() { return "A"; }
-}
-interface B extends A {
-    @Override default String hello() { return "B"; }
-}
-class C implements B {
-    @Override public String hello() { return "C"; }
-}
-class D extends C implements A, B {}
-
-
-/** Quiz Mehrfachvererbung */
-public class DefaultTest {
-    public static void main(String... args) {
-        String e = new D().hello(); // ???
-    }
-}
-```
-
-Die Klasse `D` erbt sowohl von Klasse `C` als auch von den Interfaces
-`A` und `B` die Methode `hello()` (Mehrfachvererbung). In diesem Fall
-"gewinnt" die Implementierung aus Klasse `C`: Klassen gewinnen immer
-(Regel 1).
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/defaultmethods/quiz/DefaultTest.java">Beispiel: defaultmethods.quiz.DefaultTest</a></p>
-
-##### Statische Methoden in Interfaces
-
-``` java
-public interface Collection<E> extends Iterable<E> {
-    boolean add(E e);
-    ...
-}
-public class Collections {
-    private Collections() { }
-    public static <T> boolean addAll(Collection<? super T> c, T... elements) {...}
-    ...
-}
-```
-
-Typisches Pattern in Java: Interface plus Utility-Klasse
-(Companion-Klasse) mit statischen Hilfsmethoden zum einfacheren Umgang
-mit Instanzen des Interfaces (mit Objekten, deren Klasse das Interface
-implementiert). Beispiel: `Collections` ist eine Hilfs-Klasse zum Umgang
-mit `Collection`-Objekten.
-
-Seit Java8 können in Interfaces neben Default-Methoden auch statische
-Methoden implementiert werden.
-
-Die Hilfsmethoden können jetzt ins Interface wandern =\> Utility-Klassen
-werden obsolet ... Aus Kompatibilitätsgründen würde man die bisherige
-Companion-Klasse weiterhin anbieten, wobei die Implementierungen auf die
-statischen Methoden im Interface verweisen (*SKIZZE, nicht real!*):
-
-``` java
-public interface CollectionX<E> extends Iterable<E> {
-    boolean add(E e);
-    static <T> boolean addAll(CollectionX<? super T> c, T... elements) { ... }
-    ...
-}
-public class CollectionsX {
-    public static <T> boolean addAll(CollectionX<? super T> c, T... elements) {
-        return CollectionX.addAll(c, elements);  // Verweis auf Interface
-    }
-    ...
-}
-```
-
-##### Interfaces vs. Abstrakte Klassen
-
--   **Abstrakte Klassen**: Schnittstelle und Verhalten und Zustand
-
--   **Interfaces**:
-
-    -   vor Java 8 nur Schnittstelle
-    -   ab Java 8 Schnittstelle und Verhalten
-
-    Unterschied zu abstrakten Klassen: Kein Zustand, d.h. keine
-    Attribute
-
-<!-- -->
-
--   Design:
-    -   Interfaces sind beinahe wie abstrakte Klassen, nur ohne Zustand
-    -   Klassen können nur von **einer** (abstrakten) Klasse erben, aber
-        **viele** Interfaces implementieren
-
-##### Wrap-Up
-
-Seit Java8: Interfaces mit Implementierung: **Default-Methoden**
-
--   Methoden mit dem Schlüsselwort `default` können Implementierung im
-    Interface haben
--   Die Implementierung wird vererbt und kann bei Bedarf überschrieben
-    werden
--   Auflösung von Mehrfachvererbung:
-    -   Regel 1: Klassen gewinnen
-    -   Regel 2: Sub-Interfaces gewinnen
-    -   Regel 3: Methode explizit auswählen
--   Unterschied zu abstrakten Klassen: **Kein Zustand**
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Urma u. a. ([2014, Kap. 9](#ref-Urma2014))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich weiss, dass in Interfaces Default-Methoden erstellt werden
->     können
-> -   k2: Ich kann den Unterschied zwischen Interfaces mit
->     Default-Methoden und abstrakten Klassen erklären
-> -   k2: Ich verstehe das Problem der Mehrfachvererbung bei Interfaces
->     mit Default-Methoden
-> -   k3: Ich kann Interfaces mit Default-Methoden erstellen und
->     einsetzen
-> -   k3: Ich habe die Regeln zum Auflösen der Mehrfachvererbung
->     verstanden und kann sie in der Praxis nutzen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> Erklären Sie die Code-Schnipsel in der
-> [Vorgabe](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-modern/src/challenges/defaults)
-> und die jeweils entstehenden Ausgaben.
->
-> </details>
-
-<a id="id-9fcb175dfd46abc9a760964ebebed64408b716a5"></a>
+<a id="id-8466c0533e314f65c225c390810ef11f16aa2565"></a>
 
 ### Bauen von Programmen, Automatisierung, Continuous Integration
 
-<a id="id-879896721406ac776eca71435136f613a3f6c9d9"></a>
+<a id="id-c42edd667de90d402db4f28d772ca1c16114eede"></a>
 
 #### Build-Systeme: Gradle
 
@@ -5209,6 +2131,7 @@ Seit Java8: Interfaces mit Implementierung: **Default-Methoden**
 > `java`, welches weitere Java-spezifische Tasks wie `classes`
 > mitbringt, oder das Plugin `checkstyle` zum Überprüfen von
 > Coding-Style-Richtlinien.
+>
 > </details>
 
 > [!TIP]
@@ -5717,9 +2640,67 @@ Wrappers einem fest installierten Gradle vorzuziehen!
 > welche Aufgaben diese Abschnitte jeweils erfüllen. Gehen Sie dabei im
 > *Detail* auf das Plugin `java` und die dort bereitgestellten Tasks und
 > deren Abhängigkeiten untereinander ein.
+>
 > </details>
 
-<a id="id-4db9ebc86d71df5cc33864e90b54d42c472fdaec"></a>
+<a id="id-5d06aa5bc58d232729f3c1717091eb57e22f4062"></a>
+
+#### Java: Packages
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> TODO
+>
+> </details>
+
+##### Packages
+
+TODO
+
+##### Wrap-Up
+
+TODO
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kann den Einsatz von Packages in Java erklären
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> TODO
+>
+> </details>
+
+<a id="id-c2fc86abf650579f63e535ec42726e2c66f4af6f"></a>
 
 #### Continuous Integration (CI)
 
@@ -5758,6 +2739,7 @@ Wrappers einem fest installierten Gradle vorzuziehen!
 > Build-Tools. "CI" tritt üblicherweise zusammen mit "CD" (Continuous
 > Delivery) auf, also als "CI/CD". Der "CD"-Teil ist nicht Gegenstand
 > der Betrachtung in dieser Lehrveranstaltung.
+>
 > </details>
 
 > [!TIP]
@@ -5797,7 +2779,7 @@ Wrappers einem fest installierten Gradle vorzuziehen!
 
 ##### Continuous Integration (CI)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/ci.png" width="60%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci.png" width="60%" /></p>
 
 ###### Vorgehen
 
@@ -5837,7 +2819,7 @@ CI/CD"](http://git03-ifm-min.ad.hsbi.de/help/ci/quick_start/index.md).
 
 ###### Übersicht über Pipelines
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/screenshot-gitlabci-pipelines.png" width="70%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-pipelines.png" width="70%" /></p>
 
 -   In Spalte "Status" sieht man das Ergebnis der einzelnen Pipelines:
     "pending" (die Pipeline läuft gerade), "cancelled" (Pipeline wurde
@@ -5853,14 +2835,14 @@ mehr bzw. kann auf eine Seite mit mehr Informationen kommen.
 
 ###### Detailansicht einer Pipeline
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/screenshot-gitlabci-triggeredpipeline.png" width="70%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-triggeredpipeline.png" width="70%" /></p>
 
 Wenn man in eine Pipeline in der Übersicht klickt, werden die einzelnen
 Stages dieser Pipeline genauer dargestellt.
 
 ###### Detailansicht eines Jobs
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/screenshot-gitlabci-job.png" width="70%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-job.png" width="70%" /></p>
 
 Wenn man in einen Job einer Stage klickt, bekommt man quasi die
 Konsolenausgabe dieses Jobs. Hier kann man ggf. Fehler beim Ausführen
@@ -5980,7 +2962,7 @@ CI/CD explained"](https://resources.github.com/ci-cd/).
 
 ###### Übersicht über Workflows
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/screenshot-githubci-workflows.png" width="70%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-workflows.png" width="70%" /></p>
 
 Hier sieht man das Ergebnis der letzten Workflows. Dazu sieht man den
 Commit und den Branch, auf dem der Workflow gelaufen ist sowie wann er
@@ -5992,7 +2974,7 @@ der aktuell noch läuft.
 
 ###### Detailansicht eines Workflows
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/screenshot-githubci-triggeredworkflow.png" width="70%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-triggeredworkflow.png" width="70%" /></p>
 
 Wenn man in einen Workflow in der Übersicht anklickt, werden die
 einzelnen Jobs dieses Workflows genauer dargestellt. "job3" ist
@@ -6001,7 +2983,7 @@ ab, d.h. kann erst nach dem erfolgreichen Lauf von "job2" starten.
 
 ###### Detailansicht eines Jobs
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/screenshot-githubci-job.png" width="70%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-job.png" width="70%" /></p>
 
 Wenn man in einen Job anklickt, bekommt man quasi die Konsolenausgabe
 dieses Jobs. Hier kann man ggf. Fehler beim Ausführen der einzelnen
@@ -6120,17 +3102,17 @@ Im Browser in den Repo-Einstellungen arbeiten:
 1.  Unter `Settings > Actions > General > Actions permissions` die
     Actions aktivieren (Auswahl, welche Actions erlaubt sind)
 
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/screenshot_github_settings_actions.png" width="70%" /></p>
+    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_actions.png" width="70%" /></p>
 
 2.  Unter `Settings > Actions > General > Workflow permissions` ggf.
     bestimmen, ob die Actions das Repo nur lesen dürfen oder auch
     zusätzlich schreiben dürfen
 
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/screenshot_github_settings_permissions.png" width="70%" /></p>
+    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_permissions.png" width="70%" /></p>
 
 3.  Unter `Actions > <WORKFLOW>` den Workflow ggf. deaktivieren:
 
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/screenshot_github_actions.png" width="70%" /></p>
+    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_actions.png" width="70%" /></p>
 
 ##### Wrap-Up
 
@@ -6181,7 +3163,412 @@ Im Browser in den Repo-Einstellungen arbeiten:
 >
 > </details>
 
-<a id="id-6cb84000fb9df777e413acabff7c4f83fd52fa7a"></a>
+<a id="id-83d8235fd174219b3470528d945d3dd848c55ad3"></a>
+
+#### ANTLR
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> TODO
+>
+> </details>
+
+##### Packages
+
+TODO
+
+##### Wrap-Up
+
+TODO
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kann den Einsatz von Packages in Java erklären
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> TODO
+>
+> </details>
+
+<a id="id-18ea2eadf0eb0b480224748543248ff96deb79cb"></a>
+
+#### Debugging
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> TODO
+>
+> </details>
+
+##### Packages
+
+TODO
+
+##### Wrap-Up
+
+TODO
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kann den Einsatz von Packages in Java erklären
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> TODO
+>
+> </details>
+
+<a id="id-1ece2948a94e81007ac7bc47b446f7427b6014f3"></a>
+
+#### Logging
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Im Paket `java.util.logging` findet sich eine einfache Logging-API.
+>
+> Über die Methode `getLogger()` der Klasse `Logger`
+> (*Factory-Method-Pattern*) kann ein (neuer) Logger erzeugt werden,
+> dabei wird über den String-Parameter eine Logger-Hierarchie aufgebaut
+> analog zu den Java-Package-Strukturen. Der oberste Logger (der
+> "Root-Logger") hat den leeren Namen.
+>
+> Jeder Logger kann mit einem Log-Level (Klasse `Level`) eingestellt
+> werden; Log-Meldungen unterhalb des eingestellten Levels werden
+> verworfen.
+>
+> Vom Logger nicht verworfene Log-Meldungen werden an den bzw. die
+> Handler des Loggers und (per Default) an den Eltern-Logger weiter
+> gereicht. Die Handler haben ebenfalls ein einstellbares Log-Level und
+> verwerfen alle Nachrichten unterhalb der eingestellten Schwelle. Zur
+> tatsächlichen Ausgabe gibt man einem Handler noch einen Formatter mit.
+> Defaultmäßig hat nur der Root-Logger einen Handler.
+>
+> Der Root-Logger (leerer String als Name) hat als Default-Level (wie
+> auch sein Console-Handler) "`Info`" eingestellt.
+>
+> Nachrichten, die durch Weiterleitung nach oben empfangen wurden,
+> werden nicht am Log-Level des empfangenden Loggers gemessen, sondern
+> akzeptiert und an die Handler des Loggers und (sofern nicht
+> deaktiviert) an den Elternlogger weitergereicht.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Logging](https://youtu.be/_jYWJzr1rkA)
+> -   [Demo Logging (Überblick)](https://youtu.be/fWSc5A_CPL8)
+> -   [Demo Log-Level](https://youtu.be/0UUVQCVYNHo)
+> -   [Demo Logging: Handler und
+>     Formatter](https://youtu.be/dYOYA99EfrY)
+> -   [Demo Weiterleitung an den
+>     Elternlogger](https://youtu.be/19Bki4IglWQ)
+>
+> </details>
+
+##### Wie prüfen Sie die Werte von Variablen/Objekten?
+
+1.  Debugging
+    -   Beeinflusst Code nicht
+    -   Kann schnell komplex und umständlich werden
+    -   Sitzung transient - nicht wiederholbar
+
+<!-- -->
+
+2.  "Poor-man's-debugging" (Ausgaben mit `System.out.println`)
+    -   Müssen irgendwann entfernt werden
+    -   Ausgabe nur auf einem Kanal (Konsole)
+    -   Keine Filterung nach Problemgrad - keine Unterscheidung zwischen
+        Warnungen, einfachen Informationen, ...
+
+<!-- -->
+
+3.  **Logging**
+    -   Verschiedene (Java-) Frameworks: `java.util.logging` (JDK),
+        *log4j* (Apache), *SLF4J*, *Logback*, ...
+
+##### Java Logging API - Überblick
+
+Paket `java.util.logging`
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/logging.png" width="65%" /></p>
+
+Eine Applikation kann verschiedene Logger instanziieren. Die Logger
+bauen per Namenskonvention hierarchisch aufeinander auf. Jeder Logger
+kann selbst mehrere Handler haben, die eine Log-Nachricht letztlich auf
+eine bestimmte Art und Weise an die Außenwelt weitergeben.
+
+Log-Meldungen werden einem Level zugeordnet. Jeder Logger und Handler
+hat ein Mindest-Level eingestellt, d.h. Nachrichten mit einem kleineren
+Level werden verworfen.
+
+Zusätzlich gibt es noch Filter, mit denen man Nachrichten (zusätzlich
+zum Log-Level) nach weiteren Kriterien filtern kann.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/tooling/src/logging/LoggingDemo.java">Konsole: logging.LoggingDemo</a></p>
+
+##### Erzeugen neuer Logger
+
+``` java
+import java.util.logging.Logger;
+Logger l = Logger.getLogger(MyClass.class.getName());
+```
+
+-   **Factory-Methode** der Klasse `java.util.logging.Logger`
+
+    ``` java
+    public static Logger getLogger(String name);
+    ```
+
+    =\> Methode liefert bereits **vorhandenen Logger** mit diesem Namen
+    (sonst neuen Logger)
+
+-   **Best Practice**: Nutzung des voll-qualifizierten Klassennamen:
+    `MyClass.class.getName()`
+
+    -   Leicht zu implementieren
+    -   Leicht zu erklären
+    -   Spiegelt modulares Design
+    -   Ausgaben enthalten automatisch Hinweis auf Herkunft (Lokalität)
+        der Meldung
+    -   **Alternativen**: Funktionale Namen wie "XML", "DB", "Security"
+
+##### Ausgabe von Logmeldungen
+
+``` java
+public void log(Level level, String msg);
+```
+
+-   Diverse Convenience-Methoden (Auswahl):
+
+    ``` java
+    public void warning(String msg)
+    public void info(String msg)
+    public void entering(String srcClass, String srcMethod)
+    public void exiting(String srcClass, String srcMethod)
+    ```
+
+<!-- -->
+
+-   Beispiel
+
+    ``` java
+    import java.util.logging.Logger;
+    Logger l = Logger.getLogger(MyClass.class.getName());
+    l.info("Hello World :-)");
+    ```
+
+##### Wichtigkeit von Logmeldungen: Stufen
+
+-   `java.util.logger.Level` definiert 7 Stufen:
+    -   `SEVERE`, `WARNING`, `INFO`, `CONFIG`, `FINE`, `FINER`, `FINEST`
+        (von höchster zu niedrigster Prio)
+    -   Zusätzlich `ALL` und `OFF`
+
+<!-- -->
+
+-   Nutzung der Log-Level:
+    -   Logger hat Log-Level: Meldungen mit kleinerem Level werden
+        verworfen
+    -   Prüfung mit `public boolean isLoggable(Level)`
+    -   Setzen mit `public void setLevel(Level)`
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/tooling/src/logging/LoggingLevel.java">Konsole: logging.LoggingLevel</a></p>
+
+=\> Warum wird im Beispiel nach `log.setLevel(Level.ALL);` trotzdem nur
+ab `INFO` geloggt? Wer erzeugt eigentlich die Ausgaben?!
+
+##### Jemand muss die Arbeit machen ...
+
+-   Pro Logger **mehrere** Handler möglich
+    -   Logger übergibt nicht verworfene Nachrichten an Handler
+    -   Handler haben selbst ein Log-Level (analog zum Logger)
+    -   Handler verarbeiten die Nachrichten, wenn Level ausreichend
+
+<!-- -->
+
+-   Standard-Handler: `StreamHandler`, `ConsoleHandler`, `FileHandler`
+
+<!-- -->
+
+-   Handler nutzen zur Formatierung der Ausgabe einen `Formatter`
+-   Standard-Formatter: `SimpleFormatter` und `XMLFormatter`
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/tooling/src/logging/LoggingHandler.java">Konsole: logging.LoggingHandler</a></p>
+
+=\> Warum wird im Beispiel nach dem Auskommentieren von
+`log.setUseParentHandlers(false);` immer noch eine zusätzliche Ausgabe
+angezeigt (ab `INFO` aufwärts)?!
+
+##### Ich ... bin ... Dein ... Vater ...
+
+-   Logger bilden **Hierarchie** über Namen
+    -   Trenner für Namenshierarchie: "`.`" (analog zu Packages) =\> mit
+        jedem "`.`" wird eine weitere Ebene der Hierarchie aufgemacht
+        ...
+    -   Jeder Logger kennt seinen Eltern-Logger: `Logger#getParent()`
+    -   Basis-Logger: leerer Name (`""`)
+        -   Voreingestelltes Level des Basis-Loggers: `Level.INFO` (!)
+
+<!-- -->
+
+-   Weiterleiten von Nachrichten
+    -   Nicht verworfene Log-Aufrufe werden an Eltern-Logger
+        weitergeleitet (Default)
+        -   Abschalten mit `Logger#setUseParentHandlers(false);`
+    -   Diese leiten an ihre Handler sowie an ihren Eltern-Logger weiter
+        (unabhängig von Log-Level!)
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/tooling/src/logging/LoggingParent.java">Konsole: logging.LoggingParent; Tafel: Skizze Logger-Baum</a></p>
+
+##### Wrap-Up
+
+-   Java Logging API im Paket `java.util.logging`
+
+<!-- -->
+
+-   Neuer Logger über **Factory-Methode** der Klasse `Logger`
+    -   Einstellbares Log-Level (Klasse `Level`)
+    -   Handler kümmern sich um die Ausgabe, nutzen dazu Formatter
+    -   Mehrere Handler je Logger registrierbar
+    -   Log-Level auch für Handler einstellbar (!)
+    -   Logger (und Handler) "interessieren" sich nur für Meldungen ab
+        bestimmter Wichtigkeit
+    -   Logger reichen nicht verworfene Meldungen defaultmäßig an
+        Eltern-Logger weiter (rekursiv)
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2022, Kap. 8](#ref-JDK-Doc))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k3: Ich kann die Java Logging API im Paket java.util.logging aktiv
+>     einsetzen
+> -   k3: Ich kann eigene Handler und Formatter schreiben
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> **Logger-Konfiguration**
+>
+> Betrachten Sie den folgenden Java-Code:
+>
+> ``` java
+> import java.util.logging.*;
+>
+> public class Logging {
+>     public static void main(String... args) {
+>         Logger l = Logger.getLogger("Logging");
+>         l.setLevel(Level.FINE);
+>
+>         ConsoleHandler myHandler = new ConsoleHandler();
+>         myHandler.setFormatter(new SimpleFormatter() {
+>             public String format(LogRecord record) {
+>                 return "WUPPIE\n";
+>             }
+>         });
+>         l.addHandler(myHandler);
+>
+>         l.info("A");
+>         l.fine("B");
+>         l.finer("C");
+>         l.finest("D");
+>         l.severe("E");
+>     }
+> }
+> ```
+>
+> Welche Ausgaben entstehen durch den obigen Code? Erklären Sie, welche
+> der Logger-Aufrufe zu einer Ausgabe führen und wieso und wie diese
+> Ausgaben zustande kommen bzw. es keine Ausgabe bei einem Logger-Aufruf
+> gibt. Gehen Sie dabei auf jeden der fünf Aufrufe ein.
+>
+> **Analyse eines Live-Beispiels aus dem Dungeon**
+>
+> Analysieren Sie die Konfiguration des Loggers im Dungeon-Projekt:
+> [Dungeon-CampusMinden/Dungeon:
+> core/utils/logging/LoggerConfig.java](https://github.com/Dungeon-CampusMinden/Dungeon/blob/master/game/src/core/utils/logging/LoggerConfig.java).
+>
+> </details>
+
+<a id="id-a607e9502028f3c70589ca6b6099936982adc873"></a>
 
 #### Einführung in Docker
 
@@ -6228,6 +3615,7 @@ Im Browser in den Repo-Einstellungen arbeiten:
 > Containern oder zwischen Containern und anderen Rechnern) und Volumes
 > habe ich außen vor gelassen. Dennoch kommt man in der Praxis bereits
 > mit den hier vermittelten Basiskenntnissen erstaunlich weit ...
+>
 > </details>
 
 > [!TIP]
@@ -6245,7 +3633,7 @@ Im Browser in den Repo-Einstellungen arbeiten:
 
 ##### Motivation CI/CD: WFM (*Works For Me*)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/ci.png" width="60%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci.png" width="60%" /></p>
 
 Auf dem CI-Server muss man eine Arbeitsumgebung konfigurieren und
 bereitstellen, für Java-basierte Projekte muss beispielsweise ein JDK
@@ -6277,7 +3665,7 @@ In diesen Fällen kann eine Virtualisierung helfen.
 
 ##### Virtualisierung: Container vs. VM
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/virtualisierung.png" width="50%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/virtualisierung.png" width="50%" /></p>
 
 Wenn man über Virtualisierung auf dem Desktop spricht, kann man grob
 zwei Varianten unterscheiden. In beiden Fällen ist die Basis die
@@ -6472,7 +3860,7 @@ selben Versionsstände haben. In der Praxis löscht man deshalb das alte
 Image einfach und erstellt ein neues, welches dann die aktualisierte
 Software enthält.
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/building/src/docker/debian-latex.df">Beispiel: debian-latex.df</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/tooling/src/docker/debian-latex.df">Beispiel: debian-latex.df</a></p>
 
 ##### CI-Pipeline (GitLab)
 
@@ -6539,7 +3927,7 @@ gesendet. Im Prinzip entspricht das dem Aufruf auf dem lokalen Rechner:
 
 ##### VSCode und das Plugin "Remote - Containers"
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/building/images/vscode-remote.png" width="80%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote.png" width="80%" /></p>
 
 1.  VSCode (Host): Plugin "Remote - Containers" installieren
 2.  Docker (Host): Container starten mit Workspace gemountet
@@ -6650,691 +4038,11 @@ Codespaces](https://github.com/features/codespaces) von GitHub auf.
 >
 > </details>
 
-<a id="id-19400266e5430e8e00eb11d78e73c4723fefbc3b"></a>
+<a id="id-b09d544c189bdfc3ee8db9c6ea99a644e7be5fd4"></a>
 
-### Softwarequalität und Testen mit JUnit und Mockito
+### Testen mit JUnit und Mockito
 
-<a id="id-d34a1123257baba72f157fdf29caa69090e90127"></a>
-
-#### Logging
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Im Paket `java.util.logging` findet sich eine einfache Logging-API.
->
-> Über die Methode `getLogger()` der Klasse `Logger`
-> (*Factory-Method-Pattern*) kann ein (neuer) Logger erzeugt werden,
-> dabei wird über den String-Parameter eine Logger-Hierarchie aufgebaut
-> analog zu den Java-Package-Strukturen. Der oberste Logger (der
-> "Root-Logger") hat den leeren Namen.
->
-> Jeder Logger kann mit einem Log-Level (Klasse `Level`) eingestellt
-> werden; Log-Meldungen unterhalb des eingestellten Levels werden
-> verworfen.
->
-> Vom Logger nicht verworfene Log-Meldungen werden an den bzw. die
-> Handler des Loggers und (per Default) an den Eltern-Logger weiter
-> gereicht. Die Handler haben ebenfalls ein einstellbares Log-Level und
-> verwerfen alle Nachrichten unterhalb der eingestellten Schwelle. Zur
-> tatsächlichen Ausgabe gibt man einem Handler noch einen Formatter mit.
-> Defaultmäßig hat nur der Root-Logger einen Handler.
->
-> Der Root-Logger (leerer String als Name) hat als Default-Level (wie
-> auch sein Console-Handler) "`Info`" eingestellt.
->
-> Nachrichten, die durch Weiterleitung nach oben empfangen wurden,
-> werden nicht am Log-Level des empfangenden Loggers gemessen, sondern
-> akzeptiert und an die Handler des Loggers und (sofern nicht
-> deaktiviert) an den Elternlogger weitergereicht.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Logging](https://youtu.be/_jYWJzr1rkA)
-> -   [Demo Logging (Überblick)](https://youtu.be/fWSc5A_CPL8)
-> -   [Demo Log-Level](https://youtu.be/0UUVQCVYNHo)
-> -   [Demo Logging: Handler und
->     Formatter](https://youtu.be/dYOYA99EfrY)
-> -   [Demo Weiterleitung an den
->     Elternlogger](https://youtu.be/19Bki4IglWQ)
->
-> </details>
-
-##### Wie prüfen Sie die Werte von Variablen/Objekten?
-
-1.  Debugging
-    -   Beeinflusst Code nicht
-    -   Kann schnell komplex und umständlich werden
-    -   Sitzung transient - nicht wiederholbar
-
-<!-- -->
-
-2.  "Poor-man's-debugging" (Ausgaben mit `System.out.println`)
-    -   Müssen irgendwann entfernt werden
-    -   Ausgabe nur auf einem Kanal (Konsole)
-    -   Keine Filterung nach Problemgrad - keine Unterscheidung zwischen
-        Warnungen, einfachen Informationen, ...
-
-<!-- -->
-
-3.  **Logging**
-    -   Verschiedene (Java-) Frameworks: `java.util.logging` (JDK),
-        *log4j* (Apache), *SLF4J*, *Logback*, ...
-
-##### Java Logging API - Überblick
-
-Paket `java.util.logging`
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/quality/images/logging.png" width="65%" /></p>
-
-Eine Applikation kann verschiedene Logger instanziieren. Die Logger
-bauen per Namenskonvention hierarchisch aufeinander auf. Jeder Logger
-kann selbst mehrere Handler haben, die eine Log-Nachricht letztlich auf
-eine bestimmte Art und Weise an die Außenwelt weitergeben.
-
-Log-Meldungen werden einem Level zugeordnet. Jeder Logger und Handler
-hat ein Mindest-Level eingestellt, d.h. Nachrichten mit einem kleineren
-Level werden verworfen.
-
-Zusätzlich gibt es noch Filter, mit denen man Nachrichten (zusätzlich
-zum Log-Level) nach weiteren Kriterien filtern kann.
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/quality/src/logging/LoggingDemo.java">Konsole: logging.LoggingDemo</a></p>
-
-##### Erzeugen neuer Logger
-
-``` java
-import java.util.logging.Logger;
-Logger l = Logger.getLogger(MyClass.class.getName());
-```
-
--   **Factory-Methode** der Klasse `java.util.logging.Logger`
-
-    ``` java
-    public static Logger getLogger(String name);
-    ```
-
-    =\> Methode liefert bereits **vorhandenen Logger** mit diesem Namen
-    (sonst neuen Logger)
-
--   **Best Practice**: Nutzung des voll-qualifizierten Klassennamen:
-    `MyClass.class.getName()`
-
-    -   Leicht zu implementieren
-    -   Leicht zu erklären
-    -   Spiegelt modulares Design
-    -   Ausgaben enthalten automatisch Hinweis auf Herkunft (Lokalität)
-        der Meldung
-    -   **Alternativen**: Funktionale Namen wie "XML", "DB", "Security"
-
-##### Ausgabe von Logmeldungen
-
-``` java
-public void log(Level level, String msg);
-```
-
--   Diverse Convenience-Methoden (Auswahl):
-
-    ``` java
-    public void warning(String msg)
-    public void info(String msg)
-    public void entering(String srcClass, String srcMethod)
-    public void exiting(String srcClass, String srcMethod)
-    ```
-
-<!-- -->
-
--   Beispiel
-
-    ``` java
-    import java.util.logging.Logger;
-    Logger l = Logger.getLogger(MyClass.class.getName());
-    l.info("Hello World :-)");
-    ```
-
-##### Wichtigkeit von Logmeldungen: Stufen
-
--   `java.util.logger.Level` definiert 7 Stufen:
-    -   `SEVERE`, `WARNING`, `INFO`, `CONFIG`, `FINE`, `FINER`, `FINEST`
-        (von höchster zu niedrigster Prio)
-    -   Zusätzlich `ALL` und `OFF`
-
-<!-- -->
-
--   Nutzung der Log-Level:
-    -   Logger hat Log-Level: Meldungen mit kleinerem Level werden
-        verworfen
-    -   Prüfung mit `public boolean isLoggable(Level)`
-    -   Setzen mit `public void setLevel(Level)`
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/quality/src/logging/LoggingLevel.java">Konsole: logging.LoggingLevel</a></p>
-
-=\> Warum wird im Beispiel nach `log.setLevel(Level.ALL);` trotzdem nur
-ab `INFO` geloggt? Wer erzeugt eigentlich die Ausgaben?!
-
-##### Jemand muss die Arbeit machen ...
-
--   Pro Logger **mehrere** Handler möglich
-    -   Logger übergibt nicht verworfene Nachrichten an Handler
-    -   Handler haben selbst ein Log-Level (analog zum Logger)
-    -   Handler verarbeiten die Nachrichten, wenn Level ausreichend
-
-<!-- -->
-
--   Standard-Handler: `StreamHandler`, `ConsoleHandler`, `FileHandler`
-
-<!-- -->
-
--   Handler nutzen zur Formatierung der Ausgabe einen `Formatter`
--   Standard-Formatter: `SimpleFormatter` und `XMLFormatter`
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/quality/src/logging/LoggingHandler.java">Konsole: logging.LoggingHandler</a></p>
-
-=\> Warum wird im Beispiel nach dem Auskommentieren von
-`log.setUseParentHandlers(false);` immer noch eine zusätzliche Ausgabe
-angezeigt (ab `INFO` aufwärts)?!
-
-##### Ich ... bin ... Dein ... Vater ...
-
--   Logger bilden **Hierarchie** über Namen
-    -   Trenner für Namenshierarchie: "`.`" (analog zu Packages) =\> mit
-        jedem "`.`" wird eine weitere Ebene der Hierarchie aufgemacht
-        ...
-    -   Jeder Logger kennt seinen Eltern-Logger: `Logger#getParent()`
-    -   Basis-Logger: leerer Name (`""`)
-        -   Voreingestelltes Level des Basis-Loggers: `Level.INFO` (!)
-
-<!-- -->
-
--   Weiterleiten von Nachrichten
-    -   Nicht verworfene Log-Aufrufe werden an Eltern-Logger
-        weitergeleitet (Default)
-        -   Abschalten mit `Logger#setUseParentHandlers(false);`
-    -   Diese leiten an ihre Handler sowie an ihren Eltern-Logger weiter
-        (unabhängig von Log-Level!)
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/quality/src/logging/LoggingParent.java">Konsole: logging.LoggingParent; Tafel: Skizze Logger-Baum</a></p>
-
-##### Wrap-Up
-
--   Java Logging API im Paket `java.util.logging`
-
-<!-- -->
-
--   Neuer Logger über **Factory-Methode** der Klasse `Logger`
-    -   Einstellbares Log-Level (Klasse `Level`)
-    -   Handler kümmern sich um die Ausgabe, nutzen dazu Formatter
-    -   Mehrere Handler je Logger registrierbar
-    -   Log-Level auch für Handler einstellbar (!)
-    -   Logger (und Handler) "interessieren" sich nur für Meldungen ab
-        bestimmter Wichtigkeit
-    -   Logger reichen nicht verworfene Meldungen defaultmäßig an
-        Eltern-Logger weiter (rekursiv)
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Oracle Corporation ([2022, Kap. 8](#ref-JDK-Doc))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k3: Ich kann die Java Logging API im Paket java.util.logging aktiv
->     einsetzen
-> -   k3: Ich kann eigene Handler und Formatter schreiben
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> **Logger-Konfiguration**
->
-> Betrachten Sie den folgenden Java-Code:
->
-> ``` java
-> import java.util.logging.*;
->
-> public class Logging {
->     public static void main(String... args) {
->         Logger l = Logger.getLogger("Logging");
->         l.setLevel(Level.FINE);
->
->         ConsoleHandler myHandler = new ConsoleHandler();
->         myHandler.setFormatter(new SimpleFormatter() {
->             public String format(LogRecord record) {
->                 return "WUPPIE\n";
->             }
->         });
->         l.addHandler(myHandler);
->
->         l.info("A");
->         l.fine("B");
->         l.finer("C");
->         l.finest("D");
->         l.severe("E");
->     }
-> }
-> ```
->
-> Welche Ausgaben entstehen durch den obigen Code? Erklären Sie, welche
-> der Logger-Aufrufe zu einer Ausgabe führen und wieso und wie diese
-> Ausgaben zustande kommen bzw. es keine Ausgabe bei einem Logger-Aufruf
-> gibt. Gehen Sie dabei auf jeden der fünf Aufrufe ein.
->
-> **Analyse eines Live-Beispiels aus dem Dungeon**
->
-> Analysieren Sie die Konfiguration des Loggers im Dungeon-Projekt:
-> [Dungeon-CampusMinden/Dungeon:
-> core/utils/logging/LoggerConfig.java](https://github.com/Dungeon-CampusMinden/Dungeon/blob/master/game/src/core/utils/logging/LoggerConfig.java).
->
-> </details>
-
-<a id="id-034f87112a6be7c5c927ef1775d293b8b6d7774c"></a>
-
-#### Einführung Softwaretest
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Fehler schleichen sich durch Zeitdruck und hohe Komplexität schnell in
-> ein Softwareprodukt ein. Die Folgen können von "ärgerlich" über
-> "teuer" bis hin zu (potentiell) "tödlich" reichen. Richtiges Testen
-> ist also ein wichtiger Aspekt bei der Softwareentwicklung!
->
-> JUnit ist ein Java-Framework, mit dem Unit-Tests (aber auch andere
-> Teststufen) implementiert werden können. In JUnit 4 und 5 zeichnet man
-> eine Testmethode mit Hilfe der Annotation `@Test` an der
-> entsprechenden Methode aus. Dadurch kann man Produktiv- und Test-Code
-> prinzipiell mischen; Best Practice ist aber das Anlegen eines weiteren
-> Ordners `test/` und das Spiegeln der Package-Strukturen. Für die zu
-> testende Klasse wird eine korrespondierende Testklasse mit dem Suffix
-> "Test" (Konvention) angelegt und dort die Testmethoden implementiert.
-> Der IDE muss der neue `test/`-Ordner noch als Ordner für Sourcen bzw.
-> Tests bekannt gemacht werden. In den Testmethoden baut man den Test
-> auf, führt schließlich den Testschritt durch (beispielsweise konkreter
-> Aufruf der zu testenden Methode) und prüft anschließend mit einem
-> `assert*()`, ob das erzielte Ergebnis dem erwarteten Ergebnis
-> entspricht. Ist alles OK, ist der Test "grün", sonst "rot".
->
-> Da ein fehlschlagendes `assert*()` den Test abbricht, werden eventuell
-> danach folgende Prüfungen **nicht** mehr durchgeführt und damit ggf.
-> weitere Fehler maskiert. Deshalb ist es gute Praxis, in einer
-> Testmethode nur einen Testfall zu implementieren und i.d.R. auch nur
-> ein (oder wenige) Aufrufe von `assert*()` pro Testmethode zu haben.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Einführung Softwaretest](https://youtu.be/WGd83crqu4I)
-> -   [Demo Anlegen von Testfällen mit
->     JUnit](https://youtu.be/xcogVwHUo5o)
->
-> </details>
-
-##### Software-Fehler und ihre Folgen
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/quality/images/swfehler.png" width="70%" /></p>
-
-##### (Einige) Ursachen für Fehler
-
--   Zeit- und Kostendruck
--   Mangelhafte Anforderungsanalyse
--   Hohe Komplexität
--   Mangelhafte Kommunikation
--   Keine/schlechte Teststrategie
--   Mangelhafte Beherrschung der Technologie
--   ...
-
-##### Irgendjemand muss mit Deinen Bugs leben!
-
-Leider gibt es im Allgemeinen keinen Weg zu zeigen, dass eine Software
-korrekt ist. Man kann (neben formalen Beweisansätzen) eine Software nur
-unter möglichst vielen Bedingungen ausprobieren, um zu schauen, wie sie
-sich verhält, und um die dabei zu Tage tretenden Bugs zu fixen.
-
-Mal abgesehen von der verbesserten *User-Experience* führt weniger
-fehlerbehaftete Software auch dazu, dass man seltener mitten in der
-Nacht geweckt wird, weil irgendwo wieder ein Server gecrasht ist ...
-Weniger fehlerbehaftete Software ist auch leichter zu ändern und zu
-pflegen! In realen Projekten macht Maintenance den größten Teil an der
-Softwareentwicklung aus ... Während Ihre Praktikumsprojekte vermutlich
-nach der Abgabe nie wieder angeschaut werden, können echte Projekte
-viele Jahre bis Jahrzehnte leben! D.h. irgendwer muss sich dann mit
-Ihren Bugs herumärgern - vermutlich sogar Sie selbst ;)
-
-> Always code as if the guy who ends up maintaining your code will be a
-> violent psychopath who knows where you live. Code for readability.
->
-> -- [John F.
-> Woods](https://groups.google.com/g/comp.lang.c++/c/rYCO5yn4lXw/m/oITtSkZOtoUJ)
-
-Dieses Zitat taucht immer mal wieder auf, beispielsweise auf der [OSCON
-2014](https://twitter.com/andypiper/status/490952891058757632) ... Es
-scheint aber tatsächlich, dass [John F.
-Woods](https://groups.google.com/g/comp.lang.c++/c/rYCO5yn4lXw/m/oITtSkZOtoUJ)
-die ursprüngliche Quelle war (vgl. [Stackoverflow:
-876089](https://stackoverflow.com/questions/876089/who-wrote-this-programing-saying-always-code-as-if-the-guy-who-ends-up-maintai#878436)).
-
-Da wir nur wenig Zeit haben und zudem vergesslich sind und obendrein die
-Komplexität eines Projekts mit der Anzahl der Code-Zeilen i.d.R.
-nicht-linear ansteigt, müssen wir das Testen automatisieren. Und hier
-kommt JUnit ins Spiel :)
-
-##### Was wann testen? Wichtigste Teststufen
-
--   **Modultest**
-    -   Testen einer Klasse und ihrer Methoden
-    -   Test auf gewünschtes Verhalten (Parameter, Schleifen, ...)
-
-<!-- -->
-
--   **Integrationstest**
-    -   Test des korrekten Zusammenspiels mehrerer Komponenten
-    -   Konzentration auf Schnittstellentests
-
-<!-- -->
-
--   **Systemtest**
-    -   Test des kompletten Systems unter produktiven Bedingungen
-    -   Orientiert sich an den aufgestellten Use Cases
-    -   Funktionale und nichtfunktionale Anforderungen testen
-
-=\> Verweis auf Wahlfach "Softwarequalität"
-
-##### JUnit: Test-Framework für Java
-
-**JUnit** --- Open Source Java Test-Framework zur Erstellung und
-Durchführung wiederholbarer Tests
-
--   JUnit 3
-    -   Tests müssen in eigenen Testklassen stehen
-    -   Testklassen müssen von Klasse `TestCase` erben
-    -   Testmethoden müssen mit dem Präfix "`test`" beginnen
-
-<!-- -->
-
--   **JUnit 4**
-    -   Annotation `@Test` für Testmethoden
-    -   Kein Zwang zu spezialisierten Testklassen (insbesondere kein
-        Zwang mehr zur Ableitung von `TestCase`)
-    -   Freie Namenswahl für Testmethoden (benötigen nicht mehr Präfix
-        "`test`")
-
-    Damit können prinzipiell auch direkt im Source-Code Methoden als
-    JUnit-Testmethoden ausgezeichnet werden ... (das empfiehlt sich in
-    der Regel aber nicht)
-
-<!-- -->
-
--   *JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage*
-    -   Erweiterung um mächtigere Annotationen
-    -   Aufteilung in spezialisierte Teilprojekte
-
-    Das Teilprojekt "JUnit Platform" ist die Grundlage für das
-    JUnit-Framework. Es bietet u.a. einen Console-Launcher, um
-    Testsuiten manuell in der Konsole zu starten oder über Builder wie
-    Ant oder Gradle.
-
-    Das Teilprojekt "JUnit Jupiter" ist das neue Programmiermodell zum
-    Schreiben von Tests in JUnit 5. Es beinhaltet eine TestEngine zum
-    Ausführen der in Jupiter geschriebenen Tests.
-
-    Das Teilprojekt "JUnit Vintage" beinhaltet eine TestEngine zum
-    Ausführen von Tests, die in JUnit 3 oder JUnit 4 geschrieben sind.
-
-*Anmerkung*: Wie der Name schon sagt, ist das Framework für Modultests
-("Unit-Tests") gedacht. Man kann damit aber auch auf anderen Teststufen
-arbeiten!
-
-*Anmerkung*: Im Folgenden besprechen wir JUnit am Beispiel **JUnit 4**,
-da diese Version des Frameworks besonders stark verbreitet ist und JUnit
-5 (trotz offiziellem Release) immer noch stellenweise unfertig wirkt.
-Auf Unterschiede zu JUnit 5 wird an geeigneter Stelle hingewiesen
-(abgesehen von Import-Statements). Mit JUnit 3 sollte nicht mehr aktiv
-gearbeitet werden, d.h. insbesondere keine neuen Tests mehr erstellt
-werden, da diese Version nicht mehr weiterentwickelt wird.
-
-##### Anlegen und Organisation der Tests mit JUnit
-
--   Anlegen neuer Tests: Klasse auswählen, Kontextmenü
-    `New > JUnit Test Case` (IJ: Kontextmenü `Generate > Test`)
-
-<!-- -->
-
--   **Best Practice**:  Spiegeln der Paket-Hierarchie
-    -   Toplevel-Ordner `test` (statt `src`)
-    -   Package-Strukturen spiegeln
-    -   Testklassen mit Suffix "`Test`"
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/quality/images/newJUnit.png" width="40%" /></p>
-
-Vorteile dieses Vorgehens:
-
--   Die Testklassen sind aus Java-Sicht im selben Package wie die
-    Source-Klassen, d.h. Zugriff auf Package-sichtbare Methoden etc. ist
-    gewährleistet
--   Durch die Spiegelung der Packages in einem separaten Testordner
-    erhält man eine gute getrennte Übersicht über jeweils die Tests und
-    die Sourcen
--   Die Wiederverwendung des Klassennamens mit dem Anhang "Test" erlaubt
-    die schnelle Erkennung, welche Tests hier vorliegen
-
-In der Paketansicht liegen dann die Source- und die Testklassen immer
-direkt hintereinander (da sie im selben Paket sind und mit dem selben
-Namen anfangen) =\> besserer Überblick!
-
-##### Anmerkung: Die (richtige) JUnit-Bibliothek muss im Classpath liegen!
-
-Eclipse bringt für JUnit 4 und JUnit 5 die nötigen Jar-Dateien mit und
-fragt beim erstmaligen Anlegen einer neuen Testklasse, ob die für die
-ausgewählte Version **passenden JUnit-Jars zum Build-Path hinzugefügt**
-werden sollen.
-
-IntelliJ bringt ebenfalls eine JUnit 4 Bibliothek mit, die zum Projekt
-als Abhängigkeit hinzugefügt werden muss. Für JUnit 5 bietet IntelliJ
-an, die Jar-Dateien herunterzuladen und in einem passenden Ordner
-abzulegen.
-
-Alternativ lädt man die Bibliotheken entsprechend der Anleitung unter
-[junit.org](https://junit.org/) herunter und bindet sie in das Projekt
-ein.
-
-##### JUnit 4+5: Definition von Tests
-
-Annotation `@Test` vor Testmethode schreiben
-
-``` java
-import org.junit.Test;
-import static org.junit.Assert.*;
-
-public class FactoryBeispielTest4 {
-    @Test
-    public void testGetTicket() {
-        fail("not implemented");
-    }
-}
-```
-
-Für JUnit 5 muss statt `org.junit.Test` entsprechend
-`org.junit.jupiter.api.Test` importiert werden.
-
-Während in JUnit 4 die Testmethoden mit der Sichtbarkeit `public`
-versehen sein müssen und keine Parameter haben (dürfen), spielt die
-Sichtbarkeit in JUnit 5 keine Rolle (und die Testmethoden dürfen
-Parameter aufweisen =\> vgl. Abschnitt "Dependency Injection for
-Constructors and Methods" in der JUnit-Doku).
-
-##### JUnit 4: Ergebnis prüfen
-
-Klasse **`org.junit.Assert`** enthält diverse **statische** Methoden zum
-Prüfen:
-
-``` java
-// Argument muss true bzw. false sein
-void assertTrue(boolean);
-void assertFalse(boolean);
-
-// Gleichheit im Sinne von equals()
-void assertEquals(Object, Object);
-
-// Test sofort fehlschlagen lassen
-void fail();
-
-...
-```
-
-Für JUnit 5 finden sich die Assert-Methoden im Package
-`org.junit.jupiter.api.Assertions`.
-
-##### Anmerkung zum statischen Import
-
-Bei normalem Import der Klasse `Assert` muss man jeweils den voll
-qualifizierten Namen einer statischen Methode nutzen: `Assert.fail()`.
-
-Alternative statischer Import: `import static org.junit.Assert.fail;`
-=\> *Statische Member* der importierten Klasse (oder Interface) werden
-über ihre *unqualifizierten Namen* zugreifbar. **Achtung**:
-Namenskollisionen möglich!
-
-``` java
-// nur bestimmtes Member importieren
-import static packageName.className.staticMemberName;
-// alle statischen Member importieren
-import static packageName.className.*;
-```
-
--   Beispiel normaler Import:
-
-    ``` java
-    import org.junit.Assert;
-    Assert.fail("message");
-    ```
-
-<!-- -->
-
--   Beispiel statischer Import:
-
-    ``` java
-    import static org.junit.Assert.fail;
-    fail("message");
-    ```
-
-##### Mögliche Testausgänge bei JUnit
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/quality/images/junitErgebnis.png" width="40%" /></p>
-
-1.  **Error**: Fehler im Programm (Test)
-    -   Unbehandelte Exception
-    -   Abbruch (Timeout)
-
-<!-- -->
-
-2.  **Failure**: Testausgang negativ
-    -   Assert fehlgeschlagen
-    -   `Assert.fail()` aufgerufen
-
-<!-- -->
-
-3.  **OK**
-
-##### Anmerkungen zu Assert
-
--   Pro Testmethode möglichst nur **ein** Assert verwenden!
--   Anderenfalls: Schlägt ein Assert fehl, wird der Rest nicht mehr
-    überprüft ...
-
-##### Wrap-Up
-
--   Testen ist genauso wichtig wie Coden
--   Richtiges Testen spart Geld, Zeit, ...
--   Tests auf verschiedenen Abstraktionsstufen
-
-<!-- -->
-
--   JUnit als Framework für (Unit-) Tests; hier JUnit 4 (mit Ausblick
-    auf JUnit 5)
-    -   Testmethoden mit Annotation `@Test`
-    -   Testergebnis mit `assert*` prüfen
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   <span class="nocase">vogella GmbH</span>
->     ([2021](#ref-vogellaJUnit))
-> -   The JUnit Team ([2022](#ref-junit4))
-> -   Kleuker ([2019](#ref-Kleuker2019))
-> -   Osherove ([2014](#ref-Osherove2014))
-> -   Spillner und Linz ([2012](#ref-Spillner2012))
-> -   Thies u. a. ([o. J.](#ref-fernunihagenJunit))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kenne verschiedene Ursachen von Softwarefehlern
-> -   k3: Ich kann Tests mit JUnit 4 und 5 unter Nutzung der Annotation
->     `@Test` erstellen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> **Einfache JUnit-Tests I**
->
-> Betrachten Sie die folgende einfache (und nicht besonders sinnvolle)
-> Klasse `MyList<T>`:
->
-> ``` java
-> public class MyList<T> {
->     protected final List<T> list = new ArrayList<>();
->
->     public boolean add(T element) { return list.add(element); }
->     public int size() { return list.size(); }
-> }
-> ```
->
-> Schreiben Sie mit Hilfe von JUnit (4.x oder 5.x) einige Unit-Tests für
-> die beiden Methoden `MyList<T>#add` und `MyList<T>#size`.
->
-> **Einfache JUnit-Tests II**
->
-> Betrachten Sie die Methode `String concat(String str)` der Klasse
-> `String` aus dem JDK.
->
-> Implementieren Sie drei verschiedenartige Unit-Testfälle (inklusive
-> der Eingabe- und Rückgabewerte) für diese Methode mit Hilfe von JUnit
-> (Version 4.x oder 5.x).
-> </details>
-
-<a id="id-fdac50744187e0bbb0d93a110ad70910667d5eed"></a>
+<a id="id-c427918a8c92485e77a6d81794851b621f611f3e"></a>
 
 #### Testen mit JUnit (JUnit-Basics)
 
@@ -7361,6 +4069,7 @@ import static packageName.className.*;
 > `@Test(expected=package.Exception.class)`. In JUnit 4 besteht die
 > Möglichkeit, Testklassen zu Testsuiten zusammenzufassen und gemeinsam
 > laufen zu lassen.
+>
 > </details>
 
 > [!TIP]
@@ -7410,7 +4119,7 @@ void fail();
     -   Prüfen von Vorbedingungen: Ist der Test hier
         ausführbar/anwendbar?
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/quality/src/junit4/TestAssume.java">Beispiel: junit4.TestAssume</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/junit/src/junit4/TestAssume.java">Beispiel: junit4.TestAssume</a></p>
 
 Im JUnit-Kontext nutzen wir `assume*` für das **Überprüfen von
 *Annahmen*** (im Sinne von **Vorbedingungen**): Wenn ein `assume*`
@@ -7545,7 +4254,7 @@ public void testBsp() {
 }
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/quality/images/junitIgnore.png" width="40%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore.png" width="40%" /></p>
 
 In JUnit 5 wird statt der Annotation `@Ignore` die Annotation
 `@Disabled` mit der selben Bedeutung verwendet. Auch hier lässt sich als
@@ -7566,7 +4275,7 @@ void testTestDauerlaeufer() {
 }
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/quality/images/junitIgnore.png" width="40%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore.png" width="40%" /></p>
 
 In JUnit 5 hat die Annotation `@Test` keinen `timeout`-Parameter mehr.
 Als Alternative bietet sich der Einsatz von
@@ -7725,7 +4434,7 @@ bei einer Verletzung dieser Annahme würde der Testfall mit einer
 entsprechenden Mitteilung nicht ausgeführt.
 
 Oft wird noch das "given - when - then"-Mantra auch auf die
-Methodennamen der Testmethoden übertragen:[^6]
+Methodennamen der Testmethoden übertragen:[^1]
 
 ``` java
 class StudiTest {
@@ -7860,7 +4569,7 @@ public class SumTestParameters {
 }
 ```
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/junit4/">Beispiel: junit4.SumTestConstructor, junit4.SumTestParameters</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/junit/src/junit4/">Beispiel: junit4.SumTestConstructor, junit4.SumTestParameters</a></p>
 
 ###### Parametrisierte Tests mit JUnit 5
 
@@ -7911,7 +4620,7 @@ public class SumTest {
 }
 ```
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/junit5/">Beispiel: junit5.TestValueSource, junit5.TestMethodSource</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/junit/src/junit5/">Beispiel: junit5.TestValueSource, junit5.TestMethodSource</a></p>
 
 ##### Testsuiten: Tests gemeinsam ausführen (JUnit 4)
 
@@ -8152,7 +4861,7 @@ JUnit 5)
 >
 > </details>
 
-<a id="id-5faf7bc2998ca41cbb5f5b342c1b46d28f6d1b85"></a>
+<a id="id-77793ee59748dfeaeef9cf17fee8754ae4b8fdf6"></a>
 
 #### Testfallermittlung: Wie viel und was muss man testen?
 
@@ -8191,6 +4900,7 @@ JUnit 5)
 > Wenn ein Testfall sich aus den gültigen ÄK/GW speist, spricht man auch
 > von einem "Positiv-Test"; wenn ungültige ÄK/GW genutzt werden, spricht
 > man auch von einem "Negativ-Test".
+>
 > </details>
 
 > [!TIP]
@@ -8247,7 +4957,7 @@ Grenzwertanalyse (siehe nächste Folien). Mehr dann später im Wahlfach
 Beispiel: Zu testende Methode mit Eingabewert *x*, der zw. 10 und 100
 liegen soll
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/quality/images/aequivalenzklassen.png" width="30%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/aequivalenzklassen.png" width="30%" /></p>
 
 -   Zerlegung der Definitionsbereiche in Äquivalenzklassen (ÄK):
 
@@ -8369,7 +5079,7 @@ zufälliger Repräsentant ausgewählt.**
 
 ##### Grenzwertanalyse
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/quality/images/grenzwerte.png" width="30%" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/grenzwerte.png" width="30%" /></p>
 
 Beobachtung: Grenzen in Verzweigungen/Schleifen kritisch
 
@@ -8581,7 +5291,7 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 >
 > </details>
 
-<a id="id-ca381288eacf7fbdad309dee947ebee25635af6d"></a>
+<a id="id-b41adbc161f203df59258c2f719f8689c49108e8"></a>
 
 #### Mocking mit Mockito
 
@@ -8606,6 +5316,7 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 > Interaktion mit dem gemockten Objekt überprüfen und testen, ob eine
 > bestimmte Methode mit bestimmten Argumenten aufgerufen wurde und wie
 > oft.
+>
 > </details>
 
 > [!TIP]
@@ -8804,7 +5515,7 @@ der Stub nachgezogen werden).
 könnte man ja das LSF gleich selbst implementieren). Wenn man im Test
 andere Antworten braucht, müsste man einen weiteren Stub anlegen ...
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/quality/src/mockito/src/test/java/hsbi/StudiStubTest.java">Demo hsbi.StudiStubTest</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/junit/src/mockito/src/test/java/hsbi/StudiStubTest.java">Demo hsbi.StudiStubTest</a></p>
 
 ##### Mockito: Mocking von ganzen Klassen
 
@@ -8855,7 +5566,7 @@ Dies kann man in weiten Grenzen flexibel anpassen.
 Mit Hilfe der Argument-Matcher `anyString()` wird jedes String-Argument
 akzeptiert.
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/quality/src/mockito/src/test/java/hsbi/StudiMockTest.java">Demo hsbi.StudiMockTest</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/junit/src/mockito/src/test/java/hsbi/StudiMockTest.java">Demo hsbi.StudiMockTest</a></p>
 
 ##### Mockito: Spy = Wrapper um ein Objekt
 
@@ -8911,7 +5622,7 @@ wird einfach die originale Methode aufgerufen (Beispiel: In
 
 Auch hier können Argument-Matcher wie `anyString()` eingesetzt werden.
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/quality/src/mockito/src/test/java/hsbi/StudiSpyTest.java">Demo hsbi.StudiSpyTest</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/junit/src/mockito/src/test/java/hsbi/StudiSpyTest.java">Demo hsbi.StudiSpyTest</a></p>
 
 ##### Wurde eine Methode aufgerufen?
 
@@ -8973,7 +5684,7 @@ Mit `InOrder` lassen sich Aufrufe auf einem Mock/Spy oder auch auf
 verschiedenen Mocks/Spies in eine zeitliche Reihenfolge bringen und so
 überprüfen.
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/quality/src/mockito/src/test/java/hsbi/VerifyTest.java">Demo hsbi.VerifyTest</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/junit/src/mockito/src/test/java/hsbi/VerifyTest.java">Demo hsbi.VerifyTest</a></p>
 
 ##### Fangen von Argumenten
 
@@ -9021,7 +5732,7 @@ alternative Möglichkeit, auf Argumente in gemockten Methoden zu
 reagieren. Schauen Sie sich dazu die Javadoc von
 [Mockito](https://javadoc.io/doc/org.mockito/mockito-core/) an.
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/quality/src/mockito/src/test/java/hsbi/MatcherTest.java">Demo hsbi.MatcherTest</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/junit/src/mockito/src/test/java/hsbi/MatcherTest.java">Demo hsbi.MatcherTest</a></p>
 
 ##### Ausblick: PowerMock
 
@@ -9041,7 +5752,7 @@ Mockito sehr mächtig, aber unterstützt (u.a.) keine
 **Credits**: Der Dank für die Erstellung des nachfolgenden Beispiels und
 Textes geht an [@jedi101](https://github.com/jedi101).
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/mockito/src/test/java/wuppie/stub/">Demo: WuppiWarenlager (wuppie.stub)</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/junit/src/mockito/src/test/java/wuppie/stub/">Demo: WuppiWarenlager (wuppie.stub)</a></p>
 
 Bei dem gezeigten Beispiel unseres `WuppiStores` sieht man, dass dieser
 normalerweise von einem fertigen Warenlager die Wuppis beziehen möchte.
@@ -9070,7 +5781,7 @@ Mocks.
 Bislang haben wir noch keinen Gebrauch von Mockito gemacht. Das ändern
 wir nun.
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/mockito/src/test/java/wuppie/mock/">Demo: WuppiWarenlager (wuppie.mock)</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/junit/src/mockito/src/test/java/wuppie/mock/">Demo: WuppiWarenlager (wuppie.mock)</a></p>
 
 Wie in diesem Beispiel gezeigt, müssen wir nun keinen Stub mehr von Hand
 erstellen, sondern überlassen dies Mockito.
@@ -9120,7 +5831,7 @@ Dieser Spion erlaubt es uns nun zusätzlich das Verhalten zu testen. Das
 geht in die Richtung von [BDD - Behavior Driven
 Development](https://de.wikipedia.org/wiki/Behavior_Driven_Development).
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/mockito/src/test/java/wuppie/spy/">Demo: WuppiWarenlager (wuppie.spy)</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/junit/src/mockito/src/test/java/wuppie/spy/">Demo: WuppiWarenlager (wuppie.spy)</a></p>
 
 ``` java
 // Spion erstellen, der unser wuppiWarenlager überwacht.
@@ -9270,7 +5981,7 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
 }
 ```
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/mockito/src/test/java/wuppie/verify/">Demo: WuppiWarenlager (wuppie.verify)</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/junit/src/mockito/src/test/java/wuppie/verify/">Demo: WuppiWarenlager (wuppie.verify)</a></p>
 
 ##### Wrap-Up
 
@@ -9386,6 +6097,7934 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
 >
 > </details>
 
+<a id="id-6f2b911e8bd44898195f262b13bc44b5f1552e79"></a>
+
+#### Property based Testing & Approval Testing
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> TODO
+>
+> </details>
+
+##### Property based Testing
+
+TODO
+
+##### Approval Testing
+
+TODO
+
+##### Wrap-Up
+
+TODO
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> TODO
+>
+> </details>
+
+<a id="id-ac062467754992e9039c8577556fef8750ab42ca"></a>
+
+### Modern Java: Funktionaler Stil und Stream-API
+
+<a id="id-01cc534b930a4f8fcff3f34238f9b902b2aa94dd"></a>
+
+#### Lambda-Ausdrücke und funktionale Interfaces
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Mit einer anonymen inneren Klasse erstellt man gewissermaßen ein
+> Objekt einer "Wegwerf"-Klasse: Man leitet *on-the-fly* von einem
+> Interface ab oder erweitert eine Klasse und implementiert die
+> benötigten Methoden und erzeugt von dieser Klasse sofort eine Instanz
+> (Objekt). Diese neue Klasse ist im restlichen Code nicht sichtbar.
+>
+> Anonyme innere Klassen sind beispielsweise in Swing recht nützlich,
+> wenn man einer Komponente einen Listener mitgeben will: Hier erzeugt
+> man eine anonyme innere Klasse basierend auf dem passenden
+> Listener-Interface, implementiert die entsprechenden Methoden und
+> übergibt das mit dieser Klasse erzeugte Objekt als neuen Listener der
+> Swing-Komponente.
+>
+> Mit Java 8 können unter gewissen Bedingungen diese anonymen inneren
+> Klassen zu Lambda-Ausdrücken (und Methoden-Referenzen) vereinfacht
+> werden. Dazu muss die anonyme innere Klasse ein sogenanntes
+> **funktionales Interface** implementieren.
+>
+> Funktionale Interfaces sind Interfaces mit *genau einer abstrakten
+> Methode*. Es können beliebig viele Default-Methoden im Interface
+> enthalten sein, und es können `public` sichtbare abstrakte Methoden
+> von `java.lang.Object` geerbt/überschrieben werden.
+>
+> Die Lambda-Ausdrücke entsprechen einer anonymen Methode: Die Parameter
+> werden aufgelistet (in Klammern), und hinter einem Pfeil kommt
+> entweder *ein* Ausdruck (Wert - gleichzeitig Rückgabewert des
+> Lambda-Ausdrucks) oder beliebig viele Anweisungen (in geschweiften
+> Klammern, mit Semikolon):
+>
+> -   Form 1: `(parameters)  ->  expression`
+> -   Form 2: `(parameters)  ->  { statements; }`
+>
+> Der Lambda-Ausdruck muss von der Signatur her genau der einen
+> abstrakten Methode im unterliegenden funktionalen Interface
+> entsprechen.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Lambda-Ausdrücke und funktionale
+>     Interfaces](https://youtu.be/Wd8KG7xtp4c)
+> -   [Demo Anonyme innere Klasse](https://youtu.be/QEXpQwRYoYc)
+> -   [Demo Lambda-Ausdruck](https://youtu.be/2LJIxsVw4pM)
+> -   [Demo Funktionale Interfaces selbst
+>     definiert](https://youtu.be/93O1oDL5_5c)
+> -   [Demo Vordefinierte funktionale Interfaces im
+>     JDK](https://youtu.be/jzEw8IH8Mfc)
+>
+> </details>
+
+##### Problem: Sortieren einer Studi-Liste
+
+``` java
+List<Studi> sl = new ArrayList<>();
+
+// Liste sortieren?
+sl.sort(???);  // Parameter: java.util.Comparator<Studi>
+```
+
+``` java
+public class MyCompare implements Comparator<Studi> {
+    @Override  public int compare(Studi o1, Studi o2) {
+        return o1.getCredits() - o2.getCredits();
+    }
+}
+```
+
+``` java
+// Liste sortieren?
+MyCompare mc = new MyCompare();
+sl.sort(mc);
+```
+
+Da `Comparator<T>` ein Interface ist, muss man eine extra Klasse
+anlegen, die die abstrakte Methode aus dem Interface implementiert und
+ein Objekt von dieser Klasse erzeugen und dieses dann der
+`sort()`-Methode übergeben.
+
+Die Klasse bekommt wie in Java üblich eine eigene Datei und ist damit in
+der Package-Struktur offen sichtbar und "verstopft" mir damit die
+Strukturen: Diese Klasse ist doch nur eine Hilfsklasse ... Noch
+schlimmer: Ich brauche einen Namen für diese Klasse!
+
+Den ersten Punkt könnte man über verschachtelte Klassen lösen: Die
+Hilfsklasse wird innerhalb der Klasse definiert, die das Objekt
+benötigt. Für den zweiten Punkt brauchen wir mehr Anlauf ...
+
+##### Erinnerung: Verschachtelte Klassen ("*Nested Classes*")
+
+Man kann Klassen innerhalb von Klassen definieren: Verschachtelte
+Klassen.
+
+-   Implizite Referenz auf Instanz der äußeren Klasse, Zugriff auf
+    **alle** Elemente
+-   **Begriffe**:
+    -   "normale" innere Klassen: "*inner classes*"
+    -   statische innere Klassen: "*static nested classes*"
+-   Einsatzzweck:
+    -   Hilfsklassen: Zusätzliche Funktionalität kapseln; Nutzung
+        **nur** in äußerer Klasse
+    -   Kapselung von Rückgabewerten
+
+Sichtbarkeit: Wird u.U. von äußerer Klasse "überstimmt"
+
+###### Innere Klassen ("*Inner Classes*")
+
+-   Objekt der äußeren Klasse muss existieren
+-   Innere Klasse ist normales Member der äußeren Klasse
+-   Implizite Referenz auf Instanz äußerer Klasse
+-   Zugriff auf **alle** Elemente der äußeren Klasse
+-   Sonderfall: Definition innerhalb von Methoden ("local classes")
+    -   Nur innerhalb der Methode sichtbar
+    -   Kennt zusätzlich `final` Attribute der Methode
+
+Beispiel:
+
+``` java
+public class Outer {
+    ...
+    private class Inner {
+        ...
+    }
+
+    Outer.Inner inner = new Outer().new Inner();
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/nested/StudiListNested.java">Beispiel mit Iterator als innere Klasse: nested.StudiListNested</a></p>
+
+###### Statische innere Klassen ("*Static Nested Classes*")
+
+-   Keine implizite Referenz auf Objekt
+-   Nur Zugriff auf Klassenmethoden und -attribute
+
+Beispiel:
+
+``` java
+class Outer {
+    ...
+    static class StaticNested {
+        ...
+    }
+}
+
+Outer.StaticNested nested = new Outer.StaticNested();
+```
+
+##### Lösung: Comparator als anonyme innere Klasse
+
+``` java
+List<Studi> sl = new ArrayList<>();
+
+// Parametrisierung mit anonymer Klasse
+sl.sort(
+        new Comparator<Studi>() {
+            @Override
+            public int compare(Studi o1, Studi o2) {
+                return o1.getCredits() - o2.getCredits();
+            }
+        });  // Semikolon nicht vergessen!!!
+```
+
+=\> Instanz einer anonymen inneren Klasse, die das Interface
+`Comparator<Studi>` implementiert
+
+-   Für spezielle, einmalige Aufgabe: nur eine Instanz möglich
+-   Kein Name, kein Konstruktor, oft nur eine Methode
+-   Müssen Interface implementieren oder andere Klasse erweitern
+    -   Achtung Schreibweise: ohne `implements` oder `extends`!
+-   Konstruktor kann auch Parameter aufweisen
+-   Zugriff auf alle Attribute der äußeren Klasse plus alle `final`
+    lokalen Variablen
+-   Nutzung typischerweise bei GUIs: Event-Handler etc.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/nested/DemoAnonymousInnerClass.java">Demo: nested.DemoAnonymousInnerClass</a></p>
+
+##### Vereinfachung mit Lambda-Ausdruck
+
+``` java
+List<Studi> sl = new ArrayList<>();
+
+// Parametrisierung mit anonymer Klasse
+sl.sort(
+        new Comparator<Studi>() {
+            @Override
+            public int compare(Studi o1, Studi o2) {
+                return o1.getCredits() - o2.getCredits();
+            }
+        });  // Semikolon nicht vergessen!!!
+
+
+// Parametrisierung mit Lambda-Ausdruck
+sl.sort( (Studi o1, Studi o2) -> o1.getCredits() - o2.getCredits() );
+```
+
+**Anmerkung**: Damit für den Parameter alternativ auch ein
+Lambda-Ausdruck verwendet werden kann, muss der erwartete Parameter vom
+Typ her ein "**funktionales Interface**" (s.u.) sein!
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/nested/DemoLambda.java">Demo: nested.DemoLambda</a></p>
+
+##### Syntax für Lambdas
+
+``` java
+(Studi o1, Studi o2)  ->  o1.getCredits() - o2.getCredits()
+```
+
+Ein Lambda-Ausdruck ist eine Funktion ohne Namen und besteht aus drei
+Teilen:
+
+1.  Parameterliste (in runden Klammern),
+2.  Pfeil
+3.  Funktionskörper (rechte Seite)
+
+Falls es *genau einen* Parameter gibt, *können* die runden Klammern um
+den Parameter entfallen.
+
+Dabei kann der Funktionskörper aus *einem Ausdruck* ("*expression*")
+bestehen oder einer *Menge von Anweisungen* ("*statements"*), die dann
+in geschweifte Klammern eingeschlossen werden müssen (Block mit
+Anweisungen).
+
+Der Wert des Ausdrucks ist zugleich der Rückgabewert des
+Lambda-Ausdrucks.
+
+Varianten:
+
+-   **`(parameters)  ->  expression`**
+
+<!-- -->
+
+-   **`(parameters)  ->  { statements; }`**
+
+##### Quiz: Welches sind keine gültigen Lambda-Ausdrücke?
+
+1.  `() -> {}`
+2.  `() -> "wuppie"`
+3.  `() -> { return "fluppie"; }`
+4.  `(Integer i) -> return i + 42;`
+5.  `(String s) -> { "foo"; }`
+6.  `(String s) -> s.length()`
+7.  `(Studi s) -> s.getCredits() > 300`
+8.  `(List<Studi> sl) -> sl.isEmpty()`
+9.  `(int x, int y) -> { System.out.println("Erg: "); System.out.println(x+y); }`
+10. `() -> new Studi()`
+11. `s -> s.getCps() > 100 && s.getCps() < 300`
+12. `s -> { return s.getCps() > 100 && s.getCps() < 300; }`
+
+<details>
+
+Auflösung: (4) und (5)
+
+`return` ist eine Anweisung, d.h. bei (4) fehlen die geschweiften
+Klammern. `"foo"` ist ein String und als solcher ein Ausdruck, d.h. hier
+sind die geschweiften Klammern zu viel (oder man ergänze den String mit
+einem `return`, also `return "foo";` ...).
+
+</details>
+
+##### Definition "Funktionales Interface" ("*functional interfaces*")
+
+``` java
+@FunctionalInterface
+public interface Wuppie<T> {
+    int wuppie(T obj);
+    boolean equals(Object obj);
+    default int fluppie() { return 42; }
+}
+```
+
+`Wuppie<T>` ist ein **funktionales Interface** ("*functional
+interface*") (seit Java 8)
+
+-   Hat **genau *eine* abstrakte Methode**
+-   Hat evtl. weitere Default-Methoden
+-   Hat evtl. weitere abstrakte Methoden, die `public` Methoden von
+    `java.lang.Object` überschreiben
+
+Die Annotation `@FunctionalInterface` selbst ist nur für den Compiler:
+Falls das Interface *kein* funktionales Interface ist, würde er beim
+Vorhandensein dieser Annotation einen Fehler werfen. Oder anders herum:
+Allein durch das Annotieren mit `@FunctionalInterface` wird aus einem
+Interface noch kein funktionales Interface! Vergleichbar mit `@Override`
+...
+
+**Während man für eine anonyme Klasse lediglich ein "normales" Interface
+(oder eine Klasse) benötigt, braucht man für Lambda-Ausdrücke zwingend
+ein passendes funktionales Interface!**
+
+*Anmerkung*: Es scheint keine einheitliche deutsche Übersetzung für den
+Begriff *functional interface* zu geben. Es wird häufig mit
+"funktionales Interface", manchmal aber auch mit "Funktionsinterface"
+übersetzt.
+
+Das in den obigen Beispielen eingesetzte Interface
+`java.util.Comparator<T>` ist also ein funktionales Interface: Es hat
+nur *eine* eigene abstrakte Methode `int compare(T o1, T o2);`.
+
+Im Package
+[java.util.function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/package-summary.html)
+sind einige wichtige funktionale Interfaces bereits vordefiniert,
+beispielsweise `Predicate` (Test, ob eine Bedingung erfüllt ist) und
+`Function` (verarbeite einen Wert und liefere einen passenden
+Ergebniswert). Diese kann man auch in eigenen Projekten nutzen!
+
+##### Quiz: Welches ist kein funktionales Interface?
+
+``` java
+public interface Wuppie {
+    int wuppie(int a);
+}
+
+public interface Fluppie extends Wuppie {
+    int wuppie(double a);
+}
+
+public interface Foo {
+}
+
+public interface Bar extends Wuppie {
+    default int bar() { return 42; }
+}
+```
+
+<details>
+
+Auflösung:
+
+-   `Wuppie` hat *genau eine* abstrakte Methode =\> funktionales
+    Interface
+-   `Fluppie` hat zwei abstrakte Methoden =\> **kein** funktionales
+    Interface
+-   `Foo` hat gar keine abstrakte Methode =\> **kein** funktionales
+    Interface
+-   `Bar` hat *genau eine* abstrakte Methode (und eine Default-Methode)
+    =\> funktionales Interface
+
+</details>
+
+##### Lambdas und funktionale Interfaces: Typprüfung
+
+``` java
+interface java.util.Comparator<T> {
+    int compare(T o1, T o2);    // abstrakte Methode
+}
+```
+
+``` java
+// Verwendung ohne weitere Typinferenz
+Comparator<Studi> c1 = (Studi o1, Studi o2) -> o1.getCredits() - o2.getCredits();
+
+// Verwendung mit Typinferenz
+Comparator<Studi> c2 = (o1, o2) -> o1.getCredits() - o2.getCredits();
+```
+
+Der Compiler prüft in etwa folgende Schritte, wenn er über einen
+Lambda-Ausdruck stolpert:
+
+1.  In welchem Kontext habe ich den Lambda-Ausdruck gesehen?
+2.  OK, der Zieltyp ist hier `Comparator<Studi>`.
+3.  Wie lautet die **eine** abstrakte Methode im
+    `Comparator<T>`-Interface?
+4.  OK, das ist `int compare(T o1, T o2);`
+5.  Da `T` hier an `Studi` gebunden ist, muss der Lambda-Ausdruck der
+    Methode `int compare(Studi o1, Studi o2);` entsprechen: 2x `Studi`
+    als Parameter und als Ergebnis ein `int`
+6.  Ergebnis:
+    a)  Cool, passt zum Lambda-Ausdruck `c1`. Fertig.
+    b)  D.h. in `c2` müssen `o1` und `o2` vom Typ `Studi` sein. Cool,
+        passt zum Lambda-Ausdruck `c2`. Fertig.
+
+##### Wrap-Up
+
+-   Anonyme Klassen: "Wegwerf"-Innere Klassen
+    -   Müssen Interface implementieren oder Klasse erweitern
+
+<!-- -->
+
+-   Java8: **Lambda-Ausdrücke** statt anonymer Klassen (**funktionales
+    Interface nötig**)
+    -   Zwei mögliche Formen:
+        -   Form 1: `(parameters)  ->  expression`
+        -   Form 2: `(parameters)  ->  { statements; }`
+    -   Im jeweiligen Kontext muss ein **funktionales Interface**
+        verwendet werden, d.h. ein Interface mit **genau** einer
+        abstrakten Methode
+    -   Der Lambda-Ausdruck muss von der Signatur her dieser einen
+        abstrakten Methode entsprechen
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Urma u. a. ([2014, Kap. 3](#ref-Urma2014))
+> -   Ullenboom ([2021, Kap. 12](#ref-Ullenboom2021))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kenne die Definition 'Funktionales Interface'
+> -   k3: Ich kann innere und anonyme Klassen praktisch einsetzen
+> -   k3: Ich kann eigene funktionale Interfaces erstellen
+> -   k3: Ich kann Lambda-Ausdrücke formulieren und einsetzen
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> **Beispiel aus einem Code-Review im
+> [Dungeon-CampusMinden/Dungeon](https://github.com/Dungeon-CampusMinden/Dungeon)**
+>
+> Erklären Sie folgenden Code:
+>
+> ``` java
+> public interface IFightAI {
+>     void fight(Entity entity);
+> }
+>
+> public class AIComponent extends Component {
+>     private final IFightAI fightAI;
+>
+>     fightAI =
+>                 entity1 -> {
+>                     System.out.println("TIME TO FIGHT!");
+>                     // todo replace with melee skill
+>                 };
+> }
+> ```
+>
+> **Spielen mit Lambdas**
+>
+> Sie finden in einem Spiel folgenden Code:
+>
+> ``` java
+> public class Main {
+>     public static void main(String[] args) {
+>         DoorTile door = new DoorTile();
+>         Entity lever1 = new Entity(), lever2 = new Entity(), lever3 = new Entity();
+>
+>         // ganz viel Code
+>
+>         if (!door.isOpen() && (lever1.isOn() && (lever2.isOn() || lever3.isOn()))) door.open();
+>
+>         // ganz viel Code
+>     }
+> }
+>
+> class DoorTile {
+>     public boolean isOpen() { return false; }
+>     public void open() { }
+> }
+> class Entity {
+>     public boolean isOn() { return false; }
+> }
+> ```
+>
+> Dabei stört, dass die Verknüpfung der konkreten Objekte und Zustände
+> zum Öffnen der konkreten Tür fest (und zudem mitten) im Programm
+> hinterlegt ist.
+>
+> Schreiben Sie diesen Code um: Definieren Sie eine statische
+> Hilfsmethode, die ein Door-Tile und drei Entitäten als Argument
+> entgegen nimmt und dafür einen Lambda-Ausdruck zurückliefert, mit dem
+> (a) die gezeigte Bedingung überprüft werden kann, und mit dem (falls
+> die Bedingung erfüllt ist) (b) die Aktion (`door.open()`) ausgeführt
+> werden kann. Statt der gezeigten fest codierten `if`-Abfrage soll
+> dieser Lambda-Ausdruck ausgewertet werden:
+> `doorhandle.test().accept();`.
+>
+> Damit haben Sie sich eine "Factory-Method" geschrieben
+> (Entwurfsmuster), mit der diese Bedingung dynamisch erzeugt werden
+> kann (auch für andere Objekte).
+>
+> Hinweis: Der Lambda-Ausdruck wird "zweistufig" sein müssen ...
+>
+> **Sortieren mit Lambdas und funktionalen Interfaces**
+>
+> Betrachten Sie die Klasse
+> [Student](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/challenges/lambda/Student.java).
+>
+> 1.  Definieren Sie eine Methode, die das Sortieren einer
+>     `Student`-Liste erlaubt. Übergeben Sie die Liste als Parameter.
+> 2.  Schaffen Sie es, das Sortierkriterium ebenfalls als Parameter zu
+>     übergeben (als Lambda-Ausdruck)?
+> 3.  Definieren Sie eine weitere Methode, die wieder eine
+>     `Student`-Liste als Parameter bekommt und liefern sie das erste
+>     `Student`-Objekt zurück, welches einer als Lambda-Ausdruck
+>     übergebenen Bedingung genügt.
+> 4.  Definieren Sie noch eine Methode, die wieder eine `Student`-Liste
+>     als Parameter bekommt sowie einen Lambda-Ausdruck, welcher aus
+>     einem `Student`-Objekt ein Objekt eines anderen Typen `T`
+>     berechnet. Wenden Sie in der Methode den Lambda-Ausdruck auf jedes
+>     Objekt der Liste an und geben sie die resultierende neue Liste als
+>     Ergebnis zurück.
+>
+> Verwenden Sie in dieser Aufgabe jeweils Lambda-Ausdrücke. Rufen Sie
+> alle drei/vier Methoden an einem kleinen Beispiel auf.
+>
+> </details>
+
+<a id="id-7aa5254265b8c6ada30b38ba3de8870e51d66c9e"></a>
+
+#### Methoden-Referenzen
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Seit Java8 können **Referenzen auf Methoden** statt anonymer Klassen
+> eingesetzt werden (**funktionales Interface nötig**).
+>
+> Dabei gibt es drei mögliche Formen:
+>
+> -   Form 1: Referenz auf eine statische Methode:
+>     `ClassName::staticMethodName` (wird verwendet wie
+>     `(args) -> ClassName.staticMethodName(args)`)
+> -   Form 2: Referenz auf eine Instanz-Methode eines Objekts:
+>     `objectref::instanceMethodName` (wird verwendet wie
+>     `(args) -> objectref.instanceMethodName(args)`)
+> -   Form 3: Referenz auf eine Instanz-Methode eines Typs:
+>     `ClassName::instanceMethodName` (wird verwendet wie
+>     `(o1, args) -> o1.instanceMethodName(args)`)
+>
+> Im jeweiligen Kontext muss ein passendes funktionales Interface
+> verwendet werden, d.h. ein Interface mit **genau** einer abstrakten
+> Methode. Die Methoden-Referenz muss von der Syntax her dieser einen
+> abstrakten Methode entsprechen (bei der dritten Form wird die Methode
+> auf dem ersten Parameter aufgerufen).
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Methoden-Referenzen](https://youtu.be/z0mfvvrsRzc)
+> -   [Demo Referenz auf statische
+>     Methode](https://youtu.be/YFdPcxE_1Eo)
+> -   [Demo Referenz auf Instanz-Methode
+>     (Objekt)](https://youtu.be/ImJTywhXrJo)
+> -   [Demo Referenz auf Instanz-Methode
+>     (Typ)](https://youtu.be/DVz2x27WHU8)
+>
+> </details>
+
+##### Beispiel: Sortierung einer Liste
+
+``` java
+List<Studi> sl = new ArrayList<Studi>();
+
+// Anonyme innere Klasse
+Collections.sort(sl, new Comparator<Studi>() {
+    @Override public int compare(Studi o1, Studi o2) {
+        return Studi.cmpCpsClass(o1, o2);
+    }
+});
+
+
+// Lambda-Ausdruck
+Collections.sort(sl, (o1, o2) -> Studi.cmpCpsClass(o1, o2));
+
+// Methoden-Referenz
+Collections.sort(sl, Studi::cmpCpsClass);
+```
+
+###### Anmerkung
+
+Für das obige Beispiel wird davon ausgegangen, dass in der Klasse
+`Studi` eine statische Methode `cmpCpsClass()` existiert:
+
+``` java
+public static int cmpCpsClass(Studi s1, Studi s2) {
+    return s1.getCps() - s2.getCps();
+}
+```
+
+Wenn man im Lambda-Ausdruck nur Methoden der eigenen Klasse aufruft,
+kann man das auch direkt per *Methoden-Referenz* abkürzen!
+
+-   Erinnerung: `Comparator<T>` ist ein funktionales Interface
+-   Instanzen können wie üblich durch Ableiten bzw. anonyme Klassen
+    erzeugt werden
+-   Alternativ kann seit Java8 auch ein passender Lambda-Ausdruck
+    verwendet werden
+-   Ab Java8: Referenzen auf passende Methoden (Signatur!) können ein
+    funktionales Interface "implementieren"
+    -   Die statische Methode
+        `static int cmpCpsClass(Studi s1, Studi s2)` hat die selbe
+        Signatur wie `int compare(Studi s1, Studi s2)` aus
+        `Comparator<Studi>`
+    -   Kann deshalb wie eine Instanz von `Comparator<Studi>` genutzt
+        werden
+    -   Name der Methode spielt dabei keine Rolle
+
+##### Überblick: Arten von Methoden-Referenzen
+
+1.  Referenz auf eine statische Methode
+    -   Form: `ClassName::staticMethodName`
+    -   Wirkung: Aufruf mit `(args) -> ClassName.staticMethodName(args)`
+
+<!-- -->
+
+2.  Referenz auf Instanz-Methode eines bestimmten Objekts
+    -   Form: `objectref::instanceMethodName`
+    -   Wirkung: Aufruf mit
+        `(args) -> objectref.instanceMethodName(args)`
+
+<!-- -->
+
+3.  Referenz auf Instanz-Methode eines bestimmten Typs
+    -   Form: `ClassName::instanceMethodName`
+    -   Wirkung: Aufruf mit
+        `(arg0, rest) -> arg0.instanceMethodName(rest)` (`arg0` ist vom
+        Typ `ClassName`)
+
+*Anmerkung*: Analog zur Referenz auf eine statische Methode gibt es noch
+die Form der Referenz auf einen Konstruktor: `ClassName::new`. Für
+Referenzen auf Konstruktoren mit mehr als 2 Parametern muss ein eigenes
+passendes funktionales Interface mit entsprechend vielen Parametern
+definiert werden ...
+
+##### Methoden-Referenz 1: Referenz auf statische Methode
+
+``` java
+public class Studi {
+    public static int cmpCpsClass(Studi s1, Studi s2) {
+        return s1.getCredits() - s2.getCredits();
+    }
+
+    public static void main(String... args) {
+        List<Studi> sl = new ArrayList<Studi>();
+
+        // Referenz auf statische Methode
+        Collections.sort(sl, Studi::cmpCpsClass);
+
+        // Entsprechender Lambda-Ausdruck
+        Collections.sort(sl, (o1, o2) -> Studi.cmpCpsClass(o1, o2));
+    }
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/methodreferences/DemoStaticMethodReference.java">Demo: methodreferences.DemoStaticMethodReference</a></p>
+
+`Collections.sort()` erwartet in diesem Szenario als zweiten Parameter
+eine Instanz von `Comparator<Studi>` mit einer Methode
+`int compare(Studi o1, Studi o2)`.
+
+Die übergebene Referenz auf die **statische Methode `cmpCpsClass` der
+Klasse `Studi`** hat die **selbe Signatur** und wird deshalb von
+`Collections.sort()` genauso genutzt wie die eigentlich erwartete
+Methode `Comparator<Studi>#compare(Studi o1, Studi o2)`, d.h. statt
+`compare(o1, o2)` wird nun für jeden Vergleich
+**`Studi.cmpCpsClass(o1, o2)`** aufgerufen.
+
+##### Methoden-Referenz 2: Referenz auf Instanz-Methode (Objekt)
+
+``` java
+public class Studi {
+    public int cmpCpsInstance(Studi s1, Studi s2) {
+        return s1.getCredits() - s2.getCredits();
+    }
+
+    public static void main(String... args) {
+        List<Studi> sl = new ArrayList<Studi>();
+        Studi holger = new Studi("Holger", 42);
+
+        // Referenz auf Instanz-Methode eines Objekts
+        Collections.sort(sl, holger::cmpCpsInstance);
+
+        // Entsprechender Lambda-Ausdruck
+        Collections.sort(sl, (o1, o2) -> holger.cmpCpsInstance(o1, o2));
+    }
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/methodreferences/DemoInstanceMethodReferenceObject.java">Demo: methodreferences.DemoInstanceMethodReferenceObject</a></p>
+
+`Collections.sort()` erwartet in diesem Szenario als zweites Argument
+wieder eine Instanz von `Comparator<Studi>` mit einer Methode
+`int compare(Studi o1, Studi o2)`.
+
+Die übergebene Referenz auf die **Instanz-Methode `cmpCpsInstance` des
+Objekts `holger`** hat die selbe Signatur und wird entsprechend von
+`Collections.sort()` genauso genutzt wie die eigentlich erwartete
+Methode `Comparator<Studi>#compare(Studi o1, Studi o2)`, d.h. statt
+`compare(o1, o2)` wird nun für jeden Vergleich
+**`holger.cmpCpsInstance(o1, o2)`** aufgerufen.
+
+##### Methoden-Referenz 3: Referenz auf Instanz-Methode (Typ)
+
+``` java
+public class Studi {
+    public int cmpCpsInstance(Studi studi) {
+        return this.getCredits() - studi.getCredits();
+    }
+
+    public static void main(String... args) {
+        List<Studi> sl = new ArrayList<Studi>();
+
+        // Referenz auf Instanz-Methode eines Typs
+        Collections.sort(sl, Studi::cmpCpsInstance);
+
+        // Entsprechender Lambda-Ausdruck
+        Collections.sort(sl, (o1, o2) -> o1.cmpCpsInstance(o2));
+    }
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/methodreferences/DemoInstanceMethodReferenceType.java">Demo: methodreferences.DemoInstanceMethodReferenceType</a></p>
+
+`Collections.sort()` erwartet in diesem Szenario als zweites Argument
+wieder eine Instanz von `Comparator<Studi>` mit einer Methode
+`int compare(Studi o1, Studi o2)`.
+
+Die übergebene Referenz auf die **Instanz-Methode `cmpCpsInstance` des
+Typs `Studi`** hat die Signatur `int cmpCpsInstance(Studi studi)` und
+wird von `Collections.sort()` so genutzt: Statt `compare(o1, o2)` wird
+nun für jeden Vergleich **`o1.cmpCpsInstance(o2)`** aufgerufen.
+
+##### Ausblick: Threads
+
+Erinnerung an bzw. Vorgriff auf ["Threads:
+Intro"](#id-5cb95855b410a3799c068f4c4fb6b9c4eea6525f):
+
+``` java
+public interface Runnable {
+    void run();
+}
+```
+
+Damit lassen sich Threads auf verschiedene Arten erzeugen:
+
+``` java
+public class ThreadStarter {
+    public static void wuppie() { System.out.println("wuppie(): wuppie"); }
+}
+
+
+Thread t1 = new Thread(new Runnable() {
+    public void run() {
+        System.out.println("t1: wuppie");
+    }
+});
+
+Thread t2 = new Thread(() -> System.out.println("t2: wuppie"));
+
+Thread t3 = new Thread(ThreadStarter::wuppie);
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/methodreferences/ThreadStarter.java">Beispiel: methodreferences.ThreadStarter</a></p>
+
+##### Ausblick: Datenstrukturen als Streams
+
+Erinnerung an bzw. Vorgriff auf
+["Stream-API"](#id-b16a41dd6bcae74097deb0d66f9b50762b8c0f40):
+
+``` java
+class X {
+    public static boolean gtFour(int x) { return (x > 4) ? true : false; }
+}
+
+List<String> words = Arrays.asList("Java8", "Lambdas", "PM",
+        "Dungeon", "libGDX", "Hello", "World", "Wuppie");
+
+List<Integer> wordLengths = words.stream()
+        .map(String::length)
+        .filter(X::gtFour)
+        .sorted()
+        .collect(toList());
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/methodreferences/CollectionStreams.java">Beispiel: methodreferences.CollectionStreams</a></p>
+
+-   Collections können als Datenstrom betrachtet werden: `stream()`
+    -   Iteration über die Collection, analog zu externer Iteration mit
+        `foreach`
+-   Daten aus dem Strom filtern: `filter`, braucht Prädikat
+-   Auf alle Daten eine Funktion anwenden: `map`
+-   Daten im Strom sortieren: `sort` (auch mit Comparator)
+-   Daten wieder einsammeln mit `collect`
+
+=\> Typische Elemente **funktionaler Programmierung**
+
+=\> Verweis auf Wahlfach "Spezielle Methoden der Programmierung"
+
+##### Wrap-Up
+
+Seit Java8: **Methoden-Referenzen** statt anonymer Klassen
+(**funktionales Interface nötig**)
+
+-   Drei mögliche Formen:
+    -   Form 1: Referenz auf statische Methode:
+        `ClassName::staticMethodName` (verwendet wie
+        `(args) -> ClassName.staticMethodName(args)`)
+    -   Form 2: Referenz auf Instanz-Methode eines Objekts:
+        `objectref::instanceMethodName` (verwendet wie
+        `(args) -> objectref.instanceMethodName(args)`)
+    -   Form 3: Referenz auf Instanz-Methode eines Typs:
+        `ClassName::instanceMethodName` (verwendet wie
+        `(o1, args) -> o1.instanceMethodName(args)`)
+
+<!-- -->
+
+-   Im jeweiligen Kontext muss ein passendes funktionales Interface
+    verwendet werden (d.h. ein Interface mit **genau** einer abstrakten
+    Methode)
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Urma u. a. ([2014, Kap. 3](#ref-Urma2014))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich verstehe die Definition von 'Funktionalen Interfaces' und
+>     kann sie erklären
+> -   k3: Ich kann Methoden-Referenzen lesen und selbst formulieren
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> Betrachten Sie den folgenden Java-Code:
+>
+> ``` java
+> public class Cat {
+>     int gewicht;
+>     public Cat(int gewicht) { this.gewicht = gewicht; }
+>
+>     public static void main(String... args) {
+>         List<Cat> clouder = new ArrayList<>();
+>         clouder.add(new Cat(100));  clouder.add(new Cat(1));  clouder.add(new Cat(10));
+>
+>         clouder.sort(...);
+>     }
+> }
+> ```
+>
+> 1.  Ergänzen Sie den Methodenaufruf `clouder.sort(...);` mit einer
+>     geeigneten anonymen Klasse, daß der `clouder` aufsteigend nach
+>     Gewicht sortiert wird.
+> 2.  Statt einer anonymen Klasse kann man auch Lambda-Ausdrücke
+>     einsetzen. Geben Sie eine konkrete Form an.
+> 3.  Statt einer anonymen Klasse kann man auch Methodenreferenzen
+>     einsetzen. Dafür gibt es mehrere Formen. Geben Sie für zwei Formen
+>     der Methodenreferenz sowohl den Aufruf als auch die
+>     Implementierung der entsprechenden Methoden in der Klasse `Cat`
+>     an.
+>
+> </details>
+
+<a id="id-83d9242997f09b086df2b42d7c636f083f0ab02e"></a>
+
+#### Interfaces: Default-Methoden
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Seit Java8 können Methoden in Interfaces auch fertig implementiert
+> sein: Sogenannte **Default-Methoden**.
+>
+> Dazu werden die Methoden mit dem neuen Schlüsselwort `default`
+> gekennzeichnet. Die Implementierung wird an die das Interface
+> implementierenden Klassen (oder Interfaces) vererbt und kann bei
+> Bedarf überschrieben werden.
+>
+> Da eine Klasse von einer anderen Klasse erben darf, aber mehrere
+> Interfaces implementieren kann, könnte es zu einer Mehrfachvererbung
+> einer Methode kommen: Eine Methode könnte beispielsweise in
+> verschiedenen Interfaces als Default-Methode angeboten werden, und
+> wenn eine Klasse diese Interfaces implementiert, steht eine Methode
+> mit der selben Signatur auf einmal mehrfach zur Verfügung. Dies muss
+> (u.U. manuell) aufgelöst werden.
+>
+> Auflösung von Mehrfachvererbung:
+>
+> -   Regel 1: Klassen gewinnen
+> -   Regel 2: Sub-Interfaces gewinnen
+> -   Regel 3: Methode explizit auswählen
+>
+> Aktuell ist der Unterschied zu abstrakten Klassen: Interfaces können
+> **keinen Zustand** haben, d.h. keine Attribute/Felder.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Default-Methoden](https://youtu.be/qQ8BPkL9X5o)
+> -   [Demo Regel 1](https://youtu.be/gm6ttKlAEJc)
+> -   [Demo Regel 2](https://youtu.be/3j9i7iMVmMM)
+> -   [Demo Regel 3](https://youtu.be/J3gJnwz8Rf0)
+>
+> </details>
+
+##### Problem: Etablierte API (Interfaces) erweitern
+
+``` java
+interface Klausur {
+    void anmelden(Studi s);
+    void abmelden(Studi s);
+}
+```
+
+=\> Nachträglich noch `void schreiben(Studi s);` ergänzen?
+
+Wenn ein Interface nachträglich erweitert wird, müssen alle Kunden (also
+alle Klassen, die das Interface implementieren) auf die neuen Signaturen
+angepasst werden. Dies kann viel Aufwand verursachen und API-Änderungen
+damit unmöglich machen.
+
+##### Default-Methoden: Interfaces mit Implementierung
+
+Seit Java8 können Interfaces auch Methoden implementieren. Es gibt zwei
+Varianten: Default-Methoden und statische Methoden.
+
+``` java
+interface Klausur {
+    void anmelden(Studi s);
+    void abmelden(Studi s);
+
+    default void schreiben(Studi s) {
+        ...     // Default-Implementierung
+    }
+
+    default void wuppie() {
+        throw new java.lang.UnsupportedOperationException();
+    }
+}
+```
+
+Methoden können in Interfaces seit Java8 implementiert werden. Für
+Default-Methoden muss das Schlüsselwort `default` vor die Signatur
+gesetzt werden. Klassen, die das Interface implementieren, können diese
+Default-Implementierung erben oder selbst neu implementieren
+(überschreiben). Alternativ kann die Klasse eine Default-Methode neu
+*deklarieren* und wird damit zur abstrakten Klasse.
+
+Dies ähnelt abstrakten Klassen. Allerdings kann in abstrakten Klassen
+neben dem Verhalten (implementierten Methoden) auch Zustand über die
+Attribute gespeichert werden.
+
+##### Problem: Mehrfachvererbung
+
+Drei Regeln zum Auflösen bei Konflikten:
+
+1.  **Klassen gewinnen**: Methoden aus Klasse oder Superklasse haben
+    höhere Priorität als Default-Methoden
+2.  **Sub-Interfaces gewinnen**: Methode aus am meisten spezialisiertem
+    Interface mit Default-Methode wird gewählt Beispiel: Wenn
+    `B extends A` dann ist `B` spezialisierter als `A`
+3.  Sonst: Klasse muss **Methode explizit auswählen**: Methode
+    überschreiben und gewünschte (geerbte) Variante aufrufen:
+    `X.super.m(...)` (`X` ist das gewünschte Interface)
+
+Auf den folgenden Folien wird dies anhand kleiner Beispiele
+verdeutlicht.
+
+##### Auflösung Mehrfachvererbung: 1. Klassen gewinnen
+
+``` java
+interface A {
+    default String hello() { return "A"; }
+}
+class C {
+    public String hello() { return "C"; }
+}
+class E extends C implements A {}
+
+
+/** Mehrfachvererbung: 1. Klassen gewinnen */
+public class DefaultTest1 {
+    public static void main(String... args) {
+        String e = new E().hello();
+    }
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/defaultmethods/rule1/DefaultTest1.java">Demo: defaultmethods.rule1.DefaultTest1</a></p>
+
+Die Klasse `E` erbt sowohl von Klasse `C` als auch vom Interface `A` die
+Methode `hello()` (Mehrfachvererbung). In diesem Fall "gewinnt" die
+Implementierung aus Klasse `C`.
+
+**1. Regel**: Klassen gewinnen immer. Deklarationen einer Methode in
+einer Klasse oder einer Oberklasse haben Vorrang von allen
+Default-Methoden.
+
+##### Auflösung Mehrfachvererbung: 2. Sub-Interfaces gewinnen
+
+``` java
+interface A {
+    default String hello() { return "A"; }
+}
+interface B extends A {
+    @Override default String hello() { return "B"; }
+}
+class D implements A, B {}
+
+
+/** Mehrfachvererbung: 2. Sub-Interfaces gewinnen */
+public class DefaultTest2 {
+    public static void main(String... args) {
+        String e = new D().hello();
+    }
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/defaultmethods/rule2/DefaultTest2.java">Demo: defaultmethods.rule2.DefaultTest2</a></p>
+
+Die Klasse `D` erbt sowohl vom Interface `A` als auch vom Interface `B`
+die Methode `hello()` (Mehrfachvererbung). In diesem Fall "gewinnt" die
+Implementierung aus Klasse `B`: Interface `B` ist spezialisierter als
+`A`.
+
+**2. Regel**: Falls Regel 1 nicht zutrifft, gewinnt die Default-Methode,
+die am meisten spezialisiert ist.
+
+##### Auflösung Mehrfachvererbung: 3. Methode explizit auswählen
+
+``` java
+interface A {
+    default String hello() { return "A"; }
+}
+interface B {
+    default String hello() { return "B"; }
+}
+class D implements A, B {
+    @Override public String hello() { return A.super.hello(); }
+}
+
+
+/** Mehrfachvererbung: 3. Methode explizit auswählen */
+public class DefaultTest3 {
+    public static void main(String... args) {
+        String e = new D().hello();
+    }
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/defaultmethods/rule3/DefaultTest3.java">Demo: defaultmethods.rule3.DefaultTest3</a></p>
+
+Die Klasse `D` erbt sowohl vom Interface `A` als auch vom Interface `B`
+die Methode `hello()` (Mehrfachvererbung). In diesem Fall *muss* zur
+Auflösung die Methode in `D` neu implementiert werden und die gewünschte
+geerbte Methode explizit aufgerufen werden. (Wenn dies unterlassen wird,
+führt das selbst bei Nicht-Nutzung der Methode `hello()` zu einem
+Compiler-Fehler!)
+
+*Achtung*: Der Aufruf der Default-Methode aus Interface `A` erfolgt mit
+`A.super.hello();` (nicht einfach durch `A.hello();`)!
+
+**3. Regel**: Falls weder Regel 1 noch 2 zutreffen bzw. die Auflösung
+noch uneindeutig ist, muss man manuell durch die explizite Angabe der
+gewünschten Methode auflösen.
+
+##### Quiz: Was kommt hier raus?
+
+``` java
+interface A {
+    default String hello() { return "A"; }
+}
+interface B extends A {
+    @Override default String hello() { return "B"; }
+}
+class C implements B {
+    @Override public String hello() { return "C"; }
+}
+class D extends C implements A, B {}
+
+
+/** Quiz Mehrfachvererbung */
+public class DefaultTest {
+    public static void main(String... args) {
+        String e = new D().hello(); // ???
+    }
+}
+```
+
+Die Klasse `D` erbt sowohl von Klasse `C` als auch von den Interfaces
+`A` und `B` die Methode `hello()` (Mehrfachvererbung). In diesem Fall
+"gewinnt" die Implementierung aus Klasse `C`: Klassen gewinnen immer
+(Regel 1).
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/defaultmethods/quiz/DefaultTest.java">Beispiel: defaultmethods.quiz.DefaultTest</a></p>
+
+##### Statische Methoden in Interfaces
+
+``` java
+public interface Collection<E> extends Iterable<E> {
+    boolean add(E e);
+    ...
+}
+public class Collections {
+    private Collections() { }
+    public static <T> boolean addAll(Collection<? super T> c, T... elements) {...}
+    ...
+}
+```
+
+Typisches Pattern in Java: Interface plus Utility-Klasse
+(Companion-Klasse) mit statischen Hilfsmethoden zum einfacheren Umgang
+mit Instanzen des Interfaces (mit Objekten, deren Klasse das Interface
+implementiert). Beispiel: `Collections` ist eine Hilfs-Klasse zum Umgang
+mit `Collection`-Objekten.
+
+Seit Java8 können in Interfaces neben Default-Methoden auch statische
+Methoden implementiert werden.
+
+Die Hilfsmethoden können jetzt ins Interface wandern =\> Utility-Klassen
+werden obsolet ... Aus Kompatibilitätsgründen würde man die bisherige
+Companion-Klasse weiterhin anbieten, wobei die Implementierungen auf die
+statischen Methoden im Interface verweisen (*SKIZZE, nicht real!*):
+
+``` java
+public interface CollectionX<E> extends Iterable<E> {
+    boolean add(E e);
+    static <T> boolean addAll(CollectionX<? super T> c, T... elements) { ... }
+    ...
+}
+public class CollectionsX {
+    public static <T> boolean addAll(CollectionX<? super T> c, T... elements) {
+        return CollectionX.addAll(c, elements);  // Verweis auf Interface
+    }
+    ...
+}
+```
+
+##### Interfaces vs. Abstrakte Klassen
+
+-   **Abstrakte Klassen**: Schnittstelle und Verhalten und Zustand
+
+-   **Interfaces**:
+
+    -   vor Java 8 nur Schnittstelle
+    -   ab Java 8 Schnittstelle und Verhalten
+
+    Unterschied zu abstrakten Klassen: Kein Zustand, d.h. keine
+    Attribute
+
+<!-- -->
+
+-   Design:
+    -   Interfaces sind beinahe wie abstrakte Klassen, nur ohne Zustand
+    -   Klassen können nur von **einer** (abstrakten) Klasse erben, aber
+        **viele** Interfaces implementieren
+
+##### Wrap-Up
+
+Seit Java8: Interfaces mit Implementierung: **Default-Methoden**
+
+-   Methoden mit dem Schlüsselwort `default` können Implementierung im
+    Interface haben
+-   Die Implementierung wird vererbt und kann bei Bedarf überschrieben
+    werden
+-   Auflösung von Mehrfachvererbung:
+    -   Regel 1: Klassen gewinnen
+    -   Regel 2: Sub-Interfaces gewinnen
+    -   Regel 3: Methode explizit auswählen
+-   Unterschied zu abstrakten Klassen: **Kein Zustand**
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Urma u. a. ([2014, Kap. 9](#ref-Urma2014))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich weiss, dass in Interfaces Default-Methoden erstellt werden
+>     können
+> -   k2: Ich kann den Unterschied zwischen Interfaces mit
+>     Default-Methoden und abstrakten Klassen erklären
+> -   k2: Ich verstehe das Problem der Mehrfachvererbung bei Interfaces
+>     mit Default-Methoden
+> -   k3: Ich kann Interfaces mit Default-Methoden erstellen und
+>     einsetzen
+> -   k3: Ich habe die Regeln zum Auflösen der Mehrfachvererbung
+>     verstanden und kann sie in der Praxis nutzen
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> Erklären Sie die Code-Schnipsel in der
+> [Vorgabe](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-modern/src/challenges/defaults)
+> und die jeweils entstehenden Ausgaben.
+>
+> </details>
+
+<a id="id-152ec8405b8a75f125fcbd1f4f3125262de1b614"></a>
+
+#### Record-Klassen
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Häufig schreibt man relativ viel *Boiler Plate Code*, um einfach ein
+> paar Daten plus den Konstruktor und die Zugriffsmethoden zu kapseln.
+> Und selbst wenn die IDE dies zum Teil abnehmen kann - lesen muss man
+> diesen Overhead trotzdem noch.
+>
+> Für den Fall von Klassen mit `final` Attributen wurden in Java14 die
+> **Record-Klassen** eingeführt. Statt dem Schlüsselwort `class` wird
+> das neue Schlüsselwort `record` verwendet. Nach dem Klassennamen
+> kommen in runden Klammern die "Komponenten" - eine Auflistung der
+> Parameter für den Standardkonstruktor (Typ, Name). Daraus wird
+> automatisch ein "kanonischer Konstruktor" mit exakt diesen Parametern
+> generiert. Es werden zusätzlich `private final` Attribute generiert
+> für jede Komponente, und diese werden durch den kanonischen
+> Konstruktor gesetzt. Außerdem wird für jedes Attribut automatisch ein
+> Getter mit dem Namen des Attributs generiert (also ohne den Präfix
+> "get").
+>
+> Beispiel:
+>
+> ``` java
+> public record StudiR(String name, int credits) {}
+> ```
+>
+> Der Konstruktor und die Getter können überschrieben werden, es können
+> auch eigene Methoden definiert werden (eigene Konstruktoren *müssen*
+> den kanonischen Konstruktor aufrufen). Es gibt außer den über die
+> Komponenten definierten Attribute keine weiteren Attribute. Da eine
+> Record-Klasse intern von `java.lang.Record` ableitet, kann eine
+> Record-Klasse nicht von weiteren Klassen ableiten (erben). Man kann
+> aber beliebig viele Interfaces implementieren. Record-Klassen sind
+> implizit final, d.h. man nicht von Record-Klassen erben.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Record-Klassen](https://youtu.be/5RMhdCsZL6Y)
+> -   [Demo Record-Klassen](https://youtu.be/jWBAXWH0MUc)
+>
+> </details>
+
+##### Motivation; Klasse Studi
+
+``` java
+public class Studi {
+    private final String name;
+    private final int credits;
+
+    public Studi(String name, int credits) {
+        this.name = name;
+        this.credits = credits;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+}
+```
+
+##### Klasse Studi als Record
+
+``` java
+public record StudiR(String name, int credits) {}
+```
+
+-   Immutable Klasse mit Feldern `String name` und `int credits` =\>
+    "`(String name, int credits)`" werden "Komponenten" des Records
+    genannt
+
+-   Standardkonstruktor setzt diese Felder ("Kanonischer Konstruktor")
+
+-   Getter für beide Felder:
+
+    ``` java
+    public String name() { return this.name; }
+    public int credits() { return this.credits; }
+    ```
+
+Record-Klassen wurden in Java14 eingeführt und werden immer wieder in
+neuen Releases erweitert/ergänzt.
+
+Der kanonische Konstruktor hat das Aussehen wie die Record-Deklaration,
+im Beispiel also `public StudiR(String name, int credits)`. Dabei werden
+die Komponenten über eine Kopie der Werte initialisiert.
+
+Für die Komponenten werden automatisch private Attribute mit dem selben
+Namen angelegt.
+
+Für die Komponenten werden automatisch Getter angelegt. Achtung: Die
+Namen entsprechen denen der Komponenten, es fehlt also der übliche
+"get"-Präfix!
+
+##### Eigenschaften und Einschränkungen von Record-Klassen
+
+-   Records erweitern implizit die Klasse `java.lang.Record`: Keine
+    andere Klassen mehr erweiterbar! (Interfaces kein Problem)
+
+-   Record-Klassen sind implizit final
+
+-   Keine weiteren (Instanz-) Attribute definierbar (nur die
+    Komponenten)
+
+-   Keine Setter definierbar für die Komponenten: Attribute sind final
+
+-   Statische Attribute mit Initialisierung erlaubt
+
+##### Records: Prüfungen im Konstruktor
+
+Der Konstruktor ist erweiterbar:
+
+``` java
+public record StudiS(String name, int credits) {
+    public StudiS(String name, int credits) {
+        if (name == null) { throw new IllegalArgumentException("Name cannot be null!"); }
+        else { this.name = name; }
+
+        if (credits < 0) { this.credits = 0; }
+        else { this.credits = credits; }
+    }
+}
+```
+
+In dieser Form muss man die Attribute selbst setzen.
+
+Alternativ kann man die "kompakte" Form nutzen:
+
+``` java
+public record StudiT(String name, int credits) {
+    public StudiT {
+        if (name == null) { throw new IllegalArgumentException("Name cannot be null!"); }
+
+        if (credits < 0) { credits = 0; }
+    }
+}
+```
+
+In der kompakten Form kann man nur die Werte der Parameter des
+Konstruktors ändern. Das Setzen der Attribute ergänzt der Compiler nach
+dem eigenen Code.
+
+Es sind weitere Konstruktoren definierbar, diese *müssen* den
+kanonischen Konstruktor aufrufen:
+
+``` java
+public StudiT() {
+    this("", 42);
+}
+```
+
+##### Getter und Methoden
+
+Getter werden vom Compiler automatisch generiert. Dabei entsprechen die
+Methoden-Namen den Namen der Attribute:
+
+``` java
+public record StudiR(String name, int credits) {}
+
+public static void main(String... args) {
+    StudiR r = new StudiR("Sabine", 75);
+
+    int x = r.credits();
+    String y = r.name();
+}
+```
+
+Getter überschreibbar und man kann weitere Methoden definieren:
+
+``` java
+public record StudiT(String name, int credits) {
+    public int credits() { return credits + 42; }
+    public void wuppie() { System.out.println("WUPPIE"); }
+}
+```
+
+Die Komponenten/Attribute sind aber `final` und können nicht über
+Methoden geändert werden!
+
+##### Beispiel aus den Challenges
+
+In den Challenges zum Thema Optional gibt es die Klasse `Katze` in den
+[Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/challenges/optional/Katze.java).
+
+Die Katze wurde zunächst "klassisch" modelliert: Es gibt drei
+Eigenschaften `name`, `gewicht`und `lieblingsBox`. Ein Konstruktor setzt
+diese Felder und es gibt drei Getter für die einzelnen Eigenschaften.
+Das braucht 18 Zeilen Code (ohne Kommentare Leerzeilen). Zudem erzeugt
+der Boilerplate-Code relativ viel "visual noise", so dass der
+eigentliche Kern der Klasse schwerer zu erkennen ist.
+
+In einem Refactoring wurde diese Klasse durch eine äquivalente
+Record-Klasse ersetzt, die nur noch 2 Zeilen Code (je nach Code-Style
+auch nur 1 Zeile) benötigt. Gleichzeitig wurde die Les- und Wartbarkeit
+deutlich verbessert.
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_katze.png"  /></p>
+
+##### Wrap-Up
+
+-   Records sind immutable Klassen:
+    -   `final` Attribute (entsprechend den Komponenten)
+    -   Kanonischer Konstruktor
+    -   Automatische Getter (Namen wie Komponenten)
+-   Konstruktoren und Methoden können ergänzt/überschrieben werden
+-   Keine Vererbung von Klassen möglich (kein `extends`)
+
+Schöne Doku: ["Using Record to Model Immutable
+Data"](https://dev.java/learn/using-record-to-model-immutable-data/).
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2026](#ref-LernJava))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich verstehe, dass Record-Klassen implizit final sind
+> -   k2: Ich weiss, dass Record-Klassen einen kanonischen Konstruktor
+>     haben
+> -   k2: Ich verstehe, dass die Attribute in Record-Klassen implizit
+>     final sind und automatisch angelegt und über den Konstruktor
+>     gesetzt werden
+> -   k2: Ich weiss, dass die Getter in Record-Klassen so benannt sind
+>     wie die Namen der Komponenten, also keinen Präfix 'get' haben
+> -   k2: Ich weiss, dass der kanonische Konstruktor ergänzt werden kann
+> -   k2: Ich weiss, dass weitere Methoden definiert werden können
+> -   k2: Ich verstehe, dass Record-Klassen nicht von anderen Klassen
+>     erben können, aber Interfaces implementieren können
+> -   k3: Ich kann Record-Klassen praktisch einsetzen
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> Betrachen Sie den folgenden Code:
+>
+> ``` java
+> public interface Person {
+>     String getName();
+>     Date getBirthday();
+> }
+>
+> public class Student implements Person {
+>     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
+>
+>     private final String name;
+>     private final Date birthday;
+>
+>     public Student(String name, String birthday) throws ParseException {
+>         this.name = name;
+>         this.birthday = DATE_FORMAT.parse(birthday);
+>     }
+>
+>     public String getName() { return name; }
+>     public Date getBirthday() { return birthday; }
+> }
+> ```
+>
+> Schreiben Sie die Klasse `Student` in eine Record-Klasse um. Was
+> müssen Sie zusätzlich noch tun, damit die aktuelle API erhalten
+> bleibt?
+>
+> </details>
+
+<a id="id-b97bf455cbca7e395e55b06a589bd6a34018b498"></a>
+
+#### Sealed Classes & Pattern Matching
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> TODO
+>
+> </details>
+
+##### Packages
+
+TODO
+
+##### Wrap-Up
+
+TODO
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kann den Einsatz von Packages in Java erklären
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> TODO
+>
+> </details>
+
+<a id="id-b16a41dd6bcae74097deb0d66f9b50762b8c0f40"></a>
+
+#### Stream-API
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Mit der Collection-API existiert in Java die Möglichkeit, Daten auf
+> verschiedenste Weisen zu speichern (`Collection<T>`). Mit der
+> Stream-API gibt es die Möglichkeit, diese Daten in einer Art Pipeline
+> zu verarbeiten. Ein `Stream<T>` ist eine Folge von Objekten vom Typ
+> `T`. Die Verarbeitung der Daten ist "lazy", d.h. sie erfolgt erst auf
+> Anforderung (durch die terminale Operation).
+>
+> Ein Stream hat eine Datenquelle und kann beispielsweise über
+> `Collection#stream()` oder `Stream.of()` angelegt werden. Streams
+> speichern keine Daten. Die Daten werden aus der verbundenen
+> Datenquelle geholt.
+>
+> Auf einem Stream kann man eine Folge von intermediären Operationen wie
+> `peek()`, `map()`, `flatMap()`, `filter()`, `sorted()` ...
+> durchführen. Alle diese Operationen arbeiten auf dem Stream und
+> erzeugen einen neuen Stream als Ergebnis. Dadurch kann die typische
+> Pipeline-artige Verkettung der Operationen ermöglicht werden. Die
+> intermediären Operationen werden erst ausgeführt, wenn der Stream
+> durch eine terminale Operation geschlossen wird.
+>
+> Terminale Operationen wie `count()`, `forEach()`, `allMatch()` oder
+> `collect()`
+>
+> -   `collect(Collectors.toList())` (bzw. direkt mit `stream.toList()`
+>     (ab Java16))
+> -   `collect(Collectors.toSet())`
+> -   `collect(Collectors.toCollection(LinkedList::new))` (als
+>     `Supplier<T>`)
+>
+> stoßen die Verarbeitung des Streams an und schließen den Stream damit
+> ab.
+>
+> Wir können hier nur die absoluten Grundlagen betrachten. Die
+> Stream-API ist sehr groß und mächtig und lohnt die weitere
+> selbstständige Auseinandersetzung :-)
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Stream-API](https://youtu.be/zZMyk0u5hJk)
+> -   [Demo Stream-API](https://youtu.be/KBP72tCkBt8)
+> -   [Demo Vordefinierte funktionale Interfaces im
+>     JDK](https://youtu.be/jzEw8IH8Mfc)
+>
+> </details>
+
+##### Motivation
+
+Es wurden Studis, Studiengänge und Fachbereiche modelliert (aus Gründen
+der Übersichtlichkeit einfach als Record-Klassen).
+
+Nun soll pro Fachbereich die Anzahl der Studis ermittelt werden, die
+bereits 100 ECTS oder mehr haben. Dazu könnte man über alle Studiengänge
+im Fachbereich iterieren, und in der inneren Schleife über alle Studis
+im Studiengang. Dann filtert man alle Studis, deren ECTS größer 100 sind
+und erhöht jeweils den Zähler:
+
+``` java
+public record Studi(String name, int credits) {}
+public record Studiengang(String name, List<Studi> studis) {}
+public record Fachbereich(String name, List<Studiengang> studiengaenge) {}
+
+private static long getCountFB(Fachbereich fb) {
+    long count = 0;
+    for (Studiengang sg : fb.studiengaenge()) {
+        for (Studi s : sg.studis()) {
+            if (s.credits() > 100) count += 1;
+        }
+    }
+    return count;
+}
+```
+
+Dies ist ein Beispiel, welches klassisch in OO-Manier als Iteration über
+Klassen realisiert ist. (Inhaltlich ist es vermutlich nicht sooo
+sinnvoll.)
+
+##### Innere Schleife mit Streams umgeschrieben
+
+``` java
+private static long getCountSG(Studiengang sg) {
+    return sg.studis().stream()
+                      .map(Studi::credits)
+                      .filter(c -> c > 100)
+                      .count();
+}
+
+private static long getCountFB2(Fachbereich fb) {
+    long count = 0;
+    for (Studiengang sg : fb.studiengaenge()) {
+        count += getCountSG(sg);
+    }
+    return count;
+}
+```
+
+###### Erklärung des Beispiels
+
+Im Beispiel wurde die innere Schleife in einen Stream ausgelagert.
+
+Mit der Methode `Collection#stream()` wird aus der Collection ein neuer
+Stream erzeugt. Auf diesem wird für jedes Element durch die Methode
+`map()` die Methode `Studi#credits()` angewendet, was aus einem Strom
+von `Studi` einen Strom von `Integer` macht. Mit `filter()` wird auf
+jedes Element das Prädikat `c -> c > 100` angewendet und alle Elemente
+aus dem Strom entfernt, die der Bedingung nicht entsprechen. Am Ende
+wird mit `count()` gezählt, wie viele Elemente im Strom enthalten sind.
+
+###### Was ist ein Stream?
+
+Ein "Stream" ist ein Strom (Folge) von Daten oder Objekten. In Java wird
+die Collections-API für die Speicherung von Daten (Objekten) verwendet.
+Die Stream-API dient zur Iteration über diese Daten und entsprechend zur
+Verarbeitung der Daten. In Java speichert ein Stream keine Daten.
+
+Das Konzept kommt aus der funktionalen Programmierung und wurde in Java
+nachträglich eingebaut (wobei dieser Prozess noch lange nicht
+abgeschlossen zu sein scheint).
+
+In der funktionalen Programmierung kennt man die Konzepte "map",
+"filter" und "reduce": Die Funktion "map()" erhält als Parameter eine
+Funktion und wendet diese auf alle Elemente eines Streams an. Die
+Funktion "filter()" bekommt ein Prädikat als Parameter und prüft jedes
+Element im Stream, ob es dem Prädikat genügt (also ob das Prädikat mit
+dem jeweiligen Element zu `true` evaluiert - die anderen Objekte werden
+entfernt). Mit "reduce()" kann man Streams zu einem einzigen Wert
+zusammenfassen (denken Sie etwa an das Aufsummieren aller Elemente eines
+Integer-Streams). Zusätzlich kann man in der funktionalen Programmierung
+ohne Probleme unendliche Ströme darstellen: Die Auswertung erfolgt nur
+bei Bedarf und auch dann auch nur so weit wie nötig. Dies nennt man auch
+"*lazy evaluation*".
+
+Die Streams in Java versuchen, diese Konzepte aus der funktionalen
+Programmierung in die objektorientierte Programmierung zu übertragen.
+Ein Stream in Java hat eine Datenquelle, von wo die Daten gezogen
+werden - ein Stream speichert selbst keine Daten. Es gibt "intermediäre
+Operationen" auf einem Stream, die die Elemente verarbeiten und das
+Ergebnis als Stream zurückliefern. Daraus ergibt sich typische
+Pipeline-artige Verkettung der Operationen. Allerdings werden diese
+Operationen erst durchgeführt, wenn eine "terminale Operation" den
+Stream "abschließt". Ein Stream ohne eine terminale Operation macht also
+tatsächlich *nichts*.
+
+Die Operationen auf dem Stream sind üblicherweise zustandslos, können
+aber durchaus auch einen Zustand haben. Dies verhindert üblicherweise
+die parallele Verarbeitung der Streams. Operationen sollten aber nach
+Möglichkeit keine *Seiteneffekte* haben, d.h. keine Daten außerhalb des
+Streams modifizieren. Operationen dürfen auf keinen Fall die Datenquelle
+des Streams modifizieren!
+
+##### Erzeugen von Streams
+
+``` java
+List<String> l1 = List.of("Hello", "World", "foo", "bar", "wuppie");
+Stream<String> s1 = l1.stream();
+
+Stream<String> s2 = Stream.of("Hello", "World", "foo", "bar", "wuppie");
+
+Random random = new Random();
+Stream<Integer> s3 = Stream.generate(random::nextInt);
+
+Pattern pattern = Pattern.compile(" ");
+Stream<String> s4 = pattern.splitAsStream("Hello world! foo bar wuppie!");
+```
+
+Dies sind möglicherweise die wichtigsten Möglichkeiten, in Java einen
+Stream zu erzeugen.
+
+Ausgehend von einer Klasse aus der Collection-API kann man die Methode
+`Collection#stream()` aufrufen und bekommt einen seriellen Stream.
+
+Alternativ bietet das Interface `Stream` verschiedene statische Methoden
+wie `Stream.of()` an, mit deren Hilfe Streams angelegt werden können.
+Dies funktioniert auch mit Arrays ...
+
+Und schließlich kann man per `Stream.generate()` einen Stream anlegen,
+wobei als Argument ein "Supplier" (Interface
+`java.util.function.Supplier<T>`) übergeben werden muss. Dieses Argument
+wird dann benutzt, um die Daten für den Stream zu generieren.
+
+Wenn man aufmerksam hinschaut, findet man an verschiedensten Stellen die
+Möglichkeit, die Daten per Stream zu verarbeiten, u.a. bei regulären
+Ausdrücken.
+
+Man kann per `Collection#parallelStream()` auch parallele Streams
+erzeugen, die intern das "Fork&Join-Framework" nutzen. Allerdings sollte
+man nur dann parallele Streams anlegen, wenn dadurch tatsächlich
+Vorteile durch die Parallelisierung zu erwarten sind (Overhead!).
+
+##### Intermediäre Operationen auf Streams
+
+``` java
+private static void dummy(Studiengang sg) {
+    sg.studis().stream()
+            .peek(s -> System.out.println("Looking at: " + s.name()))
+            .map(Studi::credits)
+            .peek(c -> System.out.println("This one has: " + c + " ECTS"))
+            .filter(c -> c > 5)
+            .peek(c -> System.out.println("Filtered: " + c))
+            .sorted()
+            .forEach(System.out::println);
+}
+```
+
+An diesem (weitestgehend sinnfreien) Beispiel werden einige intermediäre
+Operationen demonstriert.
+
+Die Methode `peek()` liefert einen Stream zurück, die aus den Elementen
+des Eingabestroms bestehen. Auf jedes Element wird die Methode
+`void accept(T)` des `Consumer<T>` angewendet (Argument der Methode),
+was aber nicht zu einer Änderung der Daten führt. **Hinweis**: Diese
+Methode dient vor allem zu Debug-Zwecken! Durch den Seiteneffekt kann
+die Methode eine schlechtere Laufzeit zur Folge haben oder sogar eine
+sonst mögliche parallele Verarbeitung verhindern oder durch eine
+parallele Verarbeitung verwirrende Ergebnisse zeigen!
+
+Die Methode `map()` liefert ebenfalls einen Stream zurück, der durch die
+Anwendung der Methode `R apply(T)` der als Argument übergebenen
+`Function<T,R>` auf jedes Element des Eingabestroms entsteht. Damit
+lassen sich die Elemente des ursprünglichen Streams verändern; für jedes
+Element gibt es im Ergebnis-Stream ebenfalls ein Element (der Typ ändert
+sich, aber nicht die Anzahl der Elemente).
+
+Mit der Methode `filter()` wird ein Stream erzeugt, der alle Objekte des
+Eingabe-Streams enthält, auf denen die Anwendung der Methode
+`boolean test(T)` des Arguments `Predicate<T>` zu `true` evaluiert (der
+Typ und Inhalt der Elemente ändert sich nicht, aber die Anzahl der
+Elemente).
+
+Mit `sorted()` wird ein Stream erzeugt, der die Elemente des
+Eingabe-Streams sortiert (existiert auch mit einem `Comparator<T>` als
+Parameter).
+
+Diese Methoden sind alles **intermediäre** Operationen. Diese arbeiten
+auf einem Stream und erzeugen einen neuen Stream und werden erst dann
+ausgeführt, wenn eine terminale Operation den Stream abschließt.
+
+Dabei sind die gezeigten intermediären Methoden bis auf `sorted()` ohne
+inneren Zustand. `sorted()` ist eine Operation mit innerem Zustand (wird
+für das Sortieren benötigt). Dies kann ordentlich in Speicher und Zeit
+zuschlagen und u.U. nicht/nur schlecht parallelisierbar sein. Betrachten
+Sie den fiktiven parallelen Stream
+`stream.parallel().sorted().skip(42)`: Hier müssen erst *alle* Elemente
+sortiert werden, bevor mit `skip(42)` die ersten 42 Elemente entfernt
+werden. Dies kann auch nicht mehr parallel durchgeführt werden.
+
+Die Methode `forEach()` schließlich ist eine **terminale** Operation,
+die auf jedes Element des Eingabe-Streams die Methode `void accept(T)`
+des übergebenen `Consumer<T>` anwendet. Diese Methode ist eine
+**terminale Operation**, d.h. sie führt zur Auswertung der anderen
+*intermediären* Operationen und schließt den Stream ab.
+
+##### Was tun, wenn eine Methode Streams zurückliefert
+
+Wir konnten vorhin nur die innere Schleife in eine Stream-basierte
+Verarbeitung umbauen. Das Problem ist: Die äußere Schleife würde einen
+Stream liefern (Stream von Studiengängen), auf dem wir die
+`map`-Funktion anwenden müssten und darin dann für jeden Studiengang
+einen (inneren) Stream mit den Studis eines Studiengangs verarbeiten
+müssten.
+
+``` java
+private static long getCountSG(Studiengang sg) {
+    return sg.studis().stream().map(Studi::credits).filter(c -> c > 100).count();
+}
+
+private static long getCountFB2(Fachbereich fb) {
+    long count = 0;
+    for (Studiengang sg : fb.studiengaenge()) {
+        count += getCountSG(sg);
+    }
+    return count;
+}
+```
+
+Dafür ist die Methode `flatMap()` die Lösung. Diese Methode bekommt als
+Argument ein Objekt vom Typ
+`Function<? super T, ? extends Stream<? extends R>>` mit einer Methode
+`Stream<? extends R> apply(T)`. Die Methode `flatMap()` verarbeitet den
+Stream in zwei Schritten:
+
+1.  Mappe über alle Elemente des Eingabe-Streams mit der Funktion. Im
+    Beispiel würde also aus einem `Stream<Studiengang>` jeweils ein
+    `Stream<Stream<Studi>>`, also alle `Studiengang`-Objekte werden
+    durch je ein `Stream<Studi>`-Objekt ersetzt. Wir haben jetzt also
+    einen Stream von `Stream<Studi>`-Objekten, also einen
+    `Stream<Stream<Studi>>`.
+
+2.  "Klopfe den verschachtelten Stream wieder flach", d.h. nimm die
+    einzelnen `Studi`-Objekte aus den `Stream<Studi>`-Objekten und setze
+    diese stattdessen in den Stream. Das Ergebnis ist dann wie gewünscht
+    ein `Stream<Studi>` (Stream mit `Studi`-Objekten).
+
+``` java
+private static long getCountFB3(Fachbereich fb) {
+    return fb.studiengaenge().stream()
+            .flatMap(sg -> sg.studis().stream())
+            .map(Studi::credits)
+            .filter(c -> c > 100)
+            .count();
+}
+```
+
+Zum direkten Vergleich hier noch einmal der ursprüngliche Code mit zwei
+verschachtelten Schleifen und entsprechenden Hilfsvariablen:
+
+``` java
+private static long getCountFB(Fachbereich fb) {
+    long count = 0;
+    for (Studiengang sg : fb.studiengaenge()) {
+        for (Studi s : sg.studis()) {
+            if (s.credits() > 100) count += 1;
+        }
+    }
+    return count;
+}
+```
+
+Während `map` also eine Funktion $f: T \mapsto R$ auf alle Elemente des
+Streams anwendet und so aus einem `stream<T>` einen `stream<R>` erzeugt,
+wendet `flatMap` eine Funktion
+$f: T \mapsto \mathop{\text{stream}}\text{<}R\text{>}$ auf alle Elemente
+des Streams an und packt die Ergebnis-Streams `stream<R>` wieder aus,
+weshalb man im Ergebnis wie bei `map` aus einem `stream<T>` einen
+`stream<R>` erhält.
+
+##### Streams abschließen: Terminale Operationen
+
+``` java
+Stream<String> s = Stream.of("Hello", "World", "foo", "bar", "wuppie");
+
+long count = s.count();
+s.forEach(System.out::println);
+String first = s.findFirst().get();
+Boolean b = s.anyMatch(e -> e.length() > 3);
+
+List<String> s1 = s.collect(Collectors.toList());
+List<String> s2 = s.toList();   // ab Java16
+Set<String> s3 = s.collect(Collectors.toSet());
+List<String> s4 = s.collect(Collectors.toCollection(LinkedList::new));
+```
+
+Streams müssen mit ***einer* terminalen Operation** abgeschlossen
+werden, damit die Verarbeitung tatsächlich angestoßen wird (*lazy
+evaluation*).[^2]
+
+Es gibt viele verschiedene terminale Operationen. Wir haben bereits
+`count()` und `forEach()` gesehen. In der Sitzung zu
+["Optionals"](#id-bb5095c5a37b38bd48ac37be51964fb543342407) werden wir
+noch `findFirst()` näher kennenlernen.
+
+Daneben gibt es beispielsweise noch `allMatch()`, `anyMatch()` und
+`noneMatch()`, die jeweils ein Prädikat testen und einen Boolean
+zurückliefern (matchen alle, mind. eines oder keines der Objekte im
+Stream).
+
+Mit `min()` und `max()` kann man sich das kleinste und das größte
+Element des Streams liefern lassen. Beide Methoden benötigen dazu einen
+`Comparator<T>` als Parameter.
+
+Mit der Methode `collect()` kann man eine der drei Methoden aus
+`Collectors` über den Stream laufen lassen und eine `Collection`
+erzeugen lassen:
+
+1.  `toList()` sammelt die Elemente in ein `List`-Objekt (bzw. direkt
+    mit `stream.toList()` (ab Java16))
+2.  `toSet()` sammelt die Elemente in ein `Set`-Objekt
+3.  `toCollection()` sammelt die Elemente durch Anwendung der Methode
+    `T get()` des übergebenen `Supplier<T>`-Objekts auf
+
+Die ist nur die sprichwörtliche "Spitze des Eisbergs"! Es gibt viele
+weitere Möglichkeiten, sowohl bei den intermediären als auch den
+terminalen Operationen. Schauen Sie in die Dokumentation!
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/streams/Demo.java">Demo: streams.Demo</a></p>
+
+##### Spielregeln
+
+-   Operationen dürfen nicht die Stream-Quelle modifizieren
+
+-   Operationen können die Werte im Stream ändern (`map`) oder die
+    Anzahl (`filter`)
+
+-   Keine Streams in Attributen/Variablen speichern oder als Argumente
+    übergeben: Sie könnten bereits "gebraucht" sein!
+
+    =\> Ein Stream sollte immer sofort nach der Erzeugung benutzt werden
+
+-   Operationen auf einem Stream sollten keine Seiteneffekte
+    (Veränderungen von Variablen/Attributen außerhalb des Streams) haben
+    (dies verhindert u.U. die parallele Verarbeitung)
+
+##### Wrap-Up
+
+`Stream<T>`: Folge von Objekten vom Typ `T`, Verarbeitung "lazy"
+(Gegenstück zu `Collection<T>`: Dort werden Daten **gespeichert**, hier
+werden Daten **verarbeitet**)
+
+> [!TIP]
+>
+> **Fließband-Metapher**
+>
+> Einen Stream kann man sich vielleicht wie ein Fließband in einer
+> Fabrik vorstellen: Die Daten werden auf dem Fließband in eine Richtung
+> transportiert und durchlaufen verschiedene Stationen, wo auf den Daten
+> gearbeitet wird. In manchen Stationen werden Objekte vom Fließband
+> geschubst (Daten herausgefiltert), in manchen Stationen werden die
+> Objekte bearbeitet (Daten verändert), in manchen Stationen werden aus
+> mehreren Teilen neue Objekte gebaut ...
+>
+> Es ist nur eine Metapher! Sie endet spätestens damit, dass die Streams
+> *lazy* sind und dass sämtliche Operationen erst dann ausgeführt
+> werden, wenn eine terminale Operation den Stream abschließt.
+
+-   Neuen Stream anlegen: `Collection#stream()` oder `Stream.of()` ...
+-   Intermediäre Operationen: `peek()`, `map()`, `flatMap()`,
+    `filter()`, `sorted()` ...
+-   Terminale Operationen: `count()`, `forEach()`, `allMatch()`,
+    `collect()` ...
+    -   `collect(Collectors.toList())`
+    -   `collect(Collectors.toSet())`
+    -   `collect(Collectors.toCollection())` (mit `Supplier<T>`)
+
+<!-- -->
+
+-   Streams speichern keine Daten
+-   Intermediäre Operationen laufen erst bei Abschluss des Streams los
+-   Terminale Operation führt zur Verarbeitung und Abschluss des Streams
+
+Schöne Doku: ["The Stream API"](https://dev.java/learn/api/streams/),
+und auch ["Package
+java.util.stream"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/package-summary.html).
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2026](#ref-LernJava))
+> -   Ullenboom ([2021, 17.3--17.6](#ref-Ullenboom2021))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich verstehe, dass Streams die Daten nicht sofort verarbeiten
+>     ('lazy' Verarbeitung)
+> -   k2: Ich verstehe, dass ich mit map() den Typ (und Inhalt) von
+>     Objekten im Stream, aber nicht die Anzahl verändere
+> -   k2: Ich verstehe, dass ich mit filter() die Anzahl der Objekte im
+>     Stream, aber nicht deren Typ (und Inhalt) verändere
+> -   k2: Ich verstehe, warum Streams nicht in Attributen gehalten oder
+>     als Parameter herumgereicht werden sollten
+> -   k3: Ich kann einen Stream erzeugen
+> -   k3: Ich kann verschiedene intermediäre Operationen verketten
+> -   k3: Ich kann mit einer terminalen Operation einen Stream
+>     abschließen und damit die Berechnung durchführen
+> -   k3: Ich kann flatMap() einsetzen
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> Betrachten Sie den folgenden Java-Code:
+>
+> ``` java
+> record Cat(int weight){};
+>
+> public class Main {
+>     public static void main(String... args) {
+>         List<Cat> clouder = new ArrayList<>();
+>         clouder.add(new Cat(100));  clouder.add(new Cat(1));  clouder.add(new Cat(10));
+>
+>         sumOverWeight(8, clouder);
+>     }
+>
+>     private static int sumOverWeight(int threshold, List<Cat> cats) {
+>         int result = 0;
+>         for (Cat c : cats) {
+>             int weight = c.weight();
+>             if (weight > threshold) {
+>                 result += weight;
+>             }
+>         }
+>         return result;
+>     }
+> }
+> ```
+>
+> Schreiben Sie die Methode `sumOverWeight` unter Beibehaltung der
+> Funktionalität so um, dass statt der `for`-Schleife und der
+> `if`-Abfrage Streams und Stream-Operationen eingesetzt werden. Nutzen
+> Sie passende Lambda-Ausdrücke und nach Möglichkeit Methodenreferenzen.
+>
+> Betrachten Sie den folgenden Java-Code:
+>
+> ``` java
+> public class Main {
+>     public static String getParameterNamesJson(String[] parameterNames) {
+>         if (parameterNames.length == 0) {
+>             return "[]";
+>         }
+>
+>         StringBuilder sb = new StringBuilder();
+>         sb.append("[");
+>         for (int i = 0; i < parameterNames.length; i++) {
+>             if (i > 0) {
+>                 sb.append(", ");
+>             }
+>             sb.append("\"").append(escapeJson(parameterNames[i])).append("\"");
+>         }
+>         sb.append("]");
+>         return sb.toString();
+>     }
+>
+>     private static String escapeJson(String parameterName) {
+>         // does something or another ...
+>     }
+> }
+> ```
+>
+> Schreiben Sie die Methode `getParameterNamesJson` unter Beibehaltung
+> der Funktionalität so um, dass statt der `for`-Schleife und der
+> `if`-Abfrage Streams und Stream-Operationen eingesetzt werden. Nutzen
+> Sie passende Lambda-Ausdrücke und nach Möglichkeit auch
+> Methodenreferenzen.
+>
+> </details>
+
+<a id="id-bb5095c5a37b38bd48ac37be51964fb543342407"></a>
+
+#### Optional
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Häufig hat man in Methoden den Fall, dass es keinen Wert gibt, und man
+> liefert dann `null` als "kein Wert vorhanden" zurück. Dies führt dazu,
+> dass die Aufrufer eine entsprechende `null`-Prüfung für die
+> Rückgabewerte durchführen müssen, bevor sie das Ergebnis nutzen
+> können.
+>
+> `Optional` schließt elegant den Fall "kein Wert vorhanden" ein: Es
+> kann mit der Methode `Optional.ofNullable()` das Argument in ein
+> Optional verpacken (Argument != `null`) oder ein `Optional.empty()`
+> zurückliefern ("leeres" Optional, wenn Argument == `null`).
+>
+> Man kann Optionals prüfen mit `isEmpty()` und `ifPresent()` und dann
+> direkt mit `ifPresent()`, `orElse()` und `orElseThrow()` auf den
+> verpackten Wert zugreifen. Besser ist aber der Zugriff über die
+> Stream-API von `Optional`: `map()`, `filter`, `flatMap()`, ... Dabei
+> gibt es keine terminalen Operationen - es handelt sich ja auch nicht
+> um einen Stream, nur die Optik erinnert daran.
+>
+> `Optional` ist vor allem für Rückgabewerte gedacht, die den Fall "kein
+> Wert vorhanden" einschließen sollen. Attribute, Parameter und
+> Sammlungen sollten nicht `Optional`-Referenzen speichern, sondern
+> "richtige" (unverpackte) Werte (und eben zur Not `null`). `Optional`
+> ist kein Ersatz für `null`-Prüfung von Methoden-Parametern (nutzen Sie
+> hier beispielsweise passende Annotationen). `Optional` ist auch kein
+> Ersatz für vernünftiges Exception-Handling im Fall, dass etwas
+> Unerwartetes passiert ist. Liefern Sie **niemals** `null` zurück, wenn
+> der Rückgabetyp der Methode ein `Optional` ist!
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Optional](https://youtu.be/JDG_hUSBfSA)
+> -   [Demo Optional](https://youtu.be/vL2c0iB4uSk)
+> -   [Demo Optional: Beispiel aus der Praxis im
+>     PM-Dungeon](https://youtu.be/vyN-vOV9_CU)
+>
+> </details>
+
+##### Motivation
+
+``` java
+public class LSF {
+    private Set<Studi> sl;
+
+    public Studi getBestStudi() {
+        if (sl == null) return null;  // Fehler: Es gibt noch keine Sammlung
+
+        Studi best = null;
+        for (Studi s : sl) {
+            if (best == null) best = s;
+            if (best.credits() < s.credits()) best = s;
+        }
+        return best;
+    }
+}
+
+public static void main(String... args) {
+    LSF lsf = new LSF();
+
+    Studi best = lsf.getBestStudi();
+    if (best != null) {
+        String name = best.name();
+        if (name != null) {
+            // mach was mit dem Namen ...
+        }
+    }
+}
+```
+
+###### Problem: `null` wird an (zu) vielen Stellen genutzt
+
+-   Es gibt keinen Wert ("not found")
+-   Felder wurden (noch) nicht initialisiert
+-   Es ist ein Problem oder etwas Unerwartetes aufgetreten
+
+=\> Parameter und Rückgabewerte müssen stets auf `null` geprüft werden
+(oder Annotationen wie `@NotNull` eingesetzt werden ...)
+
+###### Lösung
+
+-   `Optional<T>` für Rückgabewerte, die "kein Wert vorhanden" mit
+    einschließen (statt `null` bei Abwesenheit von Werten)
+-   `@NotNull`/`@Nullable` für Parameter einsetzen (oder separate
+    Prüfung)
+-   Exceptions werfen in Fällen, wo ein Problem aufgetreten ist
+
+###### Anmerkungen
+
+-   Verwendung von `null` auf Attribut-Ebene (Klassen-interne
+    Verwendung) ist okay!
+-   `Optional<T>` ist **kein** Ersatz für `null`-Checks!
+-   `null` ist **kein** Ersatz für vernünftiges Error-Handling! Das
+    häufig zu beobachtende "Irgendwas Unerwartetes ist passiert, hier
+    ist `null`" ist ein **Anti-Pattern**!
+
+###### Beispiel aus der Praxis im PM-Dungeon
+
+Schauen Sie sich einmal das Review zu den `ecs.components.ai.AITools` in
+https://github.com/Dungeon-CampusMinden/Dungeon/pull/128#pullrequestreview-1254025874
+an.
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review1.png" width="80%" /></p>
+
+Die Methode `AITools#calculateNewPath` soll in der Umgebung einer als
+Parameter übergebenen Entität nach einem Feld (`Tile`) suchen, welches
+für die Entität betretbar ist und einen Pfad von der Position der
+Entität zu diesem Feld an den Aufrufer zurückliefern.
+
+Zunächst wird in der Entität nach einer `PositionComponent` und einer
+`VelocityComponent` gesucht. Wenn es (eine) diese(r) Components nicht in
+der Entität gibt, wird der Wert `null` an den Aufrufer von
+`AITools#calculateNewPath` zurückgeliefert. (*Anmerkung*:
+Interessanterweise wird in der Methode nicht mit der `VelocityComponent`
+gearbeitet.)
+
+Dann wird in der `PositionComponent` die Position der Entität im
+aktuellen Level abgerufen. In einer Schleife werden alle Felder im
+gegebenen Radius in eine Liste gespeichert. (*Anmerkung*: Da dies über
+die `float`-Werte passiert und nicht über die Feld-Indizes wird ein
+`Tile` u.U. recht oft in der Liste abgelegt. Können Sie sich hier
+einfache Verbesserungen überlegen?)
+
+Da `level.getTileAt()` offenbar als Antwort auch `null` zurückliefern
+kann, werden nun zunächst per `tiles.removeIf(Objects::isNull);` all
+diese `null`-Werte wieder aus der Liste entfernt. Danach erfolgt die
+Prüfung, ob die verbleibenden Felder betretbar sind und nicht-betretbare
+Felder werden entfernt.
+
+Aus den verbleibenden (betretbaren) Feldern in der Liste wird nun eines
+zufällig ausgewählt und per `level.findPath()` ein Pfad von der Position
+der Entität zu diesem Feld berechnet und zurückgeliefert. (*Anmerkung*:
+Hier wird ein zufälliges Tile in der Liste der umgebenden Felder
+gewählt, von diesem die Koordinaten bestimmt, und dann noch einmal aus
+dem Level das dazugehörige Feld geholt - dabei hatte man die Referenz
+auf das Feld bereits in der Liste. Können Sie sich hier eine einfache
+Verbesserung überlegen?)
+
+Zusammengefasst:
+
+-   Die als Parameter `entity` übergebene Referenz darf offenbar *nicht*
+    `null` sein. Die ersten beiden Statements in der Methode rufen auf
+    dieser Referenz Methoden auf, was bei einer `null`-Referenz zu einer
+    `NullPointer`-Exception führen würde. Hier wäre `null` ein
+    Fehlerzustand.
+-   `entity.getComponent()` kann offenbar `null` zurückliefern, wenn die
+    gesuchte Component nicht vorhanden ist. Hier wird `null` als "kein
+    Wert vorhanden" genutzt, was dann nachfolgende `null`-Checks
+    notwendig macht.
+-   Wenn es die gewünschten Components nicht gibt, wird dem Aufrufer der
+    Methode `null` zurückgeliefert. Hier ist nicht ganz klar, ob das
+    einfach nur "kein Wert vorhanden" ist oder eigentlich ein
+    Fehlerzustand?
+-   `level.getTileAt()` kann offenbar `null` zurückliefern, wenn kein
+    Feld an der Position vorhanden ist. Hier wird `null` wieder als
+    "kein Wert vorhanden" genutzt, was dann nachfolgende `null`-Checks
+    notwendig macht (Entfernen aller `null`-Referenzen aus der Liste).
+-   `level.findPath()` kann auch wieder `null` zurückliefern, wenn kein
+    Pfad berechnet werden konnte. Hier ist wieder nicht ganz klar, ob
+    das einfach nur "kein Wert vorhanden" ist oder eigentlich ein
+    Fehlerzustand? Man könnte beispielsweise in diesem Fall ein anderes
+    Feld probieren?
+
+Der Aufrufer bekommt also eine `NullPointer`-Exception, wenn der
+übergebene Parameter `entity` nicht vorhanden ist oder den Wert `null`,
+wenn in der Methode etwas schief lief oder schlicht kein Pfad berechnet
+werden konnte oder tatsächlich einen Pfad. Damit wird der Aufrufer
+gezwungen, den Rückgabewert vor der Verwendung zu untersuchen.
+
+**Allein in dieser einen kurzen Methode macht `null` so viele extra
+Prüfungen notwendig und den Code dadurch schwerer lesbar und
+fehleranfälliger! `null` wird als (unvollständige) Initialisierung und
+als Rückgabewert und für den Fehlerfall genutzt, zusätzlich ist die
+Semantik von `null` nicht immer klar.** (*Anmerkung*: Der Gebrauch von
+`null` hat nicht wirklich etwas mit "der Natur eines ECS" zu tun. Die
+Methode wurde mittlerweile komplett überarbeitet und ist in der hier
+gezeigten Form glücklicherweise nicht mehr zu finden.)
+
+Entsprechend hat sich in diesem
+[Review](https://github.com/Dungeon-CampusMinden/Dungeon/pull/128#pullrequestreview-1254025874)
+die nachfolgende Diskussion ergeben:
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review2.png" width="80%" /></p>
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review3.png" width="80%" /></p>
+
+##### Erzeugen von *Optional*-Objekten
+
+Konstruktor ist `private` ...
+
+-   "Kein Wert": `Optional.empty()`
+-   Verpacken eines non-`null` Elements: `Optional.of()`
+    (`NullPointerException` wenn Argument `null`!)
+
+<!-- -->
+
+-   Verpacken eines "unsicheren"/beliebigen Elements:
+    `Optional.ofNullable()`
+    -   Liefert verpacktes Element, oder
+    -   `Optional.empty()`, falls Element `null` war
+
+Es sollte in der Praxis eigentlich nur wenige Fälle geben, wo ein Aufruf
+von `Optional.of()` sinnvoll ist. Ebenso ist `Optional.empty()` nur
+selten sinnvoll.
+
+Stattdessen sollte stets `Optional.ofNullable()` verwendet werden.
+
+**`null` kann nicht nicht in `Optional<T>` verpackt werden!** (Das wäre
+dann eben `Optional.empty()`.)
+
+##### LSF liefert jetzt *Optional* zurück
+
+``` java
+public class LSF {
+    private Set<Studi> sl;
+
+    public Optional<Studi> getBestStudi() throws NullPointerException {
+        // Fehler: Es gibt noch keine Sammlung
+        if (sl == null) throw new NullPointerException("There ain't any collection");
+
+        Studi best = null;
+        for (Studi s : sl) {
+            if (best == null) best = s;
+            if (best.credits() < s.credits()) best = s;
+        }
+
+        // Entweder Optional.empty() (wenn best==null) oder Optional.of(best) sonst
+        return Optional.ofNullable(best);
+    }
+}
+```
+
+Das Beispiel soll verdeutlichen, dass man im Fehlerfall nicht einfach
+`null` oder `Optional.empty()` zurückliefern soll, sondern eine passende
+Exception werfen soll.
+
+Wenn die Liste aber leer ist, stellt dies keinen Fehler dar! Es handelt
+sich um den Fall "kein Wert vorhanden". In diesem Fall wird statt `null`
+nun ein `Optional.empty()` zurückgeliefert, also ein Objekt, auf dem der
+Aufrufer die üblichen Methoden aufrufen kann.
+
+##### Zugriff auf *Optional*-Objekte
+
+In der funktionalen Programmierung gibt es schon lange das Konzept von
+`Optional`, in Haskell ist dies beispielsweise die Monade `Maybe`.
+Allerdings ist die Einbettung in die Sprache von vornherein mit
+berücksichtigt worden, insbesondere kann man hier sehr gut mit *Pattern
+Matching* in der Funktionsdefinition auf den verpackten Inhalt
+reagieren.
+
+In Java gibt es die Methode `Optional#isEmpty()`, die einen Boolean
+zurückliefert und prüft, ob es sich um ein leeres `Optional` handelt
+oder ob hier ein Wert "verpackt" ist.
+
+Für den direkten Zugriff auf die Werte gibt es die Methoden
+`Optional#orElseThrow()` und `Optional#orElse()`. Damit kann man auf den
+verpackten Wert zugreifen, oder es wird eine Exception geworfen bzw. ein
+Ersatzwert geliefert.
+
+Zusätzlich gibt es `Optional#isPresent()`, die als Parameter ein
+`java.util.function.Consumer` erwartet, also ein funktionales Interface
+mit einer Methode `void accept(T)`, die das Objekt verarbeitet.
+
+``` java
+Studi best;
+
+// Testen und dann verwenden
+if (!lsf.getBestStudi().isEmpty()) {
+    best = lsf.getBestStudi().get();
+    // mach was mit dem Studi ...
+}
+
+// Arbeite mit Consumer
+lsf.getBestStudi().ifPresent(studi -> {
+    // mach was mit dem Studi ...
+});
+
+// Studi oder Alternative (wenn Optional.empty())
+best = lsf.getBestStudi().orElse(anne);
+
+// Studi oder NoSuchElementException (wenn Optional.empty())
+best = lsf.getBestStudi().orElseThrow();
+```
+
+Es gibt noch eine Methode `get()`, die so verhält wie `orElseThrow()`.
+Da man diese Methode vom Namen her schnell mit einem Getter verwechselt,
+ist sie mittlerweile *deprecated*.
+
+*Anmerkung*: Da `getBestStudi()` eine `NullPointerException` werfen
+kann, sollte der Aufruf möglicherweise in ein `try/catch` verpackt
+werden. Dito für `orElseThrow()`.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/optional/traditional/Demo.java">Beispiel: optional.traditional.Demo</a></p>
+
+##### Einsatz mit Stream-API
+
+``` java
+public class LSF {
+    ...
+    public Optional<Studi> getBestStudi() throws NullPointerException {
+        if (sl == null) throw new NullPointerException("There ain't any collection");
+        return sl.stream()
+                 .sorted((s1, s2) -> s2.credits() - s1.credits())
+                 .findFirst();
+    }
+}
+
+
+public static void main(String... args) {
+    ...
+    String name = lsf.getBestStudi()
+                     .map(Studi::name)
+                     .orElseThrow();
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/optional/streams/Demo.java">Beispiel: optional.streams.Demo</a></p>
+
+Im Beispiel wird in `getBestStudi()` die Sammlung als Stream betrachtet,
+über die Methode `sorted()` und den Lamda-Ausdruck für den `Comparator`
+sortiert ("falsch" herum: absteigend in den Credits der Studis in der
+Sammlung), und `findFirst()` ist die terminale Operation auf dem Stream,
+die ein `Optional<Studi>` zurückliefert: entweder den Studi mit den
+meisten Credits (verpackt in `Optional<Studi>`) oder `Optional.empty()`,
+wenn es überhaupt keine Studis in der Sammlung gab.
+
+In `main()` wird dieses `Optional<Studi>` mit den Stream-Methoden von
+`Optional<T>` bearbeitet, zunächst mit `Optional#map()`. Man braucht
+nicht selbst prüfen, ob das von `getBestStudi()` erhaltene Objekt leer
+ist oder nicht, da dies von `Optional#map()` erledigt wird: Es wendet
+die Methodenreferenz auf den verpackten Wert an (sofern dieser vorhanden
+ist) und liefert damit den Namen des Studis als `Optional<String>`
+verpackt zurück. Wenn es keinen Wert, also nur `Optional.empty()` von
+`getBestStudi()` gab, dann ist der Rückgabewert von `Optional#map()` ein
+`Optional.empty()`. Wenn der Name, also der Rückgabewert von
+`Studi::name`, `null` war, dann wird ebenfalls ein `Optional.empty()`
+zurückgeliefert. Dadurch wirft `orElseThrow()` dann eine
+`NoSuchElementException`. Man kann also direkt mit dem String `name`
+weiterarbeiten ohne extra `null`-Prüfung - allerdings will man noch ein
+Exception-Handling einbauen (dies fehlt im obigen Beispiel aus Gründen
+der Übersicht) ...
+
+##### Weitere *Optionals*
+
+Für die drei primitiven Datentypen `int`, `long` und `double` gibt es
+passende Wrapper-Klassen von `Optional<T>`: `OptionalInt`,
+`OptionalLong` und `OptionalDouble`.
+
+Diese verhalten sich analog zu `Optional<T>`, haben aber keine Methode
+`ofNullable()`, da dies hier keinen Sinn ergeben würde: Die drei
+primitiven Datentypen repräsentieren Werte - diese können nicht `null`
+sein.
+
+##### Regeln für *Optional*
+
+1.  Nutze `Optional` nur als Rückgabe für "kein Wert vorhanden"
+
+    `Optional` ist nicht als Ersatz für eine `null`-Prüfung o.ä.
+    gedacht, sondern als Repräsentation, um auch ein "kein Wert
+    vorhanden" zurückliefern zu können.
+
+<!-- -->
+
+2.  Nutze nie `null` für eine `Optional`-Variable oder einen
+    `Optional`-Rückgabewert
+
+    Wenn man ein `Optional` als Rückgabe bekommt, sollte das niemals
+    selbst eine `null`-Referenz sein. Das macht das gesamte Konzept
+    kaputt!
+
+    Nutzen Sie stattdessen `Optional.empty()`.
+
+3.  Nutze `Optional.ofNullable()` zum Erzeugen eines `Optional`
+
+    Diese Methode verhält sich "freundlich" und erzeugt automatisch ein
+    `Optional.empty()`, wenn das Argument `null` ist. Es gibt also
+    keinen Grund, dies mit einer Fallunterscheidung selbst erledigen zu
+    wollen.
+
+    Bevorzugen Sie `Optional.ofNullable()` vor einer manuellen
+    Fallunterscheidung und dem entsprechenden Einsatz von
+    `Optional.of()` und `Optional.empty()`.
+
+4.  Erzeuge keine `Optional` als Ersatz für die Prüfung auf `null`
+
+    Wenn Sie auf `null` prüfen müssen, müssen Sie auf `null` prüfen. Der
+    ersatzweise Einsatz von `Optional` macht es nur komplexer - prüfen
+    müssen Sie hinterher ja immer noch.
+
+5.  Nutze `Optional` nicht in Attributen, Methoden-Parametern und
+    Sammlungen
+
+    Nutzen Sie `Optional` vor allem für Rückgabewerte.
+
+    Attribute sollten immer direkt einen Wert haben oder `null`, analog
+    Parameter von Methoden o.ä. ... Hier hilft `Optional` nicht, Sie
+    müssten ja trotzdem eine `null`-Prüfung machen, nur eben dann über
+    den `Optional`, wodurch dies komplexer und schlechter lesbar wird.
+
+    Aus einem ähnlichen Grund sollten Sie auch in Sammlungen keine
+    `Optional` speichern!
+
+6.  Vermeide den direkten Zugriff (`ifPresent()`, `orElseThrow()` ...)
+
+    Der direkte Zugriff auf ein `Optional` entspricht dem Prüfen auf
+    `null` und dann dem Auspacken. Dies ist nicht nur Overhead, sondern
+    auch schlechter lesbar.
+
+    Vermeiden Sie den direkten Zugriff und nutzen Sie `Optional` mit den
+    Stream-Methoden. So ist dies von den Designern gedacht.
+
+##### Interessante Links
+
+-   ["Using Optionals"](https://dev.java/learn/api/streams/optionals/)
+-   ["What You Might Not Know About
+    Optional"](https://medium.com/javarevisited/what-you-might-not-know-about-optional-7238e3c05f63)
+-   ["Experienced Developers Use These 7 Java Optional Tips to Remove
+    Code
+    Clutter"](https://medium.com/javarevisited/experienced-developers-use-these-7-java-optional-tips-to-remove-code-clutter-6e8b1a639861)
+-   ["Code Smells:
+    Null"](https://blog.jetbrains.com/idea/2017/08/code-smells-null/)
+-   ["Class
+    Optional"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html)
+
+##### Wrap-Up
+
+`Optional` als Rückgabe für "kein Wert vorhanden"
+
+-   `Optional.ofNullable()`: Erzeugen eines `Optional`
+    -   Entweder Objekt "verpackt" (Argument != `null`)
+    -   Oder `Optional.empty()` (Argument == `null`)
+-   Prüfen mit `isEmpty()` und `ifPresent()`
+-   Direkter Zugriff mit `ifPresent()`, `orElse()` und `orElseThrow()`
+-   Stream-API: `map()`, `filter()`, `flatMap()`, ...
+
+<!-- -->
+
+-   Attribute, Parameter und Sammlungen: nicht `Optional` nutzen
+-   Kein Ersatz für `null`-Prüfung!
+
+Schöne Doku: ["Using
+Optionals"](https://dev.java/learn/api/streams/optionals/).
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2026](#ref-LernJava))
+> -   Ullenboom ([2021, 12.6](#ref-Ullenboom2021))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kann erklären, warum Optionals vor allem für Rückgabewerte
+>     gedacht sind
+> -   k2: Ich kann erklären, warum kein null zurückgeliefert werden
+>     darf, wenn der Rückgabetyp ein Optional\<T\> ist
+> -   k3: Ich kann (ggf. leere) Optionals mit Optional.ofNullable()
+>     erzeugen
+> -   k3: Ich kann auf Optionals klassisch über die direkten
+>     Hilfsmethoden der Klasse zugreifen
+> -   k3: Ich kann auf Optionals elegant per Stream-API zugreifen
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> **Optional und Stream-API**
+>
+> 1.  Erklären Sie den folgenden Code-Schnipsel aus dem
+>     [Dungeon](https://github.com/Dungeon-CampusMinden/Dungeon/pull/1831):
+>
+>     ``` java
+>     Skill fireball =
+>         new Skill(
+>             new FireballSkill(
+>                 () ->
+>                     hero.fetch(CollideComponent.class)
+>                         .map(cc -> cc
+>                                     .center(hero)
+>                                     .add(viewDirection.toPoint()))
+>                         .orElseThrow(
+>                             () -> MissingComponentException.build(
+>                                     hero,
+>                                     CollideComponent.class)),
+>                 FIREBALL_RANGE,
+>                 FIREBALL_SPEED,
+>                 FIREBALL_DMG),
+>             1);
+>     ```
+>
+>     Hinweise:
+>
+>     -   `Entity#fetch`:
+>         `<T extends Component> Optional<T> fetch(final Class<T> klass)`
+>     -   `CollideComponent#center`: `Point center(final Entity entity)`
+>     -   `Point#add`: `Point add(final Point other)`
+>
+> 2.  Was würde sich ändern, wenn statt `map` ein `flatMap` verwendet
+>     würde? Wie ist das bei richtigen Streams?
+>
+> 3.  Was passiert im folgenden Beispiel? Warum funktioniert das auch
+>     ohne terminale Stream-Operation?
+>
+>     ``` java
+>     Game.hero()
+>         .flatMap(e -> e.fetch(AmmunitionComponent.class))
+>         .map(AmmunitionComponent::resetCurrentAmmunition);
+>     ```
+>
+>     Hinweis: `Game.hero()`: `static Optional<Entity> hero()`.
+>
+> 4.  Können Sie die beiden obigen Beispiele in "klassischer"
+>     Schreibweise umformulieren?
+>
+> **String-Handling**
+>
+> Können Sie den folgenden Code so umschreiben, dass Sie statt der
+> `if`-Abfragen und der einzelnen direkten Methodenaufrufe die
+> Stream-API und `Optional<T>` nutzen?
+>
+> ``` java
+> String format(final String text, String replacement) {
+>     if (text.isEmpty()) {
+>         return "";
+>     }
+>
+>     final String trimmed = text.trim();
+>     final String withSpacesReplaced = trimmed.replaceAll(" +", replacement);
+>
+>     return replacement + withSpacesReplaced + replacement;
+> }
+> ```
+>
+> Ein Aufruf `format(" Hello World ... ", "_");` liefert den String
+> "`_Hello_World_..._`".
+>
+> </details>
+
+<a id="id-1acf41f101a98dd8c16ac174d37f4b3a920d7041"></a>
+
+### Entwurfsmuster
+
+<a id="id-c50f087222495d1cb378b27fc952f32b2ccb2054"></a>
+
+#### Observer-Pattern
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Eine Reihe von Objekten möchte über eine Änderung in einem anderen
+> ("zentralen") Objekt informiert werden. Dazu könnte das "zentrale"
+> Objekt eine Zugriffsmethode anbieten, die die anderen Objekte
+> regelmäßig abrufen ("pollen").
+>
+> Mit dem Observer-Pattern kann man das aktive Polling vermeiden. Die
+> interessierten Objekte "registrieren" sich beim "zentralen" Objekt.
+> Sobald dieses eine Änderung erfährt oder Informationen bereitstehen
+> o.ä., wird das "zentrale" Objekt alle registrierten Objekte über den
+> Aufruf einer Methode benachrichtigen. Dazu müssen diese eine
+> gemeinsame Schnittstelle implementieren.
+>
+> Das "zentrale" Objekt, welches abgefragt wird, nennt man
+> "*Observable*" oder "*Subject*". Die Objekte, die die Information
+> abfragen möchten, nennt man "*Observer*".
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Observer-Pattern](https://youtu.be/833lHcoxeog)
+> -   [Demo Observer-Pattern](https://youtu.be/0mgB8RfcNuM)
+>
+> </details>
+
+##### Verteilung der Prüfungsergebnisse
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/lsf.png" width="80%" /></p>
+
+Die Studierenden möchten nach einer Prüfung wissen, ob für einen
+bestimmten Kurs die/ihre Prüfungsergebnisse im LSF bereit stehen.
+
+Dazu modelliert man eine Klasse `LSF` und implementiert eine
+Abfragemethode, die dann alle Objekte regelmäßig aufrufen können. Dies
+sieht dann praktisch etwa so aus:
+
+``` java
+final Person[] persons = { new Lecturer("Frau Holle"),
+                           new Student("Heinz"),
+                           new Student("Karla"),
+                           new Tutor("Kolja"),
+                           new Student("Wuppie") };
+final LSF lsf = new LSF();
+
+for (Person p : persons) {
+    lsf.getGradings(p, "My Module");   // ???!
+}
+```
+
+##### Elegantere Lösung: Observer-Entwurfsmuster
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observerexample.png" width="80%" /></p>
+
+Sie erstellen im `LSF` eine Methode `register()`, mit der sich
+interessierte Objekte beim `LSF` registrieren können.
+
+Zur Benachrichtigung der registrierten Objekte brauchen diese eine
+geeignete Methode, die traditionell `update()` genannt wird.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/pattern/src/observer/">Demo: observer</a></p>
+
+##### Observer-Pattern verallgemeinert
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observer.png" width="80%" /></p>
+
+Im vorigen Beispiel wurde die Methode `update()` einfach der gemeinsamen
+Basisklasse `Person` hinzugefügt. Normalerweise möchte man die Aspekte
+`Person` und `Observer` aber sauber trennen und definiert sich dazu ein
+*separates* Interface `Observer` mit der Methode `update()`, die dann
+alle "interessierten" Klassen (zusätzlich zur bestehenden
+Vererbungshierarchie) implementieren.
+
+Die Klasse für das zu beobachtende Objekt benötigt dann eine Methode
+`register()`, mit der sich Observer registrieren können. Die
+Objektreferenzen werden dabei einfach einer internen Sammlung
+hinzugefügt.
+
+Häufig findet sich dann noch eine Methode `unregister()`, mit der sich
+bereits registrierte Beobachter wieder abmelden können. Weiterhin findet
+man häufig eine Methode `notifyObservers()`, die man von außen auf dem
+beobachteten Objekt aufrufen kann und die dann auf allen registrierten
+Beobachtern deren Methoden `update()` aufruft. (Dieser Vorgang kann aber
+auch durch eine sonstige Zustandsänderung im beobachteten Objekt
+durchgeführt werden.)
+
+In der Standarddefinition des Observer-Patterns nach ([Gamma u. a.
+2011](#ref-Gamma2011)) werden beim Aufruf der Methode `update()` keine
+Werte an die Beobachter mitgegeben. Der Beobachter muss sich
+entsprechend eine eigene Referenz auf das beobachtete Objekt halten, um
+dort dann weitere Informationen erhalten zu können. Dies kann
+vereinfacht werden, indem das beobachtete Objekt beim Aufruf der
+`update()`-Methode die Informationen als Parameter mitgibt,
+beispielsweise eine Referenz auf sich selbst o.ä. ... Dies muss dann
+natürlich im `Observer`-Interface nachgezogen werden.
+
+**Hinweis**: Es gibt in Swing bereits die Interfaces `Observer` und
+`Observable`, die aber als "deprecated" gekennzeichnet sind.
+Sinnvollerweise nutzen Sie nicht diese Interfaces aus Swing, sondern
+implementieren Ihre eigenen Interfaces, wenn Sie das Observer-Pattern
+einsetzen wollen!
+
+##### Wrap-Up
+
+Observer-Pattern: Benachrichtige registrierte Objekte über
+Statusänderungen
+
+-   Interface `Observer` mit Methode `update()`
+-   Interessierte Objekte
+    1.  implementieren das Interface `Observer`
+    2.  registrieren sich beim zu beobachtenden Objekt (`Observable`)
+-   Beobachtetes Objekt ruft auf allen registrierten Objekten `update()`
+    auf
+-   `update()` kann auch Parameter haben
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Nystrom ([2014, Kap. 4](#ref-Nystrom2014))
+> -   Gamma u. a. ([2011](#ref-Gamma2011))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kenne den Aufbau des Observer-Patterns und kann dies an
+>     einem Beispiel erklären
+> -   k3: Ich kann das Observer-Pattern auf konkrete Beispiele (etwa den
+>     PM-Dungeon) anwenden
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> **Observer: Restaurant**
+>
+> Stellen Sie sich ein Restaurant vor, in welchem man nicht eine
+> komplette Mahlzeit bestellt, sondern aus einzelnen Komponenten
+> auswählen kann. Die Kunden bestellen also die gewünschten Komponenten,
+> suchen sich einen Tisch und warten auf die Fertigstellung ihrer
+> Bestellung. Da die Küche leider nur sehr klein ist, werden immer alle
+> Bestellungen einer bestimmten Komponente zusammen bearbeitet - also
+> beispielsweise werden alle bestellten Salate angerichtet oder die alle
+> bestellten Pommes-Portionen zubereitet. Sobald eine solche Komponente
+> fertig ist, werden alle Kunden aufgerufen, die diese Komponente
+> bestellt haben ...
+>
+> Modellieren Sie dies in Java. Nutzen Sie dazu das Observer-Pattern,
+> welches Sie ggf. leicht anpassen müssen.
+>
+> **Observer: Einzel- und Großhandel**
+>
+> In den
+> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/pattern/src/challenges/observer)
+> finden Sie ein Modell für eine Lieferkette zwischen Großhandel und
+> Einzelhandel.
+>
+> Wenn beim Einzelhändler eine Bestellung von einem Kunden eingeht
+> (`Einzelhandel#bestellen`), speichert dieser den `Auftrag` zunächst in
+> einer Liste ab. In regelmäßigen Abständen (`Einzelhandel#loop`) sendet
+> der Einzelhändler die offenen Bestellungen an seinen Großhändler
+> (`Grosshandel#bestellen`). Hat der Großhändler die benötigte Ware
+> vorrätig, sendet er diese an den Einzelhändler
+> (`Einzelhandel#empfangen`). Dieser kann dann den Auftrag gegenüber
+> seinem Kunden erfüllen (keine Methode vorgesehen).
+>
+> Anders als der Einzelhandel speichert der Großhandel keine Aufträge
+> ab. Ist die benötigte Ware bei einer Bestellung also nicht oder nicht
+> in ausreichender Zahl auf Lager, wird diese nicht geliefert und der
+> Einzelhandel muss (später) eine neue Bestellung aufgeben.
+>
+> Der Großhandel bekommt regelmäßig (`Grosshandel#loop`) neue Ware für
+> die am wenigsten vorrätigen Positionen.
+>
+> Im aktuellen Modell wird der Einzelhandel nicht über den neuen
+> Lagerbestand des Großhändlers informiert und kann daher nur "zufällig"
+> neue Bestellanfragen an den Großhändler senden.
+>
+> Verbessern Sie das Modell, indem Sie das Observer-Pattern integrieren.
+> Wer ist Observer? Wer ist Observable? Welche Informationen werden bei
+> einem `update` mitgeliefert?
+>
+> Bauen Sie in alle Aktionen vom Einzelhändler und vom Großhändler
+> passendes Logging ein.
+>
+> *Anmerkung*: Sie dürfen nur die Vorgaben-Klassen `Einzelhandel` und
+> `Grosshandel` verändern, die anderen Vorgaben-Klassen dürfen Sie nicht
+> bearbeiten. Sie können zusätzlich benötigte eigene Klassen/Interfaces
+> implementieren.
+>
+> </details>
+
+<a id="id-d65790dd2d165c56e13ec1cea6619359f6def01b"></a>
+
+#### Template-Method-Pattern
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Das Template-Method-Pattern ist ein Entwurfsmuster, bei dem ein
+> gewisses Verhalten in einer Methode implementiert wird, die wie eine
+> Schablone agiert, der sogenannten "Template-Methode". Darin werden
+> dann u.a. Hilfsmethoden aufgerufen, die in der Basisklasse entweder
+> als `abstract` markiert sind oder mit einem leeren Body implementiert
+> sind ("Hook-Methoden"). Über diese Template-Methode legt also die
+> Basisklasse ein gewisses Verhaltensschema fest ("Template") - daher
+> auch der Name.
+>
+> In den ableitenden Klassen werden dann die abstrakten Methoden
+> und/oder die Hook-Methoden implementiert bzw. überschrieben und damit
+> das Verhalten verfeinert.
+>
+> Zur Laufzeit ruft man auf den Objekten die Template-Methode auf. Dabei
+> wird von der Laufzeitumgebung der konkrete Typ der Objekte bestimmt
+> (auch wenn man sie unter dem Typ der Oberklasse führt) und die am
+> tiefsten in der Vererbungshierarchie implementierten Methoden
+> aufgerufen. D.h. die Aufrufe der Hilfsmethoden in der Template-Methode
+> führen zu den in der jeweiligen ableitenden Klasse implementierten
+> Varianten.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Template-Method-Pattern](https://youtu.be/EE-n2T6AO-g)
+>
+> </details>
+
+##### Motivation: Syntax-Highlighting im Tokenizer
+
+In einem Compiler ist meist der erste Arbeitsschritt, den Eingabestrom
+in einzelne Token aufzubrechen. Dies sind oft die verschiedenen
+Schlüsselwörter, Operationen, Namen von Variablen, Methoden, Klassen
+etc. ... Aus der Folge von Zeichen (also dem eingelesenen Programmcode)
+wird ein Strom von Token, mit dem die nächste Stufe im Compiler dann
+weiter arbeiten kann.
+
+``` java
+public class Lexer {
+    private final List<Token> allToken;  // alle verfügbaren Token-Klassen
+
+    public List<Token> tokenize(String string) {
+        List<Token> result = new ArrayList<>();
+
+        while (string.length() > 0) {
+            for (Token t : allToken) {
+                Token token = t.match(string);
+                if (token != null) {
+                    result.add(token);
+                    string = string.substring(
+                                token.getContent().length(),
+                                string.length());
+                }
+            }
+        }
+
+        return result;
+    }
+}
+```
+
+Dazu prüft man jedes Token, ob es auf den aktuellen Anfang des
+Eingabestroms passt. Wenn ein Token passt, erzeugt man eine Instanz
+dieser Token-Klasse und speichert darin den gematchten Eingabeteil, den
+man dann vom Eingabestrom entfernt. Danach geht man in die Schleife und
+prüft wieder alle Token ... bis irgendwann der Eingabestrom leer ist und
+man den gesamten eingelesenen Programmcode in eine dazu passende Folge
+von Token umgewandelt hat.
+
+*Anmerkung*: Abgesehen von fehlenden Javadoc etc. hat das obige
+Code-Beispiel mehrere Probleme: Man würde im realen Leben nicht mit
+`String`, sondern mit einem Zeichenstrom arbeiten. Außerdem fehlt noch
+eine Fehlerbehandlung, wenn nämlich keines der Token in der Liste
+`allToken` auf den aktuellen Anfang des Eingabestroms passt.
+
+##### Token-Klassen mit formatiertem Inhalt
+
+Um den eigenen Tokenizer besser testen zu können, wurde beschlossen,
+dass jedes Token seinen Inhalt als formatiertes HTML-Schnipsel
+zurückliefern soll. Damit kann man dann alle erkannten Token formatiert
+ausgeben und erhält eine Art Syntax-Highlighting für den eingelesenen
+Programmcode.
+
+``` java
+public abstract class Token {
+    protected String content;
+
+    abstract protected String getHtml();
+}
+public class KeyWord extends Token {
+    @Override
+    protected String getHtml() {
+        return "<font color=\"red\"><b>" +  this.content + "</b></font>";
+    }
+}
+public class StringContent extends Token {
+    @Override
+    protected String getHtml() {
+        return "<font color=\"green\">" +  this.content + "</font>";
+    }
+}
+
+
+Token t = new KeyWord();
+LOG.info(t.getHtml());
+```
+
+In der ersten Umsetzung erhält die Basisklasse `Token` eine weitere
+abstrakte Methode, die jede Token-Klasse implementieren muss und in der
+die Token-Klassen einen String mit dem Token-Inhalt und einer
+Formatierung für HTML zurückgeben.
+
+Dabei fällt auf, dass der Aufbau immer gleich ist: Es werden ein oder
+mehrere Tags zum Start der Format-Sequenz mit dem Token-Inhalt
+verbunden, gefolgt mit einem zum verwendeten startenden HTML-Format-Tag
+passenden End-Tag.
+
+Auch wenn die Inhalte unterschiedlich sind, sieht das stark nach einer
+Verletzung von
+[DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) aus ...
+
+##### Don't call us, we'll call you
+
+``` java
+public abstract class Token {
+    protected String content;
+
+    public final String getHtml() {
+        return htmlStart() + this.content + htmlEnd();
+    }
+
+    abstract protected String htmlStart();
+    abstract protected String htmlEnd();
+}
+public class KeyWord extends Token {
+    @Override protected String htmlStart() { return "<font color=\"red\"><b>"; }
+    @Override protected String htmlEnd() { return "</b></font>"; }
+}
+public class StringContent extends Token {
+    @Override protected String htmlStart() { return "<font color=\"green\">"; }
+    @Override protected String htmlEnd() { return "</font>"; }
+}
+
+
+Token t = new KeyWord();
+LOG.info(t.getHtml());
+```
+
+Wir können den Spaß einfach umdrehen (["inversion of
+control"](https://en.wikipedia.org/wiki/Inversion_of_control)) und die
+Methode zum Zusammenbasteln des HTML-Strings bereits in der Basisklasse
+implementieren. Dazu "rufen" wir dort drei Hilfsmethoden auf, die die
+jeweiligen Bestandteile des Strings (Format-Start, Inhalt, Format-Ende)
+erzeugen und deren konkrete Implementierung wir in der Basisklasse nicht
+kennen. Dies ist dann Sache der ableitenden konkreten Token-Klassen.
+
+Objekte vom Typ `KeyWord` sind dank der Vererbungsbeziehung auch `Token`
+(Vererbung: *is-a-Beziehung*). Wenn man nun auf einem `Token t` die
+Methode `getHtml()` aufruft, wird zur Laufzeit geprüft, welchen Typ `t`
+tatsächlich hat (im Beispiel `KeyWord`). Methodenaufrufe werden dann mit
+den am tiefsten in der vorliegenden Vererbungshierarchie implementierten
+Methoden durchgeführt: Hier wird also die von `Token` geerbte Methode
+`getHtml()` in `KeyWord` aufgerufen, die ihrerseits die Methoden
+`htmlStart()` und `htmlEnd()` aufruft. Diese sind in `KeyWord`
+implementiert und liefern nun die passenden Ergebnisse.
+
+Die Methode `getHtml()` wird auch als "*Template-Methode*" bezeichnet.
+Die beiden darin aufgerufenen Methoden `htmlStart()` und `htmlEnd()` in
+`Token` werden auch als "Hilfsmethoden" (oder "*Helper Methods*")
+bezeichnet.
+
+Dies ist ein Beispiel für das
+**[Template-Method-Pattern](https://en.wikipedia.org/wiki/Template_method_pattern)**.
+
+##### Template-Method-Pattern
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/template-method.png" width="50%" /></p>
+
+###### Aufbau Template-Method-Pattern
+
+In der Basisklasse implementiert man eine Template-Methode (in der
+Skizze `templateMethod`), die sich auf anderen in der Basisklasse
+deklarierten (Hilfs-) Methoden "abstützt" (diese also aufruft; in der
+Skizze `method1`, `method2`, `method3`). Diese Hilfsmethoden können als
+`abstract` markiert werden und *müssen* dann von den ableitenden Klassen
+implementiert werden (in der Skizze `method1` und `method2`). Man kann
+aber auch einige/alle dieser aufgerufenen Hilfsmethoden in der
+Basisklasse implementieren (beispielsweise mit einem leeren Body -
+sogenannte "Hook"-Methoden) und die ableitenden Klassen *können* dann
+diese Methoden überschreiben und das Verhalten so neu formulieren (in
+der Skizze `method3`).
+
+Damit werden Teile des Verhaltens an die ableitenden Klassen
+ausgelagert.
+
+###### Verwandtschaft zum Strategy-Pattern
+
+Das Template-Method-Pattern hat eine starke Verwandtschaft zum
+Strategy-Pattern.
+
+Im Strategy-Pattern haben wir Verhalten komplett an andere Objekte
+*delegiert*, indem wir in einer Methode einfach die passende Methode auf
+dem übergebenen Strategie-Objekt aufgerufen haben.
+
+Im Template-Method-Pattern nutzen wir statt Delegation die Mechanismen
+Vererbung und dynamische Polymorphie und definieren in der Basis-Klasse
+abstrakte oder Hook-Methoden, die wir bereits in der Template-Methode
+der Basis-Klasse aufrufen. Damit ist das grobe Verhalten in der
+Basis-Klasse festgelegt, wird aber in den ableitenden Klassen durch das
+dortige Definieren oder Überschreiben der Hilfsmethoden verfeinert. Zur
+Laufzeit werden dann durch die dynamische Polymorphie die tatsächlich
+implementierten Hilfsmethoden in den ableitenden Klassen aufgerufen.
+Damit lagert man im Template-Method-Pattern gewissermaßen nur Teile des
+Verhaltens an die ableitenden Klassen aus.
+
+##### Wrap-Up
+
+Template-Method-Pattern: Verhaltensänderung durch Vererbungsbeziehungen
+
+-   Basis-Klasse:
+    -   Template-Methode, die Verhalten definiert und Hilfsmethoden
+        aufruft
+    -   Hilfsmethoden: Abstrakte Methoden (oder "Hook":
+        Basis-Implementierung)
+-   Ableitende Klassen: Verfeinern Verhalten durch Implementieren der
+    Hilfsmethoden
+-   Zur Laufzeit: Dynamische Polymorphie: Aufruf der Template-Methode
+    nutzt die im tatsächlichen Typ des Objekts implementierten
+    Hilfsmethoden
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Eilebrecht und Starke ([2013](#ref-Eilebrecht2013))
+> -   Gamma u. a. ([2011](#ref-Gamma2011))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k3: Ich kann das Template-Method-Entwurfsmuster praktisch anwenden
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> Schreiben Sie eine abstrakte Klasse Drucker. Implementieren Sie die
+> Funktion `kopieren`, bei der zuerst die Funktion `scannen` und dann
+> die Funktion `drucken` aufgerufen wird. Der Kopiervorgang ist für alle
+> Druckertypen identisch, das Scannen und Drucken ist abhängig vom
+> Druckertyp.
+>
+> Implementieren Sie zusätzlich zwei unterschiedliche Druckertypen:
+>
+> -   `Tintendrucker extends Drucker`
+>     -   `Tintendrucker#drucken` loggt den Text "Drucke das Dokument
+>         auf dem Tintendrucker."
+>     -   `Tintendrucker#scannen` loggt den Text "Scanne das Dokument
+>         mit dem Tintendrucker."
+> -   `Laserdrucker extends Drucker`
+>     -   `Laserdrucker#drucken` loggt den Text "Drucke das Dokument auf
+>         dem Laserdrucker."
+>     -   `Laserdrucker#scannen` loggt den Text "Scanne das Dokument mit
+>         dem Laserdrucker."
+>
+> Nutzen Sie das Template-Method-Pattern.
+>
+> </details>
+
+<a id="id-ff6c3f74c23480f2273b18c9777709c80ff62a7e"></a>
+
+#### Visitor-Pattern
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Häufig bietet es sich bei Datenstrukturen an, die Traversierung nicht
+> direkt in den Klassen der Datenstrukturen zu implementieren, sondern
+> in Hilfsklassen zu verlagern. Dies gilt vor allem dann, wenn die
+> Datenstruktur aus mehreren Klassen besteht (etwa ein Baum mit
+> verschiedenen Knotentypen) und/oder wenn man nicht nur eine
+> Traversierungsart ermöglichen will oder/und wenn man immer wieder neue
+> Arten der Traversierung ergänzen will. Das würde nämlich bedeuten,
+> dass man für jede weitere Form der Traversierung in *allen* Klassen
+> eine entsprechende neue Methode implementieren müsste.
+>
+> Das Visitor-Pattern lagert die Traversierung in eigene Klassenstruktur
+> aus.
+>
+> Die Klassen der Datenstruktur bekommen nur noch eine
+> `accept()`-Methode, in der ein Visitor übergeben wird und rufen auf
+> diesem Visitor einfach dessen `visit()`-Methode auf (mit einer
+> Referenz auf sich selbst als Argument).
+>
+> Der Visitor hat für jede Klasse der Datenstruktur eine Überladung der
+> `visit()`-Methode. In diesen kann er je nach Klasse die gewünschte
+> Verarbeitung vornehmen. Üblicherweise gibt es ein Interface oder eine
+> abstrakte Klasse für die Visitoren, von denen dann konkrete Visitoren
+> ableiten.
+>
+> Bei Elementen mit "Kindern" muss man sich entscheiden, wie die
+> Traversierung implementiert werden soll. Man könnte in der
+> `accept()`-Methode den Visitor an die Kinder weiter reichen (also auf
+> den Kindern `accept()` mit dem Visitor aufrufen), bevor man die
+> `visit()`-Methode des Visitors mit sich selbst als Referenz aufruft.
+> Damit ist die Form der Traversierung in den Klassen der Datenstruktur
+> fest verankert und über den Visitor findet "nur" noch eine
+> unterschiedliche Form der Verarbeitung statt. Alternativ überlässt man
+> es dem Visitor, die Traversierung durchzuführen: Hier muss in den
+> `visit()`-Methoden für die einzelnen Elemente entsprechend auf
+> mögliche Kinder reagiert werden.
+>
+> In diesem Pattern findet ein sogenannter "Double-Dispatch" statt: Zur
+> Laufzeit wird ein konkreter Visitor instantiiert und über `accept()`
+> an ein Element der Datenstruktur übergeben. Dort ist zur Compile-Zeit
+> aber nur der Obertyp der Visitoren bekannt, d.h. zur Laufzeit wird
+> hier der konkrete Typ bestimmt und entsprechend die richtige
+> `visit()`-Methode auf der "echten" Klasse des Visitors aufgerufen
+> (erster Dispatch). Da im Visitor die `visit()`-Methoden für jeden Typ
+> der Datenstrukur überladen sind, findet nun zur Laufzeit die Auflösung
+> der korrekten Überladung statt (zweiter Dispatch).
+>
+> Das Pattern wird traditionell gern für die Traversierung von
+> Datenstrukturen eingesetzt. Es hilft aber auch, wenn man einer
+> gewissen Anzahl von Klassen je eine neue Hilfsmethode hinzufügen
+> möchte - normalerweise müsste man jetzt jede Klasse einzeln ergänzen.
+> Mit dem Visitor-Pattern muss lediglich ein neuer Visitor mit den
+> Hilfsmethoden implementiert werden.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Visitor-Pattern](https://youtu.be/zW_2oQmjp8M)
+> -   [Demo Visitor-Pattern (Part I: Traversierung ohne
+>     Visitor)](https://youtu.be/9dvcufpyQdw)
+> -   [Demo Visitor-Pattern (Part II: Traversierung mit
+>     Visitor)](https://youtu.be/4rBRkXKhuN4)
+>
+> </details>
+
+##### Motivation: Parsen von "5\*4+3"
+
+Zum Parsen von Ausdrücken (*Expressions*) könnte man diese einfache
+Grammatik einsetzen. Ein Ausdruck ist dabei entweder ein einfacher
+Integer oder eine Addition oder Multiplikation zweier Ausdrücke.
+
+``` yacc
+expr : e1=expr '*' e2=expr      # MUL
+     | e1=expr '+' e2=expr      # ADD
+     | INT                      # NUM
+     ;
+```
+
+Beim Parsen von "5\*4+3" würde dabei der folgende Parsetree entstehen:
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree.png" width="20%" /></p>
+
+##### Strukturen für den Parsetree
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_classes_uml.png" width="70%" /></p>
+
+Der Parsetree für diese einfache Grammatik ist ein Binärbaum. Die Regeln
+werden auf Knoten im Baum zurückgeführt. Es gibt Knoten mit zwei
+Kindknoten, und es gibt Knoten ohne Kindknoten ("Blätter").
+
+Entsprechend kann man sich einfache Klassen definieren, die die
+verschiedenen Knoten in diesem Parsetree repräsentieren. Als Obertyp
+könnte es ein (noch leeres) Interface `Expr` geben.
+
+``` java
+public interface Expr {}
+
+public class NumExpr implements Expr {
+    private final int d;
+
+    public NumExpr(int d) { this.d = d; }
+}
+
+public class MulExpr implements Expr {
+    private final Expr e1;
+    private final Expr e2;
+
+    public MulExpr(Expr e1, Expr e2) {
+        this.e1 = e1;  this.e2 = e2;
+    }
+}
+
+public class AddExpr implements Expr {
+    private final Expr e1;
+    private final Expr e2;
+
+    public AddExpr(Expr e1, Expr e2) {
+        this.e1 = e1;  this.e2 = e2;
+    }
+}
+
+
+public class DemoExpr {
+    public static void main(final String... args) {
+        // 5*4+3
+        Expr e = new AddExpr(new MulExpr(new NumExpr(5), new NumExpr(4)), new NumExpr(3));
+    }
+}
+```
+
+##### Ergänzung I: Ausrechnen des Ausdrucks
+
+Es wäre nun schön, wenn man mit dem Parsetree etwas anfangen könnte.
+Vielleicht möchte man den Ausdruck ausrechnen?
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_uml.png" width="70%" /></p>
+
+Zum Ausrechnen des Ausdrucks könnte man dem Interface eine
+`eval()`-Methode spendieren. Jeder Knoten kann für sich entscheiden, wie
+die entsprechende Operation ausgewertet werden soll: Bei einer `NumExpr`
+ist dies einfach der gespeicherte Wert, bei Addition oder Multiplikation
+entsprechend die Addition oder Multiplikation der Auswertungsergebnisse
+der beiden Kindknoten.
+
+``` java
+public interface Expr {
+    int eval();
+}
+
+public class NumExpr implements Expr {
+    private final int d;
+
+    public NumExpr(int d) { this.d = d; }
+    public int eval() { return d; }
+}
+
+public class MulExpr implements Expr {
+    private final Expr e1;
+    private final Expr e2;
+
+    public MulExpr(Expr e1, Expr e2) {
+        this.e1 = e1;  this.e2 = e2;
+    }
+    public int eval() { return e1.eval() * e2.eval(); }
+}
+
+public class AddExpr implements Expr {
+    private final Expr e1;
+    private final Expr e2;
+
+    public AddExpr(Expr e1, Expr e2) {
+        this.e1 = e1;  this.e2 = e2;
+    }
+    public int eval() { return e1.eval() + e2.eval(); }
+}
+
+
+public class DemoExpr {
+    public static void main(final String... args) {
+        // 5*4+3
+        Expr e = new AddExpr(new MulExpr(new NumExpr(5), new NumExpr(4)), new NumExpr(3));
+
+        int erg = e.eval();
+    }
+}
+```
+
+##### Ergänzung II: Pretty-Print des Ausdrucks
+
+Nachdem das Ausrechnen so gut geklappt hat, will der Chef nun noch flink
+eine Funktion, mit der man den Ausdruck hübsch ausgeben kann:
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_print_uml.png" width="70%" /></p>
+
+Das fängt an, sich zu wiederholen. Wir implementieren immer wieder
+ähnliche Strukturen, mit denen wir diesen Parsetree traversieren ... Und
+wir müssen für *jede* Erweiterung immer *alle* Expression-Klassen
+anpassen!
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/direct/DemoExpr.java">Beispiel: direct.DemoExpr</a></p>
+
+**Das geht besser.**
+
+##### Visitor-Pattern (Besucher-Entwurfsmuster)
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/visitor.png" width="80%" /></p>
+
+Das Entwurfsmuster "Besucher" (*Visitor Pattern*) lagert die Aktion beim
+Besuchen eines Knotens in eine separate Klasse aus.
+
+Dazu bekommt jeder Knoten im Baum eine neue Methode, die einen Besucher
+akzeptiert. Dieser Besucher kümmert sich dann um die entsprechende
+Verarbeitung des Knotens, also um das Auswerten oder Ausgeben im obigen
+Beispiel.
+
+Die Besucher haben eine Methode, die für jeden zu bearbeitenden Knoten
+überladen wird. In dieser Methode findet dann die eigentliche
+Verarbeitung statt: Auswerten des Knotens oder Ausgeben des Knotens ...
+
+``` java
+public interface Expr {
+    void accept(ExprVisitor v);
+}
+
+public class NumExpr implements Expr {
+    private final int d;
+
+    public NumExpr(int d) { this.d = d; }
+    public int getValue() { return d; }
+
+    public void accept(ExprVisitor v) { v.visit(this); }
+}
+
+public class MulExpr implements Expr {
+    private final Expr e1;
+    private final Expr e2;
+
+    public MulExpr(Expr e1, Expr e2) {
+        this.e1 = e1;  this.e2 = e2;
+    }
+    public Expr getE1() { return e1; }
+    public Expr getE2() { return e2; }
+
+    public void accept(ExprVisitor v) { v.visit(this); }
+}
+
+public class AddExpr implements Expr {
+    private final Expr e1;
+    private final Expr e2;
+
+    public AddExpr(Expr e1, Expr e2) {
+        this.e1 = e1;  this.e2 = e2;
+    }
+    public Expr getE1() { return e1; }
+    public Expr getE2() { return e2; }
+
+    public void accept(ExprVisitor v) { v.visit(this); }
+}
+
+
+public interface ExprVisitor {
+    void visit(NumExpr e);
+    void visit(MulExpr e);
+    void visit(AddExpr e);
+}
+
+public class EvalVisitor implements ExprVisitor {
+    private final Stack<Integer> erg = new Stack<>();
+
+    public void visit(NumExpr e) { erg.push(e.getValue()); }
+    public void visit(MulExpr e) {
+        e.getE1().accept(this);  e.getE2().accept(this);
+        erg.push(erg.pop() * erg.pop());
+    }
+    public void visit(AddExpr e) {
+        e.getE1().accept(this);  e.getE2().accept(this);
+        erg.push(erg.pop() + erg.pop());
+    }
+    public int getResult() { return erg.peek(); }
+}
+
+public class PrintVisitor implements ExprVisitor {
+    private final Stack<String> erg = new Stack<>();
+
+    public void visit(NumExpr e) { erg.push("NumExpr(" + e.getValue() + ")"); }
+    public void visit(MulExpr e) {
+        e.getE1().accept(this);  e.getE2().accept(this);
+        erg.push("MulExpr(" + erg.pop() + ", " + erg.pop() + ")");
+    }
+    public void visit(AddExpr e) {
+        e.getE1().accept(this);  e.getE2().accept(this);
+        erg.push("AddExpr(" + erg.pop() + ", " + erg.pop() + ")");
+    }
+    public String getResult() { return erg.peek(); }
+}
+
+
+public class DemoExpr {
+    public static void main(final String... args) {
+        // 5*4+3
+        Expr e = new AddExpr(new MulExpr(new NumExpr(5), new NumExpr(4)), new NumExpr(3));
+
+        EvalVisitor v1 = new EvalVisitor();
+        e.accept(v1);
+        int erg = v1.getResult();
+
+        PrintVisitor v2 = new PrintVisitor();
+        e.accept(v2);
+        String s = v2.getResult();
+    }
+}
+```
+
+###### Implementierungsdetail
+
+In den beiden Klasse `AddExpr` und `MulExpr` müssen auch die beiden
+Kindknoten besucht werden, d.h. hier muss der Baum weiter traversiert
+werden.
+
+Man kann sich überlegen, diese Traversierung in den Klassen `AddExpr`
+und `MulExpr` selbst anzustoßen.
+
+Alternativ könnte auch der Visitor die Traversierung vornehmen. Gerade
+bei der Traversierung von Datenstrukturen ist diese Variante oft von
+Vorteil, da man hier unterschiedliche Traversierungsarten haben möchte
+(Breitensuche vs. Tiefensuche, Pre-Order vs. Inorder vs. Post-Order,
+...) und diese elegant in den Visitor verlagern kann.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/visit/intrav/DemoExpr.java">Beispiel Traversierung intern (in den Knotenklassen): visitor.visit.intrav.DemoExpr</a></p>
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/visit/extrav/DemoExpr.java">Beispiel Traversierung extern (im Visitor): visitor.visit.extrav.DemoExpr</a></p>
+
+###### (Double-) Dispatch
+
+> [!TIP]
+>
+> Zur Laufzeit wird in `accept()` mit dem Aufruf von `visit()` der
+> konkrete Typ des Visitors aufgelöst und dann für `visit(this)` durch
+> den Typ der besuchten Klasse (`this`) die korrekte Überladung
+> ausgewählt. Dies nennt man auch "**Double-Dispatch**".
+
+In den `accept()`-Methoden der besuchten Klassen ist nur der gemeinsame
+Obertyp der Visitoren bekannt. Dies ist wichtig, weil man sonst ja für
+jeden neuen Visitor neue passende `accept()`-Methoden in allen zu
+besuchenden Klassen implementieren müsste!
+
+Zur Laufzeit wird hier ein konkreter Visitor (also ein Objekt von einem
+Untertyp der Visitoren-Oberklasse) als Parameter übergeben.
+
+Beim Aufruf von `visit(this)` in der `accept()`-Methode des besuchten
+Objekts wird durch die Laufzeitumgebung der tatsächliche konkrete Typ
+des Visitors bestimmt und die in der Typhierarchie in Bezug auf den Typ
+des Visitors "tiefste" Implementierung der `visit`-Methode (also die
+Implementierung in der Visitorklasse selbst oder, falls dort nicht
+vorhanden, in der jeweils nächsthöheren Elternklasse). Über das Argument
+`this` wird die tatsächliche konkrete Klasse des besuchten Objekts
+ermittelt, so dass die passende Überladung der `visit`-Methode im
+konkreten Visitor ausgewählt und aufgerufen werden kann.
+
+###### Hinweis I
+
+Man könnte nun versucht sein, eine dieser zwei Stufen zu überspringen -
+man könnte ja die `visit`-Methode des `EvalVisitors` direkt aufrufen und
+dabei die Wurzel des Baums (das Objekt `e`) übergeben.
+
+``` java
+// Beispiel von oben (Ausschnitt)
+Expr e = new AddExpr(new MulExpr(new NumExpr(5), new NumExpr(4)), new NumExpr(3));
+EvalVisitor v = new EvalVisitor();
+e.accept(v);
+
+// Direkter Aufruf - Autsch?!
+v.visit(e);
+```
+
+Fragen Sie sich selbst: Kann das funktionieren? Was ist die Begründung?
+
+###### Hinweis II
+
+Man könnte versucht sein, die `accept()`-Methode aus den Knotenklassen
+in die gemeinsame Basisklasse zu verlagern: Statt
+
+``` java
+    public void accept(ExprVisitor v) {
+        v.visit(this);
+    }
+```
+
+in *jeder* Knotenklasse einzeln zu definieren, könnte man das doch
+*einmalig* in der Basisklasse definieren:
+
+``` java
+public abstract class Expr {
+    /** Akzeptiere einen Visitor für die Verarbeitung */
+    public void accept(ExprVisitor v) {
+        v.visit(this);
+    }
+}
+```
+
+Dies wäre tatsächlich schön, weil man so Code-Duplizierung vermeiden
+könnte. Aber es funktioniert in Java leider nicht. (Warum?)
+
+###### Hinweis III
+
+Während die `accept()`-Methode nicht in die Basisklasse der besuchten
+Typen (im Bild oben die Klasse `Elem` bzw. im Beispiel oben die Klasse
+`Expr`) verlagert werden kann, kann man die `visit()`-Methoden im
+Interface `Visitor` durchaus als Default-Methoden im Interface
+implementieren.
+
+##### Ausrechnen des Ausdrucks mit einem Visitor
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_visitor_uml.png"  /></p>
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/visit/extrav/DemoExpr.java">Demo: visitor.visit.extrav.DemoExpr</a></p>
+
+##### Diskussion
+
+In der typischen OO-Denkweise geht man davon aus, dass man eher neue
+Klassen über Vererbung hinzufügt als dass man in einer bestehenden
+Vererbungshierarchie in jeder der beteiligten Klassen neue Methoden
+einbaut. Man leitet einfach von der gewünschten Klasse ab und definiert
+mittels Überschreiben von Methoden o.ä. das geänderte Verhalten und erbt
+den Rest - es wird also nur eine neue Klasse hinzugefügt samt den
+überschriebenen Teilen.
+
+Wenn man allerdings in einer solchen Hierarchie in allen Klassen eine
+neue Methode einbauen muss, die dann auch noch in den einzelnen Klassen
+individuell implementiert werden muss, dann kommt das Visitor-Pattern
+zur Hilfe und erspart Arbeit. Es muss nämlich in der Klassenhierarchie
+nur einmal die Schnittstelle für den Visitor einbaut werden (pro Klasse
+eine `accept`-Methode). Danach kann man von außen sehr einfach neue
+Methoden (also neue Visitoren) erstellen und nutzen, ohne die
+Klassenhierarchie noch einmal ändern zu müssen.
+
+Siehe auch [When should I use the Visitor Design
+Pattern?](https://stackoverflow.com/a/478672).
+
+Ein anderer Blick ist auf die Rolle der jeweiligen Klassen: Es gibt
+Objekte für/in Datenstrukturen, und es gibt Algorithmen, die auf diesen
+Objekten bzw. Datenstrukturen arbeiten. Im Sinne des sauberen OO-Designs
+würde man diese Strukturen trennen: "Trenne Algorithmen von den
+Objekten, auf denen die Algorithmen arbeiten."
+
+Vergleiche auch die Darstellung des Visitor-Patterns in [Visitor
+(Refactoring Guru)](https://refactoring.guru/design-patterns/visitor).
+
+##### Wrap-Up
+
+**Visitor-Pattern**: Auslagern der Traversierung in eigene
+Klassenstruktur
+
+-   Klassen der Datenstruktur
+    -   bekommen eine `accept()`-Methode für einen Visitor
+    -   rufen den Visitor mit sich selbst als Argument auf
+
+<!-- -->
+
+-   Visitor
+    -   hat für jede Klasse eine Überladung der `visit()`-Methode
+    -   Rückgabewerte schwierig: Intern halten oder per `return` (dann
+        aber unterschiedliche `visit()`-Methoden für die verschiedenen
+        Rückgabetypen!)
+
+<!-- -->
+
+-   (Double-) Dispatch: Zur Laufzeit wird in `accept()` der Typ des
+    Visitors und in `visit()` der Typ der zu besuchenden Klasse
+    aufgelöst
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Eilebrecht und Starke ([2013](#ref-Eilebrecht2013))
+> -   Gamma u. a. ([2011](#ref-Gamma2011))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich verstehe den Aufbau des Visitor-Patterns und kann den
+>     Double-Dispatch erklären
+> -   k3: Ich kann das Visitor-Pattern auf konkrete Beispiele anwenden
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> **Visitor-Pattern praktisch (und einfach)**
+>
+> Betrachten Sie den folgenden Code und erklären Sie das Ergebnis:
+>
+> ``` java
+> interface Fruit { }
+> class Apple implements Fruit { }
+> class Orange implements Fruit { }
+> class Banana implements Fruit { }
+> class Foo extends Apple { }
+>
+> public class FruitBasketDirect {
+>     public static void main(String... args) {
+>         List<Fruit> basket = List.of(new Apple(), new Apple(), new Banana(), new Foo());
+>
+>         int oranges = 0;  int apples = 0;  int bananas = 0;  int foo = 0;
+>
+>         for (Fruit f : basket) {
+>             if (f instanceof Apple) apples++;
+>             if (f instanceof Orange) oranges++;
+>             if (f instanceof Banana) bananas++;
+>             if (f instanceof Foo) foo++;
+>         }
+>     }
+> }
+> ```
+>
+> Das Verwenden von `instanceof` ist unschön und fehleranfällig.
+> Schreiben Sie den Code unter Einsatz des Visitor-Patterns um.
+>
+> Diskutieren Sie Vor- und Nachteile des Visitor-Patterns.
+>
+> </details>
+
+<a id="id-fa18d796f1346e2d468abc3703e53374e2005b7f"></a>
+
+#### Command-Pattern
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Das **Command-Pattern** ist die objektorientierte Antwort auf
+> Callback-Funktionen: Man kapselt Befehle in einem Objekt.
+>
+> 1.  Die `Command`-Objekte haben eine Methode `execute()` und führen
+>     dabei Aktion auf einem bzw. "ihrem" Receiver aus.
+>
+> 2.  `Receiver` sind Objekte, auf denen Aktionen ausgeführt werden, im
+>     Dungeon könnten dies etwa Hero, Monster, ... sein. Receiver müssen
+>     keine der anderen Akteure in diesem Pattern kennen.
+>
+> 3.  Damit die `Command`-Objekte aufgerufen werden, gibt es einen
+>     `Invoker`, der `Command`-Objekte hat und zu gegebener Zeit auf
+>     diesen die Methode `execute()` aufruft. Der Invoker muss dabei die
+>     konkreten Kommandos und die Receiver nicht kennen (nur die
+>     `Command`-Schnittstelle).
+>
+> 4.  Zusätzlich gibt es einen `Client`, der die anderen Akteure kennt
+>     und alles zusammen baut.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Command-Pattern](https://youtu.be/F7RJ7YCVMS4)
+>
+> </details>
+
+##### Motivation
+
+Irgendwo im Dungeon wird es ein Objekt einer Klasse ähnlich wie
+`InputHandler` geben mit einer Methode ähnlich zu `handleInput()`:
+
+``` java
+public class InputHandler {
+    public void handleInput() {
+        switch (keyPressed()) {
+            case BUTTON_W -> hero.jump();
+            case BUTTON_A -> hero.moveX();
+            case ...
+            default -> { ... }
+        }
+    }
+}
+```
+
+Diese Methode wird je Frame einmal aufgerufen, um auf eventuelle
+Benutzereingaben reagieren zu können. Je nach gedrücktem Button wird auf
+dem Hero eine bestimmte Aktion ausgeführt ...
+
+Das funktioniert, ist aber recht unflexibel. Die Aktionen sind den
+Buttons fest zugeordnet und erlauben keinerlei Konfiguration.
+
+##### Auflösen der starren Zuordnung über Zwischenobjekte
+
+``` java
+public interface Command { void execute(); }
+
+public class Jump implements Command {
+    private Entity e;
+    public void execute() { e.jump(); }
+}
+
+public class InputHandler {
+    private final Command wbutton = new Jump(hero);  // Über Ctor/Methoden setzen!
+    private final Command abutton = new Move(hero);  // Über Ctor/Methoden setzen!
+
+    public void handleInput() {
+        switch (keyPressed()) {
+            case BUTTON_W -> wbutton.execute();
+            case BUTTON_A -> abutton.execute();
+            case ...
+            default -> { ... }
+        }
+    }
+}
+```
+
+Die starre Zuordnung "Button : Aktion" wird aufgelöst und über
+Zwischenobjekte konfigurierbar gemacht.
+
+Für die Zwischenobjekte wird ein Typ `Command` eingeführt, der nur eine
+`execute()`-Methode hat. Für jede gewünschte Aktion wird eine Klasse
+davon abgeleitet, diese Klassen können auch einen Zustand pflegen.
+
+Den Buttons wird nun an geeigneter Stelle (Konstruktor, Methoden, ...)
+je ein Objekt der jeweiligen Command-Unterklassen zugeordnet. Wenn ein
+Button betätigt wird, wird auf dem Objekt die Methode `execute()`
+aufgerufen.
+
+Damit die Kommandos nicht nur auf den Helden wirken können, kann man den
+Kommando-Objekten beispielsweise noch eine Entität mitgeben, auf der das
+Kommando ausgeführt werden soll. Im Beispiel oben wurde dafür der `hero`
+genutzt.
+
+##### Command: Objektorientierte Antwort auf Callback-Funktionen
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/command.png" width="80%" /></p>
+
+Im Command-Pattern gibt es vier beteiligte Parteien: Client, Receiver,
+Command und Invoker.
+
+Ein Command ist die objektorientierte Abstraktion eines Befehls. Es hat
+möglicherweise einen Zustand, und und kennt "seinen" Receiver und kann
+beim Aufruf der `execute()`-Methode eine vorher verabredete Methode auf
+diesem Receiver-Objekt ausführen.
+
+Ein Receiver ist eine Klasse, die Aktionen durchführen kann. Sie kennt
+die anderen Akteure nicht.
+
+Der Invoker (manchmal auch "Caller" genannt) ist eine Klasse, die
+Commands aggregiert und die die Commandos "ausführt", indem hier die
+`execute()`-Methode aufgerufen wird. Diese Klasse kennt nur das
+`Command`-Interface und keine spezifischen Kommandos (also keine der
+Sub-Klassen). Es kann zusätzlich eine gewisse Buchführung übernehmen,
+etwa um eine Undo-Funktionalität zu realisieren.
+
+Der Client ist ein Programmteil, der ein Command-Objekt aufbaut und
+dabei einen passenden Receiver übergibt und der das Command-Objekt dann
+zum Aufruf an den Invoker weiterreicht.
+
+In unserem Beispiel lassen sich die einzelnen Teile so sortieren:
+
+-   Client: Klasse `InputHandler` (erzeugt neue `Command`-Objekte im
+    obigen Code) bzw. `main()`, wenn man die `Command`-Objekte dort
+    erstellt und an den Konstruktor von `InputHandler` weiterreicht
+-   Receiver: Objekt `hero` der Klasse `Hero` (auf diesem wird eine
+    Aktion ausgeführt)
+-   Command: `Jump` und `Move`
+-   Invoker: `InputHandler` (in der Methode `handleInput()`)
+
+##### Undo
+
+Wir könnten das `Command`-Interface um ein paar Methoden erweitern:
+
+``` java
+public interface Command {
+    void execute();
+    void undo();
+    Command newCommand(Entity e);
+}
+```
+
+Jetzt kann jedes Command-Objekt eine neue Instanz erzeugen mit der
+Entity, die dann dieses Kommando empfangen soll:
+
+``` java
+public class Move implements Command {
+    private Entity e;
+    private int x, y, oldX, oldY;
+
+    public void execute() { oldX = e.getX();  oldY = e.getY();  x = oldX + 42;  y = oldY;  e.moveTo(x, y); }
+    public void undo() { e.moveTo(oldX, oldY); }
+    public Command newCommand(Entity e) { return new Move(e); }
+}
+
+public class InputHandler {
+    private final Command wbutton;
+    private final Command abutton;
+    private final Stack<Command> s = new Stack<>();
+
+    public void handleInput() {
+        Entity e = getSelectedEntity();
+        switch (keyPressed()) {
+            case BUTTON_W -> { s.push(wbutton.newCommand(e)); s.peek().execute(); }
+            case BUTTON_A -> { s.push(abutton.newCommand(e)); s.peek().execute(); }
+            case BUTTON_U -> s.pop().undo();
+            case ...
+            default -> { ... }
+        }
+    }
+}
+```
+
+Über den Konstruktor von `InputHandler` (im Beispiel nicht gezeigt)
+würde man wie vorher die `Command`-Objekte für die Buttons setzen. Es
+würde aber in jedem Aufruf von `handleInput()` abgefragt, was gerade die
+selektierte Entität ist und für diese eine neue Instanz des zur
+Tastatureingabe passenden `Command`-Objekts erzeugt. Dieses wird nun in
+einem Stack gespeichert und danach ausgeführt.
+
+Wenn der Button "U" gedrückt wird, wird das letzte `Command`-Objekt aus
+dem Stack genommen (Achtung: Im echten Leben müsste man erst einmal
+schauen, ob hier noch was drin ist!) und auf diesem die Methode `undo()`
+aufgerufen. Für das Kommando `Move` ist hier skizziert, wie ein Undo
+aussehen könnte: Man muss einfach bei jedem `execute()` die alte
+Position der Entität speichern, dann kann man sie bei einem `undo()`
+wieder auf diese Position verschieben. Da für jeden Move ein neues
+Objekt angelegt wird und dieses nur einmal benutzt wird, braucht man
+keine weitere Buchhaltung ...
+
+##### Wrap-Up
+
+**Command-Pattern**: Kapsele Befehle in ein Objekt
+
+-   `Command`-Objekte haben eine Methode `execute()` und führen darin
+    Aktion auf Receiver aus
+-   `Receiver` sind Objekte, auf denen Aktionen ausgeführt werden (Hero,
+    Monster, ...)
+-   `Invoker` hat `Command`-Objekte und ruft darauf `execute()` auf
+-   `Client` kennt alle und baut alles zusammen
+
+**Objektorientierte Antwort auf Callback-Funktionen**
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Gamma u. a. ([2011](#ref-Gamma2011))
+> -   Nystrom ([2014, Kap. 2](#ref-Nystrom2014))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kann den Aufbau des Command-Patterns erklären
+> -   k3: Ich kann das Command-Pattern auf konkrete Beispiele, etwa den
+>     PM-Dungeon, anwenden
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> Schreiben Sie für den `Dwarf` in den
+> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/pattern/src/challenges/command)
+> einen Controller, welcher das Command-Pattern verwendet.
+>
+> -   "W" führt Springen aus
+> -   "A" bewegt den Zwerg nach links
+> -   "D" bewegt den Zwerg nach rechts
+> -   "S" führt Ducken aus
+>
+> Schreiben Sie zusätzlich für den `Cursor` einen Controller, welcher
+> das Command-Pattern mit Historie erfüllt (ebenfalls über die Tasten
+> "W", "A", "S" und "D").
+>
+> Schreiben Sie eine Demo, um die Funktionalität Ihres Programmes zu
+> demonstrieren.
+>
+> </details>
+
+<a id="id-b1c7837a3721c6747d9a83b8ec3c69e2181e346f"></a>
+
+### Graphische Oberflächen mit Swing und Java2D
+
+<a id="id-84e91969df75e9dc88c5187131cfbe7aa52f3db5"></a>
+
+#### Swing Events
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> In Swing-Komponenten werden Events ausgelöst, wenn der User mit den
+> Komponenten interagiert.
+>
+> Zur Bearbeitung der Events kann man Listener bei den Komponenten
+> registrieren, die bei Auftreten eines Events benachrichtigt werden
+> (Observer-Pattern: Die Observer werden in Swing "Listener" genannt).
+>
+> Es gibt für alle möglichen Formen von Interaktion mit Komponenten
+> vordefinierte Interfaces für die Event-Listener. Da man hier wie
+> üblich immer alle Methoden implementieren muss, selbst wenn man nur
+> auf wenige Events reagieren möchte, gibt es zusätzlich sogenannte
+> "Adapter": Dies sind Klassen, die das jeweilige
+> Event-Listener-Interface mit leeren Methodenrümpfen implementieren.
+> Bei Nutzung der Adapter-Klassen müssen dann nur noch die benötigten
+> Methoden überschrieben werden.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Swing Events](https://youtu.be/Un-FS88__VU)
+> -   [Demo Swing Events und Listener](https://youtu.be/hjchoDaqcWY)
+> -   [Demo MouseListener
+>     vs. MouseAdapter](https://youtu.be/GaKMBAXY19w)
+>
+> </details>
+
+##### Reaktion auf Events: Anwendung Observer-Pattern
+
+-   Swing-GUI läuft in Dauerschleife
+-   Komponenten registrieren Ereignisse (Events):
+    -   Mausklick
+    -   Tastatureingaben
+    -   Mauszeiger über Komponente
+    -   ...
+-   Reaktion mit passendem Listener: Observer Pattern!
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/ActionListener.png" width="80%" /></p>
+
+=\> Observer aus dem Observer-Pattern!
+
+In Swing werden die "Observer" als "Listener" bezeichnet.
+
+``` java
+component.addActionListener(ActionListener);
+component.addMouseListener(MouseListener);
+```
+
+##### Arten von Events
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/EventListener.png" width="80%" /></p>
+
+Es gibt für alle möglichen Input-Arten eine Ableitung von
+`java.util.EventListener`, beispielsweise für Maus- oder
+Tastaturereignisse oder wenn ein Element den Fokus bekommt und viele
+weitere.
+
+##### Details zu Listenern
+
+-   Ein Listener kann bei mehreren Observables registriert sein:
+
+    ``` java
+    Handler single = new Handler();
+    singleButton.addActionListener(single);
+    multiButton.addActionListener(single);
+    ```
+
+-   Ein Observable kann mehrere Listener bedienen:
+
+    ``` java
+    multiButton.addActionListener(new Handler());
+    multiButton.addActionListener(new Handler());
+    ```
+
+-   Sequentielles Abarbeiten der Events bzw. Benachrichtigung der
+    Observer
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/events/ListenerDemo.java">Demo: events.ListenerDemo</a></p>
+
+##### Wie komme ich an die Daten eines Events?
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/EventObject.png" width="80%" /></p>
+
+**Event-Objekte**: Quelle des Events plus aufgetretene Daten
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/events/MouseListenerDemo.java">Demo: events.MouseListenerDemo</a></p>
+
+##### Listener vs. Adapter
+
+-   Vielzahl möglicher Events
+-   Jeweils passendes Event-Objekt u. Event-Listener-Interface
+-   Oft nur wenige Methoden, u.U. aber viele Methoden
+
+=\> Bei Nutzung eines Event-Listeners müssen immer **alle** Methoden
+implementiert werden (auch nicht benötigte)!
+
+Abhilfe: **Adapter**-Klassen:
+
+-   Für viele Event-Listener-Interfaces existieren Adapter-Klassen
+-   Implementieren jeweils ein Interface
+-   Alle Methoden mit **leerem** Body vorhanden
+
+=\> Nur benötigte Listener-Methoden überschreiben.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/events/MouseAdapterDemo.java">Demo: events.MouseAdapterDemo</a></p>
+
+##### Exkurs: Nützliches zu Swing
+
+Über Swing wurde prinzipiell bereits im ersten Semester gesprochen,
+deshalb wird hier in Prog2 nur der Zusammenhang mit dem
+[Observer-Pattern](#id-c50f087222495d1cb378b27fc952f32b2ccb2054)
+hergestellt.
+
+Wenn Sie Ihr Wissen zu Swing auffrischen wollen, hier vier nützliche
+Sessions zu Swing:
+
+-   [Swing Basics](#id-9027e858a233db8000378cda9ed763fa0d7adf52)
+-   [Nützliche Widgets](#id-fc99061789fb7e047bb9961e2032003e96638346)
+-   [Layouts und -Manager](#id-e7b1cccee2ea28754e4e20718a7cb9f254a490cf)
+-   [Java2D](#id-804217568fc6db951b84fb79cf8c698cdb107312)
+
+##### Wrap-Up
+
+Observer-Pattern in Swing-Komponenten:
+
+-   Events: Enthalten Source-Objekt und Informationen
+-   Event-Listener: Interfaces mit Methoden zur Reaktion
+-   Adapter: Listener mit leeren Methodenrümpfen
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Ullenboom ([2021, Kap. 18](#ref-Ullenboom2021))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Unterschied zwischen den Listenern und den entsprechenden
+>     Adaptern
+> -   k3: Anwendung des Observer-Pattern, beispielsweise als Listener in
+>     Swing, aber auch in eigenen Programmen
+> -   k3: Nutzung von ActionListener, MouseListener, KeyListener,
+>     FocusListener
+>
+> </details>
+
+<a id="id-9027e858a233db8000378cda9ed763fa0d7adf52"></a>
+
+#### Swing 101: Basics
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Swing baut auf AWT auf und ersetzt dieses. Der designierte Nachfolger
+> JavaFX wurde nie wirklich als Ersatz angenommen und ist mittlerweile
+> sogar wieder aus dem JDK bzw. der Java SE herausgenommen worden.
+>
+> Swing-Fenster bestehen zunächst aus Top-Level-Komponenten wie einem
+> Frame oder einem Dialog. Darin können "atomare Komponenten" wie
+> Buttons, Label, Textfelder, ... eingefügt werden. Zur Gruppierung
+> können Komponenten wie Panels genutzt werden.
+>
+> Fenster werden über die Methode `pack()` berechnet (Größe, Anordnung)
+> und müssen explizit sichtbar gemacht werden (`setVisible(true)`). Per
+> Default läuft die Anwendung weiter, nachdem das Hauptfenster
+> geschlossen wurde (konfigurierbar).
+>
+> Swing ist nicht Thread-safe, man darf also nicht mit mehreren Threads
+> parallel die Komponenten bearbeiten. Events werden in Swing durch
+> einen speziellen Thread verarbeitet, dem sogenannten *Event Dispatch
+> Thread* (EDT). Dieser wird über den Aufruf von `pack()` automatisch
+> gestartet. Da das Hauptprogramm `main()` in einem eigenen Thread läuft
+> und ja die ganzen Komponenten quasi schrittweise erzeugt, kann es hier
+> zu Konflikten kommen. Deshalb sollte das Erzeugen der Swing-GUI als
+> neuer Thread ("Runnable") dem EDT übergeben werden.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Swing 101](https://youtu.be/ynwu6LuSLgQ)
+> -   [Demo Einfaches Fenster](https://youtu.be/L3Y2mB7-jRQ)
+>
+> </details>
+
+##### Wiederholung GUI in Java
+
+-   **AWT**: `abstract window toolkit`
+    -   Älteres Framework ("Legacy")
+    -   "Schwergewichtig": plattformangepasst
+    -   Paket `java.awt`
+
+<!-- -->
+
+-   **Swing**
+    -   Nutzt AWT
+    -   "Leichtgewichtig": rein in Java implementiert
+    -   Paket `javax.swing`
+
+<!-- -->
+
+-   **JavaFX**
+    -   Soll als Ersatz für Swing dienen
+        -   Community eher verhalten
+        -   Weiterentwicklung immer wieder unklar
+        -   Nicht mehr im JDK/Java SE Plattform enthalten
+    -   Vergleichsweise komplexes Framework, auch ohne Java
+        programmierbar (Skriptsprache FXML)
+
+*Anmerkung*: In Swing reimplementierte Klassen aus AWT: Präfix "J":
+`java.awt.Button` (AWT) =\> `javax.swing.JButton` (Swing)
+
+##### Graphische Komponenten einer GUI
+
+-   Top-Level Komponenten
+    -   Darstellung direkt auf Benutzeroberfläche des Betriebssystems
+    -   Beispiele: Fenster, Dialoge
+-   Atomare Komponenten
+    -   Enthalten i.d.R. keine weiteren Komponenten
+    -   Beispiele: Label, Buttons, Bilder
+-   Gruppierende Komponenten
+    -   Bündeln und gruppieren andere Komponenten
+    -   Beispiele: JPanel
+
+**Achtung**: Unterteilung nicht im API ausgedrückt: Alle Swing-Bausteine
+leiten von Klasse `javax.swing.JComponent` ab!
+
+=\> Nutzung "falscher" Methoden führt zu Laufzeitfehlern.
+
+##### Ein einfaches Fenster
+
+``` java
+public class FirstWindow {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Hello World :)");
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        frame.pack();
+        frame.setVisible(true);
+    }
+}
+```
+
+###### Elemente
+
+Es wird ein neuer Frame angelegt als Top-Level-Komponente. Der
+Fenstertitel wird auf "Hello World :)" gesetzt.
+
+Zusätzlich wird spezifiziert, dass sich das Programm durch Schließen des
+Fensters beenden soll. Anderenfalls würde man zwar das sichtbare Fenster
+schließen, aber das Programm würde weiter laufen.
+
+Mit der Swing-Methode `pack()` werden alle Komponenten berechnet und die
+Fenstergröße bestimmt, so dass alle Komponenten Platz haben. Bis dahin
+ist das Fenster aber unsichtbar und wird erst über den Aufruf von
+`setVisible(true)` auch dargestellt.
+
+###### Swing und Multithreading: Event Dispatch Thread
+
+Leider ist die Welt nicht ganz so einfach. In Swing werden Events wie
+das Drücken eines Buttons durch den *Event Dispatch Thread* (EDT)
+abgearbeitet. (Zum Thema Events in Swing siehe Einheit ["Swing
+Events"](#id-84e91969df75e9dc88c5187131cfbe7aa52f3db5).) Der EDT wird
+mit dem Erzeugen der visuellen Komponenten für die Swing-Objekte durch
+den Aufruf der Swing-Methoden `show()`, `setVisible()` und `pack()`
+erstellt. Bereits beim Realisieren der Komponenten könnten diese Events
+auslösen, die dann durch den EDT verarbeitet werden und an mögliche
+Listener verteilt werden. Dummerweise wird das `main()` von der JVM aber
+in einem eigenen Thread abgearbeitet - es könnten also zwei Threads
+parallel durch die hier erzeugte Swing-GUI laufen, und Swing ist **nicht
+Thread-safe**! Komponenten dürfen nicht durch verschiedene Threads
+manipuliert werden.
+
+Die Lösung ist, die Realisierung der Komponenten als Job für den EDT zu
+"verpacken":
+
+``` java
+SwingUtilities.invokeLater(
+        new Runnable() {
+            public void run() {
+                JFrame frame = new JFrame("Hello World :)");
+
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+                frame.pack();
+                frame.setVisible(true);
+            }
+        });
+```
+
+Mit `new Runnable()` wird ein neues Objekt vom Typ `Runnable` anlegt -
+im Prinzip ein neuer, noch nicht gestarteter Thread mit der Hauptmethode
+`run()`. Dieses Runnable wird mit `SwingUtilities.invokeLater()` dem EDT
+zu Ausführung übergeben. Wir werden uns das Thema Erzeugen und Starten
+von Threads in der Einheit ["Einführung in die nebenläufige
+Programmierung mit
+Threads"](#id-5cb95855b410a3799c068f4c4fb6b9c4eea6525f) genauer ansehen.
+
+Siehe auch ["Concurrency in
+Swing"](https://docs.oracle.com/javase/tutorial/uiswing/concurrency/index.html).
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/basics/FirstWindow.java">Beispiel: basics.FirstWindow</a></p>
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/basics/SecondWindow.java">Demo: basics.SecondWindow</a></p>
+
+##### Wrap-Up
+
+-   Swing baut auf AWT auf und nutzt dieses
+-   JavaFX ist moderner, aber kein Swing-Ersatz geworden
+
+<!-- -->
+
+-   Basics:
+    -   Swing-Fenster haben Top-Level-Komponenten: `JFrame`, ...
+    -   Atomare Komponenten wie Buttons, Label, ... können gruppiert
+        werden
+    -   Fenster müssen explizit sichtbar gemacht werden
+    -   Nach Schließen des Fensters läuft die Applikation weiter
+        (Default)
+    -   Swing-Events werden durch den *Event Dispatch Thread* (EDT)
+        verarbeitet =\> Aufpassen mit Multithreading!
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Ullenboom ([2021, Kap. 18](#ref-Ullenboom2021))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Unterschied und Zusammenhang zwischen Swing und AWT
+>
+> </details>
+
+<a id="id-fc99061789fb7e047bb9961e2032003e96638346"></a>
+
+#### Swing: Nützliche Widgets
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Neben den Standardkomponenenten `JFrame` für ein Fenster, `JPanel` für
+> ein Panel (auch zum Gruppieren anderer Komponenten), `JButton`
+> (Button) und `JTextArea` (Texteingabe) gibt es eine Reihe weiterer
+> nützlicher Swing-Komponenten:
+>
+> -   `JRadioButton` für Radio-Buttons und `JCheckBox` für
+>     Checkbox-Buttons sowie `ButtonGroup` für die logische Verbindung
+>     von diesen Buttons (es kann nur ein Button einer ButtonGroup aktiv
+>     sein - wenn ein anderer Button aktiviert wird, wird der zuletzt
+>     aktive Button automatisch deaktiviert)
+> -   Dateiauswahldialoge mit `JFileChooser` und `FileFilter` zum
+>     Vorfiltern der Anzeige
+> -   Einfache (modale) Dialoge mit `JOptionPane`
+> -   `JTabbedPane` als Panel mit Tabs
+> -   `JScrollPane`, um Eingabefelder bei Bedarf scrollbar zu machen
+> -   Anlegen einer Menüleiste mit `JMenuBar`, dabei sind die Menüs
+>     `JMenu` und die Einträge `JMenuItem`
+> -   Kontextmenüs mit `JPopupMenu`
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Swing Widgets](https://youtu.be/cUtK-yL5Wpw)
+> -   [Demo JRadioButton](https://youtu.be/auu5wr0lr3w)
+> -   [Demo JFileChooser](https://youtu.be/HEm7ATvdYJo)
+> -   [Demo JOptionPane](https://youtu.be/kfTVZ_W8u6o)
+> -   [Demo JTabbedPane und JScrollPane](https://youtu.be/EAuT4n5mfAg)
+> -   [Demo JMenuBar](https://youtu.be/zMlrKRV8WIY)
+> -   [Demo JPopupMenu](https://youtu.be/ftHDFIkaC-E)
+>
+> </details>
+
+##### Radiobuttons: *JRadioButton*
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-radiobuttons.png" width="50%" /></p>
+
+-   Erzeugen einen neuen "Knopf" (rund)
+    -   vergleiche `JCheckBox` =\> eckiger "Knopf"
+-   Parameter: Beschriftung und Aktivierung
+-   Reagieren mit `ItemListener`
+
+<!-- -->
+
+-   **Logische Gruppierung der Buttons**: `ButtonGroup`
+    -   `JRadioButton` sind **unabhängige** Objekte
+    -   Normalerweise nur ein Button aktiviert
+    -   Aktivierung eines Buttons =\> vormals aktivierter Button
+        deaktiviert
+
+    ``` java
+    JRadioButton b1 = new JRadioButton("Button 1", true);
+    JRadioButton b2 = new JRadioButton("Button 2", false);
+
+    ButtonGroup radioGroup = new ButtonGroup();
+    radioGroup.add(b1);    radioGroup.add(b2);
+    ```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/widgets/RadioButtonDemo.java">Demo: widgets.RadioButtonDemo</a></p>
+
+##### Dateien oder Verzeichnisse auswählen: *JFileChooser*
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-filechooser.png" width="40%" /></p>
+
+``` java
+JFileChooser fc = new JFileChooser("Startverzeichnis");
+fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+if (fc.showOpenDialog() == JFileChooser.APPROVE_OPTION)
+    fc.getSelectedFile()
+```
+
+-   `fc.setFileSelectionMode()`: Dateien, Ordner oder beides auswählbar
+-   Anzeigen mit `fc.showOpenDialog()`
+-   Rückgabewert vergleichen mit `JFileChooser.APPROVE_OPTION`:
+    Datei/Ordner wurde ausgewählt =\> Prüfen!
+-   Selektierte Datei als `File` bekommen: `fc.getSelectedFile()`
+
+**Filtern der Anzeige**: `FileFilter`
+
+-   Setzen mit `JFileChooser.setFileFilter()`
+-   Überschreiben von
+    -   `boolean accept(File f)`
+    -   `String getDescription()`
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/widgets/FileChooserDemo.java">Demo: widgets.FileChooserDemo</a></p>
+
+##### TabbedPane und Scroll-Bars
+
+-   **TabbedPane**: `JTabbedPane`
+    -   Container für weitere Komponenten
+
+    -   Methode zum Hinzufügen anderer Swing-Komponenten:
+
+        ``` java
+        public void addTab(String title, Icon icon, Component component, String tip)
+        ```
+
+<!-- -->
+
+-   **Scroll-Bars**: `JScrollPane`
+    -   Container für weitere Komponenten
+
+    -   Scroll-Bars werden bei Bedarf sichtbar
+
+    -   Hinzufügen einer Komponente:
+
+        ``` java
+        JPanel panel = new JPanel();
+        JTextArea text = new JTextArea(5, 10);
+
+        JScrollPane scrollText = new JScrollPane(text);
+        panel.add(scrollText);
+        ```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/widgets/TabbedPaneDemo.java">Demo: widgets.TabbedPaneDemo</a></p>
+
+##### Dialoge mit *JOptionPane*
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-dialog.png" width="40%" /></p>
+
+``` java
+JOptionPane.showMessageDialog(
+    this,
+    "Krasse Warnung!",
+    "Das ist mein Titel",
+    JOptionPane.WARNING_MESSAGE)
+```
+
+Ein Dialog ist ein eigenes Top-Level-Fenster, welches zumindest eine
+Message zeigt. Zusätzlich kann man den Fenster-Titel einstellen und ein
+kleines Icon anzeigen lassen, was verdeutlichen soll, ob es sich um eine
+Bestätigung oder Frage oder Warnung etc. handelt.
+
+Damit der Dialog auch wirklich bedient werden muss, ist er "modal", d.h.
+er liegt "vor" der Elternkomponente. Diese wird als Referenz übergeben
+und bekommt erst wieder den Fokus, wenn der Dialog geschlossen wurde.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/widgets/DialogDemo.java">Demo: widgets.DialogDemo</a></p>
+
+##### Menüs mit *JMenuBar*, *JMenu* und *JMenuItem*
+
+``` java
+JMenuBar menuBar = new JMenuBar();
+JMenu menu1 = new JMenu("(M)ein Menü");
+JMenuItem m1 = new JMenuItem("Text: A");
+JMenuItem m2 = new JMenuItem("Text: B");
+
+menu1.add(m1);
+menu1.add(m2);
+
+menuBar.add(menu1);
+
+frame.setJMenuBar(menuBar);
+```
+
+Eine Menüleiste wird über das Objekt `JMenuBar` realisiert. Diese ist
+eine Eigenschaft des Frames und kann nur dort hinzugefügt werden.
+
+In der Menüleiste kann es mehrere Menüs geben, diese werden mit Objekten
+vom Typ `JMenu` erstellt.
+
+Wenn man mit der Maus ein Menü ausklappt, wird eine Liste der
+Menüeinträge angezeigt. Diese sind vom Typ `JMenuItem` und verhalten
+sich wie Buttons.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/widgets/MenuDemo.java">Demo: widgets.MenuDemo</a></p>
+
+##### Kontextmenü mit *JPopupMenu*
+
+-   Menü kann über anderen Komponenten angezeigt werden
+
+-   Einträge vom Typ `JMenuItem` hinzufügen (beispielsweise
+    `JRadioButtonMenuItem`)
+
+    ``` java
+    public JMenuItem add(JMenuItem menuItem)
+    ```
+
+-   Menü über der aufrufenden Komponente "`invoker`" anzeigen
+
+    ``` java
+    public void show(Component invoker, int x, int y)
+    ```
+
+###### Details zu *JMenuItem*
+
+-   Erweitert `AbstractButton`
+-   Reagiert auf `ActionEvent` =\> `ActionListener` implementieren für
+    Reaktion auf Menüauswahl
+
+###### Details zum Kontextmenü
+
+**Triggern der Anzeige eines `JPopupMenu`**
+
+-   Beispielsweise über `MouseListener` einer (anderen!) Komponente
+-   Darin Reaktion auf `MouseEvent.isPopupTrigger()` =\>
+    `JPopupMenu.show()` aufrufen
+
+``` java
+JFrame myFrame = new JFrame();
+JPopupMenu kontextMenu = new JPopupMenu();
+
+myFrame.addMouseListener(new MouseAdapter() {
+    public void mousePressed(MouseEvent e) {
+        if (e.isPopupTrigger()) {
+            kontextMenu.show(e.getComponent(), e.getX(), e.getY());
+        }
+    }
+});
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/widgets/PopupDemo.java">Demo: widgets.PopupDemo</a></p>
+
+##### Wrap-Up
+
+Nützliche Swing-Komponenten:
+
+-   Scroll-Bars
+-   Panel mit Tabs
+-   Dialogfenster und Dateiauswahl-Dialoge
+-   Menüleisten und Kontextmenü
+-   Radiobuttons und Checkboxen, logische Gruppierung
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Ullenboom ([2021, Kap. 18](#ref-Ullenboom2021))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k3: Umgang mit komplexeren Swing-Komponenten: JRadioButton,
+>     JFileChooser, JOptionPane, JTabbedPane, JScrollPane, JMenuBar,
+>     JPopupMenu
+> -   k3: Nutzung von ActionListener, MouseListener, KeyListener,
+>     FocusListener
+>
+> </details>
+
+<a id="id-e7b1cccee2ea28754e4e20718a7cb9f254a490cf"></a>
+
+#### Swing: Layout-Manager
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Zur Anordnung von Komponenten greift Swing auf sogenannte
+> Layout-Manager zurück.
+>
+> Hier gibt es viele verschiedene Ausprägungen und Spielarten. Es gibt
+> beispielsweise:
+>
+> -   das `BorderLayout`, eine gitterartige Struktur mit fünf Elementen,
+> -   das `FlowLayout`, eine einzeilige Anordnung mit automatischem
+>     Umbruch bei Platzmangel,
+> -   das `GridLayout`, eine tabellenartige Struktur, in der alle
+>     Elemente gleich groß dargestellt werden, und
+> -   das `GridBagLayout`, welches sich prinzipiell wie das `GridLayout`
+>     verhält und mehr Möglichkeiten bietet. Zur Anordnung der
+>     Komponenten greift man hier auf `GridBagConstraints` zurück und
+>     kann sehr genau und sehr flexibel definieren, wo und wie die
+>     Komponenten angeordnet sein sollen und sich bei Größenänderungen
+>     des Containers verhalten sollen.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Swing: Layout-Manager](https://youtu.be/An7tQMW1A3E)
+> -   [Demo BorderLayout](https://youtu.be/tifXSKXSUYw)
+> -   [Demo FlowLayout](https://youtu.be/tYTDhv6lwT8)
+> -   [Demo GridLayout](https://youtu.be/JyN_Wozg3ms)
+> -   [Demo GridBagLayout](https://youtu.be/95PG2alVTSo)
+>
+> </details>
+
+##### Überblick
+
+Anordnung der Komponenten in einem Container ist abhängig vom **Layout**
+
+Verschiedene beliebte Layout-Manager:
+
+-   `BorderLayout`
+-   `FlowLayout`
+-   `GridLayout`
+-   `GridBagLayout`
+-   ...
+
+##### *BorderLayout*
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-borderlayout.png" width="40%" /></p>
+
+``` java
+JPanel contentPane = new JPanel();
+
+contentPane.setLayout(new BorderLayout());
+
+contentPane.add(new JButton("North"), BorderLayout.NORTH);  // also: PAGE_START
+contentPane.add(new JButton("West"), BorderLayout.WEST);    // also: LINE_START
+contentPane.add(new JButton("Center"), BorderLayout.CENTER);
+contentPane.add(new JButton("East"), BorderLayout.EAST);    // also: LINE_END
+contentPane.add(new JButton("South"), BorderLayout.SOUTH);  // also: PAGE_END
+```
+
+Es gibt fünf verschiedene Bereiche, in denen die Komponenten bei einem
+Border-Layout angeordnet werden können. Für die "historischen"
+Konstanten `NORTH`, `SOUTH`, `WEST` und `EAST` gibt es mittlerweile neue
+Namen, die eher am Aufbau einer Seite orientiert werden können.
+
+Man kann auch nur einige Teile nutzen, bei der Tabellen-Demo
+beispielsweise wurde nur der `NORTH`-Bereich für den Tabellenkopf und
+der `CENTER`-Bereich für die eigentliche Tabelle genutzt.
+
+Wenn das Fenster vergrößert wird, bekommt zunächst der Mittelteil den
+neuen zur Verfügung stehenden Platz. Die anderen Bereiche werden dabei
+auf vergrößert, aber nur so weit, dass der neue verfügbare Platz ggf.
+ausgefüllt wird.
+
+Mit den Methoden `setHgap()` und `setVgap()` kann der Abstand zwischen
+den Komponenten eingestellt werden (horizontal und vertikal, Abstände in
+Pixel).
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/layout/Border.java">Demo: layout.Border</a></p>
+
+##### *FlowLayout*
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-flowlayout.png" width="60%" /></p>
+
+``` java
+JPanel contentPane = new JPanel();
+
+contentPane.setLayout(new FlowLayout());
+
+contentPane.add(new JButton("Label 1"));
+contentPane.add(new JButton("Label 2"));
+contentPane.add(new JButton("Label 3"));
+```
+
+Das `FlowLayout` ist ein sehr einfaches Layout, welches per Default in
+`JPanel` genutzt wird.
+
+Die Komponenten werden der Reihe nach in einer Zeile angeordnet. Wenn
+der Platz nicht ausreicht, bricht diese Zeile um in mehrere Zeilen.
+
+Per Default werden die Komponenten zentriert angeordnet. Über den
+Konstruktor oder die Methoden `setAlignment()` und `setHgap()` bzw.
+`setVgap()` kann aber eine andere Ausrichtung definiert werden, ebenso
+wie ein vertikales und horizontales Padding zwischen den Komponenten.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/layout/Flow.java">Demo: layout.Flow</a></p>
+
+##### *GridLayout*
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-gridlayout.png" width="40%" /></p>
+
+``` java
+JPanel contentPane = new JPanel();
+
+contentPane.setLayout(new GridLayout(0, 3));
+
+contentPane.add(new JButton("Label 1"));
+contentPane.add(new JButton("Label 2"));
+contentPane.add(new JButton("Label 3"));
+```
+
+Das `GridLayout` ist ein sehr einfaches Layout mit einer tabellenartigen
+Struktur. Dabei werden die Komponenten nacheinander auf die "Zellen"
+verteilt, beginnend mit der ersten Zeile. Alle Komponenten werden dabei
+gleich groß dargestellt.
+
+Über den Konstruktor wird die Anzahl der gewünschten Zeilen und Spalten
+angegeben. Es darf auch für einen der beiden Parameter der Wert 0
+verwendet werden, in diesem Fall werden so viele Zeilen oder Spalten
+angelegt, wie für die hinzugefügten Komponenten benötigt.
+
+Auch in diesem Layout kann das Padding über die Methoden `setHgap()`
+bzw. `setVgap()` eingestellt werden.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/layout/Grid.java">Demo: layout.Grid</a></p>
+
+##### Komplexer Layout-Manager: *GridBagLayout*
+
+-   Layout-Manager ähnlich zu `GridLayout`
+-   Zusätzlich `GridBagConstraints`: Verhalten bei Größenveränderungen
+
+| Constraint | Bedeutung |
+|:-------------|:---------------------------------------------------------|
+| `gridx` | **Spalte** für Komponente (linke obere Ecke) |
+| `gridy` | **Zeile** für Komponente (linke obere Ecke) |
+| `gridwidth` | **Anzahl der Spalten** für Komponente |
+| `gridheight` | **Anzahl der Zeilen** für Komponente |
+| `fill` | Vergrößert **Komponente** in Richtung: `NONE`, `HORIZONTAL`, `VERTICAL`, `BOTH` |
+| `weightx` | Platz in x-Richtung wird unter den **Grid-Slots** entsprechend ihrem "Gewicht" aufgeteilt |
+| `weighty` | Platz in y-Richtung wird unter den **Grid-Slots** entsprechend ihrem "Gewicht" aufgeteilt |
+
+Beim Hinzufügen einer Komponente wird eine Instanz der Klasse
+`GridBagConstraints` mitgegeben. Diese definiert, wie die Komponente in
+der gitterartigen Struktur konkret angeordnet werden soll: Startposition
+im Gitter (x, y) bzw (Spalte, Zeile), wie viele Spalten oder Zeilen soll
+die Komponente überstreichen und wie soll auf Größenänderungen des
+Containers reagiert werden.
+
+Beispiel:
+
+``` java
+JPanel contentPane = new JPanel();
+contentPane.setLayout(new GridBagLayout());
+
+GridBagConstraints c2 = new GridBagConstraints();
+c2.gridx = 1;
+c2.gridy = 0;
+c2.gridheight = 2;
+c2.fill = GridBagConstraints.VERTICAL;
+c2.weightx = 0.5;
+c2.weighty = 0.5;
+
+contentPane.add(new JButton("Label 2"), c2);
+```
+
+Der Button wird dem Panel mit dem GridBagLayout hinzugefügt und soll in
+Spalte 1 und Zeile 0 angeordnet werden. Er soll sich dabei über 2 Zeilen
+erstrecken (und 1 Spalte). Der Button soll sich in vertikaler Richtung
+vergrößern, sofern Platz zur Verfügung steht.
+
+Dem Grid-Slot wird ein Gewicht in x- und in y-Richtung von je 0.5
+mitgegeben. Bei einer Änderung des Containers in der jeweiligen Richtung
+wird der neue Platz unter den Slots gemäß ihren Gewichten aufgeteilt.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/layout/GridBag.java">Demo: layout.GridBag</a></p>
+
+##### Wrap-Up
+
+-   Anordnung von Komponenten lässt sich mit Layout-Manager steuern
+
+<!-- -->
+
+-   Auswahl von beliebten Layout-Managern:
+    -   `BorderLayout`: Gitterartige Struktur mit fünf Elementen
+    -   `FlowLayout`: Zeilenweise Anordnung (Umbruch bei Platzmangel)
+    -   `GridLayout`: Tabellenartige Struktur, Elemente gleich groß
+    -   `GridBagLayout`: Wie `GridLayout`, mit mehr Möglichkeiten:
+        `GridBagConstraints`
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Ullenboom ([2021, Kap. 18](#ref-Ullenboom2021))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k3: Anwenden der verschiedenen Layout-Manager: BorderLayout,
+>     FlowLayout, GridLayout, GridBagLayout
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> In den
+> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/gui/src/challenges)
+> eine Implementierung für ein TicTacToe-Spiel. Ihre Aufgabe ist es,
+> eine grafische Benutzeroberfläche für das Spiel zu entwickeln.
+>
+> Ihr Fenster soll sich immer in der Mitte des Bildschirms starten und
+> einen Titel besitzen.
+>
+> Beim Start des Spiels sollen beide Spieler ihre Namen eingeben können,
+> nutzen Sie dafür `JTextField`. Stellen Sie sicher, dass nur gültige
+> Eingaben getätigt werden. Sind die beiden Namen gültig, erstellen Sie
+> die jeweiligen `Player` und starten Sie ein Spiel `TicTacToe`.
+>
+> Im Zentrum Ihres Spielfensters soll das Spielfeld angezeigt werden.
+> Nutzen Sie dafür das `GridLayout` und `JButton`. Die Buttons
+> repräsentieren dabei die Felder des Spiels. Beim Drücken eines Buttons
+> soll die Methode `TicTacToe#makeMove` aufgerufen werden.
+>
+> Mit `TicTacToe#getGameField` können Sie sich das aktuelle Spielfeld
+> übergeben lassen. Sorgen Sie dafür, dass Ihre Oberfläche immer den
+> aktuellen Zustand des Spielfeldes anzeigt.
+>
+> Prüfen Sie nach jedem Spielzug den Status des Spiels mit
+> `TicTacToe#getCurrentGameState`:
+>
+> -   Wenn ein Spieler gewonnen hat, soll ein `JOptionPane` angezeigt
+>     werden und dem Gewinner gratulieren.
+> -   Wenn ein Unentschieden gespielt wurde, soll ein `JOptionPane`
+>     angezeigt werden und das Unentschieden angezeigt werden.
+> -   In beiden Fällen soll danach eine neue Runde gestartet werden.
+>
+> Im unteren Bereich des Fensters soll der Spieler angezeigt werden, der
+> aktuell am Zug ist. Im unteren Bereich des Fensters soll auch der
+> aktuelle Punktestand angezeigt werden.
+>
+> Das Fenster soll eine Menüleiste mit folgenden Punkten haben:
+>
+> -   Exit: Beendet das Programm.
+> -   New Game: Startet das Spiel neu und erlaubt die neue Eingabe der
+>     Spielernamen.
+> -   Clear: Setzt das aktuelle Spielfeld zurück.
+>
+> Denken Sie bei der Umsetzung daran, dass der Benutzer nur die
+> Oberfläche sieht und bedienen kann. Stellen Sie sicher, dass alle
+> Bedienelemente verständlich sind. Nutzen Sie ggf. `JLabel`, um Texte
+> auf der UI anzuzeigen.
+>
+> </details>
+
+<a id="id-804217568fc6db951b84fb79cf8c698cdb107312"></a>
+
+#### Einführung in Graphics und Java 2D
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Swing-Komponenten zeichnen mit `paintComponent()` auf einem
+> `Graphics`-Objekt. Die Methode wird von Swing selbst aufgerufen; man
+> kann sie durch den Aufruf von `repaint()` auf einer Swing-Komponente
+> aber manuell triggern.
+>
+> Die Klasse `Graphics` bietet verschiedene einfache Methoden zum
+> Zeichnen von Linien, Rechtecken, Ovalen und Texten ... Die davon
+> ableitende Klasse `Graphics2D` bietet deutlich mehr Möglichkeiten, und
+> das Argument beim Aufruf von `paintComponent()` ist zwar formal vom
+> Typ `Graphics`, in der Praxis aber oft vom Typ `Graphics2D`
+> (Typprüfung und anschließender Cast nötig).
+>
+> Das Koordinatensystem in Java2D hat den Ursprung in der linken oberen
+> Ecke.
+>
+> Geometrische Primitive und Text werden in der aktuell ausgewählten
+> Zeichenfarbe gerendert. Die Rechtecke, Ovale und Polygone existieren
+> auch als "gefüllte" Variante.
+>
+> Da bei einem Aufruf von `paintComponent()` stets das komplette Objekt
+> neu gezeichnet wird, kann man dies in einer Game-Loop nutzen: Pro
+> Schritt berechnet man für alle Objekte die neue Position, lässt ggf.
+> weitere Interaktion o.ä. berechnen und zeichnet anschließend die
+> Objekte über den Aufruf von `repaint()` neu. In der Game-Loop werden
+> also keine Threads benötigt.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Java2D](https://youtu.be/LDE_Kbc9w7k)
+> -   [Demo geometrische Objekte](https://youtu.be/vzBH0MjJ0rM)
+> -   [Demo Fonts](https://youtu.be/F-6fIGeGAcY)
+> -   [Demo Polygone](https://youtu.be/BLTZ3XhbvkY)
+> -   [Demo Bewegung und 2D-Spiel](https://youtu.be/wfVwSyTgm-w)
+>
+> </details>
+
+##### GUIs mit Java
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/java2d.png" width="40%" /></p>
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/java2d/simplegame/J2DTeaser.java">Demo: java2d.simplegame.J2DTeaser</a></p>
+
+##### Einführung in die Java 2D API
+
+-   Bisher: Anordnung von Widgets als GUI
+-   Jetzt: Wie kann man mit Java zeichnen etc.?
+
+Swing-Komponenten erben von `javax.swing.JComponent`:
+
+``` java
+public void paintComponent(Graphics g)
+```
+
+-   Wird durch Events aufgerufen
+
+-   Oder "von Hand" mit `void repaint()`
+
+    Methode `repaint()` der Swing-Komponente aufrufen =\> dadurch wird
+    dann intern die Methode `paintComponent()` der Komponente aufgerufen
+    zum Neuzeichnen auf dem Graphics-Objekt.
+
+Objekt vom Typ `Graphics` stellt graphischen Kontext dar
+
+-   Geom. Primitive zeichnen mit `draw*` und `fill*`
+-   Rendern mit `drawString` und `drawImage`
+-   ...
+
+`Graphics2D` beherrscht zusätzliche Methoden zum Beeinflussen des
+Renderings
+
+<div align="center">
+
+=\> **Methode überschreiben und auf der GUI malen**
+
+</div>
+
+-   Basis: `java.awt.Graphics`; davon abgeleitet `java.awt.Graphics2D`
+-   Methode zum Zeichnen: `paintComponent()`
+-   Umgang mit Farben: `java.awt.Color`
+-   Umgang mit Zeichen und Fonts: `java.awt.Font`
+-   Geom. Primitive: `java.awt.Polygon`,
+    `java.awt.geom.{Line2D, Rectangle2D, Ellipse2D}`, ...
+
+##### Java2D Koordinatensystem
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/java2d-koordinaten.png" width="60%" /></p>
+
+-   Koordinatensystem lokal zum Graphics-Objekt
+-   Einheiten in Pixel(!)
+
+##### Einfache Objekte zeichnen
+
+Methoden von `java.awt.Graphics` (Auswahl):
+
+``` java
+public void drawLine(int x1, int y1, int x2, int y2)
+public void drawRect(int x, int y, int width, int height)
+public void fillRect(int x, int y, int width, int height)
+public void drawOval(int x, int y, int width, int height)
+public void fillOval(int x, int y, int width, int height)
+```
+
+Vorher Strichfarbe setzen: `Graphics.setColor(Color color)`:
+
+-   Farb-Konstanten in `java.awt.Color`: `RED`, `GREEN`, `WHITE`, ...
+
+-   Ansonsten über Konstruktor, beispielsweise als RGB:
+
+    ``` java
+    public Color(int r, int g, int b)  // Rot/Grün/Blau, Werte zw. 0 und 255
+    ```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/java2d/SimpleDrawings.java">Demo: java2d.SimpleDrawings</a></p>
+
+##### Fonts und Strings
+
+Fonts über Font-Klasse einstellen: `Graphics.setFont(Font font);`
+
+``` java
+public Font(String name, int style, int size)
+```
+
+`Graphics` kann Strings "zeichnen":
+
+``` java
+public void drawString(String str, int x, int y);
+```
+
+Vorher Font und Farbe setzen!
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/java2d/SimpleFonts.java">Demo: java2d.SimpleFonts</a></p>
+
+##### Einfache Polygone definieren
+
+Polygone zeichnen: `Graphics.drawPolygon(Polygon p)`:
+
+``` java
+public Polygon()
+public Polygon(int[] xPoints, int[] yPoints, int points)
+public void addPoint(int x, int y)
+```
+
+=\> weitere Methoden von `Graphics` (Auswahl):
+
+``` java
+public void drawPolyline(int[] xp, int[] yp, int np)
+
+public void drawPolygon(int[] xp, int[] yp, int np)
+public void drawPolygon(Polygon p)
+```
+
+Polygone mit Farbe füllen: `Graphics.fillPolygon(Polygon p)`
+
+``` java
+public void fillPolygon(int[] xp, int[] yp, int np)
+public void fillPolygon(Polygon p)
+```
+
+Statt `drawPolygon()` ....
+
+Vorher Farbe setzen!
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/java2d/SimplePoly.java">Demo: java2d.SimplePoly</a></p>
+
+##### Ausblick I: Umgang mit Bildern
+
+``` java
+BufferedImage img = ImageIO.read(new File("DukeWave.gif"));
+
+boolean Graphics.drawImage(Image img, int x, int y, ImageObserver observer);
+```
+
+##### Ausblick II: *Graphics2D* kann noch mehr ...
+
+``` java
+Graphics g;
+Graphics2D g2 = (Graphics2D) g;
+```
+
+=\> `Line2D`, `Rectangle2D`, ...
+
+-   Strichstärken, Strichmuster
+-   Clippings
+-   Transformationen: rotieren, ...
+-   Zeichnen in Bildern, Rendern von Ausschnitten
+-   ...
+
+##### Spiele mit Bewegung
+
+Beobachtung: `paintComponent()` schreibt `Graphics`-Objekt komplett neu!
+
+-   Kein Löschen von Objekten nötig
+-   Es müssen alle im nächsten Schritt sichtbaren Objekte stets neu
+    gezeichnet werden
+
+Idee: Je Zeitschritt:
+
+1.  Position der Objekte neu berechnen
+2.  Weitere Berechnungen: Kollision, Interaktion, Angriff, ...
+3.  Objekte mit `paintComponent()` neu in GUI zeichnen
+
+-   Möglichkeit 1: Alle Objekte in zentraler Datenstruktur halten und
+    die Bewegung im Hauptprogramm berechnen
+    -   Unschön: Das Hauptprogramm muss Hintergrundwissen über die
+        Objekte und deren Bewegung haben
+
+<!-- -->
+
+-   Möglichkeit 2: Die Objekte wissen selbst, wie sie sich bewegen und
+    haben eine Methode, deren Aufruf die Bewegung durchführt
+    -   Objekte als Listener im Hauptprogramm registrieren
+    -   Hauptprogramm gibt Zeittakt vor und ruft je Schritt für alle
+        Listener die Bewege-Methode auf =\> Listener berechnen ihre neue
+        Position
+    -   Hauptprogramm kann weitere Prüfungen (Kollision etc) auslösen
+    -   Hauptprogramm ruft für alle Listener eine Paint-Methode auf =\>
+        Listener stellen sich auf GUI dar ...
+
+    =\> Observer-Pattern nutzen
+
+##### Erinnerung: Observer Pattern
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/observer.png" width="80%" /></p>
+
+-   Anzahl der Observer muss nicht bekannt sein - zur Laufzeit
+    erweiterbar!
+-   Verschiedene Update-Methoden für unterschiedliche Observer denkbar
+-   **Push-Modell**: Benötigte Daten werden der Update-Methode
+    mitgegeben
+-   **Pull-Modell**: Update-Methode nur als Trigger, Observer holen sich
+    die Daten selbst
+-   Referenz auf Observable mitgeben - Observer braucht dann keine
+    Referenz auf das Observable halten und kann sich bei verschiedenen
+    Observables registrieren
+-   `Observer` werden (vor allem im Swing-Umfeld) manchmal auch
+    `Listener` genannt
+
+##### Spielobjekte als Observer (Listener)
+
+Objekte können sich auf `Graphics` darstellen:
+
+-   Ursprung, Breite, Höhe
+-   Schrittweite pro Bewegungsschritt
+
+``` java
+abstract class GameObject {
+    abstract void move();
+    abstract void paintTo(Graphics g); // entspricht Observer#update()
+}
+
+class GameRect extends GameObject {
+    int x, y, deltaX;
+    void move() { x += deltaX; }
+    void paintTo(Graphics g) {
+        g.drawRect(x, y, 80, 80);
+    }
+}
+```
+
+Weitere evtl. nützliche Methoden:
+
+-   Check auf Kollision
+-   Methode zum Umdrehen der Bewegungsrichtung
+
+##### Oberfläche zusammenbauen
+
+1.  Spielfeld von `JPanel` ableiten: Observable
+2.  Observer registrieren: Liste mit Spiel-Objekten anlegen
+3.  `paintComponent()` vom Spielfeld überschreiben
+    -   für alle Observer (Spiel-Objekte) `paintTo()` aufrufen
+
+<!-- -->
+
+4.  Hauptschleife für Spiel:
+    -   Taktgeber (Zeit, Interaktion)
+    -   Je Schritt `move()` für alle Observer aufrufen
+    -   Weitere Berechnungen (Kollisionen, Interaktionen, ...)
+    -   `Spielfeld.repaint()` aufrufen =\> Neuzeichnen mit
+        `paintComponent()`
+
+**Pro Schritt**:
+
+1.  `move()` für alle Objekte aufrufen: Objekte setzen ihren Ursprung
+    weiter (**ohne Aktualisierung des Bildes!**)
+
+2.  Prüfungen: Kollision/Berührung, aus dem Bild wandern ...
+
+    -   Beispiele für Verhalten bei Berührung:
+        -   beide kehren ihre Bewegungsrichtung um
+        -   das kleinere Objekt verschwindet
+    -   Beispiele für Umgang mit Objekten, die aus dem Bild wandern:
+        -   auf der anderen Seite einblenden
+        -   Bewegungsrichtung umkehren
+        -   Objekt aus dem Spiel nehmen
+
+3.  Interaktionen
+
+    -   Greifen sich Monster und Held an?
+    -   Öffnet der Held eine Truhe?
+    -   Sammelt der Held etwas auf?
+    -   ...
+
+4.  `repaint()` im Spielfeld aufrufen =\> damit wird `paintComponent()`
+    aufgerufen, in `paintComponent()` wird für alle Spielobjekte deren
+    `paintTo()` aufgerufen und damit ein Neuzeichnen aller Objekte
+    ausgelöst
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/java2d/simplegame/J2DTeaser.java">Demo: java2d.simplegame.J2DTeaser</a></p>
+
+##### Wrap-Up
+
+-   Java2D: Swing-Komponenten zeichnen mit `paintComponent()` auf
+    `Graphics`
+-   `Graphics`: Methoden zum Zeichnen von Linien, Rechtecken, Ovalen,
+    Text ...
+    -   Koordinatensystem: Ursprung links oben!
+    -   Geom. Primitive und Text werden in ausgewählter Zeichenfarbe
+        gerendert
+        -   Rechtecke, Ovale, Polygone auch als "gefüllte" Variante
+    -   Mehr Möglichkeiten: `Graphics2D`
+
+<!-- -->
+
+-   Spiel: Game-Loop
+    -   Bewege Objekte: Rechne neue Position aus
+    -   Interagiere: Angriffe, Sammeln, ...
+    -   Zeichne Objekte neu
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Ullenboom ([2021, Kap. 18](#ref-Ullenboom2021))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Unterschied und Zusammenhang zwischen Swing und AWT
+> -   k2: Swing-Komponenten erben paintComponent(Graphics)
+> -   k2: paintComponent(Graphics) wird durch Events oder durch
+>     repaint() aufgerufen
+> -   k3: Auf Graphics-Objekt zeichnen mit geometrischen Primitiven:
+>     Nutzung von draw(), fill(), drawString()
+> -   k3: Einstellung von Farbe und Font
+> -   k3: Erzeugen von Bewegung ohne Nutzung von Threads
+>
+> </details>
+
+<a id="id-f7083be5fbfab945de3e25ca0bad1e1914731a7c"></a>
+
+### Fortgeschrittene Java-Themen und Umgang mit JVM
+
+<a id="id-cfd21c65be03a9536ad286c40c0f52ec3d376712"></a>
+
+#### Reguläre Ausdrücke
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Mit Hilfe von regulären Ausdrücken kann man den Aufbau von
+> Zeichenketten formal beschreiben. Dabei lassen sich direkt die
+> gewünschten Zeichen einsetzen, oder man nutzt Zeichenklassen oder
+> vordefinierte Ausdrücke. Teilausdrücke lassen sich gruppieren und über
+> *Quantifier* kann definiert werden, wie oft ein Teilausdruck vorkommen
+> soll. Die Quantifier sind per Default **greedy** und versuchen so viel
+> wie möglich zu matchen.
+>
+> Auf der Java-Seite stellt man reguläre Ausdrücke zunächst als `String`
+> dar. Dabei muss darauf geachtet werden, dass ein Backslash im
+> regulären Ausdruck im Java-String geschützt (*escaped*) werden muss,
+> indem jeweils ein weiterer Backslash voran gestellt wird. Mit Hilfe
+> der Klasse `java.util.regex.Pattern` lässt sich daraus ein Objekt mit
+> dem kompilierten regulären Ausdruck erzeugen, was insbesondere bei
+> mehrfacher Verwendung günstiger in der Laufzeit ist. Dem
+> Pattern-Objekt kann man dann den Suchstring übergeben und bekommt ein
+> Objekt der Klasse `java.util.regex.Matcher` (dort sind regulärer
+> Ausdruck/Pattern und der Suchstring kombiniert). Mit den Methoden
+> `Matcher#find` und `Matcher#matches` kann dann geprüft werden, ob das
+> Pattern auf den Suchstring passt: `find` sucht dabei nach dem ersten
+> Vorkommen des Patterns im Suchstring, `match` prüft, ob der gesamte
+> String zum Pattern passt.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL RegExp](https://youtu.be/K9R1Bwa73uI)
+> -   [Demo StringSplit](https://youtu.be/j_pTZBI6Z3M)
+> -   [Demo MatchFind](https://youtu.be/LYlPL1C_au8)
+> -   [Demo Quantifier](https://youtu.be/xkD9PhCjXyY)
+> -   [Demo Groups](https://youtu.be/ANLB2MdC_uY)
+> -   [Demo Backref](https://youtu.be/SRZyT3EAB94)
+>
+> </details>
+
+##### Suchen in Strings
+
+Gesucht ist ein Programm zum Extrahieren von Telefonnummern aus E-Mails.
+
+=\> **Wie geht das?**
+
+Leider gibt es unzählig viele Varianten, wie man eine Telefonnummer
+(samt Vorwahl und ggf. Ländervorwahl) aufschreiben kann:
+
+    030 - 123 456 789, 030-123456789, 030/123456789,
+    +49(30)123456-789, +49 (30) 123 456 - 789, ...
+
+##### Definition Regulärer Ausdruck
+
+> Ein **regulärer Ausdruck** ist eine Zeichenkette, die zur Beschreibung
+> von Zeichenketten dient.
+
+###### Anwendungen
+
+-   Finden von Bestandteilen in Zeichenketten
+-   Aufteilen von Strings in Tokens
+-   Validierung von textuellen Eingaben =\> "Eine Postleitzahl besteht
+    aus 5 Ziffern"
+-   Compilerbau: Erkennen von Schlüsselwörtern und Strukturen und
+    Syntaxfehlern
+
+##### Einfachste reguläre Ausdrücke
+
+| **Zeichenkette** | **Beschreibt**         |
+|:-----------------|:-----------------------|
+| `x`              | "x"                    |
+| `.`              | ein beliebiges Zeichen |
+| `\t`             | Tabulator              |
+| `\n`             | Newline                |
+| `\r`             | Carriage-return        |
+| `\\`             | Backslash              |
+
+###### Beispiel
+
+-   `abc` =\> "abc"
+-   `A.B` =\> "AAB" oder "A2B" oder ...
+-   `a\\bc` =\> "a\\bc"
+
+###### Anmerkung
+
+In Java-Strings leitet der Backslash eine zu interpretierende
+Befehlssequenz ein. Deshalb muss der Backslash i.d.R. geschützt
+("escaped") werden. =\> Statt "`\n`" müssen Sie im Java-Code "`\\n`"
+schreiben!
+
+##### Zeichenklassen
+
+| **Zeichenkette** | **Beschreibt**                                           |
+|:------------------|:----------------------------------------------------|
+| `[abc]`          | "a" oder "b" oder "c"                                    |
+| `[^abc]`         | alles außer "a", "b" oder "c" (Negation)                 |
+| `[a-zA-Z]`       | alle Zeichen von "a" bis "z" und "A" bis "Z" (Range)     |
+| `[a-z&&[def]]`   | "d", "e" oder "f" (Schnitt)                              |
+| `[a-z&&[^bc]]`   | "a" bis "z", außer "b" und "c": `[ad-z]` (Subtraktion)   |
+| `[a-z&&[^m-p]]`  | "a" bis "z", außer "m" bis "p": `[a-lq-z]` (Subtraktion) |
+
+Zeichenklassen werden über eine Zeichenkette formuliert, die in `[` und
+`]` eingeschlossen wird. Dabei werden alle Zeichen aufgezählt, die in
+dieser Zeichenklasse enthalten sein sollen. Die Zeichenklasse verhält
+sich von außen betrachtet wie ein beliebiges Zeichen aus der Menge der
+aufgezählten Zeichen.
+
+Beispiel: `[abc]` meint ein "a" oder "b" oder "c" ...
+
+Wenn dem ersten Zeichen der so geformten Zeichenklasse ein `^`
+vorangestellt wird, sind alle Zeichen *außer* den in der Zeichenklasse
+bezeichneten Zeichen gemeint (Negation). In der Tabelle oben (erste
+Zeile) könnte man dem `abc` noch ein `^` voranstellen und hätte dann
+*alle* Zeichen *außer* "a", "b" und "c".
+
+Für den Schnitt kann als zweite Zeichenklasse eine Negation verwendet
+werden, damit würde eine Subtraktion erreicht werden: Alle Zeichen in
+der vorderen Zeichenklasse abzüglich der Zeichen in der zweiten
+Zeichenklasse. In der Tabelle oben (vierte Zeile) würde man dem `def`
+noch ein `^` voranstellen und hätte dann die Zeichen "a" bis "z" *ohne*
+"d", "e" und "f".
+
+*Anmerkung*: Das Minus-Zeichen hat in der Zeichenklasse eine besondere
+Bedeutung (es bildet einen Range). Deshalb muss es escaped werden, wenn
+es sich selbst darstellen soll.
+
+###### Beispiel
+
+-   `[abc]` =\> "a" oder "b" oder "c"
+-   `[a-c]` =\> "a" oder "b" oder "c"
+-   `[a-c][a-c]` =\> "aa", "ab", "ac", "ba", "bb", "bc", "ca", "cb" oder
+    "cc"
+-   `A[a-c]` =\> "Aa", "Ab" oder "Ac"
+
+##### Vordefinierte Ausdrücke
+
+| **Zeichenkette** | **Beschreibt**                               |
+|:-----------------|:---------------------------------------------|
+| `^`              | Zeilenanfang                                 |
+| `$`              | Zeilenende                                   |
+| `\d`             | eine Ziffer: `[0-9]`                         |
+| `\w`             | beliebiges Wortzeichen: `[a-zA-Z_0-9]`       |
+| `\s`             | Whitespace (Leerzeichen, Tabulator, Newline) |
+| `\D`             | jedes Zeichen außer Ziffern: `[^0-9]`        |
+| `\W`             | jedes Zeichen außer Wortzeichen: `[^\w]`     |
+| `\S`             | jedes Zeichen außer Whitespaces: `[^\s]`     |
+
+###### Beispiel
+
+-   `\d\d\d\d\d` =\> "12345"
+-   `\w\wA` =\> "aaA", "a0A", "a_A", ...
+
+##### Nutzung in Java
+
+-   `java.lang.String`:
+
+    ``` java
+    public String[] split(String regex)
+    public boolean matches(String regex)
+    ```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/regexp/StringSplit.java">Demo: regexp.StringSplit</a></p>
+
+-   `java.util.regex.Pattern`:
+
+    ``` java
+    public static Pattern compile(String regex)
+    public Matcher matcher(CharSequence input)
+    ```
+
+    -   Schritt 1: Ein Pattern compilieren (erzeugen) mit
+        `Pattern#compile` =\> liefert ein Pattern-Objekt für den
+        regulären Ausdruck zurück
+    -   Schritt 2: Dem Pattern-Objekt den zu untersuchenden Zeichenstrom
+        übergeben mit `Pattern#matcher` =\> liefert ein Matcher-Objekt
+        zurück, darin gebunden: Pattern (regulärer Ausdruck) und die zu
+        untersuchende Zeichenkette
+
+<!-- -->
+
+-   `java.util.regex.Matcher`:
+
+    ``` java
+    public boolean find()
+    public boolean matches()
+    public int groupCount()
+    public String group(int group)
+    ```
+
+    -   Schritt 3: Mit dem Matcher-Objekt kann man die Ergebnisse der
+        Anwendung des regulären Ausdrucks auf eine Zeichenkette
+        auswerten
+
+        Bedeutung der unterschiedlichen Methoden siehe folgende Folien
+
+        `Matcher#group`: Liefert die Sub-Sequenz des Suchstrings zurück,
+        die erfolgreich gematcht wurde (siehe unten "Fangende
+        Gruppierungen")
+
+**Hinweis**:
+
+In Java-Strings leitet der Backslash eine zu interpretierende
+Befehlssequenz ein. Deshalb muss der Backslash i.d.R. extra geschützt
+("escaped") werden.
+
+=\> Statt "`\n`" (regulärer Ausdruck) müssen Sie im Java-String "`\\n`"
+schreiben!
+
+=\> Statt "`a\\bc`" (regulärer Ausdruck, passt auf die Zeichenkette
+"a\\bc") müssen Sie im Java-String "`a\\\\bc`" schreiben!
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/regexp/MatchFind.java">Demo: regexp.MatchFind</a></p>
+
+##### Unterschied zw. Finden und Matchen
+
+-   `Matcher#find`:
+
+    Regulärer Ausdruck muss im Suchstring **enthalten** sein. =\> Suche
+    nach **erstem Vorkommen**
+
+<!-- -->
+
+-   `Matcher#matches`:
+
+    Regulärer Ausdruck muss auf **kompletten** Suchstring passen.
+
+###### Beispiel
+
+-   Regulärer Ausdruck: `abc`, Suchstring: "blah blah abc blub"
+    -   `Matcher#find`: erfolgreich
+    -   `Matcher#matches`: kein Match - Suchstring entspricht nicht dem
+        Muster
+
+##### Quantifizierung
+
+| **Zeichenkette** | **Beschreibt**                                   |
+|:-----------------|:-------------------------------------------------|
+| `X?`             | ein oder kein "X"                                |
+| `X*`             | beliebig viele "X" (inkl. kein "X")              |
+| `X+`             | mindestens ein "X", ansonsten beliebig viele "X" |
+| `X{n}`           | exakt $n$ Vorkommen von "X"                      |
+| `X{n,}`          | mindestens $n$ Vorkommen von "X"                 |
+| `X{n,m}`         | zwischen $n$ und $m$ Vorkommen von "X"           |
+
+###### Beispiel
+
+-   `\d{5}` =\> "12345"
+-   `-?\d+\.\d*` =\> ???
+
+##### Interessante Effekte
+
+``` java
+Pattern p = Pattern.compile("A.*A");
+Matcher m = p.matcher("A 12 A 45 A");
+
+if (m.matches())
+    String result = m.group(); // ???
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/regexp/Quantifier.java">Demo: regexp.Quantifier</a></p>
+
+`Matcher#group` liefert die Inputsequenz, auf die der Matcher
+angesprochen hat. Mit `Matcher#start` und `Matcher#end` kann man sich
+die Indizes des ersten und letzten Zeichens des Matches im
+Eingabezeichenstrom geben lassen. D.h. für einen Matcher `m` und eine
+Eingabezeichenkette `s` ist `m.group()` und
+`s.substring(m.start(), m.end())` äquivalent.
+
+Da bei `Matcher#matches` das Pattern immer auf den gesamten Suchstring
+passen muss, verwundert das Ergebnis für `Matcher#group` nicht. Bei
+`Matcher#find` wird im Beispiel allerdings ebenfalls der gesamte
+Suchstring "gefunden" ... Dies liegt am "*greedy*" Verhalten der
+Quantifizierer.
+
+##### Nicht gierige Quantifizierung mit "?"
+
+| **Zeichenkette** | **Beschreibt**               |
+|:-----------------|:-----------------------------|
+| `X*?`            | non-greedy Variante von `X*` |
+| `X+?`            | non-greedy Variante von `X+` |
+
+###### Beispiel
+
+-   Suchstring "A 12 A 45 A":
+    -   `A.*A` findet/passt auf "A 12 A 45 A"
+
+        normale **greedy** Variante
+
+    -   `A.*?A`
+
+        -   findet "A 12 A"
+        -   passt auf "A 12 A 45 A" (!)
+
+        **non-greedy** Variante der Quantifizierung; `Matcher#matches`
+        muss trotzdem auf den gesamten Suchstring passen!
+
+##### (Fangende) Gruppierungen
+
+`Studi{2}` passt nicht auf "StudiStudi" (!)
+
+Quantifizierung bezieht sich auf das direkt davor stehende Zeichen. Ggf.
+Gruppierungen durch Klammern verwenden!
+
+| **Zeichenkette** | **Beschreibt** |
+|:-----------------|:---------------|
+| `X\|Y`           | X oder Y       |
+| `(C)`            | Gruppierung    |
+
+###### Beispiel
+
+-   `(A)(B(C))`
+    -   Gruppe 0: `ABC`
+    -   Gruppe 1: `A`
+    -   Gruppe 2: `BC`
+    -   Gruppe 3: `C`
+
+Die Gruppen heißen auch "fangende" Gruppen (engl.: *"capturing
+groups"*).
+
+Damit erreicht man eine Segmentierung des gesamten regulären Ausdrucks,
+der in seiner Wirkung aber nicht durch die Gruppierungen geändert wird.
+Durch die Gruppierungen von Teilen des regulären Ausdrucks erhält man
+die Möglichkeit, auf die entsprechenden Teil-Matches (der Unterausdrücke
+der einzelnen Gruppen) zuzugreifen:
+
+-   `Matcher#groupCount`: Anzahl der "fangenden" Gruppen im regulären
+    Ausdruck
+
+-   `Matcher#group(i)`: Liefert die Subsequenz der Eingabezeichenkette
+    zurück, auf die die jeweilige Gruppe gepasst hat. Dabei wird von
+    links nach rechts durchgezählt, beginnend bei 1(!).
+
+    Konvention: Gruppe 0 ist das gesamte Pattern, d.h.
+    `m.group(0) == m.group();` ...
+
+*Hinweis*: Damit der Zugriff auf die Gruppen klappt, muss auch erst ein
+Match gemacht werden, d.h. das Erzeugen des Matcher-Objekts reicht noch
+nicht, sondern es muss auch noch ein `matcher.find()` oder
+`matcher.matches()` ausgeführt werden. Danach kann man bei Vorliegen
+eines Matches auf die Gruppen zugreifen.
+
+`(Studi){2}` =\> "StudiStudi"
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/regexp/Groups.java">Demo: regexp.Groups</a></p>
+
+##### Gruppen und Backreferences
+
+Matche zwei Ziffern, gefolgt von den selben zwei Ziffern
+
+<div align="center">
+
+`(\d\d)\1`
+
+</div>
+
+-   Verweis auf bereits gematchte Gruppen: `\num`
+
+    `num` Nummer der Gruppe (1 ... 9)
+
+    =\> Verweist nicht auf regulären Ausdruck, sondern auf jeweiligen
+    Match!
+
+    *Anmerkung*: Laut Literatur/Doku nur 1 ... 9, in Praxis geht auch
+    mehr per Backreference ...
+
+<!-- -->
+
+-   Benennung der Gruppe: `(?<name>X)`
+
+    `X` ist regulärer Ausdruck für Gruppe, spitze Klammern wichtig
+
+    =\> Backreference: `\k<name>`
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/regexp/Backref.java">Demo: regexp.Backref</a></p>
+
+##### Beispiel Gruppen und Backreferences
+
+Regulärer Ausdruck: Namen einer Person matchen, wenn Vor- und Nachname
+identisch sind.
+
+Lösung: `([A-Z][a-zA-Z]*)\s\1`
+
+##### Umlaute und reguläre Ausdrücke
+
+-   Keine vordefinierte Abkürzung für Umlaute (wie etwa `\d`)
+
+-   Umlaute nicht in `[a-z]` enthalten, aber in `[a-ü]`
+
+    ``` java
+    "helloüA".matches(".*?[ü]A");
+    "azäöüß".matches("[a-ä]");
+    "azäöüß".matches("[a-ö]");
+    "azäöüß".matches("[a-ü]");
+    "azäöüß".matches("[a-ß]");
+    ```
+
+-   Strings sind Unicode-Zeichenketten
+
+    =\> Nutzung der passenden Unicode Escape Sequence `\uFFFF`
+
+    ``` java
+    System.out.println("\u0041 :: A");
+    System.out.println("helloüA".matches(".*?A"));
+    System.out.println("helloüA".matches(".*?\u0041"));
+    System.out.println("helloü\u0041".matches(".*?A"));
+    ```
+
+-   RegExp vordefinieren und mit Variablen zusammenbauen ala Perl nicht
+    möglich =\> Umweg String-Repräsentation
+
+##### Wrap-Up
+
+-   RegExp: Zeichenketten, die andere Zeichenketten beschreiben
+-   `java.util.regex.Pattern` und `java.util.regex.Matcher`
+-   Unterschied zwischen `Matcher#find` und `Matcher#matches`!
+-   Quantifizierung ist möglich, aber **greedy** (Default)
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k1: Ich kenne die wichtigsten Methoden von java.util.regex.Pattern
+>     und java.util.regex.Matcher
+> -   k2: Ich kann den Unterschied zwischen Matcher#find und
+>     Matcher#matches erklären
+> -   k2: Ich kann zwischen greedy und non-greedy Verhalten bei
+>     regulären Ausdrücken unterscheiden
+> -   k3: Ich kann einfache reguläre Ausdrücke bilden
+> -   k3: Ich kann Zeichenklassen und deren Negation einsetzen
+> -   k3: Ich kann die vordefinierten regulären Ausdrücke einsetzen
+> -   k3: Ich kann Quantifizierer gezielt einsetzen
+> -   k3: Ich kann komplexe Ausdrücke (u.a. mit Gruppen) konstruieren
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> Schreiben Sie eine Methode, die mit Hilfe von regulären Ausdrücken
+> überprüft, ob der eingegebene String eine nach dem folgenden Schema
+> gebildete EMail-Adresse ist:
+>
+> <div align="center">
+>
+> `name@firma.domain`
+>
+> </div>
+>
+> Dabei sollen folgende Regeln gelten:
+>
+> -   Die Bestandteile `name` und `firma` können aus Buchstaben,
+>     Ziffern, Unter- und Bindestrichen bestehen.
+> -   Der Bestandteil `name` muss mindestens ein Zeichen lang sein.
+> -   Der Bestandteil `firma` kann entfallen, dann entfällt auch der
+>     nachfolgende Punkt (`.`) und der Teil `domain` folgt direkt auf
+>     das `@`-Zeichen.
+> -   Der Bestandteil `domain` besteht aus 2 oder 3 Kleinbuchstaben.
+>
+> Hinweis: Sie dürfen keinen Oder-Operator verwenden.
+>
+> </details>
+
+<a id="id-11913b4c04e50a1d1269b5966a87e87d1d727a10"></a>
+
+#### Dependency Injection
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> TODO
+>
+> </details>
+
+##### Packages
+
+TODO
+
+##### Wrap-Up
+
+TODO
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kann den Einsatz von Packages in Java erklären
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> TODO
+>
+> </details>
+
+<a id="id-60c28f241488056134fe9fbda5f190e7b95c2109"></a>
+
+#### Generics: Generische Klassen & Methoden
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Generische Klassen und Methoden sind ein wichtiger Baustein in der
+> Programmierung mit Java. Dabei werden Typ-Variablen eingeführt, die
+> dann bei der Instantiierung der generischen Klassen oder beim Aufruf
+> von generischen Methoden mit existierenden Typen konkretisiert werden
+> ("Typ-Parameter").
+>
+> Syntaktisch definiert man die Typ-Variablen in spitzen Klammern hinter
+> dem Klassennamen bzw. vor dem Rückgabetyp einer Methode:
+> `public class Stack<E> { }` und `public <T> T foo(T m) { }`.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Generische Klassen & Methoden](https://youtu.be/k6MFPW-shh8)
+> -   [Demo Generische Methoden](https://youtu.be/ekXBXge6VvE)
+>
+> </details>
+
+##### Generische Strukturen
+
+``` java
+Vector speicher = new Vector();
+speicher.add(1); speicher.add(2); speicher.add(3);
+speicher.add("huhu");
+
+int summe = 0;
+for (Object i : speicher) { summe += (Integer)i; }
+```
+
+Problem: Nutzung des "*raw*" Typs `Vector` ist nicht typsicher!
+
+-   Mögliche Fehler fallen erst zur Laufzeit und u.U. erst sehr spät
+    auf: Offenbar werden im obigen Beispiel `int`-Werte erwartet, d.h.
+    das Hinzufügen von `"huhu"` ist vermutlich ein Versehen (wird vom
+    Compiler aber nicht bemerkt)
+-   Die Iteration über `speicher` kann nur allgemein als `Object`
+    erfolgen, d.h. in der Schleife muss auf den vermuteten/gewünschten
+    Typ gecastet werden: Hier würde dann der String `"huhu"` Probleme
+    zur Laufzeit machen
+
+``` java
+Vector<Integer> speicher = new Vector<Integer>();
+speicher.add(1); speicher.add(2); speicher.add(3);
+speicher.add("huhu");
+
+int summe = 0;
+for (Integer i : speicher) { summe += i; }
+```
+
+Vorteile beim Einsatz von Generics:
+
+-   Datenstrukturen/Algorithmen nur einmal implementieren, aber für
+    unterschiedliche Typen nutzen
+-   Keine Vererbungshierarchie nötig
+-   Nutzung ist typsicher, Casting unnötig
+-   Geht nur für Referenztypen
+-   Beispiel: Collections-API
+
+##### Generische Klassen/Interfaces definieren
+
+-   **Definition**: "`<Typ>`" hinter Klassennamen
+
+    ``` java
+    public class Stack<E> {
+        public E push(E item) {
+            addElement(item);
+            return item;
+        }
+    }
+    ```
+
+    -   `Stack<E>` =\> Generische (parametrisierte) Klasse (auch:
+        "*generischer Typ*")
+    -   `E` =\> Formaler Typ-Parameter (auch: "*Typ-Variable*")
+
+<!-- -->
+
+-   **Einsatz**:
+
+    ``` java
+    Stack<Integer> stack = new Stack<Integer>();
+    ```
+
+    -   `Integer` =\> Typ-Parameter
+    -   `Stack<Integer>` =\> Parametrisierter Typ
+
+##### Generische Klassen instantiieren
+
+-   Typ-Parameter in spitzen Klammern hinter Klasse bzw. Interface
+
+    ``` java
+    ArrayList<Integer> il = new ArrayList<Integer>();
+    ArrayList<Double>  dl = new ArrayList<Double>();
+    ```
+
+##### Beispiel I: Einfache generische Klassen
+
+``` java
+class Tutor<T> {
+    // T kann in Tutor *fast* wie Klassenname verwendet werden
+    private T x;
+    public T foo(T t) { ... }
+}
+```
+
+``` java
+Tutor<String>  a = new Tutor<String>();
+Tutor<Integer> b = new Tutor<>();  // ab Java7: "Diamond Operator"
+
+a.foo("wuppie");
+b.foo(1);
+b.foo("huhu");  // Fehlermeldung vom Compiler
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/classes/GenericClasses.java">Beispiel: classes.GenericClasses</a></p>
+
+###### Typ-Inferenz
+
+Typ-Parameter kann bei `new()` auf der rechten Seite oft weggelassen
+werden =\> **Typ-Inferenz**
+
+``` java
+Tutor<String> x = new Tutor<>();  // <>: "Diamantoperator"
+```
+
+(gilt seit Java 1.7)
+
+##### Beispiel II: Vererbung mit Typparametern
+
+``` java
+interface Fach<T1, T2> {
+    public void machWas(T1 a, T2 b);
+}
+
+class SHK<T> extends Tutor<T> { ... }
+
+class PM<X, Y, Z> implements Fach<X, Z> {
+    public void machWas(X a, Z b) { ... }
+    public Y getBla() { ... }
+}
+
+class Studi<A,B> extends Person { ... }
+class Properties extends Hashtable<Object,Object> { ... }
+```
+
+Auch Interfaces und abstrakte Klassen können parametrisierbar sein.
+
+Bei der Vererbung sind alle Varianten bzgl. der Typ-Variablen denkbar.
+Zu beachten ist dabei vor allem, dass die Typ-Variablen der Oberklasse
+(gilt analog für Interfaces) entweder durch Typ-Variablen der
+Unterklasse oder durch konkrete Typen spezifiziert sind. Die
+Typ-Variablen der Oberklasse dürfen nicht "in der Luft hängen" (siehe
+auch nächste Folie)!
+
+##### Beispiel III: Überschreiben/Überladen von Methoden
+
+``` java
+class Mensch { ... }
+
+class Studi<T extends Mensch> {
+    public void f(T t) { ... }
+}
+
+class Prof<T> extends Mensch { ... }
+
+class Tutor extends Studi<Mensch> {
+    public void f(Mensch t) { ... }      // Ueberschreiben
+    public void f(Tutor t) { ... }       // Ueberladen
+}
+```
+
+##### Vorsicht: So geht es nicht!
+
+``` java
+class Foo<T> extends T { ... }
+
+class Fluppie<T> extends Wuppie<S> { ... }
+```
+
+-   Generische Klasse `Foo<T>` kann nicht selbst vom Typ-Parameter `T`
+    ableiten (warum?)
+-   Bei Ableiten von generischer Klasse `Wuppie<S>` muss deren
+    Typ-Parameter `S` bestimmt sein: etwa durch den Typ-Parameter der
+    ableitenden Klasse, beispielsweise `Fluppie<S>` (statt `Fluppie<T>`)
+
+##### Generische Methoden definieren
+
+-   "`<Typ>`" vor Rückgabetyp
+
+    ``` java
+    public class Mensch {
+        public <T> T myst(T m, T n) {
+            return Math.random() > 0.5 ? m : n;
+        }
+    }
+    ```
+
+<!-- -->
+
+-   "Mischen possible":
+
+    ``` java
+    public class Mensch<E> {
+        public <T> T myst(T m, T n) { ... }
+        public String myst(String m, String n) { ... }
+    }
+    ```
+
+##### Aufruf generischer Methoden
+
+###### Aufruf
+
+-   Aufruf mit Typ-Parameter vor Methodennamen, oder
+-   Inferenz durch Compiler
+
+###### Finden der richtigen Methode durch den Compiler
+
+1.  Zuerst Suche nach exakt passender Methode,
+2.  danach passend mit Konvertierungen =\> Compiler sucht gemeinsame
+    Oberklasse in Typhierarchie
+
+###### Beispiel
+
+``` java
+class Mensch {
+    <T> T myst(T m, T n) { ... }
+}
+Mensch m = new Mensch();
+
+
+m.<String>myst("Essen", "lecker");  // Angabe Typ-Parameter
+
+
+m.myst("Essen", 1);          // String, Integer => T: Object
+m.myst("Essen", "lecker");   // String, String  => T: String
+m.myst(1.0, 1);              // Double, Integer => T: Number
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/methods/GenericMethods.java">Beispiel methods.GenericMethods</a></p>
+
+Reihenfolge der Suche nach passender Methode gilt auch für
+nicht-generisch überladene Methoden
+
+``` java
+class Mensch {
+    public <T> T myst(T m, T n) {
+        System.out.println("X#myst: T");
+        return m;
+    }
+
+    // NICHT gleichzeitig erlaubt wg. Typ-Löschung (s.u.):
+/*
+    public <T1, T2> T1 myst(T1 m, T2 n) {
+        System.out.println("X#myst: T");
+        return m;
+    }
+*/
+
+    public String myst(String m, String n) {
+        System.out.println("X#myst: String");
+        return m;
+    }
+
+    public int myst(int m, int n) {
+        System.out.println("X#myst: int");
+        return m;
+    }
+}
+
+
+public class GenericMethods {
+    public static void main(String[] args) {
+        Mensch m = new Mensch();
+
+        m.myst("Hello World", "m");
+        m.myst("Hello World", 1);
+        m.myst(3, 4);
+        m.myst(m, m);
+        m.<Mensch>myst(m, m);
+        m.myst(m, 1);
+        m.myst(3.0, 4);
+        m.<Double>myst(3, 4);
+    }
+}
+```
+
+##### Wrap-Up
+
+-   Begriffe:
+    -   Generischer Typ: `Stack<T>`
+    -   Formaler Typ-Parameter: `T`
+    -   Parametrisierter Typ:`Stack<Long>`
+    -   Typ-Parameter: `Long`
+    -   Raw Type: `Stack`
+
+<!-- -->
+
+-   Generische Klassen: `public class Stack<E> { }`
+    -   "`<Typ>`" hinter Klassennamen
+
+<!-- -->
+
+-   Generische Methoden: `public <T> T foo(T m) { }`
+    -   "`<Typ>`" vor Rückgabewert
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Ullenboom ([2021, 11.1](#ref-Ullenboom2021))
+> -   Oracle Corporation ([2026](#ref-LernJava))
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Bloch ([2018](#ref-Bloch2018))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k1: Ich kenne die Begriffe 'generischer Typ', 'parametrisierter
+>     Typ', 'formaler Typ-Parameter', 'Typ-Parameter'
+> -   k3: Ich kann generische Klassen und Interfaces definieren und
+>     praktisch einsetzen
+> -   k3: Ich kann generische Methoden definieren und praktisch
+>     einsetzen
+>
+> </details>
+
+<a id="id-527a99eb558795f85fc455275ae495d059c83c9c"></a>
+
+#### Generics: Bounds & Wildcards
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Typ-Variablen können weiter eingeschränkt werden, in dem man einen
+> verpflichtenden Ober- oder Untertyp angibt mit `extends` bzw. `super`.
+> Damit muss der später bei der Instantiierung verwendete Typ-Parameter
+> entweder die Oberklasse selbst sein oder davon ableiten (bei
+> `extends`) bzw. der Typ-Parameter muss eine Oberklasse der angegebenen
+> Schranke sein (`super`).
+>
+> Durch die Einschränkung mit `extends` können in der Klasse/Methode auf
+> der Typ-Variablen alle Methoden des angegebenen Obertyps verwendet
+> werden.
+>
+> Ein Wildcard (`?`) als Typ-Parameter steht für einen beliebigen Typ,
+> wobei die Typ-Variable keinen Namen bekommt und damit innerhalb der
+> Klasse/Methode nicht zugreifbar ist.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Generics: Bounds & Wildcards](https://youtu.be/OV2vEn2EkWo)
+> -   [Demo Wildcards](https://youtu.be/D2hIicsho7I)
+>
+> </details>
+
+##### Bounds: Einschränken der generischen Typen
+
+``` java
+public class Cps<E extends Number> {
+    // Obere Schranke: E muss Number oder Subklasse sein
+    // => Zugriff auf Methoden aus Number moeglich
+}
+Cps<Double> a;
+Cps<Number> b;
+Cps<String> c;  // Fehler!!!
+```
+
+-   Schlüsselwort `extends` gilt hier auch für Interfaces
+
+-   Mehrere Interfaces: nach `extends` Klasse oder Interface, danach mit
+    "`&`" getrennt die restlichen Interfaces:
+
+    ``` java
+    class Cps<E extends KlasseOderInterface & I1 & I2 & I3> {}
+    ```
+
+*Anmerkung*: Der Typ-Parameter ist analog auch mit `super` (nach unten)
+einschränkbar
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/bounds/Cps.java">Beispiel bounds.Cps</a></p>
+
+##### Wildcards: Dieser Typ ist mir nicht so wichtig
+
+<div align="center">
+
+Wildcard mit "`?`" =\> steht für unbestimmten Typ
+
+</div>
+
+``` java
+public class Wuppie {
+    public void m1(List<?> a) { ... }
+    public void m2(List<? extends Number> b) { ... }
+}
+```
+
+-   `m1`: `List` beliebig parametrisierbar =\> In `m1` für Objekte in
+    Liste `a` nur Methoden von `Object` nutzbar!
+
+-   `m2`: `List` muss mit `Number` oder Subklasse parametrisiert werden.
+    =\> Dadurch für Objekte in Liste `b` alle Methoden von `Number`
+    nutzbar ...
+
+Weitere Eigenschaften:
+
+-   Durch Wildcard kein Zugriff auf den Typ
+-   Wildcard kann durch upper bound eingeschränkt werden
+-   Geht nicht bei Klassen-/Interface-Definitionen
+
+Bloch ([2018](#ref-Bloch2018)): Nur für Parameter und nicht für
+Rückgabewerte nutzen!
+
+##### Hands-On: Ausgabe für generische Listen
+
+Ausgabe für Listen gesucht, die sowohl Elemente der Klasse `A` als auch
+Elemente der Klasse `B` enthalten können
+
+``` java
+class A { void printInfo() { System.out.println("A"); } }
+class B extends A { void printInfo() { System.out.println("B"); } }
+
+public class X {
+    public static void main(String[] args) {
+        List<A> x = new ArrayList<A>();
+        x.add(new A());  x.add(new B());
+        printInfo(x);    // Klassenmethode in X, gesucht
+        List<B> y = new ArrayList<B>();
+        y.add(new B());  y.add(new B());
+        printInfo(y);    // Klassenmethode in X, gesucht
+    }
+}
+```
+
+**Hinweis**: Dieses Beispiel beinhaltet auch Polymorphie bei/mit
+generischen Datentypen, bitte vorher auch das Video zum vierten Teil
+"Generics und Polymorphie" anschauen
+
+###### Erster Versuch (*A* und *B* und *main()* wie oben)
+
+``` java
+public class X {
+    public static void printInfo(List<A> list) {
+        for (A a : list) { a.printInfo(); }
+    }
+}
+```
+
+=\> **So gehts nicht!** Eine `List<B>` ist **keine** `List<A>` (auch
+wenn ein `B` ein `A` ist, vgl. spätere Sitzung zu Generics und Vererbung
+...)!
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/wildcards/v1/X.java">Beispiel wildcards.v1.X</a></p>
+
+###### Zweiter Versuch mit Wildcards (*A* und *B* und *main()* wie oben)
+
+``` java
+public class X {
+    public static void printInfo(List<?> list) {
+        for (Object a : list) { a.printInfo(); }
+    }
+}
+```
+
+=\> **So gehts auch nicht!** Im Prinzip passt das jetzt für `List<A>`
+und `List<B>`. Dummerweise hat man durch das Wildcard keinen Zugriff
+mehr auf den Typ-Parameter und muss für den Typ der Laufvariablen in der
+`for`-Schleife dann `Object` nehmen. Aber `Object` kennt unser
+`printInfo` nicht ... Außerdem könnte man die Methode `X#printInfo` dank
+des Wildcards auch mit allen anderen Typen aufrufen ...
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/wildcards/v2/X.java">Beispiel wildcards.v2.X</a></p>
+
+###### Dritter Versuch (Lösung) mit Wildcards und Bounds (*A* und *B* und *main()* wie oben)
+
+``` java
+public class X {
+    public static void printInfo(List<? extends A> list) {
+        for (A a : list) { a.printInfo(); }
+    }
+}
+```
+
+Das ist die Lösung. Man erlaubt als Argument nur `List`-Objekte und
+fordert, dass sie mit `A` oder einer Unterklasse von `A` parametrisiert
+sind. D.h. in der Schleife kann man sich auf den gemeinsamen Obertyp `A`
+abstützen und hat dann auch wieder die `printInfo`-Methode zur Verfügung
+...
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/wildcards/v3">Konsole wildcards.v3.X</a></p>
+
+##### Wrap-Up
+
+-   Ein Wildcard (`?`) als Typ-Parameter steht für einen beliebigen Typ
+    -   Ist in Klasse oder Methode dann aber nicht mehr zugreifbar
+
+<!-- -->
+
+-   Mit Bounds kann man Typ-Parameter nach oben oder nach unten
+    einschränken (im Sinne einer Vererbungshierarchie)
+    -   `extends`: Der Typ-Parameter muss eine Unterklasse eines
+        bestimmten Typen sein
+    -   `super`: Der Typ-Parameter muss eine Oberklasse eines bestimmten
+        Typen sein
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Ullenboom ([2021, 11.3](#ref-Ullenboom2021))
+> -   Oracle Corporation ([2026](#ref-LernJava))
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Bloch ([2018](#ref-Bloch2018))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k3: Ich kann Wildcards und Bounds bei generischen Klassen/Methoden
+>     einsetzen
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> **Spieler, Mannschaften und Ligen** Modellieren Sie in Java
+> verschiedene Spielertypen sowie generische Mannschaften und Ligen, die
+> jeweils bestimmte Spieler (-typen) bzw. Mannschaften aufnehmen können.
+>
+> 1.  Implementieren Sie die Klasse `Spieler`, die das Interface
+>     `ISpieler` erfüllt.
+>
+>     ``` java
+>     public interface ISpieler {
+>         String getName();
+>     }
+>     ```
+>
+> 2.  Implementieren Sie die beiden Klassen `FussballSpieler` und
+>     `BasketballSpieler` und sorgen Sie dafür, dass beide Klassen vom
+>     Compiler als Spieler betrachtet werden (geeignete
+>     Vererbungshierarchie).
+>
+> 3.  Betrachten Sie das nicht-generische Interface `IMannschaft`.
+>     Erstellen Sie daraus ein generisches Interface `IMannschaft` mit
+>     einer Typ-Variablen. Stellen Sie durch geeignete Beschränkung der
+>     Typ-Variablen sicher, dass nur Mannschaften mit von `ISpieler`
+>     abgeleiteten Spielern gebildet werden können.
+>
+>     ``` java
+>     public interface IMannschaft {
+>         boolean aufnehmen(ISpieler spieler);
+>         boolean rauswerfen(ISpieler spieler);
+>     }
+>     ```
+>
+> 4.  Betrachten Sie das nicht-generische Interface `ILiga`. Erstellen
+>     Sie daraus ein generisches Interface `ILiga` mit einer
+>     Typvariablen. Stellen Sie durch geeignete Beschränkung der
+>     Typvariablen sicher, dass nur Ligen mit von `IMannschaft`
+>     abgeleiteten Mannschaften angelegt werden können.
+>
+>     ``` java
+>     public interface ILiga {
+>         boolean aufnehmen(IMannschaft mannschaft);
+>         boolean rauswerfen(IMannschaft mannschaft);
+>     }
+>     ```
+>
+> 5.  Leiten Sie von `ILiga` das **generische** Interface `IBundesLiga`
+>     ab. Stellen Sie durch geeignete Formulierung der Typvariablen
+>     sicher, dass nur Ligen mit Mannschaften angelegt werden können,
+>     deren Spieler vom Typ `FussballSpieler` (oder abgeleitet) sind.
+>
+>     Realisieren Sie nun noch die Funktionalität von `IBundesLiga` als
+>     **nicht-generisches** Interface `IBundesLiga2`.
+>
+> </details>
+
+<a id="id-5bc4d64bb6b6ada40444f817951b2775c3a1ec92"></a>
+
+#### Generics: Generics und Polymorphie
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Auch mit generischen Klassen stehen die Mechanismen Vererbung und
+> Überladen zur Verfügung. Dabei muss aber beachtet werden, dass
+> generische Klassen sich **"invariant"** verhalten: Der Typ selbst
+> folgt der Vererbungsbeziehung, eine Vererbung des Typ-Parameters
+> begründet *keine* Vererbungsbeziehung! D.h. aus `U extends O` folgt
+> **nicht** `A<U> extends A<O>`.
+>
+> Bei Arrays ist es genau anders herum: Wenn `U extends O` dann gilt
+> auch `U[] extends O[]` ... (Dies nennt man "*kovariantes*" Verhalten.)
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Generics und Polymorphie](https://youtu.be/RiTA43wTixQ)
+>
+> </details>
+
+##### Generische Polymorphie
+
+<div align="center">
+
+`B<E> extends A<E>`
+
+</div>
+
+``` java
+class A<E> { ... }
+class B<E> extends A<E> { ... }
+
+A<Double> ad = new B<Double>();
+A<String> as = new B<String>();
+```
+
+``` java
+class Vector<E> { ... }
+class Stack<E> extends Vector<E> { ... }
+
+Vector<Double> vd = new Stack<Double>();
+Vector<String> vs = new Stack<String>();
+```
+
+=\> Polymorphie bei Generics bezieht sich auf **Typ** (nicht
+Typ-Parameter)
+
+**Invarianz**: Generics sind *invariant*, d.h. ein `HashSet<String>` ist
+ein Untertyp von `Set<String>`. Bei der Vererbung muss der Typ-Parameter
+identisch sein.
+
+##### Polymorphie bei Generics bezieht sich nur auf Typ!
+
+<div align="center">
+
+"`B extends A`" **bedeutet nicht** "`C<B> extends C<A>`"
+
+</div>
+
+``` java
+Stack<Number> s = new Stack<Integer>(); // DAS GEHT SO NICHT!
+
+// Folgen (wenn obiges gehen wuerde):
+s.push(new Integer(3)); // das ginge sowieso ...
+
+// Folgen (wenn obiges gehen wuerde):
+// Stack<Number> waere Oberklasse auch von Stack<Double>
+s.push(new Double(2.0)); // waere dann auch erlaubt ...
+
+// Das Objekt (Stack<Integer>) kann aber keine Double speichern!
+// Zur Laufzeit keine Typ-Informationen mehr!
+```
+
+-   Typ-Löschung =\> zur Laufzeit keine Typinformationen vorhanden
+-   Compiler muss Typen prüfen (können)!
+
+##### Abgrenzung: Polymorphie bei Arrays
+
+<div align="center">
+
+Wenn "`B extends A`" dann "`B[] extends A[]`"
+
+</div>
+
+``` java
+Object[] x = new String[] {"Hello", "World", ":-)"};
+x[0] = "Hallo";
+x[0] = new Double(2.0);  // Laufzeitfehler
+String[] y = x;  // String[] ist KEIN Object[]!!!
+```
+
+-   Arrays besitzen Typinformationen über gespeicherte Elemente
+-   Prüfung auf Typ-Kompatibilität zur **Laufzeit** (nicht
+    Kompilierzeit!)
+
+<p align="right"><a href="https://openbook.rheinwerk-verlag.de/javainsel/11_002.html#u11.2.2">Hinweis auf Java-Geschichte (Java-Insel: “Type Erasure”)</a></p>
+
+Arrays gab es sehr früh, Generics erst relativ spät (ab Java6) =\> bei
+Arrays fand man das Verhalten natürlich und pragmatisch (trotz der
+Laufzeit-Überprüfung).
+
+Bei der Einführung von Generics musste man Kompatibilität sicherstellen
+(alter Code soll auch mit neuen Compilern übersetzt werden können -
+obwohl im alten Code Raw-Types verwendet werden). Außerdem wollte man
+von Laufzeit-Prüfung hin zu Compiler-Prüfung. Da würde das von Arrays
+bekannte Verhalten Probleme machen ...
+
+**Kovarianz**: Arrays sind *kovariant*, d.h. ein Array vom Typ
+`String[]` ist wegen `String extends Object` ein Untertyp von
+`Object[]`.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/arrays/X.java">Beispiel arrays.X</a></p>
+
+##### Arrays vs. parametrisierte Klassen
+
+=\> Keine Arrays mit parametrisierten Klassen!
+
+``` java
+Foo<String>[] x = new Foo<String>[2];   // Compilerfehler
+
+Foo<String[]> y = new Foo<String[]>();  // OK :)
+```
+
+Arrays mit parametrisierten Klassen sind nicht erlaubt! Arrays brauchen
+zur Laufzeit Typinformationen, die aber durch die Typ-Löschung entfernt
+werden.
+
+##### Diskussion Vererbung vs. Generics
+
+**Vererbung:**
+
+-   *IS-A*-Beziehung
+-   Anwendung: Vererbungsbeziehung vorliegend, Eigenschaften verfeinern
+-   Beispiel: Ein Student *ist eine* Person
+
+**Generics:**
+
+-   Schablone (Template) für viele Datentypen
+-   Anwendung: Identischer Code für unterschiedliche Typen
+-   Beispiel: Datenstrukturen, Algorithmen generisch realisieren
+
+##### Wrap-Up
+
+-   Generics: Vererbung und Überladen möglich, aber: Aus "`U extends O`"
+    folgt **nicht** "`A<U> extends A<O>`"
+
+<!-- -->
+
+-   Achtung: Bei Arrays gilt aber: Wenn "`U extends O`" dann gilt auch
+    "`U[] extends O[]`" ...
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Ullenboom ([2021, 11.5](#ref-Ullenboom2021))
+> -   Oracle Corporation ([2026](#ref-LernJava))
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Bloch ([2018](#ref-Bloch2018))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k3: Ich kann Vererbungsbeziehungen mit generischen Klassen bilden
+> -   k3: Ich kann mit Arrays und generischen Typen umgehen
+>
+> </details>
+
+<a id="id-02580ddc2b10540e0114e08483e28b46e5dd9772"></a>
+
+#### Exception-Handling
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Man unterscheidet in Java zwischen **Exceptions** und **Errors**. Ein
+> Error ist ein Fehler im System (OS, JVM), von dem man sich nicht
+> wieder erholen kann. Eine Exception ist ein Fehlerfall innerhalb des
+> Programmes, auf den man innerhalb des Programms reagieren kann.
+>
+> Mit Hilfe von Exceptions lassen sich Fehlerfälle im Programmablauf
+> deklarieren und behandeln. Methoden können/müssen mit dem Keyword
+> `throws` gefolgt vom Namen der Exception deklarieren, dass sie im
+> Fehlerfall diese spezifische Exception werfen (und nicht selbst
+> behandeln).
+>
+> Zum Exception-Handling werden die Keywords `try`, `catch` und
+> `finally` verwendet. Dabei wird im `try`-Block der Code geschrieben,
+> der einen potenziellen Fehler wirft. Im `catch`-Block wird das
+> Verhalten implementiert, dass im Fehlerfall ausgeführt werden soll,
+> und im `finally`-Block kann optional Code geschrieben werden, der
+> sowohl im Erfolgs- als auch Fehlerfall ausgeführt wird.
+>
+> Es wird zwischen **checked** Exceptions und **unchecked** Exceptions
+> unterschieden. Checked Exceptions sind für erwartbare Fehlerfälle
+> gedacht, die nicht vom Programm ausgeschlossen werden können, wie das
+> Fehlen einer Datei, die eingelesen werden soll. Checked Exceptions
+> müssen deklariert oder behandelt werden. Dies wird vom Compiler
+> überprüft.
+>
+> Unchecked Exceptions werden für Fehler in der Programmlogik verwendet,
+> etwa das Teilen durch 0 oder Index-Fehler. Sie deuten auf fehlerhafte
+> Programmierung, fehlerhafte Logik oder beispielsweise mangelhafte
+> Eingabeprüfung in. Unchecked Exceptions müssen nicht deklariert oder
+> behandelt werden. Unchecked Exceptions leiten von `RuntimeException`
+> ab.
+>
+> Als Faustregel gilt: Wenn der Aufrufer sich von einer
+> Exception-Situation erholen kann, sollte man eine checked Exception
+> nutzen. Wenn der Aufrufer vermutlich nichts tun kann, um sich von dem
+> Problem zu erholen, dann sollte man eine unchecked Exception
+> einsetzen.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Exceptions](https://youtu.be/k6EhexEvJDY)
+>
+> </details>
+
+##### Fehlerfälle in Java
+
+``` java
+int div(int a, int b) {
+    return a / b;
+}
+
+
+div(3, 0);
+```
+
+**Problem**: Programm wird abstürzen, da durch '0' geteilt wird ...
+
+##### Lösung?
+
+``` java
+Optional<Integer> div(int a, int b) {
+    if (b == 0) return Optional.empty();
+    return Optional.of(a / b);
+}
+
+
+Optional<Integer> x = div(3, 0);
+if (x.isPresent()) {
+    // do something
+} else {
+    // do something else
+}
+```
+
+**Probleme**:
+
+-   Da `int` nicht `null` sein kann, muss ein `Integer` Objekt erzeugt
+    und zurückgegeben werden: Overhead wg. Auto-Boxing und -Unboxing!
+-   Der Aufrufer muss auf `null` prüfen.
+-   Es wird nicht kommuniziert, warum `null` zurückgegeben wird. Was ist
+    das Problem?
+-   Was ist, wenn `null` ein gültiger Rückgabewert sein soll?
+
+##### Vererbungsstruktur *Throwable*
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/exception.png" width="80%" /></p>
+
+###### *Exception* vs. *Error*
+
+-   `Error`:
+    -   Wird für Systemfehler verwendet (Betriebssystem, JVM, ...)
+        -   `StackOverflowError`
+        -   `OutOfMemoryError`
+    -   Von einem Error kann man sich nicht erholen
+    -   Sollten nicht behandelt werden
+-   `Exception`:
+    -   Ausnahmesituationen bei der Abarbeitung eines Programms
+    -   Können "checked" oder "unchecked" sein
+    -   Von Exceptions kann man sich erholen
+
+###### Unchecked vs. Checked Exceptions
+
+-   "Checked" Exceptions:
+    -   Für erwartbare Fehlerfälle, deren Ursprung nicht im Programm
+        selbst liegt
+        -   `FileNotFoundException`
+        -   `IOException`
+    -   Alle nicht von `RuntimeException` ableitende Exceptions
+    -   Müssen entweder behandelt (`try`/`catch`) oder deklariert
+        (`throws`) werden: Dies wird vom Compiler überprüft!
+-   "Unchecked" Exceptions:
+    -   Logische Programmierfehler ("Versagen" des Programmcodes)
+        -   `IndexOutOfBoundException`
+        -   `NullPointerException`
+        -   `ArithmeticException`
+        -   `IllegalArgumentException`
+    -   Leiten von `RuntimeException` oder Unterklassen ab
+    -   Müssen nicht deklariert oder behandelt werden
+
+Beispiele checked Exception:
+
+-   Es soll eine Abfrage an eine externe API geschickt werden. Diese ist
+    aber aktuell nicht zu erreichen. "Erholung": Anfrage noch einmal
+    schicken.
+-   Es soll eine Datei geöffnet werden. Diese ist aber nicht unter dem
+    angegebenen Pfad zu finden oder die Berechtigungen stimmen nicht.
+    "Erholung": Aufrufer öffnet neuen File-Picker, um es noch einmal mit
+    einer anderen Datei zu versuchen.
+
+Beispiele unchecked Exception:
+
+-   Eine `for`-Loop über ein Array ist falsch programmiert und will auf
+    einen Index im Array zugreifen, der nicht existiert. Hier kann der
+    Aufrufer nicht Sinnvolles tun, um sich von dieser Situation zu
+    erholen.
+-   Argumente oder Rückgabewerte einer Methode können `null` sein. Wenn
+    man das nicht prüft, sondern einfach Methoden auf dem vermeintlichen
+    Objekt aufruft, wird eine `NullPointerException` ausgelöst, die eine
+    Unterklasse von `RuntimeException` ist und damit eine unchecked
+    Exception. Auch hier handelt es sich um einen Fehler in der
+    Programmlogik, von dem sich der Aufrufer nicht sinnvoll erholen
+    kann.
+
+##### *Throws*
+
+``` java
+int div(int a, int b) throws ArithmeticException {
+    return a / b;
+}
+```
+
+Alternativ:
+
+``` java
+int div(int a, int b) throws IllegalArgumentException {
+    if (b == 0) throw new IllegalArgumentException("Can't divide by zero");
+    return a / b;
+}
+```
+
+Exception können an an den Aufrufer weitergeleitet werden oder selbst
+geworfen werden.
+
+Wenn wie im ersten Beispiel bei einer Operation eine Exception entsteht
+und nicht gefangen wird, dann wird sie automatisch an den Aufrufer
+weitergeleitet. Dies wird über die `throws`-Klausel deutlich gemacht
+(Keyword `throws` plus den/die Namen der Exception(s), angefügt an die
+Methodensignatur). Bei unchecked Exceptions *kann* man das tun, bei
+checked Exceptions *muss* man dies tun.
+
+Wenn man wie im zweiten Beispiel selbst eine neue Exception werfen will,
+erzeugt man mit `new` ein neues Objekt der gewünschten Exception und
+"wirft" diese mit `throw`. Auch diese Exception kann man dann entweder
+selbst fangen und bearbeiten (siehe nächste Folie) oder an den Aufrufer
+weiterleiten und dies dann entsprechend über die `throws`-Klausel
+deklarieren: nicht gefangene checked Exceptions *müssen* deklariert
+werden, nicht gefangene unchecked Exceptions *können* deklariert werden.
+
+Wenn mehrere Exceptions an den Aufrufer weitergeleitet werden, werden
+sie in der `throws`-Klausel mit Komma getrennt:
+`throws Exception1, Exception2, Exception3`.
+
+**Anmerkung**: In beiden obigen Beispielen wurde zur Verdeutlichung,
+dass die Methode `div()` eine Exception wirft, diese per
+`throws`-Klausel deklariert. Da es sich bei den beiden Beispielen aber
+jeweils um **unchecked Exceptions** handelt, ist dies im obigen Beispiel
+*nicht notwendig*. Der Aufrufer *muss* auch nicht ein passendes
+Exception-Handling einsetzen!
+
+Wenn wir stattdessen eine **checked Exception** werfen würden oder in
+`div()` eine Methode aufrufen würden, die eine checked Exception
+deklariert hat, *muss* diese checked Exception entweder in `div()`
+gefangen und bearbeitet werden oder aber per `throws`-Klausel deklariert
+werden. Im letzteren Fall *muss* dann der Aufrufer analog damit umgehen
+(fangen oder selbst auch deklarieren). **Dies wird vom Compiler
+geprüft!**
+
+##### *Try*-*Catch*
+
+``` java
+int a = getUserInput();
+int b = getUserInput();
+
+try {
+    div(a, b);
+} catch (IllegalArgumentException e) {
+    e.printStackTrace(); // Wird im Fehlerfall aufgerufen
+}
+
+// hier geht es normal weiter
+```
+
+-   Im `try` Block wird der Code ausgeführt, der einen Fehler werfen
+    könnte.
+-   Mit `catch` kann eine Exception gefangen und im `catch` Block
+    behandelt werden.
+
+**Anmerkung**: Das bloße Ausgeben des Stacktrace via
+`e.printStackTrace()` ist noch **kein sinnvolles Exception-Handling**!
+Hier sollte auf die jeweilige Situation eingegangen werden und versucht
+werden, den Fehler zu beheben oder dem Aufrufer geeignet zu melden!
+
+##### *Try* und mehrstufiges *Catch*
+
+``` java
+try {
+    someMethod(a, b, c);
+} catch (IllegalArgumentException iae) {
+    iae.printStackTrace();
+} catch (FileNotFoundException | NullPointerException e) {
+    e.printStackTrace();
+}
+```
+
+Eine im `try`-Block auftretende Exception wird der Reihe nach mit den
+`catch`-Blöcken gematcht (vergleichbar mit `switch case`).
+
+**Wichtig**: Dabei muss die Vererbungshierarchie beachtet werden. Die
+spezialisierteste Klasse muss ganz oben stehen, die allgemeinste Klasse
+als letztes. Sonst wird eine Exception u.U. zu früh in einem nicht dafür
+gedachten `catch`-Zweig aufgefangen.
+
+**Wichtig**: Wenn eine Exception nicht durch die `catch`-Zweige
+aufgefangen wird, dann wird sie an den Aufrufer weiter geleitet. Im
+Beispiel würde eine `IOException` nicht durch die `catch`-Zweige
+gefangen (`IllegalArgumentException` und `NullPointerException` sind im
+falschen Vererbungszweig, und `FileNotFoundException` ist spezieller als
+`IOException`) und entsprechend an den Aufrufer weiter gereicht. Da es
+sich obendrein um eine checked Exception handelt, müsste man diese per
+`throws IOException` an der Methode deklarieren.
+
+##### *Finally*
+
+``` java
+Scanner myScanner = new Scanner(System.in);
+
+try {
+    return 5 / myScanner.nextInt();
+} catch (InputMismatchException ime) {
+    ime.printStackTrace();
+} finally {
+    // wird immer aufgerufen
+    myScanner.close();
+}
+```
+
+Der `finally` Block wird sowohl im Fehlerfall als auch im Normalfall
+aufgerufen. Dies wird beispielsweise für Aufräumarbeiten genutzt, etwa
+zum Schließen von Verbindungen oder Input-Streams.
+
+##### *Try*-with-Resources
+
+``` java
+try (Scanner myScanner = new Scanner(System.in)) {
+    return 5 / myScanner.nextInt();
+} catch (InputMismatchException ime) {
+    ime.printStackTrace();
+}
+```
+
+Im `try`-Statement können Ressourcen deklariert werden, die am Ende
+sicher geschlossen werden. Diese Ressourcen müssen `java.io.Closeable`
+implementieren.
+
+##### Eigene Exceptions
+
+``` java
+// Checked Exception
+public class MyCheckedException extends Exception {
+    public MyCheckedException(String errorMessage) {
+        super(errorMessage);
+    }
+}
+```
+
+``` java
+// Unchecked Exception
+public class MyUncheckedException extends RuntimeException {
+    public MyUncheckedException(String errorMessage) {
+        super(errorMessage);
+    }
+}
+```
+
+Eigene Exceptions können durch Spezialisierung anderer Exception-Klassen
+realisiert werden. Dabei kann man direkt von `Exception` oder
+`RuntimeException` ableiten oder bei Bedarf von spezialisierteren
+Exception-Klassen.
+
+Wenn die eigene Exception in der Vererbungshierarchie unter
+`RuntimeException` steht, handelt es sich um eine *unchecked Exception*,
+sonst um eine *checked Exception*.
+
+In der Benutzung (werfen, fangen, deklarieren) verhalten sich eigene
+Exception-Klassen wie die Exceptions aus dem JDK.
+
+##### Stilfrage: Wie viel Code im *Try*?
+
+``` java
+int getFirstLineAsInt(String pathToFile) {
+    FileReader fileReader = new FileReader(pathToFile);
+    BufferedReader bufferedReader = new BufferedReader(fileReader);
+    String firstLine = bufferedReader.readLine();
+
+    return Integer.parseInt(firstLine);
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/exceptions/HowMuchTry.java">Zeigen: exceptions.HowMuchTry</a></p>
+
+Hier lassen sich verschiedene "Ausbaustufen" unterscheiden.
+
+###### Handling an den Aufrufer übergeben
+
+``` java
+int getFirstLineAsIntV1(String pathToFile) throws FileNotFoundException, IOException {
+    FileReader fileReader = new FileReader(pathToFile);
+    BufferedReader bufferedReader = new BufferedReader(fileReader);
+    String firstLine = bufferedReader.readLine();
+
+    return Integer.parseInt(firstLine);
+}
+```
+
+Der Aufrufer hat den Pfad als String übergeben und ist vermutlich in der
+Lage, auf Probleme mit dem Pfad sinnvoll zu reagieren. Also könnte man
+in der Methode selbst auf ein `try`/`catch` verzichten und stattdessen
+die `FileNotFoundException` (vom `FileReader`) und die `IOException`
+(vom `bufferedReader.readLine()`) per `throws` deklarieren.
+
+*Anmerkung*: Da `FileNotFoundException` eine Spezialisierung von
+`IOException` ist, reicht es aus, lediglich die `IOException` zu
+deklarieren.
+
+###### Jede Exception einzeln fangen und bearbeiten
+
+``` java
+int getFirstLineAsIntV2(String pathToFile) {
+    FileReader fileReader = null;
+    try {
+        fileReader = new FileReader(pathToFile);
+    } catch (FileNotFoundException fnfe) {
+        fnfe.printStackTrace(); // Datei nicht gefunden
+    }
+
+    BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+    String firstLine = null;
+    try {
+        firstLine = bufferedReader.readLine();
+    } catch (IOException ioe) {
+        ioe.printStackTrace(); // Datei kann nicht gelesen werden
+    }
+
+    try {
+        return Integer.parseInt(firstLine);
+    } catch (NumberFormatException nfe) {
+        nfe.printStackTrace(); // Das war wohl kein Integer
+    }
+
+    return 0;
+}
+```
+
+In dieser Variante wird jede Operation, die eine Exception werfen kann,
+separat in ein `try`/`catch` verpackt und jeweils separat auf den
+möglichen Fehler reagiert.
+
+Dadurch kann man die Fehler sehr einfach dem jeweiligen Statement
+zuordnen.
+
+Allerdings muss man nun mit Behelfsinitialisierungen arbeiten und der
+Code wird sehr in die Länge gezogen und man erkennt die eigentlichen
+funktionalen Zusammenhänge nur noch schwer.
+
+*Anmerkung*: Das "Behandeln" der Exceptions ist im obigen Beispiel kein
+gutes Beispiel für das Behandeln von Exceptions. Einfach nur einen
+Stacktrace zu printen und weiter zu machen, als ob nichts passiert wäre,
+ist **kein sinnvolles Exception-Handling**. Wenn Sie solchen Code
+schreiben oder sehen, ist das ein Anzeichen, dass auf dieser Ebene nicht
+sinnvoll mit dem Fehler umgegangen werden kann und dass man ihn besser
+an den Aufrufer weiter reichen sollte (siehe nächste Folie).
+
+###### Funktionaler Teil in gemeinsames *Try* und mehrstufiges *Catch*
+
+``` java
+int getFirstLineAsIntV3(String pathToFile) {
+    try {
+        FileReader fileReader = new FileReader(pathToFile);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String firstLine = bufferedReader.readLine();
+        return Integer.parseInt(firstLine);
+    } catch (FileNotFoundException fnfe) {
+        fnfe.printStackTrace(); // Datei nicht gefunden
+    } catch (IOException ioe) {
+        ioe.printStackTrace(); // Datei kann nicht gelesen werden
+    } catch (NumberFormatException nfe) {
+        nfe.printStackTrace(); // Das war wohl kein Integer
+    }
+
+    return 0;
+}
+```
+
+Hier wurde der eigentliche funktionale Kern der Methode in ein
+gemeinsames `try`/`catch` verpackt und mit einem mehrstufigen `catch`
+auf die einzelnen Fehler reagiert. Durch die Art der Exceptions sieht
+man immer noch, wo der Fehler herkommt. Zusätzlich wird die eigentliche
+Funktionalität so leichter erkennbar.
+
+*Anmerkung*: Auch hier ist das gezeigte Exception-Handling kein gutes
+Beispiel. Entweder man macht hier sinnvollere Dinge, oder man überlässt
+dem Aufrufer die Reaktion auf den Fehler.
+
+##### Stilfrage: Wo fange ich die Exception?
+
+``` java
+private static void methode1(int x) throws IOException {
+    JFileChooser fc = new JFileChooser();
+    fc.showDialog(null, "ok");
+    methode2(fc.getSelectedFile().toString(), x, x * 2);
+}
+
+private static void methode2(String path, int x, int y) throws IOException {
+    FileWriter fw = new FileWriter(path);
+    BufferedWriter bw = new BufferedWriter(fw);
+    bw.write("X:" + x + " Y: " + y);
+}
+
+public static void main(String... args) {
+    try {
+        methode1(42);
+    } catch (IOException ioe) {
+        ioe.printStackTrace();
+    }
+}
+```
+
+Prinzipiell steht es einem frei, wo man eine Exception fängt und
+behandelt. Wenn im `main()` eine nicht behandelte Exception auftritt
+(weiter nach oben geleitet wird), wird das Programm mit einem Fehler
+beendet.
+
+Letztlich scheint es eine gute Idee zu sein, eine Exception so nah wie
+möglich am Ursprung der Fehlerursache zu behandeln. Man sollte sich
+dabei die Frage stellen: Wo kann ich sinnvoll auf den Fehler reagieren?
+
+##### Stilfrage: Wann checked, wann unchecked
+
+###### "Checked" Exceptions
+
+-   Für erwartbare Fehlerfälle, deren Ursprung nicht im Programm selbst
+    liegt
+-   Aufrufer kann sich von der Exception erholen
+
+###### "Unchecked" Exceptions
+
+-   Logische Programmierfehler ("Versagen" des Programmcodes)
+-   Aufrufer kann sich von der Exception vermutlich nicht erholen
+
+Vergleiche ["Unchecked Exceptions --- The
+Controversy"](https://dev.java/learn/exceptions/unchecked-exception-controversy/).
+
+##### Wrap-Up
+
+-   `Error` und `Exception`: System vs. Programm
+-   Checked und unchecked Exceptions: `Exception` vs. `RuntimeException`
+
+<!-- -->
+
+-   `try`: Versuche Code auszuführen
+-   `catch`: Verhalten im Fehlerfall
+-   `finally`: Verhalten im Erfolgs- und Fehlerfall
+
+<!-- -->
+
+-   `throw`: Wirft eine Exception
+-   `throws`: Deklariert eine Exception an Methode
+
+<!-- -->
+
+-   Eigene Exceptions durch Ableiten von anderen Exceptions (werden je
+    nach Vererbungshierarchie automatisch checked oder unchecked)
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2026](#ref-LernJava))
+> -   Ullenboom ([2021, Kap. 8](#ref-Ullenboom2021))
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Unterschied zwischen Error und Exception
+> -   k2: Unterschied zwischen checked und unchecked Exceptions
+> -   k3: Umgang mit Exceptions
+> -   k3: Eigene Exceptions schreiben
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> Betrachten Sie die
+> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/challenges/exceptions).
+>
+> **Verbessern Sie das Exception-Handling**
+>
+> Im package `better_try_catch` finden Sie die Klasse
+> `BetterTryCatchMain`, in der verschiedene Methoden der Klasse
+> `MyFunctions` aufgerufen werden.
+>
+> Erklären Sie, warum das dort implementierte Exception-Handling nicht
+> gut ist und verbessern Sie es.
+>
+> **Checked vs. unckecked Exceptions**
+>
+> Erklären Sie den Unterschied zwischen checked und unchecked
+> Exceptions.
+>
+> Im Folgenden werden verschiedene Exceptions beschrieben. Erklären Sie,
+> ob diese jeweils "checked" oder "unchecked" sein sollten.
+>
+> -   `IntNotBetweenException` soll geworfen werden, wenn ein
+>     Integer-Parameter nicht im definierten Wertebereich liegt.
+> -   `NoPicturesFoundException` soll geworfen werden, wenn in einem
+>     übergebenen Verzeichnis keine Bilddateien gefunden werden konnten.
+> -   `NotAPrimeNumberException` soll geworfen werden, wenn eine vom
+>     User eingegebene Zahl keine Primzahl ist.
+>
+> **Freigeben von Ressourcen**
+>
+> Im Package `finally_resources` finden Sie die Klasse `MyResource`.
+>
+> Rufen Sie die Methode `MyResource#doSomething` auf, im Anschluss
+> müssen Sie **immer** die Methode `MyResource#close` aufrufen.
+>
+> 1.  Zeigen Sie den Aufruf mit `try-catch-finally`.
+> 2.  Verändern Sie die Vorgaben so, dass Sie den Aufruf mit der
+>     "try-with-resources"-Technik ausführen können.
+>
+> **Where to catch?**
+>
+> Erklären Sie, wann und wo eine Exception gefangen und bearbeitet
+> werden sollte.
+>
+> Im Package `where_to_catch` finden Sie die Klasse `JustThrow`. Alle
+> Methoden in der Klasse werfen aufkommende Exceptions bis zur `main`
+> hoch.
+>
+> Verändern Sie die Vorgaben so, dass die Exceptions an den passenden
+> Stellen gefangen und sinnvoll bearbeitet werden. Begründen Sie Ihre
+> Entscheidungen.
+>
+> </details>
+
+<a id="id-5cb95855b410a3799c068f4c4fb6b9c4eea6525f"></a>
+
+#### Threads: Einführung in die nebenläufige Programmierung mit Threads
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Threads sind weitere Kontrollflussfäden, die von der Java-VM (oder
+> (selten) vom OS) verwaltet werden. Damit ist sind sie
+> leichtgewichtiger als der Start neuer Prozesse direkt auf
+> Betriebssystem-Ebene.
+>
+> Beim Start eines Java-Programms wird die `main()`-Methode automatisch
+> in einem (Haupt-) Thread ausgeführt. Alle Anweisungen in einem Thread
+> werden sequentiell ausgeführt.
+>
+> Um einen neuen Thread zu erzeugen, leitet man von `Thread` ab oder
+> implementiert das Interface `Runnable`. Von diesen eigenen Klassen
+> kann man wie üblich ein neues Objekt anlegen. Die Methode `run()`
+> enthält dabei den im Thread auszuführenden Code. Um einen Thread als
+> neuen parallelen Kontrollfluss zu starten, muss man die geerbte
+> Methode `start()` auf dem Objekt aufrufen. Im Fall der Implementierung
+> von `Runnable` muss man das Objekt zuvor noch in den Konstruktor von
+> `Thread` stecken und so ein neues `Thread`-Objekt erzeugen, auf dem
+> man dann `start()` aufrufen kann.
+>
+> Threads haben einen Lebenszyklus: Nach dem Erzeugen der Objekte mit
+> `new` wird der Thread noch nicht ausgeführt. Durch den Aufruf der
+> Methode `start()` gelangt der Thread in einen Zustand
+> "ausführungsbereit". Sobald er vom Scheduler eine Zeitscheibe
+> zugeteilt bekommt, wechselt er in den Zustand "rechnend". Von hier
+> kann er nach Ablauf der Zeitscheibe durch den Scheduler wieder nach
+> "ausführungsbereit" zurück überführt werden. Dieses Wechselspiel
+> passiert automatisch und i.d.R. schnell, so dass selbst auf Maschinen
+> mit nur einem Prozessor/Kern der Eindruck einer parallelen
+> Verarbeitung entsteht. Nach Abarbeitung der `run()`-Methode wird der
+> Thread beendet und kann nicht wieder neu gestartet werden. Bei Zugriff
+> auf gesperrte Ressourcen oder durch `sleep()` oder `join()` kann ein
+> Thread blockiert werden. Aus diesem Zustand gelangt er durch
+> Interrupts oder nach Ablauf der Schlafzeit oder durch `notify` wieder
+> zurück nach "ausführungsbereit".
+>
+> Die Thread-Objekte sind normale Java-Objekte. Man kann hier Attribute
+> und Methoden haben und diese entsprechend zugreifen/aufrufen. Das
+> klappt auch, wenn der Thread noch nicht gestartet wurde oder bereits
+> abgearbeitet wurde.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Threads Intro](https://youtu.be/ClfXbNPRl_8)
+> -   [Demo Threads Intro: Erzeugen von
+>     Threads](https://youtu.be/zcVqFAx5D0E)
+> -   [Demo Threads Intro: Arbeiten mit Threads
+>     (`join()`)](https://youtu.be/lQ_JSHBGhdU)
+>
+> </details>
+
+##### 42
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/screenshot_swingworker.png" width="50%" /></p>
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/misc/SwingWorkerDemo.java">Demo: misc.SwingWorkerDemo (GUI ausprobieren)</a></p>
+
+##### Einführung in nebenläufige Programmierung
+
+###### Traditionelle Programmierung
+
+-   Aufruf einer Methode verlagert Kontrollfluss in diese Methode
+-   Code hinter Methodenaufruf wird erst **nach Beendigung** der Methode
+    ausgeführt
+
+``` java
+public class Traditional {
+    public static void main(String... args) {
+        Traditional x = new Traditional();
+
+        System.out.println("main(): vor run()");
+        x.run();
+        System.out.println("main(): nach run()");
+    }
+
+    public void run() {
+        IntStream.range(0, 10).mapToObj(i -> "in run()").forEach(System.out::println);
+    }
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/intro/Traditional.java">Demo: intro.Traditional</a></p>
+
+###### Nebenläufige Programmierung
+
+-   Erzeugung eines neuen Kontrollflussfadens (Thread)
+    -   **Läuft (quasi-) parallel zu bisherigem Kontrollfluss**
+-   Threads können unabhängig von einander arbeiten
+-   Zustandsverwaltung durch Java-VM (oder Unterstützung durch
+    Betriebssystem)
+    -   Aufruf einer bestimmten Methode erzeugt neuen Kontrollflussfaden
+    -   Der neue Thread arbeitet "parallel" zum bisherigen Thread
+    -   Kontrolle kehrt sofort wieder zurück: Code hinter dem
+        Methodenaufruf wird ausgeführt ohne auf die Beendigung der
+        aufgerufenen Methode zu warten
+    -   Verteilung der Threads auf die vorhandenen Prozessorkerne
+        abhängig von der Java-VM
+
+``` java
+public class Threaded extends Thread {
+    public static void main(String... args) {
+        Threaded x = new Threaded();
+
+        System.out.println("main(): vor run()");
+        x.start();
+        System.out.println("main(): nach run()");
+    }
+
+    @Override
+    public void run() {
+        IntStream.range(0, 10).mapToObj(i -> "in run()").forEach(System.out::println);
+    }
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/intro/Threaded.java">Demo: intro.Threaded</a></p>
+
+##### Erzeugen von Threads
+
+-   Ableiten von `Thread` oder Implementierung von `Runnable`
+
+    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/ThreadRunnable.png" width="60%" /></p>
+
+-   Methode `run()` implementieren, aber nicht aufrufen
+
+-   Methode `start()` aufrufen, aber (i.d.R.) nicht implementieren
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/creation/">Demo: creation.*</a></p>
+
+###### Ableiten von *Thread*
+
+-   `start()` startet den Thread und sorgt für Ausführung von `run()`
+-   `start()` nur einmal aufrufen
+
+###### Implementierung von *Runnable*
+
+-   Ebenfalls `run()` implementieren
+-   Neues `Thread`-Objekt erzeugen, Konstruktor das eigene Runnable
+    übergeben
+-   Für Thread-Objekt die Methode `start()` aufrufen
+    -   Startet den Thread (das Runnable) und sorgt für Ausführung von
+        `run()`
+
+Vorteil von `Runnable`: Ist ein Interface, d.h. man kann noch von einer
+anderen Klasse erben
+
+##### Zustandsmodell von Threads (vereinfacht)
+
+Threads haben einen Lebenszyklus: Nach dem Erzeugen der Objekte mit
+`new` wird der Thread noch nicht ausgeführt. Er ist sozusagen in einem
+Zustand "erzeugt". Man kann bereits mit dem Objekt interagieren, also
+auf Attribute zugreifen und Methoden aufrufen.
+
+Durch den Aufruf der Methode `start()` gelangt der Thread in einen
+Zustand "ausführungsbereit", er läuft also aus Nutzersicht. Allerdings
+hat er noch keine Ressourcen zugeteilt (CPU, ...), so dass er
+tatsächlich noch nicht rechnet. Sobald er vom Scheduler eine Zeitscheibe
+zugeteilt bekommt, wechselt er in den Zustand "rechnend" und führt den
+Inhalt der `run()`-Methode aus. Von hier kann er nach Ablauf der
+Zeitscheibe durch den Scheduler wieder nach "ausführungsbereit" zurück
+überführt werden. Dieses Wechselspiel passiert automatisch und i.d.R.
+schnell, so dass selbst auf Maschinen mit nur einem Prozessor/Kern der
+Eindruck einer parallelen Verarbeitung entsteht.
+
+Nach der Abarbeitung der `run()`-Methode oder bei einer nicht gefangenen
+Exception wird der Thread beendet und kann nicht wieder neu gestartet
+werden. Auch wenn der Thread abgelaufen ist, kann man mit dem Objekt wie
+üblich interagieren (nur eben nicht mehr parallel).
+
+Bei Zugriff auf gesperrte Ressourcen oder durch Aufrufe von Methoden wie
+`sleep()` oder `join()` kann ein Thread blockiert werden. Hier führt der
+Thread nichts aus, bekommt durch den Scheduler aber auch keine neue
+Zeitscheibe zugewiesen. Aus diesem Zustand gelangt der Thread wieder
+heraus, etwa durch Interrupts (Aufruf der Methode `interrupt()` auf dem
+Thread-Objekt) oder nach Ablauf der Schlafzeit (in `sleep()`) oder durch
+ein `notify`, und wird wieder zurück nach "ausführungsbereit" versetzt
+und wartet auf die Zuteilung einer Zeitscheibe durch den Scheduler.
+
+Sie finden in ([Boles 2008, 5.2](#ref-Boles2008) "Thread-Zustände") eine
+schöne ausführliche Darstellung.
+
+###### Threads können wie normale Objekte kommunizieren
+
+-   Zugriff auf (`public`) Attribute (oder eben über Methoden)
+-   Aufruf von Methoden
+
+###### Threads können noch mehr
+
+-   Eine Zeitlang schlafen: `Thread.sleep(<duration_ms>)`
+
+    -   Statische Methode der Klasse `Thread` (Klassenmethode)
+    -   Aufrufender Thread wird bis zum Ablauf der Zeit oder bis zum
+        Aufruf der `interrupt()`-Methode des Threads blockiert
+    -   "Moderne" Alternative: `TimeUnit`, beispielsweise
+        `TimeUnit.SECONDS.sleep( 2 );`
+
+-   Prozessor abgeben und hinten in Warteschlange einreihen: `yield()`
+
+-   Andere Threads stören: `otherThreadObj.interrupt()`
+
+    -   Die Methoden `sleep()`, `wait()` und `join()` im empfangenden
+        Thread `otherThreadObj` lösen eine `InterruptedException` aus,
+        wenn sie durch die Methode `interrupt()` unterbrochen werden.
+        Das heißt, `interrupt()` beendet diese Methoden mit der
+        Ausnahme.
+    -   Empfangender Thread verlässt ggf. den Zustand "blockiert" und
+        wechselt in den Zustand "ausführungsbereit"
+
+-   Warten auf das Ende anderer Threads: `otherThreadObj.join()`
+
+    -   Ausführender Thread wird blockiert (also nicht
+        `otherThreadObj`!)
+    -   Blockade des Aufrufers wird beendet, wenn der andere Thread
+        (`otherThreadObj`) beendet wird.
+
+*Hinweis:* Ein Thread wird beendet, wenn
+
+-   die `run()`-Methode normal endet, oder
+-   die `run()`-Methode durch eine nicht gefangene Exception beendet
+    wird, oder
+-   von außen die Methode `stop()` aufgerufen wird (Achtung: Deprecated!
+    Einen richtigen Ersatz gibt es aber auch nicht.).
+
+*Hinweis:* Die Methoden `wait()`, `notify()`/`notifyAll()` und die
+"`synchronized`-Sperre" werden in der Sitzung ["Threads:
+Synchronisation"](#id-a7016eb5546a13d3f849c1c110257aa1b8e5821e)
+besprochen.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/intro/Join.java">Demo: intro.Join</a></p>
+
+##### Wrap-Up
+
+Threads sind weitere Kontrollflussfäden, von Java-VM (oder (selten) von
+OS) verwaltet
+
+-   Ableiten von `Thread` oder implementieren von `Runnable`
+-   Methode `run` enthält den auszuführenden Code
+-   Starten des Threads mit `start` (nie mit `run`!)
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Ullenboom ([2021, Kap. 16](#ref-Ullenboom2021))
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Boles ([2008](#ref-Boles2008))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kenne den grundsätzlichen Unterschied zw. Threads und
+>     Prozessen
+> -   k2: Ich kenne den Lebenszyklus von Threads
+> -   k3: Ich kann Threads erzeugen und starten
+>
+> </details>
+
+<a id="id-a7016eb5546a13d3f849c1c110257aa1b8e5821e"></a>
+
+#### Threads: Synchronisation: Verteilter Zugriff auf gemeinsame Ressourcen
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Bei verteiltem Zugriff auf gemeinsame Ressourcen besteht
+> Synchronisierungsbedarf, insbesondere sollten nicht mehrere Threads
+> gleichzeitig geteilte Daten modifizieren. Dazu kommt das Problem, dass
+> ein Thread in einer komplexen Folge von Aktionen die Zeitscheibe
+> verlieren kann und dann später mit veralteten Daten weiter macht.
+>
+> Um den Zugriff auf gemeinsame Ressourcen oder den Eintritt in
+> kritische Bereiche zu schützen und zu synchronisieren, kann man diese
+> Zugriffe oder Bereiche in einen `synchronized`-Block legen. Dazu
+> benötigt man noch ein beliebiges (gemeinsam sichtbares) Objekt,
+> welches als Wächter- oder Sperr-Objekt fungiert. Beim Eintritt in den
+> geschützten Block muss ein Thread einen Lock auf dem Sperr-Objekt
+> erlangen. Hat bereits ein anderer Thread den Lock, wird der neue
+> Thread so lange blockiert, bis der Lock wieder "frei" ist. Beim
+> Eintritt in den Bereich wird dann durch den Thread auf dem
+> Sperr-Objekt der Lock gesetzt und beim Austritt automatisch wieder
+> aufgehoben. Dies nennt man auch **mehrseitige Synchronisierung**
+> (mehrere Threads "stimmen" sich quasi untereinander über den Zugriff
+> auf eine Ressource ab).
+>
+> Um auf den Eintritt eines Ereignisses oder die Erfüllung einer
+> Bedingung zu warten, kann man `wait` und `notify` nutzen. In einem
+> `synchronized`-Block prüft man, ob die Bedingung erfüllt oder ein
+> Ereignis eingetreten ist, und falls ja arbeitet man damit normal
+> weiter. Falls die Bedingung nicht erfüllt ist oder das Ereignis nicht
+> eingetreten ist, kann man auf dem im `synchronized`-Block genutzten
+> Sperr-Objekt die Methode `wait()` aufrufen. Damit wird der Thread in
+> die entsprechende Schlange auf dem Sperr-Objekt eingereiht und
+> blockiert. Zusätzlich wird der Lock auf dem Sperr-Objekt freigegeben.
+> Zum "Aufwecken" nutzt man an geeigneter Stelle auf dem **selben
+> Sperr-Objekt** die Methode `notify()` oder `notifyALl()` (erstere
+> weckt einen in der Liste des Sperr-Objekts wartenden Thread, die
+> letztere alle). Nach dem Aufwachen macht der Thread nach seinem
+> `wait()` weiter. Es ist also wichtig, dass die Bedingung, wegen der
+> ursprünglich das `wait()` aufgerufen wurde, erneut abgefragt wird und
+> ggf. erneut in das `wait()` gegangen wird. Dies nennt man **einseitige
+> Synchronisierung**.
+>
+> Es gibt darüber hinaus viele weitere Mechanismen und Probleme, die
+> aber den Rahmen dieser Lehrveranstaltung deutlich übersteigen. Diese
+> werden teilweise in den Veranstaltungen "Betriebssysteme" und/oder
+> "Verteilte Systeme" besprochen.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Threads Synchronisation](https://youtu.be/FtVaobn4NqA)
+> -   [Demo Teaser: Falscher Zugriff auf gemeinsame
+>     Ressourcen](https://youtu.be/SB1ngVkQdLM)
+> -   [Demo Mehrseitige Synchronisation (Sperr-Objekt, synchronisierte
+>     Methode)](https://youtu.be/YTV-oT-vmpE)
+> -   [Demo Mehrseitige Synchronisation:
+>     Deadlock](https://youtu.be/D4B5xHqCZ-0)
+> -   [Demo Einseitige Synchronisation](https://youtu.be/akCl01ZAaGo)
+>
+> </details>
+
+##### Motivation: Verteilter Zugriff auf gemeinsame Ressourcen
+
+``` java
+public class Teaser implements Runnable {
+    private int val = 0;
+
+    public static void main(String... args) {
+        Teaser x = new Teaser();
+        new Thread(x).start();
+        new Thread(x).start();
+    }
+
+    private void incrVal() {
+        ++val;
+        System.out.println(Thread.currentThread().getId() + ": " + val);
+    }
+
+    public void run() {
+        IntStream.range(0, 5).forEach(i -> incrVal());
+    }
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/Teaser.java">Demo: synchronised.Teaser</a></p>
+
+##### Zugriff auf gemeinsame Ressourcen: Mehrseitige Synchronisierung
+
+``` java
+synchronized (<Object reference>) {
+    <statements (synchronized)>
+}
+```
+
+=\> **"Mehrseitige Synchronisierung"**
+
+Fallunterscheidung: Thread T1 führt `synchronized`-Anweisung aus:
+
+-   Sperre im Sperr-Objekt nicht gesetzt:
+    1.  T1 setzt Sperre beim Eintritt,
+    2.  führt den Block aus, und
+    3.  löst Sperre beim Verlassen
+-   Sperre durch T1 gesetzt:
+    1.  T1 führt den Block aus, und
+    2.  löst Sperre beim Verlassen **nicht**
+-   Sperre durch T2 gesetzt: =\> T1 wird blockiert, bis T2 die Sperre
+    löst
+
+*Anmerkung*: Das für die Synchronisierung genutzte Objekt nennt man
+"Wächter-Objekt" oder auch "Sperr-Objekt" oder auch
+"Synchronisations-Objekt".
+
+Damit könnte man den relevanten Teil der Methode `incrVal()`
+beispielsweise in einen geschützten Bereich einschließen und als
+Sperr-Objekt das eigene Objekt (`this`) einsetzen:
+
+``` java
+    private void incrVal() {
+        synchronized (this) { ++val; }
+    }
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/ObjSync.java">Demo: synchronised.ObjSync</a></p>
+
+##### Synchronisierte Methoden
+
+``` java
+void f() {
+    synchronized (this) {
+        ...
+    }
+}
+```
+
+... ist äquivalent zu ...
+
+``` java
+synchronized void f() {
+    ...
+}
+```
+
+Kurzschreibweise: Man spart das separate Wächter-Objekt und
+synchronisiert auf sich selbst ...
+
+Die Methode `incrVal()` könnte entsprechend so umgeschrieben werden:
+
+``` java
+    private synchronized void incrVal() {
+        ++val;
+    }
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/MethodSync.java">Demo: synchronised.MethodSync</a></p>
+
+##### Probleme bei der (mehrseitigen) Synchronisierung: Deadlocks
+
+``` java
+public class Deadlock {
+    private final String name;
+
+    public synchronized String getName() { return name; }
+    public synchronized void foo(Deadlock other) {
+        System.out.format("%s: %s.foo() \n", Thread.currentThread().getName(), name);
+        System.out.format("%s: %s.name()\n", Thread.currentThread().getName(), other.getName());
+    }
+
+    public static void main(String... args) {
+        final Deadlock a = new Deadlock("a");
+        final Deadlock b = new Deadlock("b");
+
+        new Thread(() -> a.foo(b)).start();
+        new Thread(() -> b.foo(a)).start();
+    }
+}
+```
+
+Viel hilft hier nicht viel! Durch zu großzügige mehrseitige
+Synchronisierung kann es passieren, dass Threads gegenseitig aufeinander
+warten: Thread A belegt eine Ressource, die ein anderer Thread B haben
+möchte und Thread B belegt eine Ressource, die A gerne bekommen würde.
+Da es dann nicht weitergeht, nennt man diese Situation auch "Deadlock"
+("Verklemmung").
+
+Im Beispiel ruft der erste Thread für das Objekt `a` die `foo()`-Methode
+auf und holt sich damit den Lock auf `a`. Um die Methode beenden zu
+können, muss noch die `getName()`-Methode vom Objekt `b` durch diesen
+ersten Thread aufgerufen werden. Dafür muss der erste Thread den Lock
+auf `b` bekommen.
+
+Dummerweise hat parallel der zweite Thread auf dem Objekt `b` die
+`foo()`-Methode aufgerufen und sich damit den Lock auf `b` geholt. Damit
+muss der erste Thread so lange warten, bis der zweite Thread den Lock
+auf `b` freigibt.
+
+Das wird allerdings nicht passieren, da der zweite Thread zur Beendigung
+der `foo()`-Methode noch `getName()` auf `a` ausführen muss und dazu den
+Lock auf `b` holen, den aber aktuell der erste Thread hält.
+
+Und schon geht's nicht mehr weiter :-)
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/Deadlock.java">Demo: synchronised.Deadlock</a></p>
+
+##### Warten auf andere Threads: Einseitige Synchronisierung
+
+###### Problem
+
+-   Thread T1 wartet auf Arbeitsergebnis von T2
+-   T2 ist noch nicht fertig
+
+###### Mögliche Lösungen
+
+1.  Aktives Warten (Polling): Permanente Abfrage
+    -   Kostet unnötig Rechenzeit
+2.  Schlafen mit `Thread.sleep()`
+    -   Etwas besser; aber wie lange soll man idealerweise schlafen?
+3.  Warten mit `T2.join()`
+    -   Macht nur Sinn, wenn T1 auf das *Ende* von T2 wartet
+4.  **Einseitige Synchronisierung** mit `wait()` und `notify()`
+    -   Das ist DIE Lösung für das Problem :)
+
+##### Einseitige Synchronisierung mit *wait* und *notify*
+
+-   **wait**: Warten auf Erfüllung einer Bedingung (Thread blockiert):
+
+    ``` java
+    synchronized (obj) {    // Geschützten Bereich betreten
+        while (!condition) {
+            try {
+                obj.wait(); // Thread wird blockiert
+            } catch (InterruptedException e) {}
+        }
+        ...     // Condition erfüllt: Tue Deine Arbeit
+    }
+    ```
+
+    =\> Bedingung nach Rückkehr von `wait` erneut prüfen!
+
+###### Eigenschaften von *wait*
+
+-   Thread ruft auf Synchronisations-Objekt die Methode `wait` auf
+-   Prozessor wird entzogen, Thread blockiert
+-   Thread wird in interne Warteschlange des Synchronisations-Objekts
+    eingetragen
+-   Sperre auf Synchronisations-Objekt wird freigegeben
+
+=\> Geht nur innerhalb der `synchronized`-Anweisung für das
+Synchronisations-Objekt!
+
+##### Einseitige Synchronisierung mit *wait* und *notify* (cnt.)
+
+-   **notify**: Aufwecken von wartenden (blockierten) Threads:
+
+    ``` java
+    synchronized (obj) {
+        obj.notify();       // einen Thread "in" obj aufwecken
+        obj.notifyAll();    // alle Threads "in" obj wecken
+    }
+    ```
+
+###### Eigenschaften von *notify* bzw. *notifyAll*
+
+-   Thread ruft auf einem Synchronisations-Objekt die Methode `notify`
+    oder `notifyAll` auf
+-   Falls Thread(s) in Warteschlange des Objekts vorhanden, dann
+    -   `notify`: Ein *zufälliger* Thread wird aus Warteschlange
+        entfernt und in den Zustand "ausführungsbereit" versetzt
+    -   `notifyAll`: Alle Threads werden aus Warteschlange entfernt und
+        in den Zustand "ausführungsbereit" versetzt
+
+=\> Geht nur innerhalb der `synchronized`-Anweisung für das
+Synchronisations-Objekt!
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/Staffel.java">Demo: synchronised.Staffel</a></p>
+
+##### Wrap-Up
+
+Synchronisierungsbedarf bei verteiltem Zugriff auf gemeinsame
+Ressourcen:
+
+-   Vorsicht mit konkurrierendem Ressourcenzugriff: Synchronisieren mit
+    `synchronized` =\> **Mehrseitige Synchronisierung**
+
+<!-- -->
+
+-   Warten auf Ereignisse mit `wait` und `notify`/`notifyAll` =\>
+    **Einseitige Synchronisierung**
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Boles ([2008](#ref-Boles2008))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kann die Notwendigkeit zur Synchronisation erklären
+> -   k2: Ich kann den Unterschied zwischen einseitiger und mehrseitiger
+>     Synchronisation erklären
+> -   k3: Ich kann die Synchronisation mit synchronized, wait, notify
+>     und notifyAll praktisch einsetzen
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> **Hamster-Welt**
+>
+> In den
+> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/challenges/threads)
+> finden Sie eine Modellierung für eine Hamsterwelt.
+>
+> Es gibt rote und blaue Hamster, die sich unabhängig von einander
+> bewegen können. Es gibt einen Tunnel, den die Hamster betreten und
+> durchqueren können. In der Vorgabe ist ein kleines Hauptprogramm
+> enthalten, welches einige Hamster anlegt und herumlaufen lässt.
+>
+> **Teil I: Stau im Tunnel**
+>
+> Die Hamster sind sehr neugierig und wollen gern durch den Tunnel
+> gehen, um die Höhle auf der anderen Seite zu erkunden. Leider mussten
+> sie feststellen, dass immer nur ein Hamster zu einem Zeitpunkt im
+> Tunnel sein darf, sonst wird die Luft zu knapp.
+>
+> Ergänzen Sie die Vorgaben, so dass sich immer nur ein paralleler
+> Hamster (egal welcher Farbe) im Tunnel aufhalten kann. Wenn ein
+> Hamster in den Tunnel will, aber nicht hinein kann, dann soll er am
+> Eingang warten, also nicht noch einmal in seiner Höhle herumlaufen.
+> (Das passiert eigentlich automatisch, wenn Sie alles richtig machen.)
+>
+> **Teil II: Schlaue Hamster**
+>
+> Die Hamster sind schlau und haben bemerkt, dass die Einschränkung aus
+> der letzten Aufgabe zu stark war. Sie überleben auch, wenn sich
+> beliebig viele blaue Hamster oder nur genau ein roter Hamster im
+> Tunnel aufhalten.
+>
+> Erweitern Sie die Implementierung aus der letzten Aufgabe, so dass
+> folgende Bedingungen eingehalten werden:
+>
+> -   Es dürfen sich beliebig viele blaue Hamster gleichzeitig im Tunnel
+>     befinden.
+>
+>     Das bedeutet, dass in diesem Fall zwar weitere blaue Hamster den
+>     Tunnel betreten dürfen, aber kein roter Hamster in den Tunnel
+>     hinein darf.
+>
+> -   Wenn sich ein roter Hamster im Tunnel aufhält, dürfen keine
+>     anderen Hamster (unabhängig von deren Farbe) den Tunnel betreten.
+>
+> </details>
+
+<a id="id-19400266e5430e8e00eb11d78e73c4723fefbc3b"></a>
+
+### Clean Code - Smells, Rules, Refactoring
+
 <a id="id-41be9b68119185a3c165c600670ba548b3bf2cfd"></a>
 
 #### Code Smells
@@ -9407,6 +14046,7 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
 > "**Code Smells**" oder "Bad Smells". Das sind Probleme im Code, die
 > noch nicht direkt zu einem Fehler führen, die aber im Laufe der Zeit
 > die Chance für echte Probleme deutlich erhöht.
+>
 > </details>
 
 > [!TIP]
@@ -9924,6 +14564,7 @@ public class CreditsCalculator {
 > Checkstyle-Konfiguration wird eine minimale
 > [checkstyle.xml](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/checkstyle.xml)
 > bereitgestellt (vgl. Folie "Konfiguration für das PM-Praktikum").
+>
 > </details>
 
 > [!TIP]
@@ -10515,6 +15156,7 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 > unbedingt einheitlich benannt sein müssen oder in jeder IDE vorkommen.
 > Zu den häufig genutzten Methoden zählen *Rename*, *Extract*, *Move*
 > und *Push Up/Pull Down*.
+>
 > </details>
 
 > [!TIP]
@@ -11017,6 +15659,7 @@ Verhaltens
 > Elemente (Klassen, Methoden, Attribute) mit Javadoc kommentiert. Alle
 > nicht-öffentlichen Elemente bekommen normale Java-Kommentare (Zeilen-
 > oder Blockkommentare).
+>
 > </details>
 
 > [!TIP]
@@ -11250,4763 +15893,7 @@ von
 > und wie Sie diese Klassen benutzen sollten? Vergleichen Sie die
 > Qualität der Dokumentation. Was würden Sie gern in der Dokumentation
 > finden? Was würden Sie ändern?
-> </details>
-
-<a id="id-1acf41f101a98dd8c16ac174d37f4b3a920d7041"></a>
-
-### Entwurfsmuster
-
-<a id="id-ff6c3f74c23480f2273b18c9777709c80ff62a7e"></a>
-
-#### Visitor-Pattern
-
-> [!IMPORTANT]
 >
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Häufig bietet es sich bei Datenstrukturen an, die Traversierung nicht
-> direkt in den Klassen der Datenstrukturen zu implementieren, sondern
-> in Hilfsklassen zu verlagern. Dies gilt vor allem dann, wenn die
-> Datenstruktur aus mehreren Klassen besteht (etwa ein Baum mit
-> verschiedenen Knotentypen) und/oder wenn man nicht nur eine
-> Traversierungsart ermöglichen will oder/und wenn man immer wieder neue
-> Arten der Traversierung ergänzen will. Das würde nämlich bedeuten,
-> dass man für jede weitere Form der Traversierung in *allen* Klassen
-> eine entsprechende neue Methode implementieren müsste.
->
-> Das Visitor-Pattern lagert die Traversierung in eigene Klassenstruktur
-> aus.
->
-> Die Klassen der Datenstruktur bekommen nur noch eine
-> `accept()`-Methode, in der ein Visitor übergeben wird und rufen auf
-> diesem Visitor einfach dessen `visit()`-Methode auf (mit einer
-> Referenz auf sich selbst als Argument).
->
-> Der Visitor hat für jede Klasse der Datenstruktur eine Überladung der
-> `visit()`-Methode. In diesen kann er je nach Klasse die gewünschte
-> Verarbeitung vornehmen. Üblicherweise gibt es ein Interface oder eine
-> abstrakte Klasse für die Visitoren, von denen dann konkrete Visitoren
-> ableiten.
->
-> Bei Elementen mit "Kindern" muss man sich entscheiden, wie die
-> Traversierung implementiert werden soll. Man könnte in der
-> `accept()`-Methode den Visitor an die Kinder weiter reichen (also auf
-> den Kindern `accept()` mit dem Visitor aufrufen), bevor man die
-> `visit()`-Methode des Visitors mit sich selbst als Referenz aufruft.
-> Damit ist die Form der Traversierung in den Klassen der Datenstruktur
-> fest verankert und über den Visitor findet "nur" noch eine
-> unterschiedliche Form der Verarbeitung statt. Alternativ überlässt man
-> es dem Visitor, die Traversierung durchzuführen: Hier muss in den
-> `visit()`-Methoden für die einzelnen Elemente entsprechend auf
-> mögliche Kinder reagiert werden.
->
-> In diesem Pattern findet ein sogenannter "Double-Dispatch" statt: Zur
-> Laufzeit wird ein konkreter Visitor instantiiert und über `accept()`
-> an ein Element der Datenstruktur übergeben. Dort ist zur Compile-Zeit
-> aber nur der Obertyp der Visitoren bekannt, d.h. zur Laufzeit wird
-> hier der konkrete Typ bestimmt und entsprechend die richtige
-> `visit()`-Methode auf der "echten" Klasse des Visitors aufgerufen
-> (erster Dispatch). Da im Visitor die `visit()`-Methoden für jeden Typ
-> der Datenstrukur überladen sind, findet nun zur Laufzeit die Auflösung
-> der korrekten Überladung statt (zweiter Dispatch).
->
-> Das Pattern wird traditionell gern für die Traversierung von
-> Datenstrukturen eingesetzt. Es hilft aber auch, wenn man einer
-> gewissen Anzahl von Klassen je eine neue Hilfsmethode hinzufügen
-> möchte - normalerweise müsste man jetzt jede Klasse einzeln ergänzen.
-> Mit dem Visitor-Pattern muss lediglich ein neuer Visitor mit den
-> Hilfsmethoden implementiert werden.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Visitor-Pattern](https://youtu.be/zW_2oQmjp8M)
-> -   [Demo Visitor-Pattern (Part I: Traversierung ohne
->     Visitor)](https://youtu.be/9dvcufpyQdw)
-> -   [Demo Visitor-Pattern (Part II: Traversierung mit
->     Visitor)](https://youtu.be/4rBRkXKhuN4)
->
-> </details>
-
-##### Motivation: Parsen von "5\*4+3"
-
-Zum Parsen von Ausdrücken (*Expressions*) könnte man diese einfache
-Grammatik einsetzen. Ein Ausdruck ist dabei entweder ein einfacher
-Integer oder eine Addition oder Multiplikation zweier Ausdrücke.
-
-``` yacc
-expr : e1=expr '*' e2=expr      # MUL
-     | e1=expr '+' e2=expr      # ADD
-     | INT                      # NUM
-     ;
-```
-
-Beim Parsen von "5\*4+3" würde dabei der folgende Parsetree entstehen:
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree.png" width="20%" /></p>
-
-##### Strukturen für den Parsetree
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_classes_uml.png" width="70%" /></p>
-
-Der Parsetree für diese einfache Grammatik ist ein Binärbaum. Die Regeln
-werden auf Knoten im Baum zurückgeführt. Es gibt Knoten mit zwei
-Kindknoten, und es gibt Knoten ohne Kindknoten ("Blätter").
-
-Entsprechend kann man sich einfache Klassen definieren, die die
-verschiedenen Knoten in diesem Parsetree repräsentieren. Als Obertyp
-könnte es ein (noch leeres) Interface `Expr` geben.
-
-``` java
-public interface Expr {}
-
-public class NumExpr implements Expr {
-    private final int d;
-
-    public NumExpr(int d) { this.d = d; }
-}
-
-public class MulExpr implements Expr {
-    private final Expr e1;
-    private final Expr e2;
-
-    public MulExpr(Expr e1, Expr e2) {
-        this.e1 = e1;  this.e2 = e2;
-    }
-}
-
-public class AddExpr implements Expr {
-    private final Expr e1;
-    private final Expr e2;
-
-    public AddExpr(Expr e1, Expr e2) {
-        this.e1 = e1;  this.e2 = e2;
-    }
-}
-
-
-public class DemoExpr {
-    public static void main(final String... args) {
-        // 5*4+3
-        Expr e = new AddExpr(new MulExpr(new NumExpr(5), new NumExpr(4)), new NumExpr(3));
-    }
-}
-```
-
-##### Ergänzung I: Ausrechnen des Ausdrucks
-
-Es wäre nun schön, wenn man mit dem Parsetree etwas anfangen könnte.
-Vielleicht möchte man den Ausdruck ausrechnen?
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_uml.png" width="70%" /></p>
-
-Zum Ausrechnen des Ausdrucks könnte man dem Interface eine
-`eval()`-Methode spendieren. Jeder Knoten kann für sich entscheiden, wie
-die entsprechende Operation ausgewertet werden soll: Bei einer `NumExpr`
-ist dies einfach der gespeicherte Wert, bei Addition oder Multiplikation
-entsprechend die Addition oder Multiplikation der Auswertungsergebnisse
-der beiden Kindknoten.
-
-``` java
-public interface Expr {
-    int eval();
-}
-
-public class NumExpr implements Expr {
-    private final int d;
-
-    public NumExpr(int d) { this.d = d; }
-    public int eval() { return d; }
-}
-
-public class MulExpr implements Expr {
-    private final Expr e1;
-    private final Expr e2;
-
-    public MulExpr(Expr e1, Expr e2) {
-        this.e1 = e1;  this.e2 = e2;
-    }
-    public int eval() { return e1.eval() * e2.eval(); }
-}
-
-public class AddExpr implements Expr {
-    private final Expr e1;
-    private final Expr e2;
-
-    public AddExpr(Expr e1, Expr e2) {
-        this.e1 = e1;  this.e2 = e2;
-    }
-    public int eval() { return e1.eval() + e2.eval(); }
-}
-
-
-public class DemoExpr {
-    public static void main(final String... args) {
-        // 5*4+3
-        Expr e = new AddExpr(new MulExpr(new NumExpr(5), new NumExpr(4)), new NumExpr(3));
-
-        int erg = e.eval();
-    }
-}
-```
-
-##### Ergänzung II: Pretty-Print des Ausdrucks
-
-Nachdem das Ausrechnen so gut geklappt hat, will der Chef nun noch flink
-eine Funktion, mit der man den Ausdruck hübsch ausgeben kann:
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_print_uml.png" width="70%" /></p>
-
-Das fängt an, sich zu wiederholen. Wir implementieren immer wieder
-ähnliche Strukturen, mit denen wir diesen Parsetree traversieren ... Und
-wir müssen für *jede* Erweiterung immer *alle* Expression-Klassen
-anpassen!
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/direct/DemoExpr.java">Beispiel: direct.DemoExpr</a></p>
-
-**Das geht besser.**
-
-##### Visitor-Pattern (Besucher-Entwurfsmuster)
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/visitor.png" width="80%" /></p>
-
-Das Entwurfsmuster "Besucher" (*Visitor Pattern*) lagert die Aktion beim
-Besuchen eines Knotens in eine separate Klasse aus.
-
-Dazu bekommt jeder Knoten im Baum eine neue Methode, die einen Besucher
-akzeptiert. Dieser Besucher kümmert sich dann um die entsprechende
-Verarbeitung des Knotens, also um das Auswerten oder Ausgeben im obigen
-Beispiel.
-
-Die Besucher haben eine Methode, die für jeden zu bearbeitenden Knoten
-überladen wird. In dieser Methode findet dann die eigentliche
-Verarbeitung statt: Auswerten des Knotens oder Ausgeben des Knotens ...
-
-``` java
-public interface Expr {
-    void accept(ExprVisitor v);
-}
-
-public class NumExpr implements Expr {
-    private final int d;
-
-    public NumExpr(int d) { this.d = d; }
-    public int getValue() { return d; }
-
-    public void accept(ExprVisitor v) { v.visit(this); }
-}
-
-public class MulExpr implements Expr {
-    private final Expr e1;
-    private final Expr e2;
-
-    public MulExpr(Expr e1, Expr e2) {
-        this.e1 = e1;  this.e2 = e2;
-    }
-    public Expr getE1() { return e1; }
-    public Expr getE2() { return e2; }
-
-    public void accept(ExprVisitor v) { v.visit(this); }
-}
-
-public class AddExpr implements Expr {
-    private final Expr e1;
-    private final Expr e2;
-
-    public AddExpr(Expr e1, Expr e2) {
-        this.e1 = e1;  this.e2 = e2;
-    }
-    public Expr getE1() { return e1; }
-    public Expr getE2() { return e2; }
-
-    public void accept(ExprVisitor v) { v.visit(this); }
-}
-
-
-public interface ExprVisitor {
-    void visit(NumExpr e);
-    void visit(MulExpr e);
-    void visit(AddExpr e);
-}
-
-public class EvalVisitor implements ExprVisitor {
-    private final Stack<Integer> erg = new Stack<>();
-
-    public void visit(NumExpr e) { erg.push(e.getValue()); }
-    public void visit(MulExpr e) {
-        e.getE1().accept(this);  e.getE2().accept(this);
-        erg.push(erg.pop() * erg.pop());
-    }
-    public void visit(AddExpr e) {
-        e.getE1().accept(this);  e.getE2().accept(this);
-        erg.push(erg.pop() + erg.pop());
-    }
-    public int getResult() { return erg.peek(); }
-}
-
-public class PrintVisitor implements ExprVisitor {
-    private final Stack<String> erg = new Stack<>();
-
-    public void visit(NumExpr e) { erg.push("NumExpr(" + e.getValue() + ")"); }
-    public void visit(MulExpr e) {
-        e.getE1().accept(this);  e.getE2().accept(this);
-        erg.push("MulExpr(" + erg.pop() + ", " + erg.pop() + ")");
-    }
-    public void visit(AddExpr e) {
-        e.getE1().accept(this);  e.getE2().accept(this);
-        erg.push("AddExpr(" + erg.pop() + ", " + erg.pop() + ")");
-    }
-    public String getResult() { return erg.peek(); }
-}
-
-
-public class DemoExpr {
-    public static void main(final String... args) {
-        // 5*4+3
-        Expr e = new AddExpr(new MulExpr(new NumExpr(5), new NumExpr(4)), new NumExpr(3));
-
-        EvalVisitor v1 = new EvalVisitor();
-        e.accept(v1);
-        int erg = v1.getResult();
-
-        PrintVisitor v2 = new PrintVisitor();
-        e.accept(v2);
-        String s = v2.getResult();
-    }
-}
-```
-
-###### Implementierungsdetail
-
-In den beiden Klasse `AddExpr` und `MulExpr` müssen auch die beiden
-Kindknoten besucht werden, d.h. hier muss der Baum weiter traversiert
-werden.
-
-Man kann sich überlegen, diese Traversierung in den Klassen `AddExpr`
-und `MulExpr` selbst anzustoßen.
-
-Alternativ könnte auch der Visitor die Traversierung vornehmen. Gerade
-bei der Traversierung von Datenstrukturen ist diese Variante oft von
-Vorteil, da man hier unterschiedliche Traversierungsarten haben möchte
-(Breitensuche vs. Tiefensuche, Pre-Order vs. Inorder vs. Post-Order,
-...) und diese elegant in den Visitor verlagern kann.
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/visit/intrav/DemoExpr.java">Beispiel Traversierung intern (in den Knotenklassen): visitor.visit.intrav.DemoExpr</a></p>
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/visit/extrav/DemoExpr.java">Beispiel Traversierung extern (im Visitor): visitor.visit.extrav.DemoExpr</a></p>
-
-###### (Double-) Dispatch
-
-> [!TIP]
->
-> Zur Laufzeit wird in `accept()` mit dem Aufruf von `visit()` der
-> konkrete Typ des Visitors aufgelöst und dann für `visit(this)` durch
-> den Typ der besuchten Klasse (`this`) die korrekte Überladung
-> ausgewählt. Dies nennt man auch "**Double-Dispatch**".
-
-In den `accept()`-Methoden der besuchten Klassen ist nur der gemeinsame
-Obertyp der Visitoren bekannt. Dies ist wichtig, weil man sonst ja für
-jeden neuen Visitor neue passende `accept()`-Methoden in allen zu
-besuchenden Klassen implementieren müsste!
-
-Zur Laufzeit wird hier ein konkreter Visitor (also ein Objekt von einem
-Untertyp der Visitoren-Oberklasse) als Parameter übergeben.
-
-Beim Aufruf von `visit(this)` in der `accept()`-Methode des besuchten
-Objekts wird durch die Laufzeitumgebung der tatsächliche konkrete Typ
-des Visitors bestimmt und die in der Typhierarchie in Bezug auf den Typ
-des Visitors "tiefste" Implementierung der `visit`-Methode (also die
-Implementierung in der Visitorklasse selbst oder, falls dort nicht
-vorhanden, in der jeweils nächsthöheren Elternklasse). Über das Argument
-`this` wird die tatsächliche konkrete Klasse des besuchten Objekts
-ermittelt, so dass die passende Überladung der `visit`-Methode im
-konkreten Visitor ausgewählt und aufgerufen werden kann.
-
-###### Hinweis I
-
-Man könnte nun versucht sein, eine dieser zwei Stufen zu überspringen -
-man könnte ja die `visit`-Methode des `EvalVisitors` direkt aufrufen und
-dabei die Wurzel des Baums (das Objekt `e`) übergeben.
-
-``` java
-// Beispiel von oben (Ausschnitt)
-Expr e = new AddExpr(new MulExpr(new NumExpr(5), new NumExpr(4)), new NumExpr(3));
-EvalVisitor v = new EvalVisitor();
-e.accept(v);
-
-// Direkter Aufruf - Autsch?!
-v.visit(e);
-```
-
-Fragen Sie sich selbst: Kann das funktionieren? Was ist die Begründung?
-
-###### Hinweis II
-
-Man könnte versucht sein, die `accept()`-Methode aus den Knotenklassen
-in die gemeinsame Basisklasse zu verlagern: Statt
-
-``` java
-    public void accept(ExprVisitor v) {
-        v.visit(this);
-    }
-```
-
-in *jeder* Knotenklasse einzeln zu definieren, könnte man das doch
-*einmalig* in der Basisklasse definieren:
-
-``` java
-public abstract class Expr {
-    /** Akzeptiere einen Visitor für die Verarbeitung */
-    public void accept(ExprVisitor v) {
-        v.visit(this);
-    }
-}
-```
-
-Dies wäre tatsächlich schön, weil man so Code-Duplizierung vermeiden
-könnte. Aber es funktioniert in Java leider nicht. (Warum?)
-
-###### Hinweis III
-
-Während die `accept()`-Methode nicht in die Basisklasse der besuchten
-Typen (im Bild oben die Klasse `Elem` bzw. im Beispiel oben die Klasse
-`Expr`) verlagert werden kann, kann man die `visit()`-Methoden im
-Interface `Visitor` durchaus als Default-Methoden im Interface
-implementieren.
-
-##### Ausrechnen des Ausdrucks mit einem Visitor
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_visitor_uml.png"  /></p>
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/visit/extrav/DemoExpr.java">Demo: visitor.visit.extrav.DemoExpr</a></p>
-
-##### Diskussion
-
-In der typischen OO-Denkweise geht man davon aus, dass man eher neue
-Klassen über Vererbung hinzufügt als dass man in einer bestehenden
-Vererbungshierarchie in jeder der beteiligten Klassen neue Methoden
-einbaut. Man leitet einfach von der gewünschten Klasse ab und definiert
-mittels Überschreiben von Methoden o.ä. das geänderte Verhalten und erbt
-den Rest - es wird also nur eine neue Klasse hinzugefügt samt den
-überschriebenen Teilen.
-
-Wenn man allerdings in einer solchen Hierarchie in allen Klassen eine
-neue Methode einbauen muss, die dann auch noch in den einzelnen Klassen
-individuell implementiert werden muss, dann kommt das Visitor-Pattern
-zur Hilfe und erspart Arbeit. Es muss nämlich in der Klassenhierarchie
-nur einmal die Schnittstelle für den Visitor einbaut werden (pro Klasse
-eine `accept`-Methode). Danach kann man von außen sehr einfach neue
-Methoden (also neue Visitoren) erstellen und nutzen, ohne die
-Klassenhierarchie noch einmal ändern zu müssen.
-
-Siehe auch [When should I use the Visitor Design
-Pattern?](https://stackoverflow.com/a/478672).
-
-Ein anderer Blick ist auf die Rolle der jeweiligen Klassen: Es gibt
-Objekte für/in Datenstrukturen, und es gibt Algorithmen, die auf diesen
-Objekten bzw. Datenstrukturen arbeiten. Im Sinne des sauberen OO-Designs
-würde man diese Strukturen trennen: "Trenne Algorithmen von den
-Objekten, auf denen die Algorithmen arbeiten."
-
-Vergleiche auch die Darstellung des Visitor-Patterns in [Visitor
-(Refactoring Guru)](https://refactoring.guru/design-patterns/visitor).
-
-##### Wrap-Up
-
-**Visitor-Pattern**: Auslagern der Traversierung in eigene
-Klassenstruktur
-
--   Klassen der Datenstruktur
-    -   bekommen eine `accept()`-Methode für einen Visitor
-    -   rufen den Visitor mit sich selbst als Argument auf
-
-<!-- -->
-
--   Visitor
-    -   hat für jede Klasse eine Überladung der `visit()`-Methode
-    -   Rückgabewerte schwierig: Intern halten oder per `return` (dann
-        aber unterschiedliche `visit()`-Methoden für die verschiedenen
-        Rückgabetypen!)
-
-<!-- -->
-
--   (Double-) Dispatch: Zur Laufzeit wird in `accept()` der Typ des
-    Visitors und in `visit()` der Typ der zu besuchenden Klasse
-    aufgelöst
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Eilebrecht und Starke ([2013](#ref-Eilebrecht2013))
-> -   Gamma u. a. ([2011](#ref-Gamma2011))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich verstehe den Aufbau des Visitor-Patterns und kann den
->     Double-Dispatch erklären
-> -   k3: Ich kann das Visitor-Pattern auf konkrete Beispiele anwenden
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> **Visitor-Pattern praktisch (und einfach)**
->
-> Betrachten Sie den folgenden Code und erklären Sie das Ergebnis:
->
-> ``` java
-> interface Fruit { }
-> class Apple implements Fruit { }
-> class Orange implements Fruit { }
-> class Banana implements Fruit { }
-> class Foo extends Apple { }
->
-> public class FruitBasketDirect {
->     public static void main(String... args) {
->         List<Fruit> basket = List.of(new Apple(), new Apple(), new Banana(), new Foo());
->
->         int oranges = 0;  int apples = 0;  int bananas = 0;  int foo = 0;
->
->         for (Fruit f : basket) {
->             if (f instanceof Apple) apples++;
->             if (f instanceof Orange) oranges++;
->             if (f instanceof Banana) bananas++;
->             if (f instanceof Foo) foo++;
->         }
->     }
-> }
-> ```
->
-> Das Verwenden von `instanceof` ist unschön und fehleranfällig.
-> Schreiben Sie den Code unter Einsatz des Visitor-Patterns um.
->
-> Diskutieren Sie Vor- und Nachteile des Visitor-Patterns.
-> </details>
-
-<a id="id-c50f087222495d1cb378b27fc952f32b2ccb2054"></a>
-
-#### Observer-Pattern
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Eine Reihe von Objekten möchte über eine Änderung in einem anderen
-> ("zentralen") Objekt informiert werden. Dazu könnte das "zentrale"
-> Objekt eine Zugriffsmethode anbieten, die die anderen Objekte
-> regelmäßig abrufen ("pollen").
->
-> Mit dem Observer-Pattern kann man das aktive Polling vermeiden. Die
-> interessierten Objekte "registrieren" sich beim "zentralen" Objekt.
-> Sobald dieses eine Änderung erfährt oder Informationen bereitstehen
-> o.ä., wird das "zentrale" Objekt alle registrierten Objekte über den
-> Aufruf einer Methode benachrichtigen. Dazu müssen diese eine
-> gemeinsame Schnittstelle implementieren.
->
-> Das "zentrale" Objekt, welches abgefragt wird, nennt man
-> "*Observable*" oder "*Subject*". Die Objekte, die die Information
-> abfragen möchten, nennt man "*Observer*".
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Observer-Pattern](https://youtu.be/833lHcoxeog)
-> -   [Demo Observer-Pattern](https://youtu.be/0mgB8RfcNuM)
->
-> </details>
-
-##### Verteilung der Prüfungsergebnisse
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/lsf.png" width="80%" /></p>
-
-Die Studierenden möchten nach einer Prüfung wissen, ob für einen
-bestimmten Kurs die/ihre Prüfungsergebnisse im LSF bereit stehen.
-
-Dazu modelliert man eine Klasse `LSF` und implementiert eine
-Abfragemethode, die dann alle Objekte regelmäßig aufrufen können. Dies
-sieht dann praktisch etwa so aus:
-
-``` java
-final Person[] persons = { new Lecturer("Frau Holle"),
-                           new Student("Heinz"),
-                           new Student("Karla"),
-                           new Tutor("Kolja"),
-                           new Student("Wuppie") };
-final LSF lsf = new LSF();
-
-for (Person p : persons) {
-    lsf.getGradings(p, "My Module");   // ???!
-}
-```
-
-##### Elegantere Lösung: Observer-Entwurfsmuster
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observerexample.png" width="80%" /></p>
-
-Sie erstellen im `LSF` eine Methode `register()`, mit der sich
-interessierte Objekte beim `LSF` registrieren können.
-
-Zur Benachrichtigung der registrierten Objekte brauchen diese eine
-geeignete Methode, die traditionell `update()` genannt wird.
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/pattern/src/observer/">Demo: observer</a></p>
-
-##### Observer-Pattern verallgemeinert
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observer.png" width="80%" /></p>
-
-Im vorigen Beispiel wurde die Methode `update()` einfach der gemeinsamen
-Basisklasse `Person` hinzugefügt. Normalerweise möchte man die Aspekte
-`Person` und `Observer` aber sauber trennen und definiert sich dazu ein
-*separates* Interface `Observer` mit der Methode `update()`, die dann
-alle "interessierten" Klassen (zusätzlich zur bestehenden
-Vererbungshierarchie) implementieren.
-
-Die Klasse für das zu beobachtende Objekt benötigt dann eine Methode
-`register()`, mit der sich Observer registrieren können. Die
-Objektreferenzen werden dabei einfach einer internen Sammlung
-hinzugefügt.
-
-Häufig findet sich dann noch eine Methode `unregister()`, mit der sich
-bereits registrierte Beobachter wieder abmelden können. Weiterhin findet
-man häufig eine Methode `notifyObservers()`, die man von außen auf dem
-beobachteten Objekt aufrufen kann und die dann auf allen registrierten
-Beobachtern deren Methoden `update()` aufruft. (Dieser Vorgang kann aber
-auch durch eine sonstige Zustandsänderung im beobachteten Objekt
-durchgeführt werden.)
-
-In der Standarddefinition des Observer-Patterns nach ([Gamma u. a.
-2011](#ref-Gamma2011)) werden beim Aufruf der Methode `update()` keine
-Werte an die Beobachter mitgegeben. Der Beobachter muss sich
-entsprechend eine eigene Referenz auf das beobachtete Objekt halten, um
-dort dann weitere Informationen erhalten zu können. Dies kann
-vereinfacht werden, indem das beobachtete Objekt beim Aufruf der
-`update()`-Methode die Informationen als Parameter mitgibt,
-beispielsweise eine Referenz auf sich selbst o.ä. ... Dies muss dann
-natürlich im `Observer`-Interface nachgezogen werden.
-
-**Hinweis**: Es gibt in Swing bereits die Interfaces `Observer` und
-`Observable`, die aber als "deprecated" gekennzeichnet sind.
-Sinnvollerweise nutzen Sie nicht diese Interfaces aus Swing, sondern
-implementieren Ihre eigenen Interfaces, wenn Sie das Observer-Pattern
-einsetzen wollen!
-
-##### Wrap-Up
-
-Observer-Pattern: Benachrichtige registrierte Objekte über
-Statusänderungen
-
--   Interface `Observer` mit Methode `update()`
--   Interessierte Objekte
-    1.  implementieren das Interface `Observer`
-    2.  registrieren sich beim zu beobachtenden Objekt (`Observable`)
--   Beobachtetes Objekt ruft auf allen registrierten Objekten `update()`
-    auf
--   `update()` kann auch Parameter haben
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Nystrom ([2014, Kap. 4](#ref-Nystrom2014))
-> -   Gamma u. a. ([2011](#ref-Gamma2011))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kenne den Aufbau des Observer-Patterns und kann dies an
->     einem Beispiel erklären
-> -   k3: Ich kann das Observer-Pattern auf konkrete Beispiele (etwa den
->     PM-Dungeon) anwenden
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> **Observer: Restaurant**
->
-> Stellen Sie sich ein Restaurant vor, in welchem man nicht eine
-> komplette Mahlzeit bestellt, sondern aus einzelnen Komponenten
-> auswählen kann. Die Kunden bestellen also die gewünschten Komponenten,
-> suchen sich einen Tisch und warten auf die Fertigstellung ihrer
-> Bestellung. Da die Küche leider nur sehr klein ist, werden immer alle
-> Bestellungen einer bestimmten Komponente zusammen bearbeitet - also
-> beispielsweise werden alle bestellten Salate angerichtet oder die alle
-> bestellten Pommes-Portionen zubereitet. Sobald eine solche Komponente
-> fertig ist, werden alle Kunden aufgerufen, die diese Komponente
-> bestellt haben ...
->
-> Modellieren Sie dies in Java. Nutzen Sie dazu das Observer-Pattern,
-> welches Sie ggf. leicht anpassen müssen.
->
-> **Observer: Einzel- und Großhandel**
->
-> In den
-> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/pattern/src/challenges/observer)
-> finden Sie ein Modell für eine Lieferkette zwischen Großhandel und
-> Einzelhandel.
->
-> Wenn beim Einzelhändler eine Bestellung von einem Kunden eingeht
-> (`Einzelhandel#bestellen`), speichert dieser den `Auftrag` zunächst in
-> einer Liste ab. In regelmäßigen Abständen (`Einzelhandel#loop`) sendet
-> der Einzelhändler die offenen Bestellungen an seinen Großhändler
-> (`Grosshandel#bestellen`). Hat der Großhändler die benötigte Ware
-> vorrätig, sendet er diese an den Einzelhändler
-> (`Einzelhandel#empfangen`). Dieser kann dann den Auftrag gegenüber
-> seinem Kunden erfüllen (keine Methode vorgesehen).
->
-> Anders als der Einzelhandel speichert der Großhandel keine Aufträge
-> ab. Ist die benötigte Ware bei einer Bestellung also nicht oder nicht
-> in ausreichender Zahl auf Lager, wird diese nicht geliefert und der
-> Einzelhandel muss (später) eine neue Bestellung aufgeben.
->
-> Der Großhandel bekommt regelmäßig (`Grosshandel#loop`) neue Ware für
-> die am wenigsten vorrätigen Positionen.
->
-> Im aktuellen Modell wird der Einzelhandel nicht über den neuen
-> Lagerbestand des Großhändlers informiert und kann daher nur "zufällig"
-> neue Bestellanfragen an den Großhändler senden.
->
-> Verbessern Sie das Modell, indem Sie das Observer-Pattern integrieren.
-> Wer ist Observer? Wer ist Observable? Welche Informationen werden bei
-> einem `update` mitgeliefert?
->
-> Bauen Sie in alle Aktionen vom Einzelhändler und vom Großhändler
-> passendes Logging ein.
->
-> *Anmerkung*: Sie dürfen nur die Vorgaben-Klassen `Einzelhandel` und
-> `Grosshandel` verändern, die anderen Vorgaben-Klassen dürfen Sie nicht
-> bearbeiten. Sie können zusätzlich benötigte eigene Klassen/Interfaces
-> implementieren.
-> </details>
-
-<a id="id-d65790dd2d165c56e13ec1cea6619359f6def01b"></a>
-
-#### Template-Method-Pattern
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Das Template-Method-Pattern ist ein Entwurfsmuster, bei dem ein
-> gewisses Verhalten in einer Methode implementiert wird, die wie eine
-> Schablone agiert, der sogenannten "Template-Methode". Darin werden
-> dann u.a. Hilfsmethoden aufgerufen, die in der Basisklasse entweder
-> als `abstract` markiert sind oder mit einem leeren Body implementiert
-> sind ("Hook-Methoden"). Über diese Template-Methode legt also die
-> Basisklasse ein gewisses Verhaltensschema fest ("Template") - daher
-> auch der Name.
->
-> In den ableitenden Klassen werden dann die abstrakten Methoden
-> und/oder die Hook-Methoden implementiert bzw. überschrieben und damit
-> das Verhalten verfeinert.
->
-> Zur Laufzeit ruft man auf den Objekten die Template-Methode auf. Dabei
-> wird von der Laufzeitumgebung der konkrete Typ der Objekte bestimmt
-> (auch wenn man sie unter dem Typ der Oberklasse führt) und die am
-> tiefsten in der Vererbungshierarchie implementierten Methoden
-> aufgerufen. D.h. die Aufrufe der Hilfsmethoden in der Template-Methode
-> führen zu den in der jeweiligen ableitenden Klasse implementierten
-> Varianten.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Template-Method-Pattern](https://youtu.be/EE-n2T6AO-g)
->
-> </details>
-
-##### Motivation: Syntax-Highlighting im Tokenizer
-
-In einem Compiler ist meist der erste Arbeitsschritt, den Eingabestrom
-in einzelne Token aufzubrechen. Dies sind oft die verschiedenen
-Schlüsselwörter, Operationen, Namen von Variablen, Methoden, Klassen
-etc. ... Aus der Folge von Zeichen (also dem eingelesenen Programmcode)
-wird ein Strom von Token, mit dem die nächste Stufe im Compiler dann
-weiter arbeiten kann.
-
-``` java
-public class Lexer {
-    private final List<Token> allToken;  // alle verfügbaren Token-Klassen
-
-    public List<Token> tokenize(String string) {
-        List<Token> result = new ArrayList<>();
-
-        while (string.length() > 0) {
-            for (Token t : allToken) {
-                Token token = t.match(string);
-                if (token != null) {
-                    result.add(token);
-                    string = string.substring(
-                                token.getContent().length(),
-                                string.length());
-                }
-            }
-        }
-
-        return result;
-    }
-}
-```
-
-Dazu prüft man jedes Token, ob es auf den aktuellen Anfang des
-Eingabestroms passt. Wenn ein Token passt, erzeugt man eine Instanz
-dieser Token-Klasse und speichert darin den gematchten Eingabeteil, den
-man dann vom Eingabestrom entfernt. Danach geht man in die Schleife und
-prüft wieder alle Token ... bis irgendwann der Eingabestrom leer ist und
-man den gesamten eingelesenen Programmcode in eine dazu passende Folge
-von Token umgewandelt hat.
-
-*Anmerkung*: Abgesehen von fehlenden Javadoc etc. hat das obige
-Code-Beispiel mehrere Probleme: Man würde im realen Leben nicht mit
-`String`, sondern mit einem Zeichenstrom arbeiten. Außerdem fehlt noch
-eine Fehlerbehandlung, wenn nämlich keines der Token in der Liste
-`allToken` auf den aktuellen Anfang des Eingabestroms passt.
-
-##### Token-Klassen mit formatiertem Inhalt
-
-Um den eigenen Tokenizer besser testen zu können, wurde beschlossen,
-dass jedes Token seinen Inhalt als formatiertes HTML-Schnipsel
-zurückliefern soll. Damit kann man dann alle erkannten Token formatiert
-ausgeben und erhält eine Art Syntax-Highlighting für den eingelesenen
-Programmcode.
-
-``` java
-public abstract class Token {
-    protected String content;
-
-    abstract protected String getHtml();
-}
-public class KeyWord extends Token {
-    @Override
-    protected String getHtml() {
-        return "<font color=\"red\"><b>" +  this.content + "</b></font>";
-    }
-}
-public class StringContent extends Token {
-    @Override
-    protected String getHtml() {
-        return "<font color=\"green\">" +  this.content + "</font>";
-    }
-}
-
-
-Token t = new KeyWord();
-LOG.info(t.getHtml());
-```
-
-In der ersten Umsetzung erhält die Basisklasse `Token` eine weitere
-abstrakte Methode, die jede Token-Klasse implementieren muss und in der
-die Token-Klassen einen String mit dem Token-Inhalt und einer
-Formatierung für HTML zurückgeben.
-
-Dabei fällt auf, dass der Aufbau immer gleich ist: Es werden ein oder
-mehrere Tags zum Start der Format-Sequenz mit dem Token-Inhalt
-verbunden, gefolgt mit einem zum verwendeten startenden HTML-Format-Tag
-passenden End-Tag.
-
-Auch wenn die Inhalte unterschiedlich sind, sieht das stark nach einer
-Verletzung von
-[DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) aus ...
-
-##### Don't call us, we'll call you
-
-``` java
-public abstract class Token {
-    protected String content;
-
-    public final String getHtml() {
-        return htmlStart() + this.content + htmlEnd();
-    }
-
-    abstract protected String htmlStart();
-    abstract protected String htmlEnd();
-}
-public class KeyWord extends Token {
-    @Override protected String htmlStart() { return "<font color=\"red\"><b>"; }
-    @Override protected String htmlEnd() { return "</b></font>"; }
-}
-public class StringContent extends Token {
-    @Override protected String htmlStart() { return "<font color=\"green\">"; }
-    @Override protected String htmlEnd() { return "</font>"; }
-}
-
-
-Token t = new KeyWord();
-LOG.info(t.getHtml());
-```
-
-Wir können den Spaß einfach umdrehen (["inversion of
-control"](https://en.wikipedia.org/wiki/Inversion_of_control)) und die
-Methode zum Zusammenbasteln des HTML-Strings bereits in der Basisklasse
-implementieren. Dazu "rufen" wir dort drei Hilfsmethoden auf, die die
-jeweiligen Bestandteile des Strings (Format-Start, Inhalt, Format-Ende)
-erzeugen und deren konkrete Implementierung wir in der Basisklasse nicht
-kennen. Dies ist dann Sache der ableitenden konkreten Token-Klassen.
-
-Objekte vom Typ `KeyWord` sind dank der Vererbungsbeziehung auch `Token`
-(Vererbung: *is-a-Beziehung*). Wenn man nun auf einem `Token t` die
-Methode `getHtml()` aufruft, wird zur Laufzeit geprüft, welchen Typ `t`
-tatsächlich hat (im Beispiel `KeyWord`). Methodenaufrufe werden dann mit
-den am tiefsten in der vorliegenden Vererbungshierarchie implementierten
-Methoden durchgeführt: Hier wird also die von `Token` geerbte Methode
-`getHtml()` in `KeyWord` aufgerufen, die ihrerseits die Methoden
-`htmlStart()` und `htmlEnd()` aufruft. Diese sind in `KeyWord`
-implementiert und liefern nun die passenden Ergebnisse.
-
-Die Methode `getHtml()` wird auch als "*Template-Methode*" bezeichnet.
-Die beiden darin aufgerufenen Methoden `htmlStart()` und `htmlEnd()` in
-`Token` werden auch als "Hilfsmethoden" (oder "*Helper Methods*")
-bezeichnet.
-
-Dies ist ein Beispiel für das
-**[Template-Method-Pattern](https://en.wikipedia.org/wiki/Template_method_pattern)**.
-
-##### Template-Method-Pattern
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/template-method.png" width="50%" /></p>
-
-###### Aufbau Template-Method-Pattern
-
-In der Basisklasse implementiert man eine Template-Methode (in der
-Skizze `templateMethod`), die sich auf anderen in der Basisklasse
-deklarierten (Hilfs-) Methoden "abstützt" (diese also aufruft; in der
-Skizze `method1`, `method2`, `method3`). Diese Hilfsmethoden können als
-`abstract` markiert werden und *müssen* dann von den ableitenden Klassen
-implementiert werden (in der Skizze `method1` und `method2`). Man kann
-aber auch einige/alle dieser aufgerufenen Hilfsmethoden in der
-Basisklasse implementieren (beispielsweise mit einem leeren Body -
-sogenannte "Hook"-Methoden) und die ableitenden Klassen *können* dann
-diese Methoden überschreiben und das Verhalten so neu formulieren (in
-der Skizze `method3`).
-
-Damit werden Teile des Verhaltens an die ableitenden Klassen
-ausgelagert.
-
-###### Verwandtschaft zum Strategy-Pattern
-
-Das Template-Method-Pattern hat eine starke Verwandtschaft zum
-Strategy-Pattern.
-
-Im Strategy-Pattern haben wir Verhalten komplett an andere Objekte
-*delegiert*, indem wir in einer Methode einfach die passende Methode auf
-dem übergebenen Strategie-Objekt aufgerufen haben.
-
-Im Template-Method-Pattern nutzen wir statt Delegation die Mechanismen
-Vererbung und dynamische Polymorphie und definieren in der Basis-Klasse
-abstrakte oder Hook-Methoden, die wir bereits in der Template-Methode
-der Basis-Klasse aufrufen. Damit ist das grobe Verhalten in der
-Basis-Klasse festgelegt, wird aber in den ableitenden Klassen durch das
-dortige Definieren oder Überschreiben der Hilfsmethoden verfeinert. Zur
-Laufzeit werden dann durch die dynamische Polymorphie die tatsächlich
-implementierten Hilfsmethoden in den ableitenden Klassen aufgerufen.
-Damit lagert man im Template-Method-Pattern gewissermaßen nur Teile des
-Verhaltens an die ableitenden Klassen aus.
-
-##### Wrap-Up
-
-Template-Method-Pattern: Verhaltensänderung durch Vererbungsbeziehungen
-
--   Basis-Klasse:
-    -   Template-Methode, die Verhalten definiert und Hilfsmethoden
-        aufruft
-    -   Hilfsmethoden: Abstrakte Methoden (oder "Hook":
-        Basis-Implementierung)
--   Ableitende Klassen: Verfeinern Verhalten durch Implementieren der
-    Hilfsmethoden
--   Zur Laufzeit: Dynamische Polymorphie: Aufruf der Template-Methode
-    nutzt die im tatsächlichen Typ des Objekts implementierten
-    Hilfsmethoden
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Eilebrecht und Starke ([2013](#ref-Eilebrecht2013))
-> -   Gamma u. a. ([2011](#ref-Gamma2011))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k3: Ich kann das Template-Method-Entwurfsmuster praktisch anwenden
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> Schreiben Sie eine abstrakte Klasse Drucker. Implementieren Sie die
-> Funktion `kopieren`, bei der zuerst die Funktion `scannen` und dann
-> die Funktion `drucken` aufgerufen wird. Der Kopiervorgang ist für alle
-> Druckertypen identisch, das Scannen und Drucken ist abhängig vom
-> Druckertyp.
->
-> Implementieren Sie zusätzlich zwei unterschiedliche Druckertypen:
->
-> -   `Tintendrucker extends Drucker`
->     -   `Tintendrucker#drucken` loggt den Text "Drucke das Dokument
->         auf dem Tintendrucker."
->     -   `Tintendrucker#scannen` loggt den Text "Scanne das Dokument
->         mit dem Tintendrucker."
-> -   `Laserdrucker extends Drucker`
->     -   `Laserdrucker#drucken` loggt den Text "Drucke das Dokument auf
->         dem Laserdrucker."
->     -   `Laserdrucker#scannen` loggt den Text "Scanne das Dokument mit
->         dem Laserdrucker."
->
-> Nutzen Sie das Template-Method-Pattern.
->
-> </details>
-
-<a id="id-fa18d796f1346e2d468abc3703e53374e2005b7f"></a>
-
-#### Command-Pattern
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Das **Command-Pattern** ist die objektorientierte Antwort auf
-> Callback-Funktionen: Man kapselt Befehle in einem Objekt.
->
-> 1.  Die `Command`-Objekte haben eine Methode `execute()` und führen
->     dabei Aktion auf einem bzw. "ihrem" Receiver aus.
->
-> 2.  `Receiver` sind Objekte, auf denen Aktionen ausgeführt werden, im
->     Dungeon könnten dies etwa Hero, Monster, ... sein. Receiver müssen
->     keine der anderen Akteure in diesem Pattern kennen.
->
-> 3.  Damit die `Command`-Objekte aufgerufen werden, gibt es einen
->     `Invoker`, der `Command`-Objekte hat und zu gegebener Zeit auf
->     diesen die Methode `execute()` aufruft. Der Invoker muss dabei die
->     konkreten Kommandos und die Receiver nicht kennen (nur die
->     `Command`-Schnittstelle).
->
-> 4.  Zusätzlich gibt es einen `Client`, der die anderen Akteure kennt
->     und alles zusammen baut.
->
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Command-Pattern](https://youtu.be/F7RJ7YCVMS4)
->
-> </details>
-
-##### Motivation
-
-Irgendwo im Dungeon wird es ein Objekt einer Klasse ähnlich wie
-`InputHandler` geben mit einer Methode ähnlich zu `handleInput()`:
-
-``` java
-public class InputHandler {
-    public void handleInput() {
-        switch (keyPressed()) {
-            case BUTTON_W -> hero.jump();
-            case BUTTON_A -> hero.moveX();
-            case ...
-            default -> { ... }
-        }
-    }
-}
-```
-
-Diese Methode wird je Frame einmal aufgerufen, um auf eventuelle
-Benutzereingaben reagieren zu können. Je nach gedrücktem Button wird auf
-dem Hero eine bestimmte Aktion ausgeführt ...
-
-Das funktioniert, ist aber recht unflexibel. Die Aktionen sind den
-Buttons fest zugeordnet und erlauben keinerlei Konfiguration.
-
-##### Auflösen der starren Zuordnung über Zwischenobjekte
-
-``` java
-public interface Command { void execute(); }
-
-public class Jump implements Command {
-    private Entity e;
-    public void execute() { e.jump(); }
-}
-
-public class InputHandler {
-    private final Command wbutton = new Jump(hero);  // Über Ctor/Methoden setzen!
-    private final Command abutton = new Move(hero);  // Über Ctor/Methoden setzen!
-
-    public void handleInput() {
-        switch (keyPressed()) {
-            case BUTTON_W -> wbutton.execute();
-            case BUTTON_A -> abutton.execute();
-            case ...
-            default -> { ... }
-        }
-    }
-}
-```
-
-Die starre Zuordnung "Button : Aktion" wird aufgelöst und über
-Zwischenobjekte konfigurierbar gemacht.
-
-Für die Zwischenobjekte wird ein Typ `Command` eingeführt, der nur eine
-`execute()`-Methode hat. Für jede gewünschte Aktion wird eine Klasse
-davon abgeleitet, diese Klassen können auch einen Zustand pflegen.
-
-Den Buttons wird nun an geeigneter Stelle (Konstruktor, Methoden, ...)
-je ein Objekt der jeweiligen Command-Unterklassen zugeordnet. Wenn ein
-Button betätigt wird, wird auf dem Objekt die Methode `execute()`
-aufgerufen.
-
-Damit die Kommandos nicht nur auf den Helden wirken können, kann man den
-Kommando-Objekten beispielsweise noch eine Entität mitgeben, auf der das
-Kommando ausgeführt werden soll. Im Beispiel oben wurde dafür der `hero`
-genutzt.
-
-##### Command: Objektorientierte Antwort auf Callback-Funktionen
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/command.png" width="80%" /></p>
-
-Im Command-Pattern gibt es vier beteiligte Parteien: Client, Receiver,
-Command und Invoker.
-
-Ein Command ist die objektorientierte Abstraktion eines Befehls. Es hat
-möglicherweise einen Zustand, und und kennt "seinen" Receiver und kann
-beim Aufruf der `execute()`-Methode eine vorher verabredete Methode auf
-diesem Receiver-Objekt ausführen.
-
-Ein Receiver ist eine Klasse, die Aktionen durchführen kann. Sie kennt
-die anderen Akteure nicht.
-
-Der Invoker (manchmal auch "Caller" genannt) ist eine Klasse, die
-Commands aggregiert und die die Commandos "ausführt", indem hier die
-`execute()`-Methode aufgerufen wird. Diese Klasse kennt nur das
-`Command`-Interface und keine spezifischen Kommandos (also keine der
-Sub-Klassen). Es kann zusätzlich eine gewisse Buchführung übernehmen,
-etwa um eine Undo-Funktionalität zu realisieren.
-
-Der Client ist ein Programmteil, der ein Command-Objekt aufbaut und
-dabei einen passenden Receiver übergibt und der das Command-Objekt dann
-zum Aufruf an den Invoker weiterreicht.
-
-In unserem Beispiel lassen sich die einzelnen Teile so sortieren:
-
--   Client: Klasse `InputHandler` (erzeugt neue `Command`-Objekte im
-    obigen Code) bzw. `main()`, wenn man die `Command`-Objekte dort
-    erstellt und an den Konstruktor von `InputHandler` weiterreicht
--   Receiver: Objekt `hero` der Klasse `Hero` (auf diesem wird eine
-    Aktion ausgeführt)
--   Command: `Jump` und `Move`
--   Invoker: `InputHandler` (in der Methode `handleInput()`)
-
-##### Undo
-
-Wir könnten das `Command`-Interface um ein paar Methoden erweitern:
-
-``` java
-public interface Command {
-    void execute();
-    void undo();
-    Command newCommand(Entity e);
-}
-```
-
-Jetzt kann jedes Command-Objekt eine neue Instanz erzeugen mit der
-Entity, die dann dieses Kommando empfangen soll:
-
-``` java
-public class Move implements Command {
-    private Entity e;
-    private int x, y, oldX, oldY;
-
-    public void execute() { oldX = e.getX();  oldY = e.getY();  x = oldX + 42;  y = oldY;  e.moveTo(x, y); }
-    public void undo() { e.moveTo(oldX, oldY); }
-    public Command newCommand(Entity e) { return new Move(e); }
-}
-
-public class InputHandler {
-    private final Command wbutton;
-    private final Command abutton;
-    private final Stack<Command> s = new Stack<>();
-
-    public void handleInput() {
-        Entity e = getSelectedEntity();
-        switch (keyPressed()) {
-            case BUTTON_W -> { s.push(wbutton.newCommand(e)); s.peek().execute(); }
-            case BUTTON_A -> { s.push(abutton.newCommand(e)); s.peek().execute(); }
-            case BUTTON_U -> s.pop().undo();
-            case ...
-            default -> { ... }
-        }
-    }
-}
-```
-
-Über den Konstruktor von `InputHandler` (im Beispiel nicht gezeigt)
-würde man wie vorher die `Command`-Objekte für die Buttons setzen. Es
-würde aber in jedem Aufruf von `handleInput()` abgefragt, was gerade die
-selektierte Entität ist und für diese eine neue Instanz des zur
-Tastatureingabe passenden `Command`-Objekts erzeugt. Dieses wird nun in
-einem Stack gespeichert und danach ausgeführt.
-
-Wenn der Button "U" gedrückt wird, wird das letzte `Command`-Objekt aus
-dem Stack genommen (Achtung: Im echten Leben müsste man erst einmal
-schauen, ob hier noch was drin ist!) und auf diesem die Methode `undo()`
-aufgerufen. Für das Kommando `Move` ist hier skizziert, wie ein Undo
-aussehen könnte: Man muss einfach bei jedem `execute()` die alte
-Position der Entität speichern, dann kann man sie bei einem `undo()`
-wieder auf diese Position verschieben. Da für jeden Move ein neues
-Objekt angelegt wird und dieses nur einmal benutzt wird, braucht man
-keine weitere Buchhaltung ...
-
-##### Wrap-Up
-
-**Command-Pattern**: Kapsele Befehle in ein Objekt
-
--   `Command`-Objekte haben eine Methode `execute()` und führen darin
-    Aktion auf Receiver aus
--   `Receiver` sind Objekte, auf denen Aktionen ausgeführt werden (Hero,
-    Monster, ...)
--   `Invoker` hat `Command`-Objekte und ruft darauf `execute()` auf
--   `Client` kennt alle und baut alles zusammen
-
-**Objektorientierte Antwort auf Callback-Funktionen**
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Gamma u. a. ([2011](#ref-Gamma2011))
-> -   Nystrom ([2014, Kap. 2](#ref-Nystrom2014))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kann den Aufbau des Command-Patterns erklären
-> -   k3: Ich kann das Command-Pattern auf konkrete Beispiele, etwa den
->     PM-Dungeon, anwenden
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> Schreiben Sie für den `Dwarf` in den
-> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/pattern/src/challenges/command)
-> einen Controller, welcher das Command-Pattern verwendet.
->
-> -   "W" führt Springen aus
-> -   "A" bewegt den Zwerg nach links
-> -   "D" bewegt den Zwerg nach rechts
-> -   "S" führt Ducken aus
->
-> Schreiben Sie zusätzlich für den `Cursor` einen Controller, welcher
-> das Command-Pattern mit Historie erfüllt (ebenfalls über die Tasten
-> "W", "A", "S" und "D").
->
-> Schreiben Sie eine Demo, um die Funktionalität Ihres Programmes zu
-> demonstrieren.
->
-> </details>
-
-<a id="id-f7083be5fbfab945de3e25ca0bad1e1914731a7c"></a>
-
-### Fortgeschrittene Java-Themen und Umgang mit JVM
-
-<a id="id-cfd21c65be03a9536ad286c40c0f52ec3d376712"></a>
-
-#### Reguläre Ausdrücke
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Mit Hilfe von regulären Ausdrücken kann man den Aufbau von
-> Zeichenketten formal beschreiben. Dabei lassen sich direkt die
-> gewünschten Zeichen einsetzen, oder man nutzt Zeichenklassen oder
-> vordefinierte Ausdrücke. Teilausdrücke lassen sich gruppieren und über
-> *Quantifier* kann definiert werden, wie oft ein Teilausdruck vorkommen
-> soll. Die Quantifier sind per Default **greedy** und versuchen so viel
-> wie möglich zu matchen.
->
-> Auf der Java-Seite stellt man reguläre Ausdrücke zunächst als `String`
-> dar. Dabei muss darauf geachtet werden, dass ein Backslash im
-> regulären Ausdruck im Java-String geschützt (*escaped*) werden muss,
-> indem jeweils ein weiterer Backslash voran gestellt wird. Mit Hilfe
-> der Klasse `java.util.regex.Pattern` lässt sich daraus ein Objekt mit
-> dem kompilierten regulären Ausdruck erzeugen, was insbesondere bei
-> mehrfacher Verwendung günstiger in der Laufzeit ist. Dem
-> Pattern-Objekt kann man dann den Suchstring übergeben und bekommt ein
-> Objekt der Klasse `java.util.regex.Matcher` (dort sind regulärer
-> Ausdruck/Pattern und der Suchstring kombiniert). Mit den Methoden
-> `Matcher#find` und `Matcher#matches` kann dann geprüft werden, ob das
-> Pattern auf den Suchstring passt: `find` sucht dabei nach dem ersten
-> Vorkommen des Patterns im Suchstring, `match` prüft, ob der gesamte
-> String zum Pattern passt.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL RegExp](https://youtu.be/K9R1Bwa73uI)
-> -   [Demo StringSplit](https://youtu.be/j_pTZBI6Z3M)
-> -   [Demo MatchFind](https://youtu.be/LYlPL1C_au8)
-> -   [Demo Quantifier](https://youtu.be/xkD9PhCjXyY)
-> -   [Demo Groups](https://youtu.be/ANLB2MdC_uY)
-> -   [Demo Backref](https://youtu.be/SRZyT3EAB94)
->
-> </details>
-
-##### Suchen in Strings
-
-Gesucht ist ein Programm zum Extrahieren von Telefonnummern aus E-Mails.
-
-=\> **Wie geht das?**
-
-Leider gibt es unzählig viele Varianten, wie man eine Telefonnummer
-(samt Vorwahl und ggf. Ländervorwahl) aufschreiben kann:
-
-    030 - 123 456 789, 030-123456789, 030/123456789,
-    +49(30)123456-789, +49 (30) 123 456 - 789, ...
-
-##### Definition Regulärer Ausdruck
-
-> Ein **regulärer Ausdruck** ist eine Zeichenkette, die zur Beschreibung
-> von Zeichenketten dient.
-
-###### Anwendungen
-
--   Finden von Bestandteilen in Zeichenketten
--   Aufteilen von Strings in Tokens
--   Validierung von textuellen Eingaben =\> "Eine Postleitzahl besteht
-    aus 5 Ziffern"
--   Compilerbau: Erkennen von Schlüsselwörtern und Strukturen und
-    Syntaxfehlern
-
-##### Einfachste reguläre Ausdrücke
-
-| **Zeichenkette** | **Beschreibt**         |
-|:-----------------|:-----------------------|
-| `x`              | "x"                    |
-| `.`              | ein beliebiges Zeichen |
-| `\t`             | Tabulator              |
-| `\n`             | Newline                |
-| `\r`             | Carriage-return        |
-| `\\`             | Backslash              |
-
-###### Beispiel
-
--   `abc` =\> "abc"
--   `A.B` =\> "AAB" oder "A2B" oder ...
--   `a\\bc` =\> "a\\bc"
-
-###### Anmerkung
-
-In Java-Strings leitet der Backslash eine zu interpretierende
-Befehlssequenz ein. Deshalb muss der Backslash i.d.R. geschützt
-("escaped") werden. =\> Statt "`\n`" müssen Sie im Java-Code "`\\n`"
-schreiben!
-
-##### Zeichenklassen
-
-| **Zeichenkette** | **Beschreibt**                                           |
-|:------------------|:----------------------------------------------------|
-| `[abc]`          | "a" oder "b" oder "c"                                    |
-| `[^abc]`         | alles außer "a", "b" oder "c" (Negation)                 |
-| `[a-zA-Z]`       | alle Zeichen von "a" bis "z" und "A" bis "Z" (Range)     |
-| `[a-z&&[def]]`   | "d", "e" oder "f" (Schnitt)                              |
-| `[a-z&&[^bc]]`   | "a" bis "z", außer "b" und "c": `[ad-z]` (Subtraktion)   |
-| `[a-z&&[^m-p]]`  | "a" bis "z", außer "m" bis "p": `[a-lq-z]` (Subtraktion) |
-
-Zeichenklassen werden über eine Zeichenkette formuliert, die in `[` und
-`]` eingeschlossen wird. Dabei werden alle Zeichen aufgezählt, die in
-dieser Zeichenklasse enthalten sein sollen. Die Zeichenklasse verhält
-sich von außen betrachtet wie ein beliebiges Zeichen aus der Menge der
-aufgezählten Zeichen.
-
-Beispiel: `[abc]` meint ein "a" oder "b" oder "c" ...
-
-Wenn dem ersten Zeichen der so geformten Zeichenklasse ein `^`
-vorangestellt wird, sind alle Zeichen *außer* den in der Zeichenklasse
-bezeichneten Zeichen gemeint (Negation). In der Tabelle oben (erste
-Zeile) könnte man dem `abc` noch ein `^` voranstellen und hätte dann
-*alle* Zeichen *außer* "a", "b" und "c".
-
-Für den Schnitt kann als zweite Zeichenklasse eine Negation verwendet
-werden, damit würde eine Subtraktion erreicht werden: Alle Zeichen in
-der vorderen Zeichenklasse abzüglich der Zeichen in der zweiten
-Zeichenklasse. In der Tabelle oben (vierte Zeile) würde man dem `def`
-noch ein `^` voranstellen und hätte dann die Zeichen "a" bis "z" *ohne*
-"d", "e" und "f".
-
-*Anmerkung*: Das Minus-Zeichen hat in der Zeichenklasse eine besondere
-Bedeutung (es bildet einen Range). Deshalb muss es escaped werden, wenn
-es sich selbst darstellen soll.
-
-###### Beispiel
-
--   `[abc]` =\> "a" oder "b" oder "c"
--   `[a-c]` =\> "a" oder "b" oder "c"
--   `[a-c][a-c]` =\> "aa", "ab", "ac", "ba", "bb", "bc", "ca", "cb" oder
-    "cc"
--   `A[a-c]` =\> "Aa", "Ab" oder "Ac"
-
-##### Vordefinierte Ausdrücke
-
-| **Zeichenkette** | **Beschreibt**                               |
-|:-----------------|:---------------------------------------------|
-| `^`              | Zeilenanfang                                 |
-| `$`              | Zeilenende                                   |
-| `\d`             | eine Ziffer: `[0-9]`                         |
-| `\w`             | beliebiges Wortzeichen: `[a-zA-Z_0-9]`       |
-| `\s`             | Whitespace (Leerzeichen, Tabulator, Newline) |
-| `\D`             | jedes Zeichen außer Ziffern: `[^0-9]`        |
-| `\W`             | jedes Zeichen außer Wortzeichen: `[^\w]`     |
-| `\S`             | jedes Zeichen außer Whitespaces: `[^\s]`     |
-
-###### Beispiel
-
--   `\d\d\d\d\d` =\> "12345"
--   `\w\wA` =\> "aaA", "a0A", "a_A", ...
-
-##### Nutzung in Java
-
--   `java.lang.String`:
-
-    ``` java
-    public String[] split(String regex)
-    public boolean matches(String regex)
-    ```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/regexp/StringSplit.java">Demo: regexp.StringSplit</a></p>
-
--   `java.util.regex.Pattern`:
-
-    ``` java
-    public static Pattern compile(String regex)
-    public Matcher matcher(CharSequence input)
-    ```
-
-    -   Schritt 1: Ein Pattern compilieren (erzeugen) mit
-        `Pattern#compile` =\> liefert ein Pattern-Objekt für den
-        regulären Ausdruck zurück
-    -   Schritt 2: Dem Pattern-Objekt den zu untersuchenden Zeichenstrom
-        übergeben mit `Pattern#matcher` =\> liefert ein Matcher-Objekt
-        zurück, darin gebunden: Pattern (regulärer Ausdruck) und die zu
-        untersuchende Zeichenkette
-
-<!-- -->
-
--   `java.util.regex.Matcher`:
-
-    ``` java
-    public boolean find()
-    public boolean matches()
-    public int groupCount()
-    public String group(int group)
-    ```
-
-    -   Schritt 3: Mit dem Matcher-Objekt kann man die Ergebnisse der
-        Anwendung des regulären Ausdrucks auf eine Zeichenkette
-        auswerten
-
-        Bedeutung der unterschiedlichen Methoden siehe folgende Folien
-
-        `Matcher#group`: Liefert die Sub-Sequenz des Suchstrings zurück,
-        die erfolgreich gematcht wurde (siehe unten "Fangende
-        Gruppierungen")
-
-**Hinweis**:
-
-In Java-Strings leitet der Backslash eine zu interpretierende
-Befehlssequenz ein. Deshalb muss der Backslash i.d.R. extra geschützt
-("escaped") werden.
-
-=\> Statt "`\n`" (regulärer Ausdruck) müssen Sie im Java-String "`\\n`"
-schreiben!
-
-=\> Statt "`a\\bc`" (regulärer Ausdruck, passt auf die Zeichenkette
-"a\\bc") müssen Sie im Java-String "`a\\\\bc`" schreiben!
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/regexp/MatchFind.java">Demo: regexp.MatchFind</a></p>
-
-##### Unterschied zw. Finden und Matchen
-
--   `Matcher#find`:
-
-    Regulärer Ausdruck muss im Suchstring **enthalten** sein. =\> Suche
-    nach **erstem Vorkommen**
-
-<!-- -->
-
--   `Matcher#matches`:
-
-    Regulärer Ausdruck muss auf **kompletten** Suchstring passen.
-
-###### Beispiel
-
--   Regulärer Ausdruck: `abc`, Suchstring: "blah blah abc blub"
-    -   `Matcher#find`: erfolgreich
-    -   `Matcher#matches`: kein Match - Suchstring entspricht nicht dem
-        Muster
-
-##### Quantifizierung
-
-| **Zeichenkette** | **Beschreibt**                                   |
-|:-----------------|:-------------------------------------------------|
-| `X?`             | ein oder kein "X"                                |
-| `X*`             | beliebig viele "X" (inkl. kein "X")              |
-| `X+`             | mindestens ein "X", ansonsten beliebig viele "X" |
-| `X{n}`           | exakt $n$ Vorkommen von "X"                      |
-| `X{n,}`          | mindestens $n$ Vorkommen von "X"                 |
-| `X{n,m}`         | zwischen $n$ und $m$ Vorkommen von "X"           |
-
-###### Beispiel
-
--   `\d{5}` =\> "12345"
--   `-?\d+\.\d*` =\> ???
-
-##### Interessante Effekte
-
-``` java
-Pattern p = Pattern.compile("A.*A");
-Matcher m = p.matcher("A 12 A 45 A");
-
-if (m.matches())
-    String result = m.group(); // ???
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/regexp/Quantifier.java">Demo: regexp.Quantifier</a></p>
-
-`Matcher#group` liefert die Inputsequenz, auf die der Matcher
-angesprochen hat. Mit `Matcher#start` und `Matcher#end` kann man sich
-die Indizes des ersten und letzten Zeichens des Matches im
-Eingabezeichenstrom geben lassen. D.h. für einen Matcher `m` und eine
-Eingabezeichenkette `s` ist `m.group()` und
-`s.substring(m.start(), m.end())` äquivalent.
-
-Da bei `Matcher#matches` das Pattern immer auf den gesamten Suchstring
-passen muss, verwundert das Ergebnis für `Matcher#group` nicht. Bei
-`Matcher#find` wird im Beispiel allerdings ebenfalls der gesamte
-Suchstring "gefunden" ... Dies liegt am "*greedy*" Verhalten der
-Quantifizierer.
-
-##### Nicht gierige Quantifizierung mit "?"
-
-| **Zeichenkette** | **Beschreibt**               |
-|:-----------------|:-----------------------------|
-| `X*?`            | non-greedy Variante von `X*` |
-| `X+?`            | non-greedy Variante von `X+` |
-
-###### Beispiel
-
--   Suchstring "A 12 A 45 A":
-    -   `A.*A` findet/passt auf "A 12 A 45 A"
-
-        normale **greedy** Variante
-
-    -   `A.*?A`
-
-        -   findet "A 12 A"
-        -   passt auf "A 12 A 45 A" (!)
-
-        **non-greedy** Variante der Quantifizierung; `Matcher#matches`
-        muss trotzdem auf den gesamten Suchstring passen!
-
-##### (Fangende) Gruppierungen
-
-`Studi{2}` passt nicht auf "StudiStudi" (!)
-
-Quantifizierung bezieht sich auf das direkt davor stehende Zeichen. Ggf.
-Gruppierungen durch Klammern verwenden!
-
-| **Zeichenkette** | **Beschreibt** |
-|:-----------------|:---------------|
-| `X\|Y`           | X oder Y       |
-| `(C)`            | Gruppierung    |
-
-###### Beispiel
-
--   `(A)(B(C))`
-    -   Gruppe 0: `ABC`
-    -   Gruppe 1: `A`
-    -   Gruppe 2: `BC`
-    -   Gruppe 3: `C`
-
-Die Gruppen heißen auch "fangende" Gruppen (engl.: *"capturing
-groups"*).
-
-Damit erreicht man eine Segmentierung des gesamten regulären Ausdrucks,
-der in seiner Wirkung aber nicht durch die Gruppierungen geändert wird.
-Durch die Gruppierungen von Teilen des regulären Ausdrucks erhält man
-die Möglichkeit, auf die entsprechenden Teil-Matches (der Unterausdrücke
-der einzelnen Gruppen) zuzugreifen:
-
--   `Matcher#groupCount`: Anzahl der "fangenden" Gruppen im regulären
-    Ausdruck
-
--   `Matcher#group(i)`: Liefert die Subsequenz der Eingabezeichenkette
-    zurück, auf die die jeweilige Gruppe gepasst hat. Dabei wird von
-    links nach rechts durchgezählt, beginnend bei 1(!).
-
-    Konvention: Gruppe 0 ist das gesamte Pattern, d.h.
-    `m.group(0) == m.group();` ...
-
-*Hinweis*: Damit der Zugriff auf die Gruppen klappt, muss auch erst ein
-Match gemacht werden, d.h. das Erzeugen des Matcher-Objekts reicht noch
-nicht, sondern es muss auch noch ein `matcher.find()` oder
-`matcher.matches()` ausgeführt werden. Danach kann man bei Vorliegen
-eines Matches auf die Gruppen zugreifen.
-
-`(Studi){2}` =\> "StudiStudi"
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/regexp/Groups.java">Demo: regexp.Groups</a></p>
-
-##### Gruppen und Backreferences
-
-Matche zwei Ziffern, gefolgt von den selben zwei Ziffern
-
-<div align="center">
-
-`(\d\d)\1`
-
-</div>
-
--   Verweis auf bereits gematchte Gruppen: `\num`
-
-    `num` Nummer der Gruppe (1 ... 9)
-
-    =\> Verweist nicht auf regulären Ausdruck, sondern auf jeweiligen
-    Match!
-
-    *Anmerkung*: Laut Literatur/Doku nur 1 ... 9, in Praxis geht auch
-    mehr per Backreference ...
-
-<!-- -->
-
--   Benennung der Gruppe: `(?<name>X)`
-
-    `X` ist regulärer Ausdruck für Gruppe, spitze Klammern wichtig
-
-    =\> Backreference: `\k<name>`
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/regexp/Backref.java">Demo: regexp.Backref</a></p>
-
-##### Beispiel Gruppen und Backreferences
-
-Regulärer Ausdruck: Namen einer Person matchen, wenn Vor- und Nachname
-identisch sind.
-
-Lösung: `([A-Z][a-zA-Z]*)\s\1`
-
-##### Umlaute und reguläre Ausdrücke
-
--   Keine vordefinierte Abkürzung für Umlaute (wie etwa `\d`)
-
--   Umlaute nicht in `[a-z]` enthalten, aber in `[a-ü]`
-
-    ``` java
-    "helloüA".matches(".*?[ü]A");
-    "azäöüß".matches("[a-ä]");
-    "azäöüß".matches("[a-ö]");
-    "azäöüß".matches("[a-ü]");
-    "azäöüß".matches("[a-ß]");
-    ```
-
--   Strings sind Unicode-Zeichenketten
-
-    =\> Nutzung der passenden Unicode Escape Sequence `\uFFFF`
-
-    ``` java
-    System.out.println("\u0041 :: A");
-    System.out.println("helloüA".matches(".*?A"));
-    System.out.println("helloüA".matches(".*?\u0041"));
-    System.out.println("helloü\u0041".matches(".*?A"));
-    ```
-
--   RegExp vordefinieren und mit Variablen zusammenbauen ala Perl nicht
-    möglich =\> Umweg String-Repräsentation
-
-##### Wrap-Up
-
--   RegExp: Zeichenketten, die andere Zeichenketten beschreiben
--   `java.util.regex.Pattern` und `java.util.regex.Matcher`
--   Unterschied zwischen `Matcher#find` und `Matcher#matches`!
--   Quantifizierung ist möglich, aber **greedy** (Default)
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k1: Ich kenne die wichtigsten Methoden von java.util.regex.Pattern
->     und java.util.regex.Matcher
-> -   k2: Ich kann den Unterschied zwischen Matcher#find und
->     Matcher#matches erklären
-> -   k2: Ich kann zwischen greedy und non-greedy Verhalten bei
->     regulären Ausdrücken unterscheiden
-> -   k3: Ich kann einfache reguläre Ausdrücke bilden
-> -   k3: Ich kann Zeichenklassen und deren Negation einsetzen
-> -   k3: Ich kann die vordefinierten regulären Ausdrücke einsetzen
-> -   k3: Ich kann Quantifizierer gezielt einsetzen
-> -   k3: Ich kann komplexe Ausdrücke (u.a. mit Gruppen) konstruieren
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> Schreiben Sie eine Methode, die mit Hilfe von regulären Ausdrücken
-> überprüft, ob der eingegebene String eine nach dem folgenden Schema
-> gebildete EMail-Adresse ist:
->
-> <div align="center">
->
-> `name@firma.domain`
->
-> </div>
->
-> Dabei sollen folgende Regeln gelten:
->
-> -   Die Bestandteile `name` und `firma` können aus Buchstaben,
->     Ziffern, Unter- und Bindestrichen bestehen.
-> -   Der Bestandteil `name` muss mindestens ein Zeichen lang sein.
-> -   Der Bestandteil `firma` kann entfallen, dann entfällt auch der
->     nachfolgende Punkt (`.`) und der Teil `domain` folgt direkt auf
->     das `@`-Zeichen.
-> -   Der Bestandteil `domain` besteht aus 2 oder 3 Kleinbuchstaben.
->
-> Hinweis: Sie dürfen keinen Oder-Operator verwenden.
->
-> </details>
-
-<a id="id-b7dfad1ad3e9e01252e54933152728b9552b3735"></a>
-
-#### Annotationen
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Annotationen sind Metadaten zum Programm: Sie haben keinen (direkten)
-> Einfluss auf die Ausführung des annotierten Codes, sondern enthalten
-> Zusatzinformationen über ein Programm, die selbst nicht Teil des
-> Programms sind. Verschiedene Tools werten Annotationen aus,
-> beispielsweise der Compiler, Javadoc, JUnit, ...
->
-> Annotationen können auf Deklarationen (Klassen, Felder, Methoden)
-> angewendet werden und werden meist auf eine eigene Zeile geschrieben
-> (Konvention).
->
-> Annotationen können relativ einfach selbst erstellt werden: Die
-> Definition ist fast wie bei einem Interface. Zusätzlich kann man noch
-> über Meta-Annotationen die Sichtbarkeit, Verwendbarkeit und
-> Dokumentation einschränken. Annotationen können zur Übersetzungszeit
-> mit einem Annotation-Processor verarbeitet werden oder zur Laufzeit
-> über Reflection ausgewertet werden.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Annotationen](https://youtu.be/7u4_I4W_1JY)
-> -   [Demo Annotationen: `@Override`,
->     `@Deprecated`](https://youtu.be/wt-Dq_Nv5UU)
-> -   [Demo `@NotNull`](https://youtu.be/ayWWf_ALObs)
-> -   [Demo Annotationen selbst gebastelt](https://youtu.be/8vTMgYCstLE)
-> -   [Demo Annotation-Prozessor](https://youtu.be/ypHMxunNZpg)
->
-> </details>
-
-##### Was passiert hier?
-
-``` java
-public class A {
-    public String getInfo() { return "Klasse A"; }
-}
-
-public class B extends A {
-    public String getInfo(String s) { return s + "Klasse B"; }
-
-    public static void main(String[] args) {
-        B s = new B();
-        System.out.println(s.getInfo("Info: "));
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/annotations/B.java">Beispiel: annotations.B</a></p>
-
-**Hilft `@Override`?**
-
-Tja, da sollte wohl die Methode `B#getInfo` die geerbte Methode
-`A#getInfo` **überschreiben**. Dummerweise wird hier die Methode aber
-nur **überladen** (mit entsprechenden Folgen beim Aufruf)!
-
-Ein leider relativ häufiges Versehen, welches u.U. schwer zu finden ist.
-Annotationen (hier `@Override`) können dagegen helfen - der Compiler
-"weiß" dann, dass wir überschreiben wollen und meckert, wenn wir das
-nicht tun.
-
-IDEs wie Eclipse können diese Annotation bereits beim Erstellen einer
-Klasse generieren:
-`Preferences > Java > Code Style > Add @Override annotation ...`.
-
-##### Annotationen: Metadaten für Dritte
-
--   **Zusatzinformationen** für Tools, Bibliotheken, ...
--   Kein direkter Einfluss auf die Ausführung des annotierten Codes
-
-<!-- -->
-
--   Beispiele:
-    -   Compiler (JDK): `@Override`, `@Deprecated`, ...
-    -   Javadoc: `@author`, `@version`, `@see`, `@param`, `@return`, ...
-    -   JUnit: `@Test`, `@Before`, `@BeforeClass`, `@After`,
-        `@AfterClass`
-    -   [IntelliJ](https://www.jetbrains.com/help/idea/annotating-source-code.html#jetbrains-annotations):
-        `@NotNull`, `@Nullable`
-    -   [Checker
-        Framework](https://github.com/typetools/checker-framework):
-        `@NonNull`, `@Nullable`, ...
-    -   [Project Lombok](https://github.com/projectlombok/lombok):
-        `@Getter`, `@Setter`, `@NonNull`, ...
-    -   Webservices: `@WebService`, `@WebMethod`
-    -   ...
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/annotations/B.java">Demo: annotations.B: @Override, @Deprecated</a></p>
-
-Jetzt schauen wir uns erst einmal die Auswirkungen von `@Override` und
-`@Deprecated` auf den Compiler (via Eclipse) an. Anschließend lernen Sie
-die Dokumentation mittels Javadoc-Annotationen kennen.
-
-Das Thema JUnit ist in einer anderen VL dran. Webservices ereilen Sie
-dann in späteren Semestern :-)
-
-###### @Override
-
-Die mit `@Override` annotierte Methode überschreibt eine Methode aus der
-Oberklasse oder implementiert eine Methode einer Schnittstelle. Dies
-wird durch den Compiler geprüft und ggf. mit einer Fehlermeldung
-quittiert.
-
-`@Override` ist eine im JDK im Paket `java.lang` enthaltene Annotation.
-
-###### @Deprecated
-
-Das mit `@Deprecated` markierte Element ist veraltet ("*deprecated*")
-und sollte nicht mehr benutzt werden. Typischerweise werden so markierte
-Elemente in zukünftigen Releases aus der API entfernt ...
-
-Die Annotation `@Deprecated` wird direkt im Code verwendet und
-entspricht der Annotation `@deprecated` im Javadoc. Allerdings kann
-letzteres nur von Javadoc ausgewertet werden.
-
-`@Deprecated` ist eine im JDK im Paket `java.lang` enthaltene
-Annotation.
-
-###### Weitere Annotationen aus *java.lang*
-
-Im Paket `java.lang` finden sich weitere Annotationen. Mit Hilfe von
-`@SuppressWarnings` lassen sich bestimmte Compilerwarnungen unterdrücken
-(**so etwas sollte man NIE tun!**), und mit `@FunctionalInterface`
-lassen sich Schnittstellen auszeichnen, die genau eine (abstrakte)
-Methode besitzen (Verweis auf spätere Vorlesung).
-
-Weitere Annotationen aus dem JDK finden sich in den Paketen
-`java.lang.annotation` und `javax.annotation`.
-
-##### Dokumentation mit Javadoc
-
-``` java
-/**
- * Beschreibung Beschreibung Beschreibung
- *
- * @param date Tag, Wert zw. 1 .. 31
- * @return true, falls Datum gesetzt wurde; false sonst
- * @see java.util.Calendar
- * @deprecated As of JDK version 1.1
- */
-public boolean setDate(int date) {
-    setField(Calendar.DATE, date);
-}
-```
-
-Die Dokumentation mit Javadoc hatten wir uns bereits in der Einheit
-["Javadoc"](#id-1a29f4d878c0dfd2692190d1ba8be56516408629) angesehen.
-
-Hier noch einmal exemplarisch die wichtigsten Elemente, die an
-"`public`" sichtbaren Methoden verwendet werden.
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/annotations/B.java">Beispiel: annotations.B (Javadoc)</a></p>
-
-##### @NotNull mit IntelliJ
-
-[IntelliJ](https://www.jetbrains.com/help/idea/annotating-source-code.html)
-bietet im Paket `org.jetbrains.annotations` u.a. die Annotation
-`@NotNull` an.
-
-Damit lassen sich Rückgabewerte von Methoden sowie Variablen (Attribute,
-lokale Variablen, Parameter) markieren: Diese dürfen nicht `null`
-werden.
-
-IntelliJ prüft beim Compilieren, dass diese Elemente nicht `null` werden
-und warnt gegebenenfalls (zur Compilezeit). Zusätzlich baut IntelliJ
-entsprechende Assertions in den Code ein, die zur Laufzeit einen
-`null`-Wert abfangen und dann das Programm abbrechen.
-
-Dadurch können entsprechende Dokumentationen im Javadoc und/oder
-manuelle Überprüfungen im Code entfallen. Außerdem hat man durch die
-Annotation gewissermaßen einen sichtbaren Vertrag (*Contract*) mit den
-Nutzern der Methode. Bei einem Aufruf mit `null` würde dieser Contract
-verletzt und eine entsprechende Exception geworfen (automatisch) statt
-einfach das Programm und die JVM "abzuschießen".
-
-Nachteil: Die entsprechende Bibliothek muss bei allen Entwicklern
-vorhanden und in das Projekt eingebunden sein.
-
-``` java
-/* o should not be null */
-public void bar(Object o) {
-    int i;
-    if (o != null) {
-        i = o.hashCode();
-    }
-}
-```
-
-``` java
-/* o must not be null */
-public void foo(@NotNull Object o) {
-    // assert(o != null);  //  Wirkung (von IntelliJ eingefügt)
-    int i = o.hashCode();
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/annotations/WuppieAnnotation.java">Demo: annotations.WuppieAnnotation: @NotNull</a></p>
-
-###### IntelliJ inferiert mit @NotNull mögliche *null*-Werte
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/screenshot_infer-notnull.png"  /></p>
-
-###### IntelliJ baut bei @NotNull passende Assertions ein
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/screenshot_nullpointerexception-notnull.png"  /></p>
-
-##### Eigene Annotationen erstellen
-
-In Java kann man sich selbst Annotationen definieren mit dem
-Schlüsselwort `@interface`.
-
-Annotationen können Parameter bekommen und im Javadoc dokumentiert sein.
-Es gibt die Möglichkeit zu definieren, wo im Code die eigenen
-Annotationen verwendet werden dürfen (Auszeichnung mit der Annotation
-`@Target`). Ebenso kann über die Annotation `@Retention` festgelegt
-werden, wann im Verarbeitungsprozess der Java-Sourcen bzw. des
--Bytecodes die eigenen Annotationen sichtbar sein sollen.
-
-``` java
-public @interface MyFirstAnnotation {}
-
-public @interface MyThirdAnnotation {
-    String author();
-
-    int vl() default 1;
-}
-
-@MyFirstAnnotation
-@MyThirdAnnotation(author = "Carsten Gips", vl = 3)
-public class C {}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/annotations/C.java">Demo: annotations.C</a></p>
-
-###### Definition einer Annotation
-
-Definition einer Annotation wie Interface, aber mit "`@`"-Zeichen vor
-dem `interface`-Schlüsselwort
-
-###### Parameter für Annotation
-
-Parameter für Annotation werden über entsprechende Methoden-Deklaration
-realisiert
-
--   "Rückgabetyp" der deklarierten "Methode" ist der erlaubte Typ der
-    später verwendeten Parameter
-
--   Name der "Methoden" wird bei der Belegung der Parameter verwendet,
-    beispielsweise `author = ...`
-
--   Vereinfachung: "Methodenname" `value` erlaubt das Weglassen des
-    Schlüsselworts bei der Verwendung:
-
-    ``` java
-    public @interface MySecondAnnotation {
-        String value();
-    }
-
-    @MySecondAnnotation("wuppie")
-    public class D {}
-
-    @MySecondAnnotation(value = "wuppie")
-    public class E {}
-    ```
-
--   Defaultwerte mit dem nachgestellten Schlüsselwort `default` sowie
-    dem Defaultwert selbst
-
-###### Dokumentation der Annotation mit/im Javadoc
-
-Soll die Annotation in der Javadoc-Doku dargestellt werden, muss sie mit
-der Meta-Annotation `@Documented` ausgezeichnet werden (aus
-`java.lang.annotation.Documented`)
-
-*Hinweis*: Die Annotation wird lediglich in die Doku aufgenommen, d.h.
-es erfolgt keine weitere Verarbeitung oder Hervorhebung o.ä.
-
-###### Wann ist eine Annotation sichtbar (Beschränkung der Sichtbarkeit mit `@Retention`)
-
-Annotationen werden vom Compiler und/oder anderen Tools ausgewertet. Man
-kann entsprechend die Sichtbarkeit einer Annotation beschränken: Sie
-kann ausschließlich im Source-Code verfügbar sein, sie kann in der
-generierten Class-Datei eingebettet sein oder sie kann sogar zur
-Laufzeit (mittels *Reflection*, vgl. spätere Vorlesung) ausgelesen
-werden.
-
-Beschränkung der Sichtbarkeit: Meta-Annotation `@Retention` aus
-`java.lang.annotation.Retention`
-
--   `RetentionPolicy.SOURCE`: Nur Bestandteil der Source-Dateien, wird
-    nicht in kompilierten Code eingebettet
--   `RetentionPolicy.CLASS`: Wird vom Compiler in die Class-Datei
-    eingebettet, steht aber zur Laufzeit *nicht* zur Verfügung
-    (Standardwert, wenn nichts angegeben)
--   `RetentionPolicy.RUNTIME`: Wird vom Compiler in die Class-Datei
-    eingebettet und steht zur Laufzeit zur Verfügung und kann via
-    *Reflection*[^7] ausgelesen werden
-
-Ohne explizite Angabe gilt für die selbst definierte Annotation die
-Einstellung `RetentionPolicy.CLASS`.
-
-###### Wo darf eine Annotation verwendet werden
-
-####### Anwendungsmöglichkeiten von Annotationen im Code
-
-``` java
-@ClassAnnotation
-public class Wuppie {
-    @InstanceFieldAnnotation
-    private String foo;
-
-    @ConstructorAnnotation
-    public Wuppie() {}
-
-    @MethodAnnotation1
-    @MethodAnnotation2
-    @MethodAnnotation3
-    public void fluppie(@ParameterAnnotation final Object arg1) {
-        @VariableAnnotation
-        final String bar = (@TypeAnnotation String) arg1;
-    }
-}
-```
-
-####### Einschränkung des Einsatzes eines Annotation mit `@Target`
-
-Für jede Annotation kann eingeschränkt werden, wo (an welchen
-Java-Elementen) sie verwendet werden darf.
-
-Beschränkung der Verwendung: Meta-Annotation `@Target` aus
-`java.lang.annotation.Target`
-
--   `ElementType.TYPE`: alle Typdeklarationen: Klassen, Interfaces,
-    Enumerations, ...
--   `ElementType.CONSTRUCTOR`: nur Konstruktoren
--   `ElementType.METHOD`: nur Methoden
--   `ElementType.FIELD`: nur statische Variablen und Objektvariablen
--   `ElementType.PARAMETER`: nur Parametervariablen
--   `ElementType.PACKAGE`: nur an Package-Deklarationen
-
-Ohne explizite Angabe ist die selbst definierte Annotation für alle
-Elemente verwendbar.
-
-##### Annotationen beim Compilieren bearbeiten: Java Annotation-Prozessoren
-
-Der dem `javac`-Compiler vorgelegte Source-Code wird eingelesen und in
-einen entsprechenden Syntax-Tree (*AST*) transformiert (dazu mehr im
-Modul "Compilerbau" :)
-
-Anschließend können sogenannte "Annotation Processors" über den AST
-laufen und ihre Analysen machen und/oder den AST modifizieren. (Danach
-kommen die üblichen weiteren Analysen und die Code-Generierung.)
-
-(Vgl. [OpenJDK: Compilation
-Overview](https://openjdk.java.net/groups/compiler/doc/compilation-overview/index.html).)
-
-An dieser Stelle kann man sich einklinken und einen eigenen
-Annotation-Prozessor ausführen lassen. Zur Abgrenzung: Diese Auswertung
-der Annotationen findet zur **Compile-Zeit** statt! In einer späteren
-Vorlesung werden wir noch über die Auswertung zur **Laufzeit** sprechen:
-*Reflection*.
-
-Im Prinzip muss man lediglich das Interface
-`javax.annotation.processing.Processor` implementieren oder die
-abstrakte Klasse `javax.annotation.processing.AbstractProcessor`
-erweitern. Für die Registrierung im `javac` muss im Projekt (oder
-Jar-File) die Datei
-`META-INF/services/javax.annotation.processing.Processor` angelegt
-werden, die den vollständigen Namen des Annotation-Prozessors enthält.
-Dieser Annotation-Prozessor wird dann vom `javac` aufgerufen und läuft
-in einer eigenen JVM. Er kann die Annotationen, für die er registriert
-ist, auslesen und verarbeiten und neue Java-Dateien schreiben, die
-wiederum eingelesen und compiliert werden.
-
-Im nachfolgenden Beispiel beschränke ich mich auf das Definieren und
-Registrieren eines einfachen Annotation-Prozessors, der lediglich die
-Annotationen liest.
-
-``` java
-@SupportedAnnotationTypes("annotations.MySecondAnnotation")
-@SupportedSourceVersion(SourceVersion.RELEASE_21)
-public class Foo extends AbstractProcessor {
-    @Override
-    public boolean process(Set<? extends TypeElement> as, RoundEnvironment re) {
-        for (TypeElement annot : as) {
-            for (Element el : re.getElementsAnnotatedWith(annot)) {
-                processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE,
-                    "found @MySecondAnnotation at " + el);
-            }
-        }
-        return true;
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/META-INF/">Demo: annotations.C und annotations.Foo, META-INF</a></p>
-
-1.  Der Annotation-Processor sollte von `AbstractProcessor` ableiten
-2.  Über `@SupportedAnnotationTypes` teilt man mit, für welche
-    Annotationen sich der Prozessor interessiert (d.h. für welche er
-    aufgerufen wird); "`*`" oder eine Liste mit String ist auch möglich
-3.  Mit `@SupportedSourceVersion` wird die (höchste) unterstützte
-    Java-Version angegeben (neuere Versionen führen zu einer Warnung)
-4.  Die Methode `process` erledigt die Arbeit:
-    -   Der erste Parameter enthält alle gefundenen Annotationen, für
-        die der Processor registriert ist
-    -   Der zweite Parameter enthält die damit annotierten Elemente
-    -   Iteration: Die äußere Schleife läuft über alle gefundenen
-        Annotationen, die innere über die mit der jeweiligen Annotation
-        versehenen Elemente
-    -   Jetzt könnte man mit den Elementen etwas sinnvolles anfangen,
-        beispielsweise alle Attribute sammeln, die mit `@Getter`
-        markiert sind und für diese neuen Code generieren
-    -   Im Beispiel wird lediglich der eigene Logger
-        (`processingEnv.getMessager()`) aufgerufen, um beim
-        Compiliervorgang eine Konsolenmeldung zu erzeugen ...
-5.  Der Annotation-Processor darf keine Exception werfen, da sonst der
-    Compiliervorgang abgebrochen würde. Zudem wäre der Stack-Trace der
-    des Annotation-Processors und nicht der des compilierten Programms
-    ... Stattdessen wird ein Boolean zurückgeliefert, um anzudeuten, ob
-    die Verarbeitung geklappt hat.
-
-Für ein umfangreicheres Beispiel mit Code-Erzeugung vergleiche
-beispielsweise die Artikelserie unter
-[cloudogu.com/en/blog/Java-Annotation-Processors_1-Intro](https://cloudogu.com/en/blog/Java-Annotation-Processors_1-Intro).
-Siehe auch [OpenJDK: Compilation
-Overview](https://openjdk.java.net/groups/compiler/doc/compilation-overview/index.html).
-
-Im Projekt muss jetzt noch der Ordner `META-INF/services/` angelegt
-werden mit der Datei `javax.annotation.processing.Processor`. Deren
-Inhalt ist für das obige Beispiel die Zeile `annotations.Foo`. Damit ist
-der Annotation-Processor `annotations.Foo` für das Übersetzen im eigenen
-Projekt registriert.
-
-Zum Compilieren des Annotation-Processors selbst ruft man beispielsweise
-folgenden Befehl auf:
-
-    javac -cp . -proc:none annotations/Foo.java
-
-Die Option `-proc:none` sorgt für das Beispiel dafür, dass beim
-Compilieren des Annotation-Processors dieser nicht bereits aufgerufen
-wird (was sonst wg. der Registrierung über
-`META-INF/services/javax.annotation.processing.Processor` passieren
-würde).
-
-Zum Compilieren der Klasse `C` kann man wie sonst auch den Befehl
-nutzen:
-
-    javac -cp . annotations/C.java
-
-Dabei läuft dann der Annotation-Processor `annotations.Foo` und erzeugt
-beim Verarbeiten von `annotations.C` die folgende Ausgabe:
-
-    Note: found @MySecondAnnotation at main(java.lang.String[])
-
-##### Wrap-Up
-
--   Annotationen: Metadaten zum Programm
-
-    -   **Zusatzinformationen** über ein Programm, aber nicht selbst
-        Teil des Programms
-    -   **Kein (direkter) Einfluss** auf die **Ausführung** des
-        annotierten Codes
-
-<!-- -->
-
--   Typische Anwendungen: Compiler-Hinweise, Javadoc, Tests
-
-    -   Compiler: Erkennen von logischen Fehlern, Unterdrücken von
-        Warnungen =\> `java.lang`: `@Override`, `@Deprecated`,
-        `@SuppressWarnings`
-    -   Javadoc: Erkennen von Schlüsselwörtern (`@author`, `@return`,
-        `@param`, ...)
-    -   JUnit: Erkennen von Tests-Methoden (`@Test`)
-    -   ...
-
-<!-- -->
-
--   Annotationen können auf Deklarationen (Klassen, Felder, Methoden)
-    angewendet werden
--   Annotationen können relativ einfach selbst erstellt werden
-    -   Definition fast wie ein Interface
-    -   Einstellung der Sichtbarkeit und Verwendbarkeit und
-        Dokumentation über Meta-Annotationen
--   Verarbeitung von Annotationen zur Compilier-Zeit mit
-    Annotation-Processor
--   Verarbeitung von Annotationen zur Laufzeit mit Reflection (siehe
-    spätere VL)
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Ullenboom ([2021, 10.8](#ref-Ullenboom2021) und 23.4)
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Oracle Corporation ([2025](#ref-LernJava))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kann den Begriff der 'Annotation' erklären an einem
->     Beispiel
-> -   k3: Ich kann `@Override` und auch die Javadoc-Annotationen
->     praktisch anwenden
-> -   k3: Ich kann eigene Annotationen erstellen und dabei die
->     Sichtbarkeit und Verwendbarkeit einstellen
-> -   k3: Ich kann einen eigenen einfachen Annotation-Processors
->     erstellen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> Schreiben Sie drei eigene Annotationen:
->
-> -   `@MeineKlasse` darf nur an Klassendefinitionen stehen und
->     speichert den Namen des Autoren ab.
-> -   `@MeineMethode` darf nur an Methoden stehen.
-> -   `@TODO` darf an Methoden und Klassen stehen, ist aber nur in den
->     Source-Dateien sichtbar.
->
-> Implementieren Sie einen Annotation-Prozessor, welcher Ihren Quellcode
-> nach der `@MeineKlasse`-Annotation durchsucht und dann den Namen der
-> Klasse und den Namen des Autors ausgibt.
->
-> Zeigen Sie die Funktionen anhand einer Demo.
-> </details>
-
-<a id="id-359cf00c9c9fee1016f00310e99654e8f237b413"></a>
-
-#### Generics: Generische Klassen & Methoden
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Generische Klassen und Methoden sind ein wichtiger Baustein in der
-> Programmierung mit Java. Dabei werden Typ-Variablen eingeführt, die
-> dann bei der Instantiierung der generischen Klassen oder beim Aufruf
-> von generischen Methoden mit existierenden Typen konkretisiert werden
-> ("Typ-Parameter").
->
-> Syntaktisch definiert man die Typ-Variablen in spitzen Klammern hinter
-> dem Klassennamen bzw. vor dem Rückgabetyp einer Methode:
-> `public class Stack<E> { }` und `public <T> T foo(T m) { }`.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Generische Klassen & Methoden](https://youtu.be/k6MFPW-shh8)
-> -   [Demo Generische Methoden](https://youtu.be/ekXBXge6VvE)
->
-> </details>
-
-##### Generische Strukturen
-
-``` java
-Vector speicher = new Vector();
-speicher.add(1); speicher.add(2); speicher.add(3);
-speicher.add("huhu");
-
-int summe = 0;
-for (Object i : speicher) { summe += (Integer)i; }
-```
-
-Problem: Nutzung des "*raw*" Typs `Vector` ist nicht typsicher!
-
--   Mögliche Fehler fallen erst zur Laufzeit und u.U. erst sehr spät
-    auf: Offenbar werden im obigen Beispiel `int`-Werte erwartet, d.h.
-    das Hinzufügen von `"huhu"` ist vermutlich ein Versehen (wird vom
-    Compiler aber nicht bemerkt)
--   Die Iteration über `speicher` kann nur allgemein als `Object`
-    erfolgen, d.h. in der Schleife muss auf den vermuteten/gewünschten
-    Typ gecastet werden: Hier würde dann der String `"huhu"` Probleme
-    zur Laufzeit machen
-
-``` java
-Vector<Integer> speicher = new Vector<Integer>();
-speicher.add(1); speicher.add(2); speicher.add(3);
-speicher.add("huhu");
-
-int summe = 0;
-for (Integer i : speicher) { summe += i; }
-```
-
-Vorteile beim Einsatz von Generics:
-
--   Datenstrukturen/Algorithmen nur einmal implementieren, aber für
-    unterschiedliche Typen nutzen
--   Keine Vererbungshierarchie nötig
--   Nutzung ist typsicher, Casting unnötig
--   Geht nur für Referenztypen
--   Beispiel: Collections-API
-
-##### Generische Klassen/Interfaces definieren
-
--   **Definition**: "`<Typ>`" hinter Klassennamen
-
-    ``` java
-    public class Stack<E> {
-        public E push(E item) {
-            addElement(item);
-            return item;
-        }
-    }
-    ```
-
-    -   `Stack<E>` =\> Generische (parametrisierte) Klasse (auch:
-        "*generischer Typ*")
-    -   `E` =\> Formaler Typ-Parameter (auch: "*Typ-Variable*")
-
-<!-- -->
-
--   **Einsatz**:
-
-    ``` java
-    Stack<Integer> stack = new Stack<Integer>();
-    ```
-
-    -   `Integer` =\> Typ-Parameter
-    -   `Stack<Integer>` =\> Parametrisierter Typ
-
-##### Generische Klassen instantiieren
-
--   Typ-Parameter in spitzen Klammern hinter Klasse bzw. Interface
-
-    ``` java
-    ArrayList<Integer> il = new ArrayList<Integer>();
-    ArrayList<Double>  dl = new ArrayList<Double>();
-    ```
-
-##### Beispiel I: Einfache generische Klassen
-
-``` java
-class Tutor<T> {
-    // T kann in Tutor *fast* wie Klassenname verwendet werden
-    private T x;
-    public T foo(T t) { ... }
-}
-```
-
-``` java
-Tutor<String>  a = new Tutor<String>();
-Tutor<Integer> b = new Tutor<>();  // ab Java7: "Diamond Operator"
-
-a.foo("wuppie");
-b.foo(1);
-b.foo("huhu");  // Fehlermeldung vom Compiler
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/classes/GenericClasses.java">Beispiel: classes.GenericClasses</a></p>
-
-###### Typ-Inferenz
-
-Typ-Parameter kann bei `new()` auf der rechten Seite oft weggelassen
-werden =\> **Typ-Inferenz**
-
-``` java
-Tutor<String> x = new Tutor<>();  // <>: "Diamantoperator"
-```
-
-(gilt seit Java 1.7)
-
-##### Beispiel II: Vererbung mit Typparametern
-
-``` java
-interface Fach<T1, T2> {
-    public void machWas(T1 a, T2 b);
-}
-
-class SHK<T> extends Tutor<T> { ... }
-
-class PM<X, Y, Z> implements Fach<X, Z> {
-    public void machWas(X a, Z b) { ... }
-    public Y getBla() { ... }
-}
-
-class Studi<A,B> extends Person { ... }
-class Properties extends Hashtable<Object,Object> { ... }
-```
-
-Auch Interfaces und abstrakte Klassen können parametrisierbar sein.
-
-Bei der Vererbung sind alle Varianten bzgl. der Typ-Variablen denkbar.
-Zu beachten ist dabei vor allem, dass die Typ-Variablen der Oberklasse
-(gilt analog für Interfaces) entweder durch Typ-Variablen der
-Unterklasse oder durch konkrete Typen spezifiziert sind. Die
-Typ-Variablen der Oberklasse dürfen nicht "in der Luft hängen" (siehe
-auch nächste Folie)!
-
-##### Beispiel III: Überschreiben/Überladen von Methoden
-
-``` java
-class Mensch { ... }
-
-class Studi<T extends Mensch> {
-    public void f(T t) { ... }
-}
-
-class Prof<T> extends Mensch { ... }
-
-class Tutor extends Studi<Mensch> {
-    public void f(Mensch t) { ... }      // Ueberschreiben
-    public void f(Tutor t) { ... }       // Ueberladen
-}
-```
-
-##### Vorsicht: So geht es nicht!
-
-``` java
-class Foo<T> extends T { ... }
-
-class Fluppie<T> extends Wuppie<S> { ... }
-```
-
--   Generische Klasse `Foo<T>` kann nicht selbst vom Typ-Parameter `T`
-    ableiten (warum?)
--   Bei Ableiten von generischer Klasse `Wuppie<S>` muss deren
-    Typ-Parameter `S` bestimmt sein: etwa durch den Typ-Parameter der
-    ableitenden Klasse, beispielsweise `Fluppie<S>` (statt `Fluppie<T>`)
-
-##### Generische Methoden definieren
-
--   "`<Typ>`" vor Rückgabetyp
-
-    ``` java
-    public class Mensch {
-        public <T> T myst(T m, T n) {
-            return Math.random() > 0.5 ? m : n;
-        }
-    }
-    ```
-
-<!-- -->
-
--   "Mischen possible":
-
-    ``` java
-    public class Mensch<E> {
-        public <T> T myst(T m, T n) { ... }
-        public String myst(String m, String n) { ... }
-    }
-    ```
-
-##### Aufruf generischer Methoden
-
-###### Aufruf
-
--   Aufruf mit Typ-Parameter vor Methodennamen, oder
--   Inferenz durch Compiler
-
-###### Finden der richtigen Methode durch den Compiler
-
-1.  Zuerst Suche nach exakt passender Methode,
-2.  danach passend mit Konvertierungen =\> Compiler sucht gemeinsame
-    Oberklasse in Typhierarchie
-
-###### Beispiel
-
-``` java
-class Mensch {
-    <T> T myst(T m, T n) { ... }
-}
-Mensch m = new Mensch();
-
-
-m.<String>myst("Essen", "lecker");  // Angabe Typ-Parameter
-
-
-m.myst("Essen", 1);          // String, Integer => T: Object
-m.myst("Essen", "lecker");   // String, String  => T: String
-m.myst(1.0, 1);              // Double, Integer => T: Number
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/methods/GenericMethods.java">Beispiel methods.GenericMethods</a></p>
-
-Reihenfolge der Suche nach passender Methode gilt auch für
-nicht-generisch überladene Methoden
-
-``` java
-class Mensch {
-    public <T> T myst(T m, T n) {
-        System.out.println("X#myst: T");
-        return m;
-    }
-
-    // NICHT gleichzeitig erlaubt wg. Typ-Löschung (s.u.):
-/*
-    public <T1, T2> T1 myst(T1 m, T2 n) {
-        System.out.println("X#myst: T");
-        return m;
-    }
-*/
-
-    public String myst(String m, String n) {
-        System.out.println("X#myst: String");
-        return m;
-    }
-
-    public int myst(int m, int n) {
-        System.out.println("X#myst: int");
-        return m;
-    }
-}
-
-
-public class GenericMethods {
-    public static void main(String[] args) {
-        Mensch m = new Mensch();
-
-        m.myst("Hello World", "m");
-        m.myst("Hello World", 1);
-        m.myst(3, 4);
-        m.myst(m, m);
-        m.<Mensch>myst(m, m);
-        m.myst(m, 1);
-        m.myst(3.0, 4);
-        m.<Double>myst(3, 4);
-    }
-}
-```
-
-##### Wrap-Up
-
--   Begriffe:
-    -   Generischer Typ: `Stack<T>`
-    -   Formaler Typ-Parameter: `T`
-    -   Parametrisierter Typ:`Stack<Long>`
-    -   Typ-Parameter: `Long`
-    -   Raw Type: `Stack`
-
-<!-- -->
-
--   Generische Klassen: `public class Stack<E> { }`
-    -   "`<Typ>`" hinter Klassennamen
-
-<!-- -->
-
--   Generische Methoden: `public <T> T foo(T m) { }`
-    -   "`<Typ>`" vor Rückgabewert
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Ullenboom ([2021, 11.1](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2025](#ref-LernJava))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Bloch ([2018](#ref-Bloch2018))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k1: Ich kenne die Begriffe 'generischer Typ', 'parametrisierter
->     Typ', 'formaler Typ-Parameter', 'Typ-Parameter'
-> -   k3: Ich kann generische Klassen und Interfaces definieren und
->     praktisch einsetzen
-> -   k3: Ich kann generische Methoden definieren und praktisch
->     einsetzen
->
-> </details>
-
-<a id="id-b5a72bc0878f8a0c3efaa1126dc28bfb1261adfb"></a>
-
-#### Generics: Bounds & Wildcards
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Typ-Variablen können weiter eingeschränkt werden, in dem man einen
-> verpflichtenden Ober- oder Untertyp angibt mit `extends` bzw. `super`.
-> Damit muss der später bei der Instantiierung verwendete Typ-Parameter
-> entweder die Oberklasse selbst sein oder davon ableiten (bei
-> `extends`) bzw. der Typ-Parameter muss eine Oberklasse der angegebenen
-> Schranke sein (`super`).
->
-> Durch die Einschränkung mit `extends` können in der Klasse/Methode auf
-> der Typ-Variablen alle Methoden des angegebenen Obertyps verwendet
-> werden.
->
-> Ein Wildcard (`?`) als Typ-Parameter steht für einen beliebigen Typ,
-> wobei die Typ-Variable keinen Namen bekommt und damit innerhalb der
-> Klasse/Methode nicht zugreifbar ist.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Generics: Bounds & Wildcards](https://youtu.be/OV2vEn2EkWo)
-> -   [Demo Wildcards](https://youtu.be/D2hIicsho7I)
->
-> </details>
-
-##### Bounds: Einschränken der generischen Typen
-
-``` java
-public class Cps<E extends Number> {
-    // Obere Schranke: E muss Number oder Subklasse sein
-    // => Zugriff auf Methoden aus Number moeglich
-}
-Cps<Double> a;
-Cps<Number> b;
-Cps<String> c;  // Fehler!!!
-```
-
--   Schlüsselwort `extends` gilt hier auch für Interfaces
-
--   Mehrere Interfaces: nach `extends` Klasse oder Interface, danach mit
-    "`&`" getrennt die restlichen Interfaces:
-
-    ``` java
-    class Cps<E extends KlasseOderInterface & I1 & I2 & I3> {}
-    ```
-
-*Anmerkung*: Der Typ-Parameter ist analog auch mit `super` (nach unten)
-einschränkbar
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/bounds/Cps.java">Beispiel bounds.Cps</a></p>
-
-##### Wildcards: Dieser Typ ist mir nicht so wichtig
-
-<div align="center">
-
-Wildcard mit "`?`" =\> steht für unbestimmten Typ
-
-</div>
-
-``` java
-public class Wuppie {
-    public void m1(List<?> a) { ... }
-    public void m2(List<? extends Number> b) { ... }
-}
-```
-
--   `m1`: `List` beliebig parametrisierbar =\> In `m1` für Objekte in
-    Liste `a` nur Methoden von `Object` nutzbar!
-
--   `m2`: `List` muss mit `Number` oder Subklasse parametrisiert werden.
-    =\> Dadurch für Objekte in Liste `b` alle Methoden von `Number`
-    nutzbar ...
-
-Weitere Eigenschaften:
-
--   Durch Wildcard kein Zugriff auf den Typ
--   Wildcard kann durch upper bound eingeschränkt werden
--   Geht nicht bei Klassen-/Interface-Definitionen
-
-Bloch ([2018](#ref-Bloch2018)): Nur für Parameter und nicht für
-Rückgabewerte nutzen!
-
-##### Hands-On: Ausgabe für generische Listen
-
-Ausgabe für Listen gesucht, die sowohl Elemente der Klasse `A` als auch
-Elemente der Klasse `B` enthalten können
-
-``` java
-class A { void printInfo() { System.out.println("A"); } }
-class B extends A { void printInfo() { System.out.println("B"); } }
-
-public class X {
-    public static void main(String[] args) {
-        List<A> x = new ArrayList<A>();
-        x.add(new A());  x.add(new B());
-        printInfo(x);    // Klassenmethode in X, gesucht
-        List<B> y = new ArrayList<B>();
-        y.add(new B());  y.add(new B());
-        printInfo(y);    // Klassenmethode in X, gesucht
-    }
-}
-```
-
-**Hinweis**: Dieses Beispiel beinhaltet auch Polymorphie bei/mit
-generischen Datentypen, bitte vorher auch das Video zum vierten Teil
-"Generics und Polymorphie" anschauen
-
-###### Erster Versuch (*A* und *B* und *main()* wie oben)
-
-``` java
-public class X {
-    public static void printInfo(List<A> list) {
-        for (A a : list) { a.printInfo(); }
-    }
-}
-```
-
-=\> **So gehts nicht!** Eine `List<B>` ist **keine** `List<A>` (auch
-wenn ein `B` ein `A` ist, vgl. spätere Sitzung zu Generics und Vererbung
-...)!
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/wildcards/v1/X.java">Beispiel wildcards.v1.X</a></p>
-
-###### Zweiter Versuch mit Wildcards (*A* und *B* und *main()* wie oben)
-
-``` java
-public class X {
-    public static void printInfo(List<?> list) {
-        for (Object a : list) { a.printInfo(); }
-    }
-}
-```
-
-=\> **So gehts auch nicht!** Im Prinzip passt das jetzt für `List<A>`
-und `List<B>`. Dummerweise hat man durch das Wildcard keinen Zugriff
-mehr auf den Typ-Parameter und muss für den Typ der Laufvariablen in der
-`for`-Schleife dann `Object` nehmen. Aber `Object` kennt unser
-`printInfo` nicht ... Außerdem könnte man die Methode `X#printInfo` dank
-des Wildcards auch mit allen anderen Typen aufrufen ...
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/wildcards/v2/X.java">Beispiel wildcards.v2.X</a></p>
-
-###### Dritter Versuch (Lösung) mit Wildcards und Bounds (*A* und *B* und *main()* wie oben)
-
-``` java
-public class X {
-    public static void printInfo(List<? extends A> list) {
-        for (A a : list) { a.printInfo(); }
-    }
-}
-```
-
-Das ist die Lösung. Man erlaubt als Argument nur `List`-Objekte und
-fordert, dass sie mit `A` oder einer Unterklasse von `A` parametrisiert
-sind. D.h. in der Schleife kann man sich auf den gemeinsamen Obertyp `A`
-abstützen und hat dann auch wieder die `printInfo`-Methode zur Verfügung
-...
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/wildcards/v3">Konsole wildcards.v3.X</a></p>
-
-##### Wrap-Up
-
--   Ein Wildcard (`?`) als Typ-Parameter steht für einen beliebigen Typ
-    -   Ist in Klasse oder Methode dann aber nicht mehr zugreifbar
-
-<!-- -->
-
--   Mit Bounds kann man Typ-Parameter nach oben oder nach unten
-    einschränken (im Sinne einer Vererbungshierarchie)
-    -   `extends`: Der Typ-Parameter muss eine Unterklasse eines
-        bestimmten Typen sein
-    -   `super`: Der Typ-Parameter muss eine Oberklasse eines bestimmten
-        Typen sein
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Ullenboom ([2021, 11.3](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2025](#ref-LernJava))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Bloch ([2018](#ref-Bloch2018))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k3: Ich kann Wildcards und Bounds bei generischen Klassen/Methoden
->     einsetzen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> **Spieler, Mannschaften und Ligen** Modellieren Sie in Java
-> verschiedene Spielertypen sowie generische Mannschaften und Ligen, die
-> jeweils bestimmte Spieler (-typen) bzw. Mannschaften aufnehmen können.
->
-> 1.  Implementieren Sie die Klasse `Spieler`, die das Interface
->     `ISpieler` erfüllt.
->
->     ``` java
->     public interface ISpieler {
->         String getName();
->     }
->     ```
->
-> 2.  Implementieren Sie die beiden Klassen `FussballSpieler` und
->     `BasketballSpieler` und sorgen Sie dafür, dass beide Klassen vom
->     Compiler als Spieler betrachtet werden (geeignete
->     Vererbungshierarchie).
->
-> 3.  Betrachten Sie das nicht-generische Interface `IMannschaft`.
->     Erstellen Sie daraus ein generisches Interface `IMannschaft` mit
->     einer Typ-Variablen. Stellen Sie durch geeignete Beschränkung der
->     Typ-Variablen sicher, dass nur Mannschaften mit von `ISpieler`
->     abgeleiteten Spielern gebildet werden können.
->
->     ``` java
->     public interface IMannschaft {
->         boolean aufnehmen(ISpieler spieler);
->         boolean rauswerfen(ISpieler spieler);
->     }
->     ```
->
-> 4.  Betrachten Sie das nicht-generische Interface `ILiga`. Erstellen
->     Sie daraus ein generisches Interface `ILiga` mit einer
->     Typvariablen. Stellen Sie durch geeignete Beschränkung der
->     Typvariablen sicher, dass nur Ligen mit von `IMannschaft`
->     abgeleiteten Mannschaften angelegt werden können.
->
->     ``` java
->     public interface ILiga {
->         boolean aufnehmen(IMannschaft mannschaft);
->         boolean rauswerfen(IMannschaft mannschaft);
->     }
->     ```
->
-> 5.  Leiten Sie von `ILiga` das **generische** Interface `IBundesLiga`
->     ab. Stellen Sie durch geeignete Formulierung der Typvariablen
->     sicher, dass nur Ligen mit Mannschaften angelegt werden können,
->     deren Spieler vom Typ `FussballSpieler` (oder abgeleitet) sind.
->
->     Realisieren Sie nun noch die Funktionalität von `IBundesLiga` als
->     **nicht-generisches** Interface `IBundesLiga2`.
->
-> </details>
-
-<a id="id-74a1e4a0fe24c2ac4e4d580db16b6f832fb2d888"></a>
-
-#### Generics: Type Erasure
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
-> Generics existieren eigentlich nur auf Quellcode-Ebene. Nach der
-> Typ-Prüfung etc. entfernt der Compiler alle generischen Typ-Parameter
-> und alle `<...>` (=\> "Type-Erasure"), d.h. im Byte-Code stehen nur
-> noch Raw-Typen bzw. die oberen Typ-Schranken der Typ-Parameter, in der
-> Regel `Object`. Zusätzlich baut der Compiler die nötigen Casts ein.
-> Als Anwender merkt man davon nichts, muss das "Type-Erasure" wegen der
-> Auswirkungen aber auf dem Radar haben!
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Generics: Type Erasure](https://youtu.be/vo0WKkPBMAM)
->
-> </details>
-
-##### Typ-Löschung (*Type-Erasure*)
-
-Der Compiler ersetzt nach Prüfung der Typen und ihrer Verwendung alle
-Typ-Parameter durch
-
-1.  deren obere (Typ-)Schranke und
-2.  passende explizite Cast-Operationen (im Byte-Code).
-
-Die obere Typ-Schranke ist in der Regel der Typ der ersten
-Bounds-Klausel oder `Object`, wenn keine Einschränkungen formuliert
-sind.
-
-Bei parametrisierten Typen wie `List<T>` wird der Typ-Parameter
-entfernt, es entsteht ein sogenannter *Raw*-Typ (`List`, quasi implizit
-mit `Object` parametrisiert).
-
-=\> Ergebnis: Nur **eine** (untypisierte) Klasse! Zur Laufzeit gibt es
-keine Generics mehr!
-
-**Hinweis**: In C++ ist man den anderen möglichen Weg gegangen und
-erzeugt für jede Instantiierung die passende Klasse. Siehe Modul
-"Systemprogrammierung" :)
-
-**Beispiel**: Aus dem folgenden harmlosen Code-Fragment:
-
-``` java
-class Studi<T> {
-    T myst(T m, T n) { return n; }
-
-    public static void main(String[] args) {
-        Studi<Integer> a = new Studi<>();
-        int i = a.myst(1, 3);
-    }
-}
-```
-
-wird nach der Typ-Löschung durch Compiler (das steht dann quasi im
-Byte-Code):
-
-``` java
-class Studi {
-    Object myst(Object m, Object n) { return n; }
-
-    public static void main(String[] args) {
-        Studi a = new Studi();
-        int i = (Integer) a.myst(1, 3);
-    }
-}
-```
-
-Die obere Schranke meist `Object` =\> `new T()` verboten/sinnfrei
-(s.u.)!
-
-##### Type-Erasure bei Nutzung von Bounds
-
-vor der Typ-Löschung durch Compiler:
-
-``` java
-class Cps<T extends Number> {
-    T myst(T m, T n) {
-        return n;
-    }
-
-    public static void main(String[] args) {
-        Cps<Integer> a = new Cps<>();
-        int i = a.myst(1, 3);
-    }
-}
-```
-
-nach der Typ-Löschung durch Compiler:
-
-``` java
-class Cps {
-    Number myst(Number m, Number n) {
-        return n;
-    }
-
-    public static void main(String[] args) {
-        Cps a = new Cps();
-        int i = (Integer) a.myst(1, 3);
-    }
-}
-```
-
-##### Raw-Types: Ich mag meine Generics "well done" :-)
-
-Raw-Types: Instanziierung ohne Typ-Parameter =\> `Object`
-
-``` java
-Stack s = new Stack(); // Stack von Object-Objekten
-```
-
--   Wegen Abwärtskompatibilität zu früheren Java-Versionen noch erlaubt.
--   Nutzung wird nicht empfohlen! (Warum?)
-
-###### Anmerkung
-
-Raw-Types darf man zwar selbst im Quellcode verwenden (so wie im
-Beispiel hier), **sollte** die Verwendung aber vermeiden wegen der
-Typ-Unsicherheit: Der Compiler sieht im Beispiel nur noch einen Stack
-für `Object`, d.h. dort dürfen Objekte aller Typen abgelegt werden - es
-kann keine Typprüfung durch den Compiler stattfinden. Auf einem
-`Stack<String>` kann der Compiler prüfen, ob dort wirklich nur
-`String`-Objekte abgelegt werden und ggf. entsprechend Fehler melden.
-
-Etwas anderes ist es, dass der Compiler im Zuge von Type-Erasure selbst
-Raw-Types in den Byte-Code schreibt. Da hat er vorher bereits die
-Typsicherheit geprüft und er baut auch die passenden Casts ein.
-
-Das Thema ist eigentlich nur noch aus Kompatibilität zu Java5 oder
-früher da, weil es dort noch keine Generics gab (wurden erst mit Java6
-eingeführt).
-
-##### Folgen der Typ-Löschung: *new*
-
-<div align="center">
-
-`new` mit parametrisierten Klassen ist nicht erlaubt!
-
-</div>
-
-``` java
-class Fach<T> {
-    public T foo() {
-        return new T();  // nicht erlaubt!!!
-    }
-}
-```
-
-Grund: Zur Laufzeit keine Klasseninformationen über `T` mehr
-
-Im Code steht `return (CAST) new Object();`. Das neue Object kann man
-anlegen, aber ein Cast nach irgendeinem anderen Typ ist sinnfrei: Jede
-Klasse ist ein Untertyp von `Object`, aber eben nicht andersherum.
-Außerdem fehlt dem Objekt vom Typ `Object` auch sämtliche Information
-und Verhalten, die der Cast-Typ eigentlich mitbringt ...
-
-##### Folgen der Typ-Löschung: *static*
-
-<div align="center">
-
-`static` mit generischen Typen ist nicht erlaubt!
-
-</div>
-
-``` java
-class Fach<T> {
-    static T t;                    // nicht erlaubt!!!
-    static Fach<T> c;              // nicht erlaubt!!!
-    static void foo(T t) { ... };  // nicht erlaubt!!!
-}
-
-Fach<String>  a;
-Fach<Integer> b;
-```
-
-Grund: Compiler generiert nur eine Klasse! Beide Objekte würden sich die
-statischen Attribute teilen (Typ zur Laufzeit unklar!).
-
-*Hinweis*: Generische (statische) Methoden sind erlaubt.
-
-##### Folgen der Typ-Löschung: *instanceof*
-
-<div align="center">
-
-`instanceof` mit parametrisierten Klassen ist nicht erlaubt!
-
-</div>
-
-``` java
-class Fach<T> {
-    void printType(Fach<?> p) {
-        if (p instanceof Fach<Number>)
-            ...
-        else if (p instanceof Fach<String>)
-            ...
-    }
-}
-```
-
-Grund: Unsinniger Code nach Typ-Löschung:
-
-``` java
-class Fach {
-void printType(Fach p) {
-    if (p instanceof Fach)
-        ...
-    else if (p instanceof Fach)
-        ...
-    }
-}
-```
-
-##### Folgen der Typ-Löschung: *.class*
-
-<div align="center">
-
-`.class` mit parametrisierten Klassen ist nicht erlaubt!
-
-</div>
-
-``` java
-boolean x;
-List<String>  a = new ArrayList<String>();
-List<Integer> b = new ArrayList<Integer>();
-
-x = (List<String>.class == List<Integer>.class);  // Compiler-Fehler
-x = (a.getClass() == b.getClass());               // true
-```
-
-Grund: Es gibt nur `List.class` (und kein `List<String>.class` bzw.
-`List<Integer>.class`)!
-
-##### Wrap-Up
-
--   Generics existieren eigentlich nur auf Quellcode-Ebene
--   "Type-Erasure":
-    -   Compiler entfernt nach Typ-Prüfungen etc. generische
-        Typ-Parameter etc. =\> im Byte-Code nur noch Raw-Typen bzw. die
-        oberen Typ-Schranken der Typ-Parameter, in der Regel `Object`
-    -   Compiler baut passende Casts in Byte-Code ein
-    -   Transparent für User; Auswirkungen beachten!
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Ullenboom ([2021, 12.2](#ref-Ullenboom2021) und 12.6)
-> -   Oracle Corporation ([2025](#ref-LernJava))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Bloch ([2018](#ref-Bloch2018))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich verstehe 'Typ-Löschung' bei Generics und kann die
->     Auswirkungen erklären
->
-> </details>
-
-<a id="id-4c89bee19163dac6a373bfc5c5b362e8ebe61ae3"></a>
-
-#### Generics: Generics und Polymorphie
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Auch mit generischen Klassen stehen die Mechanismen Vererbung und
-> Überladen zur Verfügung. Dabei muss aber beachtet werden, dass
-> generische Klassen sich **"invariant"** verhalten: Der Typ selbst
-> folgt der Vererbungsbeziehung, eine Vererbung des Typ-Parameters
-> begründet *keine* Vererbungsbeziehung! D.h. aus `U extends O` folgt
-> **nicht** `A<U> extends A<O>`.
->
-> Bei Arrays ist es genau anders herum: Wenn `U extends O` dann gilt
-> auch `U[] extends O[]` ... (Dies nennt man "*kovariantes*" Verhalten.)
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Generics und Polymorphie](https://youtu.be/RiTA43wTixQ)
->
-> </details>
-
-##### Generische Polymorphie
-
-<div align="center">
-
-`B<E> extends A<E>`
-
-</div>
-
-``` java
-class A<E> { ... }
-class B<E> extends A<E> { ... }
-
-A<Double> ad = new B<Double>();
-A<String> as = new B<String>();
-```
-
-``` java
-class Vector<E> { ... }
-class Stack<E> extends Vector<E> { ... }
-
-Vector<Double> vd = new Stack<Double>();
-Vector<String> vs = new Stack<String>();
-```
-
-=\> Polymorphie bei Generics bezieht sich auf **Typ** (nicht
-Typ-Parameter)
-
-**Invarianz**: Generics sind *invariant*, d.h. ein `HashSet<String>` ist
-ein Untertyp von `Set<String>`. Bei der Vererbung muss der Typ-Parameter
-identisch sein.
-
-##### Polymorphie bei Generics bezieht sich nur auf Typ!
-
-<div align="center">
-
-"`B extends A`" **bedeutet nicht** "`C<B> extends C<A>`"
-
-</div>
-
-``` java
-Stack<Number> s = new Stack<Integer>(); // DAS GEHT SO NICHT!
-
-// Folgen (wenn obiges gehen wuerde):
-s.push(new Integer(3)); // das ginge sowieso ...
-
-// Folgen (wenn obiges gehen wuerde):
-// Stack<Number> waere Oberklasse auch von Stack<Double>
-s.push(new Double(2.0)); // waere dann auch erlaubt ...
-
-// Das Objekt (Stack<Integer>) kann aber keine Double speichern!
-// Zur Laufzeit keine Typ-Informationen mehr!
-```
-
--   Typ-Löschung =\> zur Laufzeit keine Typinformationen vorhanden
--   Compiler muss Typen prüfen (können)!
-
-##### Abgrenzung: Polymorphie bei Arrays
-
-<div align="center">
-
-Wenn "`B extends A`" dann "`B[] extends A[]`"
-
-</div>
-
-``` java
-Object[] x = new String[] {"Hello", "World", ":-)"};
-x[0] = "Hallo";
-x[0] = new Double(2.0);  // Laufzeitfehler
-String[] y = x;  // String[] ist KEIN Object[]!!!
-```
-
--   Arrays besitzen Typinformationen über gespeicherte Elemente
--   Prüfung auf Typ-Kompatibilität zur **Laufzeit** (nicht
-    Kompilierzeit!)
-
-<p align="right"><a href="https://openbook.rheinwerk-verlag.de/javainsel/11_002.html#u11.2.2">Hinweis auf Java-Geschichte (Java-Insel: “Type Erasure”)</a></p>
-
-Arrays gab es sehr früh, Generics erst relativ spät (ab Java6) =\> bei
-Arrays fand man das Verhalten natürlich und pragmatisch (trotz der
-Laufzeit-Überprüfung).
-
-Bei der Einführung von Generics musste man Kompatibilität sicherstellen
-(alter Code soll auch mit neuen Compilern übersetzt werden können -
-obwohl im alten Code Raw-Types verwendet werden). Außerdem wollte man
-von Laufzeit-Prüfung hin zu Compiler-Prüfung. Da würde das von Arrays
-bekannte Verhalten Probleme machen ...
-
-**Kovarianz**: Arrays sind *kovariant*, d.h. ein Array vom Typ
-`String[]` ist wegen `String extends Object` ein Untertyp von
-`Object[]`.
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/arrays/X.java">Beispiel arrays.X</a></p>
-
-##### Arrays vs. parametrisierte Klassen
-
-=\> Keine Arrays mit parametrisierten Klassen!
-
-``` java
-Foo<String>[] x = new Foo<String>[2];   // Compilerfehler
-
-Foo<String[]> y = new Foo<String[]>();  // OK :)
-```
-
-Arrays mit parametrisierten Klassen sind nicht erlaubt! Arrays brauchen
-zur Laufzeit Typinformationen, die aber durch die Typ-Löschung entfernt
-werden.
-
-##### Diskussion Vererbung vs. Generics
-
-**Vererbung:**
-
--   *IS-A*-Beziehung
--   Anwendung: Vererbungsbeziehung vorliegend, Eigenschaften verfeinern
--   Beispiel: Ein Student *ist eine* Person
-
-**Generics:**
-
--   Schablone (Template) für viele Datentypen
--   Anwendung: Identischer Code für unterschiedliche Typen
--   Beispiel: Datenstrukturen, Algorithmen generisch realisieren
-
-##### Wrap-Up
-
--   Generics: Vererbung und Überladen möglich, aber: Aus "`U extends O`"
-    folgt **nicht** "`A<U> extends A<O>`"
-
-<!-- -->
-
--   Achtung: Bei Arrays gilt aber: Wenn "`U extends O`" dann gilt auch
-    "`U[] extends O[]`" ...
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Ullenboom ([2021, 11.5](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2025](#ref-LernJava))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Bloch ([2018](#ref-Bloch2018))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k3: Ich kann Vererbungsbeziehungen mit generischen Klassen bilden
-> -   k3: Ich kann mit Arrays und generischen Typen umgehen
->
-> </details>
-
-<a id="id-f6029a94ea1cbcba66e37c103b162b90e62bea1d"></a>
-
-#### Threads: Einführung in die nebenläufige Programmierung mit Threads
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Threads sind weitere Kontrollflussfäden, die von der Java-VM (oder
-> (selten) vom OS) verwaltet werden. Damit ist sind sie
-> leichtgewichtiger als der Start neuer Prozesse direkt auf
-> Betriebssystem-Ebene.
->
-> Beim Start eines Java-Programms wird die `main()`-Methode automatisch
-> in einem (Haupt-) Thread ausgeführt. Alle Anweisungen in einem Thread
-> werden sequentiell ausgeführt.
->
-> Um einen neuen Thread zu erzeugen, leitet man von `Thread` ab oder
-> implementiert das Interface `Runnable`. Von diesen eigenen Klassen
-> kann man wie üblich ein neues Objekt anlegen. Die Methode `run()`
-> enthält dabei den im Thread auszuführenden Code. Um einen Thread als
-> neuen parallelen Kontrollfluss zu starten, muss man die geerbte
-> Methode `start()` auf dem Objekt aufrufen. Im Fall der Implementierung
-> von `Runnable` muss man das Objekt zuvor noch in den Konstruktor von
-> `Thread` stecken und so ein neues `Thread`-Objekt erzeugen, auf dem
-> man dann `start()` aufrufen kann.
->
-> Threads haben einen Lebenszyklus: Nach dem Erzeugen der Objekte mit
-> `new` wird der Thread noch nicht ausgeführt. Durch den Aufruf der
-> Methode `start()` gelangt der Thread in einen Zustand
-> "ausführungsbereit". Sobald er vom Scheduler eine Zeitscheibe
-> zugeteilt bekommt, wechselt er in den Zustand "rechnend". Von hier
-> kann er nach Ablauf der Zeitscheibe durch den Scheduler wieder nach
-> "ausführungsbereit" zurück überführt werden. Dieses Wechselspiel
-> passiert automatisch und i.d.R. schnell, so dass selbst auf Maschinen
-> mit nur einem Prozessor/Kern der Eindruck einer parallelen
-> Verarbeitung entsteht. Nach Abarbeitung der `run()`-Methode wird der
-> Thread beendet und kann nicht wieder neu gestartet werden. Bei Zugriff
-> auf gesperrte Ressourcen oder durch `sleep()` oder `join()` kann ein
-> Thread blockiert werden. Aus diesem Zustand gelangt er durch
-> Interrupts oder nach Ablauf der Schlafzeit oder durch `notify` wieder
-> zurück nach "ausführungsbereit".
->
-> Die Thread-Objekte sind normale Java-Objekte. Man kann hier Attribute
-> und Methoden haben und diese entsprechend zugreifen/aufrufen. Das
-> klappt auch, wenn der Thread noch nicht gestartet wurde oder bereits
-> abgearbeitet wurde.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Threads Intro](https://youtu.be/ClfXbNPRl_8)
-> -   [Demo Threads Intro: Erzeugen von
->     Threads](https://youtu.be/zcVqFAx5D0E)
-> -   [Demo Threads Intro: Arbeiten mit Threads
->     (`join()`)](https://youtu.be/lQ_JSHBGhdU)
->
-> </details>
-
-##### 42
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/screenshot_swingworker.png" width="50%" /></p>
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/misc/SwingWorkerDemo.java">Demo: misc.SwingWorkerDemo (GUI ausprobieren)</a></p>
-
-##### Einführung in nebenläufige Programmierung
-
-###### Traditionelle Programmierung
-
--   Aufruf einer Methode verlagert Kontrollfluss in diese Methode
--   Code hinter Methodenaufruf wird erst **nach Beendigung** der Methode
-    ausgeführt
-
-``` java
-public class Traditional {
-    public static void main(String... args) {
-        Traditional x = new Traditional();
-
-        System.out.println("main(): vor run()");
-        x.run();
-        System.out.println("main(): nach run()");
-    }
-
-    public void run() {
-        IntStream.range(0, 10).mapToObj(i -> "in run()").forEach(System.out::println);
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/intro/Traditional.java">Demo: intro.Traditional</a></p>
-
-###### Nebenläufige Programmierung
-
--   Erzeugung eines neuen Kontrollflussfadens (Thread)
-    -   **Läuft (quasi-) parallel zu bisherigem Kontrollfluss**
--   Threads können unabhängig von einander arbeiten
--   Zustandsverwaltung durch Java-VM (oder Unterstützung durch
-    Betriebssystem)
-    -   Aufruf einer bestimmten Methode erzeugt neuen Kontrollflussfaden
-    -   Der neue Thread arbeitet "parallel" zum bisherigen Thread
-    -   Kontrolle kehrt sofort wieder zurück: Code hinter dem
-        Methodenaufruf wird ausgeführt ohne auf die Beendigung der
-        aufgerufenen Methode zu warten
-    -   Verteilung der Threads auf die vorhandenen Prozessorkerne
-        abhängig von der Java-VM
-
-``` java
-public class Threaded extends Thread {
-    public static void main(String... args) {
-        Threaded x = new Threaded();
-
-        System.out.println("main(): vor run()");
-        x.start();
-        System.out.println("main(): nach run()");
-    }
-
-    @Override
-    public void run() {
-        IntStream.range(0, 10).mapToObj(i -> "in run()").forEach(System.out::println);
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/intro/Threaded.java">Demo: intro.Threaded</a></p>
-
-##### Erzeugen von Threads
-
--   Ableiten von `Thread` oder Implementierung von `Runnable`
-
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/ThreadRunnable.png" width="60%" /></p>
-
--   Methode `run()` implementieren, aber nicht aufrufen
-
--   Methode `start()` aufrufen, aber (i.d.R.) nicht implementieren
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/creation/">Demo: creation.*</a></p>
-
-###### Ableiten von *Thread*
-
--   `start()` startet den Thread und sorgt für Ausführung von `run()`
--   `start()` nur einmal aufrufen
-
-###### Implementierung von *Runnable*
-
--   Ebenfalls `run()` implementieren
--   Neues `Thread`-Objekt erzeugen, Konstruktor das eigene Runnable
-    übergeben
--   Für Thread-Objekt die Methode `start()` aufrufen
-    -   Startet den Thread (das Runnable) und sorgt für Ausführung von
-        `run()`
-
-Vorteil von `Runnable`: Ist ein Interface, d.h. man kann noch von einer
-anderen Klasse erben
-
-##### Zustandsmodell von Threads (vereinfacht)
-
-Threads haben einen Lebenszyklus: Nach dem Erzeugen der Objekte mit
-`new` wird der Thread noch nicht ausgeführt. Er ist sozusagen in einem
-Zustand "erzeugt". Man kann bereits mit dem Objekt interagieren, also
-auf Attribute zugreifen und Methoden aufrufen.
-
-Durch den Aufruf der Methode `start()` gelangt der Thread in einen
-Zustand "ausführungsbereit", er läuft also aus Nutzersicht. Allerdings
-hat er noch keine Ressourcen zugeteilt (CPU, ...), so dass er
-tatsächlich noch nicht rechnet. Sobald er vom Scheduler eine Zeitscheibe
-zugeteilt bekommt, wechselt er in den Zustand "rechnend" und führt den
-Inhalt der `run()`-Methode aus. Von hier kann er nach Ablauf der
-Zeitscheibe durch den Scheduler wieder nach "ausführungsbereit" zurück
-überführt werden. Dieses Wechselspiel passiert automatisch und i.d.R.
-schnell, so dass selbst auf Maschinen mit nur einem Prozessor/Kern der
-Eindruck einer parallelen Verarbeitung entsteht.
-
-Nach der Abarbeitung der `run()`-Methode oder bei einer nicht gefangenen
-Exception wird der Thread beendet und kann nicht wieder neu gestartet
-werden. Auch wenn der Thread abgelaufen ist, kann man mit dem Objekt wie
-üblich interagieren (nur eben nicht mehr parallel).
-
-Bei Zugriff auf gesperrte Ressourcen oder durch Aufrufe von Methoden wie
-`sleep()` oder `join()` kann ein Thread blockiert werden. Hier führt der
-Thread nichts aus, bekommt durch den Scheduler aber auch keine neue
-Zeitscheibe zugewiesen. Aus diesem Zustand gelangt der Thread wieder
-heraus, etwa durch Interrupts (Aufruf der Methode `interrupt()` auf dem
-Thread-Objekt) oder nach Ablauf der Schlafzeit (in `sleep()`) oder durch
-ein `notify`, und wird wieder zurück nach "ausführungsbereit" versetzt
-und wartet auf die Zuteilung einer Zeitscheibe durch den Scheduler.
-
-Sie finden in ([Boles 2008, 5.2](#ref-Boles2008) "Thread-Zustände") eine
-schöne ausführliche Darstellung.
-
-###### Threads können wie normale Objekte kommunizieren
-
--   Zugriff auf (`public`) Attribute (oder eben über Methoden)
--   Aufruf von Methoden
-
-###### Threads können noch mehr
-
--   Eine Zeitlang schlafen: `Thread.sleep(<duration_ms>)`
-
-    -   Statische Methode der Klasse `Thread` (Klassenmethode)
-    -   Aufrufender Thread wird bis zum Ablauf der Zeit oder bis zum
-        Aufruf der `interrupt()`-Methode des Threads blockiert
-    -   "Moderne" Alternative: `TimeUnit`, beispielsweise
-        `TimeUnit.SECONDS.sleep( 2 );`
-
--   Prozessor abgeben und hinten in Warteschlange einreihen: `yield()`
-
--   Andere Threads stören: `otherThreadObj.interrupt()`
-
-    -   Die Methoden `sleep()`, `wait()` und `join()` im empfangenden
-        Thread `otherThreadObj` lösen eine `InterruptedException` aus,
-        wenn sie durch die Methode `interrupt()` unterbrochen werden.
-        Das heißt, `interrupt()` beendet diese Methoden mit der
-        Ausnahme.
-    -   Empfangender Thread verlässt ggf. den Zustand "blockiert" und
-        wechselt in den Zustand "ausführungsbereit"
-
--   Warten auf das Ende anderer Threads: `otherThreadObj.join()`
-
-    -   Ausführender Thread wird blockiert (also nicht
-        `otherThreadObj`!)
-    -   Blockade des Aufrufers wird beendet, wenn der andere Thread
-        (`otherThreadObj`) beendet wird.
-
-*Hinweis:* Ein Thread wird beendet, wenn
-
--   die `run()`-Methode normal endet, oder
--   die `run()`-Methode durch eine nicht gefangene Exception beendet
-    wird, oder
--   von außen die Methode `stop()` aufgerufen wird (Achtung: Deprecated!
-    Einen richtigen Ersatz gibt es aber auch nicht.).
-
-*Hinweis:* Die Methoden `wait()`, `notify()`/`notifyAll()` und die
-"`synchronized`-Sperre" werden in der Sitzung ["Threads:
-Synchronisation"](#id-fd5317305f8c0a4a45cfacf12f8feac51a2ed5df)
-besprochen.
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/intro/Join.java">Demo: intro.Join</a></p>
-
-##### Wrap-Up
-
-Threads sind weitere Kontrollflussfäden, von Java-VM (oder (selten) von
-OS) verwaltet
-
--   Ableiten von `Thread` oder implementieren von `Runnable`
--   Methode `run` enthält den auszuführenden Code
--   Starten des Threads mit `start` (nie mit `run`!)
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Ullenboom ([2021, Kap. 16](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Boles ([2008](#ref-Boles2008))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kenne den grundsätzlichen Unterschied zw. Threads und
->     Prozessen
-> -   k2: Ich kenne den Lebenszyklus von Threads
-> -   k3: Ich kann Threads erzeugen und starten
->
-> </details>
-
-<a id="id-fd5317305f8c0a4a45cfacf12f8feac51a2ed5df"></a>
-
-#### Threads: Synchronisation: Verteilter Zugriff auf gemeinsame Ressourcen
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Bei verteiltem Zugriff auf gemeinsame Ressourcen besteht
-> Synchronisierungsbedarf, insbesondere sollten nicht mehrere Threads
-> gleichzeitig geteilte Daten modifizieren. Dazu kommt das Problem, dass
-> ein Thread in einer komplexen Folge von Aktionen die Zeitscheibe
-> verlieren kann und dann später mit veralteten Daten weiter macht.
->
-> Um den Zugriff auf gemeinsame Ressourcen oder den Eintritt in
-> kritische Bereiche zu schützen und zu synchronisieren, kann man diese
-> Zugriffe oder Bereiche in einen `synchronized`-Block legen. Dazu
-> benötigt man noch ein beliebiges (gemeinsam sichtbares) Objekt,
-> welches als Wächter- oder Sperr-Objekt fungiert. Beim Eintritt in den
-> geschützten Block muss ein Thread einen Lock auf dem Sperr-Objekt
-> erlangen. Hat bereits ein anderer Thread den Lock, wird der neue
-> Thread so lange blockiert, bis der Lock wieder "frei" ist. Beim
-> Eintritt in den Bereich wird dann durch den Thread auf dem
-> Sperr-Objekt der Lock gesetzt und beim Austritt automatisch wieder
-> aufgehoben. Dies nennt man auch **mehrseitige Synchronisierung**
-> (mehrere Threads "stimmen" sich quasi untereinander über den Zugriff
-> auf eine Ressource ab).
->
-> Um auf den Eintritt eines Ereignisses oder die Erfüllung einer
-> Bedingung zu warten, kann man `wait` und `notify` nutzen. In einem
-> `synchronized`-Block prüft man, ob die Bedingung erfüllt oder ein
-> Ereignis eingetreten ist, und falls ja arbeitet man damit normal
-> weiter. Falls die Bedingung nicht erfüllt ist oder das Ereignis nicht
-> eingetreten ist, kann man auf dem im `synchronized`-Block genutzten
-> Sperr-Objekt die Methode `wait()` aufrufen. Damit wird der Thread in
-> die entsprechende Schlange auf dem Sperr-Objekt eingereiht und
-> blockiert. Zusätzlich wird der Lock auf dem Sperr-Objekt freigegeben.
-> Zum "Aufwecken" nutzt man an geeigneter Stelle auf dem **selben
-> Sperr-Objekt** die Methode `notify()` oder `notifyALl()` (erstere
-> weckt einen in der Liste des Sperr-Objekts wartenden Thread, die
-> letztere alle). Nach dem Aufwachen macht der Thread nach seinem
-> `wait()` weiter. Es ist also wichtig, dass die Bedingung, wegen der
-> ursprünglich das `wait()` aufgerufen wurde, erneut abgefragt wird und
-> ggf. erneut in das `wait()` gegangen wird. Dies nennt man **einseitige
-> Synchronisierung**.
->
-> Es gibt darüber hinaus viele weitere Mechanismen und Probleme, die
-> aber den Rahmen dieser Lehrveranstaltung deutlich übersteigen. Diese
-> werden teilweise in den Veranstaltungen "Betriebssysteme" und/oder
-> "Verteilte Systeme" besprochen.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Threads Synchronisation](https://youtu.be/FtVaobn4NqA)
-> -   [Demo Teaser: Falscher Zugriff auf gemeinsame
->     Ressourcen](https://youtu.be/SB1ngVkQdLM)
-> -   [Demo Mehrseitige Synchronisation (Sperr-Objekt, synchronisierte
->     Methode)](https://youtu.be/YTV-oT-vmpE)
-> -   [Demo Mehrseitige Synchronisation:
->     Deadlock](https://youtu.be/D4B5xHqCZ-0)
-> -   [Demo Einseitige Synchronisation](https://youtu.be/akCl01ZAaGo)
->
-> </details>
-
-##### Motivation: Verteilter Zugriff auf gemeinsame Ressourcen
-
-``` java
-public class Teaser implements Runnable {
-    private int val = 0;
-
-    public static void main(String... args) {
-        Teaser x = new Teaser();
-        new Thread(x).start();
-        new Thread(x).start();
-    }
-
-    private void incrVal() {
-        ++val;
-        System.out.println(Thread.currentThread().getId() + ": " + val);
-    }
-
-    public void run() {
-        IntStream.range(0, 5).forEach(i -> incrVal());
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/Teaser.java">Demo: synchronised.Teaser</a></p>
-
-##### Zugriff auf gemeinsame Ressourcen: Mehrseitige Synchronisierung
-
-``` java
-synchronized (<Object reference>) {
-    <statements (synchronized)>
-}
-```
-
-=\> **"Mehrseitige Synchronisierung"**
-
-Fallunterscheidung: Thread T1 führt `synchronized`-Anweisung aus:
-
--   Sperre im Sperr-Objekt nicht gesetzt:
-    1.  T1 setzt Sperre beim Eintritt,
-    2.  führt den Block aus, und
-    3.  löst Sperre beim Verlassen
--   Sperre durch T1 gesetzt:
-    1.  T1 führt den Block aus, und
-    2.  löst Sperre beim Verlassen **nicht**
--   Sperre durch T2 gesetzt: =\> T1 wird blockiert, bis T2 die Sperre
-    löst
-
-*Anmerkung*: Das für die Synchronisierung genutzte Objekt nennt man
-"Wächter-Objekt" oder auch "Sperr-Objekt" oder auch
-"Synchronisations-Objekt".
-
-Damit könnte man den relevanten Teil der Methode `incrVal()`
-beispielsweise in einen geschützten Bereich einschließen und als
-Sperr-Objekt das eigene Objekt (`this`) einsetzen:
-
-``` java
-    private void incrVal() {
-        synchronized (this) { ++val; }
-    }
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/ObjSync.java">Demo: synchronised.ObjSync</a></p>
-
-##### Synchronisierte Methoden
-
-``` java
-void f() {
-    synchronized (this) {
-        ...
-    }
-}
-```
-
-... ist äquivalent zu ...
-
-``` java
-synchronized void f() {
-    ...
-}
-```
-
-Kurzschreibweise: Man spart das separate Wächter-Objekt und
-synchronisiert auf sich selbst ...
-
-Die Methode `incrVal()` könnte entsprechend so umgeschrieben werden:
-
-``` java
-    private synchronized void incrVal() {
-        ++val;
-    }
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/MethodSync.java">Demo: synchronised.MethodSync</a></p>
-
-##### Probleme bei der (mehrseitigen) Synchronisierung: Deadlocks
-
-``` java
-public class Deadlock {
-    private final String name;
-
-    public synchronized String getName() { return name; }
-    public synchronized void foo(Deadlock other) {
-        System.out.format("%s: %s.foo() \n", Thread.currentThread().getName(), name);
-        System.out.format("%s: %s.name()\n", Thread.currentThread().getName(), other.getName());
-    }
-
-    public static void main(String... args) {
-        final Deadlock a = new Deadlock("a");
-        final Deadlock b = new Deadlock("b");
-
-        new Thread(() -> a.foo(b)).start();
-        new Thread(() -> b.foo(a)).start();
-    }
-}
-```
-
-Viel hilft hier nicht viel! Durch zu großzügige mehrseitige
-Synchronisierung kann es passieren, dass Threads gegenseitig aufeinander
-warten: Thread A belegt eine Ressource, die ein anderer Thread B haben
-möchte und Thread B belegt eine Ressource, die A gerne bekommen würde.
-Da es dann nicht weitergeht, nennt man diese Situation auch "Deadlock"
-("Verklemmung").
-
-Im Beispiel ruft der erste Thread für das Objekt `a` die `foo()`-Methode
-auf und holt sich damit den Lock auf `a`. Um die Methode beenden zu
-können, muss noch die `getName()`-Methode vom Objekt `b` durch diesen
-ersten Thread aufgerufen werden. Dafür muss der erste Thread den Lock
-auf `b` bekommen.
-
-Dummerweise hat parallel der zweite Thread auf dem Objekt `b` die
-`foo()`-Methode aufgerufen und sich damit den Lock auf `b` geholt. Damit
-muss der erste Thread so lange warten, bis der zweite Thread den Lock
-auf `b` freigibt.
-
-Das wird allerdings nicht passieren, da der zweite Thread zur Beendigung
-der `foo()`-Methode noch `getName()` auf `a` ausführen muss und dazu den
-Lock auf `b` holen, den aber aktuell der erste Thread hält.
-
-Und schon geht's nicht mehr weiter :-)
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/Deadlock.java">Demo: synchronised.Deadlock</a></p>
-
-##### Warten auf andere Threads: Einseitige Synchronisierung
-
-###### Problem
-
--   Thread T1 wartet auf Arbeitsergebnis von T2
--   T2 ist noch nicht fertig
-
-###### Mögliche Lösungen
-
-1.  Aktives Warten (Polling): Permanente Abfrage
-    -   Kostet unnötig Rechenzeit
-2.  Schlafen mit `Thread.sleep()`
-    -   Etwas besser; aber wie lange soll man idealerweise schlafen?
-3.  Warten mit `T2.join()`
-    -   Macht nur Sinn, wenn T1 auf das *Ende* von T2 wartet
-4.  **Einseitige Synchronisierung** mit `wait()` und `notify()`
-    -   Das ist DIE Lösung für das Problem :)
-
-##### Einseitige Synchronisierung mit *wait* und *notify*
-
--   **wait**: Warten auf Erfüllung einer Bedingung (Thread blockiert):
-
-    ``` java
-    synchronized (obj) {    // Geschützten Bereich betreten
-        while (!condition) {
-            try {
-                obj.wait(); // Thread wird blockiert
-            } catch (InterruptedException e) {}
-        }
-        ...     // Condition erfüllt: Tue Deine Arbeit
-    }
-    ```
-
-    =\> Bedingung nach Rückkehr von `wait` erneut prüfen!
-
-###### Eigenschaften von *wait*
-
--   Thread ruft auf Synchronisations-Objekt die Methode `wait` auf
--   Prozessor wird entzogen, Thread blockiert
--   Thread wird in interne Warteschlange des Synchronisations-Objekts
-    eingetragen
--   Sperre auf Synchronisations-Objekt wird freigegeben
-
-=\> Geht nur innerhalb der `synchronized`-Anweisung für das
-Synchronisations-Objekt!
-
-##### Einseitige Synchronisierung mit *wait* und *notify* (cnt.)
-
--   **notify**: Aufwecken von wartenden (blockierten) Threads:
-
-    ``` java
-    synchronized (obj) {
-        obj.notify();       // einen Thread "in" obj aufwecken
-        obj.notifyAll();    // alle Threads "in" obj wecken
-    }
-    ```
-
-###### Eigenschaften von *notify* bzw. *notifyAll*
-
--   Thread ruft auf einem Synchronisations-Objekt die Methode `notify`
-    oder `notifyAll` auf
--   Falls Thread(s) in Warteschlange des Objekts vorhanden, dann
-    -   `notify`: Ein *zufälliger* Thread wird aus Warteschlange
-        entfernt und in den Zustand "ausführungsbereit" versetzt
-    -   `notifyAll`: Alle Threads werden aus Warteschlange entfernt und
-        in den Zustand "ausführungsbereit" versetzt
-
-=\> Geht nur innerhalb der `synchronized`-Anweisung für das
-Synchronisations-Objekt!
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/Staffel.java">Demo: synchronised.Staffel</a></p>
-
-##### Wrap-Up
-
-Synchronisierungsbedarf bei verteiltem Zugriff auf gemeinsame
-Ressourcen:
-
--   Vorsicht mit konkurrierendem Ressourcenzugriff: Synchronisieren mit
-    `synchronized` =\> **Mehrseitige Synchronisierung**
-
-<!-- -->
-
--   Warten auf Ereignisse mit `wait` und `notify`/`notifyAll` =\>
-    **Einseitige Synchronisierung**
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Boles ([2008](#ref-Boles2008))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kann die Notwendigkeit zur Synchronisation erklären
-> -   k2: Ich kann den Unterschied zwischen einseitiger und mehrseitiger
->     Synchronisation erklären
-> -   k3: Ich kann die Synchronisation mit synchronized, wait, notify
->     und notifyAll praktisch einsetzen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> **Hamster-Welt**
->
-> In den
-> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/challenges/threads)
-> finden Sie eine Modellierung für eine Hamsterwelt.
->
-> Es gibt rote und blaue Hamster, die sich unabhängig von einander
-> bewegen können. Es gibt einen Tunnel, den die Hamster betreten und
-> durchqueren können. In der Vorgabe ist ein kleines Hauptprogramm
-> enthalten, welches einige Hamster anlegt und herumlaufen lässt.
->
-> **Teil I: Stau im Tunnel**
->
-> Die Hamster sind sehr neugierig und wollen gern durch den Tunnel
-> gehen, um die Höhle auf der anderen Seite zu erkunden. Leider mussten
-> sie feststellen, dass immer nur ein Hamster zu einem Zeitpunkt im
-> Tunnel sein darf, sonst wird die Luft zu knapp.
->
-> Ergänzen Sie die Vorgaben, so dass sich immer nur ein paralleler
-> Hamster (egal welcher Farbe) im Tunnel aufhalten kann. Wenn ein
-> Hamster in den Tunnel will, aber nicht hinein kann, dann soll er am
-> Eingang warten, also nicht noch einmal in seiner Höhle herumlaufen.
-> (Das passiert eigentlich automatisch, wenn Sie alles richtig machen.)
->
-> **Teil II: Schlaue Hamster**
->
-> Die Hamster sind schlau und haben bemerkt, dass die Einschränkung aus
-> der letzten Aufgabe zu stark war. Sie überleben auch, wenn sich
-> beliebig viele blaue Hamster oder nur genau ein roter Hamster im
-> Tunnel aufhalten.
->
-> Erweitern Sie die Implementierung aus der letzten Aufgabe, so dass
-> folgende Bedingungen eingehalten werden:
->
-> -   Es dürfen sich beliebig viele blaue Hamster gleichzeitig im Tunnel
->     befinden.
->
->     Das bedeutet, dass in diesem Fall zwar weitere blaue Hamster den
->     Tunnel betreten dürfen, aber kein roter Hamster in den Tunnel
->     hinein darf.
->
-> -   Wenn sich ein roter Hamster im Tunnel aufhält, dürfen keine
->     anderen Hamster (unabhängig von deren Farbe) den Tunnel betreten.
->
-> </details>
-
-<a id="id-658174d5a85775f31f62a05f3f7d486f9391ba11"></a>
-
-#### Threads: High-Level Concurrency
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Das Erzeugen von Threads über die Klasse `Thread` oder das Interface
-> `Runnable` und das Hantieren mit `synchronized` und
-> `wait()`/`notify()` zählt zu den grundlegenden Dingen beim
-> Multi-Threading mit Java. Auf diesen Konzepten bauen viele weitere
-> Konzepte auf, die ein flexibleres Arbeiten mit Threads in Java
-> ermöglichen.
->
-> Dazu zählt unter anderem das Arbeiten mit `Lock`-Objekten und
-> dazugehörigen `Conditions`, was `synchronized` und `wait()`/`notify()`
-> entspricht, aber feingranulareres und flexibleres Locking bietet.
->
-> Statt Threads immer wieder neu anzulegen (das Anlegen von Objekten
-> bedeutet einen gewissen Aufwand zur Laufzeit), kann man Threads über
-> sogenannte Thread-Pools wiederverwenden und über das
-> Executor-Interface benutzen.
->
-> Schließlich bietet sich das Fork/Join-Framework zum rekursiven
-> Zerteilen von Aufgaben und zur parallelen Bearbeitung der Teilaufgaben
-> an.
->
-> Die in Swing integrierte Klasse `SwingWorker` ermöglicht es, in Swing
-> Berechnungen in einen parallel ausgeführten Thread auszulagern.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL High-Level Concurrency](https://youtu.be/bb_kuuhXC6A)
-> -   [Demo Lock-Objekte](https://youtu.be/1tJRUJddtlw)
-> -   [Demo Executor](https://youtu.be/VvzlwZ6n3SI)
-> -   [Demo Fork/Join](https://youtu.be/Wfq_MDFoWYY)
-> -   [Demo SwingWorker](https://youtu.be/Hu3RbqiNy4M)
->
-> </details>
-
-##### Explizite Lock-Objekte
-
-Sie kennen bereits die Synchronisierung mit dem Schlüsselwort
-`synchronized`.
-
-``` java
-// Synchronisierung der gesamten Methode
-public synchronized int incrVal() {
-    ...
-}
-```
-
-``` java
-// Synchronisierung eines Blocks (eines Teils einer Methode)
-public int incrVal() {
-    ...
-    synchronized (someObj) {
-        ...
-    }
-    ...
-}
-```
-
-Dabei wird implizit ein Lock über ein Objekt (das eigene Objekt im
-ersten Fall, das Sperrobjekt im zweiten Fall) benutzt.
-
-Seit Java5 kann man alternativ auch explizite Lock-Objekte nutzen:
-
-``` java
-// Synchronisierung eines Teils einer Methode über ein
-// Lock-Objekt (seit Java 5)
-// Package `java.util.concurrent.locks`
-public int incrVal() {
-    Lock waechter = new ReentrantLock();
-    ...
-    waechter.lock();
-    ... // Geschützter Bereich
-    waechter.unlock();
-    ...
-}
-```
-
-Locks aus dem Paket `java.util.concurrent.locks` arbeiten analog zum
-impliziten Locken über `synchronized`. Sie haben darüber hinaus aber
-einige Vorteile:
-
--   Methoden zum Abfragen, ob ein Lock möglich ist: `Lock#tryLock`
--   Methoden zum Abfragen der aktuellen Warteschlangengröße:
-    `Lock#getQueueLength`
--   Verfeinerung `ReentrantReadWriteLock` mit Methoden `readLock` und
-    `writeLock`
-    -   Locks nur zum Lesen bzw. nur zum Schreiben
--   `Lock#newCondition` liefert ein Condition-Objekt zur
-    Benachrichtigung ala `wait`/`notify`: `await`/`signal` =\>
-    zusätzliches Timeout beim Warten möglich
-
-Nachteile:
-
--   Bei Exceptions werden implizite Locks durch `synchronized`
-    automatisch durch das Verlassen der Methode freigegeben. Explizite
-    Locks müssen **durch den Programmierer** freigegeben werden! =\>
-    Nutzung des `finally`-Block!
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/lock/">Demo: lock.*</a></p>
-
-##### Thread-Management: Executor-Interface und Thread-Pools
-
-###### Wiederverwendung von Threads
-
--   Normale Threads sind immer Einmal-Threads: Man kann sie nur
-    **einmal** in ihrem Leben starten (auch wenn das Objekt anschließend
-    noch auf Nachrichten bzw. Methodenaufrufe reagiert)
-
--   Zusätzliches Problem: Threads sind Objekte:
-
-    -   Threads brauchen relativ viel Arbeitsspeicher
-    -   Erzeugen und Entsorgen von Threads kostet Ressourcen
-    -   Zu viele Threads: Gesamte Anwendung hält an
-
--   Idee: Threads wiederverwenden und Thread-Management auslagern =\>
-    **Executor-Interface** und **Thread-Pool**
-
-###### Executor-Interface
-
-``` java
-public interface Executor {
-    void execute(Runnable command);
-}
-```
-
--   Neue Aufgaben als Runnable an einen Executor via `execute` übergeben
--   Executor könnte damit sofort neuen Thread starten (oder alten
-    wiederverwenden): `e.execute(r);` =\> entspricht in der Wirkung
-    `(new Thread(r)).start();`
-
-###### Thread-Pool hält Menge von "Worker-Threads"
-
--   Statische Methoden von `java.util.concurrent.Executors` erzeugen
-    Thread-Pools mit verschiedenen Eigenschaften:
-
-    -   `Executors#newFixedThreadPool` erzeugt ExecutorService mit
-        spezifizierter Anzahl von Worker-Threads
-    -   `Executors#newCachedThreadPool` erzeugt Pool mit Threads, die
-        nach 60 Sekunden Idle wieder entsorgt werden
-
--   Rückgabe: `ExecutorService` (Thread-Pool)
-
-    ``` java
-    public interface ExecutorService extends Executor { ... }
-    ```
-
--   `Executor#execute` übergibt Runnable dem nächsten freien
-    Worker-Thread (oder erzeugt ggf. neuen Worker-Thread bzw. hängt
-    Runnable in Warteschlange, je nach erzeugtem Pool)
-
--   Methoden zum Beenden eines Thread-Pools (Freigabe): `shutdown()`,
-    `isShutdown()`, ...
-
-``` java
-MyThread x = new MyThread();    // Runnable oder Thread
-
-ExecutorService pool = Executors.newCachedThreadPool();
-
-pool.execute(x);    // x.start()
-pool.execute(x);    // x.start()
-pool.execute(x);    // x.start()
-
-pool.shutdown();    // Feierabend :)
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/executor/ExecutorDemo.java">Demo: executor.ExecutorDemo</a></p>
-
-###### Hintergrund (vereinfacht)
-
-Der Thread-Pool reserviert sich "nackten" Speicher, der der Größe von
-$n$ Threads entspricht, und "prägt" die Objektstruktur durch einen Cast
-direkt auf (ohne wirkliche neue Objekte zu erzeugen). Dieses Vorgehen
-ist in der C-Welt wohlbekannt und schnell (vgl. Thema Speicherverwaltung
-in der LV "Systemprogrammierung"). In Java wird dies durch eine
-wohldefinierte Schnittstelle vor dem Nutzer verborgen.
-
-###### Ausblick
-
-Hier haben wir nur die absoluten Grundlagen angerissen. Wir können auch
-`Callables` anstatt von `Runnables` übergeben, auf Ergebnisse aus der
-Zukunft warten (`Futures`), Dinge zeitgesteuert (immer wieder) starten,
-...
-
-Schauen Sie sich bei Interesse die weiterführende Literatur an,
-beispielsweise die Oracle-Dokumentation oder auch ([Ullenboom
-2021](#ref-Ullenboom2021)) (insbesondere den Abschnitt 16.4 ["Der
-Ausführer (Executor)
-kommt"](https://openbook.rheinwerk-verlag.de/javainsel/16_004.html#u16.4)).
-
-##### Fork/Join-Framework: Teile und Herrsche
-
-Spezieller Thread-Pool zur rekursiven Bearbeitung parallelisierbarer
-Tasks
-
--   `java.util.concurrent.ForkJoinPool#invoke` startet Task
-
--   Task muss von `RecursiveTask<V>` erben:
-
-    ``` java
-    public abstract class RecursiveTask<V> extends ForkJoinTask<V> {
-        protected abstract V compute();
-    }
-    ```
-
-Prinzipieller Ablauf:
-
-``` java
-public class RecursiveTask extends ForkJoinTask<V> {
-    protected V compute() {
-        if (task klein genug) {
-            berechne task sequentiell
-        } else {
-            teile task in zwei subtasks:
-                left, right = new RecursiveTask(task)
-            rufe compute() auf beiden subtasks auf:
-                left.fork();          // starte neuen Thread
-                r = right.compute();  // nutze aktuellen Thread
-            warte auf ende der beiden subtasks: l = left.join()
-            kombiniere die ergebnisse der beiden subtasks: l+r
-        }
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/forkjoin/ForkJoin.java">Demo: forkjoin.ForkJoin</a></p>
-
-##### Swing und Threads
-
-###### Lange Berechnungen in Listenern blockieren Swing-GUI
-
--   Problem: Events werden durch **einen** *Event Dispatch Thread* (EDT)
-    **sequentiell** bearbeitet
--   Lösung: Berechnungen in neuen Thread auslagern
--   **Achtung**: Swing ist **nicht Thread-safe**! Komponenten nicht
-    durch verschiedene Threads manipulieren!
-
-###### Lösung
-
-=\> `javax.swing.SwingWorker` ist eine spezielle Thread-Klasse, eng mit
-Swing/Event-Modell verzahnt.
-
--   Implementieren:
-    -   `SwingWorker#doInBackground`: Für die langwierige Berechnung
-        (muss man selbst implementieren)
-    -   `SwingWorker#done`: Wird vom EDT aufgerufen, wenn
-        `doInBackground` fertig ist
-
-<!-- -->
-
--   Aufrufen:
-    -   `SwingWorker#execute`: Started neuen Thread nach Anlegen einer
-        Instanz und führt dann automatisch `doInBackground` aus
-    -   `SwingWorker#get`: Return-Wert von `doInBackground` abfragen
-
-###### Anmerkungen
-
--   `SwingWorker#done` ist optional: *kann* überschrieben werden
-    -   Beispielweise, wenn nach Beendigung der langwierigen Berechnung
-        GUI-Bestandteile mit dem Ergebnis aktualisiert werden sollen
--   `SwingWorker<T, V>` ist eine generische Klasse:
-    -   `T` Typ für das Ergebnis der Berechnung, d.h. Rückgabetyp für
-        `doInBackground` und `get`
-    -   `V` Typ für Zwischenergebnisse
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/misc/SwingWorkerDemo.java">Demo: misc.SwingWorkerDemo</a></p>
-
-##### Letzte Worte :-)
-
--   Viele weitere Konzepte
-    -   Semaphoren, Monitore, ...
-    -   Leser-Schreiber-Probleme, Verklemmungen, ...
-
-    =\> Verweis auf LV "Betriebssysteme" und "Verteilte Systeme"
-
-<!-- -->
-
--   **Achtung**: Viele Klassen sind nicht Thread-safe!
-
-    Es gibt aber meist ein "Gegenstück", welches Thread-safe ist.
-
-    Beispiel Listen:
-
-    -   `java.util.ArrayList` ist **nicht** Thread-safe
-    -   `java.util.Vector` ist Thread-sicher
-
-    =\> Siehe Javadoc in den JDK-Klassen!
-
-<!-- -->
-
--   Thread-safe bedeutet **Overhead** (Synchronisierung)!
-
-##### Wrap-Up
-
-Multi-Threading auf höherem Level: Thread-Pools und Fork/Join-Framework
-
--   Feingranulareres und flexibleres Locking mit Lock-Objekten und
-    Conditions
--   Wiederverwendung von Threads: Thread-Management mit
-    Executor-Interface und Thread-Pools
--   Fork/Join-Framework zum rekursiven Zerteilen von Aufgaben und zur
-    parallelen Bearbeitung der Teilaufgaben
--   `SwingWorker` für die parallele Bearbeitung von Aufgaben in Swing
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Ullenboom ([2021, Kap. 16](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Urma u. a. ([2014, 7.2](#ref-Urma2014))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k3: Ich kann High-Level-Abstraktionen einsetzen: Lock-Objekten und
->     Conditions, Executor-Interface und Thread-Pools,
->     Fork/Join-Framework, SwingWorker
->
-> </details>
-
-<a id="id-cd1f3b4bd043849ddb3a3d41c9c280e6f0547ce4"></a>
-
-#### Reflection
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Mit Hilfe der Reflection-API kann man Programme zur **Laufzeit**
-> inspizieren und Eigenschaften von Elementen wie Klassen oder Methoden
-> abfragen, aber auch Klassen instantiieren und Methoden aufrufen, die
-> eigentlich auf `private` gesetzt sind oder die beispielsweise mit
-> einer bestimmten Annotation markiert sind.
->
-> Die Laufzeitumgebung erzeugt zu jedem Typ ein Objekt der Klasse
-> `java.lang.Class`. Über dieses `Class`-Objekt einer Klasse können dann
-> Informationen über diese Klasse abgerufen werden, beispielsweise
-> welche Konstruktoren, Methoden und Attribute es gibt.
->
-> Man kann über auch Klassen zur Laufzeit nachladen, die zur
-> Compile-Zeit nicht bekannt waren. Dies bietet sich beispielsweise für
-> User-definierte Plugins an.
->
-> Reflection ist ein mächtiges Werkzeug. Durch das Arbeiten mit Strings
-> und die Interaktion/Inspektion zur *Laufzeit* verliert man aber viele
-> Prüfungen, die der Compiler normalerweise zur Compile-Zeit vornimmt.
-> Auch das Refactoring wird dadurch eher schwierig.
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Reflection](https://youtu.be/7wTKl8-KYd0)
-> -   [Demo Reflection](https://youtu.be/e7rLH1f0fKM)
-> -   [Demo Class-Loader](https://youtu.be/HI_ZJFbvoNY)
->
-> </details>
-
-##### Ausgaben und Einblicke zur Laufzeit
-
-``` java
-public class FactoryBeispielTest {
-    @Test
-    public void testGetTicket() {
-        fail("not implemented");
-    }
-}
-```
-
-``` java
-@Target(value = ElementType.METHOD)
-@Retention(value = RetentionPolicy.RUNTIME)
-public @interface Wuppie {}
-```
-
-Reflection wird allgemein genutzt, um zur Laufzeit von Programmen
-Informationen über Klassen/Methoden/... zu bestimmen. Man könnte damit
-auch das Verhalten der laufenden Programme ändern oder Typen
-instantiieren und/oder Methoden aufrufen ...
-
-Wenn Sie nicht (mehr) wissen, wie man eigene Annotationen definiert,
-schauen Sie doch bitte einfach kurz im Handout zu Annotationen nach :-)
-
-##### Wer bin ich? ... Informationen über ein Programm (zur Laufzeit)
-
-<div align="center">
-
-`java.lang.Class`: Metadaten über Klassen
-
-</div>
-
-``` java
-// usual way of life
-Studi heiner = new Studi();
-heiner.hello();
-
-// let's use reflection
-try {
-    Object eve = Studi.class.getDeclaredConstructor().newInstance();
-    Method m = Studi.class.getDeclaredMethod("hello");
-    m.invoke(eve);
-} catch (ReflectiveOperationException ignored) {}
-```
-
-Für jeden Typ instantiiert die JVM eine nicht veränderbare Instanz der
-Klasse `java.lang.Class`, über die Informationen zu dem Typ abgefragt
-werden können.
-
-Dies umfasst u.a.:
-
--   Klassenname
--   Implementierte Interfaces
--   Methoden
--   Attribute
--   Annotationen
--   ...
-
-`java.lang.Class` bildet damit den Einstiegspunkt in die Reflection.
-
-##### Vorgehen
-
-1.  Gewünschte Klasse über ein `Class`-Objekt laden
-
-<!-- -->
-
-2.  Informationen abrufen (welche Methoden, welche Annotationen, ...)
-
-<!-- -->
-
-3.  Eine Instanz dieser Klasse erzeugen, und
-4.  Methoden aufrufen
-
-Das Vorgehen umfasst vier Schritte: Zunächst die gewünschte Klasse über
-ein `Class`-Objekt laden und anschließend Informationen abrufen (etwa
-welche Methoden vorhanden sind, welche Annotationen annotiert wurden,
-...) und bei Bedarf eine Instanz dieser Klasse erzeugen sowie Methoden
-aufrufen.
-
-Ein zweiter wichtiger Anwendungsfall (neben dem Abfragen von
-Informationen und Aufrufen von Methoden) ist das Laden von Klassen, die
-zur Compile-Zeit nicht mit dem eigentlichen Programm verbunden sind. Auf
-diesem Weg kann beispielsweise ein Bildbearbeitungsprogramm zur Laufzeit
-dynamisch Filter aus einem externen Ordner laden und nutzen, oder der
-Lexer kann die Tokendefinitionen zur Laufzeit einlesen (d.h. er könnte
-mit unterschiedlichen Tokensätzen arbeiten, die zur Compile-Zeit noch
-gar nicht definiert sind). Damit werden die Programme dynamischer.
-
-##### Schritt 1: *Class*-Objekt erzeugen und Klasse laden
-
-``` java
-// Variante 1 (package.MyClass dynamisch zur Laufzeit laden)
-Class<?> c = Class.forName("package.MyClass");
-
-
-// Variante 2 (Objekt)
-MyClass obj = new MyClass();
-Class<?> c = obj.getClass();
-
-// Variante 3 (Klasse)
-Class<?> c = MyClass.class;
-```
-
-=\> Einstiegspunkt der Reflection API
-
-Eigentlich wird nur in **Variante 1 die über den String angegebene
-Klasse dynamisch von der Laufzeitumgebung (nach-) geladen** (muss also
-im gestarteten Programm nicht vorhanden sein). Die angegebene Klasse
-muss aber in Form von Byte-Code an der angegebenen Stelle (Ordner
-`package`, Dateiname `MyClass.class`) vorhanden sein.
-
-Die anderen beiden Varianten setzen voraus, dass die jeweilige Klasse
-**bereits geladen** ist (also ganz normal mit den restlichen Sourcen zu
-Byte-Code (`.class`-Dateien) kompiliert wurde und mit dem Programm
-geladen wurde).
-
-Alle drei Varianten ermöglichen die Introspektion der jeweiligen Klassen
-zur Laufzeit.
-
-##### Schritt 2: In die Klasse reinschauen
-
-``` java
-// Studi-Klasse dynamisch (nach-) laden
-Class<?> c = Class.forName("reflection.Studi");
-
-
-// Parametersatz für Methode zusammenbasteln
-Class<?>[] paramT = new Class<?>[] { String.class };
-
-// public Methode aus dem **Class**-Objekt holen
-Method pubMethod = c.getMethod("setName", paramT);
-// beliebige Methode aus dem **Class**-Objekt holen
-Method privMethod = c.getDeclaredMethod("setName", paramT);
-
-
-Method[] publicMethods = c.getMethods();  // all public methods (incl. inherited)
-Method[] allMethods = c.getDeclaredMethods();  // all methods (excl. inherited)
-```
-
--   `public` Methode laden (auch von Superklasse/Interface geerbt):
-    `Class<?>.getMethod(String, Class<?>[])`
--   Beliebige (auch `private`) Methoden (in der Klasse selbst
-    deklariert): `Class<?>.getDeclaredMethod(...)`
-
-*Anmerkung*: Mit `Class<?>.getDeclaredMethods()` erhalten Sie alle
-Methoden, die direkt in der Klasse deklariert werden (ohne geerbte
-Methoden!), unabhängig von deren Sichtbarkeit. Mit
-`Class<?>.getMethods()` erhalten Sie dagegen alle `public` Methoden, die
-in der Klasse selbst oder ihren Superklassen bzw. den implementierten
-Interfaces deklariert sind.
-
-Vgl. Javadoc
-[`getMethods`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html#getMethods())
-und
-[`getDeclaredMethods`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html#getDeclaredMethods()).
-
-Die Methoden-Arrays können Sie nach bestimmten Eigenschaften
-durchsuchen, bzw. auf das Vorhandensein einer bestimmten Annotation
-prüfen (etwa mit `isAnnotationPresent()`) etc.
-
-Analog können Sie weitere Eigenschaften einer Klasse abfragen,
-beispielsweise Attribute (`Class<?>.getDeclaredFields()`) oder
-Konstruktoren (`Class<?>.getDeclaredConstructors()`).
-
-##### Schritt 3: Instanz der geladenen Klasse erzeugen
-
-``` java
-// Class-Objekt erzeugen
-Class<?> c = Class.forName("reflection.Studi");
-
-
-// Variante 1
-Studi s = (Studi) c.newInstance();
-
-// Variante 2
-Constructor<?> ctor = c.getConstructor();
-Studi s = (Studi) ctor.newInstance();
-
-// Variante 3
-Class<?>[] paramT = new Class<?>[] {String.class, int.class};
-Constructor<?> ctor = c.getDeclaredConstructor(paramT);
-Studi s = (Studi) ctor.newInstance("Beate", 42);
-```
-
-###### Parameterlose, öffentliche Konstruktoren:
-
--   `Class<?>.newInstance()` (seit Java9 *deprecated*!)
--   `Class<?>.getConstructor()` =\> `Constructor<?>.newInstance()`
-
-###### Sonstige Konstruktoren:
-
-Passenden Konstruktor explizit holen:
-`Class<?>.getDeclaredConstructor(Class<?>[])`, Parametersatz
-zusammenbasteln (hier nicht dargestellt) und aufrufen
-`Constructor<?>.newInstance(...)`
-
-###### Unterschied *new* und *Constructor.newInstance()*:
-
-`new` ist nicht identisch zu `Constructor.newInstance()`: `new` kann
-Dinge wie Typ-Prüfung oder Auto-Boxing mit erledigen, während man dies
-bei `Constructor.newInstance()` selbst explizit angeben oder erledigen
-muss.
-
-Vgl.
-[docs.oracle.com/javase/tutorial/reflect/member/ctorTrouble.html](https://docs.oracle.com/javase/tutorial/reflect/member/ctorTrouble.html).
-
-##### Schritt 4: Methoden aufrufen ...
-
-``` java
-// Studi-Klasse dynamisch (nach-) laden
-Class<?> c = Class.forName("reflection.Studi");
-// Studi-Objekt anlegen (Defaultkonstruktor)
-Studi s = (Studi) c.newInstance();
-// Parametersatz für Methode zusammenbasteln
-Class<?>[] paramT = new Class<?>[] { String.class };
-// Methode aus dem **Class**-Objekt holen
-Method method = c.getMethod("setName", paramT);
-
-
-// Methode auf dem **Studi**-Objekt aufrufen
-method.invoke(s, "Holgi");
-```
-
-Die Reflection-API bietet neben dem reinen Zugriff auf (alle) Methoden
-noch viele weitere Möglichkeiten. Beispielsweise können Sie bei einer
-Methode nach der Anzahl der Parameter und deren Typ und Annotationen
-fragen etc. ... Schauen Sie am besten einmal selbst in die API hinein.
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/reflection/ReflectionDemo.java">Demo: reflection.ReflectionDemo</a></p>
-
-##### Hinweis: Klassen außerhalb des Classpath laden
-
-``` java
-File folder = new File("irgendwo");
-URL[] ua = new URL[]{folder.toURI().toURL()};
-
-URLClassLoader ucl = URLClassLoader.newInstance(ua);
-Class<?> c1 = Class.forName("org.wuppie.Fluppie", true, ucl);
-Class<?> c2 = ucl.loadClass("org.wuppie.Fluppie");
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/reflection/ClassLoaderDemo.java">Bemerkung zu Ordnerstruktur und Classpath; Demo: reflection.ClassLoaderDemo</a></p>
-
-Mit `Class.forName("reflection.Studi")` können Sie die Klasse `Studi` im
-Package `reflection` laden. Dabei muss sich aber die entsprechende
-`.class`-Datei (samt der der Package-Struktur entsprechenden
-Ordnerstruktur darüber) **im Java-Classpath** befinden!
-
-Mit einem weiteren `ClassLoader` können Sie auch aus Ordnern, die sich
-nicht im Classpath befinden, `.class`-Dateien laden. Dies geht dann
-entweder wie vorher über `Class.forName()`, wobei hier der neue
-Class-Loader als Parameter mitgegeben wird, oder direkt über den neuen
-Class-Loader mit dessen Methode `loadClass()`.
-
-##### Licht und Schatten
-
-**Nützlich**:
-
--   Erweiterbarkeit: Laden von "externen" (zur Kompilierzeit
-    unbekannter) Klassen in eine Anwendung
--   Klassen-Browser, Debugger und Test-Tools
-
-**Nachteile**:
-
--   Verlust von Kapselung, Compiler-Unterstützung und Refactoring
--   Performance: Dynamisches Laden von Klassen etc.
--   Sicherheitsprobleme/-restriktionen
-
-<div align="center">
-
-Reflection ist ein nützliches Werkzeug. Aber: **Gibt es eine Lösung ohne
-Reflection, wähle diese!**
-
-</div>
-
-##### Wrap-Up
-
--   Inspektion von Programmen zur Laufzeit: **Reflection**
-    -   `java.lang.Class`: Metadaten über Klassen
-    -   Je Klasse ein `Class`-Objekt
-    -   Informationen über Konstruktoren, Methoden, Felder
-    -   Anwendung: Laden und Ausführen von zur Compile-Zeit unbekanntem
-        Code
-    -   Vorsicht: Verlust von Refactoring und Compiler-Zusicherungen!
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Inden ([2013, Kap. 8](#ref-Inden2013))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kenne typische Probleme beim Einsatz von Reflection
-> -   k2: Ich kann die Bedeutung der verschiedenen Exceptions beim
->     Aufruf von Methoden per Reflection erklären
-> -   k3: Ich kann zur Laufzeit mit Reflection Information zu Klassen
->     und Methoden erlangen
-> -   k3: Ich kann zur Compilezeit unbekannte Klassen einbinden und
->     deren Konstruktoren und Methoden (mit und ohne
->     Parameter/Rückgabewerte) aufrufen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> In den
-> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/challenges/reflection)
-> finden Sie eine einfache Implementierung für einen Taschenrechner mit
-> Java-Swing. Dieser Taschenrechner kann nur mit `int`-Werten rechnen.
-> Der Taschenrechner verfügt über keinerlei vordefinierte mathematische
-> Operationen (Addieren, Subtrahieren etc.).
->
-> Erstellen Sie eigene mathematische Operationen, die `IOperation`
-> implementieren. Jede Ihrer Klassen soll mit einer Annotation vermerkt
-> werden, in welcher der Name der jeweiligen Operation gespeichert wird.
->
-> Der Taschenrechner lädt seine Operationen dynamisch über die statische
-> Methode `OperationLoader.loadOperations` ein. In den Vorgaben ist
-> diese Methode noch nicht ausimplementiert. Implementieren Sie die
-> Funktion so, dass sie mit Hilfe von Reflection Ihre Operationen
-> einliest. Geben Sie dazu den Ordner an, in dem die entsprechenden
-> `.class`-Dateien liegen. (Dieser Ordner soll sich außerhalb Ihres
-> Java-Projekts befinden!) Verändern Sie nicht die Signatur der Methode.
->
-> Ihre Operation-Klassen dürfen Sie nicht vorher bekannt machen. Diese
-> müssen in einem vom aktuellen Projekt separierten Ordner/Projekt
-> liegen.
 > </details>
 
 <a id="id-a264d337dcfeece8936f208b6f89bb1efe99ea0f"></a>
@@ -16017,1345 +15904,51 @@ Hier finden Sie die Übungsblätter.
 
 <a id="id-989147f48baba6a594eb9665934ae2623dc84964"></a>
 
-### Blatt 01: Hangman (Wiederholung Swing)
+### Blatt 01: Git Basics, Gradle
 
-#### Zusammenfassung
-
-Dieses Blatt ist bewusst einfach gestaltet und dient der Wiederholung
-Ihrer Kenntnisse aus der LV "Programmieren 1".
-
-Implementieren Sie in Java das Spiel
-[Hangman](https://en.wikipedia.org/wiki/Hangman_(game)).
-
-#### Aufgaben
-
-##### Installation JDK und IDE, Deaktivierung AI-Support
-
-Sie benötigen für die Bearbeitung der Übungsaufgaben ein *Java
-Development Kit* (JDK). Wir verwenden in der Lehrveranstaltung
-"Programmieren 2" aus verschiedenen Gründen die *Long-Term Support
-(LTS)*-Variante, d.h. aktuell das "Java SE Development Kit 21 (LTS)"
-(JDK 21).
-
-Sofern noch nicht geschehen, installieren Sie bitte auf Ihrem Rechner
-**Java SE 21 (LTS)** in einer *64-bit Version*. Wenn Sie mehrere JDKs
-installiert haben sollten, stellen Sie bitte sicher, dass Sie für
-"Programmieren 2" tatsächlich das Java SE 21 (LTS) verwenden. Der
-Anbieter des JDKs sollte keine Rolle spielen.
-
-Installieren Sie auf Ihrem Rechner eine IDE für Java Ihrer Wahl. Machen
-Sie sich mit der Arbeitsweise Ihrer IDE vertraut. Wenn Sie im Verlauf
-des Praktikums feststellen, dass die gewählte IDE nicht für Sie gemacht
-ist, können Sie jederzeit auf eine andere IDE wechseln.
-
-Da Sie das Programmierhandwerk erlernen und üben und vertiefen sollen,
-dürfen Sie im Rahmen dieser Lehrveranstaltung noch keine KI-gestützten
-Assistenten benutzen. Bitte schalten Sie sämtliche KI-Unterstützung wie
-beispielsweise Copilot, JetBrains AI Assistant, Cursor, CodeGPT,
-Codeium, Tabnine, Windsurf, ... (Liste nicht vollständig) für die
-Bearbeitung der Übungsaufgaben in dieser Lehrveranstaltung ab.
-
-##### Anlegen eines Java-Projektes
-
-Legen Sie für die Bearbeitung der Aufgabe ein neues Java-Projekt in
-Ihrer IDE an. Achten Sie bitte darauf, dass im Projektpfad **keine
-Leerzeichen** und **keine Sonderzeichen** (Umlaute o.ä.) vorkommen! Dies
-kann zu teilweise seltsamen Fehler führen.
-
-Wir werden in dieser Lehrveranstaltung das Build-Tool **Gradle**
-verwenden, dieses aber erst später im Verlauf der Lehrveranstaltung
-besprechen. Für dieses erste Übungsblatt können Sie Ihr Projekt noch so
-konfigurieren, dass es ohne Build-Tool arbeitet und direkt in der IDE
-kompiliert und gestartet wird.
-
-Testen Sie bitte die genutzte Java-Version:
-
-1.  Konsole: Geben Sie den Befehl `java -version` auf der Konsole ein.
-    Die Ausgabe sollte `java version "21.0.6" 2025-01-21 LTS` (oder
-    ähnlich) ergeben. Wichtig sind die "21" und "LTS".
-2.  IDE: Erstellen Sie ein Programm, welches die Anweisung
-    `System.out.println(System.getProperty("java.version"));` ausführt.
-    Beim Start über die IDE sollte dabei die Ausgabe `21.0.6` (oder
-    ähnlich) herauskommen. Wichtig ist die "21".
-
-Korrigieren Sie Ihr Setup, wenn Sie andere Ausgaben erhalten.
-
-##### Übersetzen und Starten und Debuggen von Programmen
-
-Erstellen Sie in Ihrem neuen Projekt die folgende Klasse:
-
-``` java
-public class Main {
-    public static void main(String... args) {
-        String version = System.getProperty("java.version");
-        System.out.println(version);
-    }
-}
-```
-
-Worin besteht der Unterschied zwischen dem Übersetzen und dem Starten
-des obigen Programms? Wie unterscheiden Sie das in Ihrer IDE? Wie können
-Sie das Programm manuell auf der Konsole übersetzen und starten?
-Demonstrieren Sie das live im Praktikum.
-
-Worin besteht der Unterschied zwischen Compiler-Warnungen/-Fehlern und
-Laufzeit-Fehlern? Erklären Sie das im Praktikum an selbst gewählten
-Beispielen am obigen Programm.
-
-Starten Sie das obige Programm im Debug-Modus Ihrer IDE. Halten Sie die
-Ausführung am `System.out.println` an, verändern Sie den Wert der
-Variablen `version` und führen Sie dann die nächste Anweisung (das
-`System.out.println`) aus. Wie beenden Sie das Programm? Demonstrieren
-Sie das live im Praktikum.
-
-##### Swing und Java2D
-
-Das Spiel soll vollständig über eine in Swing und Java2D realisierte GUI
-bedient werden:
-
-1.  Visualisieren Sie den Zustand des Galgenmännchens per Java2D.
-2.  Visualisieren Sie den Zustand des zu ratenden Wortes geeignet.
-3.  Es muss ein Eingabefeld geben, um den nächsten Buchstaben eingeben
-    zu können.
-4.  Die bisher eingegebenen Buchstaben sollen in der Reihenfolge der
-    Eingabe angezeigt werden.
-5.  Das Spiel soll per Knopfdruck abgebrochen und neu gestartet werden
-    können.
-
-##### Einlesen von Textdateien
-
-Es soll die Möglichkeit geben, eine Textdatei mit zu ratenden Wörtern
-einzulesen:
-
-1.  Auf Anforderung des Nutzers soll ein Auswahldialog erscheinen.
-2.  Startverzeichnis ist der Ordner, in dem das Spiel gestartet wurde.
-3.  Es sollen nur Textdateien mit der Endung `.txt` ausgewählt werden
-    können.
-4.  Es soll nur eine Datei ausgewählt werden können (also keine
-    Mehrfachselektion).
-5.  Die ausgewählte Textdatei soll eingelesen werden (Format: pro Zeile
-    ein Wort). Alle eingelesenen Wörter sollen in eine Menge überführt
-    und für das Spiel nutzbar gemacht werden.
-6.  Es soll für jedes neue Spiel ein zufälliges Wort aus der Menge der
-    eingelesenen Wörter zum Raten ausgewählt werden.
-
-##### Dokumentation
-
-Erstellen Sie ein UML-Klassendiagramm für Ihre Lösung.
-
-##### Ausprobieren von fortgeschrittenen Widgets
-
-1.  Heben Sie in der Anzeige der eingegebenen Buchstaben die korrekt
-    geratenen Buchstaben in grüner Farbe hervor.
-2.  Passen Sie die Visualisierung des Galgenmännchens farblich an die
-    Tageszeit an, beispielsweise könnte es in den Nachtstunden eine Art
-    Dark-Mode geben und tagsüber einen Light-Mode. Alternativ könnten
-    Sie auch die Farbe der Zeichnung mit der Uhrzeit variieren.
-3.  Lassen Sie den Nutzer per Slider die Schwierigkeit variieren:
-    Steuerung der Länge des zu ratenden Wortes und/oder Steuerung der
-    Anzahl der erlaubten Fehlversuche.
-
-#### Bearbeitung und Abgabe
-
--   Bearbeitung: Einzelbearbeitung oder bis zu 3er Teams
--   Abgabe:
-    -   Post Mortem [im
-        ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1514856&client_id=FH-Bielefeld)
-        eintragen:
-
-        Verfassen Sie im ILIAS pro Blatt und pro Team-Mitglied ein
-        aussagekräftiges und nachvollziehbares "*Post Mortem*". Gehen
-        Sie dabei auf folgende Punkte ein:
-
-        1.  Zusammenfassung: Was wurde gemacht?
-        2.  Implementierungsdetails: Kurze Beschreibung besonders
-            interessanter Aspekte der Umsetzung.
-        3.  Was war der schwierigste Teil bei der Bearbeitung? Wie haben
-            Sie dieses Problem gelöst?
-        4.  Was haben Sie gelernt oder (besser) verstanden?
-        5.  Team: Mit wem haben Sie zusammengearbeitet?
-
-        Das Post Mortem muss von **jeder Person** im Team
-        **individuell** verfasst und abgegeben werden. Der Umfang des
-        Textes soll zwischen 200 und 400 Wörtern liegen.
-
-        Laden Sie hier bitte **nicht** Ihre Lösungen hoch!
-
-    -   Deadline: 25. April, 08:00 Uhr
--   Vorstellung im Praktikum: 25. April
+Coming soon ...
 
 <a id="id-61b291653cdae0b4da99c50e5ab714c878aede10"></a>
 
-### Blatt 02: Git-Quest & Calculator (Git Basics, Lambda-Ausdrücke, Gradle)
+### Blatt 02: Git Branches, JUnit Basics; CI-Pipeline
 
-#### Zusammenfassung
-
-Auf diesem Blatt üben Sie den Umgang mit Git (Repo und Commits -
-zunächst auf der Konsole) sowie den Einsatz von Lambda-Ausdrücken und
-das Schreiben von Gradle-Build-Skripten.
-
-#### Aufgaben
-
-##### Git
-
-###### Git Status erklären
-
-Betrachten Sie die folgende Ausgabe von `git status` in einer lokalen
-Workingcopy (*Arbeitskopie*):
-
-    pm-lecture % git status
-    On branch b03
-
-    Changes not staged for commit:
-      (use "git add <file>..." to update what will be committed)
-      (use "git restore <file>..." to discard changes in working directory)
-            modified:   CONTRIBUTING.md
-            modified:   homework/b03.md
-
-    Untracked files:
-      (use "git add <file>..." to include in what will be committed)
-            foo.java
-
-    no changes added to commit (use "git add" and/or "git commit -a")
-
-Erklären Sie die Ausgabe.
-
-Geben Sie eine Befehlssequenz an, mit der Sie nur die Änderungen in
-`foo.java` committen können.
-
-###### Git-Spiel
-
-Klonen Sie die [Vorgaben
-"Git-Quest"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_gitquest).
-Sie finden die Geschichte des Helden Markus im Dungeon.[^8]
-
-1.  Öffnen Sie eine Konsole und beantworten Sie mit Hilfe der Befehle
-    `git checkout`, `git log` und `git show` sowie `git diff` folgende
-    Fragen:
-
-    -   Was passierte an `tag 01`?
-    -   Wann hat der Held zum ersten Mal 4 `experience` Punkte?
-    -   Wann hat der Held zum ersten Mal 10 `hunger` Punkte?
-    -   Wie viele Heiltränke hat der Held insgesamt in seinem Rucksack
-        gehabt?
-    -   Was hat der Held im Shop gekauft? Und wie viel Gold hat er dafür
-        bezahlt?
-    -   Was passierte zwischen `tag 03` und `tag 04`, d.h. was änderte
-        sich zwischen diesen Commits?
-    -   Hat der Held etwas gegessen? Falls ja, was und wann?
-
-2.  Beim letzten Commit (`tag 04.5`) ist etwas schief gelaufen, es
-    wurden versehentlich zu wenig `experience` Punkte eingestellt.
-    Ändern Sie diesen letzten Commit und passen Sie die `experience`
-    Punkte auf 42 an.
-
-3.  Schreiben Sie die Geschichte in der Datei `questlog.md` fort und
-    erzeugen Sie einen neuen Commit für `tag 04.6`. Ändern Sie bitte
-    hierzu nur die eine Datei `questlog.md`.
-
-4.  Schreiben Sie die Geschichte noch weiter fort (`tag 04.7`), aber
-    ändern Sie diesmal mehrere Dateien, die an diesem Tag (neuer Commit)
-    gemeinsam eingecheckt werden sollen.
-
-5.  Fälschlicherweise wurden die Statuspunkte und die Ausrüstung bisher
-    gemeinsam in der Datei `stats.md` geführt. Korrigieren Sie das und
-    verschieben Sie die Ausrüstungsgegenstände aus der Datei `stats.md`
-    in eine neue Datei `gear.md`. Checken Sie Ihre Änderungen als
-    `tag 04.8` (neuer Commit) gemeinsam ein. (*Hinweis*: Es reicht, wenn
-    diese Änderung als letzter Commit auf der Spitze des
-    `master`-Branches existiert. Sie brauchen/sollen die Trennung von
-    Statuspunkten und Ausrüstung **nicht rückwirkend** in die Historie
-    einbauen!)
-
-Demonstrieren Sie Ihr Vorgehen im Praktikum jeweils live.
-
-###### Commit-Meldungen
-
-Gute Commit-Meldungen schreiben erfordert Übung. Schauen Sie sich die
-beiden Commits
-[Dungeon-CampusMinden/Dungeon/commit/46530b6](https://github.com/Dungeon-CampusMinden/Dungeon/commit/46530b6dc970a8cedb0610b92268b9c78345e067)
-und
-[Dungeon-CampusMinden/Dungeon/commit/3e37472](https://github.com/Dungeon-CampusMinden/Dungeon/commit/3e3747220ade538b4c974a520cc9104121789aa1)
-an.
-
-Diskutieren Sie jeweils, was Ihnen an den Commits auffällt: Was gefällt
-Ihnen, was stört Sie? Schlagen Sie Verbesserungen vor.
-
-##### Gradle
-
-Folgen Sie der Anleitung auf [gradle.org](https://gradle.org/) und
-installieren Sie Gradle auf Ihrem Rechner. Legen Sie in der Konsole ein
-neues Gradle-Projekt für eine Java-Applikation an (ohne IDE!). Das
-Build-Script soll in Groovy erzeugt und als Test-API soll JUnit4
-verwendet werden.
-
-Wie finden Sie auf der Konsole heraus, welche Tasks es gibt? Erklären
-Sie das Projektlayout, d.h. wo kommen beispielsweise die Java-Dateien
-hin?
-
-Erklären Sie, in welche Abschnitte das generierte Buildskript unterteilt
-ist und welche Aufgaben diese Abschnitte jeweils erfüllen. Gehen Sie
-dabei im *Detail* auf das Plugin `application` und die dort
-bereitgestellten Tasks und deren Abhängigkeiten untereinander ein.
-
-Öffnen Sie das Projekt in Ihrer IDE. Wie können Sie hier die
-verschiedenen Tasks ansteuern?
-
-Machen Sie sich Notizen, welche Sie im Praktikum nutzen dürfen, um dort
-das Buildskript zu erklären.
-
-##### Calculator: Anonyme Klassen und Lambda-Ausdrücke
-
-Klonen Sie die [Vorgaben
-"Calculator"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_calculator)
-und laden Sie das Projekt als Gradle-Projekt in Ihre IDE.
-
-In den Vorgaben wird das Package `calculator` verwendet. Recherchieren
-Sie und erklären Sie im Praktikum, was Packages in Java sind und wie man
-damit die Code-Basis strukturieren kann. Gehen Sie dabei auch auf
-Sichtbarkeiten ein.
-
-Im Package `calculator` finden Sie einige Interfaces und Klassen, mit
-denen man einen einfachen Taschenrechner modellieren kann: Dieser kann
-einfache mathematische Operationen auf zwei Integern ausführen.
-
-In der Klasse `calculator.Calculator` finden Sie vier mit `TODO`
-markierte Stellen in der Methode `setupOperationSelector`:
-
-1.  Erstellen Sie eine neue **Java-Klasse** `Sub`, die das Interface
-    `Operation` implementiert und eine Subtraktion bereitstellt.
-    Erweitern Sie den `Calculator` und binden Sie eine **Instanz dieser
-    Klasse** ein. Nutzen Sie hier keine anonymen Klassen oder
-    Lambda-Ausdrücke.
-2.  Erstellen Sie eine weitere Operation "Mul" (Multiplikation von zwei
-    Integern). Nutzen Sie dazu eine passende **anonyme Klasse**.
-3.  Erstellen Sie eine weitere Operation "Div" (Integerdivision).
-    Erstellen Sie einen passenden **Lambda-Ausdruck**.
-4.  Für die `JComboBox` `operationSelector` wird ein `ActionListener`
-    mit Hilfe einer *anonymen Klasse* definiert. Konvertieren Sie dies
-    in einen entsprechenden **Lambda-Ausdruck**.
-
-#### Bearbeitung und Abgabe
-
--   Bearbeitung: Einzelbearbeitung oder bis zu 3er Teams
--   Abgabe:
-    -   Post Mortem [im
-        ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1514856&client_id=FH-Bielefeld)
-        eintragen:
-
-        Verfassen Sie im ILIAS pro Blatt und pro Team-Mitglied ein
-        aussagekräftiges und nachvollziehbares "*Post Mortem*". Gehen
-        Sie dabei auf folgende Punkte ein:
-
-        1.  Zusammenfassung: Was wurde gemacht?
-        2.  Implementierungsdetails: Kurze Beschreibung besonders
-            interessanter Aspekte der Umsetzung.
-        3.  Was war der schwierigste Teil bei der Bearbeitung? Wie haben
-            Sie dieses Problem gelöst?
-        4.  Was haben Sie gelernt oder (besser) verstanden?
-        5.  Team: Mit wem haben Sie zusammengearbeitet?
-
-        Das Post Mortem muss von **jeder Person** im Team
-        **individuell** verfasst und abgegeben werden. Der Umfang des
-        Textes soll zwischen 200 und 400 Wörtern liegen.
-
-        Laden Sie hier bitte **nicht** Ihre Lösungen hoch!
-
-    -   Deadline: 02. Mai, 08:00 Uhr
--   Vorstellung im Praktikum: 02. Mai
+Coming soon ...
 
 <a id="id-6c99b0278590e1866d400dbbb6fc3eeafad60e55"></a>
 
-### Blatt 03: Git-Quest & LSF-Contact (Git Branches, Methoden-Referenzen, Logging)
+### Blatt 03: Methodenrefs, Lambdas
 
-#### Zusammenfassung
-
-Auf diesem Blatt üben Sie den Umgang mit Git (Branches und Mergen -
-zunächst auf der Konsole) sowie den Einsatz von Methoden-Referenzen und
-den Einsatz von Logging.
-
-#### Aufgaben
-
-##### Git-Spiel
-
-Betrachten Sie erneut die [Vorgaben zur
-"Git-Quest"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_gitquest).
-Die Geschichte des Helden Markus findet im `master`-Branch kein Ende,
-sondern erst im Hilfsbranch `end`.
-
-Machen Sie nun verschiedene Experimente mit Branches in Git, und starten
-Sie dabei jeweils mit einem frischen Klon der Vorgaben.
-
-1.  Ändern Sie eine Datei, die im Branch `end` nicht verändert wurde.
-    Erzeugen Sie mit diesen Änderungen auf dem `master` einen neuen
-    Commit. Mergen Sie danach den Branch `end` in den `master`-Branch.
-2.  Ändern Sie nun eine Datei, die auch im Branch `end` verändert wurde.
-    Achten Sie dabei darauf, die Änderung an einer anderen Stelle in der
-    Datei vorzunehmen. Erzeugen Sie mit diesen Änderungen auf dem
-    `master` einen neuen Commit. Mergen Sie danach den Branch `end` in
-    den `master`-Branch.
-3.  Wie (2), aber ändern Sie nun eine Stelle, die auch im Branch `end`
-    verändert wurde. Erzeugen Sie mit diesen Änderungen auf dem `master`
-    einen neuen Commit. Mergen Sie danach den Branch `end` in den
-    `master`-Branch. Was passiert, wenn die Änderung im `master`
-    identisch zu der in `end` ist? Was passiert, wenn die Änderung im
-    `master` anders ist als in `end`?
-4.  Wie (2), aber setzen Sie bitte den Branch `end` auf die Spitze von
-    `master`, bevor Sie `end` in `master` mergen.
-
-Was beobachten Sie jeweils? Erklären Sie Ihre Beobachtungen. Wenn es
-Konflikte gibt: Wie lösen Sie diese auf? Demonstrieren Sie das Vorgehen
-im Praktikum live.
-
-##### LSF-Contact
-
-Betrachten Sie die [Vorgaben
-"LSF-Contact"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_lsfcontact).
-Klonen Sie das Repo und laden Sie das Projekt als Gradle-Projekt in Ihre
-IDE.
-
-###### Methoden-Referenzen
-
-Sie finden im Package `lsfcontact` eine Klasse `Student`. Jede Instanz
-dieser Klasse hat mindestens einen Namen (`String`), und man kann
-verschiedene Konktaktmöglichkeiten per Setter setzen: EMail-Adresse,
-Telefonnummer, Post-Adresse (alle `String`).
-
-Die Klasse `LsfContactUtil` soll ein Hilfsmodul im LSF simulieren, mit
-der man die Studierenden kontaktieren kann. Es gibt drei verschiedene
-Methoden, die jeweils mit einer Liste mit `Student`-Objekten aufgerufen
-werden und die alle Studierenden mit der entsprechend gesetzten
-Kontaktoption über diesen Kontaktweg ansprechen. *Beispiel*: Die Methode
-`emailStudents` filtert alle Studierenden, deren EMail-Adresse gesetzt
-ist (d.h. deren EMail-Adresse ein nicht-leerer String ist) und "schickt"
-diesen Studierenden eine "EMail" über den Aufruf der privaten
-Hilfsmethode `email`.
-
-Die Klasse `Main` erzeugt einige `Student`-Objekte, gruppiert sie in
-einer Liste und demonstriert die Aufrufe der Methoden in
-`LsfContactUtil`.
-
-Es fällt auf, dass die drei Methoden `emailStudents`, `phoneStudents`
-und `writeStudents` algorithmisch identisch sind und sich nur in der
-Abfrage der entsprechenden Kontaktoption und dem Aufruf der internen
-Kontakt-Methode unterscheiden. Auch die internen Kontakt-Methoden
-`email`, `phone` und `write` sind recht einfallslose Code-Duplikate.
-
-Schreiben Sie die Klasse `LsfContactUtil` so um, dass es nur noch eine
-`public` Methode für das Kontaktieren einer Liste von `Student`-Objekten
-gibt. Fassen Sie ebenfalls die drei `private` Hilfsmethoden zu einer
-neuen Hilfsmethode zusammen - dabei soll es inhaltlich bei dem
-`System.out.println()` mit den aktuell verwendeten Informationen
-bleiben. Überlegen Sie, wie Sie die Abfrage der Kontaktmöglichkeit und
-auch die Kriterien für die Prüfung der Strings von außen als Parameter
-in die Methode hineingeben können. Passen Sie die Schnittstellen an, so
-dass der neuen `public` Methode zusätzlich zur `List<Student>` passende
-Methodenreferenzen übergeben werden können. Ändern Sie die Demo-Aufrufe
-in `Main` entsprechend. Die Klasse `Student` verändern Sie bitte nicht.
-
-*Tipp*: Gehen Sie schrittweise vor und starten zunächst mit geeigneten
-Lambda-Ausdrücken. Schaffen Sie es, diese durch Methodenreferenzen zu
-ersetzen?
-
-Achten Sie darauf, alle Schritte nachvollziehbar in Ihrer Arbeitskopie
-per Git Commit festzuhalten. Demonstrieren Sie dies im Praktikum.
-
-###### Logging
-
-Bauen Sie für das `LsfContactUtil` ein Logging auf der Basis von
-`java.util.logging` ein: Jede Benachrichtigung von Studierenden soll in
-ein gemeinsames CSV-File geloggt werden. Dabei soll pro Logging-Vorgang
-eine neue Zeile mit den folgenden Informationen angehängt werden:
-
--   Log-Level,
--   Name der den Log-Vorgang auslösenden Methode,
--   Name der Klasse, in der die den Log-Vorgang auslösenden Methode
-    angesiedelt ist,
--   Log-Meldung, bestehend aus
-    -   Name des kontaktierten Studierenden,
-    -   genutzte Adresse des Studierenden (Mail- oder Postadresse oder
-        Telefonnummer),
-    -   Kontaktmodus (wird eine Mail geschickt oder ein Brief
-        geschrieben oder ein Anruf getätigt).
-
-Demonstrieren Sie in der Abgabe, wie Sie im Test oder im Hauptprogramm
-den Logger steuern können, beispielsweise Änderung der Log-Level oder
-Abschalten des Loggings.
-
-#### Bearbeitung und Abgabe
-
--   Bearbeitung: Einzelbearbeitung oder bis zu 3er Teams
--   Abgabe:
-    -   Post Mortem [im
-        ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1514856&client_id=FH-Bielefeld)
-        eintragen:
-
-        Verfassen Sie im ILIAS pro Blatt und pro Team-Mitglied ein
-        aussagekräftiges und nachvollziehbares "*Post Mortem*". Gehen
-        Sie dabei auf folgende Punkte ein:
-
-        1.  Zusammenfassung: Was wurde gemacht?
-        2.  Implementierungsdetails: Kurze Beschreibung besonders
-            interessanter Aspekte der Umsetzung.
-        3.  Was war der schwierigste Teil bei der Bearbeitung? Wie haben
-            Sie dieses Problem gelöst?
-        4.  Was haben Sie gelernt oder (besser) verstanden?
-        5.  Team: Mit wem haben Sie zusammengearbeitet?
-
-        Das Post Mortem muss von **jeder Person** im Team
-        **individuell** verfasst und abgegeben werden. Der Umfang des
-        Textes soll zwischen 200 und 400 Wörtern liegen.
-
-        Laden Sie hier bitte **nicht** Ihre Lösungen hoch!
-
-    -   Deadline: 09. Mai, 08:00 Uhr
--   Vorstellung im Praktikum: 09. Mai
+Coming soon ...
 
 <a id="id-d392f8d0f4dd93faa938c9737b2317ba03f5aa12"></a>
 
-### Blatt 04: Stream-API (Git Remote, Streams, Lambda-Ausdrücke)
+### Blatt 04: RegExp, Template-Method, Absichern mit JUnit-Tests; PR
 
-#### Zusammenfassung
-
-Auf diesem Blatt üben Sie den Umgang mit Git Remotes sowie die
-Erstellung von Pull-Requests auf GitHub. Darüber hinaus üben wir den
-Umgang mit der Java-Stream-API und noch einmal mit Lambda-Ausdrücken.
-
-> [!IMPORTANT]
->
-> **Hinweis**: Bitte denken Sie daran, dass Sie spätestens ab diesem
-> Blatt die Bearbeitung der Aufgaben in Ihren öffentlich sichtbaren
-> Git-Repos durchführen sollen.
->
-> Erstellen Sie ab diesem Blatt für **alle** Ihre Lösungen passende
-> Pull-Requests gegen **Ihre eigenen Repos** (auch wenn dies nicht
-> explizit in den Aufgaben gefordert wird).
->
-> Die Links zu Ihren Pull-Requests mit den Lösungen geben Sie bitte ab
-> sofort immer in Ihrem *Post Mortem* mit an.
-
-#### Aufgaben
-
-##### Stream-API
-
-###### Git: Pull-Requests (und Code-Formatierung und -Dokumentation)
-
-Forken Sie das
-["Stream-API"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_streamapi)-Repo
-und erzeugen Sie eine lokale Arbeitskopie von Ihrem Fork.
-
-Sie finden die Vorgaben für jede Teilaufgabe in einem eigenen Branch.
-Checken Sie diese Branches lokal als Tracking-Branches aus und
-bearbeiten Sie die Teilaufgaben jeweils in ihrem eigenen Branch. Pushen
-Sie Ihre Änderungen in Ihren Fork zurück und erstellen Sie dort je einen
-Pull-Request auf **Ihren** eigenen `master`-Branch.
-
-**Bitte lassen Sie die Pull-Requests bis zur Vorstellung im Praktikum
-offen.**
-
-Achten Sie darauf, alle Schritte nachvollziehbar in Ihrer Arbeitskopie
-per Git-Commit festzuhalten. Demonstrieren Sie im Praktikum, wie Sie mit
-den Pull-Requests arbeiten.
-
-###### Stream-API: Task I
-
-Betrachten Sie den Branch `task_i`. Sie finden im Package `streamapi`
-einige Hilfsklassen sowie in der Datei
-[`Main.java`](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_streamapi/blob/task_i/src/main/java/streamapi/Main.java)
-einen Starter für diese erste Teilaufgabe.
-
-In der Funktion `Main#students` wird für eine Liste von
-`Student`-Objekten die Summe der gesammelten ECTS berechnet.
-
-Schreiben Sie den Body dieser Methode so um, dass die selbe
-Funktionalität unter Nutzung der
-[Java-Stream-API](https://dev.java/learn/api/streams/) erreicht wird.
-Bevorzugen Sie dabei nach Möglichkeit Methoden-Referenzen vor
-Lambda-Ausdrücken.
-
-###### Stream-API: Task II
-
-Betrachten Sie nun den Branch `task_ii`. Sie finden wieder im Package
-`streamapi` einige Hilfsklassen sowie in der Datei
-[`Main.java`](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_streamapi/blob/task_ii/src/main/java/streamapi/Main.java)
-einen Starter für diese zweite Teilaufgabe.
-
-In der Funktion `Main#ifmCps` wird für eine Liste von `Student`-Objekten
-die Menge der gesammelten ECTS bestimmt. Dabei werden nur Studierende
-des Informatik-Studiengangs berücksichtigt.
-
-Was bedeutet "die Menge der gesammelten ECTS", was ist die
-Mengen-Eigenschaft?
-
-Schreiben Sie den Body dieser Methode so um, dass die selbe
-Funktionalität unter Nutzung der
-[Java-Stream-API](https://dev.java/learn/api/streams/) erreicht wird.
-Bevorzugen Sie dabei nach Möglichkeit Methoden-Referenzen vor
-Lambda-Ausdrücken.
-
-###### Stream-API: Task III
-
-Betrachten Sie nun den Branch `task_iii`. Sie finden wieder im Package
-`streamapi` einige Hilfsklassen sowie in der Datei
-[`Main.java`](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_streamapi/blob/task_iii/src/main/java/streamapi/Main.java)
-einen Starter für diese dritte Teilaufgabe.
-
-In der Funktion `Main#random` werden zunächst zehn zufällige
-Integerwerte im Bereich zwischen 0 (inklusive) und 10 (exklusive)
-berechnet. Anschließend werden diese Zahlen weiter verarbeitet und das
-Ergebnis zurückgeliefert.
-
-Schreiben Sie den Body dieser Methode so um, dass die selbe
-Funktionalität unter Nutzung der
-[Java-Stream-API](https://dev.java/learn/api/streams/) erreicht wird.
-Bevorzugen Sie dabei nach Möglichkeit Methoden-Referenzen vor
-Lambda-Ausdrücken.
-
-###### Stream-API: Task IV+V
-
-Betrachten Sie nun den Branch `task_iv_v`. Sie finden wieder im Package
-`streamapi` einige Hilfsklassen sowie in der Datei
-[`Main.java`](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_streamapi/blob/task_iv_v/src/main/java/streamapi/Main.java)
-einen Starter für diese vierte Teilaufgabe.
-
-1.  Ressourcen in Java
-
-    In der Funktion `Main#getResourceAsStream` soll eine Textdatei als
-    `InputStream` zum Einlesen geöffnet werden. Die Datei soll dabei im
-    Ressourcen-Ordner des Projekts gesucht werden.
-
-    Informieren Sie sich im Web über den Umgang in Java mit Ressourcen.
-    Welcher Ordner wurde in der vorgegebenen Gradle-Konfiguration als
-    Ressourcen-Ordner für das Projekt definiert?
-
-    Schreiben Sie den Body dieser Methode so um, dass die zu dem
-    übergebenen Dateinamen passende Ressource im Kontext der aktuellen
-    Klasse als `InputStream` geöffnet wird und geben Sie diesen als
-    Ergebnis zurück.
-
-    *Hinweis*: Diese Teilaufgabe ist die Voraussetzung für die
-    Bearbeitung der nächsten Teilaufgabe. Wenn Sie diese Aufgabe nicht
-    hinbekommen sollten, dann definieren Sie sich ersatzweise einen
-    *Text Block* (Multi-line String) mit dem Inhalt der Textdatei und
-    erzeugen daraus einen `InputStream`. Das zählt dann aber nicht als
-    "bearbeitet".
-
-2.  Einlesen von Textdateien
-
-    In der Funktion `Main#resources` wird eine Textdatei im
-    Ressourcen-Ordner über eine interne Hilfsfunktion (siehe vorige
-    Teilaufgabe) als `InputStream` zum Einlesen geöffnet. Über einen
-    `BufferedReader` werden alle Zeilen eingelesen und anschließend alle
-    Zeilen, die mit dem Buchstaben "a" beginnen und mindestens zwei
-    Zeichen lang sind, wieder zusammen gefügt (mit einem Zeilenumbruch
-    `\n` als Trenner).
-
-    Schreiben Sie den Body dieser Methode so um, dass die selbe
-    Funktionalität unter Nutzung der
-    [Java-Stream-API](https://dev.java/learn/api/streams/) erreicht
-    wird. Bevorzugen Sie dabei nach Möglichkeit Methoden-Referenzen vor
-    Lambda-Ausdrücken.
-
-##### Record-Klassen
-
-Machen Sie aus der Klasse `streamapi.Student` eine Record-Klasse.
-
-#### Bearbeitung und Abgabe
-
--   Bearbeitung: Einzelbearbeitung oder bis zu 3er Teams
--   Abgabe:
-    -   Post Mortem [im
-        ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1514856&client_id=FH-Bielefeld)
-        eintragen:
-
-        Verfassen Sie im ILIAS pro Blatt und pro Team-Mitglied ein
-        aussagekräftiges und nachvollziehbares "*Post Mortem*". Gehen
-        Sie dabei auf folgende Punkte ein:
-
-        1.  Zusammenfassung: Was wurde gemacht?
-        2.  Implementierungsdetails: Kurze Beschreibung besonders
-            interessanter Aspekte der Umsetzung.
-        3.  Was war der schwierigste Teil bei der Bearbeitung? Wie haben
-            Sie dieses Problem gelöst?
-        4.  Was haben Sie gelernt oder (besser) verstanden?
-        5.  Team: Mit wem haben Sie zusammengearbeitet?
-        6.  Links zu Ihren Pull-Requests mit der Lösung.
-
-        Das Post Mortem muss von **jeder Person** im Team
-        **individuell** verfasst und abgegeben werden. Der Umfang des
-        Textes soll zwischen 200 und 400 Wörtern liegen.
-
-        Laden Sie hier bitte **nicht** Ihre Lösungen hoch!
-
-    -   Deadline: 23. Mai, 08:00 Uhr
--   Vorstellung im Praktikum: 23. Mai
+Coming soon ...
 
 <a id="id-96a6e702ef5bbea0815334b0b819b91864e526c7"></a>
 
-### Blatt 05: Katzen-Café (Streams, JUnit, Optional\<\>, Visitor)
+### Blatt 05: ANTLR, Visitor, PrettyPrinter; ÄK&GW, Mocking
 
-#### Zusammenfassung
-
-Auf diesem Blatt üben Sie den Umgang mit der Java-Stream-API und
-`Optional<>`. Sie erstellen erste JUnit-Tests und implementieren das
-Visitor-Pattern für ein einfaches Beispiel.
-
-> [!IMPORTANT]
->
-> **Hinweis**: Bitte denken Sie daran, dass Sie spätestens seit Blatt 04
-> die Bearbeitung der Aufgaben in Ihren öffentlich sichtbaren Git-Repos
-> durchführen sollen.
->
-> Erstellen Sie für **alle** Ihre Lösungen passende Pull-Requests gegen
-> **Ihre eigenen Repos** (auch wenn dies nicht explizit in den Aufgaben
-> gefordert wird).
->
-> Die Links zu Ihren Pull-Requests mit den Lösungen geben Sie bitte
-> immer in Ihrem *Post Mortem* mit an.
-
-#### Aufgaben
-
-##### Katzen-Café
-
-Forken Sie das
-["Cat-Cafe"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_catcafe)-Repo
-und erzeugen Sie sich eine lokale Arbeitskopie von Ihrem Fork.
-
-###### Code-Analyse
-
-Analysieren Sie die Modellierung des Binärbaums (`Tree`, `Empty`,
-`Node`) und erklären Sie die Funktionsweise:
-
--   Was sind Vorteile, was sind Nachteile dieser Modellierung?
--   Was musste getan werden, um die selbst implementierten Bäume in
-    Schleifen (`Tree<X> mytree; for (Tree<X> t: mytree) {...}`) und in
-    Streams `Tree<X> mytree; mytree.stream(). ...` nutzen zu können?
--   Wie funktioniert der `TreeIterator`?
-
-###### Umgang mit `Optional<>`
-
-Bauen Sie die beiden Methoden `CatCafe#getCatByName` und
-`CatCafe#getCatByWeight` so um, dass ein passendes `Optional<>`
-zurückgeliefert wird. Passen Sie die entsprechenden Methodenaufrufe in
-`Main#main` entsprechend an.
-
-*Tipp*: Stellen Sie in den beiden Methoden auf die
-[Java-Stream-API](https://dev.java/learn/api/streams/) um, dann ergibt
-sich die Nutzung von `Optional<>` fast von selbst.
-
-###### JUnit
-
-Erstellen Sie mit JUnit 4 oder 5 mindestens 10 unterschiedliche
-Testfälle für die Klasse `CatCafe`.
-
-*Tipp*: In der Gradle-Konfiguration der Vorgabe ist bereits JUnit5
-konfiguriert, d.h. die entsprechenden Abhängigkeiten werden durch Gradle
-aufgelöst. Wenn Sie die Vorgaben als Gradle-Projekt in Ihrer IDE öffnen,
-dann steht Ihnen dort auch die JUnit5-Bibliothek automatisch zur
-Verfügung. Wenn Sie JUnit4 nutzen möchten, müssten Sie bitte die
-Gradle-Konfiguration entsprechend anpassen. Mit `./gradlew test` können
-Sie entsprechende Testfälle ausführen.
-
-###### Visitor-Pattern
-
-Die Klasse `CatCafe` hat eine Methode `CatCafe#accept`, die einen
-Visitor mit dem parametrischen Typ `TreeVisitor` an das intern genutzte
-Feld `Tree<FelineOverLord> clowder` weiterleitet.
-
-Implementieren Sie das Visitor-Pattern für den Baum (`Tree`), indem Sie
-das Interface `TreeVisitor` implementieren:
-
-1.  Erstellen Sie einen konkreten Visitor `InOrderVisitor`, der den Baum
-    **inorder** traversiert.
-2.  Erstellen Sie einen weiteren konkreten Visitor `PostOrderVisitor`,
-    der den Baum **postorder** traversiert.
-
-Beim Besuch eines Knotens soll jeweils die Methode `toString()` für den
-Datenanteil aufgerufen werden und passend mit den Ergebnissen der
-Traversierung der linken und rechten Teilbäume konkateniert werden und
-der resultierende String zurückgeben werden.
-
-Fügen Sie passende Aufrufe der beiden Visitoren in `Main#main` hinzu.
-
-#### Bearbeitung und Abgabe
-
--   Bearbeitung: Einzelbearbeitung oder bis zu 3er Teams
--   Abgabe:
-    -   Post Mortem [im
-        ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1514856&client_id=FH-Bielefeld)
-        eintragen:
-
-        Verfassen Sie im ILIAS pro Blatt und pro Team-Mitglied ein
-        aussagekräftiges und nachvollziehbares "*Post Mortem*". Gehen
-        Sie dabei auf folgende Punkte ein:
-
-        1.  Zusammenfassung: Was wurde gemacht?
-        2.  Implementierungsdetails: Kurze Beschreibung besonders
-            interessanter Aspekte der Umsetzung.
-        3.  Was war der schwierigste Teil bei der Bearbeitung? Wie haben
-            Sie dieses Problem gelöst?
-        4.  Was haben Sie gelernt oder (besser) verstanden?
-        5.  Team: Mit wem haben Sie zusammengearbeitet?
-        6.  Links zu Ihren Pull-Requests mit der Lösung.
-
-        Das Post Mortem muss von **jeder Person** im Team
-        **individuell** verfasst und abgegeben werden. Der Umfang des
-        Textes soll zwischen 200 und 400 Wörtern liegen.
-
-        Laden Sie hier bitte **nicht** Ihre Lösungen hoch!
-
-    -   Deadline: 30. Mai, 08:00 Uhr
--   Vorstellung im Praktikum: 30. Mai
+Coming soon ...
 
 <a id="id-f80f5e162e1aaa7ad98f24b776c109c056062b7c"></a>
 
-### Blatt 06: Cycle Chronicles (ÄK&GW, Mocking)
+### Blatt 06: Visitor vs. PatternMatching, Records
 
-#### Zusammenfassung
-
-Auf diesem Blatt üben Sie die Erstellung von Testfällen mit der
-Äquivalenzklassenbildung und Grenzwertanalyse. Sie üben den Einsatz mit
-Mockito. Zusätzlich haben Sie die Gelegenheit, noch einmal mit Logging
-und Record-Klassen zu arbeiten.
-
-> [!IMPORTANT]
->
-> **Hinweis**: Bitte denken Sie daran, dass Sie spätestens seit Blatt 04
-> die Bearbeitung der Aufgaben in Ihren öffentlich sichtbaren Git-Repos
-> durchführen sollen.
->
-> Erstellen Sie für **alle** Ihre Lösungen passende Pull-Requests gegen
-> **Ihre eigenen Repos** (auch wenn dies nicht explizit in den Aufgaben
-> gefordert wird).
->
-> Die Links zu Ihren Pull-Requests mit den Lösungen geben Sie bitte
-> immer in Ihrem *Post Mortem* mit an.
-
-#### Aufgaben
-
-Forken Sie das ["Cycle
-Chronicles"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_cyclechronicles)-Repo
-und erzeugen Sie sich eine lokale Arbeitskopie von Ihrem Fork.
-
-##### Analyse: Äquivalenzklassen & Grenzwerte
-
-Die Methode `Shop#accept` dient zur Annahme eines neuen Auftrags eines
-Kunden.
-
-Neue Aufträge sollen nur unter bestimmten Bedingungen angenommen werden:
-
--   Es darf sich nicht um ein E-Bike handeln.
--   Es darf sich nicht um ein Gravel-Bike handeln.
--   Der Kunde darf nicht noch andere offene Aufträge beim Shop haben (es
-    kann pro Kunden immer nur maximal einen offenen Auftrag in der
-    Warteschlange geben).
--   Es sind aktuell höchstens vier andere offene Aufträge vorhanden (es
-    dürfen zu jeder Zeit maximal fünf offene Aufträge in der
-    Warteschlange sein).
-
-Der Rückgabewert der Methode signalisiert, ob der Auftrag angenommen
-wurde und in die Warteschlange der offenen Aufträge eingereiht wurde
-(`true`) oder ob er abgelehnt wurde (`false`).
-
-Aufgaben:
-
-1.  Erstellen Sie eine Äquivalenzklassen- und Grenzwert-Analyse.
-2.  Erstellen Sie aus den ermittelten ÄK und GW konkrete Testfälle.
-    (**Noch keine Implementierung!**)
-
-##### Mocking I
-
-Implementieren Sie nun die in der vorigen Aufgabe ermittelten Testfälle
-für die Methode `Shop#accept` mit Hilfe von JUnit (Version 4 oder 5).
-
-Leider gibt es beim Ausführen vieler Ihrer JUnit-Testmethoden eine
-`UnsupportedOperationException`-Exception, da die Klasse `Order` bisher
-nur unvollständig implementiert ist: Es existieren praktisch nur die
-Methodensignaturen, der Aufruf der Methoden liefert nur eine
-`UnsupportedOperationException`.
-
-Setzen Sie aktiv Mocking mit Mockito ein, um Ihre JUnit-Tests für
-`Shop#accept` ausführbar zu machen. Begründen Sie die Anwendung von
-Mockito.
-
-**Wichtig**: Die zu testende Methode `Shop#accept` soll in der
-vorliegenden Implementierung im Test genutzt werden, d.h. sie darf nicht
-"weg-gemockt" werden!
-
-*Tipp*: In der Gradle-Konfiguration der Vorgabe ist bereits JUnit5 und
-Mockito vorkonfiguriert, d.h. die entsprechenden Abhängigkeiten werden
-durch Gradle aufgelöst. Wenn Sie die Vorgaben als Gradle-Projekt in
-Ihrer IDE öffnen, dann steht Ihnen dort auch die JUnit5-Bibliothek
-automatisch zur Verfügung. Wenn Sie JUnit4 nutzen möchten, müssten Sie
-bitte die Gradle-Konfiguration entsprechend anpassen. Mit
-`./gradlew test` können Sie Ihre Testfälle ausführen.
-
-##### Mocking II
-
-Die Methoden `Shop#repair` und `Shop#deliver` sind auch noch nicht
-implementiert. Nutzen Sie geeignetes Mocking, um für diese beiden
-Methoden Tests in JUnit zu implementieren. Begründen Sie die Anwendung
-von Mockito.
-
-*Hinweis*: Sie *müssen* hier keine ÄK/GW-Analyse machen, können das aber
-natürlich gern tun.
-
-##### Record-Klassen
-
-Die Klasse `Order` ist zwar bisher nur unvollständig implementiert, aber
-Sie können bereits deutlich erkennen, dass es zwei Attribute geben muss
-(welche?).
-
-Bauen Sie die Klasse in eine passende Record-Klasse mit den
-entsprechenden Attributen um. Sie dürfen die beiden Methoden in `Order`
-auch geeignet "implementieren" und umbenennen - die Umbenennung muss
-dann aber auch in den Aufrufen in `Shop` und in Ihren JUnit-Tests
-passieren!
-
-##### Logging
-
-Bauen Sie für den `Shop` ein Logging auf der Basis von
-`java.util.logging` ein: Jede Änderung an der Auftrags-Warteschlange
-`pendingOrders` und auch an der Menge der fertigen Aufträge
-`completedOrders` soll in ein gemeinsames CSV-File geloggt werden. Dabei
-soll pro Logging-Vorgang eine neue Zeile mit den folgenden Informationen
-angehängt werden:
-
--   Log-Level,
--   Name der den Log-Vorgang auslösenden Methode,
--   Name der Klasse, in der die den Log-Vorgang auslösenden Methode
-    angesiedelt ist,
--   Log-Meldung, bestehend aus
-    -   den beiden Details der Order (Fahrradtyp, Name des Kunden), und
-    -   dem Namen der betroffenen Datenstruktur ("pendingOrders" oder
-        "completedOrders").
-
-Demonstrieren Sie in der Abgabe, wie Sie im Test oder im Hauptprogramm
-den Logger steuern können, beispielsweise Änderung der Log-Level oder
-Abschalten des Loggings.
-
-*Tipp*: Der Aufruf von `Shop#repair` ändert sowohl `pendingOrders` als
-auch `completedOrders` - hier müssen also beim Logging zwei neue Zeilen
-im Logfile angelegt werden.
-
-**Hinweis**: Da in den Klassen der Vorgabe die meisten Methoden nicht
-implementiert sind, müssen Sie dies für diese Aufgabe selbst flink
-erledigen. Es handelt sich um die vier Methoden `Shop#repair` und
-`Shop#deliver` sowie `Order#getBicycleType` und
-`Order#getBicycleType`.[^9]
-
-#### Bearbeitung und Abgabe
-
--   Bearbeitung: Einzelbearbeitung oder bis zu 3er Teams
--   Abgabe:
-    -   Post Mortem [im
-        ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1514856&client_id=FH-Bielefeld)
-        eintragen:
-
-        Verfassen Sie im ILIAS pro Blatt und pro Team-Mitglied ein
-        aussagekräftiges und nachvollziehbares "*Post Mortem*". Gehen
-        Sie dabei auf folgende Punkte ein:
-
-        1.  Zusammenfassung: Was wurde gemacht?
-        2.  Implementierungsdetails: Kurze Beschreibung besonders
-            interessanter Aspekte der Umsetzung.
-        3.  Was war der schwierigste Teil bei der Bearbeitung? Wie haben
-            Sie dieses Problem gelöst?
-        4.  Was haben Sie gelernt oder (besser) verstanden?
-        5.  Team: Mit wem haben Sie zusammengearbeitet?
-        6.  Links zu Ihren Pull-Requests mit der Lösung.
-
-        Das Post Mortem muss von **jeder Person** im Team
-        **individuell** verfasst und abgegeben werden. Der Umfang des
-        Textes soll zwischen 200 und 400 Wörtern liegen.
-
-        Laden Sie hier bitte **nicht** Ihre Lösungen hoch!
-
-    -   Deadline: 06. Juni, 08:00 Uhr
--   Vorstellung im Praktikum: 06. Juni
+Coming soon ...
 
 <a id="id-83476d78577cf7ca1cbc9b26afe056c03f1836fc"></a>
 
-### Blatt 07: Bike-Shop (Refactoring, Javadoc)
+### Blatt 07: Generics; Logging
 
-#### Zusammenfassung
-
-Auf diesem Blatt üben Sie den Einsatz von Refactoring und das
-Dokumentieren von Code mit Javadoc.
-
-> [!IMPORTANT]
->
-> **Hinweis**: Bitte denken Sie daran, dass Sie spätestens seit Blatt 04
-> die Bearbeitung der Aufgaben in Ihren öffentlich sichtbaren Git-Repos
-> durchführen sollen.
->
-> Erstellen Sie für **alle** Ihre Lösungen passende Pull-Requests gegen
-> **Ihre eigenen Repos** (auch wenn dies nicht explizit in den Aufgaben
-> gefordert wird).
->
-> Die Links zu Ihren Pull-Requests mit den Lösungen geben Sie bitte
-> immer in Ihrem *Post Mortem* mit an.
-
-#### Aufgaben
-
-##### Javadoc-Kommentare
-
-Gute Javadoc-Kommentare schreiben erfordert Übung. Schauen Sie sich die
-in Commit
-[Dungeon-CampusMinden/Dungeon/commit/46530b6](https://github.com/Dungeon-CampusMinden/Dungeon/commit/46530b6dc970a8cedb0610b92268b9c78345e067)
-neu hinzugefügte Datei
-[code/core/src/controller/ControllerLayer.java](https://github.com/Dungeon-CampusMinden/Dungeon/blob/46530b6dc970a8cedb0610b92268b9c78345e067/code/core/src/controller/ControllerLayer.java)
-an.
-
-Diskutieren Sie jeweils, was Ihnen an der Dokumentation dieser Klasse
-auffällt: Was gefällt Ihnen, was stört Sie? Schlagen Sie Verbesserungen
-vor.
-
-##### Refactoring im Bike-Shop
-
-Forken Sie das
-[Refactoring](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_refactoring)-Repo
-und erzeugen Sie sich eine lokale Arbeitskopie von Ihrem Fork.
-Analysieren Sie die Klassen im Package `refactoring`. Sie finden
-unübersichtlichen und schlecht strukturierten und schlecht benannten und
-schlecht dokumentierten Code.
-
-1.  Welche *Bad Smells* können Sie hier identifizieren?
-
-2.  Erstellen Sie eine Testsuite, um potentielle Verhaltensänderungen
-    beim Refactoring identifizieren zu können.
-
-3.  Beheben Sie die Smells durch die **schrittweise Anwendung** von den
-    aus der Vorlesung bekannten Refactoring-Methoden. Wenden Sie dabei
-    *mindestens* die unten genannten Methoden an:
-
-    -   Extract Method/Class
-    -   Move Method/Field
-    -   Encapsulate Method/Field
-    -   Pull Up oder Push Down
-
-    Ergänzend zu der Übersicht aus der Vorlesung finden sie unter
-    [Refactoring Guru](https://refactoring.guru/refactoring/techniques)
-    eine erweiterte Darstellung gängiger Refactoring-Techniken.
-
-    Machen Sie pro Refactoring-Schritt einen Commit, und halten Sie alle
-    Commits in einem gemeinsamen Pull-Request fest. An diesem können Sie
-    im Praktikum Ihr Vorgehen vorstellen.
-
-Nach dem Refactoring sollte ein `./gradlew check` keine Probleme bzgl.
-Formatierung und Dokumentation[^10] mehr finden.
-
-*Tipp*: Schauen Sie schlechter Namensgebung, nach redundantem Code, nach
-übermäßig komplexer Logik, nach Code/Logik in der falschen Klasse (am
-falschen Ort), nach übermäßig vielen Parametern, nach fehlendem Javadoc,
-....
-
-#### Bearbeitung und Abgabe
-
--   Bearbeitung: Einzelbearbeitung oder bis zu 3er Teams
--   Abgabe:
-    -   Post Mortem [im
-        ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1514856&client_id=FH-Bielefeld)
-        eintragen:
-
-        Verfassen Sie im ILIAS pro Blatt und pro Team-Mitglied ein
-        aussagekräftiges und nachvollziehbares "*Post Mortem*". Gehen
-        Sie dabei auf folgende Punkte ein:
-
-        1.  Zusammenfassung: Was wurde gemacht?
-        2.  Implementierungsdetails: Kurze Beschreibung besonders
-            interessanter Aspekte der Umsetzung.
-        3.  Was war der schwierigste Teil bei der Bearbeitung? Wie haben
-            Sie dieses Problem gelöst?
-        4.  Was haben Sie gelernt oder (besser) verstanden?
-        5.  Team: Mit wem haben Sie zusammengearbeitet?
-        6.  Links zu Ihren Pull-Requests mit der Lösung.
-
-        Das Post Mortem muss von **jeder Person** im Team
-        **individuell** verfasst und abgegeben werden. Der Umfang des
-        Textes soll zwischen 200 und 400 Wörtern liegen.
-
-        Laden Sie hier bitte **nicht** Ihre Lösungen hoch!
-
-    -   Deadline: 20. Juni, 08:00 Uhr
--   Vorstellung im Praktikum: 20. Juni
+Coming soon ...
 
 <a id="id-f446a81e524a27594ec457a16742d232a92912c6"></a>
 
-### Blatt 08: Syntax Highlighting (Reguläre Ausdrücke, Template-Method, Command)
+### Blatt 08: Command, Observer, Fehlermodell
 
-#### Zusammenfassung
-
-Auf diesem Blatt üben Sie den Umgang mit regulären Ausdrücken in Java.
-Wir nutzen diese zusammen mit dem Template-Method-Pattern für die
-Implementierung eines einfachen Syntax-Highlightings.
-
-> [!IMPORTANT]
->
-> **Hinweis**: Bitte denken Sie daran, dass Sie spätestens seit Blatt 04
-> die Bearbeitung der Aufgaben in Ihren öffentlich sichtbaren Git-Repos
-> durchführen sollen.
->
-> Erstellen Sie für **alle** Ihre Lösungen passende Pull-Requests gegen
-> **Ihre eigenen Repos** (auch wenn dies nicht explizit in den Aufgaben
-> gefordert wird).
->
-> Die Links zu Ihren Pull-Requests mit den Lösungen geben Sie bitte
-> immer in Ihrem *Post Mortem* mit an.
-
-#### Aufgaben
-
-##### Syntaxhighlighting mit RegExp
-
-Klonen Sie die [Vorgaben "Syntax
-Highlighting"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_highlighting)
-und laden Sie das Projekt als Gradle-Projekt in Ihre IDE.
-
-Im Package `highlighting` finden Sie einige Klassen, mit denen man ein
-einfaches Syntax Highlighting durchführen kann. Dazu arbeitet der Lexer
-mit sogenannten "Token" (Instanzen der Klasse `Token`). Diese haben
-einen regulären Ausdruck, um bestimmte Teile im Code zu erkennen,
-beispielsweise Keywords oder Kommentare und anderes. Der Lexer wendet
-alle Token auf den aktuellen Eingabezeichenstrom an (Methode
-`Token#test()`), und die Token prüfen mit "ihrem" regulären Ausdruck, ob
-die jeweils passende Eingabesequenz vorliegt. Die regulären Ausdrücke
-übergeben Sie dem `Token`-Konstruktor als entsprechendes
-`Pattern`-Objekt.
-
--   Die Klasse `Token` speichert dazu ein `Pattern` (einen
-    vorkompilierten regulären Ausdruck) sowie eine Farbe, die später
-    beim Syntax Highlighting für dieses Token genutzt werden soll. Bei
-    der Anwendung eines Tokens auf einen String (Methode `Token#test`)
-    wird das gespeicherte Pattern auf den String angewendet und eine
-    Liste aller passenden Stellen im String zurückgegeben
-    (`List<Lexem>`).
-
-    Neben dem jeweiligen Pattern kennt jedes Token noch eine
-    `matchingGroup`: Dies ist ein Integer, der die relevante
-    Matching-Group im regulären Ausdruck bezeichnet. Wenn Sie keine
-    eigenen Gruppen in einem regulären Ausdruck eingebaut haben, nutzen
-    Sie hier einfach den Wert 0.
-
-    Zusätzlich kennt jedes Token noch die Farbe für das
-    Syntax-Highlighting in der von uns als Vorgabe realisierten
-    Swing-GUI (Instanz von `Color`).
-
--   Der `Lexer` sammelt eine Liste von `Token` und wendet sie in der
-    übergebenen Reihenfolge auf den Eingabestring an (Methode
-    `Lexer#tokenize`).
-
--   Die Klasse `LexerUI` dient zum Anzeigen des ursprünglichen Textes
-    und des Ergebnisses. Hier sieht man recht schnell, ob die Pattern
-    bereits passen ... Man kann auf der linken Seite auch den Text
-    editieren, und auf der rechten Seite des Fensters wird dann
-    automatisch das Syntax Highlighting erneut durchgeführt.
-
--   Die Klasse `Main` dient zum Definieren der konkreten Token (=\>
-    Aufgabe) und auch zum Starten der Demo.
-
-**Aufgabe**: Definieren Sie alle in `Main#setupTokens` genannten Token,
-indem Sie jeweils einen passenden regulären Ausdruck formulieren und als
-Pattern in den Konstruktor geben zusammen mit einer Farbe, mit der
-dieses Token hervorgehoben werden soll:
-
--   Strings: alles zwischen `"` und dem nächsten `"`
--   Character: genau ein Zeichen zwischen `'` und `'`
--   Keywords: `package`, `import`, `class`, `public`, `private`,
-    `final`, `return`, `null`, `new` (jeweils freistehend, also nicht
-    "newx" o.ä.)
--   Annotation: beginnt mit `@`, enthält Buchstaben oder Minuszeichen
--   Einzeiliger Kommentar: beginnend mit `//` bis zum Zeilenende
--   Mehrzeiliger Kommentar: alles zwischen `/*` und dem nächsten `*/`
--   Javadoc-Kommentar: alles zwischen `/**` und dem nächsten `*/`
-
-Sie können auch mit *Matching Groups* arbeiten und im Token eine
-bestimmte Gruppe hervorheben lassen. Dazu geben Sie einfach die Nummer
-der Matching-Group mit in den Token-Konstruktor. (Wenn Sie nichts
-übergeben, wird der gesamte Match genommen - das entspricht dem Wert 0).
-
-Sollten Token ineinander geschachtelt sein, erkennt der Lexer dies
-automatisch. Sie brauchen sich keine Gedanken dazu machen, in welcher
-Reihenfolge die Token eingefügt und abgearbeitet werden. Beispiel: Im
-regulären Ausdruck für den einzeiligen Kommentar brauchen Sie keine
-Keywords, Annotationen, Strings usw. erkennen.
-
-#### Bearbeitung und Abgabe
-
--   Bearbeitung: Einzelbearbeitung oder bis zu 3er Teams
--   Abgabe:
-    -   Post Mortem [im
-        ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1514856&client_id=FH-Bielefeld)
-        eintragen:
-
-        Verfassen Sie im ILIAS pro Blatt und pro Team-Mitglied ein
-        aussagekräftiges und nachvollziehbares "*Post Mortem*". Gehen
-        Sie dabei auf folgende Punkte ein:
-
-        1.  Zusammenfassung: Was wurde gemacht?
-        2.  Implementierungsdetails: Kurze Beschreibung besonders
-            interessanter Aspekte der Umsetzung.
-        3.  Was war der schwierigste Teil bei der Bearbeitung? Wie haben
-            Sie dieses Problem gelöst?
-        4.  Was haben Sie gelernt oder (besser) verstanden?
-        5.  Team: Mit wem haben Sie zusammengearbeitet?
-        6.  Links zu Ihren Pull-Requests mit der Lösung.
-
-        Das Post Mortem muss von **jeder Person** im Team
-        **individuell** verfasst und abgegeben werden. Der Umfang des
-        Textes soll zwischen 200 und 400 Wörtern liegen.
-
-        Laden Sie hier bitte **nicht** Ihre Lösungen hoch!
-
-    -   Deadline: 27. Juni, 08:00 Uhr
--   Vorstellung im Praktikum: 27. Juni
-
-<a id="id-31c5e287bbe09bf1d8bf14a0cb61f2cfc1f85986"></a>
-
-### Blatt 09: Zoo (Generics)
-
-#### Zusammenfassung
-
-Auf diesem Blatt üben Sie das Erstellen und den Einsatz von generischen
-Klassen und Methoden in Java.
-
-> [!IMPORTANT]
->
-> **Hinweis**: Bitte denken Sie daran, dass Sie spätestens seit Blatt 04
-> die Bearbeitung der Aufgaben in Ihren öffentlich sichtbaren Git-Repos
-> durchführen sollen.
->
-> Erstellen Sie für **alle** Ihre Lösungen passende Pull-Requests gegen
-> **Ihre eigenen Repos** (auch wenn dies nicht explizit in den Aufgaben
-> gefordert wird).
->
-> Die Links zu Ihren Pull-Requests mit den Lösungen geben Sie bitte
-> immer in Ihrem *Post Mortem* mit an.
-
-#### Aufgaben
-
-Sie finden in den
-[Vorgaben](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_zoo)
-im Package `zoo` einige Interfaces und Klassen, mit denen man einen Zoo
-modellieren kann. Klonen Sie das Vorgabe-Repo und laden Sie das Projekt
-als Gradle-Projekt in Ihre IDE.
-
-##### Nicht-generische Klassen
-
-Sie finden einige Interfaces, die das Interface `Animal` erweitern,
-beispielsweise `Fish`, `Reptile`, `Cat`, ...
-
-Erstellen Sie für jedes dieser Interfaces jeweils zwei Java-Klassen, die
-konkrete Mitglieder der jeweiligen Tier-Klasse bzw. -Familie[^11]
-repräsentieren und die jeweils das Interface implementieren.
-Beispielsweise könnte eine Forelle eine Art in der Klasse der Fische
-sein, d.h. die Java-Klasse `Trout` könnte das Interface `Fish`
-implementieren.
-
-Diese Java-Klassen sollen nicht-generisch sein. Die `move()`-Methode
-soll einfach einen String auf der Konsole ausgeben, wie sich dieses Tier
-bewegen würde. Mit der `getName()`-Methode soll ein kurzer Name,
-beispielsweise der Tierklasse, zurückgegeben werden.
-
-*Hinweis*: Die mit `default` markierten Methoden in `Fish`, `Mammal` und
-`Reptile` brauchen Sie in Ihren Klassen nicht implementieren. Wir werden
-später im Semester noch über die sogenannten
-["Default-Methoden"](#id-83d9242997f09b086df2b42d7c636f083f0ab02e)
-sprechen.
-
-##### Generische Klassen
-
-Um Gehege zu modellieren, erstellen Sie in eine generische Klasse
-`Habitat` mit einer Typ-Variablen. Stellen Sie durch geeignete
-Beschränkung der Typ-Variablen sicher, dass nur Gehege mit von `Animal`
-abgeleiteten Typen gebildet werden können.
-
-Es sollen (mindestens) folgende Methoden existieren:
-
--   `void add(Animal animal)` zur Aufnahme eines Tieres in das Gehege
--   `void remove(Animal animal)` um ein Tier aus einem Gehege zu
-    entfernen
--   `String getName()` um den Namen des Geheges zu bestimmen
-
-*Hinweis*: Der Parametertyp `Animal` in den Methoden muss entsprechend
-angepasst werden.
-
-Jedes einzelne Tier im Gehege kann maximal einmal vorkommen. Begründen
-Sie die Wahl der Datenstruktur.
-
-Legen Sie in Ihrer `main()`-Methode mindestens zwei konkrete Gehege als
-Instanzen der neuen generischen Klasse `Habitat` an. Dabei sollen in
-diesen konkreten Gehegen nur jeweils verschiedene Tiere einer "Art"
-(beispielweise Löwen, Hamster, ...) vorkommen. Fügen Sie einige passende
-Tiere in die beiden Gehege ein.
-
-##### Generische Klassen reloaded
-
-Für die Repräsentation eines Zoologischen Gartens mit mehreren
-verschiedenen Gehegen erstellen Sie nun eine generische Klasse `Zoo` mit
-einer Typ-Variablen. Stellen Sie durch geeignete Beschränkung der
-Typ-Variablen sicher, dass nur Zoos mit von `Habitat` abgeleiteten Typen
-gebildet werden können.
-
-Ein Zoo soll (mindestens) folgende Methoden besitzen:
-
--   `void build(Habitat habitat)` zur Aufnahme eines neuen Geheges in
-    den Zoo
--   `void abandon(Habitat habitat)` um ein Gehege aus dem Zoo zu
-    entfernen
--   `void visitAllHabitats()` um die Gehege in der Reihenfolge des
-    Hinzufügens zu besuchen (d.h. ihren Namen auf der Konsole
-    auszugeben)
-
-*Hinweis*: Der Parametertyp `Habitat` in den Methoden muss entsprechend
-angepasst werden.
-
-Jedes Gehege gibt es pro Zoo nur maximal einmal, und die Reihenfolge des
-Errichtens definiert eine Ordnung auf den Gehegen. Begründen Sie die
-Wahl der Datenstruktur.
-
-Legen Sie in Ihrer `main()`-Methode einen konkreten Zoo als Instanz der
-neuen generischen Klasse `Zoo` an. Dieser Zoo soll einige Gehege für
-verschiedene Tiere beinhalten.
-
-##### Ableiten nicht-generischer Klassen
-
-Leiten Sie von `Zoo` eine nicht-generische Klasse `Aquarium` ab.
-Aquarien können nur mit Gehegen angelegt werden, deren Tiere vom Typ
-`Fish` (oder abgeleitet) sind.
-
-Legen Sie in Ihrer `main()`-Methode ein konkretes Aquarium als Instanz
-der neuen nicht-generischen Klasse `Aquarium` an und gruppieren Sie
-darin verschiedene Fisch-"Gehege".
-
-#### Bearbeitung und Abgabe
-
--   Bearbeitung: Einzelbearbeitung oder bis zu 3er Teams
--   Abgabe:
-    -   Post Mortem [im
-        ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1514856&client_id=FH-Bielefeld)
-        eintragen:
-
-        Verfassen Sie im ILIAS pro Blatt und pro Team-Mitglied ein
-        aussagekräftiges und nachvollziehbares "*Post Mortem*". Gehen
-        Sie dabei auf folgende Punkte ein:
-
-        1.  Zusammenfassung: Was wurde gemacht?
-        2.  Implementierungsdetails: Kurze Beschreibung besonders
-            interessanter Aspekte der Umsetzung.
-        3.  Was war der schwierigste Teil bei der Bearbeitung? Wie haben
-            Sie dieses Problem gelöst?
-        4.  Was haben Sie gelernt oder (besser) verstanden?
-        5.  Team: Mit wem haben Sie zusammengearbeitet?
-        6.  Links zu Ihren Pull-Requests mit der Lösung.
-
-        Das Post Mortem muss von **jeder Person** im Team
-        **individuell** verfasst und abgegeben werden. Der Umfang des
-        Textes soll zwischen 200 und 400 Wörtern liegen.
-
-        Laden Sie hier bitte **nicht** Ihre Lösungen hoch!
-
-    -   Deadline: 04. Juli, 08:00 Uhr
--   Vorstellung im Praktikum: 04. Juli
+Coming soon ...
 
 <a id="id-d033e22ae348aeb5660fc2140aec35850c4da997"></a>
 
@@ -17417,6 +16010,7 @@ darin verschiedene Fisch-"Gehege".
 > Es wird keines der behandelten Themen ausgeschlossen, allerdings
 > eignen sich manche Themen etwas besser für Klausurfragen als andere
 > ;-)
+>
 > </details>
 
 > [!TIP]
@@ -17465,6 +16059,7 @@ beidseitig beschrieben sein kann.
 Ich möchte Sie hier noch einmal ermuntern, diesen Zettel tatsächlich
 manuell zu erstellen (also ganz traditionell zu **schreiben**), da
 bereits der Schreibvorgang einen gewissen Lerneffekt bewirkt!
+
 </details>
 <details>
 <summary><strong>Open-Book-Ausarbeitung (Homeoffice)</strong></summary>
@@ -17962,7 +16557,7 @@ public class MoreLogging {
 >
 > <div id="ref-LernJava" class="csl-entry">
 >
-> Oracle Corporation. 2025. „Learn Java". <https://dev.java/learn/>.
+> Oracle Corporation. 2026. „Learn Java". <https://dev.java/learn/>.
 >
 > </div>
 >
@@ -18043,65 +16638,26 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 539abb6 2026-03-27 readme: add an extra start heading for the new tooling<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> eb2f06b 2026-04-11 orga: update links to ilias<br></sub></sup></p></blockquote>
 
-[^1]: als Teilaufgabe im Praktikum
+[^1]: Naja, ein kläglicher Versuch. Namen sind eines der schwierigen
+    Probleme in der Informatik.
 
-[^2]: nur als Wiederholung im Praktikum
-
-[^3]: **Post Mortem**: Jede Person beschreibt in der ILIAS-Abgabe
-    individuell(!) die Bearbeitung des jeweiligen Aufgabenblattes
-    zurückblickend mit 200 bis 400 Wörtern. Gehen Sie dabei
-    aussagekräftig und nachvollziehbar auf folgende Punkte ein: (a)
-    Zusammenfassung: Was wurde gemacht? (b) Implementierungsdetails:
-    Kurze Beschreibung besonders interessanter Aspekte der Umsetzung.
-    (c) Was war der schwierigste Teil bei der Bearbeitung? Wie haben Sie
-    dieses Problem gelöst? (d) Was haben Sie gelernt oder (besser)
-    verstanden? (e) Team: Mit wem haben Sie zusammengearbeitet? (f)
-    Links zu Ihren Pull-Requests mit der Lösung (erst ab Blatt 04).
-    Siehe auch
-    https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/discussions/981.
-
-[^4]: Wenn die Maximalzahl der Punkte für Station I, II und III
-    identisch ist, wird einfach die Summe der Punkte der beiden besseren
-    Stationen berechnet und für die Bildung der Gesamtnote genutzt. Wenn
-    die Maximalzahl der Punkte für Station I, II und III voneinander
-    abweicht, dann wird jeweils das erreichte prozentuale Ergebnis
-    berechnet und die Gesamtnote über den Mittelwert der beiden besseren
-    Ergebnisse berechnet.
-
-[^5]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
+[^2]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
     gedacht! Auf einem Stream kann immer nur **eine** terminale
     Operation ausgeführt werden - d.h. nach der Ausführung von
     `s.count()` wäre der Stream `s` verarbeitet und es können keine
     weiteren Operationen auf diesem Stream durchgeführt werden. Dito für
     die anderen gezeigten terminalen Operationen.
-
-[^6]: Naja, ein kläglicher Versuch. Namen sind eines der schwierigen
-    Probleme in der Informatik.
-
-[^7]: Reflection ist Thema einer späteren Vorlesung
-
-[^8]: Für alle, die schon mit Branches umgehen können: Betrachten Sie
-    auf diesem Blatt bitte nur den Branch `master`.
-
-[^9]: Die Methoden `Order#getBicycleType` und `Order#getBicycleType`
-    haben Sie sogar schon bei der Umsetzung der Record-Klassen-Aufgaben
-    "implementiert" :-)
-
-[^10]: d.h. Sie müssen gegebenenfalls auch Javadoc ergänzen ...
-
-[^11]: Ok, wir machen hier Informatik. Vermutlich ist die Biologie nicht
-    ganz korrekt ;-)

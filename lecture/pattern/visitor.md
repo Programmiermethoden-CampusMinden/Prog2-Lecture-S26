@@ -57,6 +57,7 @@
 > möchte - normalerweise müsste man jetzt jede Klasse einzeln ergänzen.
 > Mit dem Visitor-Pattern muss lediglich ein neuer Visitor mit den
 > Hilfsmethoden implementiert werden.
+>
 > </details>
 
 > [!TIP]
@@ -535,6 +536,7 @@ Klassenstruktur
 > Schreiben Sie den Code unter Einsatz des Visitor-Patterns um.
 >
 > Diskutieren Sie Vor- und Nachteile des Visitor-Patterns.
+>
 > </details>
 
 ------------------------------------------------------------------------

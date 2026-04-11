@@ -27,6 +27,7 @@
 > Pattern auf den Suchstring passt: `find` sucht dabei nach dem ersten
 > Vorkommen des Patterns im Suchstring, `match` prüft, ob der gesamte
 > String zum Pattern passt.
+>
 > </details>
 
 > [!TIP]
@@ -503,4 +504,4 @@ Lösung: `([A-Z][a-zA-Z]*)\s\1`
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 032f442 2026-04-01 reformat markdown sources<br></sub></sup></p></blockquote>

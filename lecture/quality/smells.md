@@ -17,6 +17,7 @@
 > "**Code Smells**" oder "Bad Smells". Das sind Probleme im Code, die
 > noch nicht direkt zu einem Fehler führen, die aber im Laufe der Zeit
 > die Chance für echte Probleme deutlich erhöht.
+>
 > </details>
 
 > [!TIP]

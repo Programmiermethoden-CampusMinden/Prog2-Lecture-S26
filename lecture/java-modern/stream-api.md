@@ -40,6 +40,7 @@
 > Wir können hier nur die absoluten Grundlagen betrachten. Die
 > Stream-API ist sehr groß und mächtig und lohnt die weitere
 > selbstständige Auseinandersetzung :-)
+>
 > </details>
 
 > [!TIP]
@@ -446,7 +447,7 @@ java.util.stream"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2025](#ref-LernJava))
+> -   Oracle Corporation ([2026](#ref-LernJava))
 > -   Ullenboom ([2021, 17.3--17.6](#ref-Ullenboom2021))
 >
 > </details>
@@ -554,7 +555,7 @@ java.util.stream"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/
 >
 > <div id="ref-LernJava" class="csl-entry">
 >
-> Oracle Corporation. 2025. „Learn Java". <https://dev.java/learn/>.
+> Oracle Corporation. 2026. „Learn Java". <https://dev.java/learn/>.
 >
 > </div>
 >

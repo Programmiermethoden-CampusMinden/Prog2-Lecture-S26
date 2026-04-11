@@ -32,6 +32,7 @@
 > Ersatz für vernünftiges Exception-Handling im Fall, dass etwas
 > Unerwartetes passiert ist. Liefern Sie **niemals** `null` zurück, wenn
 > der Rückgabetyp der Methode ein `Optional` ist!
+>
 > </details>
 
 > [!TIP]
@@ -455,7 +456,7 @@ Optionals"](https://dev.java/learn/api/streams/optionals/).
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2025](#ref-LernJava))
+> -   Oracle Corporation ([2026](#ref-LernJava))
 > -   Ullenboom ([2021, 12.6](#ref-Ullenboom2021))
 >
 > </details>
@@ -565,7 +566,7 @@ Optionals"](https://dev.java/learn/api/streams/optionals/).
 >
 > <div id="ref-LernJava" class="csl-entry">
 >
-> Oracle Corporation. 2025. „Learn Java". <https://dev.java/learn/>.
+> Oracle Corporation. 2026. „Learn Java". <https://dev.java/learn/>.
 >
 > </div>
 >
@@ -587,4 +588,4 @@ Optionals"](https://dev.java/learn/api/streams/optionals/).
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 032f442 2026-04-01 reformat markdown sources<br></sub></sup></p></blockquote>

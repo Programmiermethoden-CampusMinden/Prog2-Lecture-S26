@@ -25,6 +25,7 @@
 > Methode. Die Methoden-Referenz muss von der Syntax her dieser einen
 > abstrakten Methode entsprechen (bei der dritten Form wird die Methode
 > auf dem ersten Parameter aufgerufen).
+>
 > </details>
 
 > [!TIP]
@@ -219,7 +220,7 @@ nun für jeden Vergleich **`o1.cmpCpsInstance(o2)`** aufgerufen.
 ## Ausblick: Threads
 
 Erinnerung an bzw. Vorgriff auf ["Threads:
-Intro"](../java-classic/threads-intro.md):
+Intro"](../java-classic/threads1-basics.md):
 
 ``` java
 public interface Runnable {
@@ -392,4 +393,4 @@ Seit Java8: **Methoden-Referenzen** statt anonymer Klassen
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 0cb80e8 2026-04-11 rename thread files<br></sub></sup></p></blockquote>

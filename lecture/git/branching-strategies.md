@@ -32,6 +32,7 @@
 > die stabilen Release-Stände enthält. Vom `master` zweigen direkt die
 > kleinen Feature-Branches ab und werden auch wieder direkt in den
 > `master` integriert.
+>
 > </details>
 
 > [!TIP]
@@ -258,7 +259,7 @@ sondern mit einem "Pull-Request" auf dem Server: Sobald man im
 Feature-Branch einen "diskussionswürdigen" Stand hat, wird ein
 **Pull-Request** (*PR*) über die Weboberfläche aufgemacht (streng
 genommen gehört dies in die Kategorie ["Zusammenarbeit" bzw.
-"Workflows"](./workflows.md); außerdem gehört ein PR nicht zu Git
+"Workflows"](./git3-workflows.md); außerdem gehört ein PR nicht zu Git
 selbst, sondern zum Tooling von Github). In einem PR können andere
 Entwickler den Code kommentieren und ergänzen. Jeder weitere Commit auf
 dem Themenbranch wird ebenfalls Bestandteil des Pull-Requests. Parallel
@@ -392,4 +393,4 @@ Diskussionen, welche Linux-Distribution die bessere sei):
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 16fc70d 2026-04-11 reformat markdown<br></sub></sup></p></blockquote>

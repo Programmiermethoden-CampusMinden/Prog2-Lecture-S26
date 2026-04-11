@@ -1,4 +1,4 @@
-# Softwarequalität und Testen mit JUnit und Mockito
+# Clean Code - Smells, Rules, Refactoring
 
 ------------------------------------------------------------------------
 
@@ -6,4 +6,4 @@
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 16fc70d 2026-04-11 reformat markdown<br></sub></sup></p></blockquote>

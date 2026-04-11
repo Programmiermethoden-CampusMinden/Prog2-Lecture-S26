@@ -52,6 +52,7 @@
 > Checkstyle-Konfiguration wird eine minimale
 > [checkstyle.xml](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/checkstyle.xml)
 > bereitgestellt (vgl. Folie "Konfiguration für das PM-Praktikum").
+>
 > </details>
 
 > [!TIP]

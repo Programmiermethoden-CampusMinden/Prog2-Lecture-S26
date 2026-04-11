@@ -24,6 +24,7 @@
 > Elemente (Klassen, Methoden, Attribute) mit Javadoc kommentiert. Alle
 > nicht-öffentlichen Elemente bekommen normale Java-Kommentare (Zeilen-
 > oder Blockkommentare).
+>
 > </details>
 
 > [!TIP]
@@ -257,6 +258,7 @@ von
 > und wie Sie diese Klassen benutzen sollten? Vergleichen Sie die
 > Qualität der Dokumentation. Was würden Sie gern in der Dokumentation
 > finden? Was würden Sie ändern?
+>
 > </details>
 
 ------------------------------------------------------------------------

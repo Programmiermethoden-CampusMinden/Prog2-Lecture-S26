@@ -40,6 +40,7 @@
 > Der Lambda-Ausdruck muss von der Signatur her genau der einen
 > abstrakten Methode im unterliegenden funktionalen Interface
 > entsprechen.
+>
 > </details>
 
 > [!TIP]
@@ -264,6 +265,7 @@ Auflösung: (4) und (5)
 Klammern. `"foo"` ist ein String und als solcher ein Ausdruck, d.h. hier
 sind die geschweiften Klammern zu viel (oder man ergänze den String mit
 einem `return`, also `return "foo";` ...).
+
 </details>
 
 ## Definition "Funktionales Interface" ("*functional interfaces*")

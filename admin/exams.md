@@ -52,6 +52,7 @@
 > Es wird keines der behandelten Themen ausgeschlossen, allerdings
 > eignen sich manche Themen etwas besser für Klausurfragen als andere
 > ;-)
+>
 > </details>
 
 > [!TIP]
@@ -100,6 +101,7 @@ beidseitig beschrieben sein kann.
 Ich möchte Sie hier noch einmal ermuntern, diesen Zettel tatsächlich
 manuell zu erstellen (also ganz traditionell zu **schreiben**), da
 bereits der Schreibvorgang einen gewissen Lerneffekt bewirkt!
+
 </details>
 <details>
 <summary><strong>Open-Book-Ausarbeitung (Homeoffice)</strong></summary>

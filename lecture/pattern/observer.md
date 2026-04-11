@@ -20,6 +20,7 @@
 > Das "zentrale" Objekt, welches abgefragt wird, nennt man
 > "*Observable*" oder "*Subject*". Die Objekte, die die Information
 > abfragen möchten, nennt man "*Observer*".
+>
 > </details>
 
 > [!TIP]
@@ -203,6 +204,7 @@ Statusänderungen
 > `Grosshandel` verändern, die anderen Vorgaben-Klassen dürfen Sie nicht
 > bearbeiten. Sie können zusätzlich benötigte eigene Klassen/Interfaces
 > implementieren.
+>
 > </details>
 
 ------------------------------------------------------------------------

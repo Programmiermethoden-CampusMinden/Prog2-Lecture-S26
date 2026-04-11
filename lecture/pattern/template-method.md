@@ -25,6 +25,7 @@
 > aufgerufen. D.h. die Aufrufe der Hilfsmethoden in der Template-Methode
 > führen zu den in der jeweiligen ableitenden Klasse implementierten
 > Varianten.
+>
 > </details>
 
 > [!TIP]

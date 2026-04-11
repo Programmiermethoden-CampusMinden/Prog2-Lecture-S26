@@ -29,6 +29,7 @@
 >
 > Aktuell ist der Unterschied zu abstrakten Klassen: Interfaces können
 > **keinen Zustand** haben, d.h. keine Attribute/Felder.
+>
 > </details>
 
 > [!TIP]
