@@ -1,0 +1,316 @@
+# Swing: Layout-Manager
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> Zur Anordnung von Komponenten greift Swing auf sogenannte
+> Layout-Manager zurück.
+>
+> Hier gibt es viele verschiedene Ausprägungen und Spielarten. Es gibt
+> beispielsweise:
+>
+> -   das `BorderLayout`, eine gitterartige Struktur mit fünf Elementen,
+> -   das `FlowLayout`, eine einzeilige Anordnung mit automatischem
+>     Umbruch bei Platzmangel,
+> -   das `GridLayout`, eine tabellenartige Struktur, in der alle
+>     Elemente gleich groß dargestellt werden, und
+> -   das `GridBagLayout`, welches sich prinzipiell wie das `GridLayout`
+>     verhält und mehr Möglichkeiten bietet. Zur Anordnung der
+>     Komponenten greift man hier auf `GridBagConstraints` zurück und
+>     kann sehr genau und sehr flexibel definieren, wo und wie die
+>     Komponenten angeordnet sein sollen und sich bei Größenänderungen
+>     des Containers verhalten sollen.
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> -   [VL Swing: Layout-Manager](https://youtu.be/An7tQMW1A3E)
+> -   [Demo BorderLayout](https://youtu.be/tifXSKXSUYw)
+> -   [Demo FlowLayout](https://youtu.be/tYTDhv6lwT8)
+> -   [Demo GridLayout](https://youtu.be/JyN_Wozg3ms)
+> -   [Demo GridBagLayout](https://youtu.be/95PG2alVTSo)
+>
+> </details>
+
+## Überblick
+
+Anordnung der Komponenten in einem Container ist abhängig vom **Layout**
+
+Verschiedene beliebte Layout-Manager:
+
+-   `BorderLayout`
+-   `FlowLayout`
+-   `GridLayout`
+-   `GridBagLayout`
+-   ...
+
+## *BorderLayout*
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-borderlayout.png" width="40%" /></p>
+
+``` java
+JPanel contentPane = new JPanel();
+
+contentPane.setLayout(new BorderLayout());
+
+contentPane.add(new JButton("North"), BorderLayout.NORTH);  // also: PAGE_START
+contentPane.add(new JButton("West"), BorderLayout.WEST);    // also: LINE_START
+contentPane.add(new JButton("Center"), BorderLayout.CENTER);
+contentPane.add(new JButton("East"), BorderLayout.EAST);    // also: LINE_END
+contentPane.add(new JButton("South"), BorderLayout.SOUTH);  // also: PAGE_END
+```
+
+Es gibt fünf verschiedene Bereiche, in denen die Komponenten bei einem
+Border-Layout angeordnet werden können. Für die "historischen"
+Konstanten `NORTH`, `SOUTH`, `WEST` und `EAST` gibt es mittlerweile neue
+Namen, die eher am Aufbau einer Seite orientiert werden können.
+
+Man kann auch nur einige Teile nutzen, bei der Tabellen-Demo
+beispielsweise wurde nur der `NORTH`-Bereich für den Tabellenkopf und
+der `CENTER`-Bereich für die eigentliche Tabelle genutzt.
+
+Wenn das Fenster vergrößert wird, bekommt zunächst der Mittelteil den
+neuen zur Verfügung stehenden Platz. Die anderen Bereiche werden dabei
+auf vergrößert, aber nur so weit, dass der neue verfügbare Platz ggf.
+ausgefüllt wird.
+
+Mit den Methoden `setHgap()` und `setVgap()` kann der Abstand zwischen
+den Komponenten eingestellt werden (horizontal und vertikal, Abstände in
+Pixel).
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/layout/Border.java">Demo: layout.Border</a></p>
+
+## *FlowLayout*
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-flowlayout.png" width="60%" /></p>
+
+``` java
+JPanel contentPane = new JPanel();
+
+contentPane.setLayout(new FlowLayout());
+
+contentPane.add(new JButton("Label 1"));
+contentPane.add(new JButton("Label 2"));
+contentPane.add(new JButton("Label 3"));
+```
+
+Das `FlowLayout` ist ein sehr einfaches Layout, welches per Default in
+`JPanel` genutzt wird.
+
+Die Komponenten werden der Reihe nach in einer Zeile angeordnet. Wenn
+der Platz nicht ausreicht, bricht diese Zeile um in mehrere Zeilen.
+
+Per Default werden die Komponenten zentriert angeordnet. Über den
+Konstruktor oder die Methoden `setAlignment()` und `setHgap()` bzw.
+`setVgap()` kann aber eine andere Ausrichtung definiert werden, ebenso
+wie ein vertikales und horizontales Padding zwischen den Komponenten.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/layout/Flow.java">Demo: layout.Flow</a></p>
+
+## *GridLayout*
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-gridlayout.png" width="40%" /></p>
+
+``` java
+JPanel contentPane = new JPanel();
+
+contentPane.setLayout(new GridLayout(0, 3));
+
+contentPane.add(new JButton("Label 1"));
+contentPane.add(new JButton("Label 2"));
+contentPane.add(new JButton("Label 3"));
+```
+
+Das `GridLayout` ist ein sehr einfaches Layout mit einer tabellenartigen
+Struktur. Dabei werden die Komponenten nacheinander auf die "Zellen"
+verteilt, beginnend mit der ersten Zeile. Alle Komponenten werden dabei
+gleich groß dargestellt.
+
+Über den Konstruktor wird die Anzahl der gewünschten Zeilen und Spalten
+angegeben. Es darf auch für einen der beiden Parameter der Wert 0
+verwendet werden, in diesem Fall werden so viele Zeilen oder Spalten
+angelegt, wie für die hinzugefügten Komponenten benötigt.
+
+Auch in diesem Layout kann das Padding über die Methoden `setHgap()`
+bzw. `setVgap()` eingestellt werden.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/layout/Grid.java">Demo: layout.Grid</a></p>
+
+## Komplexer Layout-Manager: *GridBagLayout*
+
+-   Layout-Manager ähnlich zu `GridLayout`
+-   Zusätzlich `GridBagConstraints`: Verhalten bei Größenveränderungen
+
+| Constraint | Bedeutung |
+|:------------|:----------------------------------------------------------|
+| `gridx` | **Spalte** für Komponente (linke obere Ecke) |
+| `gridy` | **Zeile** für Komponente (linke obere Ecke) |
+| `gridwidth` | **Anzahl der Spalten** für Komponente |
+| `gridheight` | **Anzahl der Zeilen** für Komponente |
+| `fill` | Vergrößert **Komponente** in Richtung: `NONE`, `HORIZONTAL`, `VERTICAL`, `BOTH` |
+| `weightx` | Platz in x-Richtung wird unter den **Grid-Slots** entsprechend ihrem "Gewicht" aufgeteilt |
+| `weighty` | Platz in y-Richtung wird unter den **Grid-Slots** entsprechend ihrem "Gewicht" aufgeteilt |
+
+Beim Hinzufügen einer Komponente wird eine Instanz der Klasse
+`GridBagConstraints` mitgegeben. Diese definiert, wie die Komponente in
+der gitterartigen Struktur konkret angeordnet werden soll: Startposition
+im Gitter (x, y) bzw (Spalte, Zeile), wie viele Spalten oder Zeilen soll
+die Komponente überstreichen und wie soll auf Größenänderungen des
+Containers reagiert werden.
+
+Beispiel:
+
+``` java
+JPanel contentPane = new JPanel();
+contentPane.setLayout(new GridBagLayout());
+
+GridBagConstraints c2 = new GridBagConstraints();
+c2.gridx = 1;
+c2.gridy = 0;
+c2.gridheight = 2;
+c2.fill = GridBagConstraints.VERTICAL;
+c2.weightx = 0.5;
+c2.weighty = 0.5;
+
+contentPane.add(new JButton("Label 2"), c2);
+```
+
+Der Button wird dem Panel mit dem GridBagLayout hinzugefügt und soll in
+Spalte 1 und Zeile 0 angeordnet werden. Er soll sich dabei über 2 Zeilen
+erstrecken (und 1 Spalte). Der Button soll sich in vertikaler Richtung
+vergrößern, sofern Platz zur Verfügung steht.
+
+Dem Grid-Slot wird ein Gewicht in x- und in y-Richtung von je 0.5
+mitgegeben. Bei einer Änderung des Containers in der jeweiligen Richtung
+wird der neue Platz unter den Slots gemäß ihren Gewichten aufgeteilt.
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/layout/GridBag.java">Demo: layout.GridBag</a></p>
+
+## Wrap-Up
+
+-   Anordnung von Komponenten lässt sich mit Layout-Manager steuern
+
+<!-- -->
+
+-   Auswahl von beliebten Layout-Managern:
+    -   `BorderLayout`: Gitterartige Struktur mit fünf Elementen
+    -   `FlowLayout`: Zeilenweise Anordnung (Umbruch bei Platzmangel)
+    -   `GridLayout`: Tabellenartige Struktur, Elemente gleich groß
+    -   `GridBagLayout`: Wie `GridLayout`, mit mehr Möglichkeiten:
+        `GridBagConstraints`
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> -   Ullenboom ([2021, Kap. 18](#ref-Ullenboom2021))
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k3: Anwenden der verschiedenen Layout-Manager: BorderLayout,
+>     FlowLayout, GridLayout, GridBagLayout
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> In den
+> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/gui/src/challenges)
+> eine Implementierung für ein TicTacToe-Spiel. Ihre Aufgabe ist es,
+> eine grafische Benutzeroberfläche für das Spiel zu entwickeln.
+>
+> Ihr Fenster soll sich immer in der Mitte des Bildschirms starten und
+> einen Titel besitzen.
+>
+> Beim Start des Spiels sollen beide Spieler ihre Namen eingeben können,
+> nutzen Sie dafür `JTextField`. Stellen Sie sicher, dass nur gültige
+> Eingaben getätigt werden. Sind die beiden Namen gültig, erstellen Sie
+> die jeweiligen `Player` und starten Sie ein Spiel `TicTacToe`.
+>
+> Im Zentrum Ihres Spielfensters soll das Spielfeld angezeigt werden.
+> Nutzen Sie dafür das `GridLayout` und `JButton`. Die Buttons
+> repräsentieren dabei die Felder des Spiels. Beim Drücken eines Buttons
+> soll die Methode `TicTacToe#makeMove` aufgerufen werden.
+>
+> Mit `TicTacToe#getGameField` können Sie sich das aktuelle Spielfeld
+> übergeben lassen. Sorgen Sie dafür, dass Ihre Oberfläche immer den
+> aktuellen Zustand des Spielfeldes anzeigt.
+>
+> Prüfen Sie nach jedem Spielzug den Status des Spiels mit
+> `TicTacToe#getCurrentGameState`:
+>
+> -   Wenn ein Spieler gewonnen hat, soll ein `JOptionPane` angezeigt
+>     werden und dem Gewinner gratulieren.
+> -   Wenn ein Unentschieden gespielt wurde, soll ein `JOptionPane`
+>     angezeigt werden und das Unentschieden angezeigt werden.
+> -   In beiden Fällen soll danach eine neue Runde gestartet werden.
+>
+> Im unteren Bereich des Fensters soll der Spieler angezeigt werden, der
+> aktuell am Zug ist. Im unteren Bereich des Fensters soll auch der
+> aktuelle Punktestand angezeigt werden.
+>
+> Das Fenster soll eine Menüleiste mit folgenden Punkten haben:
+>
+> -   Exit: Beendet das Programm.
+> -   New Game: Startet das Spiel neu und erlaubt die neue Eingabe der
+>     Spielernamen.
+> -   Clear: Setzt das aktuelle Spielfeld zurück.
+>
+> Denken Sie bei der Umsetzung daran, dass der Benutzer nur die
+> Oberfläche sieht und bedienen kann. Stellen Sie sicher, dass alle
+> Bedienelemente verständlich sind. Nutzen Sie ggf. `JLabel`, um Texte
+> auf der UI anzuzeigen.
+>
+> </details>
+
+------------------------------------------------------------------------
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>👀 Quellen</strong></summary>
+>
+> <div id="refs" class="references csl-bib-body hanging-indent">
+>
+> <div id="ref-Java-SE-Tutorial" class="csl-entry">
+>
+> Oracle Corporation. 2024. „The Java Tutorials".
+> <https://docs.oracle.com/javase/tutorial/>.
+>
+> </div>
+>
+> <div id="ref-Ullenboom2021" class="csl-entry">
+>
+> Ullenboom, C. 2021. *Java ist auch eine Insel*. 16. Aufl.
+> Rheinwerk-Verlag.
+> <https://openbook.rheinwerk-verlag.de/javainsel/index.html>.
+>
+> </div>
+>
+> </div>
+>
+> </details>
+
+------------------------------------------------------------------------
+
+<p align="center"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"  /></p>
+
+Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
+
+<blockquote><p><sup><sub><strong>Last modified:</strong> aa9160d 2026-04-11 reformat readme<br></sub></sup></p></blockquote>
