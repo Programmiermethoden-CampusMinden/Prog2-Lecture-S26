@@ -1,7 +1,7 @@
 - [**Syllabus**](readme.md)
 - **Vorlesungsunterlagen**
   - **Versionierung mit Git**
-    - [Basics der Versionsverwaltung mit Git (lokale Repos)](lecture/git/git1-basics.md)
+    - [Git1: Basics der Versionsverwaltung mit Git](lecture/git/git1-basics.md)
     - [Git Branches: Features unabhängig entwickeln und mit Git verwalten](lecture/git/git2-branches.md)
     - [Git Worktree](lecture/git/git4-worktree.md)
     - [Zusammenarbeit: Git-Workflows und Merge-/Pull-Requests](lecture/git/git3-workflows.md)
