@@ -46,7 +46,7 @@
 
 ## Nutzung von Git in Projekten: Verteiltes Git (und Workflows)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></picture></p>
 
 Git ermöglicht ein einfaches und schnelles Branchen. Dies kann man mit
 entsprechenden Branching-Strategien sinnvoll für die SW-Entwicklung
@@ -318,8 +318,8 @@ Diskussionen, welche Linux-Distribution die bessere sei):
 > -   Driessen ([2010](#ref-GitFlow))
 > -   Chacon ([2013](#ref-GitHubFlow))
 > -   GitHub Inc. ([2022](#ref-GitHubFlowGH))
-> -   Atlassian Pty Ltd ([2022](#ref-AtlassianGit))
-> -   Github Inc. ([2022](#ref-GitCheatSheet))
+> -   Atlassian Pty Ltd ([2026](#ref-AtlassianGit))
+> -   Github Inc. ([2024](#ref-GitCheatSheet))
 >
 > </details>
 
@@ -345,7 +345,7 @@ Diskussionen, welche Linux-Distribution die bessere sei):
 >
 > <div id="ref-AtlassianGit" class="csl-entry">
 >
-> Atlassian Pty Ltd. 2022. „Become a Git Guru."
+> Atlassian Pty Ltd. 2026. „Git Tutorials".
 > <https://www.atlassian.com/git/tutorials>.
 >
 > </div>
@@ -370,16 +370,17 @@ Diskussionen, welche Linux-Distribution die bessere sei):
 >
 > </div>
 >
-> <div id="ref-GitCheatSheet" class="csl-entry">
->
-> Github Inc. 2022. „Git Cheat Sheets". <https://training.github.com/>.
->
-> </div>
->
 > <div id="ref-GitHubFlowGH" class="csl-entry">
 >
 > GitHub Inc. 2022. „GitHub Flow".
 > <https://docs.github.com/en/get-started/quickstart/github-flow>.
+>
+> </div>
+>
+> <div id="ref-GitCheatSheet" class="csl-entry">
+>
+> Github Inc. 2024. „GitHub Training Kit".
+> <https://training.github.com/>.
 >
 > </div>
 >

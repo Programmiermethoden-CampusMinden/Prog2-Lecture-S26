@@ -43,7 +43,7 @@
 
 ## Nutzung von Git in Projekten: Verteiltes Git (und Workflows)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="65%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="65%" /></picture></p>
 
 Git ermöglicht ein einfaches und schnelles Branchen. Dies kann man mit
 entsprechenden Branching-Strategien sinnvoll für die SW-Entwicklung
@@ -58,7 +58,7 @@ die Zusammenarbeit?** Antwort: Workflows mit Git ...
 
 ## Zusammenarbeit: Zentraler Workflow mit Git (analog zu SVN)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised.png" width="55%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised.png" width="55%" /></picture></p>
 
 In kleinen Projektgruppen wie beispielsweise Ihrer Arbeitsgruppe wird
 häufig ein einfacher zentralisierter Workflow bei der Versionsverwaltung
@@ -336,8 +336,8 @@ gibt es "*Merge-Requests*" (MR). Bei Github gibt es "*Pull-Requests*"
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
 > -   Chacon und Straub ([2014, 5, 4.8, 6](#ref-Chacon2014))
-> -   Atlassian Pty Ltd ([2022](#ref-AtlassianGit))
-> -   Github Inc. ([2022](#ref-GitCheatSheet))
+> -   Atlassian Pty Ltd ([2026](#ref-AtlassianGit))
+> -   Github Inc. ([2024](#ref-GitCheatSheet))
 >
 > </details>
 
@@ -376,7 +376,7 @@ gibt es "*Merge-Requests*" (MR). Bei Github gibt es "*Pull-Requests*"
 >
 > <div id="ref-AtlassianGit" class="csl-entry">
 >
-> Atlassian Pty Ltd. 2022. „Become a Git Guru."
+> Atlassian Pty Ltd. 2026. „Git Tutorials".
 > <https://www.atlassian.com/git/tutorials>.
 >
 > </div>
@@ -390,7 +390,8 @@ gibt es "*Merge-Requests*" (MR). Bei Github gibt es "*Pull-Requests*"
 >
 > <div id="ref-GitCheatSheet" class="csl-entry">
 >
-> Github Inc. 2022. „Git Cheat Sheets". <https://training.github.com/>.
+> Github Inc. 2024. „GitHub Training Kit".
+> <https://training.github.com/>.
 >
 > </div>
 >

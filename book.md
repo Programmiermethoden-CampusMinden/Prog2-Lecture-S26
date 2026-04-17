@@ -281,11 +281,14 @@ for a detailed list of contributing projects.
 > -   [Demo Diff](https://youtu.be/XB8lfGuU6ZI)
 > -   [Demo Tag](https://youtu.be/F1W0RqrxCho)
 >
+> [Introduction to Git with Scott Chacon of GitHub (erster Teil, bis ca.
+> Minute 45)](https://youtu.be/ZDR433b0HJY)
+>
 > </details>
 
 ##### Prinzip Versionsverwaltung
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/local.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/local_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/local.png" width="40%" /></picture></p>
 
 -   **Repository:** (interne) **Datenbank** mit verschiedenen
     Versionsständen, Kommentaren, Tags etc.
@@ -357,7 +360,7 @@ for a detailed list of contributing projects.
         ignoriert
     -   `git status` zeigt diese Unterscheidung sehr gut
 
--   **Commit**\*: "Schnappschuss" von Änderungen zu einem bestimmten
+-   **Commit**: "Schnappschuss" von Änderungen zu einem bestimmten
     Zeitpunkt
 
     Enthält Änderungen (Delta) im Vergleich zum Vorgänger-Commit sowie
@@ -373,7 +376,7 @@ for a detailed list of contributing projects.
 
 ##### Varianten: Zentrale Versionsverwaltung (Beispiel SVN)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised.png" width="40%" /></picture></p>
 
 Es gibt ein zentrales Repository (typischerweise auf einem Server), von
 dem die Developer einen bestimmten Versionsstand "auschecken" (sich
@@ -384,7 +387,7 @@ man entsprechend immer eine Verbindung zum Server.
 
 ##### Varianten: Verteilte Versionsverwaltung (Beispiel Git)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></picture></p>
 
 In diesem Szenario hat jeder Developer nicht nur die Workingcopy,
 sondern auch noch eine Kopie des Repositories. Zusätzlich kann es einen
@@ -480,7 +483,7 @@ Anschauen kann man sich die Einstellungen in der Textdatei
 
 ##### Dateien unter Versionskontrolle stellen
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow.png" width="60%" /></picture></p>
 
 1.  `git add .` (oder `git add <file>`)
 
@@ -495,7 +498,7 @@ Anschauen kann man sich die Einstellungen in der Textdatei
 
 ##### Änderungen einpflegen
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/lifecycle.png" width="50%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/lifecycle_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/lifecycle.png" width="50%" /></picture></p>
 
 -   Abfrage mit: `git status`
 -   "Staging" von modifizierten Dateien: `git add <file>`
@@ -694,7 +697,7 @@ Schauen Sie sich einmal einen Screenshot eines
 [Dungeon-CampusMinden/Dungeon](https://github.com/Dungeon-CampusMinden/Dungeon)
 an:
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log.png" width="60%" /></picture></p>
 
 Nun stellen Sie sich vor, Sie sind auf der Suche nach Informationen,
 suchen einen bestimmten Commit oder wollen eine bestimmte Änderung
@@ -716,7 +719,7 @@ Leider sagt sich das so leicht - in der Praxis macht man es dann doch
 schnell wieder unsauber. Dennoch, auch im Dungeon-Repo gibt es einen
 positiven Trend (`git log --oneline 8039d6c..7f49e89`):
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log_recent.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log_recent_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log_recent.png" width="80%" /></picture></p>
 
 Typische Regeln und Konventionen tauchen überall auf, beispielsweise in
 Chacon und Straub ([2014](#ref-Chacon2014)) oder bei Tim Pope (siehe
@@ -901,9 +904,9 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 >
 > -   Sie finden den Inhalt dieser Sitzung im Chacon und Straub ([2014,
 >     Kap. 1](#ref-Chacon2014) und 2). Zusätzlich finden Sie weitere
->     hilfreiche Informationen rund um Git sowie Cheat-Sheets in
->     Atlassian Pty Ltd ([2022](#ref-AtlassianGit)) und Github Inc.
->     ([2022](#ref-GitCheatSheet)).
+>     hilfreiche Tutorial rund um Git in Atlassian Pty Ltd
+>     ([2026](#ref-AtlassianGit)) sowie Cheat-Sheets auf Github Inc.
+>     ([2024](#ref-GitCheatSheet)).
 >
 > </details>
 
@@ -1005,6 +1008,9 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 >     Branches](https://youtu.be/B8sesK1GyiE)
 > -   [Demo Auflösen von Merge-Konflikten](https://youtu.be/iEr9i8auF7c)
 > -   [Demo HEAD](https://youtu.be/U4gd0FBBqZQ)
+>
+> [Introduction to Git with Scott Chacon of GitHub (zweiter Teil, ab ca.
+> Minute 45)](https://youtu.be/ZDR433b0HJY)
 >
 > </details>
 
@@ -1328,8 +1334,8 @@ Man beachte aber die Änderung der Commit-IDs von `wuppie`: Aus `D` wird
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
 > -   Chacon und Straub ([2014, Kap. 3](#ref-Chacon2014))
-> -   Atlassian Pty Ltd ([2022](#ref-AtlassianGit))
-> -   Github Inc. ([2022](#ref-GitCheatSheet))
+> -   Atlassian Pty Ltd ([2026](#ref-AtlassianGit))
+> -   Github Inc. ([2024](#ref-GitCheatSheet))
 >
 > </details>
 
@@ -1634,7 +1640,7 @@ Git Worktree: Auschecken von Branches in separate Ordner
 
 ##### Nutzung von Git in Projekten: Verteiltes Git (und Workflows)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="65%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="65%" /></picture></p>
 
 Git ermöglicht ein einfaches und schnelles Branchen. Dies kann man mit
 entsprechenden Branching-Strategien sinnvoll für die SW-Entwicklung
@@ -1649,7 +1655,7 @@ die Zusammenarbeit?** Antwort: Workflows mit Git ...
 
 ##### Zusammenarbeit: Zentraler Workflow mit Git (analog zu SVN)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised.png" width="55%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised.png" width="55%" /></picture></p>
 
 In kleinen Projektgruppen wie beispielsweise Ihrer Arbeitsgruppe wird
 häufig ein einfacher zentralisierter Workflow bei der Versionsverwaltung
@@ -1927,8 +1933,8 @@ gibt es "*Merge-Requests*" (MR). Bei Github gibt es "*Pull-Requests*"
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
 > -   Chacon und Straub ([2014, 5, 4.8, 6](#ref-Chacon2014))
-> -   Atlassian Pty Ltd ([2022](#ref-AtlassianGit))
-> -   Github Inc. ([2022](#ref-GitCheatSheet))
+> -   Atlassian Pty Ltd ([2026](#ref-AtlassianGit))
+> -   Github Inc. ([2024](#ref-GitCheatSheet))
 >
 > </details>
 
@@ -2006,7 +2012,7 @@ gibt es "*Merge-Requests*" (MR). Bei Github gibt es "*Pull-Requests*"
 
 ##### Nutzung von Git in Projekten: Verteiltes Git (und Workflows)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></picture></p>
 
 Git ermöglicht ein einfaches und schnelles Branchen. Dies kann man mit
 entsprechenden Branching-Strategien sinnvoll für die SW-Entwicklung
@@ -2278,8 +2284,8 @@ Diskussionen, welche Linux-Distribution die bessere sei):
 > -   Driessen ([2010](#ref-GitFlow))
 > -   Chacon ([2013](#ref-GitHubFlow))
 > -   GitHub Inc. ([2022b](#ref-GitHubFlowGH))
-> -   Atlassian Pty Ltd ([2022](#ref-AtlassianGit))
-> -   Github Inc. ([2022](#ref-GitCheatSheet))
+> -   Atlassian Pty Ltd ([2026](#ref-AtlassianGit))
+> -   Github Inc. ([2024](#ref-GitCheatSheet))
 >
 > </details>
 
@@ -2448,7 +2454,7 @@ Ein Gradle-Skript ist letztlich ein in Groovy geschriebenes Skript.
 der JVM ausgeführte Skriptsprache. Seit einigen Versionen kann man die
 Gradle-Build-Skripte auch in der Sprache Kotlin schreiben.
 
-##### Dateien
+##### Konfigurationsdateien
 
 Für das Bauen mit Gradle benötigt man drei Dateien im Projektordner:
 
@@ -2467,7 +2473,7 @@ Für das Bauen mit Gradle benötigt man drei Dateien im Projektordner:
     projektspezifische Properties für den Gradle-Build spezifizieren
     kann.
 
-##### Gradle Init
+##### Neues Gradle-Projekt mit Gradle Init anlegen
 
 Um eine neue Gradle-Konfiguration anlegen zu lassen, geht man in einen
 Ordner und führt darin `gradle init` aus. Gradle fragt der Reihe nach
@@ -2518,7 +2524,84 @@ sowie nach dem Testframework, welches verwendet werden soll.
 
 Damit wird die eingangs gezeigte Konfiguration angelegt.
 
-##### Ordner
+*Anmerkung*: Die hier dargestellten Auswahloptionen und ggf. die
+Reihenfolge der Schritte können sich mit neueren Gradle-Versionen
+durchaus ändern. Das prinzipielle Vorgehen bleibt aber identisch.
+
+##### Gradle und IntelliJ
+
+Installieren bzw. Aktivieren Sie in den IntelliJ-Einstellungen die
+Plugins für Gradle, derzeit "Gradle" und "Gradle for Java". Ggf. haben
+diese Plugins weitere Abhängigkeiten, die auf Nachfrage der IDE
+aktiviert werden sollten.
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_gradleplugin_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_gradleplugin.png" width="60%" /></picture></p>
+
+###### Neues Gradle-Projekt in IntelliJ anlegen
+
+Legen Sie ein neues Projekt an (`File > New > Project`) und wählen Sie
+im Einstellungsdialog als Projekttyp "Java" und bei "Build System"
+entsprechend "Gradle" und als "Gradle DSL" die Variante "Groovy" aus.
+Unter "Advanced Settings" können Sie dann noch direkt "Wrapper"
+auswählen, das erspart die spätere Korrektur.
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_newproject_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_newproject.png" width="60%" /></picture></p>
+
+Passen Sie anschließend die Einstellungen in der `build.gradle` an.
+
+###### Existierendes Gradle-Projekt in IntelliJ importieren
+
+Importieren Sie ein existierendes Gradle-Projekt über den Dialog
+`File > New > Project from Existing Sources` (wenn das Projekt lokal auf
+Ihrem Rechner liegt) bzw. `File > New > Project from Version Control`
+(wenn das Projekt beispielsweise auf GitHub liegt und noch keine lokale
+Kopie erzeugt wurde).
+
+Wählen Sie im nächsten Dialog "Import project from external model" und
+"Gradle" aus:
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_importproject_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_importproject.png" width="40%" /></picture></p>
+
+Passen Sie anschließend die Einstellungen in der `build.gradle` an.
+
+###### Einstellungen für IntelliJ rund um Gradle
+
+Prinzipiell lädt IntelliJ die Gradle-Einstellungen und übernimmt diese.
+Damit werden dann externe Abhängigkeiten (Bibliotheken wie JUnit o.ä.)
+automatisch aufgelöst und heruntergeladen, Sourcecode-Pfade und sonstige
+Projekteinstellungen werden übernommen und der Build-Prozess wird von
+IntelliJ an Gradle delegiert. In der Regel klappt das zuverlässig und
+sehr reibungsarm.
+
+Manchmal hakt das leider aber ziemlich.
+
+1.  Check, ob die **Projekteinstellungen** in IntelliJ passen:
+
+    i.  Menü `File > Project Structure > Project Settings > Project`
+        sollte für Ihr Projekt als SDK ein "Java 25" zeigen:
+
+    <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_project_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_project.png" width="50%" /></picture></p>
+
+    ii. Menü `File > Project Structure > Project Settings > Libraries`
+        sollte für Ihr Projekt die Jar-Files für die konfigurierten
+        Abhängigkeiten (etwa JUnit) zeigen:
+
+    <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_dependencies_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_dependencies.png" width="50%" /></picture></p>
+
+2.  Check, ob **IntelliJ mit Gradle baut**:
+
+    Menü
+    `IDEA > Settings > Build, Execution, Deployment > Build Tools > Gradle`
+    sollte auf Gradle umgestellt sein:
+
+    <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_settings_gradle_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_idea_settings_gradle.png" width="60%" /></picture></p>
+
+    Unter **"Build & Run" sollte "Gradle"** ausgewählt sein, die
+    **"Distribution" sollte auf "Wrapper"** stehen, und als **"Gradle
+    JVM"** sollte die für das Projekt verwendete JVM eingestellt sein,
+    d.h. aktuell Java 25 (LTS).
+
+##### Ordner in einem Gradle-Projekt
 
 Durch `gradle init` wird ein neuer Ordner `wuppie/` mit folgender
 Ordnerstruktur angelegt:
@@ -2602,6 +2685,7 @@ sourceSets {
         resources {
             srcDirs = ['res']
         }
+    }
     test {
         java {
             srcDirs = ['test']
@@ -2685,21 +2769,29 @@ plugins {
     id 'checkstyle'
 }
 
-
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.apache.poi', name: 'poi', version: '5.5.1'
 }
 
 application {
     mainClass = 'hangman.Main'
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+// use current LTS release: Java 25
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+java.sourceCompatibility = JavaVersion.VERSION_25
+java.targetCompatibility = JavaVersion.VERSION_25
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
 }
 
-run {
+tasks.named('run') {
     standardInput = System.in
 }
 
@@ -2715,12 +2807,8 @@ sourceSets {
 }
 
 checkstyle {
-    configFile = file(“${rootDir}/google_checks.xml”)
-    toolVersion = '10.19.0'
-}
-
-dependencies {
-    implementation group: 'org.apache.poi', name: 'poi', version: '4.1.2'
+    configFile = file("${rootDir}/google_checks.xml")
+    toolVersion = '13.4.0'
 }
 
 javadoc {
@@ -2730,8 +2818,8 @@ javadoc {
 
 Hier sehen Sie übrigens noch eine weitere mögliche Schreibweise für das
 Notieren von Abhängigkeiten:
-`implementation group: 'org.apache.poi', name: 'poi', version: '4.1.2'`
-und `implementation 'org.apache.poi:poi:4.1.2'` sind gleichwertig, wobei
+`implementation group: 'org.apache.poi', name: 'poi', version: '5.5.1'`
+und `implementation 'org.apache.poi:poi:5.5.1'` sind gleichwertig, wobei
 die letztere Schreibweise sowohl in den generierten Builds-Skripten und
 in der offiziellen Dokumentation bevorzugt wird.
 
@@ -2761,11 +2849,11 @@ nicht einfach lösbar.
 
 Zur Vereinfachung gibt es den Gradle-Wrapper `gradlew` (bzw.
 `gradlew.bat` für Windows). Dies ist ein kleines Shellskript, welches
-zusammen mit einigen kleinen `.jar`-Dateien im Unterordner `gradle/` mit
-ins Repo eingecheckt wird und welches direkt die Rolle des
-`gradle`-Befehls einer Gradle-Installation übernehmen kann. Man kann
-also in Konfigurationskripten, beispielsweise für Gitlab CI, alle
-Aufrufe von `gradle` durch Aufrufe von `gradlew` ersetzen.
+zusammen mit einer kleinen `.jar`-Datei im Unterordner `gradle/` mit ins
+Repo eingecheckt wird und welches direkt die Rolle des `gradle`-Befehls
+einer Gradle-Installation übernehmen kann. Man kann also in
+Konfigurationskripten, beispielsweise für Gitlab CI, alle Aufrufe von
+`gradle` durch Aufrufe von `gradlew` ersetzen.
 
 Beim ersten Aufruf lädt `gradlew` dann die spezifizierte Gradle-Version
 herunter und speichert diese in einem lokalen Ordner `.gradle/`. Ab dann
@@ -2774,8 +2862,8 @@ greift `gradlew` auf diese lokale (nicht "installierte")
 
 `gradle init` erzeugt den Wrapper automatisch in der verwendeten
 Gradle-Version mit. Alternativ kann man den Wrapper nachträglich über
-`gradle wrapper --gradle-version 6.5` in einer bestimmten (gewünschten)
-Version anlegen lassen.
+`gradle wrapper --gradle-version 9.4.1` in einer bestimmten
+(gewünschten) Version anlegen lassen.
 
 Da der Gradle-Wrapper im Repository eingecheckt ist, benutzen alle
 Entwickler damit automatisch die selbe Version, ohne diese auf ihrem
@@ -2793,27 +2881,21 @@ Wrappers einem fest installierten Gradle vorzuziehen!
     -   Konfiguration der Abweichungen (Abhängigkeiten, Namen, ...)
     -   Gradle-Wrapper: Ersetzt eine feste Installation
 
-##### Link-Sammlung Gradle
-
--   ["Getting
-    Started"](https://docs.gradle.org/current/userguide/getting_started.html)
--   ["Building Java Applications
-    Sample"](https://docs.gradle.org/current/samples/sample_building_java_applications.html)
--   ["Building Java Applications with libraries
-    Sample"](https://docs.gradle.org/current/samples/sample_building_java_applications_multi_project.html)
--   ["Building Java Libraries
-    Sample"](https://docs.gradle.org/current/samples/sample_building_java_libraries.html)
--   ["Building Java & JVM
-    projects"](https://docs.gradle.org/current/userguide/building_java_projects.html)
-
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Gradle Inc. ([2022](#ref-Gradle))
-> -   Ullenboom ([2021](#ref-Ullenboom2021))
-> -   Inden ([2013](#ref-Inden2013))
+> -   ["Getting
+>     Started"](https://docs.gradle.org/current/userguide/getting_started.html)
+> -   ["Building Java Applications
+>     Sample"](https://docs.gradle.org/current/samples/sample_building_java_applications.html)
+> -   ["Building Java Applications with libraries
+>     Sample"](https://docs.gradle.org/current/samples/sample_building_java_applications_multi_project.html)
+> -   ["Building Java Libraries
+>     Sample"](https://docs.gradle.org/current/samples/sample_building_java_libraries.html)
+> -   ["Building Java & JVM
+>     projects"](https://docs.gradle.org/current/userguide/building_java_projects.html)
 >
 > </details>
 
@@ -2831,6 +2913,8 @@ Wrappers einem fest installierten Gradle vorzuziehen!
 > <details open>
 > <summary><strong>🏅 Challenges</strong></summary>
 >
+> **Analyse komplexeres Build-Skript**
+>
 > Betrachten Sie das Buildskript `gradle.build` aus
 > [Dungeon-CampusMinden/Dungeon](https://github.com/Dungeon-CampusMinden/Dungeon/blob/master/build.gradle).
 >
@@ -2838,6 +2922,13 @@ Wrappers einem fest installierten Gradle vorzuziehen!
 > welche Aufgaben diese Abschnitte jeweils erfüllen. Gehen Sie dabei im
 > *Detail* auf das Plugin `java` und die dort bereitgestellten Tasks und
 > deren Abhängigkeiten untereinander ein.
+>
+> **Praktische Übungen**
+>
+> -   Bauen Sie ein Minimalprojekt mit Gradle-Wrapper.
+> -   Importieren Sie das Projekt in IntelliJ.
+> -   Fügen Sie Abhängigkeiten hinzu: JUnit 6 und lassen Sie die IDE
+>     einen einfachen Test schreiben.
 >
 > </details>
 
@@ -16602,7 +16693,7 @@ public class MoreLogging {
 >
 > <div id="ref-AtlassianGit" class="csl-entry">
 >
-> Atlassian Pty Ltd. 2022. „Become a Git Guru."
+> Atlassian Pty Ltd. 2026. „Git Tutorials".
 > <https://www.atlassian.com/git/tutorials>.
 >
 > </div>
@@ -16674,12 +16765,6 @@ public class MoreLogging {
 >
 > </div>
 >
-> <div id="ref-GitCheatSheet" class="csl-entry">
->
-> Github Inc. 2022. „Git Cheat Sheets". <https://training.github.com/>.
->
-> </div>
->
 > <div id="ref-GitHubFlowGH" class="csl-entry">
 >
 > GitHub Inc. 2022b. „GitHub Flow".
@@ -16687,16 +16772,17 @@ public class MoreLogging {
 >
 > </div>
 >
+> <div id="ref-GitCheatSheet" class="csl-entry">
+>
+> Github Inc. 2024. „GitHub Training Kit".
+> <https://training.github.com/>.
+>
+> </div>
+>
 > <div id="ref-googlestyleguide" class="csl-entry">
 >
 > Google Open Source. 2022. „Google Java Style Guide".
 > <https://google.github.io/styleguide/javaguide.html>.
->
-> </div>
->
-> <div id="ref-Gradle" class="csl-entry">
->
-> Gradle Inc. 2022. „Gradle Build Tool". <https://gradle.org/>.
 >
 > </div>
 >
@@ -16836,18 +16922,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> b0f5557 2026-04-16 merge git basics and git intro (git1)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> bf3ed2f 2026-04-17 git: update references<br></sub></sup></p></blockquote>
 
 [^1]: Naja, ein kläglicher Versuch. Namen sind eines der schwierigen
     Probleme in der Informatik.

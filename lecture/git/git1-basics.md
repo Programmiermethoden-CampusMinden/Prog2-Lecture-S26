@@ -62,11 +62,14 @@
 > -   [Demo Diff](https://youtu.be/XB8lfGuU6ZI)
 > -   [Demo Tag](https://youtu.be/F1W0RqrxCho)
 >
+> [Introduction to Git with Scott Chacon of GitHub (erster Teil, bis ca.
+> Minute 45)](https://youtu.be/ZDR433b0HJY)
+>
 > </details>
 
 ## Prinzip Versionsverwaltung
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/local.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/local_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/local.png" width="40%" /></picture></p>
 
 -   **Repository:** (interne) **Datenbank** mit verschiedenen
     Versionsständen, Kommentaren, Tags etc.
@@ -138,7 +141,7 @@
         ignoriert
     -   `git status` zeigt diese Unterscheidung sehr gut
 
--   **Commit**\*: "Schnappschuss" von Änderungen zu einem bestimmten
+-   **Commit**: "Schnappschuss" von Änderungen zu einem bestimmten
     Zeitpunkt
 
     Enthält Änderungen (Delta) im Vergleich zum Vorgänger-Commit sowie
@@ -154,7 +157,7 @@
 
 ## Varianten: Zentrale Versionsverwaltung (Beispiel SVN)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/centralised.png" width="40%" /></picture></p>
 
 Es gibt ein zentrales Repository (typischerweise auf einem Server), von
 dem die Developer einen bestimmten Versionsstand "auschecken" (sich
@@ -165,7 +168,7 @@ man entsprechend immer eine Verbindung zum Server.
 
 ## Varianten: Verteilte Versionsverwaltung (Beispiel Git)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></picture></p>
 
 In diesem Szenario hat jeder Developer nicht nur die Workingcopy,
 sondern auch noch eine Kopie des Repositories. Zusätzlich kann es einen
@@ -261,7 +264,7 @@ Anschauen kann man sich die Einstellungen in der Textdatei
 
 ## Dateien unter Versionskontrolle stellen
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow.png" width="60%" /></picture></p>
 
 1.  `git add .` (oder `git add <file>`)
 
@@ -276,7 +279,7 @@ Anschauen kann man sich die Einstellungen in der Textdatei
 
 ## Änderungen einpflegen
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/lifecycle.png" width="50%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/lifecycle_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/lifecycle.png" width="50%" /></picture></p>
 
 -   Abfrage mit: `git status`
 -   "Staging" von modifizierten Dateien: `git add <file>`
@@ -475,7 +478,7 @@ Schauen Sie sich einmal einen Screenshot eines
 [Dungeon-CampusMinden/Dungeon](https://github.com/Dungeon-CampusMinden/Dungeon)
 an:
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log.png" width="60%" /></picture></p>
 
 Nun stellen Sie sich vor, Sie sind auf der Suche nach Informationen,
 suchen einen bestimmten Commit oder wollen eine bestimmte Änderung
@@ -497,7 +500,7 @@ Leider sagt sich das so leicht - in der Praxis macht man es dann doch
 schnell wieder unsauber. Dennoch, auch im Dungeon-Repo gibt es einen
 positiven Trend (`git log --oneline 8039d6c..7f49e89`):
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log_recent.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log_recent_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_git_log_recent.png" width="80%" /></picture></p>
 
 Typische Regeln und Konventionen tauchen überall auf, beispielsweise in
 Chacon und Straub ([2014](#ref-Chacon2014)) oder bei Tim Pope (siehe
@@ -682,9 +685,9 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 >
 > -   Sie finden den Inhalt dieser Sitzung im Chacon und Straub ([2014,
 >     Kap. 1](#ref-Chacon2014) und 2). Zusätzlich finden Sie weitere
->     hilfreiche Informationen rund um Git sowie Cheat-Sheets in
->     Atlassian Pty Ltd ([2022](#ref-AtlassianGit)) und Github Inc.
->     ([2022](#ref-GitCheatSheet)).
+>     hilfreiche Tutorial rund um Git in Atlassian Pty Ltd
+>     ([2026](#ref-AtlassianGit)) sowie Cheat-Sheets auf Github Inc.
+>     ([2024](#ref-GitCheatSheet)).
 >
 > </details>
 
@@ -752,7 +755,7 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 >
 > <div id="ref-AtlassianGit" class="csl-entry">
 >
-> Atlassian Pty Ltd. 2022. „Become a Git Guru."
+> Atlassian Pty Ltd. 2026. „Git Tutorials".
 > <https://www.atlassian.com/git/tutorials>.
 >
 > </div>
@@ -766,7 +769,8 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 >
 > <div id="ref-GitCheatSheet" class="csl-entry">
 >
-> Github Inc. 2022. „Git Cheat Sheets". <https://training.github.com/>.
+> Github Inc. 2024. „GitHub Training Kit".
+> <https://training.github.com/>.
 >
 > </div>
 >
@@ -786,4 +790,4 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> b0f5557 2026-04-16 merge git basics and git intro (git1)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> bf3ed2f 2026-04-17 git: update references<br></sub></sup></p></blockquote>

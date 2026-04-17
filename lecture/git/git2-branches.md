@@ -42,6 +42,9 @@
 > -   [Demo Auflösen von Merge-Konflikten](https://youtu.be/iEr9i8auF7c)
 > -   [Demo HEAD](https://youtu.be/U4gd0FBBqZQ)
 >
+> [Introduction to Git with Scott Chacon of GitHub (zweiter Teil, ab ca.
+> Minute 45)](https://youtu.be/ZDR433b0HJY)
+>
 > </details>
 
 ## Neues Feature entwickeln/ausprobieren
@@ -364,8 +367,8 @@ Man beachte aber die Änderung der Commit-IDs von `wuppie`: Aus `D` wird
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
 > -   Chacon und Straub ([2014, Kap. 3](#ref-Chacon2014))
-> -   Atlassian Pty Ltd ([2022](#ref-AtlassianGit))
-> -   Github Inc. ([2022](#ref-GitCheatSheet))
+> -   Atlassian Pty Ltd ([2026](#ref-AtlassianGit))
+> -   Github Inc. ([2024](#ref-GitCheatSheet))
 >
 > </details>
 
@@ -448,7 +451,7 @@ Man beachte aber die Änderung der Commit-IDs von `wuppie`: Aus `D` wird
 >
 > <div id="ref-AtlassianGit" class="csl-entry">
 >
-> Atlassian Pty Ltd. 2022. „Become a Git Guru."
+> Atlassian Pty Ltd. 2026. „Git Tutorials".
 > <https://www.atlassian.com/git/tutorials>.
 >
 > </div>
@@ -462,7 +465,8 @@ Man beachte aber die Änderung der Commit-IDs von `wuppie`: Aus `D` wird
 >
 > <div id="ref-GitCheatSheet" class="csl-entry">
 >
-> Github Inc. 2022. „Git Cheat Sheets". <https://training.github.com/>.
+> Github Inc. 2024. „GitHub Training Kit".
+> <https://training.github.com/>.
 >
 > </div>
 >
@@ -476,4 +480,4 @@ Man beachte aber die Änderung der Commit-IDs von `wuppie`: Aus `D` wird
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 16fc70d 2026-04-11 reformat markdown<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> b521d3c 2026-04-17 git: add video from Scott Chacon<br></sub></sup></p></blockquote>
