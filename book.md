@@ -902,11 +902,13 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Sie finden den Inhalt dieser Sitzung im Chacon und Straub ([2014,
->     Kap. 1](#ref-Chacon2014) und 2). Zusätzlich finden Sie weitere
->     hilfreiche Tutorial rund um Git in Atlassian Pty Ltd
->     ([2026](#ref-AtlassianGit)) sowie Cheat-Sheets auf Github Inc.
->     ([2024](#ref-GitCheatSheet)).
+> Sie finden den Inhalt dieser Sitzung im Chacon und Straub ([2014, Kap.
+> 1](#ref-Chacon2014) und 2).
+>
+> Zusätzlich gibt es viele hilfreiche Tutorials wie beispielsweise die
+> [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials).
+> Auf [GitHub Training Kit](https://training.github.com/) finden Sie ein
+> gutes Cheat-Sheet.
 >
 > </details>
 
@@ -1275,9 +1277,8 @@ bekommen. Das verursacht bei der Zusammenarbeit in Projekten massive
 Probleme! Als Vorteil gilt, dass man mögliche Merge-Konflikte bereits
 beim Rebasen auflösen muss, d.h. hier muss derjenige, der den Merge
 "beantragt", durch einen vorherigen Rebase den konfliktfreien Merge
-sicherstellen. Mehr dazu in
-["Branching-Strategien"](#id-4d6861ad376a0b2e0387b1a92bfe1dde822ccb7f)
-und ["Workflows"](#id-c4b0283d56726aa5bcadb82cdd57653b6c8654a3).
+sicherstellen. Mehr dazu in ["Branching-Strategien &
+Git-Workflows"](#id-c4b0283d56726aa5bcadb82cdd57653b6c8654a3).
 
     git rebase master wuppie
 
@@ -1491,7 +1492,7 @@ Dateisystem)**
 
 ##### How to use Git Worktree
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/linkedworktrees.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/linkedworktrees_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/linkedworktrees.png" width="80%" /></picture></p>
 
 ##### Worktree anlegen
 
@@ -1595,7 +1596,7 @@ Git Worktree: Auschecken von Branches in separate Ordner
 
 <a id="id-c4b0283d56726aa5bcadb82cdd57653b6c8654a3"></a>
 
-#### Zusammenarbeit: Git-Workflows und Merge-/Pull-Requests
+#### Branching-Strategien & Git-Workflows
 
 > [!IMPORTANT]
 >
@@ -1680,7 +1681,7 @@ alle Teammitglieder gleichberechtigt und direkt pushen dürfen.
 
 ##### Zusammenarbeit: Einfacher verteilter Workflow mit Git
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow_remote.png" width="65%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow_remote_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow_remote.png" width="65%" /></picture></p>
 
 In großen und/oder öffentlichen Projekten wird üblicherweise ein
 Workflow eingesetzt, der auf den Möglichkeiten von verteilten
@@ -1776,11 +1777,10 @@ Im Netz finden sich häufig Anleitungen, wonach man Änderungen im
 Das funktioniert rein technisch betrachtet.
 
 Allerdings spielt in den meisten Git-Projekten der `master` (bzw.
-`main`) üblicherweise eine besondere Rolle (vgl.
-[Branching-Strategien](#id-4d6861ad376a0b2e0387b1a92bfe1dde822ccb7f))
-und ist üblicherweise stets das **Ziel** eines Merge, aber nie die
-*Quelle*! D.h. per Konvention geht der Fluß von Änderungen stets **in**
-den `master` (und nicht heraus).
+`main`) üblicherweise eine besondere Rolle und ist üblicherweise stets
+das **Ziel** eines Merge, aber nie die *Quelle*! D.h. per Konvention
+geht der Fluß von Änderungen stets **in** den `master` (und nicht
+heraus).
 
 Wenn man sich nicht an diese Konvention hält, hat man später
 möglicherweise Probleme, die Merge-Historie zu verstehen (welche
@@ -1850,12 +1850,12 @@ soll sich den Code ansehen.
 Hier ein Screenshot der Änderungsansicht unseres Gitlab-Servers
 (SW-Labor):
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_code.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_code_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_code.png" width="80%" /></picture></p>
 
 Nachfolgend für den selben MR aus der letzten Abbildung noch die reine
 Diskussionsansicht:
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_discussion.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_discussion_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_discussion.png" width="80%" /></picture></p>
 
 Zusätzliche kurze Video-Anleitungen von GitHub:
 
@@ -1959,344 +1959,6 @@ gibt es "*Merge-Requests*" (MR). Bei Github gibt es "*Pull-Requests*"
 > -   k3: Ich kann meine Merge-/Pull-Requests aktualisieren
 > -   k3: Ich kann in Merge-/Pull-Requests Anmerkungen am Code
 >     hinterlegen und an den Feedback-Diskussionen teilnehmen
->
-> </details>
-
-<a id="id-4d6861ad376a0b2e0387b1a92bfe1dde822ccb7f"></a>
-
-#### Branching-Strategien mit Git
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Das Erstellen und Mergen von Branches ist in Git besonders einfach.
-> Dies kann man sich in der Entwicklung zunutze machen und die einzelnen
-> Features unabhängig voneinander in eigenen Hilfs-Branches ausarbeiten.
->
-> Es haben sich zwei grundlegende Modelle etabliert: "Git-Flow" und
-> "GitHub Flow".
->
-> In **Git-Flow** gibt es ein umfangreiches Konzept mit verschiedenen
-> Branches für feste Aufgaben, welches sich besonders gut für
-> Entwicklungmodelle mit festen Releases eignet. Es gibt zwei
-> langlaufende Branches: `master` enthält den stabilen veröffentlichten
-> Stand, in `develop` werden die Ergebnisse der Entwicklung gesammelt.
-> Features werden in kleinen Feature-Branches entwickelt, die von
-> `develop` abzweigen und dort wieder hineinmünden. Für Releases wird
-> von `develop` ein eigener Release-Branch angelegt und nach
-> Finalisierung in den `master` und in `develop` gemergt. Fixes werden
-> vom `master` abgezweigt, und wieder in den `master` und auch nach
-> `develop` integriert. Dadurch stehen auf dem `master` immer die
-> stabilen Release-Stände zur Verfügung, und im `develop` sammeln sich
-> die Entwicklungsergebnisse.
->
-> Der **GitHub Flow** basiert auf einem deutlich schlankeren Konzept und
-> passt gut für die kontinuierliche Entwicklung ohne echte Releases.
-> Hier hat man auch wieder einen `master` als langlaufenden Branch, der
-> die stabilen Release-Stände enthält. Vom `master` zweigen direkt die
-> kleinen Feature-Branches ab und werden auch wieder direkt in den
-> `master` integriert.
->
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Git Branching-Strategien](https://youtu.be/v1WHIPdoA0k)
->
-> </details>
-
-##### Nutzung von Git in Projekten: Verteiltes Git (und Workflows)
-
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/distributed.png" width="60%" /></picture></p>
-
-Git ermöglicht ein einfaches und schnelles Branchen. Dies kann man mit
-entsprechenden Branching-Strategien sinnvoll für die SW-Entwicklung
-einsetzen.
-
-Im Folgenden sollen also die Frage betrachtet werden: **Wie setze ich
-Branches sinnvoll ein?**
-
-##### Umgang mit Branches: Themen-Branches
-
-                    I---J---K  wuppieV1
-                   /
-              D---F  wuppie
-             /
-    A---B---C---E  master
-                 \
-                  G---H  test
-
-Branchen ist in Git sehr einfach und schnell. Deshalb wird (gerade auch
-im Vergleich mit SVN) gern und viel gebrancht.
-
-Ein häufiges anzutreffendes Modell ist dabei die Nutzung von
-**Themen-Branches**: Man hat einen Hauptzweig (`master`). Wann immer
-eine neue Idee oder ein Baustein unabhängig entwickelt werden soll/kann,
-wird ein entsprechender Themen-Branch aufgemacht. Dabei handelt es sich
-normalerweise um **kleine Einheiten**!
-
-Themenbranches haben in der Regel eine **kurze Lebensdauer**: Wenn die
-Entwicklung abgeschlossen ist, wird die Idee bzw. der Baustein in den
-Hauptzweig integriert und der Themenbranch gelöscht.
-
--   Vorteil: Die Entwicklung im Themenbranch ist in sich gekapselt und
-    stört nicht die Entwicklung in anderen Branches (und diese stören
-    umgekehrt nicht die Entwicklung im Themenbranch).
-
--   Nachteil:
-
-    -   Mangelnder Überblick durch viele Branches
-    -   Ursprung der Themenbranches muss überlegt gewählt werden, d.h.
-        alle dort benötigten Features müssen zu dem Zeitpunkt im
-        Hauptzweig vorhanden sein
-
-##### Umgang mit Branches: Langlaufende Branches
-
-    A---B---D  master
-         \
-          C---E---I  develop
-               \
-                F---G---H  topic
-
-Häufig findet man in (größeren) Projekten Branches, die über die gesamte
-Lebensdauer des Projekts existieren, sogenannte "langlaufende Branches".
-
-Normalerweise gibt es einen Branch, in dem stets der stabile Stand des
-Projekts enthalten ist. Dies ist häufig der `master`. In diesem Branch
-gibt es nur sehr wenige Commits: normalerweise nur Merges aus dem
-`develop`-Branch (etwa bei Fertigstellung einer Release-Version) und
-ggf. Fehlerbehebungen.
-
-Die aktive Entwicklung findet in einem separaten Branch statt:
-`develop`. Hier nutzt man zusätzlich Themen-Branches für die Entwicklung
-einzelner Features, die nach Fertigstellung in den `develop` gemergt
-werden.
-
-Kleinere Projekte kommen meist mit den zwei langlaufenden Branches in
-der obigen Darstellung aus. Bei größeren Projekten finden sich häufig
-noch etliche weitere langlaufende Branches, beispielsweise "Proposed
-Updates" etc. beim Linux-Kernel.
-
--   Vorteile:
-    -   Mehr Struktur im Projekt durch in ihrer Semantik wohldefinierte
-        Branches
-    -   Durch weniger Commits pro Branch lässt sich die Historie
-        leichter verfolgen (u.a. auch aus bestimmter Rollen-Perspektive:
-        Entwickler, Manager, ...)
--   Nachteile: Bestimmte "ausgezeichnete" Branches; zusätzliche Regeln
-    zum Umgang mit diesen beachten
-
-##### Komplexe Branching-Strategie: Git-Flow
-
-    A---B---------------------G---J1  master
-         \                   / \ /
-          \                 /   X  fix
-           \               /     \
-            C-------------F----I--J2  develop
-             \           / \  /
-              \         /   H1  featureB
-               \       /
-                D1----D2  featureA
-                 \
-                  E1---E2---E3---E4---E5  featureC
-
-Das Git-Flow-Modell von Vincent Driessen
-([nvie.com/posts/a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/))
-zeigt einen in der Praxis überaus bewährten Umgang mit Branches. Lesen
-Sie an der angegebenen Stelle nach, besser kann man die Nutzung dieses
-eleganten Modells eigentlich nicht erklären :-)
-
-##### Git-Flow: Hauptzweige *master* und *develop*
-
-    A---B-------E---------------J  master
-         \     /               /
-          C---D---F---G---H---I---K  develop
-
-Bei Git-Flow gibt es zwei langlaufende Branches: Den `master`, der immer
-den stabilen Stand enthält und in den *nie* ein direkter Commit gemacht
-wird, sowie den `develop`, wo letztlich (ggf. über Themenbranches) die
-eigentliche Entwicklung stattfindet.
-
-Änderungen werden zunächst im `develop` erstellt und getestet. Wenn die
-Features stabil sind, erfolgt ein Merge von `develop` in den `master`.
-Hier kann noch der Umweg über einen `release`-Branch genommen werden:
-Als "Feature-Freeze" wird vom `develop` ein `release`-Branch abgezweigt.
-Darin wird das Release dann aufpoliert, d.h. es erfolgen nur noch
-kleinere Korrekturen und Änderungen, aber keine echte Entwicklungsarbeit
-mehr. Nach Fertigstellung wird der `release` dann sowohl in den `master`
-als auch `develop` gemergt.
-
-##### Git-Flow: Weitere Branches als Themen-Branches
-
-    A---B---------------------I-------------K  master
-         \                   /             /
-          C------------F----H-------------J---L  develop
-           \          / \  /             /
-            \        /   G1  featureB   /
-             \      /                  /
-              D1---D2  featureA       /
-               \                     /
-                E1---E2---E3---E4---E5  featureC
-
-Für die Entwicklung eigenständiger Features bietet es sich auch im
-Git-Flow an, vom `develop` entsprechende Themenbranches abzuzweigen und
-darin jeweils isoliert die Features zu entwickeln. Wenn diese Arbeiten
-eine gewisse Reife haben, werden die Featurebranches in den `develop`
-integriert.
-
-##### Git-Flow: Merging-Detail
-
-    ---C--------E  develop
-        \      /                 git merge --no-ff
-         D1---D2  featureA
-
-vs.
-
-    ---C---D1---D2  develop      git merge
-
-Wenn beim Mergen ein "*fast forward*" möglich ist, würde Git beim Mergen
-eines (Feature-) Branches in den `develop` (oder allgemein in einen
-anderen Branch) *keinen* separaten Commit erzeugen (Situation rechts in
-der Abbildung).
-
-Damit erscheint der `develop`-Branch wie eine lineare Folge von Commits.
-In manchen Projekten wird dies bevorzugt, weil die Historie sehr
-übersichtlich aussieht.
-
-Allerdings verliert man die Information, dass hier ein Feature
-entwickelt wurde und wann es in den `develop` integriert wurde (linke
-Seite in obiger Abbildung). Häufig wird deshalb ein extra Merge-Commit
-mit `git merge --no-ff <branch>` (extra Schalter "`--no-ff`") erzwungen,
-obwohl ein "*fast forward*" möglich wäre.
-
-Anmerkung: Man kann natürlich auch über Konventionen in den
-Commit-Kommentaren eine gewisse Übersichtlichkeit erzwingen.
-Beispielsweise könnte man vereinbaren, dass alle Commit-Kommentare zu
-einem Feature "A" mit "`feature a:`" starten müssen.
-
-##### Git-Flow: Umgang mit Fehlerbehebung
-
-    A---B---D--------F1  master
-         \   \      /
-          \   E1---E2  fix
-           \        \
-            C1-------F2  develop
-
-Wenn im stabilen Branch (also dem `master`) ein Problem bekannt wird,
-darf man es nicht einfach im `master` fixen. Stattdessen wird ein extra
-Branch vom `master` abgezweigt, in dem der Fix entwickelt wird. Nach
-Fertigstellung wird dieser Branch sowohl in den `master` als auch den
-`develop` gemergt, damit auch im Entwicklungszweig der Fehler behoben
-ist.
-
-Dadurch entspricht jeder Commit im `master` einem Release.
-
-##### Vereinfachte Braching-Strategie: GitHub Flow
-
-    A---B---C----D-----------E  master
-         \   \  /           /
-          \   ta1  topicA  /
-           \              /
-            tb1---tb2---tb3  topicB
-
-Github verfolgt eine deutlich vereinfachte Strategie: "GitHub Flow"
-(vgl. ["GitHub Flow" (S. Chacon)](https://githubflow.github.io/) bzw.
-["GitHub flow" (GitHub,
-Inc.)](https://docs.github.com/en/get-started/quickstart/github-flow)).
-
-Hier ist der stabile Stand ebenfalls immer im `master`. Features werden
-ebenso wie im Git-Flow-Modell in eigenen Feature-Branches entwickelt.
-
-Allerdings zweigen Feature-Branches *immer direkt* vom `master` ab und
-werden nach dem Test auch immer dort wieder direkt integriert (es gibt
-also keine weiteren langlaufenden Branches wie `develop` oder
-`release`).
-
-In der obigen Abbildung ist zu sehen, dass für die Entwicklung eines
-Features ein entsprechender Themenbranch vom `master` abgezweigt wird.
-Darin erfolgt dann die Entwicklung des Features, d.h. mehrere Commits.
-Das Mergen des Features in den `master` erfolgt dann aber nicht lokal,
-sondern mit einem "Pull-Request" auf dem Server: Sobald man im
-Feature-Branch einen "diskussionswürdigen" Stand hat, wird ein
-**Pull-Request** (*PR*) über die Weboberfläche aufgemacht (streng
-genommen gehört dies in die Kategorie ["Zusammenarbeit" bzw.
-"Workflows"](#id-c4b0283d56726aa5bcadb82cdd57653b6c8654a3); außerdem
-gehört ein PR nicht zu Git selbst, sondern zum Tooling von Github). In
-einem PR können andere Entwickler den Code kommentieren und ergänzen.
-Jeder weitere Commit auf dem Themenbranch wird ebenfalls Bestandteil des
-Pull-Requests. Parallel laufen ggf. automatisierte Tests etc. und durch
-das Akzeptieren des PR in der Weboberfläche erfolgt schließlich der
-Merge des Feature-Branches in den `master`.
-
-##### Diskussion: Git-Flow vs. GitHub Flow
-
-In der Praxis zeigt sich, dass das Git-Flow-Modell besonders gut
-geeignet ist, wenn man tatsächlich so etwas wie "Releases" hat, die
-zudem nicht zu häufig auftreten.
-
-Das GitHub-Flow-Vorgehen bietet sich an, wenn man entweder keine
-Releases hat oder diese sehr häufig erfolgen (typisch bei agiler
-Vorgehensweise). Zudem vermeidet man so, dass die Feature-Branches zu
-lange laufen, womit normalerweise die Wahrscheinlichkeit von
-Merge-Konflikten stark steigt. **Achtung**: Da die Feature-Branches
-direkt in den `master`, also den stabilen Produktionscode gemergt
-werden, ist es hier besonders wichtig, *vor* dem Merge entsprechende
-Tests durchzuführen und den Merge erst zu machen, wenn alle Tests "grün"
-sind.
-
-Hier ein paar Einstiegsseiten für die Diskussion, die teilweise sehr
-erbittert (und mit ideologischen Zügen) geführt wird (erinnert an die
-Diskussionen, welche Linux-Distribution die bessere sei):
-
--   [Git-Flow-Modell von Vincent
-    Driessen](https://nvie.com/posts/a-successful-git-branching-model/)
--   [Kurzer Überblick über das
-    GitHub-Flow-Modell](https://guides.github.com/introduction/flow/)
--   [Diskussion des GitHub-Flow-Modells
-    (Github)](https://githubflow.github.io/)
--   [Luca Mezzalira: "Git-Flow vs Github
-    Flow"](https://lucamezzalira.com/2014/03/10/git-flow-vs-github-flow/)
--   [Scott Schacon, Autor des
-    Pro-Git-Buchs](https://scottchacon.com/2011/08/31/github-flow.html)
--   [Noch eine (längere) Betrachtung (Robin
-    Daugherty)](https://hackernoon.com/a-branching-and-releasing-strategy-that-fits-github-flow-be1b6c48eca2)
-
-##### Wrap-Up
-
--   Einsatz von Themenbranches für die Entwicklung
--   Unterschiedliche Modelle:
-    -   Git-Flow: umfangreiches Konzept, gut für Entwicklung mit festen
-        Releases
-    -   GitHub Flow: deutlich schlankeres Konzept, passend für
-        kontinuierliche Entwicklung ohne echte Releases
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Chacon und Straub ([2014, Kap. 3](#ref-Chacon2014))
-> -   Driessen ([2010](#ref-GitFlow))
-> -   Chacon ([2013](#ref-GitHubFlow))
-> -   GitHub Inc. ([2022b](#ref-GitHubFlowGH))
-> -   Atlassian Pty Ltd ([2026](#ref-AtlassianGit))
-> -   Github Inc. ([2024](#ref-GitCheatSheet))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k3: Ich kann mit Themenbranches in der Entwicklung arbeiten
-> -   k3: Ich kann das 'Git-Flow'-Modell anwenden
-> -   k3: Ich kann das 'GitHub Flow'-Modell anwenden
 >
 > </details>
 
@@ -2870,6 +2532,167 @@ Entwickler damit automatisch die selbe Version, ohne diese auf ihrem
 System zuvor installieren zu müssen. Deshalb ist der Einsatz des
 Wrappers einem fest installierten Gradle vorzuziehen!
 
+##### Ausblick: Maven
+
+Wie oben erwähnt, gibt es neben Gradle in der Java-Welt zwei weitere
+verbreitete Build-Tools: [Ant](https://ant.apache.org/) und
+[Maven](https://maven.apache.org) (beide von Apache).
+
+In Ant werden alle Dinge (Ziele, Regeln, ...) manuell definiert und
+konfiguriert (und das in XML), Dependencies müssen manuell oder über ein
+extra Tool (Ivy) aufgelöst werden. Dagegen ist in Maven ähnlich wie bei
+Gralde ein Lebenszyklus für Java-Anwendungen eingebaut und es müssen nur
+noch Abweichungen davon sowie die Festlegung von Versionen und
+Dependencies in XML formuliert werden ("*Convention over
+Configuration*"). In Maven nennt man die Ziele "Goals", was den
+Gradle-Tasks entspricht.
+
+Im Gegensatz zu Gradle haben sich Maven-Konfigurationen als sehr stabil
+erwiesen. Projektkonfigurationen funktionieren oft über einen sehr
+langen Zeitraum hinweg, und auch bei den eher seltenen Versionssprüngen
+von Maven gibt es deutlich weniger Pflegeaufwand im Vergleich zu Gradle,
+wo teilweise im Halbjahrestakt oft deutliche Änderungen an der DSL
+vorgenommen werden und man früher oder später immer wieder gezwungen
+ist, die Projektkonfiguration entsprechend nachzuziehen. Der Nachteil
+von Maven ist, dass die Konfiguration in XML erfolgt und für moderne
+Lesegewohnheiten eher sperrig aussieht. Die Formulierung von
+"Extra-Wünschen" geht in Gradle über die Groovy-DSL meist relativ
+einfach, in Maven muss man dafür eigene Plugins schreiben.
+
+Das obige `build.gradle` mit der Apache-POI-Abhängigkeit und der
+konfigurierten Java-Version und dem Checkstyle-Plugin könnte man
+ungefähr in folgende `pom.xml` (so nennt man die
+Maven-Konfigurationsdatei) übersetzen:
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>hangman</groupId>
+    <artifactId>hangman</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.release>25</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- nötig für das Exec-Plugin (Main-Klasse) -->
+        <exec.mainClass>hangman.Main</exec.mainClass>
+    </properties>
+
+    <!-- Entspricht dependencies { implementation 'org.apache.poi:poi:5.5.1' } -->
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.5.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- Entspricht sourceSets: src = Java, res = Ressourcen -->
+        <sourceDirectory>src</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>res</directory>
+            </resource>
+        </resources>
+
+        <plugins>
+            <!-- Compiler-Einstellungen: Java 25, UTF-8 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- Entspricht application { mainClass = 'hangman.Main' } -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <mainClass>${exec.mainClass}</mainClass>
+                    <!-- StandardInput von der Konsole wird standardmäßig durchgereicht -->
+                </configuration>
+
+            </plugin>
+
+            <!-- Entspricht checkstyle { ... } -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <configLocation>google_checks.xml</configLocation>
+                </configuration>
+            </plugin>
+
+            <!-- Grobe Entsprechung zu javadoc { options.showAll() } -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.10.0</version>
+                <configuration>
+                    <show>public</show>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+Gradle nutzt einen `plugins`-Block zur Spezifikation der Plugins, bei
+Maven werden Plugins im `<build>`-Bereich eingetragen. Die
+Projekt-Identität (`groupId`, `artifactId`, `version`) steht bei Maven
+oben im `project`-Block - das sind die typischen Maven-Koordinaten
+`groupId:artifactId:version`.
+
+Die Deklaration der Dependencies ist im Prinzip wie bei Gradle (nur eben
+in XML statt in der Groovy-DSL). Die Einträge kann man sich direkt für
+die jeweilige Bibliothek von [Maven
+Central](https://mvnrepository.com/repos/central) kopieren. Das
+Repository Maven Central ist in Maven der Default und muss (im Gegensatz
+zu Gradle) nicht extra angegeben werden.
+
+Gradle bekommt mit dem `application`-Plugin einen `run`-Task. In Maven
+nutzten wir dafür das Plugin `exec-maven-plugin`, welches beim Befehl
+`mvn exec:java` die konfigurierte Main-Klasse startet. Vorsicht: Während
+ein `gradle run` das Projekt bei Bedarf automatisch baut und dann die
+konfigurierte Klasse startet, wird in Maven mit `mvn exec:java`
+tatsächlich nur die konfigurierte Klasse ausgeführt - für das Bauen muss
+man selbst sorgen. Oft wird deshalb `mvn compile exec:java` (Kompilieren
+und Ausführen) oder `mvn verify exec:java` (Kompilieren, Tests,
+Ausführen) genutzt oder alternativ eine zusätzliche
+`<executions>`-Konfiguration für das Plugin `exec-maven-plugin`
+angelegt. Die Konsoleneingabe wird in Maven automatisch ans Programm
+weitergereicht, in Gradle war dafür eine extra Konfiguration notwendig.
+
+Sowohl in Gradle als auch in Maven sind die Standardpfade im Projekt
+`src/main/java` und `src/main/resources`, aber man kann diese Pfade bei
+Bedarf relativ frei anpassen.
+
+Inzwischen gibt es auch für Maven einen sogenannten Wrapper. Beim
+Maven-Wrapper wird jedoch nur eine schlanke, rein textbasierte
+Konfiguration im Projekt mitversioniert (`mvnw`, `mvnw.cmd` und das
+Verzeichnis `.mvn/` mit Konfigurations-/Textdateien). Beim
+Gradle-Wrapper gehört hingegen immer auch eine Binärdatei
+(`gradle-wrapper.jar`) ins Versionskontrollsystem. Da Git für
+Binärdateien keinen inhaltlichen Diff berechnen kann, wird bei
+Änderungen an diesem JAR intern jedes Mal die komplette Datei als
+Änderung gespeichert. Das kann sich im Laufe der Zeit nachteilig auf die
+Größe des Git-Repositorys auswirken.
+
+Der [Maven Getting Started
+Guide](https://maven.apache.org/guides/getting-started/index.html) ist
+eine gute Einstiegshilfe über den hier vorgestellten Ausblick hinaus.
+
 ##### Wrap-Up
 
 -   Automatisieren von Arbeitsabläufen mit Build-Tools/-Skripten
@@ -2934,14 +2757,27 @@ Wrappers einem fest installierten Gradle vorzuziehen!
 
 <a id="id-5d06aa5bc58d232729f3c1717091eb57e22f4062"></a>
 
-#### Java: Packages
+#### Java: Strukturieren mit Packages
 
 > [!IMPORTANT]
 >
 > <details open>
 > <summary><strong>🎯 TL;DR</strong></summary>
 >
-> TODO
+> Packages strukturieren Java-Projekte, indem sie Klassen in logisch
+> zusammengehörige Bereiche aufteilen, ähnlich wie Ordner im
+> Dateisystem. Sie schaffen eigene Namensräume, sodass Klassen mit
+> gleichem Namen (z.B. `java.util.List` und `java.awt.List`)
+> nebeneinander existieren können, und sie sind die Basis für
+> Sichtbarkeit auf Package-Ebene, also für interne vs. externe APIs.
+>
+> Übliche Konventionen orientieren sich am umgedrehten Domain-Namen
+> (`de.hsbi`), ergänzt um Projekt (`prog2`) und fachliche/technische
+> Unterteilung (`library.app`, `library.model`). Das Default-Package
+> (keine `package`-Deklaration in der Datei) ist eine Einbahnstraße:
+> Code in benannten Packages kann nicht auf Klassen im Default-Package
+> zugreifen und viele Tools erwarten benannte Packages - deshalb sollten
+> Sie es nicht in Projekten verwenden.
 >
 > </details>
 
@@ -2954,20 +2790,315 @@ Wrappers einem fest installierten Gradle vorzuziehen!
 >
 > </details>
 
-##### Packages
+##### Typisches Java-Projekt
 
-TODO
+Hier ist ein typisches Java-Projekt zu sehen:
+
+    src/
+    |____main/
+      |____java/
+        |____Book.java
+        |____LibraryService.java
+        |____ConsoleUI.java
+        |____Member.java
+        |____AppMain.java
+
+Es gibt die Maven-Ordnerstruktur `src/main/java/`, darunter dann
+verschiedene Klassen.
+
+Beobachtung: Alles liegt "wild" im selben Namespace. Man kann am
+Klassennamen erkennen, welche Aufgaben die Klassen jeweils vermutlich
+haben. Gleichzeitig wird es bereits bei den gezeigten fünf Klassen etwas
+unübersichtlich - in typischen Projekten ist die Anzahl der Klassen
+ungleich höher! Wenn das Projekt wächst, fehlt die Orientierung.
+
+##### Listen aus dem JDK
+
+    java.util.List          vs.          java.awt.List
+
+Beobachtung: Beide Listen finden sich in der Java-API - aber es sind
+unterschiedliche Listenimplementierungen. Der einfache Klassenname
+`List` ist nicht mehr eindeutig, man braucht noch einen Präfix (Spoiler:
+ein Package), um die beiden Listen auseinander halten zu können.
+
+##### Was ist ein Package in Java
+
+Packages sind eine Ordnerstruktur unterhalb des Source-Ordners im
+Projekt.
+
+-   Dateisystem-Sicht: `src/main/java/de/hsbi/prog2/wuppie/`
+
+<!-- -->
+
+-   Java-Sicht: `de.hsbi.prog2.wuppie`
+
+Der Teil `src/main/java/` ist der Pfade zum Source-Ordner. IDEs suchen
+darunter nach den Klassen etc. Der hintere Teil `de/hsbi/prog2/wuppie/`
+der Ordnerhierarchie bildet das Package `de.hsbi.prog2.wuppie`.
+
+D.h. man kann für Ordner unterhalb des Source-Ordners einfach die
+Dateisystem-Trenner durch Punkte ersetzen und kommt auf das Package.
+
+##### Aufgaben von Packages in Java
+
+In Java dienen Packages mehreren Zielen:
+
+1.  Strukturierung des Codes
+
+    Verwandte Klassen/Interfaces werden zusammengefasst. Erleichtert
+    Orientierung in größeren Projekten. Analogie: Verzeichnisse/Ordner
+    im Dateisystem.
+
+<!-- -->
+
+2.  Namensräume (Namespace)
+
+    Verhindert Namenskonflikte: Zwei Klassen `List` können in
+    verschiedenen Packages existieren. Über den vollqualifizierten Namen
+    kann man gezielt auf die gewünschte Klasse zugreifen:
+    `java.util.List` vs. `java.awt.List`.
+
+<!-- -->
+
+3.  Sichtbarkeit / Kapselung Package-Ebene als "Freundeskreis" von
+    Klassen
+
+    Es gibt verschiedene Sichtbarkeitsmodifikatoren:
+
+    -   `public`: Von überall sichtbar: aus allen Klassen, in allen
+        Packages, auch aus anderen Modulen/Projekten (sofern auf dem
+        Classpath)
+    -   `protected`: Sichtbar innerhalb desselben Packages und
+        zusätzlich in Unterklassen (abgeleitete Klassen), auch wenn
+        diese in anderen Packages liegen
+    -   `private`: Sichtbar nur innerhalb derselben Klasse; keine andere
+        Klasse (auch nicht im selben Package oder als Unterklasse) kann
+        direkt darauf zugreifen
+    -   ohne Modifikator: "package-private": Sichtbar nur innerhalb
+        desselben Packages; Klassen, Methoden und Felder ohne
+        Modifikator bilden eine "Package-interne" API
+
+    Damit kann man gezielt Klassenstrukturen aufbauen, die
+    beispielsweise für bestimmte User-Gruppen gedacht sind: Developer,
+    User, ... Man bekommt klare Grenzen und kann zwischen der internen
+    API (auf Projekte-Ebene, aber eben auch auf Package-Ebene) und der
+    externen API differenzieren.
+
+##### Konventionen
+
+<div align="center">
+
+    de.hsbi.prog2.wuppie
+
+</div>
+
+-   Umgedrehter Domain-Name: `de.hsbi` (von "hsbi.de")
+-   Zusätzlich Projekt: `prog2`
+-   Fachliche/technische Strukturen: `wuppie`
+
+Prinzipiell kann man Package-Namen fast beliebig wählen.
+
+Zur Vermeidung von Namenskollisionen nutzen viele Projekte den
+umgedrehten Domain-Namen. Danach kommt normalerweise der Projektname.
+
+Dies entspricht auch den Maven-Koordinaten: Die `groupId` wäre
+`de.hsbi`, die `artifactId` wäre in diesem Beispiel `prog2`.
+
+Üblicherweise werden für Packages nur Kleinbuchstaben verwendet.
+Vermeiden Sie unbedingt Umlaute und sonstige Sonderzeichen!
+Normalerweise werden auch keine Versionsnummern o.ä. (`prog2_v3`,
+`newmodel`, `testneu`) in Packages verwendet.
+
+##### Packages strukturieren
+
+Es liegt komplett bei Ihnen, wie Sie Ihre Packages aufteilen...
+
+Üblichweise nutzt man eine von zwei Strategien für die Strukturierung
+unterhalb des Wurzel-Packages:
+
+1.  Fachliche Strukturierung: Trennung nach Domänenthemen
+
+    -   `customer`: "Alles zu Kunden"
+    -   `order`: "Alles zu Bestellungen"
+    -   `product`: "Alles zu Produkten"
+
+<!-- -->
+
+2.  Technische Strukturierung: Trennung nach "Art der Aufgabe"
+
+    -   `model`: Domänenobjekte
+    -   `service`: Geschäftslogik
+    -   `persistence`: Datenbankzugriff
+    -   `ui`: Benutzeroberfläche
+    -   `util`: Hilfsklassen
+
+Innerhalb der Packages kann man natürlich weiter unterteilen.
+
+Wichtig: Packages sollten klar benannt und voneinander abgegrenzt sein.
+Packages sollten nicht in ihrer Verantwortung überlappen. Machen Sie
+Packages nicht zu voll, aber vermeiden Sie auch eine Flut von fast
+leeren Packages ...
+
+**Hinweis**: `util` ist ein beliebtes "Mülleimer"-Package. Hier sollten
+an sich nur echte generische Helfer landen, die in mehreren
+Packages/Klassen gebraucht werden. Wenn `util` voll läuft, ist das oft
+ein Zeichen für eine schlechte Aufteilung der anderen Packages.
+
+**Hinweis**: Organisieren Sie Ihre Projekte frühzeitig in Packages.
+Fangen Sie mit wenigen Top-Level Packages an. Wenn Sie merken, dass die
+Struktur nicht passt, können Sie verfeinern und/oder umbauen. Lassen Sie
+internen Code bewusst "private" oder "package-private".
+
+------------------------------------------------------------------------
+
+Für das obige Beispiel könnte beispielsweise die Aufteilung nach
+technischen Kriterien so aussehen:
+
+    library/
+    |____src/
+      |____main/
+        |____java/
+          |____de/
+            |____hsbi/
+              |____prog2/
+                |____library/
+                  |____app/
+                  | |____LibraryService.java
+                  | |____ConsoleUI.java
+                  | |____AppMain.java
+                  |____model/
+                    |____Book.java
+                    |____Member.java
+
+Der Source-Ordner ist hier der übliche `src/main/java/`. Die `groupId`
+ist hier `de.hsbi.prog2`, die `artifactId` wäre in diesem Beispiel
+`library` (als Projektordner und gleichzeitig als Package benutzt).
+Darunter gibt es die beiden Top-Level Packages `app` und `model`, wobei
+in `model` alle Typen zur Modellierung der Daten (hier Bücher und
+Mitglieder) landen und `app` beheimatet die Bibliothekslogik und das
+Userinterface sowie den Starter mit der `main()`-Methode.
+
+Es wäre auch eine fachliche Aufteilung denkbar, etwa `loan`, `user`,
+`catalog` o.ä. ...
+
+##### Praktischer Einsatz von Packages
+
+1.  Deklaration am Beginn der Java-Dateien:
+    `package de.hsbi.prog2.library.app;`
+
+    Jede Java-Datei beginnt mit einer solchen Package-Deklaration. Davor
+    darf höchstens ein (Javadoc-) Kommentar kommen.
+
+    Es gibt genau eine Package-Deklaration pro Datei. Sie darf nur dann
+    fehlen, wenn die Datei im Default-Package ist (also direkt im
+    Source-Ordner liegt).
+
+    Achten Sie auf die Schreibweise!
+
+<!-- -->
+
+2.  Importe von Typen und Packages
+
+    Die Importe folgen auf die Package-Deklaration. Wenn es keine gibt,
+    dann sind die Importe der Beginn der Java-Datei.
+
+    -   `import de.hsbi.prog2.library.model.Book;`
+
+        Hier wird die Klasse `Book` aus dem Package
+        `de.hsbi.prog2.library.model` importiert. Danach können Sie die
+        Klasse direkt mit ihrem **einfachen Namen** ansprechen, d.h.
+        ganz normal mit `Book` arbeiten, beispielsweise `new Book()`
+        aufrufen o.ä.
+
+        Sie können natürlich auch den **vollqualifizierten Namen**
+        nutzen, also statt `Book` immer
+        `de.hsbi.prog2.library.model.Book` schreiben. Dies wird i.d.R.
+        aber als Anti-Pattern gesehen. Vermeiden Sie nach Möglichkeit
+        vollqualifizierte Namen im Code.
+
+    -   `import de.hsbi.prog2.library.model.*;`
+
+        Mit dem Wildcard importieren Sie alle Klassen, die in
+        `de.hsbi.prog2.library.model` definiert sind.
+
+        Für Übungsprojekte ist das gegebenfalls noch akzeptabel. In
+        echten Projekten kann es dadurch aber schnell Namenskollisionen
+        geben, weshalb die meisten Projekte gezielte Imports für bessere
+        Lesbarkeit/Wartbarkeit einsetzen.
+
+    -   `import static java.lang.Math.max;`
+
+        Das ist ein sogenannter **statischer Import**. Damit werden
+        statische Member einer Klasse importiert und können direkt ohne
+        die definierende Klasse genutzt werden.
+
+        Im Beispiel: Statt `int bigger = Math.max(3, 5);` kann man jetzt
+        einfach `int bigger = max(3, 5);` schreiben.
+
+        Auch hier sparsam einsetzen - Gefahr von Namenskollisionen!
+
+##### Einbahnstraße Default-Package
+
+    src/
+    |____main/
+      |____java/
+        |____ConsoleUI.java
+        |____de/
+          |____hsbi/
+            |____prog2/
+              |____library/
+                |____app/
+                | |____LibraryService.java
+                | |____AppMain.java
+                |____model/
+                  |____Book.java
+                  |____Member.java
+
+Die Klasse `ConsoleUI` liegt direkt im Soure-Ordner, also direkt unter
+`src/main/java/`. Sie ist keinem speziellen Package zugeordnet, d.h. sie
+liegt im **Default-Package**.
+
+Die anderen Klassen sind nach Funktionalität in benannte Packages
+aufgeteilt: `de.hsbi.prog2.library.model` beherbergt `Book` und
+`Member`, und in `de.hsbi.prog2.library.app` gibt es die Bedienlogik der
+Bibliothek (`LibraryService`) und den Starter (`AppMain`).
+
+**PROBLEM**: Die Klassen im Default-Package können auf die Klassen in
+den benannten Packages zugreifen (via `import`, sofern Sichtbarkeit
+passt). Andersherum ist dies **nicht** möglich, d.h. `LibraryService`
+oder `AppMain` können nicht auf `ConsoleUI` zugreifen! **Code in
+benannten Packages kann keine Klassen aus dem Default-Package
+verwenden.**
+
+**PROBLEM**: Tools, Build-Systeme, Frameworks, Libraries, Class-Loader
+erwarten meist keinen Code im Default-Package. JUnit beispielsweise
+erwartet benannte Packages. **Code im Default-Package lässt sich
+schlecht als Bibliothek verwenden oder in andere Projekte integrieren.**
+
+**Das Default-Package ist eine Einbahnstraße! Nutzen Sie es nicht.**
 
 ##### Wrap-Up
 
-TODO
+-   Packages sind logische Container für Klassen/Interfaces und
+    entsprechen Ordnern unterhalb des Source-Ordners
+    -   Strukturierung des Codes
+    -   Vermeidung von Namenskollisionen (Namespaces)
+    -   Grenze für Sichtbarkeit (package-private)
+-   Zwei gängige Strukturierungsstrategien:
+    -   fachlich/domainorientiert (z.B. `customer`, `order`, `product`),
+    -   technisch (z.B. `model`, `service`, `persistence`, `ui`,
+        `util`).
+-   Verwendung von Klassennamen ohne vollqualifizierten Namen per
+    `import`
+-   Default-Package vermeiden
 
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> TODO
+> Lesen Sie zu Packages im [Packages Tutorial
+> (Oracle)](https://dev.java/learn/packages/) nach.
 >
 > </details>
 
@@ -2977,6 +3108,11 @@ TODO
 > <summary><strong>✅ Lernziele</strong></summary>
 >
 > -   k2: Ich kann den Einsatz von Packages in Java erklären
+> -   k2: Ich kann zwischen dem einfachen Klassennamen und dem
+>     vollqualifizierten Klassennamen unterscheiden
+> -   k2: Ich kann die Probleme des Default-Packages erklären
+> -   k3: Ich kann Packages erstellen und Klassen zuordnen
+> -   k3: Ich kann Klassen und Packages importieren
 >
 > </details>
 
@@ -2985,7 +3121,8 @@ TODO
 > <details open>
 > <summary><strong>🏅 Challenges</strong></summary>
 >
-> TODO
+> Nehmen Sie Ihr letztes Prog1-Projekt und überlegen Sie: Wie würden Sie
+> es in 3..4 Packages aufteilen?
 >
 > </details>
 
@@ -3068,7 +3205,7 @@ TODO
 
 ##### Continuous Integration (CI)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci.png" width="60%" /></picture></p>
 
 ###### Vorgehen
 
@@ -3108,7 +3245,7 @@ CI/CD"](http://git03-ifm-min.ad.hsbi.de/help/ci/quick_start/index.md).
 
 ###### Übersicht über Pipelines
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-pipelines.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-pipelines_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-pipelines.png" width="70%" /></picture></p>
 
 -   In Spalte "Status" sieht man das Ergebnis der einzelnen Pipelines:
     "pending" (die Pipeline läuft gerade), "cancelled" (Pipeline wurde
@@ -3124,14 +3261,14 @@ mehr bzw. kann auf eine Seite mit mehr Informationen kommen.
 
 ###### Detailansicht einer Pipeline
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-triggeredpipeline.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-triggeredpipeline_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-triggeredpipeline.png" width="70%" /></picture></p>
 
 Wenn man in eine Pipeline in der Übersicht klickt, werden die einzelnen
 Stages dieser Pipeline genauer dargestellt.
 
 ###### Detailansicht eines Jobs
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-job.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-job_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-job.png" width="70%" /></picture></p>
 
 Wenn man in einen Job einer Stage klickt, bekommt man quasi die
 Konsolenausgabe dieses Jobs. Hier kann man ggf. Fehler beim Ausführen
@@ -3251,7 +3388,7 @@ CI/CD explained"](https://resources.github.com/ci-cd/).
 
 ###### Übersicht über Workflows
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-workflows.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-workflows_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-workflows.png" width="70%" /></picture></p>
 
 Hier sieht man das Ergebnis der letzten Workflows. Dazu sieht man den
 Commit und den Branch, auf dem der Workflow gelaufen ist sowie wann er
@@ -3263,7 +3400,7 @@ der aktuell noch läuft.
 
 ###### Detailansicht eines Workflows
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-triggeredworkflow.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-triggeredworkflow_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-triggeredworkflow.png" width="70%" /></picture></p>
 
 Wenn man in einen Workflow in der Übersicht anklickt, werden die
 einzelnen Jobs dieses Workflows genauer dargestellt. "job3" ist
@@ -3272,7 +3409,7 @@ ab, d.h. kann erst nach dem erfolgreichen Lauf von "job2" starten.
 
 ###### Detailansicht eines Jobs
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-job.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-job_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-job.png" width="70%" /></picture></p>
 
 Wenn man in einen Job anklickt, bekommt man quasi die Konsolenausgabe
 dieses Jobs. Hier kann man ggf. Fehler beim Ausführen der einzelnen
@@ -3391,17 +3528,17 @@ Im Browser in den Repo-Einstellungen arbeiten:
 1.  Unter `Settings > Actions > General > Actions permissions` die
     Actions aktivieren (Auswahl, welche Actions erlaubt sind)
 
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_actions.png" width="70%" /></p>
+    <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_actions_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_actions.png" width="70%" /></picture></p>
 
 2.  Unter `Settings > Actions > General > Workflow permissions` ggf.
     bestimmen, ob die Actions das Repo nur lesen dürfen oder auch
     zusätzlich schreiben dürfen
 
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_permissions.png" width="70%" /></p>
+    <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_permissions_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_permissions.png" width="70%" /></picture></p>
 
 3.  Unter `Actions > <WORKFLOW>` den Workflow ggf. deaktivieren:
 
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_actions.png" width="70%" /></p>
+    <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_actions_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_actions.png" width="70%" /></picture></p>
 
 ##### Wrap-Up
 
@@ -3419,7 +3556,7 @@ Im Browser in den Repo-Einstellungen arbeiten:
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
 > -   „Documentation Gitlab CI" ([o. J.](#ref-GitlabCI))
-> -   GitHub Inc. ([2022a](#ref-GitHubCI))
+> -   GitHub Inc. ([2022](#ref-GitHubCI))
 >
 > </details>
 
@@ -3644,7 +3781,7 @@ TODO
 
 Paket `java.util.logging`
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/logging.png" width="65%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/logging_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/logging.png" width="65%" /></picture></p>
 
 Eine Applikation kann verschiedene Logger instanziieren. Die Logger
 bauen per Namenskonvention hierarchisch aufeinander auf. Jeder Logger
@@ -3922,7 +4059,7 @@ angezeigt (ab `INFO` aufwärts)?!
 
 ##### Motivation CI/CD: WFM (*Works For Me*)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci.png" width="60%" /></picture></p>
 
 Auf dem CI-Server muss man eine Arbeitsumgebung konfigurieren und
 bereitstellen, für Java-basierte Projekte muss beispielsweise ein JDK
@@ -3954,7 +4091,7 @@ In diesen Fällen kann eine Virtualisierung helfen.
 
 ##### Virtualisierung: Container vs. VM
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/virtualisierung.png" width="50%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/virtualisierung_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/virtualisierung.png" width="50%" /></picture></p>
 
 Wenn man über Virtualisierung auf dem Desktop spricht, kann man grob
 zwei Varianten unterscheiden. In beiden Fällen ist die Basis die
@@ -4216,7 +4353,7 @@ gesendet. Im Prinzip entspricht das dem Aufruf auf dem lokalen Rechner:
 
 ##### VSCode und das Plugin "Remote - Containers"
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote.png" width="80%" /></picture></p>
 
 1.  VSCode (Host): Plugin "Remote - Containers" installieren
 2.  Docker (Host): Container starten mit Workspace gemountet
@@ -4543,7 +4680,7 @@ public void testBsp() {
 }
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore.png" width="40%" /></picture></p>
 
 In JUnit 5 wird statt der Annotation `@Ignore` die Annotation
 `@Disabled` mit der selben Bedeutung verwendet. Auch hier lässt sich als
@@ -4564,7 +4701,7 @@ void testTestDauerlaeufer() {
 }
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore.png" width="40%" /></picture></p>
 
 In JUnit 5 hat die Annotation `@Test` keinen `timeout`-Parameter mehr.
 Als Alternative bietet sich der Einsatz von
@@ -5246,7 +5383,7 @@ Grenzwertanalyse (siehe nächste Folien). Mehr dann später im Wahlfach
 Beispiel: Zu testende Methode mit Eingabewert *x*, der zw. 10 und 100
 liegen soll
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/aequivalenzklassen.png" width="30%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/aequivalenzklassen_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/aequivalenzklassen.png" width="30%" /></picture></p>
 
 -   Zerlegung der Definitionsbereiche in Äquivalenzklassen (ÄK):
 
@@ -5368,7 +5505,7 @@ zufälliger Repräsentant ausgewählt.**
 
 ##### Grenzwertanalyse
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/grenzwerte.png" width="30%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/grenzwerte_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/grenzwerte.png" width="30%" /></picture></p>
 
 Beobachtung: Grenzen in Verzweigungen/Schleifen kritisch
 
@@ -7196,8 +7333,11 @@ nun für jeden Vergleich **`o1.cmpCpsInstance(o2)`** aufgerufen.
 
 ##### Ausblick: Threads
 
-Erinnerung an bzw. Vorgriff auf ["Threads:
-Intro"](#id-5cb95855b410a3799c068f4c4fb6b9c4eea6525f):
+Erinnerung an bzw. Vorgriff auf Nebenläufige Programmierung (vgl. auch
+[Einführung in die nebenläufige Programmierung (Rheinwerk
+Verlag)](https://openbook.rheinwerk-verlag.de/javainsel/17_001.html#u17)
+und [Lesson: Concurrency
+(Oracle)](https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html)):
 
 ``` java
 public interface Runnable {
@@ -7900,7 +8040,7 @@ Record-Klasse ersetzt, die nur noch 2 Zeilen Code (je nach Code-Style
 auch nur 1 Zeile) benötigt. Gleichzeitig wurde die Les- und Wartbarkeit
 deutlich verbessert.
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_katze.png"  /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_katze_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_katze.png"  /></picture></p>
 
 ##### Wrap-Up
 
@@ -8698,7 +8838,7 @@ Schauen Sie sich einmal das Review zu den `ecs.components.ai.AITools` in
 https://github.com/Dungeon-CampusMinden/Dungeon/pull/128#pullrequestreview-1254025874
 an.
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review1.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review1_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review1.png" width="80%" /></picture></p>
 
 Die Methode `AITools#calculateNewPath` soll in der Umgebung einer als
 Parameter übergebenen Entität nach einem Feld (`Tile`) suchen, welches
@@ -8778,9 +8918,9 @@ Entsprechend hat sich in diesem
 [Review](https://github.com/Dungeon-CampusMinden/Dungeon/pull/128#pullrequestreview-1254025874)
 die nachfolgende Diskussion ergeben:
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review2.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review2_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review2.png" width="80%" /></picture></p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review3.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review3_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_review3.png" width="80%" /></picture></p>
 
 ##### Erzeugen von *Optional*-Objekten
 
@@ -9186,7 +9326,7 @@ Optionals"](https://dev.java/learn/api/streams/optionals/).
 
 ##### Verteilung der Prüfungsergebnisse
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/lsf.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/lsf_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/lsf.png" width="80%" /></picture></p>
 
 Die Studierenden möchten nach einer Prüfung wissen, ob für einen
 bestimmten Kurs die/ihre Prüfungsergebnisse im LSF bereit stehen.
@@ -9210,7 +9350,7 @@ for (Person p : persons) {
 
 ##### Elegantere Lösung: Observer-Entwurfsmuster
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observerexample.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observerexample_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observerexample.png" width="80%" /></picture></p>
 
 Sie erstellen im `LSF` eine Methode `register()`, mit der sich
 interessierte Objekte beim `LSF` registrieren können.
@@ -9222,7 +9362,7 @@ geeignete Methode, die traditionell `update()` genannt wird.
 
 ##### Observer-Pattern verallgemeinert
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observer.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observer_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observer.png" width="80%" /></picture></p>
 
 Im vorigen Beispiel wurde die Methode `update()` einfach der gemeinsamen
 Basisklasse `Person` hinzugefügt. Normalerweise möchte man die Aspekte
@@ -9547,7 +9687,7 @@ Dies ist ein Beispiel für das
 
 ##### Template-Method-Pattern
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/template-method.png" width="50%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/template-method_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/template-method.png" width="50%" /></picture></p>
 
 ###### Aufbau Template-Method-Pattern
 
@@ -9740,11 +9880,11 @@ expr : e1=expr '*' e2=expr      # MUL
 
 Beim Parsen von "5\*4+3" würde dabei der folgende Parsetree entstehen:
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree.png" width="20%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree.png" width="20%" /></picture></p>
 
 ##### Strukturen für den Parsetree
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_classes_uml.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_classes_uml_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_classes_uml.png" width="70%" /></picture></p>
 
 Der Parsetree für diese einfache Grammatik ist ein Binärbaum. Die Regeln
 werden auf Knoten im Baum zurückgeführt. Es gibt Knoten mit zwei
@@ -9795,7 +9935,7 @@ public class DemoExpr {
 Es wäre nun schön, wenn man mit dem Parsetree etwas anfangen könnte.
 Vielleicht möchte man den Ausdruck ausrechnen?
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_uml.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_uml_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_uml.png" width="70%" /></picture></p>
 
 Zum Ausrechnen des Ausdrucks könnte man dem Interface eine
 `eval()`-Methode spendieren. Jeder Knoten kann für sich entscheiden, wie
@@ -9852,7 +9992,7 @@ public class DemoExpr {
 Nachdem das Ausrechnen so gut geklappt hat, will der Chef nun noch flink
 eine Funktion, mit der man den Ausdruck hübsch ausgeben kann:
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_print_uml.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_print_uml_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_print_uml.png" width="70%" /></picture></p>
 
 Das fängt an, sich zu wiederholen. Wir implementieren immer wieder
 ähnliche Strukturen, mit denen wir diesen Parsetree traversieren ... Und
@@ -9865,7 +10005,7 @@ anpassen!
 
 ##### Visitor-Pattern (Besucher-Entwurfsmuster)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/visitor.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/visitor_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/visitor.png" width="80%" /></picture></p>
 
 Das Entwurfsmuster "Besucher" (*Visitor Pattern*) lagert die Aktion beim
 Besuchen eines Knotens in eine separate Klasse aus.
@@ -10073,7 +10213,7 @@ implementieren.
 
 ##### Ausrechnen des Ausdrucks mit einem Visitor
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_visitor_uml.png"  /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_visitor_uml_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_visitor_uml.png"  /></picture></p>
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/visit/extrav/DemoExpr.java">Demo: visitor.visit.extrav.DemoExpr</a></p>
 
@@ -10299,7 +10439,7 @@ genutzt.
 
 ##### Command: Objektorientierte Antwort auf Callback-Funktionen
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/command.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/command_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/command.png" width="80%" /></picture></p>
 
 Im Command-Pattern gibt es vier beteiligte Parteien: Client, Receiver,
 Command und Invoker.
@@ -10503,7 +10643,7 @@ keine weitere Buchhaltung ...
     -   ...
 -   Reaktion mit passendem Listener: Observer Pattern!
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/ActionListener.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/ActionListener_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/ActionListener.png" width="80%" /></picture></p>
 
 =\> Observer aus dem Observer-Pattern!
 
@@ -10516,7 +10656,7 @@ component.addMouseListener(MouseListener);
 
 ##### Arten von Events
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/EventListener.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/EventListener_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/EventListener.png" width="80%" /></picture></p>
 
 Es gibt für alle möglichen Input-Arten eine Ableitung von
 `java.util.EventListener`, beispielsweise für Maus- oder
@@ -10547,7 +10687,7 @@ weitere.
 
 ##### Wie komme ich an die Daten eines Events?
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/EventObject.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/EventObject_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/EventObject.png" width="80%" /></picture></p>
 
 **Event-Objekte**: Quelle des Events plus aufgetretene Daten
 
@@ -10772,12 +10912,14 @@ SwingUtilities.invokeLater(
 Mit `new Runnable()` wird ein neues Objekt vom Typ `Runnable` anlegt -
 im Prinzip ein neuer, noch nicht gestarteter Thread mit der Hauptmethode
 `run()`. Dieses Runnable wird mit `SwingUtilities.invokeLater()` dem EDT
-zu Ausführung übergeben. Wir werden uns das Thema Erzeugen und Starten
-von Threads in der Einheit ["Einführung in die nebenläufige
-Programmierung mit
-Threads"](#id-5cb95855b410a3799c068f4c4fb6b9c4eea6525f) genauer ansehen.
+zu Ausführung übergeben.
 
-Siehe auch ["Concurrency in
+Zum Thema "Nebenläufige Programmierung" auch [Einführung in die
+nebenläufige Programmierung (Rheinwerk
+Verlag)](https://openbook.rheinwerk-verlag.de/javainsel/17_001.html#u17)
+und [Lesson: Concurrency
+(Oracle)](https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html)
+sowie speziell in Bezug auf Swing ["Concurrency in
 Swing"](https://docs.oracle.com/javase/tutorial/uiswing/concurrency/index.html).
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/basics/FirstWindow.java">Beispiel: basics.FirstWindow</a></p>
@@ -10867,7 +11009,7 @@ Swing"](https://docs.oracle.com/javase/tutorial/uiswing/concurrency/index.html).
 
 ##### Radiobuttons: *JRadioButton*
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-radiobuttons.png" width="50%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-radiobuttons_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-radiobuttons.png" width="50%" /></picture></p>
 
 -   Erzeugen einen neuen "Knopf" (rund)
     -   vergleiche `JCheckBox` =\> eckiger "Knopf"
@@ -10894,7 +11036,7 @@ Swing"](https://docs.oracle.com/javase/tutorial/uiswing/concurrency/index.html).
 
 ##### Dateien oder Verzeichnisse auswählen: *JFileChooser*
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-filechooser.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-filechooser_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-filechooser.png" width="40%" /></picture></p>
 
 ``` java
 JFileChooser fc = new JFileChooser("Startverzeichnis");
@@ -10950,7 +11092,7 @@ if (fc.showOpenDialog() == JFileChooser.APPROVE_OPTION)
 
 ##### Dialoge mit *JOptionPane*
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-dialog.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-dialog_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-dialog.png" width="40%" /></picture></p>
 
 ``` java
 JOptionPane.showMessageDialog(
@@ -11134,7 +11276,7 @@ Verschiedene beliebte Layout-Manager:
 
 ##### *BorderLayout*
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-borderlayout.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-borderlayout_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-borderlayout.png" width="40%" /></picture></p>
 
 ``` java
 JPanel contentPane = new JPanel();
@@ -11170,7 +11312,7 @@ Pixel).
 
 ##### *FlowLayout*
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-flowlayout.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-flowlayout_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-flowlayout.png" width="60%" /></picture></p>
 
 ``` java
 JPanel contentPane = new JPanel();
@@ -11197,7 +11339,7 @@ wie ein vertikales und horizontales Padding zwischen den Komponenten.
 
 ##### *GridLayout*
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-gridlayout.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-gridlayout_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/screenshot-gridlayout.png" width="40%" /></picture></p>
 
 ``` java
 JPanel contentPane = new JPanel();
@@ -11413,7 +11555,7 @@ wird der neue Platz unter den Slots gemäß ihren Gewichten aufgeteilt.
 
 ##### GUIs mit Java
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/java2d.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/java2d_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/java2d.png" width="40%" /></picture></p>
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/gui/src/java2d/simplegame/J2DTeaser.java">Demo: java2d.simplegame.J2DTeaser</a></p>
 
@@ -11460,7 +11602,7 @@ Renderings
 
 ##### Java2D Koordinatensystem
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/java2d-koordinaten.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/java2d-koordinaten_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/java2d-koordinaten.png" width="60%" /></picture></p>
 
 -   Koordinatensystem lokal zum Graphics-Objekt
 -   Einheiten in Pixel(!)
@@ -11597,7 +11739,7 @@ Idee: Je Zeitschritt:
 
 ##### Erinnerung: Observer Pattern
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/observer.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/observer_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/gui/images/observer.png" width="80%" /></picture></p>
 
 -   Anzahl der Observer muss nicht bekannt sein - zur Laufzeit
     erweiterbar!
@@ -13164,7 +13306,7 @@ if (x.isPresent()) {
 
 ##### Vererbungsstruktur *Throwable*
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/exception.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/exception_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/exception.png" width="80%" /></picture></p>
 
 ###### *Exception* vs. *Error*
 
@@ -13661,652 +13803,6 @@ Controversy"](https://dev.java/learn/exceptions/unchecked-exception-controversy/
 > Verändern Sie die Vorgaben so, dass die Exceptions an den passenden
 > Stellen gefangen und sinnvoll bearbeitet werden. Begründen Sie Ihre
 > Entscheidungen.
->
-> </details>
-
-<a id="id-5cb95855b410a3799c068f4c4fb6b9c4eea6525f"></a>
-
-#### Threads: Einführung in die nebenläufige Programmierung mit Threads
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Threads sind weitere Kontrollflussfäden, die von der Java-VM (oder
-> (selten) vom OS) verwaltet werden. Damit ist sind sie
-> leichtgewichtiger als der Start neuer Prozesse direkt auf
-> Betriebssystem-Ebene.
->
-> Beim Start eines Java-Programms wird die `main()`-Methode automatisch
-> in einem (Haupt-) Thread ausgeführt. Alle Anweisungen in einem Thread
-> werden sequentiell ausgeführt.
->
-> Um einen neuen Thread zu erzeugen, leitet man von `Thread` ab oder
-> implementiert das Interface `Runnable`. Von diesen eigenen Klassen
-> kann man wie üblich ein neues Objekt anlegen. Die Methode `run()`
-> enthält dabei den im Thread auszuführenden Code. Um einen Thread als
-> neuen parallelen Kontrollfluss zu starten, muss man die geerbte
-> Methode `start()` auf dem Objekt aufrufen. Im Fall der Implementierung
-> von `Runnable` muss man das Objekt zuvor noch in den Konstruktor von
-> `Thread` stecken und so ein neues `Thread`-Objekt erzeugen, auf dem
-> man dann `start()` aufrufen kann.
->
-> Threads haben einen Lebenszyklus: Nach dem Erzeugen der Objekte mit
-> `new` wird der Thread noch nicht ausgeführt. Durch den Aufruf der
-> Methode `start()` gelangt der Thread in einen Zustand
-> "ausführungsbereit". Sobald er vom Scheduler eine Zeitscheibe
-> zugeteilt bekommt, wechselt er in den Zustand "rechnend". Von hier
-> kann er nach Ablauf der Zeitscheibe durch den Scheduler wieder nach
-> "ausführungsbereit" zurück überführt werden. Dieses Wechselspiel
-> passiert automatisch und i.d.R. schnell, so dass selbst auf Maschinen
-> mit nur einem Prozessor/Kern der Eindruck einer parallelen
-> Verarbeitung entsteht. Nach Abarbeitung der `run()`-Methode wird der
-> Thread beendet und kann nicht wieder neu gestartet werden. Bei Zugriff
-> auf gesperrte Ressourcen oder durch `sleep()` oder `join()` kann ein
-> Thread blockiert werden. Aus diesem Zustand gelangt er durch
-> Interrupts oder nach Ablauf der Schlafzeit oder durch `notify` wieder
-> zurück nach "ausführungsbereit".
->
-> Die Thread-Objekte sind normale Java-Objekte. Man kann hier Attribute
-> und Methoden haben und diese entsprechend zugreifen/aufrufen. Das
-> klappt auch, wenn der Thread noch nicht gestartet wurde oder bereits
-> abgearbeitet wurde.
->
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Threads Intro](https://youtu.be/ClfXbNPRl_8)
-> -   [Demo Threads Intro: Erzeugen von
->     Threads](https://youtu.be/zcVqFAx5D0E)
-> -   [Demo Threads Intro: Arbeiten mit Threads
->     (`join()`)](https://youtu.be/lQ_JSHBGhdU)
->
-> </details>
-
-##### 42
-
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/screenshot_swingworker.png" width="50%" /></p>
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/misc/SwingWorkerDemo.java">Demo: misc.SwingWorkerDemo (GUI ausprobieren)</a></p>
-
-##### Einführung in nebenläufige Programmierung
-
-###### Traditionelle Programmierung
-
--   Aufruf einer Methode verlagert Kontrollfluss in diese Methode
--   Code hinter Methodenaufruf wird erst **nach Beendigung** der Methode
-    ausgeführt
-
-``` java
-public class Traditional {
-    public static void main(String... args) {
-        Traditional x = new Traditional();
-
-        System.out.println("main(): vor run()");
-        x.run();
-        System.out.println("main(): nach run()");
-    }
-
-    public void run() {
-        IntStream.range(0, 10).mapToObj(i -> "in run()").forEach(System.out::println);
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/intro/Traditional.java">Demo: intro.Traditional</a></p>
-
-###### Nebenläufige Programmierung
-
--   Erzeugung eines neuen Kontrollflussfadens (Thread)
-    -   **Läuft (quasi-) parallel zu bisherigem Kontrollfluss**
--   Threads können unabhängig von einander arbeiten
--   Zustandsverwaltung durch Java-VM (oder Unterstützung durch
-    Betriebssystem)
-    -   Aufruf einer bestimmten Methode erzeugt neuen Kontrollflussfaden
-    -   Der neue Thread arbeitet "parallel" zum bisherigen Thread
-    -   Kontrolle kehrt sofort wieder zurück: Code hinter dem
-        Methodenaufruf wird ausgeführt ohne auf die Beendigung der
-        aufgerufenen Methode zu warten
-    -   Verteilung der Threads auf die vorhandenen Prozessorkerne
-        abhängig von der Java-VM
-
-``` java
-public class Threaded extends Thread {
-    public static void main(String... args) {
-        Threaded x = new Threaded();
-
-        System.out.println("main(): vor run()");
-        x.start();
-        System.out.println("main(): nach run()");
-    }
-
-    @Override
-    public void run() {
-        IntStream.range(0, 10).mapToObj(i -> "in run()").forEach(System.out::println);
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/intro/Threaded.java">Demo: intro.Threaded</a></p>
-
-##### Erzeugen von Threads
-
--   Ableiten von `Thread` oder Implementierung von `Runnable`
-
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/ThreadRunnable.png" width="60%" /></p>
-
--   Methode `run()` implementieren, aber nicht aufrufen
-
--   Methode `start()` aufrufen, aber (i.d.R.) nicht implementieren
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/creation/">Demo: creation.*</a></p>
-
-###### Ableiten von *Thread*
-
--   `start()` startet den Thread und sorgt für Ausführung von `run()`
--   `start()` nur einmal aufrufen
-
-###### Implementierung von *Runnable*
-
--   Ebenfalls `run()` implementieren
--   Neues `Thread`-Objekt erzeugen, Konstruktor das eigene Runnable
-    übergeben
--   Für Thread-Objekt die Methode `start()` aufrufen
-    -   Startet den Thread (das Runnable) und sorgt für Ausführung von
-        `run()`
-
-Vorteil von `Runnable`: Ist ein Interface, d.h. man kann noch von einer
-anderen Klasse erben
-
-##### Zustandsmodell von Threads (vereinfacht)
-
-Threads haben einen Lebenszyklus: Nach dem Erzeugen der Objekte mit
-`new` wird der Thread noch nicht ausgeführt. Er ist sozusagen in einem
-Zustand "erzeugt". Man kann bereits mit dem Objekt interagieren, also
-auf Attribute zugreifen und Methoden aufrufen.
-
-Durch den Aufruf der Methode `start()` gelangt der Thread in einen
-Zustand "ausführungsbereit", er läuft also aus Nutzersicht. Allerdings
-hat er noch keine Ressourcen zugeteilt (CPU, ...), so dass er
-tatsächlich noch nicht rechnet. Sobald er vom Scheduler eine Zeitscheibe
-zugeteilt bekommt, wechselt er in den Zustand "rechnend" und führt den
-Inhalt der `run()`-Methode aus. Von hier kann er nach Ablauf der
-Zeitscheibe durch den Scheduler wieder nach "ausführungsbereit" zurück
-überführt werden. Dieses Wechselspiel passiert automatisch und i.d.R.
-schnell, so dass selbst auf Maschinen mit nur einem Prozessor/Kern der
-Eindruck einer parallelen Verarbeitung entsteht.
-
-Nach der Abarbeitung der `run()`-Methode oder bei einer nicht gefangenen
-Exception wird der Thread beendet und kann nicht wieder neu gestartet
-werden. Auch wenn der Thread abgelaufen ist, kann man mit dem Objekt wie
-üblich interagieren (nur eben nicht mehr parallel).
-
-Bei Zugriff auf gesperrte Ressourcen oder durch Aufrufe von Methoden wie
-`sleep()` oder `join()` kann ein Thread blockiert werden. Hier führt der
-Thread nichts aus, bekommt durch den Scheduler aber auch keine neue
-Zeitscheibe zugewiesen. Aus diesem Zustand gelangt der Thread wieder
-heraus, etwa durch Interrupts (Aufruf der Methode `interrupt()` auf dem
-Thread-Objekt) oder nach Ablauf der Schlafzeit (in `sleep()`) oder durch
-ein `notify`, und wird wieder zurück nach "ausführungsbereit" versetzt
-und wartet auf die Zuteilung einer Zeitscheibe durch den Scheduler.
-
-Sie finden in ([Boles 2008, 5.2](#ref-Boles2008) "Thread-Zustände") eine
-schöne ausführliche Darstellung.
-
-###### Threads können wie normale Objekte kommunizieren
-
--   Zugriff auf (`public`) Attribute (oder eben über Methoden)
--   Aufruf von Methoden
-
-###### Threads können noch mehr
-
--   Eine Zeitlang schlafen: `Thread.sleep(<duration_ms>)`
-
-    -   Statische Methode der Klasse `Thread` (Klassenmethode)
-    -   Aufrufender Thread wird bis zum Ablauf der Zeit oder bis zum
-        Aufruf der `interrupt()`-Methode des Threads blockiert
-    -   "Moderne" Alternative: `TimeUnit`, beispielsweise
-        `TimeUnit.SECONDS.sleep( 2 );`
-
--   Prozessor abgeben und hinten in Warteschlange einreihen: `yield()`
-
--   Andere Threads stören: `otherThreadObj.interrupt()`
-
-    -   Die Methoden `sleep()`, `wait()` und `join()` im empfangenden
-        Thread `otherThreadObj` lösen eine `InterruptedException` aus,
-        wenn sie durch die Methode `interrupt()` unterbrochen werden.
-        Das heißt, `interrupt()` beendet diese Methoden mit der
-        Ausnahme.
-    -   Empfangender Thread verlässt ggf. den Zustand "blockiert" und
-        wechselt in den Zustand "ausführungsbereit"
-
--   Warten auf das Ende anderer Threads: `otherThreadObj.join()`
-
-    -   Ausführender Thread wird blockiert (also nicht
-        `otherThreadObj`!)
-    -   Blockade des Aufrufers wird beendet, wenn der andere Thread
-        (`otherThreadObj`) beendet wird.
-
-*Hinweis:* Ein Thread wird beendet, wenn
-
--   die `run()`-Methode normal endet, oder
--   die `run()`-Methode durch eine nicht gefangene Exception beendet
-    wird, oder
--   von außen die Methode `stop()` aufgerufen wird (Achtung: Deprecated!
-    Einen richtigen Ersatz gibt es aber auch nicht.).
-
-*Hinweis:* Die Methoden `wait()`, `notify()`/`notifyAll()` und die
-"`synchronized`-Sperre" werden in der Sitzung ["Threads:
-Synchronisation"](#id-a7016eb5546a13d3f849c1c110257aa1b8e5821e)
-besprochen.
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/intro/Join.java">Demo: intro.Join</a></p>
-
-##### Wrap-Up
-
-Threads sind weitere Kontrollflussfäden, von Java-VM (oder (selten) von
-OS) verwaltet
-
--   Ableiten von `Thread` oder implementieren von `Runnable`
--   Methode `run` enthält den auszuführenden Code
--   Starten des Threads mit `start` (nie mit `run`!)
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Ullenboom ([2021, Kap. 16](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Boles ([2008](#ref-Boles2008))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kenne den grundsätzlichen Unterschied zw. Threads und
->     Prozessen
-> -   k2: Ich kenne den Lebenszyklus von Threads
-> -   k3: Ich kann Threads erzeugen und starten
->
-> </details>
-
-<a id="id-a7016eb5546a13d3f849c1c110257aa1b8e5821e"></a>
-
-#### Threads: Synchronisation: Verteilter Zugriff auf gemeinsame Ressourcen
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> Bei verteiltem Zugriff auf gemeinsame Ressourcen besteht
-> Synchronisierungsbedarf, insbesondere sollten nicht mehrere Threads
-> gleichzeitig geteilte Daten modifizieren. Dazu kommt das Problem, dass
-> ein Thread in einer komplexen Folge von Aktionen die Zeitscheibe
-> verlieren kann und dann später mit veralteten Daten weiter macht.
->
-> Um den Zugriff auf gemeinsame Ressourcen oder den Eintritt in
-> kritische Bereiche zu schützen und zu synchronisieren, kann man diese
-> Zugriffe oder Bereiche in einen `synchronized`-Block legen. Dazu
-> benötigt man noch ein beliebiges (gemeinsam sichtbares) Objekt,
-> welches als Wächter- oder Sperr-Objekt fungiert. Beim Eintritt in den
-> geschützten Block muss ein Thread einen Lock auf dem Sperr-Objekt
-> erlangen. Hat bereits ein anderer Thread den Lock, wird der neue
-> Thread so lange blockiert, bis der Lock wieder "frei" ist. Beim
-> Eintritt in den Bereich wird dann durch den Thread auf dem
-> Sperr-Objekt der Lock gesetzt und beim Austritt automatisch wieder
-> aufgehoben. Dies nennt man auch **mehrseitige Synchronisierung**
-> (mehrere Threads "stimmen" sich quasi untereinander über den Zugriff
-> auf eine Ressource ab).
->
-> Um auf den Eintritt eines Ereignisses oder die Erfüllung einer
-> Bedingung zu warten, kann man `wait` und `notify` nutzen. In einem
-> `synchronized`-Block prüft man, ob die Bedingung erfüllt oder ein
-> Ereignis eingetreten ist, und falls ja arbeitet man damit normal
-> weiter. Falls die Bedingung nicht erfüllt ist oder das Ereignis nicht
-> eingetreten ist, kann man auf dem im `synchronized`-Block genutzten
-> Sperr-Objekt die Methode `wait()` aufrufen. Damit wird der Thread in
-> die entsprechende Schlange auf dem Sperr-Objekt eingereiht und
-> blockiert. Zusätzlich wird der Lock auf dem Sperr-Objekt freigegeben.
-> Zum "Aufwecken" nutzt man an geeigneter Stelle auf dem **selben
-> Sperr-Objekt** die Methode `notify()` oder `notifyALl()` (erstere
-> weckt einen in der Liste des Sperr-Objekts wartenden Thread, die
-> letztere alle). Nach dem Aufwachen macht der Thread nach seinem
-> `wait()` weiter. Es ist also wichtig, dass die Bedingung, wegen der
-> ursprünglich das `wait()` aufgerufen wurde, erneut abgefragt wird und
-> ggf. erneut in das `wait()` gegangen wird. Dies nennt man **einseitige
-> Synchronisierung**.
->
-> Es gibt darüber hinaus viele weitere Mechanismen und Probleme, die
-> aber den Rahmen dieser Lehrveranstaltung deutlich übersteigen. Diese
-> werden teilweise in den Veranstaltungen "Betriebssysteme" und/oder
-> "Verteilte Systeme" besprochen.
->
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> -   [VL Threads Synchronisation](https://youtu.be/FtVaobn4NqA)
-> -   [Demo Teaser: Falscher Zugriff auf gemeinsame
->     Ressourcen](https://youtu.be/SB1ngVkQdLM)
-> -   [Demo Mehrseitige Synchronisation (Sperr-Objekt, synchronisierte
->     Methode)](https://youtu.be/YTV-oT-vmpE)
-> -   [Demo Mehrseitige Synchronisation:
->     Deadlock](https://youtu.be/D4B5xHqCZ-0)
-> -   [Demo Einseitige Synchronisation](https://youtu.be/akCl01ZAaGo)
->
-> </details>
-
-##### Motivation: Verteilter Zugriff auf gemeinsame Ressourcen
-
-``` java
-public class Teaser implements Runnable {
-    private int val = 0;
-
-    public static void main(String... args) {
-        Teaser x = new Teaser();
-        new Thread(x).start();
-        new Thread(x).start();
-    }
-
-    private void incrVal() {
-        ++val;
-        System.out.println(Thread.currentThread().getId() + ": " + val);
-    }
-
-    public void run() {
-        IntStream.range(0, 5).forEach(i -> incrVal());
-    }
-}
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/Teaser.java">Demo: synchronised.Teaser</a></p>
-
-##### Zugriff auf gemeinsame Ressourcen: Mehrseitige Synchronisierung
-
-``` java
-synchronized (<Object reference>) {
-    <statements (synchronized)>
-}
-```
-
-=\> **"Mehrseitige Synchronisierung"**
-
-Fallunterscheidung: Thread T1 führt `synchronized`-Anweisung aus:
-
--   Sperre im Sperr-Objekt nicht gesetzt:
-    1.  T1 setzt Sperre beim Eintritt,
-    2.  führt den Block aus, und
-    3.  löst Sperre beim Verlassen
--   Sperre durch T1 gesetzt:
-    1.  T1 führt den Block aus, und
-    2.  löst Sperre beim Verlassen **nicht**
--   Sperre durch T2 gesetzt: =\> T1 wird blockiert, bis T2 die Sperre
-    löst
-
-*Anmerkung*: Das für die Synchronisierung genutzte Objekt nennt man
-"Wächter-Objekt" oder auch "Sperr-Objekt" oder auch
-"Synchronisations-Objekt".
-
-Damit könnte man den relevanten Teil der Methode `incrVal()`
-beispielsweise in einen geschützten Bereich einschließen und als
-Sperr-Objekt das eigene Objekt (`this`) einsetzen:
-
-``` java
-    private void incrVal() {
-        synchronized (this) { ++val; }
-    }
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/ObjSync.java">Demo: synchronised.ObjSync</a></p>
-
-##### Synchronisierte Methoden
-
-``` java
-void f() {
-    synchronized (this) {
-        ...
-    }
-}
-```
-
-... ist äquivalent zu ...
-
-``` java
-synchronized void f() {
-    ...
-}
-```
-
-Kurzschreibweise: Man spart das separate Wächter-Objekt und
-synchronisiert auf sich selbst ...
-
-Die Methode `incrVal()` könnte entsprechend so umgeschrieben werden:
-
-``` java
-    private synchronized void incrVal() {
-        ++val;
-    }
-```
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/MethodSync.java">Demo: synchronised.MethodSync</a></p>
-
-##### Probleme bei der (mehrseitigen) Synchronisierung: Deadlocks
-
-``` java
-public class Deadlock {
-    private final String name;
-
-    public synchronized String getName() { return name; }
-    public synchronized void foo(Deadlock other) {
-        System.out.format("%s: %s.foo() \n", Thread.currentThread().getName(), name);
-        System.out.format("%s: %s.name()\n", Thread.currentThread().getName(), other.getName());
-    }
-
-    public static void main(String... args) {
-        final Deadlock a = new Deadlock("a");
-        final Deadlock b = new Deadlock("b");
-
-        new Thread(() -> a.foo(b)).start();
-        new Thread(() -> b.foo(a)).start();
-    }
-}
-```
-
-Viel hilft hier nicht viel! Durch zu großzügige mehrseitige
-Synchronisierung kann es passieren, dass Threads gegenseitig aufeinander
-warten: Thread A belegt eine Ressource, die ein anderer Thread B haben
-möchte und Thread B belegt eine Ressource, die A gerne bekommen würde.
-Da es dann nicht weitergeht, nennt man diese Situation auch "Deadlock"
-("Verklemmung").
-
-Im Beispiel ruft der erste Thread für das Objekt `a` die `foo()`-Methode
-auf und holt sich damit den Lock auf `a`. Um die Methode beenden zu
-können, muss noch die `getName()`-Methode vom Objekt `b` durch diesen
-ersten Thread aufgerufen werden. Dafür muss der erste Thread den Lock
-auf `b` bekommen.
-
-Dummerweise hat parallel der zweite Thread auf dem Objekt `b` die
-`foo()`-Methode aufgerufen und sich damit den Lock auf `b` geholt. Damit
-muss der erste Thread so lange warten, bis der zweite Thread den Lock
-auf `b` freigibt.
-
-Das wird allerdings nicht passieren, da der zweite Thread zur Beendigung
-der `foo()`-Methode noch `getName()` auf `a` ausführen muss und dazu den
-Lock auf `b` holen, den aber aktuell der erste Thread hält.
-
-Und schon geht's nicht mehr weiter :-)
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/Deadlock.java">Demo: synchronised.Deadlock</a></p>
-
-##### Warten auf andere Threads: Einseitige Synchronisierung
-
-###### Problem
-
--   Thread T1 wartet auf Arbeitsergebnis von T2
--   T2 ist noch nicht fertig
-
-###### Mögliche Lösungen
-
-1.  Aktives Warten (Polling): Permanente Abfrage
-    -   Kostet unnötig Rechenzeit
-2.  Schlafen mit `Thread.sleep()`
-    -   Etwas besser; aber wie lange soll man idealerweise schlafen?
-3.  Warten mit `T2.join()`
-    -   Macht nur Sinn, wenn T1 auf das *Ende* von T2 wartet
-4.  **Einseitige Synchronisierung** mit `wait()` und `notify()`
-    -   Das ist DIE Lösung für das Problem :)
-
-##### Einseitige Synchronisierung mit *wait* und *notify*
-
--   **wait**: Warten auf Erfüllung einer Bedingung (Thread blockiert):
-
-    ``` java
-    synchronized (obj) {    // Geschützten Bereich betreten
-        while (!condition) {
-            try {
-                obj.wait(); // Thread wird blockiert
-            } catch (InterruptedException e) {}
-        }
-        ...     // Condition erfüllt: Tue Deine Arbeit
-    }
-    ```
-
-    =\> Bedingung nach Rückkehr von `wait` erneut prüfen!
-
-###### Eigenschaften von *wait*
-
--   Thread ruft auf Synchronisations-Objekt die Methode `wait` auf
--   Prozessor wird entzogen, Thread blockiert
--   Thread wird in interne Warteschlange des Synchronisations-Objekts
-    eingetragen
--   Sperre auf Synchronisations-Objekt wird freigegeben
-
-=\> Geht nur innerhalb der `synchronized`-Anweisung für das
-Synchronisations-Objekt!
-
-##### Einseitige Synchronisierung mit *wait* und *notify* (cnt.)
-
--   **notify**: Aufwecken von wartenden (blockierten) Threads:
-
-    ``` java
-    synchronized (obj) {
-        obj.notify();       // einen Thread "in" obj aufwecken
-        obj.notifyAll();    // alle Threads "in" obj wecken
-    }
-    ```
-
-###### Eigenschaften von *notify* bzw. *notifyAll*
-
--   Thread ruft auf einem Synchronisations-Objekt die Methode `notify`
-    oder `notifyAll` auf
--   Falls Thread(s) in Warteschlange des Objekts vorhanden, dann
-    -   `notify`: Ein *zufälliger* Thread wird aus Warteschlange
-        entfernt und in den Zustand "ausführungsbereit" versetzt
-    -   `notifyAll`: Alle Threads werden aus Warteschlange entfernt und
-        in den Zustand "ausführungsbereit" versetzt
-
-=\> Geht nur innerhalb der `synchronized`-Anweisung für das
-Synchronisations-Objekt!
-
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/synchronised/Staffel.java">Demo: synchronised.Staffel</a></p>
-
-##### Wrap-Up
-
-Synchronisierungsbedarf bei verteiltem Zugriff auf gemeinsame
-Ressourcen:
-
--   Vorsicht mit konkurrierendem Ressourcenzugriff: Synchronisieren mit
-    `synchronized` =\> **Mehrseitige Synchronisierung**
-
-<!-- -->
-
--   Warten auf Ereignisse mit `wait` und `notify`/`notifyAll` =\>
-    **Einseitige Synchronisierung**
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Boles ([2008](#ref-Boles2008))
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kann die Notwendigkeit zur Synchronisation erklären
-> -   k2: Ich kann den Unterschied zwischen einseitiger und mehrseitiger
->     Synchronisation erklären
-> -   k3: Ich kann die Synchronisation mit synchronized, wait, notify
->     und notifyAll praktisch einsetzen
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> **Hamster-Welt**
->
-> In den
-> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/challenges/threads)
-> finden Sie eine Modellierung für eine Hamsterwelt.
->
-> Es gibt rote und blaue Hamster, die sich unabhängig von einander
-> bewegen können. Es gibt einen Tunnel, den die Hamster betreten und
-> durchqueren können. In der Vorgabe ist ein kleines Hauptprogramm
-> enthalten, welches einige Hamster anlegt und herumlaufen lässt.
->
-> **Teil I: Stau im Tunnel**
->
-> Die Hamster sind sehr neugierig und wollen gern durch den Tunnel
-> gehen, um die Höhle auf der anderen Seite zu erkunden. Leider mussten
-> sie feststellen, dass immer nur ein Hamster zu einem Zeitpunkt im
-> Tunnel sein darf, sonst wird die Luft zu knapp.
->
-> Ergänzen Sie die Vorgaben, so dass sich immer nur ein paralleler
-> Hamster (egal welcher Farbe) im Tunnel aufhalten kann. Wenn ein
-> Hamster in den Tunnel will, aber nicht hinein kann, dann soll er am
-> Eingang warten, also nicht noch einmal in seiner Höhle herumlaufen.
-> (Das passiert eigentlich automatisch, wenn Sie alles richtig machen.)
->
-> **Teil II: Schlaue Hamster**
->
-> Die Hamster sind schlau und haben bemerkt, dass die Einschränkung aus
-> der letzten Aufgabe zu stark war. Sie überleben auch, wenn sich
-> beliebig viele blaue Hamster oder nur genau ein roter Hamster im
-> Tunnel aufhalten.
->
-> Erweitern Sie die Implementierung aus der letzten Aufgabe, so dass
-> folgende Bedingungen eingehalten werden:
->
-> -   Es dürfen sich beliebig viele blaue Hamster gleichzeitig im Tunnel
->     befinden.
->
->     Das bedeutet, dass in diesem Fall zwar weitere blaue Hamster den
->     Tunnel betreten dürfen, aber kein roter Hamster in den Tunnel
->     hinein darf.
->
-> -   Wenn sich ein roter Hamster im Tunnel aufhält, dürfen keine
->     anderen Hamster (unabhängig von deren Farbe) den Tunnel betreten.
 >
 > </details>
 
@@ -16195,7 +15691,203 @@ Hier finden Sie die Übungsblätter.
 
 ### Blatt 01: Git Basics, Gradle
 
-Coming soon ...
+#### Zusammenfassung
+
+Auf diesem Blatt üben Sie den Umgang mit Git (Repo und Commits -
+zunächst auf der Konsole) und das Schreiben von Gradle-Build-Skripten.
+
+#### Aufgaben
+
+##### Git
+
+###### Git Status erklären
+
+Betrachten Sie die folgende Ausgabe von `git status` in einer lokalen
+Workingcopy (*Arbeitskopie*):
+
+    pm-lecture % git status
+    On branch b03
+
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   CONTRIBUTING.md
+            modified:   homework/b03.md
+
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+            foo.java
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+Erklären Sie die Ausgabe.
+
+Geben Sie eine Befehlssequenz an, mit der Sie nur die Änderungen in
+`foo.java` committen können.
+
+###### Git-Spiel
+
+Klonen Sie die [Vorgaben
+"Git-Quest"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_gitquest).
+Sie finden die Geschichte des Helden Markus im Dungeon.[^3]
+
+1.  Öffnen Sie eine Konsole und beantworten Sie mit Hilfe der Befehle
+    `git checkout`, `git log` und `git show` sowie `git diff` folgende
+    Fragen:
+
+    -   Was passierte an `tag 01`?
+    -   Wann hat der Held zum ersten Mal 4 `experience` Punkte?
+    -   Wann hat der Held zum ersten Mal 10 `hunger` Punkte?
+    -   Wie viele Heiltränke hat der Held insgesamt in seinem Rucksack
+        gehabt?
+    -   Was hat der Held im Shop gekauft? Und wie viel Gold hat er dafür
+        bezahlt?
+    -   Was passierte zwischen `tag 03` und `tag 04`, d.h. was änderte
+        sich zwischen diesen Commits?
+    -   Hat der Held etwas gegessen? Falls ja, was und wann?
+
+2.  Beim letzten Commit (`tag 04.5`) ist etwas schief gelaufen, es
+    wurden versehentlich zu wenig `experience` Punkte eingestellt.
+    Ändern Sie diesen letzten Commit und passen Sie die `experience`
+    Punkte auf 42 an.
+
+3.  Schreiben Sie die Geschichte in der Datei `questlog.md` fort und
+    erzeugen Sie einen neuen Commit für `tag 04.6`. Ändern Sie bitte
+    hierzu nur die eine Datei `questlog.md`.
+
+4.  Schreiben Sie die Geschichte noch weiter fort (`tag 04.7`), aber
+    ändern Sie diesmal mehrere Dateien, die an diesem Tag (neuer Commit)
+    gemeinsam eingecheckt werden sollen.
+
+5.  Fälschlicherweise wurden die Statuspunkte und die Ausrüstung bisher
+    gemeinsam in der Datei `stats.md` geführt. Korrigieren Sie das und
+    verschieben Sie die Ausrüstungsgegenstände aus der Datei `stats.md`
+    in eine neue Datei `gear.md`. Checken Sie Ihre Änderungen als
+    `tag 04.8` (neuer Commit) gemeinsam ein. (*Hinweis*: Es reicht, wenn
+    diese Änderung als letzter Commit auf der Spitze des
+    `master`-Branches existiert. Sie brauchen/sollen die Trennung von
+    Statuspunkten und Ausrüstung **nicht rückwirkend** in die Historie
+    einbauen!)
+
+Demonstrieren Sie Ihr Vorgehen im Praktikum jeweils live.
+
+###### Commit-Meldungen
+
+Gute Commit-Meldungen schreiben erfordert Übung. Schauen Sie sich die
+beiden Commits
+[Dungeon-CampusMinden/Dungeon/commit/46530b6](https://github.com/Dungeon-CampusMinden/Dungeon/commit/46530b6dc970a8cedb0610b92268b9c78345e067)
+und
+[Dungeon-CampusMinden/Dungeon/commit/3e37472](https://github.com/Dungeon-CampusMinden/Dungeon/commit/3e3747220ade538b4c974a520cc9104121789aa1)
+an.
+
+Diskutieren Sie jeweils, was Ihnen an den Commits auffällt: Was gefällt
+Ihnen, was stört Sie? Schlagen Sie Verbesserungen vor.
+
+##### Installation der Tools für Prog2
+
+###### Installation JDK
+
+Sie benötigen für die Bearbeitung der Übungsaufgaben ein *Java
+Development Kit* (JDK). Wir verwenden in der Lehrveranstaltung
+"Programmieren 2" aus verschiedenen Gründen die aktuelle *Long-Term
+Support (LTS)*-Variante, d.h. derzeit das "Java SE Development Kit 25
+(LTS)" (JDK 25).
+
+Sofern noch nicht geschehen, installieren Sie bitte auf Ihrem Rechner
+**Java SE 25 (LTS)** in einer *64-bit Version*. Wenn Sie mehrere JDKs
+installiert haben sollten, stellen Sie bitte sicher, dass Sie für
+"Programmieren 2" tatsächlich das Java SE 25 (LTS) verwenden. Der
+Anbieter des JDKs sollte keine Rolle spielen.
+
+###### Installation IDE
+
+Installieren Sie auf Ihrem Rechner eine IDE für Java Ihrer Wahl,
+empfohlen sind derzeit [IntelliJ IDEA (Community
+Edition)](https://www.jetbrains.com/idea/) und [Eclipse IDE for Java
+Developers](hhttps://www.eclipse.org/downloads/).
+
+Machen Sie sich mit der Arbeitsweise Ihrer IDE vertraut. Wenn Sie im
+Verlauf des Praktikums feststellen, dass die gewählte IDE nicht für Sie
+gemacht ist, können Sie jederzeit auf eine andere IDE wechseln.
+
+###### Deaktivierung GenAI-Support
+
+Da Sie das Programmierhandwerk erlernen und vertiefen sollen, sollten
+Sie im Rahmen dieser Lehrveranstaltung keine GenAI-gestützten
+Assistenten benutzen. Das Durchschauen einer generierten Lösung ist
+nicht annähernd dasselbe wie das aktive Arbeiten an einem Problem und
+das Ringen um eine Lösung. Sie tun sich keinen Gefallen, wenn Sie hier
+abkürzen.
+
+Bitte schalten deshalb Sie sämtliche GenAI-Unterstützung wie
+beispielsweise Claude, Copilot, JetBrains AI Assistant, Cursor, CodeGPT,
+Codeium, Tabnine, Windsurf, ... (Liste nicht vollständig) für die
+Bearbeitung der Übungsaufgaben in dieser Lehrveranstaltung ab.
+
+###### Gradle
+
+Folgen Sie der Anleitung auf [gradle.org](https://gradle.org/) und
+installieren Sie Gradle auf Ihrem Rechner. Legen Sie in der Konsole ein
+neues Gradle-Projekt für eine Java-Applikation an (ohne IDE!). Das
+Build-Script soll in Groovy erzeugt und als Test-API soll JUnit5 oder
+JUnit6 verwendet werden.
+
+Wie finden Sie auf der Konsole heraus, welche Tasks es gibt? Erklären
+Sie das Projektlayout, d.h. wo kommen beispielsweise die Java-Dateien
+hin?
+
+Erklären Sie, in welche Abschnitte das generierte Buildskript unterteilt
+ist und welche Aufgaben diese Abschnitte jeweils erfüllen. Gehen Sie
+dabei im *Detail* auf das Plugin `application` und die dort
+bereitgestellten Tasks und deren Abhängigkeiten untereinander ein.
+
+Öffnen Sie das Projekt in Ihrer IDE. Wie können Sie hier die
+verschiedenen Tasks ansteuern?
+
+Machen Sie sich Notizen, welche Sie im Praktikum nutzen dürfen, um dort
+das Buildskript zu erklären.
+
+##### Anlegen eines Java-Projektes als Basisprojekt für das Semester
+
+Legen Sie in Ihrer IDE ein neues Java-Projekt mit Gradle-Support an.
+
+Achten Sie bitte darauf, dass im Projektpfad **keine Leerzeichen** und
+**keine Sonderzeichen** (Umlaute o.ä.) vorkommen! Dies kann zu teilweise
+seltsamen Fehler führen.
+
+Testen Sie bitte die genutzte Java-Version:
+
+1.  Konsole: Geben Sie den Befehl `java -version` auf der Konsole ein.
+    Die Ausgabe sollte `openjdk version "25.0.2" 2026-01-20 LTS` (oder
+    ähnlich) ergeben. Wichtig sind die "25" und "LTS".
+2.  IDE: Erstellen Sie ein Programm, welches die Anweisung
+    `IO.println(System.getProperty("java.version"));` ausführt. Beim
+    Start über die IDE sollte dabei die Ausgabe `25.0.2` (oder ähnlich)
+    herauskommen. Wichtig ist die "25".
+
+Korrigieren Sie Ihr Setup, wenn Sie andere Ausgaben erhalten.
+
+Achten Sie darauf, dass Ihre IDE tatsächlich auch mit Gradle baut und
+das Programm startet. Dies können Sie leicht überprüfen: Drücken Sie auf
+den "run"-Button (oft ein grüner Pfeil) und lassen Sie Ihr `main()`
+laufen. Erscheinen dabei zunächst die üblichen Gradle-Ausgaben auf der
+Konsole? Wenn nicht, passen Sie bitte die Einstellungen der IDE an.
+
+Erweitern Sie nun Ihr Gradle-Setup und setzen Sie das Gradle-Plugin
+[Spotless](https://github.com/diffplug/spotless) zum einheitlichen
+Formatieren Ihres Sources-Codes ein. Schreiben Sie ein kleine Demo mit
+einer `main()`-Methode und demonstrieren Sie die Wirkung von Spotless.
+
+Nutzen Sie dieses (fast leere) Projekt als Startpunkt für die kommenden
+Aufgaben.
+
+#### Bearbeitung und Abgabe
+
+-   Bearbeitung: Einzelbearbeitung
+-   Abgabe Post Mortem [im
+    ILIAS](https://www.hsbi.de/elearning/goto.php/exc/1664006): bis
+    **04. Mai, 08:00 Uhr**
+-   Vorstellung im Praktikum: 04./06. Mai
 
 <a id="id-61b291653cdae0b4da99c50e5ab714c878aede10"></a>
 
@@ -16704,20 +16396,6 @@ public class MoreLogging {
 >
 > </div>
 >
-> <div id="ref-Boles2008" class="csl-entry">
->
-> Boles, D. 2008. *Parallele Programmierung spielend gelernt mit dem
-> Java-Hamster-Modell*. Vieweg+Teubne.
-> <http://www.boles.de/hamster/band3.html>.
->
-> </div>
->
-> <div id="ref-GitHubFlow" class="csl-entry">
->
-> Chacon, S. 2013. „GitHub Flow". <https://githubflow.github.io/>.
->
-> </div>
->
 > <div id="ref-Chacon2014" class="csl-entry">
 >
 > Chacon, S., und B. Straub. 2014. *Pro Git*. 2. Aufl. Apress.
@@ -16729,13 +16407,6 @@ public class MoreLogging {
 >
 > „Documentation Gitlab CI". o. J. Zugegriffen 10. März 2022.
 > <http://git03-ifm-min.ad.hsbi.de/help/ci/>.
->
-> </div>
->
-> <div id="ref-GitFlow" class="csl-entry">
->
-> Driessen, V. 2010. „Git-Flow: A Successful Git Branching Model".
-> <https://nvie.com/posts/a-successful-git-branching-model/>.
 >
 > </div>
 >
@@ -16760,15 +16431,8 @@ public class MoreLogging {
 >
 > <div id="ref-GitHubCI" class="csl-entry">
 >
-> GitHub Inc. 2022a. „Documentation GitHub CI".
+> GitHub Inc. 2022. „Documentation GitHub CI".
 > <https://resources.github.com/ci-cd/>.
->
-> </div>
->
-> <div id="ref-GitHubFlowGH" class="csl-entry">
->
-> GitHub Inc. 2022b. „GitHub Flow".
-> <https://docs.github.com/en/get-started/quickstart/github-flow>.
 >
 > </div>
 >
@@ -16923,17 +16587,17 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 **Exceptions:**
 
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> bf3ed2f 2026-04-17 git: update references<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 5f4ee56 2026-04-18 tooling: add inverted images (all lessons)<br></sub></sup></p></blockquote>
 
 [^1]: Naja, ein kläglicher Versuch. Namen sind eines der schwierigen
     Probleme in der Informatik.
@@ -16945,3 +16609,6 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
     `s.count()` wäre der Stream `s` verarbeitet und es können keine
     weiteren Operationen auf diesem Stream durchgeführt werden. Dito für
     die anderen gezeigten terminalen Operationen.
+
+[^3]: Für alle, die schon mit Branches umgehen können: Betrachten Sie
+    auf diesem Blatt bitte nur den Branch `master`.

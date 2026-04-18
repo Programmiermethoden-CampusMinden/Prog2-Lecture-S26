@@ -92,7 +92,7 @@ Grenzwertanalyse (siehe nächste Folien). Mehr dann später im Wahlfach
 Beispiel: Zu testende Methode mit Eingabewert *x*, der zw. 10 und 100
 liegen soll
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/aequivalenzklassen.png" width="30%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/aequivalenzklassen_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/aequivalenzklassen.png" width="30%" /></picture></p>
 
 -   Zerlegung der Definitionsbereiche in Äquivalenzklassen (ÄK):
 
@@ -214,7 +214,7 @@ zufälliger Repräsentant ausgewählt.**
 
 ## Grenzwertanalyse
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/grenzwerte.png" width="30%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/grenzwerte_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/grenzwerte.png" width="30%" /></picture></p>
 
 Beobachtung: Grenzen in Verzweigungen/Schleifen kritisch
 

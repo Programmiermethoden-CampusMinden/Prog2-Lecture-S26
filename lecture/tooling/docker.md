@@ -61,7 +61,7 @@
 
 ## Motivation CI/CD: WFM (*Works For Me*)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci.png" width="60%" /></picture></p>
 
 Auf dem CI-Server muss man eine Arbeitsumgebung konfigurieren und
 bereitstellen, für Java-basierte Projekte muss beispielsweise ein JDK
@@ -93,7 +93,7 @@ In diesen Fällen kann eine Virtualisierung helfen.
 
 ## Virtualisierung: Container vs. VM
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/virtualisierung.png" width="50%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/virtualisierung_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/virtualisierung.png" width="50%" /></picture></p>
 
 Wenn man über Virtualisierung auf dem Desktop spricht, kann man grob
 zwei Varianten unterscheiden. In beiden Fällen ist die Basis die
@@ -355,7 +355,7 @@ gesendet. Im Prinzip entspricht das dem Aufruf auf dem lokalen Rechner:
 
 ## VSCode und das Plugin "Remote - Containers"
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote.png" width="80%" /></picture></p>
 
 1.  VSCode (Host): Plugin "Remote - Containers" installieren
 2.  Docker (Host): Container starten mit Workspace gemountet

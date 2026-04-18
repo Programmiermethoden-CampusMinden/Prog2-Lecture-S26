@@ -219,8 +219,11 @@ nun für jeden Vergleich **`o1.cmpCpsInstance(o2)`** aufgerufen.
 
 ## Ausblick: Threads
 
-Erinnerung an bzw. Vorgriff auf ["Threads:
-Intro"](../java-classic/threads1-basics.md):
+Erinnerung an bzw. Vorgriff auf Nebenläufige Programmierung (vgl. auch
+[Einführung in die nebenläufige Programmierung (Rheinwerk
+Verlag)](https://openbook.rheinwerk-verlag.de/javainsel/17_001.html#u17)
+und [Lesson: Concurrency
+(Oracle)](https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html)):
 
 ``` java
 public interface Runnable {
@@ -393,4 +396,4 @@ Seit Java8: **Methoden-Referenzen** statt anonymer Klassen
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 0cb80e8 2026-04-11 rename thread files<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 2a83291 2026-04-18 methodrefs: remove dependency to thread lessons<br></sub></sup></p></blockquote>

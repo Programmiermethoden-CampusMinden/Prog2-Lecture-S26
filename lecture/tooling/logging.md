@@ -74,7 +74,7 @@
 
 Paket `java.util.logging`
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/logging.png" width="65%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/logging_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/logging.png" width="65%" /></picture></p>
 
 Eine Applikation kann verschiedene Logger instanziieren. Die Logger
 bauen per Namenskonvention hierarchisch aufeinander auf. Jeder Logger

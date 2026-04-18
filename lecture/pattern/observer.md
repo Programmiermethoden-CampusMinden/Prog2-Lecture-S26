@@ -35,7 +35,7 @@
 
 ## Verteilung der Prüfungsergebnisse
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/lsf.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/lsf_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/lsf.png" width="80%" /></picture></p>
 
 Die Studierenden möchten nach einer Prüfung wissen, ob für einen
 bestimmten Kurs die/ihre Prüfungsergebnisse im LSF bereit stehen.
@@ -59,7 +59,7 @@ for (Person p : persons) {
 
 ## Elegantere Lösung: Observer-Entwurfsmuster
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observerexample.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observerexample_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observerexample.png" width="80%" /></picture></p>
 
 Sie erstellen im `LSF` eine Methode `register()`, mit der sich
 interessierte Objekte beim `LSF` registrieren können.
@@ -71,7 +71,7 @@ geeignete Methode, die traditionell `update()` genannt wird.
 
 ## Observer-Pattern verallgemeinert
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observer.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observer_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/observer.png" width="80%" /></picture></p>
 
 Im vorigen Beispiel wurde die Methode `update()` einfach der gemeinsamen
 Basisklasse `Person` hinzugefügt. Normalerweise möchte man die Aspekte

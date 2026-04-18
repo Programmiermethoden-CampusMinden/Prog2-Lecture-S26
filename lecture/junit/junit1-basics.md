@@ -208,7 +208,7 @@ public void testBsp() {
 }
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore.png" width="40%" /></picture></p>
 
 In JUnit 5 wird statt der Annotation `@Ignore` die Annotation
 `@Disabled` mit der selben Bedeutung verwendet. Auch hier lässt sich als
@@ -229,7 +229,7 @@ void testTestDauerlaeufer() {
 }
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore.png" width="40%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/junit/images/junitIgnore.png" width="40%" /></picture></p>
 
 In JUnit 5 hat die Annotation `@Test` keinen `timeout`-Parameter mehr.
 Als Alternative bietet sich der Einsatz von

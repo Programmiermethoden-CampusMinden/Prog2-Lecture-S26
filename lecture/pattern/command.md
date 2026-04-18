@@ -104,7 +104,7 @@ genutzt.
 
 ## Command: Objektorientierte Antwort auf Callback-Funktionen
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/command.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/command_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/command.png" width="80%" /></picture></p>
 
 Im Command-Pattern gibt es vier beteiligte Parteien: Client, Receiver,
 Command und Invoker.

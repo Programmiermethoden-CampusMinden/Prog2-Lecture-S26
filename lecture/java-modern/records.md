@@ -206,7 +206,7 @@ Record-Klasse ersetzt, die nur noch 2 Zeilen Code (je nach Code-Style
 auch nur 1 Zeile) benötigt. Gleichzeitig wurde die Les- und Wartbarkeit
 deutlich verbessert.
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_katze.png"  /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_katze_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-modern/images/screenshot_katze.png"  /></picture></p>
 
 ## Wrap-Up
 

@@ -4,11 +4,10 @@
     - [Git1: Basics der Versionsverwaltung mit Git](lecture/git/git1-basics.md)
     - [Git Branches: Features unabhängig entwickeln und mit Git verwalten](lecture/git/git2-branches.md)
     - [Git Worktree](lecture/git/git4-worktree.md)
-    - [Zusammenarbeit: Git-Workflows und Merge-/Pull-Requests](lecture/git/git3-workflows.md)
-    - [Branching-Strategien mit Git](lecture/git/branching-strategies.md)
+    - [Branching-Strategien & Git-Workflows](lecture/git/git3-workflows.md)
   - **Bauen von Programmen, Automatisierung, Continuous Integration**
     - [Build-Systeme: Gradle](lecture/tooling/gradle.md)
-    - [Java: Packages](lecture/tooling/packages.md)
+    - [Java: Strukturieren mit Packages](lecture/tooling/packages.md)
     - [Continuous Integration (CI)](lecture/tooling/ci.md)
     - [ANTLR](lecture/tooling/antlr.md)
     - [Debugging](lecture/tooling/debugging.md)
@@ -45,8 +44,6 @@
     - [Generics: Bounds & Wildcards](lecture/java-classic/generics2-bounds-wildcards.md)
     - [Generics: Generics und Polymorphie](lecture/java-classic/generics3-polymorphism.md)
     - [Exception-Handling](lecture/java-classic/exceptions.md)
-    - [Threads: Einführung in die nebenläufige Programmierung mit Threads](lecture/java-classic/threads1-basics.md)
-    - [Threads: Synchronisation: Verteilter Zugriff auf gemeinsame Ressourcen](lecture/java-classic/threads2-synchronisation.md)
   - **Clean Code - Smells, Rules, Refactoring**
     - [Code Smells](lecture/quality/smells.md)
     - [Coding Conventions und Metriken](lecture/quality/codingrules.md)

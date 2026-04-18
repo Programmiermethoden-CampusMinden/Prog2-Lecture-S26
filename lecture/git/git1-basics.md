@@ -683,11 +683,13 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Sie finden den Inhalt dieser Sitzung im Chacon und Straub ([2014,
->     Kap. 1](#ref-Chacon2014) und 2). Zusätzlich finden Sie weitere
->     hilfreiche Tutorial rund um Git in Atlassian Pty Ltd
->     ([2026](#ref-AtlassianGit)) sowie Cheat-Sheets auf Github Inc.
->     ([2024](#ref-GitCheatSheet)).
+> Sie finden den Inhalt dieser Sitzung im Chacon und Straub ([2014, Kap.
+> 1](#ref-Chacon2014) und 2).
+>
+> Zusätzlich gibt es viele hilfreiche Tutorials wie beispielsweise die
+> [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials).
+> Auf [GitHub Training Kit](https://training.github.com/) finden Sie ein
+> gutes Cheat-Sheet.
 >
 > </details>
 
@@ -753,24 +755,10 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 >
 > <div id="refs" class="references csl-bib-body hanging-indent">
 >
-> <div id="ref-AtlassianGit" class="csl-entry">
->
-> Atlassian Pty Ltd. 2026. „Git Tutorials".
-> <https://www.atlassian.com/git/tutorials>.
->
-> </div>
->
 > <div id="ref-Chacon2014" class="csl-entry">
 >
 > Chacon, S., und B. Straub. 2014. *Pro Git*. 2. Aufl. Apress.
 > <https://git-scm.com/book/en/v2>.
->
-> </div>
->
-> <div id="ref-GitCheatSheet" class="csl-entry">
->
-> Github Inc. 2024. „GitHub Training Kit".
-> <https://training.github.com/>.
 >
 > </div>
 >
@@ -790,4 +778,4 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> bf3ed2f 2026-04-17 git: update references<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> f527f9c 2026-04-18 git1: improve readings<br></sub></sup></p></blockquote>

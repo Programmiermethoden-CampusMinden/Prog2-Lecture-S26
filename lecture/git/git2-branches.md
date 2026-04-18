@@ -308,9 +308,8 @@ bekommen. Das verursacht bei der Zusammenarbeit in Projekten massive
 Probleme! Als Vorteil gilt, dass man mögliche Merge-Konflikte bereits
 beim Rebasen auflösen muss, d.h. hier muss derjenige, der den Merge
 "beantragt", durch einen vorherigen Rebase den konfliktfreien Merge
-sicherstellen. Mehr dazu in
-["Branching-Strategien"](./branching-strategies.md) und
-["Workflows"](./git3-workflows.md).
+sicherstellen. Mehr dazu in ["Branching-Strategien &
+Git-Workflows"](./git3-workflows.md).
 
     git rebase master wuppie
 
@@ -480,4 +479,4 @@ Man beachte aber die Änderung der Commit-IDs von `wuppie`: Aus `D` wird
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> b521d3c 2026-04-17 git: add video from Scott Chacon<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 3efc893 2026-04-18 git: remove linking to old lesson<br></sub></sup></p></blockquote>

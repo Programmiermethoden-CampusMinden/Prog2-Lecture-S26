@@ -1,4 +1,4 @@
-# Zusammenarbeit: Git-Workflows und Merge-/Pull-Requests
+# Branching-Strategien & Git-Workflows
 
 > [!IMPORTANT]
 >
@@ -83,7 +83,7 @@ alle Teammitglieder gleichberechtigt und direkt pushen dürfen.
 
 ## Zusammenarbeit: Einfacher verteilter Workflow mit Git
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow_remote.png" width="65%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow_remote_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/workflow_remote.png" width="65%" /></picture></p>
 
 In großen und/oder öffentlichen Projekten wird üblicherweise ein
 Workflow eingesetzt, der auf den Möglichkeiten von verteilten
@@ -179,11 +179,10 @@ Im Netz finden sich häufig Anleitungen, wonach man Änderungen im
 Das funktioniert rein technisch betrachtet.
 
 Allerdings spielt in den meisten Git-Projekten der `master` (bzw.
-`main`) üblicherweise eine besondere Rolle (vgl.
-[Branching-Strategien](./branching-strategies.md)) und ist üblicherweise
-stets das **Ziel** eines Merge, aber nie die *Quelle*! D.h. per
-Konvention geht der Fluß von Änderungen stets **in** den `master` (und
-nicht heraus).
+`main`) üblicherweise eine besondere Rolle und ist üblicherweise stets
+das **Ziel** eines Merge, aber nie die *Quelle*! D.h. per Konvention
+geht der Fluß von Änderungen stets **in** den `master` (und nicht
+heraus).
 
 Wenn man sich nicht an diese Konvention hält, hat man später
 möglicherweise Probleme, die Merge-Historie zu verstehen (welche
@@ -253,12 +252,12 @@ soll sich den Code ansehen.
 Hier ein Screenshot der Änderungsansicht unseres Gitlab-Servers
 (SW-Labor):
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_code.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_code_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_code.png" width="80%" /></picture></p>
 
 Nachfolgend für den selben MR aus der letzten Abbildung noch die reine
 Diskussionsansicht:
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_discussion.png" width="80%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_discussion_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/git/images/screenshot_merge-request_discussion.png" width="80%" /></picture></p>
 
 Zusätzliche kurze Video-Anleitungen von GitHub:
 
@@ -405,4 +404,4 @@ gibt es "*Merge-Requests*" (MR). Bei Github gibt es "*Pull-Requests*"
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 7f1d964 2026-04-11 git: rename files<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 3efc893 2026-04-18 git: remove linking to old lesson<br></sub></sup></p></blockquote>

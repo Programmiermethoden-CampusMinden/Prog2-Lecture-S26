@@ -75,7 +75,7 @@
 
 ## Continuous Integration (CI)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/ci.png" width="60%" /></picture></p>
 
 ### Vorgehen
 
@@ -115,7 +115,7 @@ CI/CD"](http://git03-ifm-min.ad.hsbi.de/help/ci/quick_start/index.md).
 
 ### Übersicht über Pipelines
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-pipelines.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-pipelines_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-pipelines.png" width="70%" /></picture></p>
 
 -   In Spalte "Status" sieht man das Ergebnis der einzelnen Pipelines:
     "pending" (die Pipeline läuft gerade), "cancelled" (Pipeline wurde
@@ -131,14 +131,14 @@ mehr bzw. kann auf eine Seite mit mehr Informationen kommen.
 
 ### Detailansicht einer Pipeline
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-triggeredpipeline.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-triggeredpipeline_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-triggeredpipeline.png" width="70%" /></picture></p>
 
 Wenn man in eine Pipeline in der Übersicht klickt, werden die einzelnen
 Stages dieser Pipeline genauer dargestellt.
 
 ### Detailansicht eines Jobs
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-job.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-job_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-gitlabci-job.png" width="70%" /></picture></p>
 
 Wenn man in einen Job einer Stage klickt, bekommt man quasi die
 Konsolenausgabe dieses Jobs. Hier kann man ggf. Fehler beim Ausführen
@@ -258,7 +258,7 @@ CI/CD explained"](https://resources.github.com/ci-cd/).
 
 ### Übersicht über Workflows
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-workflows.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-workflows_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-workflows.png" width="70%" /></picture></p>
 
 Hier sieht man das Ergebnis der letzten Workflows. Dazu sieht man den
 Commit und den Branch, auf dem der Workflow gelaufen ist sowie wann er
@@ -270,7 +270,7 @@ der aktuell noch läuft.
 
 ### Detailansicht eines Workflows
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-triggeredworkflow.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-triggeredworkflow_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-triggeredworkflow.png" width="70%" /></picture></p>
 
 Wenn man in einen Workflow in der Übersicht anklickt, werden die
 einzelnen Jobs dieses Workflows genauer dargestellt. "job3" ist
@@ -279,7 +279,7 @@ ab, d.h. kann erst nach dem erfolgreichen Lauf von "job2" starten.
 
 ### Detailansicht eines Jobs
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-job.png" width="70%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-job_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot-githubci-job.png" width="70%" /></picture></p>
 
 Wenn man in einen Job anklickt, bekommt man quasi die Konsolenausgabe
 dieses Jobs. Hier kann man ggf. Fehler beim Ausführen der einzelnen
@@ -398,17 +398,17 @@ Im Browser in den Repo-Einstellungen arbeiten:
 1.  Unter `Settings > Actions > General > Actions permissions` die
     Actions aktivieren (Auswahl, welche Actions erlaubt sind)
 
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_actions.png" width="70%" /></p>
+    <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_actions_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_actions.png" width="70%" /></picture></p>
 
 2.  Unter `Settings > Actions > General > Workflow permissions` ggf.
     bestimmen, ob die Actions das Repo nur lesen dürfen oder auch
     zusätzlich schreiben dürfen
 
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_permissions.png" width="70%" /></p>
+    <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_permissions_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_settings_permissions.png" width="70%" /></picture></p>
 
 3.  Unter `Actions > <WORKFLOW>` den Workflow ggf. deaktivieren:
 
-    <p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_actions.png" width="70%" /></p>
+    <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_actions_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_github_actions.png" width="70%" /></picture></p>
 
 ## Wrap-Up
 
