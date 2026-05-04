@@ -114,7 +114,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation platform('org.junit:junit-bom:6.0.3')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 application {
@@ -207,7 +209,7 @@ einige Einstellungen ab:
       2: TestNG
       3: Spock
       4: JUnit Jupiter
-    Enter selection (default: JUnit Jupiter) [1..4] 1
+    Enter selection (default: JUnit Jupiter) [1..4] 4
 
     Project name (default: tmp): wuppie
     Source package (default: tmp): fluppie
@@ -222,6 +224,11 @@ Damit wird die eingangs gezeigte Konfiguration angelegt.
 *Anmerkung*: Die hier dargestellten Auswahloptionen und ggf. die
 Reihenfolge der Schritte können sich mit neueren Gradle-Versionen
 durchaus ändern. Das prinzipielle Vorgehen bleibt aber identisch.
+
+*Anmerkung*: Man kann die schrittweise Konfiguration auch durch einen
+einzigen Befehl zusammenfassen, beispielsweise
+`gradle init --type java-application --dsl groovy --test-framework junit-jupiter`
+ö.ä. ...
 
 ## Gradle und IntelliJ
 
@@ -503,7 +510,7 @@ sourceSets {
 
 checkstyle {
     configFile = file("${rootDir}/google_checks.xml")
-    toolVersion = '13.4.0'
+    toolVersion = '13.4.2'
 }
 
 javadoc {
@@ -794,4 +801,4 @@ eine gute Einstiegshilfe über den hier vorgestellten Ausblick hinaus.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 3abad24 2026-04-21 gradle: rework all screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 5c73aca 2026-05-04 lecture: update versions (spotless, junit, checkstyle, ...) in gradle and maven config examples<br></sub></sup></p></blockquote>

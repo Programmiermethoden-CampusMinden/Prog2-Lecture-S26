@@ -598,6 +598,28 @@ der Workingcopy und `git add <fileNeu>`.
 
 -   Inhalt eines Commits: `git show`
 
+**Anmerkung**: Ausgewählte interessante Optionen für `git log`:
+
+Für `git log` gibt es eine schöne Option `-p`, die einen "Patch"
+ausgibt: Gelöschte Zeilen werden mit einem "-" und hinzugefügte Zeilen
+werden mit einem "+" angezeigt. Zusätzlich werden jeweils noch ein bis
+drei ungeänderte Zeile jeweils vor und nach der Änderung angezeigt.
+
+Mit der Option `-S<SUCHSTRING>` zeigt `git log` alle Änderungen an, die
+diesen Suchstring in einer Datei betreffen.
+
+Die Option `--all` zeigt alle Branches an, also nicht nur die Änderungen
+auf dem aktuell ausgecheckten Branch. Mit der zusätzlichen Option
+`--graph` bekommt man in der Konsole eine hübsche kleine baumartige
+Struktur angezeigt.
+
+Mit der Option `--oneline` wird der ausgegebene Log abgekürzt und pro
+Commit nur die wichtigsten Dinge (SHA-ID und abgekürzte Commit-Message)
+ausgegeben.
+
+Ich persönlich nutze häufig `git log --all --graph --oneline` und habe
+mir dazu einen Alias (s.o.) angelegt.
+
 ##### Änderungen und Logs betrachten
 
 -   `git diff [<file>]`
@@ -904,11 +926,11 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 
 -   Anlegen eines lokalen Repos mit `git init`
 -   Clonen eines existierenden Repos mit `git clone <url>`
--   Änderungen einpflegen zweistufig (`add`, `commit`)
--   Status der Workingcopy mit `status` ansehen
--   Logmeldungen mit `log` ansehen
--   Änderungen auf einem File mit `diff` bzw. `blame` ansehen
--   Projektstand markieren mit `tag`
+-   Änderungen einpflegen zweistufig (`git add`, `git commit`)
+-   Status der Workingcopy mit `git status` ansehen
+-   Logmeldungen mit `git log` ansehen
+-   Änderungen auf einem File mit `git diff` bzw. `git blame` ansehen
+-   Projektstand markieren mit `git tag`
 -   Ignorieren von Dateien/Ordnern: Datei `.gitignore`
 
 > [!TIP]
@@ -1394,6 +1416,22 @@ Mit `git remote add <name> <url>` kann man beliebig viele weitere
 Remotes hinzufügen. Das Arbeiten mit den weiteren Remotes unterscheidet
 sich nicht von dem hier gezeigten Vorgehen mit dem Default-Remote
 `origin`.
+
+**Hinweis zum SSH-Protokoll ("`git@`")**: Häufig kann man über das
+"`https://`"-Protokoll zwar Repos klonen und lokal bearbeiten, aber die
+Änderungen nicht mehr auf den Server zurück pushen, weil die
+Authentifikation mit Username und Passwort als unsicher betrachtet wird
+und von den Anbietern deaktiviert wurde/wird. Das SSH-Protokoll (also
+die "`git@`-URLs") arbeitet dagegen mit
+[SSH-Keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh),
+die man sich beispielsweise gezielt nur für die Authentifikation bei
+GitHub anlegen kann und den öffentlichen Schlüssel (*public key*) in den
+User-Einstellungen von GitHub registrieren kann: ["Generating a new SSH
+key and adding it to the
+ssh-agent"](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+und ["Adding a new SSH key to your GitHub
+account"](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+(bitte darauf achten, dass das richtige Betriebssystem ausgewählt ist).
 
 ##### Eigener und entfernter *master* entwickeln sich weiter ...
 
@@ -2658,7 +2696,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation platform('org.junit:junit-bom:6.0.3')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 application {
@@ -2751,7 +2791,7 @@ einige Einstellungen ab:
       2: TestNG
       3: Spock
       4: JUnit Jupiter
-    Enter selection (default: JUnit Jupiter) [1..4] 1
+    Enter selection (default: JUnit Jupiter) [1..4] 4
 
     Project name (default: tmp): wuppie
     Source package (default: tmp): fluppie
@@ -2766,6 +2806,11 @@ Damit wird die eingangs gezeigte Konfiguration angelegt.
 *Anmerkung*: Die hier dargestellten Auswahloptionen und ggf. die
 Reihenfolge der Schritte können sich mit neueren Gradle-Versionen
 durchaus ändern. Das prinzipielle Vorgehen bleibt aber identisch.
+
+*Anmerkung*: Man kann die schrittweise Konfiguration auch durch einen
+einzigen Befehl zusammenfassen, beispielsweise
+`gradle init --type java-application --dsl groovy --test-framework junit-jupiter`
+ö.ä. ...
 
 ##### Gradle und IntelliJ
 
@@ -3047,7 +3092,7 @@ sourceSets {
 
 checkstyle {
     configFile = file("${rootDir}/google_checks.xml")
-    toolVersion = '13.4.0'
+    toolVersion = '13.4.2'
 }
 
 javadoc {
@@ -6753,23 +6798,39 @@ voneinander abgrenzen und unterscheiden zu können.
 
     ``` groovy
     dependencies {
-        implementation 'junit:junit:4.13.2'
-        implementation 'org.mockito:mockito-core:4.5.1'
+        testImplementation platform('org.junit:junit-bom:6.0.3')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+        testImplementation 'org.mockito:mockito-core:5.23.0'
     }
     ```
 
 -   Maven: `pom.xml`
 
     ``` xml
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>6.0.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
         </dependency>
+        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>4.5.1</version>
+            <version>5.23.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     ```
@@ -15423,7 +15484,7 @@ Sie können den Code manuell formatieren, oder aber (sinnvollerweise)
     ``` groovy
     plugins {
         id "java"
-        id "com.diffplug.spotless" version "7.0.3"
+        id "com.diffplug.spotless" version "8.4.0"
     }
 
     spotless {
@@ -16804,6 +16865,27 @@ verschiedenen Tasks ansteuern?
 Machen Sie sich Notizen, welche Sie im Praktikum nutzen dürfen, um dort
 das Buildskript zu erklären.
 
+###### SSH-Keys zur Authentifikation bei GitHub/GitLab
+
+Wenn Sie Repos klonen und in Zukunft Änderungen auch wieder auf den
+Server zurück pushen wollen, nutzen Sie am besten das SSH-Protokoll
+(also die "`git@`-URLs"). Dieses arbeitet mit
+[SSH-Keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh),
+die man sich beispielsweise gezielt nur für die Authentifikation bei
+GitHub anlegen kann und den öffentlichen Schlüssel (*public key*) in den
+User-Einstellungen von GitHub registrieren kann: ["Generating a new SSH
+key and adding it to the
+ssh-agent"](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+und ["Adding a new SSH key to your GitHub
+account"](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+(bitte darauf achten, dass das richtige Betriebssystem ausgewählt ist).
+
+Folgen Sie der Anleitung und erzeugen Sie sich ein Schlüsselpaar
+(privaten und öffentlichen Key) für die Authentifikation bei GitHub.
+Registrieren Sie den öffentlichen Schlüssel (*public key*) in den
+User-Einstellungen von GitHub (oder GitLab oder den von Ihnen
+präferierten Anbieter).
+
 ##### Anlegen eines Java-Projektes als Basisprojekt für das Semester
 
 Legen Sie in Ihrer IDE ein neues Java-Projekt mit Gradle-Support an.
@@ -17616,18 +17698,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> f9875ec 2026-05-03 template-method: rework all screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 30a361f 2026-05-04 b01: add aux. task to generate ssh key for authentication<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

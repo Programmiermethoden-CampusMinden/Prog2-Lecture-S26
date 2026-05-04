@@ -412,6 +412,22 @@ Remotes hinzufügen. Das Arbeiten mit den weiteren Remotes unterscheidet
 sich nicht von dem hier gezeigten Vorgehen mit dem Default-Remote
 `origin`.
 
+**Hinweis zum SSH-Protokoll ("`git@`")**: Häufig kann man über das
+"`https://`"-Protokoll zwar Repos klonen und lokal bearbeiten, aber die
+Änderungen nicht mehr auf den Server zurück pushen, weil die
+Authentifikation mit Username und Passwort als unsicher betrachtet wird
+und von den Anbietern deaktiviert wurde/wird. Das SSH-Protokoll (also
+die "`git@`-URLs") arbeitet dagegen mit
+[SSH-Keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh),
+die man sich beispielsweise gezielt nur für die Authentifikation bei
+GitHub anlegen kann und den öffentlichen Schlüssel (*public key*) in den
+User-Einstellungen von GitHub registrieren kann: ["Generating a new SSH
+key and adding it to the
+ssh-agent"](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+und ["Adding a new SSH key to your GitHub
+account"](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+(bitte darauf achten, dass das richtige Betriebssystem ausgewählt ist).
+
 ## Eigener und entfernter *master* entwickeln sich weiter ...
 
     https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture
@@ -721,4 +737,4 @@ Schalter `--bare` mitgeben: `git init --bare` ...
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> cceb92a 2026-04-22 git2: rework all screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 2d75ab8 2026-05-04 git2: add links to ssh documentation on github<br></sub></sup></p></blockquote>

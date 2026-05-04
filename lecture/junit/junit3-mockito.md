@@ -165,23 +165,39 @@ voneinander abgrenzen und unterscheiden zu können.
 
     ``` groovy
     dependencies {
-        implementation 'junit:junit:4.13.2'
-        implementation 'org.mockito:mockito-core:4.5.1'
+        testImplementation platform('org.junit:junit-bom:6.0.3')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+        testImplementation 'org.mockito:mockito-core:5.23.0'
     }
     ```
 
 -   Maven: `pom.xml`
 
     ``` xml
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>6.0.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
         </dependency>
+        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>4.5.1</version>
+            <version>5.23.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     ```
@@ -808,4 +824,4 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 77eea53 2026-04-11 junit: move to own folder (better pdf structure)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 5c73aca 2026-05-04 lecture: update versions (spotless, junit, checkstyle, ...) in gradle and maven config examples<br></sub></sup></p></blockquote>

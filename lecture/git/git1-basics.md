@@ -379,6 +379,28 @@ der Workingcopy und `git add <fileNeu>`.
 
 -   Inhalt eines Commits: `git show`
 
+**Anmerkung**: Ausgewählte interessante Optionen für `git log`:
+
+Für `git log` gibt es eine schöne Option `-p`, die einen "Patch"
+ausgibt: Gelöschte Zeilen werden mit einem "-" und hinzugefügte Zeilen
+werden mit einem "+" angezeigt. Zusätzlich werden jeweils noch ein bis
+drei ungeänderte Zeile jeweils vor und nach der Änderung angezeigt.
+
+Mit der Option `-S<SUCHSTRING>` zeigt `git log` alle Änderungen an, die
+diesen Suchstring in einer Datei betreffen.
+
+Die Option `--all` zeigt alle Branches an, also nicht nur die Änderungen
+auf dem aktuell ausgecheckten Branch. Mit der zusätzlichen Option
+`--graph` bekommt man in der Konsole eine hübsche kleine baumartige
+Struktur angezeigt.
+
+Mit der Option `--oneline` wird der ausgegebene Log abgekürzt und pro
+Commit nur die wichtigsten Dinge (SHA-ID und abgekürzte Commit-Message)
+ausgegeben.
+
+Ich persönlich nutze häufig `git log --all --graph --oneline` und habe
+mir dazu einen Alias (s.o.) angelegt.
+
 ## Änderungen und Logs betrachten
 
 -   `git diff [<file>]`
@@ -685,11 +707,11 @@ einem Einsatz in einem professionellen Umfeld wäre ich hier aber sehr
 
 -   Anlegen eines lokalen Repos mit `git init`
 -   Clonen eines existierenden Repos mit `git clone <url>`
--   Änderungen einpflegen zweistufig (`add`, `commit`)
--   Status der Workingcopy mit `status` ansehen
--   Logmeldungen mit `log` ansehen
--   Änderungen auf einem File mit `diff` bzw. `blame` ansehen
--   Projektstand markieren mit `tag`
+-   Änderungen einpflegen zweistufig (`git add`, `git commit`)
+-   Status der Workingcopy mit `git status` ansehen
+-   Logmeldungen mit `git log` ansehen
+-   Änderungen auf einem File mit `git diff` bzw. `git blame` ansehen
+-   Projektstand markieren mit `git tag`
 -   Ignorieren von Dateien/Ordnern: Datei `.gitignore`
 
 > [!TIP]
@@ -792,4 +814,4 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> a41684c 2026-04-21 git1: rework all screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 548a43d 2026-05-04 git1: amend interesting options for git log<br></sub></sup></p></blockquote>

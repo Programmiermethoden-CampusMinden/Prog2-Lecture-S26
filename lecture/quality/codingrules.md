@@ -169,7 +169,7 @@ Sie können den Code manuell formatieren, oder aber (sinnvollerweise)
     ``` groovy
     plugins {
         id "java"
-        id "com.diffplug.spotless" version "7.0.3"
+        id "com.diffplug.spotless" version "8.4.0"
     }
 
     spotless {
@@ -657,4 +657,4 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> ae99178 2026-05-04 codingrules: update spotless version<br></sub></sup></p></blockquote>
