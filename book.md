@@ -17030,9 +17030,183 @@ dem Hauptbranch das Projekt
 
 <a id="id-6c99b0278590e1866d400dbbb6fc3eeafad60e55"></a>
 
-### Blatt 03: Methodenrefs, Lambdas
+### Blatt 03: Methodenrefs, Lambdas, Observer
 
-Coming soon ...
+#### Zusammenfassung
+
+Auf diesem Blatt üben Sie den Einsatz von Lambda-Ausdrücken und
+Methodenreferenzen. Sie modellieren das Observer-Pattern in einem
+kleinen Spiel.
+
+#### Aufgaben
+
+##### Calculator: Anonyme Klassen und Lambda-Ausdrücke
+
+Klonen/forken Sie die [Vorgaben
+"Calculator"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_calculator)
+und laden Sie das Projekt in Ihre IDE. Konfigurieren Sie Gradle für
+dieses Projekt.
+
+Im Package `calculator` finden Sie einige Interfaces und Klassen, mit
+denen man einen einfachen Taschenrechner modellieren kann: Dieser kann
+einfache mathematische Operationen auf zwei Integern ausführen.
+
+In der Klasse `calculator.Calculator` finden Sie vier mit `TODO`
+markierte Stellen in der Methode `setupOperationSelector`:
+
+1.  Erstellen Sie eine neue **Java-Klasse** `Sub`, die das Interface
+    `Operation` implementiert und eine Subtraktion bereitstellt.
+    Erweitern Sie den `Calculator` und binden Sie eine **Instanz dieser
+    Klasse** ein. Nutzen Sie hier keine anonymen Klassen oder
+    Lambda-Ausdrücke.
+2.  Erstellen Sie eine weitere Operation "Mul" (Multiplikation von zwei
+    Integern). Nutzen Sie dazu eine passende **anonyme Klasse**.
+3.  Erstellen Sie eine weitere Operation "Div" (Integerdivision).
+    Erstellen Sie einen passenden **Lambda-Ausdruck**.
+4.  Für die `JComboBox` `operationSelector` wird ein `ActionListener`
+    mit Hilfe einer *anonymen Klasse* definiert. Konvertieren Sie dies
+    in einen entsprechenden **Lambda-Ausdruck**.
+
+##### LockSnake: Lambda-Ausdrücke, Methodenreferenzen und Observer-Pattern
+
+Klonen/forken Sie die [Vorgaben
+"Calculator"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_locksnake)
+und laden Sie das Projekt in Ihre IDE. Konfigurieren Sie Gradle für
+dieses Projekt.
+
+Ziel des Projekts ist es, ein kleines Swing-basiertes Spiel nach dem
+Vorbild von ["Mouse: P.I. For Hire Lockpicking
+Gameplay"](https://www.youtube.com/shorts/T4DRzMOtpNk) (16 s) zu
+implementieren.
+
+Sie finden im Projekt ein lauffähiges Projektgerüst mit:
+
+-   einem lauffähigen Swing-Fenster (`Main`, `GamePanel`) inkl.
+    Timer-Loop,
+-   einem fertigen Renderer (`Java2DRenderer`) sowie fertiger
+    Level-Logik (`Level`, `LevelLoader`, Beispiellevel
+    `src/main/resources/levels/level1.txt`),
+-   den Datentypen `CellType`, `Position`, `Direction`, `Pin` und
+    `Snake`,
+-   einer leeren Modellierung für den Spielzustand `GameState` sowie
+    einem leeren Spielmodell `GameEngine`.
+
+###### Aufgaben
+
+-   Analysieren Sie die Vorgaben und erstellen Sie ein
+    UML-Klassendiagramm, welches die Beziehungen zwischen den Klassen
+    zeigt.
+-   Ergänzen Sie das Spielmodell `GameEngine` und die Modellierung des
+    Spielzustands `GameState` so, dass das Spiel spielbar ist und die
+    Pin-Mechanik korrekt funktioniert. (Die mit `TODO` markierten
+    Stellen sind ein guter Ausgangspunkt ...)
+-   Nutzen Sie das Observer-Pattern, so dass die GUI `GamePanel`
+    automatisch aktualisiert wird, wenn sich der Spielzustand ändert.
+-   Nutzen Sie das Observer-Pattern, so dass die `GameEngine`
+    automatisch benachrichtigt wird und den Spielzustand aktualisieren
+    kann, wenn eine konfigurierte Taste gedrückt wird.
+-   Testen Sie Ihre Implementierung von `GameState` mit JUnit.
+
+Das fertige Spiel mit dem Beispiellevel könnte wie im folgenden
+Screenshot gezeigt aussehen:
+
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_locksnake.png"  /></p>
+
+(hier noch ein Link zu einem kurzen Video
+\[[YT](https://youtu.be/3k2lEeYXBvs)\]/\[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-locksnake/93cb26977c1226d7ec23388909ec90fe)\]).
+
+###### Checkliste Abgabe
+
+-   Korrekte Behandlung von Wand / Pin blockiert / Pin aktivierbar
+-   Korrekte Behandlung von Selbstkollision
+-   Gewinnbedingung "alle Pins gesetzt"
+-   Mind. 10 JUnit-Tests für `GameState`
+-   Observer-Pattern sichtbar im Code:
+    -   UI (`GamePanel`) ist Observer für `GameState` in der
+        `GameEngine`
+    -   `GameEngine` ist Observer für `Direction` (Tastatur-Events) im
+        `GamePanel`
+-   Lösung enthält mindestens 3 Lambda-Ausdrücke
+-   Lösung enthält mindestens 2 Methodenreferenzen
+
+###### Bonus
+
+Sie finden in den Vorgaben Skizzen für `TextureRenderer` und
+`MusicPlayer`. Implementieren Sie davon ausgehend einen Renderer, der
+mit Texturen arbeitet. Lassen Sie im Hintergrund passend zum
+Spielzustand Soundeffekte abspielen (weiterer Observer in `GameEngine`).
+Erstellen Sie weitere Levels und ermöglichen Sie eine Level-Auswahl oder
+ein Fortschreiten der Level, sobald die User das aktuelle Level gelöst
+haben.
+
+<details>
+
+###### Spielregeln
+
+####### Spielfeld/Level
+
+Das Spielfeld besteht aus Zellen (Grid). Es gibt:
+
+-   **Wände** `#` (blockieren Bewegung),
+-   **leere Felder** `.`,
+-   **Pin-Slots** (im Level durch Pfeile markiert, z.B. `^ v < >`),
+-   eine **Startposition** `S` für die Snake.
+
+(Symbole wie in der Level-Datei verwendet)
+
+####### Bewegung
+
+-   Die Spielschlange ("Snake") bewegt sich automatisch in Ticks.
+-   Pro Tick gilt: Es wird höchstens **ein** Schritt in Blickrichtung
+    ausgeführt.
+-   Die Schlange erhält eine "Blickrichtung", wenn eine der Tasten "W A
+    S D" oder "H J K L" oder die Pfeiltasten gedrückt werden.
+-   Die Blickrichtung wird als kleine rote "Nase" angezeigt.
+-   Die Blickrichtung bleibt erhalten, bis eine Tasteneingabe eine neue
+    Blickrichtung setzt oder die Blickrichtung durch eine Blockade
+    aufgelöst wird.
+-   Ohne gesetzte Blickrichtung passiert nichts.
+-   Die Schlange wächst bei jedem erfolgreich ausgeführten Schritt (der
+    alte Kopf wird Teil des Körpers).
+
+####### Wände
+
+-   Eine Bewegung in eine Wand wird **verworfen** (Schlange bleibt
+    stehen).
+
+####### Pins
+
+Jeder Pin hat:
+
+-   eine Position,
+-   einen Zustand `LOW` (nicht gesetzt) oder `HIGH` (gesetzt/aktiviert),
+-   eine Aktivierungsrichtung (z.B. Pin `<` kann nur von links
+    angestoßen werden).
+
+Regeln:
+
+-   Wenn die Schlange **von der richtigen Richtung** an einen `LOW`-Pin
+    "anstößt", wird der Pin auf `HIGH` gesetzt.
+-   In diesem Fall wird das Feld **nicht betreten** (Schlange bleibt auf
+    der alten Position stehen).
+-   Ist der Pin bereits `HIGH` oder die Richtung falsch, blockiert er
+    wie eine Wand.
+
+####### Selbstkollision und Ende
+
+-   Wenn die Schlange in ihren eigenen Körper laufen würde: **Game
+    Over**.
+-   Wenn alle Pins `HIGH` sind: **Gewonnen** (oder nächstes Level).
+
+</details>
+
+#### Bearbeitung und Abgabe
+
+-   Bearbeitung: Einzelbearbeitung
+-   Abgabe Post Mortem [im
+    ILIAS](https://www.hsbi.de/elearning/goto.php/exc/1664006): bis
+    **18. Mai, 08:00 Uhr**
+-   Vorstellung im Praktikum: 18./20. Mai
 
 <a id="id-d392f8d0f4dd93faa938c9737b2317ba03f5aa12"></a>
 
@@ -17698,9 +17872,7 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
@@ -17708,8 +17880,10 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 30a361f 2026-05-04 b01: add aux. task to generate ssh key for authentication<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 98fb428 2026-05-05 update b03 (S26: lambda/methodrefs/observer)<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

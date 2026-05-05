@@ -52,7 +52,7 @@
 - **Praktikum**
   - [Blatt 01: Git Basics, Gradle](homework/b01.md)
   - [Blatt 02: Git Branches, JUnit Basics; CI-Pipeline](homework/b02.md)
-  - [Blatt 03: Methodenrefs, Lambdas](homework/b03.md)
+  - [Blatt 03: Methodenrefs, Lambdas, Observer](homework/b03.md)
   - [Blatt 04: RegExp, Template-Method, Absichern mit JUnit-Tests; PR](homework/b04.md)
   - [Blatt 05: ANTLR, Visitor, PrettyPrinter; ÄK&GW, Mocking](homework/b05.md)
   - [Blatt 06: Visitor vs. PatternMatching, Records](homework/b06.md)
