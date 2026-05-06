@@ -585,7 +585,7 @@ Wenn eine Datei umbenannt werden soll, geht das mit
 die Folge `git rm --cached <fileAlt>`, manuelles Umbenennen der Datei in
 der Workingcopy und `git add <fileNeu>`.
 
-##### Commits betrachten
+##### Commits suchen und betrachten
 
 -   Liste aller Commits: `git log`
     -   `git log -<n>` oder `git log --since="3 days ago"` Meldungen
@@ -602,11 +602,46 @@ der Workingcopy und `git add <fileNeu>`.
 
 Für `git log` gibt es eine schöne Option `-p`, die einen "Patch"
 ausgibt: Gelöschte Zeilen werden mit einem "-" und hinzugefügte Zeilen
-werden mit einem "+" angezeigt. Zusätzlich werden jeweils noch ein bis
-drei ungeänderte Zeile jeweils vor und nach der Änderung angezeigt.
+werden mit einem "+" angezeigt. Zusätzlich werden jeweils noch ein paar
+ungeänderte Zeilen vor und nach der Änderung angezeigt.
 
-Mit der Option `-S<SUCHSTRING>` zeigt `git log` alle Änderungen an, die
-diesen Suchstring in einer Datei betreffen.
+Mit der Option `-S'<SUCHSTRING>'` zeigt `git log` alle Commits an, in
+deren Diff sich die Anzahl der Vorkommen des Suchstrings ändert.
+Beispielsweise wenn in einem Commit der Suchstring neu eingefügt wurde,
+ändert sich die Anzahl von 0 auf 1. Beispiel: Wir suchen nach allen
+Commits, in denen der Begriff "foobar" neu hinzukommt oder verschwindet
+oder sich verdoppelt: `git log -p -S'foobar'`.
+
+Oft hilft `-S` nicht richtig, weil man Commits haben möchte, in deren
+Diff sich etwas in der selben *Zeile* ändert, in der der Suchstring
+vorkommt, aber nicht der Suchbegriff selbst. Da sich hier die Anzahl des
+Suchstrings im Diff nicht unbedingt ändert, würden diese Commits nicht
+angezeigt. Beispiel: Wir suchen nach allen Commits mit Änderungen des
+Zahlenwerts in der Zeile `foobar 10`. Hier hilft die Option
+`-G'<REGEX>'`: Damit werden alle Commits gefunden, in deren Diff sich in
+den Zeilen mit dem Suchausdruck etwas ändert: `git log -p -G'foobar'`
+findet alle Zeilen im Diff, wo "foobar" vorkommt, d.h. wenn sich
+beispielsweise die Zeile von `foobar  3` auf `foobar 10` ändert.
+Vorsicht: Im Unterschied zu `-S` ist hier der Suchstring ein regulärer
+Ausdruck (Regex). Git verwendet dabei eine etwas spezielle Regex-Syntax
+(siehe Git-Dokumentation).
+
+Wenn man nicht nach Änderungen im Diff, sondern stattdessen nach
+Begriffen in den Commit-Messages suchen möchte, kann man die Option
+`--grep='<SUCHSTRING>'` nutzen. Auch hier ist `<SUCHSTRING>` ein
+regulärer Ausdruck.
+
+Wenn man die gefundenen Stellen auf einen bestimmten Pfad (Datei)
+begrenzen möchte, kann man `--  pfad/zur/datei.md` hinten an den
+Log-Befehl anhängen. Beispielsweise würde
+`git log -p -G'foobar'  --  foo/bar.txt` alle Commits finden, in deren
+Diff "foobar" vorkommt und die die Datei `foo/bar.txt` betreffen.
+
+Normalerweise arbeitet sich `git log` vom jüngsten zum ältesten Commit
+durch, geht also in der Geschichte zurück. Wenn man die Reihenfolge
+umkehren möchte, kann man noch `--reverse` als zusätzliche Option
+nutzen. Man kann auch einen "Commit-Range" angeben, etwa
+`5c73aca..cb73f92`.
 
 Die Option `--all` zeigt alle Branches an, also nicht nur die Änderungen
 auf dem aktuell ausgecheckten Branch. Mit der zusätzlichen Option
@@ -638,7 +673,13 @@ mir dazu einen Alias (s.o.) angelegt.
 
     Änderungen zwischen Commits
 
-<!-- -->
+Git arbeitet zeilenbasiert. Änderungen an einem Wort tauchen also im
+Diff immer als ganze geänderte Zeile auf. (Das ist auch ein guter Grund,
+die Zeilenlänge zu begrenzen!)
+
+Gelöschte Zeilen werden mit einem "-" und hinzugefügte Zeilen werden mit
+einem "+" angezeigt. Zusätzlich werden jeweils noch ein paar ungeänderte
+Zeilen vor und nach der Änderung angezeigt.
 
 -   Blame: `git blame <file>`
 
@@ -668,6 +709,38 @@ mir dazu einen Alias (s.o.) angelegt.
 ```
 
 <p align="right"><a href="https://linux.die.net/man/5/gitignore">man 5 gitignore</a></p>
+
+##### Zeilenenden: Windows vs. der Rest der Welt
+
+Windows nutzt `CRLF` (`\r\n`) als Zeilenende, der Rest der Welt arbeitet
+mit `LF` (`\n`). Git versucht das zu erkennen und beim Commit bzw.
+Checkout automatisch zu konvertieren (z.B. alles im Repository als `LF`
+zu speichern und lokal auf Windows mit `CRLF` auszuchecken). Da es dabei
+oft Schwierigkeiten gibt und Warnungen wie "*LF will be replaced by CRLF
+the next time Git touches it*" auftauchen, kann man im Projekt eine
+Datei `.gitattributes` anlegen.
+
+Hier ein Beispiel mit einer minimalen Konfiguration, die ich häufig
+verwende:
+
+    * text=auto eol=lf
+
+    *.cmd text eol=crlf
+    *.bat text eol=crlf
+
+Das sagt Git, dass es Text-Dateien automatisch erkennen soll und sie im
+Repository mit `LF` (`\n`) als Zeilentrenner speichern soll. In der
+Workingcopy werden diese Dateien dann ebenfalls mit `LF` (`\n`)
+ausgecheckt - auch unter Windows. Für Dateien, die für Windows wichtig
+sind (beispielsweise die `gradlew.bat`), geben die letzten beiden Zeilen
+explizit an, dass Git sie in der Workingcopy mit Windows-üblichen
+Zeilenenden `CRLF` (`\r\n`) auschecken soll. Im Repository liegen sie
+trotzdem normalisiert mit `LF` (`\n`). So bleiben die Skripte unter
+Windows funktionsfähig, ohne dass jede:r Entwickler:in die eigene
+Git-Konfiguration anpassen muss.
+
+Siehe auch [man 5
+gitattributes](https://linux.die.net/man/5/gitattributes).
 
 ##### Zeitmaschine
 
@@ -17110,7 +17183,7 @@ Sie finden im Projekt ein lauffähiges Projektgerüst mit:
 Das fertige Spiel mit dem Beispiellevel könnte wie im folgenden
 Screenshot gezeigt aussehen:
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_locksnake.png"  /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_locksnake.png" width="60%" /></p>
 
 (hier noch ein Link zu einem kurzen Video
 \[[YT](https://youtu.be/3k2lEeYXBvs)\]/\[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-locksnake/93cb26977c1226d7ec23388909ec90fe)\]).
@@ -17872,18 +17945,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 98fb428 2026-05-05 update b03 (S26: lambda/methodrefs/observer)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 155213f 2026-05-06 b03: adjust image formatting<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
