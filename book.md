@@ -17183,7 +17183,7 @@ Sie finden im Projekt ein lauffähiges Projektgerüst mit:
 Das fertige Spiel mit dem Beispiellevel könnte wie im folgenden
 Screenshot gezeigt aussehen:
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_locksnake.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_locksnake_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_locksnake.png" width="60%" /></picture></p>
 
 (hier noch ein Link zu einem kurzen Video
 \[[YT](https://youtu.be/3k2lEeYXBvs)\]/\[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-locksnake/93cb26977c1226d7ec23388909ec90fe)\]).
@@ -17293,7 +17293,7 @@ das einen Editor auf Basis von `JTextPane` bereitstellt. Der Editor kann
 Text anzeigen, bearbeiten und farbige Hervorhebungen basierend auf
 sogenannten "Token-Treffern" (`HighlightRegion`) darstellen.
 
-<p align="center"><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_syntaxhighlighting.png" width="60%" /></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_syntaxhighlighting_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_syntaxhighlighting.png" width="60%" /></picture></p>
 
 Die Hervorhebung wird über die abstrakte Klasse `SyntaxHighlighter` mit
 dem Template-Method-Pattern realisiert:
@@ -18239,18 +18239,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 97eb284 2026-05-11 update b04 (S26: RegEx, Template-Method; JUnit; PR) (#1098)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> e3c186e 2026-05-12 homework: add inverted images<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
