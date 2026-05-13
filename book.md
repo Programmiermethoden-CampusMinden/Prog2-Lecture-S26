@@ -3219,13 +3219,38 @@ greift `gradlew` auf diese lokale (nicht "installierte")
 
 `gradle init` erzeugt den Wrapper automatisch in der verwendeten
 Gradle-Version mit. Alternativ kann man den Wrapper nachträglich über
-`gradle wrapper --gradle-version 9.4.1` in einer bestimmten
+`gradle wrapper --gradle-version 9.5.1` in einer bestimmten
 (gewünschten) Version anlegen lassen.
 
 Da der Gradle-Wrapper im Repository eingecheckt ist, benutzen alle
 Entwickler damit automatisch die selbe Version, ohne diese auf ihrem
 System zuvor installieren zu müssen. Deshalb ist der Einsatz des
 Wrappers einem fest installierten Gradle vorzuziehen!
+
+> [!IMPORTANT]
+>
+> **Wichtig**: Oft findet sich im `.gitignore` der Eintrag `*.jar`, d.h.
+> Jar-Files werden üblicherweise als generierte Binärdateien nicht mit
+> ins Repo eingecheckt. Dadurch wird aber auch der Gradle-Wrapper oft
+> vergessen, und beim Build in der CI-Pipeline schlägt das dann fehl.
+> Entweder definieren Sie für `gradle/wrapper/gradle-wrapper.jar` eine
+> Ausnahme im `.gitignore`, oder fügen Sie den Wrapper mit Hilfe des
+> Force-Flags der Versionskontrolle hinzu:
+> `git add  -f  gradle/wrapper/gradle-wrapper.jar`.
+
+> [!CAUTION]
+>
+> **Wichtig** (Windows-User): Der Gradle-Wrapper `gradlew` muss
+> ausführbar sein! Wenn Sie auf einem POSIX-System arbeiten (Linux,
+> macOS, BSD), dann wird das `x`-Bit (Unix-Executable-Bit) bereits beim
+> Initialisieren des Projekts durch `gradle init` oder über IntelliJ
+> automatisch korrekt gesetzt und bei einem `git add` mit ins Repo
+> eingecheckt. Windows und Windows-Dateisysteme kennen das
+> Unix-Executable-Bit nicht, deshalb muss man hier manuell nacharbeiten
+> und das Shell-Skript einmalig mit dem gesetzten `x`-Bit im Git-Repo
+> einchecken: `git add --chmod=+x gradlew`. Alternativ arbeiten Sie auf
+> Ihrem Windows-Rechner einfach in einer WSL-Umgebung und damit in einem
+> virtualisierten Linux.
 
 ##### Ausblick: Maven
 
@@ -4141,11 +4166,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v5
         with:
-          java-version: '17'
+          java-version: '25'
           distribution: 'temurin'
-      - uses: gradle/wrapper-validation-action@v1
+      - uses: gradle/actions/wrapper-validation@v3
       - run: echo "Hello"
       - run: ./gradlew compileJava
       - run: echo "wuppie!"
@@ -4155,11 +4180,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v5
         with:
-          java-version: '17'
+          java-version: '25'
           distribution: 'temurin'
-      - uses: gradle/wrapper-validation-action@v1
+      - uses: gradle/actions/wrapper-validation@v3
       - run: ./gradlew test
 
   job3:
@@ -4189,9 +4214,9 @@ Die Jobs werden unter dem Eintrag `jobs` definiert: `job1`, `job2` und
 
     Es wird zunächst das Repo mit Hilfe der Checkout-Action ausgecheckt
     (`uses: actions/checkout@v6`), das JDK eingerichtet/installiert
-    (`uses: actions/setup-java@v3`) und der im Repo enthaltene
+    (`uses: actions/setup-java@v5`) und der im Repo enthaltene
     Gradle-Wrapper auf Unversehrtheit geprüft
-    (`uses: gradle/wrapper-validation-action@v1`).
+    (`uses: gradle/actions/wrapper-validation@v3`).
 
     Die Actions sind vordefinierte Actions und im Github unter
     `github.com/` + Action zu finden, d.h.
@@ -4225,6 +4250,25 @@ dass dieser am besten aus einer Registry (etwa von Docker-Hub oder aus
 der GitHub-Registry) "gezogen" wird, weil das Bauen des
 Docker-Containers aus einem Docker-File in der Action u.U. relativ lange
 dauert.
+
+####### Der Gradle-Wrapper muss ausführbar sein
+
+Im Step `- run: ./gradlew test` wird der Gradle-Wrapper ausgeführt, der
+im Repo eingecheckt ist. Genauer gesagt wird das Shell-Skript `gradlew`
+gestartet. Dies ist unter POSIX-Systemen (u.a. Linux) nur möglich, wenn
+das sogenannte `x`-Bit (Unix-Executable-Bit) gesetzt ist. Entweder
+setzen Sie dieses im Workflow *jedes Mal als extra Step* vor einem
+Aufruf von `gradlew`, etwa per `- run: chmod +x gradlew`, oder Sie
+checken das Shell-Skript einmalig mit dem gesetzten `x`-Bit im Git-Repo
+ein: `git add --chmod=+x gradlew`.
+
+*Randnotiz*: Wenn Sie auf einem POSIX-System arbeiten (Linux, macOS,
+BSD), dann wird das `x`-Bit bereits beim Initialisieren des Projekts
+durch `gradle init` oder über IntelliJ automatisch korrekt gesetzt und
+ins Repo eingecheckt. Windows-Dateisysteme kennen das
+Unix-Executable-Bit nicht, deshalb muss man hier von Hand nacharbeiten.
+Alternativ arbeiten Sie auf Ihrem Windows-Rechner am besten in einer
+WSL-Umgebung.
 
 ###### Hinweise zur Konfiguration von GitHub Actions
 
@@ -15732,7 +15776,7 @@ mit.
 
     checkstyle {
         configFile file('checkstyle.xml')
-        toolVersion '10.23.0'
+        toolVersion '13.4.2'
     }
     ```
 
@@ -15827,7 +15871,7 @@ Alternativen/Ergänzungen: beispielsweise
     ``` groovy
     plugins {
         id "java"
-        id "com.github.spotbugs" version "5.0.6"
+        id "com.github.spotbugs" version "6.5.4"
     }
     spotbugs {
         ignoreFailures = true
@@ -16901,6 +16945,20 @@ Machen Sie sich mit der Arbeitsweise Ihrer IDE vertraut. Wenn Sie im
 Verlauf des Praktikums feststellen, dass die gewählte IDE nicht für Sie
 gemacht ist, können Sie jederzeit auf eine andere IDE wechseln.
 
+> [!CAUTION]
+>
+> Windows-User: Im Programmierumfeld, insbesondere für Source- und
+> Konfigurations-Dateien, ist das Encoding **UTF-8** de facto Standard.
+> D.h. wenn Sie beispielsweise ein Repo klonen, werden die Dateien im
+> UTF-8-Encoding heruntergeladen. Sorgen Sie in den Einstellungen Ihrer
+> IDE dafür, dass diese als Projekt-Encoding (und Datei-Encoding) UTF-8
+> nutzt:
+>
+> <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_intellij_encoding_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_intellij_encoding.png" width="60%" /></picture></p>
+>
+> Der Rest der Welt ist überwiegend auf UTF-8 umgestiegen, nur Windows
+> nutzt scheinbar immer noch Windows-1252 oder Cp1252.
+
 ###### Deaktivierung GenAI-Support
 
 Da Sie das Programmierhandwerk erlernen und vertiefen sollen, sollten
@@ -17143,7 +17201,7 @@ markierte Stellen in der Methode `setupOperationSelector`:
 ##### LockSnake: Lambda-Ausdrücke, Methodenreferenzen und Observer-Pattern
 
 Klonen/forken Sie die [Vorgaben
-"Calculator"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_locksnake)
+"LockSnake"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_locksnake)
 und laden Sie das Projekt in Ihre IDE. Konfigurieren Sie Gradle für
 dieses Projekt.
 
@@ -17287,13 +17345,14 @@ Regeln:
 
 #### Zusammenfassung
 
-Sie erhalten ein kleines
-[Java‑Programm](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_syntaxhighlighting),
+Sie erhalten als Vorgabe ein kleines (fertig konfiguriertes)
+Java-Projekt zum
+[Syntax-Highlighting](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_syntaxhighlighting),
 das einen Editor auf Basis von `JTextPane` bereitstellt. Der Editor kann
 Text anzeigen, bearbeiten und farbige Hervorhebungen basierend auf
 sogenannten "Token-Treffern" (`HighlightRegion`) darstellen.
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_syntaxhighlighting_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_syntaxhighlighting.png" width="60%" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_syntaxhighlighting_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/homework/images/screenshot_syntaxhighlighting.png" width="50%" /></picture></p>
 
 Die Hervorhebung wird über die abstrakte Klasse `SyntaxHighlighter` mit
 dem Template-Method-Pattern realisiert:
@@ -17326,252 +17385,367 @@ public abstract class SyntaxHighlighter {
 }
 ```
 
-##### Auf diesem Blatt sollen Sie:
+##### Aufgabenüberblick
 
-1.  einen einfachen Regex‑basierten Lexer `RegexHighlighter`
-    implementieren, der alle Token unabhängig voneinander auf den Text
-    anwendet, und
-2.  einen Scanning‑Lexer `ScanningHighlighter`, der den Text von links
-    nach rechts liest und an jeder Position das "beste" Token auswählt.
+Auf diesem Blatt werden Sie
 
-##### Orientierung
+1.  reguläre Ausdrücke für ein einfaches Java‑Syntaxhighlighting in
+    `MiniJavaTokens` definieren,
+2.  einen Regex‑basierten Lexer `RegexHighlighter` implementieren,
+3.  einen Scanning‑Lexer `ScanningHighlighter` implementieren,
+4.  dafür jeweils JUnit‑Tests schreiben,
+5.  und Pull‑Requests mit gegenseitigem Review sowie CI nutzen.
 
-Sie finden den Starter in der Klasse `highlighting.Main`; passen Sie
-hier bei Bedarf die zu startenden Editoren mit den unterschiedlichen
-Syntaxhighlighting-Varianten an.
+**Bitte erst das GESAMTE Blatt durchlesen, bevor Sie mit der Bearbeitung
+beginnen!**
 
-Der Editor an sich ist im Package `highlighting.ui` fertig implementiert
-(bitte nicht verändern).
+##### Orientierung (Vorgaben)
 
-Im Package `highlighting.regex` finden Sie die beiden Klassen
-`RegexHighlighter` und `ScanningHighlighter`, die Sie bitte fertig
-implementieren. Beachten Sie dabei sowohl die Aufgabenstellung hier auf
-dem Blatt als auch die (TODO-) Kommentare in den beiden Klassen. Hier
-finden Sie auch die fertig implementierte Klasse `Token`, die ein
-vorkompiliertes Pattern sowie eine `Color` kombiniert.
+Für dieses Blatt sind vor allem folgende Pakete/Klassen in den Vorgaben
+relevant:
 
-Im Package `highlighting.presets` finden Sie die Farbdefinitionen, die
-Sie anpassen können (aber nicht müssen). Die Klasse `MiniJavaTokens`
-definiert die Liste der zu verwendenden Token - diese sollen Sie bitte
-mit passenden Instantiierungen von `Token` und geeigneten regulären
-Ausdrücken ergänzen, um die verschiedenen Teile in typischem Java-Code
-farblich hervorheben zu können: unterschiedliche Kommentartypen,
-Keywords, Strings, Chars, ...
+-   `highlighting.Main`: Startklasse. Hier können Sie konfigurieren,
+    welche Highlighter im Editor verwendet werden
+-   `highlighting.ui`: fertige Swing‑GUI (bitte nicht ändern)
+-   `highlighting.core`:
+    -   `SyntaxHighlighter`: abstrakte Basisklasse mit Template‑Methode
+        `computeRegions`
+    -   `HighlightRegion`: beschreibt eine hervorgehobene Region
+        (`start`, `end`, `color`)
+-   `highlighting.regex`:
+    -   `Token`: kapselt `Pattern` + `Color` (+ optional
+        `matchingGroup`), liefert `List<HighlightRegion>`
+    -   `RegexHighlighter`: naiver Regex‑Highlighter (alle Token
+        unabhängig anwenden, nachträgliche Konfliktauflösung) - **hier
+        ergänzen Sie die Implementierung**
+    -   `ScanningHighlighter`: Scanner‑Variante (von links nach rechts,
+        längstes Match gewinnt) - **hier ergänzen Sie die
+        Implementierung**
+-   `highlighting.presets`:
+    -   `MiniJavaColours`: Farben für unterschiedliche Tokenarten
+    -   `MiniJavaTokens`: Liste der zu verwendenden Token - **hier
+        ergänzen Sie die regulären Ausdrücke**
+    -   `Texts`: Beispieltexte
 
-Schließlich finden Sie im Package `highlighting.core` noch die
-Basisklasse `SyntaxHighlighter` für das Syntaxhighlighting, von der
-`RegexHighlighter` und `ScanningHighlighter` ableiten, und die Klasse
-`HighlightRegion` zur Modellierung der hervorzuhebenden Bereiche (Start,
-Ende, Farbe).
+Bitte ignorieren Sie für dieses Blatt das Package `highlighting.antlr`
+und die ANTLR‑Konfiguration im `build.gradle`.
 
-Bitte ignorieren Sie auf diesem Blatt noch das Package
-`highlighting.antlr`, dieses spielt wie auch die ANTLR-Konfiguration im
-`build.gradle` erst auf dem nächsten Blatt eine aktive Rolle.
+##### Begriffe
+
+-   **Lexer/Scanner**: Ein Lexer (auch Scanner genannt) liest den
+    Eingabetext von links nach rechts und zerlegt ihn in eine Folge von
+    Token ("Wörter") wie Keywords, Bezeichner, Literale oder Kommentare
+    o.ä., jeweils mit ihrer Position im Text.
+-   **Token**: Objekt aus regulärem Ausdruck (`Pattern`), Farbe
+    (`Color`) und optional einer `matchingGroup`
+-   **Match/Treffer**: Konkrete Fundstelle im Eingabetext, die zu einem
+    Token passt
+-   **HighlightRegion**: Ergebnis für die GUI: `(start, end, color)` für
+    einen Treffer
+-   **Regionen als Intervalle**: Halb‑offene Intervalle `[start, end)`,
+    wie bei `String.substring(start, end)`. Zwei Regionen `[0,5)` und
+    `[5,8)` überlappen **nicht**.
 
 #### Aufgaben
 
-##### Syntaxhighlighting
+##### Reguläre Ausdrücke für das Syntaxhighlighting
 
-Damit wir auf diesem Blatt die gleichen Begriffe verwenden:
+Die Klasse `highlighting.regex.Token`:
 
--   **Token**: Ein Objekt, das aus einem regulären Ausdruck (`Pattern`)
-    und einer Farbe besteht (plus optionaler `matchingGroup`).
--   **Match/Treffer**: Eine konkrete Fundstelle im Eingabetext, die zu
-    einem Token passt.
--   **HighlightRegion**: Das Ergebnisformat für die GUI:
-    `(start, end, color)` für einen Treffer. Dabei bezeichnen `start`
-    und `end` die Start- bzw. Endposition des Matches im Eingabetext.
--   **Regionen als Intervalle**: Wir behandeln Bereiche als halb-offene
-    Intervalle `[start, end)`, wie Sie es von
-    `String.substring(start, end)` kennen. Zwei Regionen `[0,5)` und
-    `[5,8)` überlappen **nicht**.
+-   speichert ein vorkompiliertes `java.util.regex.Pattern` und eine
+    `java.awt.Color`,
+-   kann mit `test(String s)` auf einen Text angewendet werden,
+-   liefert eine `List<HighlightRegion>` (jede Region: Anfang, Ende,
+    Farbe) für alle Matches.
 
-###### Reguläre Ausdrücke für das Syntaxhighlighting
+Optional können Sie bei Tokens eine `matchingGroup` angeben:
 
-Die Basis für unser einfaches Syntaxhighlighting ist die Klasse `Token`
-im Package `highlighting.regex`, welche ein `java.util.regex.Pattern`
-(einen vorkompilierten regulären Ausdruck) speichert sowie eine Farbe
-(`java.awt.Color`) für das Syntax-Highlighting in der von uns als
-Vorgabe realisierten Swing-GUI.
+-   `0` (Default): komplette Match‑Region wird hervorgehoben
+-   `> 0`: nur die angegebene Capture‑Group im Pattern wird für
+    Start/Ende verwendet
 
-Das Kernstück von `Token` bildet die Methode
-`List<HighlightRegion> test(String s)`. Ein Token-Objekt (Instanz der
-Klasse `Token`) kann auf einen Text angewendet werden und sucht dabei
-alle Stellen im Text, auf die der reguläre Ausdruck passt. Damit die
-Nutzer:innen nicht mit den Match-Objekten arbeiten müssen, wird die
-Liste der Matches auf eine Liste von `highlighting.core.HighlightRegion`
-umgerechnet. Jede `HighlightRegion` kapselt den Anfang und das Ende der
-Position des Matches im Text sowie die zugeordnete Farbe.
+###### Aufgabe 1.1: `MiniJavaTokens` vervollständigen
 
-Neben dem jeweiligen Pattern kennt jedes Token noch eine
-`matchingGroup`: Dies ist ein Integer, der die relevante Matching-Group
-im regulären Ausdruck bezeichnet. Wenn Sie keine eigenen Gruppen in
-einem regulären Ausdruck eingebaut haben, nutzen Sie hier einfach den
-Wert 0. Wenn der reguläre Ausdruck aber Gruppen enthält, können Sie
-stattdessen eine andere Zahl angeben. Dann wird nur diese bestimmte
-Gruppe (also nur ein Teil des Treffers) für die Umrechnung in
-`HighlightRegion` genutzt.
+Vervollständigen Sie in der Klasse `highlighting.presets.MiniJavaTokens`
+die `Token`-Liste in der Methode
 
-Vervollständigen Sie die Klasse `highlighting.presets.MiniJavaTokens`.
-Überlegen Sie, welche Teile im Java-Quellcode hervorgehoben werden
-sollten, mindestens aber
+``` java
+public static List<Token> defaultTokens()
+```
 
--   Strings: alles zwischen `"` und dem nächsten `"`
--   Character: genau ein Zeichen zwischen `'` und `'`
--   Keywords: `package`, `import`, `class`, `public`, `private`,
-    `final`, `return`, `null`, `new` (jeweils freistehend, also nicht
-    "newx" o.ä.)
--   Annotation: beginnt mit `@`, enthält Buchstaben oder Minuszeichen,
-    z.B. `@Override`
--   Einzeiliger Kommentar: beginnend mit `//` bis zum Zeilenende
--   Mehrzeiliger Kommentar: alles zwischen `/*` und dem nächsten `*/`
--   Javadoc-Kommentar: alles zwischen `/**` und dem nächsten `*/`
--   ...
+Fügen Sie der Liste weitere `Token`‑Objekten mit passenden regulären
+Ausdrücken und Farben aus `MiniJavaColours` hinzu. Überlegen Sie, welche
+Teile im Java‑Quellcode hervorgehoben werden sollten, mindestens aber:
 
-**Hinweis (Vereinfachung):** Sie müssen keine vollständige
-Java-Lexer-Korrektheit erreichen. Insbesondere dürfen Sie bei
-Strings/Chars vereinfacht arbeiten. Falls Sie Escape-Sequenzen wie `\"`
-oder `\'` korrekt behandeln möchten, ist das erlaubt - aber nicht
-zwingend erforderlich, sofern Ihre Token in typischen Beispielen wie
-etwa dem Beispieltext `highlighting.presets.Texts.START_TEXT` sinnvoll
-funktionieren.
+-   **Strings**: alles zwischen `"` und dem nächsten `"`
+-   **Characters**: genau ein Zeichen zwischen `'` und `'`
+-   **Keywords** (als ganze Wörter, nicht als Teil anderer Bezeichner
+    oder Kommentare o.ä.): `package`, `import`, `class`, `public`,
+    `private`, `final`, `return`, `null`, `new`
+-   **Annotationen**: beginnen mit `@`, gefolgt von Buchstaben oder
+    Minuszeichen, z.B. `@Override`
+-   **Einzeilige Kommentare**: `//` bis zum Zeilenende
+-   **Mehrzeilige Kommentare**: `/*` ... `*/`
+-   **Javadoc‑Kommentare**: `/**` ... `*/` (ggf. anders einfärben als
+    normale Blockkommentare)
+-   ggf. weitere sinnvolle Token Ihrer Wahl (z.B. Zahlen, Typnamen,
+    Interfaces, ...)
 
-**Hinweis zur Reihenfolge:** Die Reihenfolge der Token in
-`MiniJavaTokens` kann wichtig sein (z.B. ist `/** ... */` auch ein
-`/* ... */`-Match). Wenn Sie Javadoc anders färben möchten als normale
-Blockkommentare, sollte das Javadoc-Token entsprechend vor dem normalen
-Blockkommentar-Token stehen.
+**Hinweise:**
 
-Definieren Sie für jeden hervorzuhebenden Teil des Sourcecodes ein
-Tokenobjekt mit einem passenden vorkompilierten regulären Ausdruck und
-einer Farbe aus `highlighting.presets.MiniJavaColours`. Für
-String-Literale ist ein Beispiel angegeben, ergänzen Sie die Liste
-`List.of(...)` geeignet. Ergänzen Sie bei Bedarf die Farbdefinitionen.
-Wenn Sie mit *capturing groups* arbeiten, geben Sie den Wert für die
-Gruppe mit an (der Wert 0 ist der Default und bedeutet: kompletter
-Match). Beachten Sie auch die (TODO-) Kommentare in der Klasse.
+-   Vollständige Java‑Lexer‑Korrektheit ist **nicht** erforderlich.
+    Vereinfachungen bei Strings/Chars sind erlaubt. Ihre Token sollten
+    mit dem Beispieltext `highlighting.presets.Texts.START_TEXT`
+    funktionieren.
+-   Die **Token‑Reihenfolge** in `MiniJavaTokens` **kann wichtig** sein:
+    z.B. Javadoc‑Token vor normalem Block‑Kommentar, damit `/** ... */`
+    nicht als normales `/* ... */` behandelt wird.
 
-Erstellen Sie JUnit-Tests für Ihre Token. Testen Sie pro Token
-unterschiedliche Szenarien, um Vertrauen in die korrekte Arbeitsweise
-der von Ihnen definierten regulären Ausdrücke zu gewinnen, z.B.:
+###### Aufgabe 1.2: JUnit‑Tests für Ihre Token
 
--   Treffer am Anfang / in der Mitte / am Ende des Textes
--   mehrere Treffer im selben Text
--   kein Treffer
--   typische Grenzfälle (z.B. Kommentar enthält "keyword-like" Text)
+Erstellen Sie aussagekräftige JUnit‑Tests für die von Ihnen definierten
+Token (am besten pro Token eine eigene Testmethode oder eigene
+Testklasse).
 
-###### Syntaxhighlighting mit dem RegexHighlighter
+Testen Sie insbesondere:
 
-Der `highlighting.regex.RegexHighlighter` realisiert ein naives
-Syntaxhighlighting: Alle Token aus der Liste in
-`highlighting.presets.MiniJavaTokens` werden in der Methode
-`computeRegions` auf den Eingabetext angewendet
-(`var candidates = collectMatches(text)`). Anschließend werden ungültige
-Regionen (etwa Startposition größer als die Endposition) herausgefiltert
-und die Regionen nach Startposition sortiert
-(`var normalized = normalize(candidates);`). Danach werden noch
-Konflikte aufgelöst: Bei überlappenden Regionen sollen nur die Regionen
-übrig bleiben, die in der normalisierten Liste **zuerst** stehen
-(`var resolved = resolveConflicts(normalized);`).
+-   Treffer **am Anfang / in der Mitte / am Ende** eines Textes
+-   **Mehrere Treffer** im selben Text
+-   **Kein Treffer**
+-   **Grenzfälle**, z.B.
+    -   Kommentar enthält "keyword‑ähnlichen" Text
+    -   Annotation direkt am Zeilenanfang / mit Leerzeichen
+    -   Strings mit `//` oder `/*` im Inhalt
 
-**Konfliktregel (präzise):** Gehen Sie die normalisierte Liste der Reihe
-nach durch und übernehmen Sie eine Region nur dann in die Ergebnisliste,
-wenn sie **nicht** mit einer bereits übernommenen Region überlappt.
-(Denken Sie dabei an halb-offene Intervalle `[start,end)`.)
+Ziel ist, Vertrauen in die Korrektheit Ihrer regulären Ausdrücke zu
+gewinnen.
 
-Die Methode `computeRegions` ist dabei ein Beispiel für den Einsatz des
-Template-Method-Patterns. Sie gibt den Arbeitsablauf vor und kann nicht
-verändert werden (`final`). Sie ruft in der richtigen Reihenfolge eine
-abstrakte Methode `collectMatches` sowie zwei implementierte
-Hilfsmethoden `normalize` und `resolveConflicts` auf. Während
-`normalize` bereits sinnvoll implementiert ist (aber überschrieben
-werden kann), ist `resolveConflicts` nur als Dummy realisiert und
-liefert die Eingabe direkt zurück ("Identität"). Beachten Sie, wie im
-`Main` die Highlighter angelegt werden.
+##### Syntaxhighlighting mit dem `RegexHighlighter`
 
-Implementieren Sie die Klasse `RegexHighlighter` mit den beiden Methoden
-`collectMatches` und `resolveConflicts` mit dem oben beschriebenen
-Verhalten. Beachten Sie auch die (TODO-) Kommentare in der Klasse.
+Der `highlighting.regex.RegexHighlighter` realisiert ein **naives**
+Syntaxhighlighting:
 
-Erstellen Sie JUnit-Tests für den `RegexHighlighter` und untersuchen Sie
-dabei unterschiedlich komplexe Szenarien, insbesondere auch
-Überlappungen (z.B. Keyword innerhalb eines Kommentars).
+1.  Alle Token aus `highlighting.presets.MiniJavaTokens` werden
+    unabhängig voneinander auf den Text angewendet.
+2.  Danach werden die Funde sortiert und Konflikte (Überlappungen)
+    aufgelöst.
 
-###### Syntaxhighlighting mit dem ScanningHighlighter
+Die Template‑Methode `computeRegions` in der Basisklasse
+`highlighting.core.SyntaxHighlighter` ist bereits gegeben und darf nicht
+verändert werden. Sie ruft in dieser Reihenfolge auf:
 
-Der `highlighting.regex.ScanningHighlighter` realisiert das übliche
-Vorgehen beim Erkennen von Token: Die Eingabe wird zeichenweise von
-links nach rechts gelesen. An jeder Position sollen Sie das längste
-Token auswählen, das genau an dieser Stelle beginnt. Gibt es mehrere
-gleich lange passende Tokens, soll das Token bevorzugt werden, das in
-der Token-Liste `highlighting.presets.MiniJavaTokens` weiter vorne
-steht.
+1.  `collectMatches(text)`
+2.  `normalize(candidates)`
+3.  `resolveConflicts(normalized)`
 
-**Wichtig (wenn nichts passt):** Wenn an einer Position **kein** Token
-beginnt, gehen Sie um genau ein Zeichen weiter (Index `i++`). Wenn ein
-Token passt, springen Sie direkt hinter dieses Token (Index `i = end`
-der gefundenen Region). So vermeiden Sie Endlosschleifen und stellen
-sicher, dass der gesamte Text verarbeitet wird.
+`normalize` ist bereits sinnvoll implementiert (Filterung ungültiger
+Regionen, Sortierung). `resolveConflicts` ist aktuell eine
+Identitätsfunktion und muss angepasst werden.
 
-Diese Klasse soll ebenfalls von `SyntaxHighlighter` erben und die
-abstrakte Methode `collectMatches` implementieren. Der Scan-Algorithmus
-soll dabei sicherstellen, dass die entstehende Liste von Regionen
-bereits sortiert ist, sich nicht überlappt und nur gültige Regionen
-enthält, sodass keine zusätzliche Normalisierung oder Konfliktauflösung
-nötig ist. Deshalb kann `resolveConflicts` unverändert bleiben, und
-`normalize` soll überschrieben werden, sodass sie die Identitätsfunktion
-ist (also die Argumente unverändert zurückgibt).
+###### Aufgabe 2.1: `RegexHighlighter.collectMatches` implementieren
 
-Erstellen Sie JUnit-Tests für den `ScanningHighlighter` und untersuchen
-Sie dabei unterschiedlich komplexe Szenarien, z.B.:
+Implementieren Sie in `highlighting.regex.RegexHighlighter` die Methode
 
--   "längstes Match gewinnt" (z.B. konkurrierende Token)
--   Gleichstand: zwei Token matchen gleich lang - früheres Token in
-    `MiniJavaTokens` gewinnt
--   Textstellen ohne Match - Scanner muss korrekt weiterlaufen
+``` java
+public List<HighlightRegion> collectMatches(String text)
+```
 
-###### Manueller Test
+so, dass
 
-Lassen Sie die beiden Highlighter-Strategien parallel laufen und
-vergleichen Sie die Ausgaben. Gibt es Unterschiede? Wenn ja, warum?
+-   alle Token aus `MiniJavaTokens` auf den Eingabetext angewendet
+    werden,
+-   alle gefundenen Regionen in einer gemeinsamen Liste gesammelt
+    werden,
+-   die Liste zurückgegeben wird (Sortierung übernimmt `normalize`).
 
-##### Git: Pull-Requests und CI
+Achten Sie auf die TODO‑Kommentare in der Klasse.
 
-Richten Sie eine CI-Pipeline für Ihr Projekt ein. Trennen Sie die Jobs
-"build" (nur Klassen kompilieren), "test" (JUnit-Tests ausführen) und
-"format" (Spotless testend ausführen).
+###### Aufgabe 2.2: `RegexHighlighter.resolveConflicts` implementieren
 
-Die Pipeline soll **nur** bei Pull-Requests und auf manuelle Anforderung
-laufen, nicht aber bei Push in den Hauptbranch (`master` oder `main`).
-(Hinweis für GitHub Actions: Trigger sind typischerweise `pull_request`
-und `workflow_dispatch`, aber **kein** `push`.)
+Implementieren Sie in `highlighting.regex.RegexHighlighter` die Methode
 
-Bearbeiten Sie die drei Implementierungsaufgaben (`MiniJavaTokens`,
-`RegexHighlighter`, `ScanningHighlighter`) in separaten
-Feature-Branches.
+``` java
+public List<HighlightRegion> resolveConflicts(List<HighlightRegion> normalized)
+```
 
-Legen Sie für jeden Branch frühzeitig je einen Pull-Request in Ihrem
-eigenen Repo an. Achten Sie auf die Details: Summary und Description
-sollten mindestens angepasst werden.
+mit folgender **Konfliktregel**:
 
-Lassen Sie Kommiliton:innen jeden Ihrer PR vor dem Mergen reviewen.
-(Dies beruht auf Gegenseitigkeit - führen Sie ebenfalls Reviews für
-andere durch! Das bedeutet aber auch, dass Sie nicht erst am Abend vor
-der Abgabe mit der Bearbeitung beginnen können!) Dabei soll konkret auch
-das Kommentieren an Codestellen geübt werden. Reagieren Sie auf die
-Kommentare, d.h. antworten Sie auf die Kommentare. Schließen Sie manuell
-Kommentare an Stellen, die nicht weiter bearbeitet werden sollen.
-Schließen Sie durch Änderung am Code (plus Push) Kommentare, denen Sie
-folgen wollen. Nutzen Sie auch die Funktion des "Code vorschlagen" in
-der Weboberfläche von GitHub.
+-   Gehen Sie die `normalized`‑Liste von vorne nach hinten durch.
+-   Fügen Sie eine Region nur dann in die Ergebnisliste ein, wenn sie
+    **nicht** mit einer bereits übernommenen Region überlappt:
+    -   Region `R` überlappt mit bereits gewählter Region `S`, falls
+        `[R.start, R.end)` und `[S.start, S.end)` sich schneiden.
+    -   Wenn eine Überlappung existiert, wird `R` verworfen (da `S`
+        früher in der Liste stand).
+-   Denken Sie daran, dass Intervalle halb‑offen sind: `[start, end)`
+    -\> `[0,5)` und `[5,8)` überlappen **nicht**.
 
-Mergen Sie die Pullrequests in der richtigen Reihenfolge.
+Die übergebene normalisierte Liste (`normalize`) ist bereits
 
-**Anmerkung**: Vermutlich ist es empfehlenswert, zunächst nur einen
-Branch+PR für die `MiniJavaTokens` zu öffnen und bis zum Merge zu
-bearbeiten. Sobald dieser PR gemergt ist, können die Arbeiten an
-`RegexHighlighter` und `ScanningHighlighter` in parallelen Branches
-erfolgen.
+-   nach Startposition sortiert,
+-   bei gleichem Start: längere Regionen zuerst.
+
+###### Aufgabe 2.3: JUnit‑Tests für den `RegexHighlighter`
+
+Erstellen Sie JUnit‑Tests für den `RegexHighlighter`. Untersuchen Sie
+u.a.:
+
+-   einfache Fälle ohne Überlappungen,
+-   überlappende Regionen, z.B.
+    -   Keyword innerhalb eines Kommentars,
+    -   Javadoc‑Kommentar, der auch vom normalen Blockkommentar‑Token
+        matchbar wäre,
+-   Fälle mit aufeinanderfolgenden Regionen, z.B. `[0,5)` und `[5,10)`
+    (diese dürfen **beide** bleiben),
+-   Leerstring bzw. Text ohne Matches.
+
+##### Syntaxhighlighting mit dem `ScanningHighlighter`
+
+Der `highlighting.regex.ScanningHighlighter` soll das typische
+Lexer‑Verhalten nachbilden:
+
+-   Der Text wird **zeichenweise** von links nach rechts gelesen.
+-   An jeder Position wählen Sie das **längste** passende Token, das
+    **genau an dieser Position beginnt**.
+-   Bei Gleichstand (mehrere Token mit gleich langer Match‑Region)
+    gewinnt das Token, das in `MiniJavaTokens` **früher in der Liste**
+    steht.
+
+**Wichtig, wenn kein Token passt:**
+
+-   Wenn an der aktuellen Position **kein** Token beginnt: Index um
+    **ein Zeichen** erhöhen (`i++`).
+-   Wenn ein Token passt: Index direkt **hinter** das gefundene Match
+    setzen (`i = end`).
+-   So vermeiden Sie Endlosschleifen und stellen sicher, dass der
+    gesamte Text gescannt wird.
+
+Die Klasse soll wieder von `SyntaxHighlighter` erben und nur
+`collectMatches` und `normalize` überschreiben.
+
+###### Aufgabe 3.1: `ScanningHighlighter.collectMatches` implementieren
+
+Implementieren Sie in `highlighting.regex.ScanningHighlighter` die
+Methode
+
+``` java
+public List<HighlightRegion> collectMatches(String text)
+```
+
+mit der oben beschriebenen Semantik.
+
+Die von Ihnen erzeugte Liste der `HighlightRegion`‑Objekte soll bereits
+
+-   sortiert sein,
+-   sich nicht überlappen,
+-   nur gültige Regionen enthalten.
+
+###### Aufgabe 3.2: `ScanningHighlighter.normalize` überschreiben
+
+Überschreiben Sie in `highlighting.regex.ScanningHighlighter` die
+Methode
+
+``` java
+public List<HighlightRegion> normalize(List<HighlightRegion> candidates)
+```
+
+so, dass sie einfach die Eingabe unverändert zurückgibt (Identität).
+Eine weitere Normalisierung ist hier nicht nötig, da `collectMatches`
+bereits eine geeignete Liste erzeugt.
+
+`resolveConflicts` können Sie in dieser Klasse unverändert von
+`SyntaxHighlighter` erben (Identität).
+
+###### Aufgabe 3.3: JUnit‑Tests für den `ScanningHighlighter`
+
+Erstellen Sie JUnit‑Tests für den `ScanningHighlighter`. Testen Sie
+insbesondere:
+
+-   **"Längstes Match gewinnt"** z.B. ein Text, in dem sowohl ein
+    kürzeres als auch ein längeres Token an derselben Position matchen
+    könnten.
+-   **Gleichstand** Zwei Token matchen gleich lang - prüfen Sie, dass
+    das frühere Token in `MiniJavaTokens` ausgewählt wird.
+-   **Textstellen ohne Match** Stellen ohne Token dürfen den Scanner
+    nicht blockieren; prüfen Sie, dass der Index korrekt weiterläuft.
+-   Kombinationen aus Treffern und Nicht‑Treffern im selben Text.
+
+###### Aufgabe 3.4: Manueller Vergleich mit `RegexHighlighter`
+
+Starten Sie die Anwendung so, dass beide Highlighter‑Strategien parallel
+laufen (z.B. zwei Fenster nebeneinander). Vergleichen Sie die
+Hervorhebungen visuell:
+
+-   Gibt es Unterschiede zwischen Regex‑Variante und Scanner‑Variante?
+-   Können Sie erklären, **warum** die Unterschiede auftreten?
+    -   z.B. wegen "längstes Match gewinnt" vs. "erstes Token gewinnt",
+    -   oder wegen der Konfliktauflösung im `RegexHighlighter`.
+
+##### Git: Pull‑Requests und CI
+
+Richten Sie für Ihr Projekt eine einfache CI‑Pipeline ein und nutzen Sie
+Pull‑Requests beim Erstellen Ihrer Implementierung.
+
+###### Aufgabe 4.1: CI‑Pipeline anlegen
+
+Nutzen Sie z.B. GitHub Actions und definieren Sie einen Workflow, der
+drei Jobs enthält:
+
+-   `build`: kompiliert nur das Projekt (nur die Klassen erstellen)
+-   `test`: führt die JUnit‑Tests aus
+-   `format`: führt Spotless im "testenden" Modus aus
+
+**Trigger:**
+
+-   Die Pipeline soll **nur** laufen bei
+    -   Pull‑Requests (`pull_request`) und
+    -   manueller Auslösung (`workflow_dispatch`).
+-   Sie soll **nicht** bei Pushs in den Hauptbranch (`master` oder
+    `main`) automatisch starten.
+
+###### Aufgabe 4.2: Branches und Pull‑Requests
+
+Bearbeiten Sie die drei Implementierungsaufgaben in separaten
+Feature‑Branches:
+
+-   ein Branch für `MiniJavaTokens`,
+-   ein Branch für `RegexHighlighter`,
+-   ein Branch für `ScanningHighlighter`.
+
+Für jeden Branch:
+
+1.  Legen Sie frühzeitig einen Pull‑Request in Ihrem eigenen Repo an.
+2.  Passen Sie **Summary** und **Description** im PR sinnvoll an:
+    -   Was wird geändert und warum?
+    -   Was ist der aktuelle Stand?
+    -   Gibt es offene Punkte?
+
+**Empfohlene Reihenfolge:**
+
+1.  Zuerst `MiniJavaTokens` fertigstellen und PR mergen.
+2.  Danach `RegexHighlighter` und `ScanningHighlighter` (können dann
+    parallel entwickelt werden).
+
+###### Aufgabe 4.3: Gegenseitige Reviews der PR
+
+-   Lassen Sie Kommiliton:innen jeden Ihrer PR vor dem Mergen reviewen.
+-   Führen Sie im Gegenzug selbst Reviews für andere durch.
+
+Achten Sie dabei auf:
+
+-   **Kommentieren an Codestellen**
+    -   konkrete Hinweise, Fragen, Verbesserungsvorschläge.
+-   **Reaktion auf Kommentare**
+    -   Antworten Sie auf Kommentare,
+    -   schließen Sie Kommentare bewusst:
+        -   manuell, wenn nichts weiter passieren soll,
+        -   durch Codeänderungen und erneuten Push, wenn Sie dem
+            Kommentar folgen/zustimmen.
+-   Nutzen Sie auch die GitHub‑Funktion "Code vorschlagen" in der
+    Weboberfläche.
+
+Mergen Sie die Pull‑Requests in der **passenden Reihenfolge**, sodass
+Folge‑Branches auf der jeweils aktuellen Basis aufsetzen.
 
 #### Bearbeitung und Abgabe
 
@@ -18241,16 +18415,16 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> e3c186e 2026-05-12 homework: add inverted images<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> bf49881 2026-05-13 b04: refine description and simplify task wording<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

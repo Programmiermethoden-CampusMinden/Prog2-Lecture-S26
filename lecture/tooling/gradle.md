@@ -564,13 +564,38 @@ greift `gradlew` auf diese lokale (nicht "installierte")
 
 `gradle init` erzeugt den Wrapper automatisch in der verwendeten
 Gradle-Version mit. Alternativ kann man den Wrapper nachträglich über
-`gradle wrapper --gradle-version 9.4.1` in einer bestimmten
+`gradle wrapper --gradle-version 9.5.1` in einer bestimmten
 (gewünschten) Version anlegen lassen.
 
 Da der Gradle-Wrapper im Repository eingecheckt ist, benutzen alle
 Entwickler damit automatisch die selbe Version, ohne diese auf ihrem
 System zuvor installieren zu müssen. Deshalb ist der Einsatz des
 Wrappers einem fest installierten Gradle vorzuziehen!
+
+> [!IMPORTANT]
+>
+> **Wichtig**: Oft findet sich im `.gitignore` der Eintrag `*.jar`, d.h.
+> Jar-Files werden üblicherweise als generierte Binärdateien nicht mit
+> ins Repo eingecheckt. Dadurch wird aber auch der Gradle-Wrapper oft
+> vergessen, und beim Build in der CI-Pipeline schlägt das dann fehl.
+> Entweder definieren Sie für `gradle/wrapper/gradle-wrapper.jar` eine
+> Ausnahme im `.gitignore`, oder fügen Sie den Wrapper mit Hilfe des
+> Force-Flags der Versionskontrolle hinzu:
+> `git add  -f  gradle/wrapper/gradle-wrapper.jar`.
+
+> [!CAUTION]
+>
+> **Wichtig** (Windows-User): Der Gradle-Wrapper `gradlew` muss
+> ausführbar sein! Wenn Sie auf einem POSIX-System arbeiten (Linux,
+> macOS, BSD), dann wird das `x`-Bit (Unix-Executable-Bit) bereits beim
+> Initialisieren des Projekts durch `gradle init` oder über IntelliJ
+> automatisch korrekt gesetzt und bei einem `git add` mit ins Repo
+> eingecheckt. Windows und Windows-Dateisysteme kennen das
+> Unix-Executable-Bit nicht, deshalb muss man hier manuell nacharbeiten
+> und das Shell-Skript einmalig mit dem gesetzten `x`-Bit im Git-Repo
+> einchecken: `git add --chmod=+x gradlew`. Alternativ arbeiten Sie auf
+> Ihrem Windows-Rechner einfach in einer WSL-Umgebung und damit in einem
+> virtualisierten Linux.
 
 ## Ausblick: Maven
 
@@ -801,4 +826,4 @@ eine gute Einstiegshilfe über den hier vorgestellten Ausblick hinaus.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 5c73aca 2026-05-04 lecture: update versions (spotless, junit, checkstyle, ...) in gradle and maven config examples<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 4e20e45 2026-05-13 gradle: wrap remarks in gh-alerts<br></sub></sup></p></blockquote>

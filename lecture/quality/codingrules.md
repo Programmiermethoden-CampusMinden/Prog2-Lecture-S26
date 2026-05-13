@@ -344,7 +344,7 @@ mit.
 
     checkstyle {
         configFile file('checkstyle.xml')
-        toolVersion '10.23.0'
+        toolVersion '13.4.2'
     }
     ```
 
@@ -439,7 +439,7 @@ Alternativen/Ergänzungen: beispielsweise
     ``` groovy
     plugins {
         id "java"
-        id "com.github.spotbugs" version "5.0.6"
+        id "com.github.spotbugs" version "6.5.4"
     }
     spotbugs {
         ignoreFailures = true
@@ -657,4 +657,4 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> ae99178 2026-05-04 codingrules: update spotless version<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 0914fc3 2026-05-13 lecture: update tooling versions throughout all examples and lessions<br></sub></sup></p></blockquote>

@@ -312,11 +312,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v5
         with:
-          java-version: '17'
+          java-version: '25'
           distribution: 'temurin'
-      - uses: gradle/wrapper-validation-action@v1
+      - uses: gradle/actions/wrapper-validation@v3
       - run: echo "Hello"
       - run: ./gradlew compileJava
       - run: echo "wuppie!"
@@ -326,11 +326,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v5
         with:
-          java-version: '17'
+          java-version: '25'
           distribution: 'temurin'
-      - uses: gradle/wrapper-validation-action@v1
+      - uses: gradle/actions/wrapper-validation@v3
       - run: ./gradlew test
 
   job3:
@@ -360,9 +360,9 @@ Die Jobs werden unter dem Eintrag `jobs` definiert: `job1`, `job2` und
 
     Es wird zunächst das Repo mit Hilfe der Checkout-Action ausgecheckt
     (`uses: actions/checkout@v6`), das JDK eingerichtet/installiert
-    (`uses: actions/setup-java@v3`) und der im Repo enthaltene
+    (`uses: actions/setup-java@v5`) und der im Repo enthaltene
     Gradle-Wrapper auf Unversehrtheit geprüft
-    (`uses: gradle/wrapper-validation-action@v1`).
+    (`uses: gradle/actions/wrapper-validation@v3`).
 
     Die Actions sind vordefinierte Actions und im Github unter
     `github.com/` + Action zu finden, d.h.
@@ -396,6 +396,25 @@ dass dieser am besten aus einer Registry (etwa von Docker-Hub oder aus
 der GitHub-Registry) "gezogen" wird, weil das Bauen des
 Docker-Containers aus einem Docker-File in der Action u.U. relativ lange
 dauert.
+
+#### Der Gradle-Wrapper muss ausführbar sein
+
+Im Step `- run: ./gradlew test` wird der Gradle-Wrapper ausgeführt, der
+im Repo eingecheckt ist. Genauer gesagt wird das Shell-Skript `gradlew`
+gestartet. Dies ist unter POSIX-Systemen (u.a. Linux) nur möglich, wenn
+das sogenannte `x`-Bit (Unix-Executable-Bit) gesetzt ist. Entweder
+setzen Sie dieses im Workflow *jedes Mal als extra Step* vor einem
+Aufruf von `gradlew`, etwa per `- run: chmod +x gradlew`, oder Sie
+checken das Shell-Skript einmalig mit dem gesetzten `x`-Bit im Git-Repo
+ein: `git add --chmod=+x gradlew`.
+
+*Randnotiz*: Wenn Sie auf einem POSIX-System arbeiten (Linux, macOS,
+BSD), dann wird das `x`-Bit bereits beim Initialisieren des Projekts
+durch `gradle init` oder über IntelliJ automatisch korrekt gesetzt und
+ins Repo eingecheckt. Windows-Dateisysteme kennen das
+Unix-Executable-Bit nicht, deshalb muss man hier von Hand nacharbeiten.
+Alternativ arbeiten Sie auf Ihrem Windows-Rechner am besten in einer
+WSL-Umgebung.
 
 ### Hinweise zur Konfiguration von GitHub Actions
 
@@ -471,4 +490,4 @@ Im Browser in den Repo-Einstellungen arbeiten:
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> ccaf961 2026-04-22 ci: rework all screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> fb88324 2026-05-13 ci: add comment regarding x-bit for gradlew when working on windows<br></sub></sup></p></blockquote>
