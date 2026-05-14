@@ -16835,7 +16835,7 @@ zunächst auf der Konsole) und das Schreiben von Gradle-Build-Skripten.
 
 ##### Git
 
-###### Git Status erklären
+###### Aufgabe 1.1: Git Status erklären
 
 Betrachten Sie die folgende Ausgabe von `git status` in einer lokalen
 Workingcopy (*Arbeitskopie*):
@@ -16860,7 +16860,7 @@ Erklären Sie die Ausgabe.
 Geben Sie eine Befehlssequenz an, mit der Sie nur die Änderungen in
 `foo.java` committen können.
 
-###### Git-Spiel
+###### Aufgabe 1.2: Git-Spiel
 
 Klonen Sie die [Vorgaben
 "Git-Quest"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_gitquest).
@@ -16906,7 +16906,7 @@ Sie finden die Geschichte des Helden Markus im Dungeon.[^2]
 
 Demonstrieren Sie Ihr Vorgehen im Praktikum jeweils live.
 
-###### Commit-Meldungen
+###### Aufgabe 1.3: Commit-Meldungen
 
 Gute Commit-Meldungen schreiben erfordert Übung. Schauen Sie sich die
 beiden Commits
@@ -16920,7 +16920,7 @@ Ihnen, was stört Sie? Schlagen Sie Verbesserungen vor.
 
 ##### Installation der Tools für Prog2
 
-###### Installation JDK
+###### Aufgabe 2.1: Installation JDK
 
 Sie benötigen für die Bearbeitung der Übungsaufgaben ein *Java
 Development Kit* (JDK). Wir verwenden in der Lehrveranstaltung
@@ -16934,7 +16934,7 @@ installiert haben sollten, stellen Sie bitte sicher, dass Sie für
 "Programmieren 2" tatsächlich das Java SE 25 (LTS) verwenden. Der
 Anbieter des JDKs sollte keine Rolle spielen.
 
-###### Installation IDE
+###### Aufgabe 2.2: Installation IDE
 
 Installieren Sie auf Ihrem Rechner eine IDE für Java Ihrer Wahl,
 empfohlen sind derzeit [IntelliJ IDEA (Community
@@ -16959,7 +16959,7 @@ gemacht ist, können Sie jederzeit auf eine andere IDE wechseln.
 > Der Rest der Welt ist überwiegend auf UTF-8 umgestiegen, nur Windows
 > nutzt scheinbar immer noch Windows-1252 oder Cp1252.
 
-###### Deaktivierung GenAI-Support
+###### Aufgabe 2.3: Deaktivierung GenAI-Support
 
 Da Sie das Programmierhandwerk erlernen und vertiefen sollen, sollten
 Sie im Rahmen dieser Lehrveranstaltung keine GenAI-gestützten
@@ -16973,7 +16973,7 @@ beispielsweise Claude, Copilot, JetBrains AI Assistant, Cursor, CodeGPT,
 Codeium, Tabnine, Windsurf, ... (Liste nicht vollständig) für die
 Bearbeitung der Übungsaufgaben in dieser Lehrveranstaltung ab.
 
-###### Gradle
+###### Aufgabe 2.4: Gradle
 
 Folgen Sie der Anleitung auf [gradle.org](https://gradle.org/) und
 installieren Sie Gradle auf Ihrem Rechner. Legen Sie in der Konsole ein
@@ -16996,7 +16996,7 @@ verschiedenen Tasks ansteuern?
 Machen Sie sich Notizen, welche Sie im Praktikum nutzen dürfen, um dort
 das Buildskript zu erklären.
 
-###### SSH-Keys zur Authentifikation bei GitHub/GitLab
+###### Aufgabe 2.5: SSH-Keys zur Authentifikation bei GitHub/GitLab
 
 Wenn Sie Repos klonen und in Zukunft Änderungen auch wieder auf den
 Server zurück pushen wollen, nutzen Sie am besten das SSH-Protokoll
@@ -17017,7 +17017,7 @@ Registrieren Sie den öffentlichen Schlüssel (*public key*) in den
 User-Einstellungen von GitHub (oder GitLab oder den von Ihnen
 präferierten Anbieter).
 
-##### Anlegen eines Java-Projektes als Basisprojekt für das Semester
+##### Aufgabe 3: Anlegen eines Java-Projektes als Basisprojekt für das Semester
 
 Legen Sie in Ihrer IDE ein neues Java-Projekt mit Gradle-Support an.
 
@@ -17071,7 +17071,7 @@ Weiterhin definieren Sie eine erste einfache CI-Pipeline für Ihr Repo.
 
 #### Aufgaben
 
-##### Git-Spiel
+##### Aufgabe 1: Git-Spiel
 
 Betrachten Sie erneut die [Vorgaben zur
 "Git-Quest"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_gitquest).
@@ -17108,7 +17108,7 @@ Forken Sie das
 ["Cat-Cafe"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_catcafe)-Repo
 und erzeugen Sie sich eine lokale Arbeitskopie von Ihrem Fork.
 
-###### Gradle
+###### Aufgabe 2.1: Gradle
 
 Erstellen Sie eine Gradle-Konfiguration für das Java-Projekt und fügen
 Sie als externe Abhängigkeiten **JUnit** (Version 6.x) sowie das
@@ -17122,7 +17122,7 @@ dass Sie
     der Default 2 Leerzeichen) anpassen? Lange Strings sollen ebenfalls
     umgebrochen werden (falls nötig).
 
-###### JUnit
+###### Aufgabe 2.2: JUnit
 
 Erstellen Sie mit JUnit mindestens 10 unterschiedliche Testfälle für die
 Klasse `CatCafe`. Achten Sie auf den Aufbau der Testfälle und nutzen Sie
@@ -17134,7 +17134,7 @@ Diskutieren Sie folgende Fragen:
 -   Warum sind die von Ihnen formulierten Testfälle relevant?
 -   Warum halten Sie die formulierten Testfälle für unterschiedlich?
 
-##### Remotes und CI-Pipeline
+##### Aufgabe 3: Remotes und CI-Pipeline
 
 Erstellen Sie auf GitHub (oder einem anderen kostenlosen Git-Anbieter)
 ein öffentlich einsehbares Repo.
@@ -17171,7 +17171,7 @@ kleinen Spiel.
 
 #### Aufgaben
 
-##### Calculator: Anonyme Klassen und Lambda-Ausdrücke
+##### Aufgabe 1: Calculator: Anonyme Klassen und Lambda-Ausdrücke
 
 Klonen/forken Sie die [Vorgaben
 "Calculator"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_calculator)
@@ -17222,22 +17222,6 @@ Sie finden im Projekt ein lauffähiges Projektgerüst mit:
 -   einer leeren Modellierung für den Spielzustand `GameState` sowie
     einem leeren Spielmodell `GameEngine`.
 
-###### Aufgaben
-
--   Analysieren Sie die Vorgaben und erstellen Sie ein
-    UML-Klassendiagramm, welches die Beziehungen zwischen den Klassen
-    zeigt.
--   Ergänzen Sie das Spielmodell `GameEngine` und die Modellierung des
-    Spielzustands `GameState` so, dass das Spiel spielbar ist und die
-    Pin-Mechanik korrekt funktioniert. (Die mit `TODO` markierten
-    Stellen sind ein guter Ausgangspunkt ...)
--   Nutzen Sie das Observer-Pattern, so dass die GUI `GamePanel`
-    automatisch aktualisiert wird, wenn sich der Spielzustand ändert.
--   Nutzen Sie das Observer-Pattern, so dass die `GameEngine`
-    automatisch benachrichtigt wird und den Spielzustand aktualisieren
-    kann, wenn eine konfigurierte Taste gedrückt wird.
--   Testen Sie Ihre Implementierung von `GameState` mit JUnit.
-
 Das fertige Spiel mit dem Beispiellevel könnte wie im folgenden
 Screenshot gezeigt aussehen:
 
@@ -17245,6 +17229,46 @@ Screenshot gezeigt aussehen:
 
 (hier noch ein Link zu einem kurzen Video
 \[[YT](https://youtu.be/3k2lEeYXBvs)\]/\[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-locksnake/93cb26977c1226d7ec23388909ec90fe)\]).
+
+###### Aufgabe 2.1: Code-Analyse
+
+Analysieren Sie die Vorgaben und erstellen Sie ein UML-Klassendiagramm,
+welches die Beziehungen zwischen den Klassen zeigt.
+
+###### Aufgabe 2.2: Spielmodell `GameEngine` und Spielzustand `GameState`
+
+Ergänzen Sie das Spielmodell `GameEngine` und die Modellierung des
+Spielzustands `GameState` so, dass das Spiel spielbar ist und die
+Pin-Mechanik korrekt funktioniert. (Die mit `TODO` markierten Stellen
+sind ein guter Ausgangspunkt ...)
+
+###### Aufgabe 2.3: Observer-Pattern
+
+1.  Nutzen Sie das Observer-Pattern, so dass die GUI `GamePanel`
+    automatisch aktualisiert wird, wenn sich der Spielzustand ändert.
+2.  Nutzen Sie das Observer-Pattern, so dass die `GameEngine`
+    automatisch benachrichtigt wird und den Spielzustand aktualisieren
+    kann, wenn eine konfigurierte Taste gedrückt wird.
+
+###### Aufgabe 2.4: JUnit
+
+Schreiben Sie Unit-Tests mit JUnit 6 für Ihre Implementierung der Klasse
+`GameState`, um die Spielzustands-Logik zuverlässig zu validieren.
+Decken Sie dabei mindestens diese Kernfälle ab: Bewegungen,
+Pin-Interaktionen, Kollisionen/Blockaden, Gewinn-/Verlustzustände,
+Initialzustand.
+
+Checkliste:
+
+-   Mindestens 10 gut dokumentierte Tests für GameState, wie oben
+    beschrieben.
+-   Tests decken alle genannten Kernfälle ab (Wand, Pin blockiert, Pin
+    aktivierbar, Selbstkollision, Gewinnbedingung, etc.).
+-   Tests verwenden klare Assertions, keine Off-by-One-Fehler,
+    eindeutige Erwartungshaltung, sprechende Testnamen,
+    "given-when-then"-Mantra.
+-   Tests bauen auf Level/Pin-Setup auf, sodass sie reproduzierbar sind
+    (Test-Fixtures).
 
 ###### Checkliste Abgabe
 
@@ -18413,18 +18437,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> bf49881 2026-05-13 b04: refine description and simplify task wording<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 9f2cf5c 2026-05-14 b03: add a checklist for the junit task<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
