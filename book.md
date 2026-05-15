@@ -11677,7 +11677,7 @@ Beim Parsen von "5\*4+3" würde dabei der folgende Parse-Tree entstehen:
 
 ##### Erinnerung: Baumstrukturen
 
-###### Begriffe
+**Begriffe**
 
 -   Ein Baum ist eine **hierarchische Datenstruktur**
     -   besteht aus **Knoten** (Nodes) und **Kanten** (Edges)
@@ -11690,7 +11690,7 @@ Beim Parsen von "5\*4+3" würde dabei der folgende Parse-Tree entstehen:
     -   **Höhe** des Baums = maximale Tiefe eines Knotens
     -   **Pfad**: Folge von Knoten von der Wurzel zu einem Knoten
 
-###### Beispiel
+**Beispiel**
 
                             (Root)
                             /    \
@@ -11702,20 +11702,21 @@ Beim Parsen von "5\*4+3" würde dabei der folgende Parse-Tree entstehen:
 -   Innere Knoten: `Root`, `A`, `B`
 -   Blätter: `C`, `D`, `E`
 
-###### Typische Einsatzgebiete
+**Typische Einsatzgebiete**
 
 -   Dateisystem
 -   GUI‑Komponentenbäume
 -   **Parsebäume** für Programme/Sprachen
 
-###### Brücke zu ANTLR
-
-[ANTLR](#id-83d8235fd174219b3470528d945d3dd848c55ad3) sind genau solche
-Bäume:
-
--   Wurzel = kompletter Input
--   innere Knoten = Grammatikregeln / Sprachkonstrukte
--   Blätter = Tokens
+> [!TIP]
+>
+> Die Parse-Trees in
+> [ANTLR](#id-83d8235fd174219b3470528d945d3dd848c55ad3) sind genau
+> solche Bäume:
+>
+> -   Wurzel = kompletter Input
+> -   innere Knoten = Grammatikregeln / Sprachkonstrukte
+> -   Blätter = Token
 
 ##### Erinnerung: Varianten der Datenhaltung
 
@@ -11775,13 +11776,11 @@ public class Leaf implements Tree {
 
 > [!TIP]
 >
-> Brücke zu ANTLR:
+> Die ANTLR‑Parsebäume sind im Wesentlichen **allgemeine (n‑äre) Bäume
+> mit Kinderliste**. Die Knoten enthalten typischerweise:
 >
-> -   ANTLR‑Parsebäume sind im Wesentlichen **allgemeine (n‑äre) Bäume
->     mit Kinderliste**
-> -   Knoten enthalten typischerweise:
->     -   Kontext für eine Grammatikregel (für innere Knoten), oder
->     -   ein Token (für Blätter)
+> -   Kontext für eine Grammatikregel (für innere Knoten), oder
+> -   ein Token (für Blätter)
 
 ##### Erinnerung: Algorithmische Varianten bei Bäumen
 
@@ -11919,6 +11918,8 @@ eine Funktion, mit der man den Ausdruck hübsch ausgeben kann:
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_print_uml_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/pattern/images/parsetree_eval_print_uml.png" width="70%" /></picture></p>
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/direct/DemoExpr.java">Beispiel: direct.DemoExpr</a></p>
+
+------------------------------------------------------------------------
 
 Das fängt an, sich zu wiederholen. Wir implementieren immer wieder
 ähnliche Strukturen, mit denen wir diesen Parse-Tree traversieren ...
@@ -12103,7 +12104,7 @@ ist das aber immer noch das gleiche Visitor‑Pattern:
 
 ####### Vor‑ und Nachteile der beiden Varianten
 
-####### Variante A: Überladene `visit(...)`‑Methoden
+**Variante A**: Überladene `visit(...)`‑Methoden
 
 ``` java
 void visit(NumExpr e);
@@ -12119,7 +12120,7 @@ void visit(AddExpr e);
     -   im Code muss man genauer auf den Parametertyp achten, um zu
         sehen, welche Variante gemeint ist
 
-####### Variante B: Unterschiedlich benannte Methoden
+**Variante B**: Unterschiedlich benannte Methoden
 
 ``` java
 void visitNumExpr(NumExpr e);
@@ -12137,27 +12138,27 @@ void visitAddExpr(AddExpr e);
     -   die Verbindung zum abstrakten Pattern ("eine `visit`‑Operation,
         spezialisiert für jede Unterklasse") ist weniger direkt sichtbar
 
-####### Bezug zu ANTLR
-
-ANTLR generiert typischerweise Visitor‑Interfaces mit **eigenen Namen
-pro Grammatikregel**, z.B.:
-
-``` java
-public interface ExprVisitor<T> extends ParseTreeVisitor<T> {
-    T visitAdd(ExprParser.AddContext ctx);
-    T visitMul(ExprParser.MulContext ctx);
-    T visitNum(ExprParser.NumContext ctx);
-}
-```
-
-Das entspricht genau der zweiten Variante oben. Wichtig ist für Sie:
-
--   Beides sind gültige Implementierungen des **gleichen**
-    Visitor‑Patterns.
--   Das **Double‑Dispatch‑Prinzip** und die Trennung von Datenstruktur
-    (`Expr`) und Operationen (`Visitor`) bleiben unverändert.
--   Die Wahl der Namenskonvention ist eine Design‑Entscheidung bzw.
-    durch das verwendete Tool (wie ANTLR) vorgegeben.
+> [!TIP]
+>
+> ANTLR generiert typischerweise Visitor‑Interfaces mit **eigenen Namen
+> pro Grammatikregel**, z.B.:
+>
+> ``` java
+> public interface ExprVisitor<T> extends ParseTreeVisitor<T> {
+>     T visitAdd(ExprParser.AddContext ctx);
+>     T visitMul(ExprParser.MulContext ctx);
+>     T visitNum(ExprParser.NumContext ctx);
+> }
+> ```
+>
+> Das entspricht genau der zweiten Variante oben. Wichtig ist für Sie:
+>
+> -   Beides sind gültige Implementierungen des **gleichen**
+>     Visitor‑Patterns.
+> -   Das **Double‑Dispatch‑Prinzip** und die Trennung von Datenstruktur
+>     (`Expr`) und Operationen (`Visitor`) bleiben unverändert.
+> -   Die Wahl der Namenskonvention ist eine Design‑Entscheidung bzw.
+>     durch das verwendete Tool (wie ANTLR) vorgegeben.
 
 ###### Double-Dispatch
 
@@ -19502,18 +19503,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
+-   ["356:
+    Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
+    by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
+    "Fachbegriffe der Informatik"
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
--   ["356:
-    Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
-    by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
-    "Fachbegriffe der Informatik"
 -   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> f16d8ad 2026-05-15 visitor: add teaser to pattern matching<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> c0e563e 2026-05-15 visitor: improve readability web-version<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
