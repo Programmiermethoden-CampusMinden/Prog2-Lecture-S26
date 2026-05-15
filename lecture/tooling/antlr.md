@@ -396,7 +396,7 @@ Eingabe `a = 1 + 2;` liefert:
 
     (prog (stmt a = (expr 1 + 2) ;) <EOF>)
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_parsetree_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_parsetree.png" width="40%" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_parsetree_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_parsetree.png" width="25%" /></picture></p>
 
 ## Der Parse-Tree: Klassenhierarchie
 
@@ -721,4 +721,4 @@ Wie es weitergeht: Vom Parse-Baum zum Compiler
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 7036396 2026-05-15 antlr: add new lesson (intro to antlr) (#1099)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 8d25a6a 2026-05-15 antlr: adjust image scaling for github<br></sub></sup></p></blockquote>
