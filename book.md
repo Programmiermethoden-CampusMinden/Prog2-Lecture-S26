@@ -4738,7 +4738,51 @@ Eingabe `a = 1 + 2;` liefert:
 
     (prog (stmt a = (expr 1 + 2) ;) <EOF>)
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_parsetree_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_parsetree.png" width="25%" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_parsetree_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/screenshot_parsetree.png" width="20%" /></picture></p>
+
+Der Parse-Tree spiegelt in seiner Struktur direkt die Regeln der
+Grammatik wider. Jede verwendete Parserregel bildet einen (inneren)
+Knoten im Baum, die konkreten Eingabetokens bilden die Blätter.
+
+-   Wir starten mit `prog` als Startregel und damit als Wurzelknoten.
+    Die Regel `prog` erlaubt beliebig viele `stmt` gefolgt von `EOF`. In
+    unserer Eingabe gibt es genau ein `stmt`, deshalb hat `prog` zwei
+    Kinder:
+
+    -   einen `stmt`-Knoten, und
+    -   ein `EOF`-Token als Blattknoten.
+
+-   Die Regel `stmt` hat zwei Alternativen:
+
+    -   `ID '=' expr ';'`, oder
+    -   `expr ';'`.
+
+    Unsere Eingabe `a = 1 + 2;` passt zur ersten Alternative.
+    Entsprechend hat der `stmt`-Knoten die folgenden Kinder:
+
+    -   ein `ID`-Token mit dem Wert `a`,
+    -   das (implizite) Token `=`,
+    -   einen `expr`-Knoten, und
+    -   das (implizite) Token `;`.
+
+-   Die Regel `expr` lautet:
+
+    ``` antlr
+    expr : INT ('+' INT)* ;
+    ```
+
+    Das bedeutet: ein `INT`, gefolgt von beliebig vielen Wiederholungen
+    von `+ INT`. In der Eingabe `1 + 2` ist das:
+
+    -   ein erstes `INT`-Token mit dem Wert `1`,
+    -   das (implizite) Token `+`, und
+    -   ein zweites `INT`-Token mit dem Wert `2`.
+
+    Diese drei Tokens bilden die Blätter unterhalb des `expr`-Knotens.
+
+Wenn der Parser am Ende beim `<EOF>`-Token angekommen ist und alle
+Regeln erfolgreich angewendet wurden, ist die komplette Eingabe
+abgedeckt und der Parse-Tree vollständig.
 
 ##### Der Parse-Tree: Klassenhierarchie
 
@@ -4983,10 +5027,13 @@ Wie es weitergeht: Vom Parse-Baum zum Compiler
 >
 > Sie finden auf der [ANTLR-Homepage](https://www.antlr.org) Links zur
 > Dokumentation und auch zum
-> [ANTLR-Projekt](https://github.com/antlr/antlr4) auf GitHub. Eine
-> ältere, aber dennoch interessante Quelle vom "Kopf" hinter ANTLR
-> (Terence Parr) ist Parr ([2014](#ref-Parr2014)), die auch online
-> verfügbar ist. Die
+> [ANTLR-Projekt](https://github.com/antlr/antlr4) auf GitHub.
+>
+> Eine ältere, aber dennoch interessante Quelle vom "Kopf" hinter ANTLR
+> (Terence Parr) ist ([Parr 2014](#ref-Parr2014)), die auch online
+> verfügbar ist.
+>
+> Die
 > [ANTLR-Dokumentation](https://github.com/antlr/antlr4/blob/4.6/doc/index.md)
 > und die
 > [ANTLR-FAQ](https://github.com/antlr/antlr4/blob/master/doc/faq/index.md)
@@ -19095,8 +19142,9 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
@@ -19104,9 +19152,8 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 8d25a6a 2026-05-15 antlr: adjust image scaling for github<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 8d2f14d 2026-05-15 antlr: adjust image scaling for web<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
