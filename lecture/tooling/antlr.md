@@ -727,10 +727,7 @@ Wie es weitergeht: Vom Parse-Baum zum Compiler
 > grammar OneTwo;
 >
 > s  : a EOF ;
->
-> a  : '1' a '1'
->    | '2'
->    ;
+> a  : '1' a '1' | '2' ;
 > ```
 >
 > 1.  Welche Token können Sie hier vom Lexer erwarten?
@@ -768,4 +765,4 @@ Wie es weitergeht: Vom Parse-Baum zum Compiler
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 8d2f14d 2026-05-15 antlr: adjust image scaling for web<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> c069d56 2026-05-15 antlr: improve readability of challenge example<br></sub></sup></p></blockquote>
