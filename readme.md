@@ -82,7 +82,7 @@ der Lösung im jeweiligen Praktikum in der Abgabewoche.
 |  | 11\. | [Lambdas](lecture/java-modern/lambdas.md), [Methodenrefs](lecture/java-modern/methodreferences.md); [Observer](lecture/pattern/observer.md), [Swing Events](lecture/gui/swing4-events.md) | [B02](homework/b02.md) |
 |  | 18\. | [Git3: Workflows](lecture/git/git3-workflows.md); [RegExp](lecture/java-classic/regexp.md); [Template-Method](lecture/pattern/template-method.md) | [B03](homework/b03.md) |
 |  | 25\. | **Feiertag** | **Feiertag** |
-| Juni | 01\. | [ANTLR](lecture/tooling/antlr.md); [Visitor](lecture/pattern/visitor.md); [Debugging](lecture/tooling/debugging.md) | [B04](homework/b04.md) |
+| Juni | 01\. | [Visitor](lecture/pattern/visitor.md); [ANTLR](lecture/tooling/antlr.md); [Debugging](lecture/tooling/debugging.md) | [B04](homework/b04.md) |
 |  | 08\. | [JUnit2: Testfälle](lecture/junit/junit2-testcases.md), [JUnit3: Mocking](lecture/junit/junit3-mockito.md); [Dependency Injection](lecture/java-classic/dependency.md), [Defaultmethoden](lecture/java-modern/defaultmethods.md) | **Kein Praktikum (Parcoursprüfung BC)** |
 |  | 15\. | [Records](lecture/java-modern/records.md), [Pattern Matching](lecture/java-modern/patternmatching.md), [Stream-API](lecture/java-modern/stream-api.md); [JUnit4: Property Testing](lecture/junit/junit4-property.md) | [B05](homework/b05.md) |
 |  | 22\. | [Generics1: Klassen/Methoden](lecture/java-classic/generics1-classes-methods.md), [Generics2: Bounds & Wildcards](lecture/java-classic/generics2-bounds-wildcards.md); [Command](lecture/pattern/command.md); [Logging](lecture/tooling/logging.md) | [B06](homework/b06.md) |
@@ -203,4 +203,4 @@ See the
 [credits](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/CREDITS.md)
 for a detailed list of contributing projects.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> bf25fb4 2026-04-14 readme: update link to discussions<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> d1d4bd6 2026-05-15 lecture: switch antlr and visitor (visitor should come first)<br></sub></sup></p></blockquote>

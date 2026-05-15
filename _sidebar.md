@@ -9,7 +9,7 @@
     - [Build-Systeme: Gradle](lecture/tooling/gradle.md)
     - [Java: Strukturieren mit Packages](lecture/tooling/packages.md)
     - [Continuous Integration (CI)](lecture/tooling/ci.md)
-    - [ANTLR](lecture/tooling/antlr.md)
+    - [Einführung in ANTLR](lecture/tooling/antlr.md)
     - [Debugging](lecture/tooling/debugging.md)
     - [Logging](lecture/tooling/logging.md)
     - [Einführung in Docker](lecture/tooling/docker.md)
