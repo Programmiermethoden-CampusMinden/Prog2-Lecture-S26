@@ -18518,6 +18518,35 @@ relevant:
 Bitte ignorieren Sie für dieses Blatt das Package `highlighting.antlr`
 und die ANTLR‑Konfiguration im `build.gradle`.
 
+##### Pflicht- und Bonusaufgaben
+
+Auf diesem Blatt müssen **insgesamt 3 Aufgaben** bearbeitet werden. Zu
+*jeder* gewählten Aufgabe sind **alle zugehörigen Teilaufgaben** zu
+bearbeiten.
+
+Pflichtaufgaben (müssen immer bearbeitet werden):
+
+-   **1. Reguläre Ausdrücke für das Syntaxhighlighting
+    (`MiniJavaTokens`)**
+-   **4. Git: Pull‑Requests und CI**
+
+Zusätzlich wählen Sie bitte **genau eine** der folgenden Aufgaben:
+
+-   **2. Syntaxhighlighting mit dem `RegexHighlighter`**
+
+    ***oder***
+
+-   **3. Syntaxhighlighting mit dem `ScanningHighlighter`**
+
+> [!IMPORTANT]
+>
+> -   Bearbeiten Sie Aufgabe 1 **und** Aufgabe 4 (mit allen
+>     Teilaufgaben).
+> -   Bearbeiten Sie **entweder** Aufgabe 2 **oder** Aufgabe 3 (mit
+>     allen Teilaufgaben).
+> -   Fortgeschrittene sollten **zusätzlich** auch die jeweils andere
+>     Aufgabe (2 oder 3) bearbeiten.
+
 ##### Begriffe
 
 -   **Lexer/Scanner**: Ein Lexer (auch Scanner genannt) liest den
@@ -18536,7 +18565,7 @@ und die ANTLR‑Konfiguration im `build.gradle`.
 
 #### Aufgaben
 
-##### Reguläre Ausdrücke für das Syntaxhighlighting
+##### 1. Reguläre Ausdrücke für das Syntaxhighlighting (`MiniJavaTokens`)
 
 Die Klasse `highlighting.regex.Token`:
 
@@ -18608,7 +18637,7 @@ Testen Sie insbesondere:
 Ziel ist, Vertrauen in die Korrektheit Ihrer regulären Ausdrücke zu
 gewinnen.
 
-##### Syntaxhighlighting mit dem `RegexHighlighter`
+##### 2. Syntaxhighlighting mit dem `RegexHighlighter`
 
 Der `highlighting.regex.RegexHighlighter` realisiert ein **naives**
 Syntaxhighlighting:
@@ -18687,7 +18716,7 @@ u.a.:
     (diese dürfen **beide** bleiben),
 -   Leerstring bzw. Text ohne Matches.
 
-##### Syntaxhighlighting mit dem `ScanningHighlighter`
+##### 3. Syntaxhighlighting mit dem `ScanningHighlighter`
 
 Der `highlighting.regex.ScanningHighlighter` soll das typische
 Lexer‑Verhalten nachbilden:
@@ -18769,7 +18798,7 @@ Hervorhebungen visuell:
     -   z.B. wegen "längstes Match gewinnt" vs. "erstes Token gewinnt",
     -   oder wegen der Konfliktauflösung im `RegexHighlighter`.
 
-##### Git: Pull‑Requests und CI
+##### 4. Git: Pull‑Requests und CI
 
 Richten Sie für Ihr Projekt eine einfache CI‑Pipeline ein und nutzen Sie
 Pull‑Requests beim Erstellen Ihrer Implementierung.
@@ -19503,18 +19532,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> c0e563e 2026-05-15 visitor: improve readability web-version<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 67310f5 2026-05-17 b04: reduce workload - let students choose between a2 and a3<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
