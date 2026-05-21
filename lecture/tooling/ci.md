@@ -316,7 +316,7 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-      - uses: gradle/actions/wrapper-validation@v3
+      - uses: gradle/actions/wrapper-validation@v6
       - run: echo "Hello"
       - run: ./gradlew compileJava
       - run: echo "wuppie!"
@@ -330,7 +330,7 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-      - uses: gradle/actions/wrapper-validation@v3
+      - uses: gradle/actions/wrapper-validation@v6
       - run: ./gradlew test
 
   job3:
@@ -362,7 +362,7 @@ Die Jobs werden unter dem Eintrag `jobs` definiert: `job1`, `job2` und
     (`uses: actions/checkout@v6`), das JDK eingerichtet/installiert
     (`uses: actions/setup-java@v5`) und der im Repo enthaltene
     Gradle-Wrapper auf Unversehrtheit geprüft
-    (`uses: gradle/actions/wrapper-validation@v3`).
+    (`uses: gradle/actions/wrapper-validation@v6`).
 
     Die Actions sind vordefinierte Actions und im Github unter
     `github.com/` + Action zu finden, d.h.
@@ -490,4 +490,4 @@ Im Browser in den Repo-Einstellungen arbeiten:
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> fb88324 2026-05-13 ci: add comment regarding x-bit for gradlew when working on windows<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 02f489a 2026-05-21 ci: update wrapper-validation action to v6<br></sub></sup></p></blockquote>

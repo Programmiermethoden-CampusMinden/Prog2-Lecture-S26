@@ -4170,7 +4170,7 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-      - uses: gradle/actions/wrapper-validation@v3
+      - uses: gradle/actions/wrapper-validation@v6
       - run: echo "Hello"
       - run: ./gradlew compileJava
       - run: echo "wuppie!"
@@ -4184,7 +4184,7 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-      - uses: gradle/actions/wrapper-validation@v3
+      - uses: gradle/actions/wrapper-validation@v6
       - run: ./gradlew test
 
   job3:
@@ -4216,7 +4216,7 @@ Die Jobs werden unter dem Eintrag `jobs` definiert: `job1`, `job2` und
     (`uses: actions/checkout@v6`), das JDK eingerichtet/installiert
     (`uses: actions/setup-java@v5`) und der im Repo enthaltene
     Gradle-Wrapper auf Unversehrtheit geprüft
-    (`uses: gradle/actions/wrapper-validation@v3`).
+    (`uses: gradle/actions/wrapper-validation@v6`).
 
     Die Actions sind vordefinierte Actions und im Github unter
     `github.com/` + Action zu finden, d.h.
@@ -19908,17 +19908,17 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 **Exceptions:**
 
 -   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> a9ff0af 2026-05-18 observer: fix even more typos<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 02f489a 2026-05-21 ci: update wrapper-validation action to v6<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
