@@ -4864,6 +4864,14 @@ Lektion [Visitor-Pattern](#id-ff6c3f74c23480f2273b18c9777709c80ff62a7e).
     -   `T visitProg(MiniCalcParser.ProgContext ctx)`
     -   `T visitStmt(MiniCalcParser.StmtContext ctx)`
     -   `T visitExpr(MiniCalcParser.ExprContext ctx)`
+-   Aus der Basisklasse `AbstractParseTreeVisitor<T>` erbt jeder Visitor
+    die Hilfsmethoden `visit(ParseTree tree)` und
+    `visitChildren(RuleNode node)`
+    -   `visit(ParseTree tree)` ist eine praktische Hilfsmethode, die
+        für einen Knoten `tree` an `tree.accept(this)`delegiert
+    -   `visitChildren(RuleNode node)` ruft für alle Kinder eines
+        Knotens `node` die `visit`-Methode auf - das ist die
+        Defaultimplementierung im `MiniCalcBaseVisitor<T>`
 
 ###### Vorgehen:
 
@@ -4940,6 +4948,103 @@ Lektion [Visitor-Pattern](#id-ff6c3f74c23480f2273b18c9777709c80ff62a7e).
     tatsächliche Anzahl der Kindknoten per Aufruf `ctx.getChildCount()`
     abfragen und dann mit `ctx.getChild(i)` gezielt auf ein Kind
     zugreifen (Indexbereich `0` bis `getChildCount() - 1`).
+
+> [!IMPORTANT]
+>
+> ###### Visitor-Rückgaben und Aggregation in ANTLR vs. zustandsbehaftete Visitoren
+>
+> Wir nutzen hier in Prog2 einfach einen **zustandsbehafteten Visitor**:
+> Die `visitXYZ`-Methoden arbeiten mit einer internen
+> **Hilfsdatenstruktur** wie `Stack`, `Map` oder `StringBuilder` (oder
+> andere, abhängig vom Ziel) und schreiben ihre Ergebnisse dort hinein.
+> Das ist leicht zu verstehen und man muss sich nicht darum kümmern, wie
+> ANTLR Ergebnisse aus Kindknoten zusammenführt.
+>
+> Sie überschreiben die `visitXYZ`-Methoden für Knoten, die Ausgaben
+> erzeugen sollen (z.B. `prog`, `stmt`, `expr`). Andere Regeln können
+> unüberschrieben bleiben, solange Sie in Ihren überschriebenen Methoden
+> die notwendigen Kinder mit `visit(...)` (oder `visitChildren(...)`)
+> weiter besuchen.
+>
+> Beispiel: Pretty-Printing für arithmetische Ausdrücke mit
+> `StringBuilder` (einfach und robust):
+>
+> ``` java
+> class PrettyPrinterState extends MiniCalcBaseVisitor<Void> {
+>   private final StringBuilder out = new StringBuilder();
+>
+>   // hier fehlt noch visitProg für korrekte Zeilenumbrüche zw. den Statements
+>   // hier fehlt noch visitExpr für eine "schöne" Formatierung der Expressions
+>
+>   @Override
+>   public Void visitStmt(MiniCalcParser.StmtContext ctx) {
+>     if (ctx.ID() != null) {             // stmt  : ID '=' expr ';'
+>       out.append(ctx.ID().getText()).append(" = ");
+>       visit(ctx.expr());
+>       out.append(";");
+>     } else {                            // stmt  : expr ';'
+>       visit(ctx.expr());
+>       out.append(";");
+>     }
+>     return null;
+>   }
+>
+>   public String result() {
+>     return out.toString();              // Zugriff auf das Ergebnis
+>   }
+> }
+> ```
+>
+> Für Fortgeschrittene: Man kann auch mit Rückgabewerten arbeiten und
+> die Standardlogik aus `AbstractParseTreeVisitor` nutzen. Dann ist
+> wichtig zu wissen: `visitChildren()` sammelt die Ergebnisse der Kinder
+> über eine *interne Aggregation*. Wenn man will, dass wirklich alle
+> Kind-Ergebnisse korrekt zusammenkommen (zum Beispiel bei `String`),
+> muss man in der eigenen Visitor-Klasse normalerweise `defaultResult()`
+> und `aggregateResult()` geeignet überschreiben.
+>
+> Vorsicht: Ein häufiges Problem beim Rückgabe-Visitor ist das "Teile
+> verschlucken". In `AbstractParseTreeVisitor` ist die
+> Standardaggregation so ausgelegt, dass oft nur ein Teilergebnis
+> weitergegeben wird (typisch: das letzte Nicht-Default-Ergebnis).
+> Deshalb muss man für `String` meist `defaultResult()` und
+> `aggregateResult()` überschreiben, damit wirklich wie gewünscht in
+> allen Fällen konkateniert wird.
+>
+> Beispiel für Fortgeschrittene: Pretty-Printing für arithmetische
+> Ausdrücke mit ANTLR-Aggregation mit Typ-Variablen/Rückgabetyp `String`
+> (mehr "Magie", aber sauber):
+>
+> ``` java
+> class PrettyVisitorAggregation extends MiniCalcBaseVisitor<String> {
+>   @Override protected String defaultResult() {
+>     return "";
+>   }
+>
+>   @Override
+>   protected String aggregateResult(String aggregate, String nextResult) {
+>     return aggregate + nextResult;
+>   }
+>
+>   // hier fehlt noch visitProg für korrekte Zeilenumbrüche zw. den Statements
+>   // hier fehlt noch visitExpr für eine "schöne" Formatierung der Expressions
+>
+>   @Override
+>   public String visitStmt(MiniCalcParser.StmtContext ctx) {
+>     if (ctx.ID() != null)               // stmt  : ID '=' expr ';'
+>       return ctx.ID().getText() + " = " + visit(ctx.expr()) + ";\n";
+>     else                                // stmt  : expr ';'
+>       return visit(ctx.expr()) + ";\n";
+>   }
+>
+>   // Ergebnis über den Rückgabetyp - keine Hilfsmethode und interne Hilfsdatenstruktur notwendig
+> }
+> ```
+>
+> Merke: `StringBuilder` ist oft die beste Wahl für den Einstieg. Die
+> eingebaute Aggregation ist praktisch, aber nur dann gut nutzbar, wenn
+> man die Sammellogik (`defaultResult`/`aggregateResult`) passend
+> definiert.
 
 ##### Ausblick: Pattern Matching auf Bäumen (neuere Java-Versionen)
 
@@ -20098,7 +20203,7 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
@@ -20107,9 +20212,9 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 90a3690 2026-05-23 antlr: extend example<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> b161934 2026-05-23 antlr: add remarks regarding results of visitors<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
