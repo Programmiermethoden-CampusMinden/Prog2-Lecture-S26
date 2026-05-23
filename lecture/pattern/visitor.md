@@ -76,11 +76,19 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Visitor-Pattern](https://youtu.be/zW_2oQmjp8M)
-> -   [Demo Visitor-Pattern (Part I: Traversierung ohne
->     Visitor)](https://youtu.be/9dvcufpyQdw)
-> -   [Demo Visitor-Pattern (Part II: Traversierung mit
->     Visitor)](https://youtu.be/4rBRkXKhuN4)
+> Vorlesung \[[YT](https://youtu.be/G0kdTC4rA7c)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-visitor-pattern/dcc6bb81b3ec3bcb81d42e34c7b607c5)\]
+>
+> Demo:
+>
+> -   Bäume und direkte Traversierung (1/3)
+>     \[[YT](https://youtu.be/Vu-k_i6ctaA)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-bume-und-direkte-traversierung-visitor-13/b9a2f4f1957056a3b8e63891a5ae2b5c)\]
+> -   Traversierung mit dem Visitor-Pattern (2/3)
+>     \[[YT](https://youtu.be/XaEiFtNaVh8)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-traversierung-mit-dem-visitor-pattern-visitor-23/d02caacb0c6c9fefe4c75c6c3febb7c3)\]
+> -   Double Dispatch (3/3) \[[YT](https://youtu.be/3MD3mgEgcww)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-visitor-und-double-dispatch-visitor-33/2703005c9a051f27d2180bd875451932)\]
 >
 > </details>
 
@@ -934,4 +942,4 @@ Klassenstruktur
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> c0e563e 2026-05-15 visitor: improve readability web-version<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> e26860c 2026-05-23 visitor: rework all screencasts<br></sub></sup></p></blockquote>

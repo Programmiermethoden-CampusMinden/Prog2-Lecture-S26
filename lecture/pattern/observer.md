@@ -37,11 +37,8 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> Vorlesung \[[YT](https://youtu.be/yzh2ZYZOMFg)\],
-> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-observer-pattern/80f0423b5dbb7574718fe4f2ecd39e53)\]
->
-> Demo \[[YT](https://youtu.be/bBwqo2TTgCM)\],
-> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-observer-pattern/a771ca7e86701b18cd903642886cbe42)\]
+> Vorlesung \[[YT](https://youtu.be/CJ_1WkBdhRQ)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-observer-pattern/b333050d82fd710c6d38d0662911c04b)\]
 >
 > </details>
 
@@ -406,4 +403,4 @@ Statusänderungen
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> a9ff0af 2026-05-18 observer: fix even more typos<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> ec3f40f 2026-05-23 observer: rework screencasts after student feedback<br></sub></sup></p></blockquote>

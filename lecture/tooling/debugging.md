@@ -34,7 +34,8 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/iARD8mW0vrM)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-debugging/943f962491c29fe171f465dffbb47f52)\]
 >
 > </details>
 
@@ -275,4 +276,4 @@ Danach erneut im Debug-Modus ausführen und die Werte von `i`, `n` und
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 7322828 2026-05-17 debugging: add new lesson (#1101)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 83644c0 2026-05-23 debugging: add new screencasts<br></sub></sup></p></blockquote>

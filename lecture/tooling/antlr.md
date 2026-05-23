@@ -34,7 +34,11 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/06sG5gdasmw)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-einfhrung-in-antlr/46b1a5a3082d9095bdf88e06fc805762)\]
+>
+> Demo: \[[YT](https://youtu.be/DMvugCk86Jo)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-antlr/aa234e8b5cbc2162c92965ca5485b277)\]
 >
 > </details>
 
@@ -765,4 +769,4 @@ Wie es weitergeht: Vom Parse-Baum zum Compiler
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> c069d56 2026-05-15 antlr: improve readability of challenge example<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> e729165 2026-05-23 antlr: add new screencasts<br></sub></sup></p></blockquote>
