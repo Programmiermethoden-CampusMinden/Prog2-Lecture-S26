@@ -39,6 +39,14 @@
 >
 > </details>
 
+## Software hat (immer) Fehler
+
+-   **Testen** = Aufdecken/Provozieren von Fehlern
+
+<!-- -->
+
+-   **Debuggen** = Finden der Stelle im Code
+
 ## Warum Debuggen?
 
 Typische Fehlerarten:
@@ -68,6 +76,8 @@ entfernen muss :)
 -   **Breakpoint**
     -   Rotes Markierungssymbol an einer Codezeile
     -   Programm hält an dieser Stelle an
+    -   Bedingte Breakpoints prüfen einen Ausdruck und halten nur an,
+        wenn die Bedingung erfüllt ist
 -   **Run / Debug**
     -   Programm im **Debug-Modus** starten (statt normalem Run)
 -   **Step Over**
@@ -76,16 +86,23 @@ entfernen muss :)
 -   **Step Into**
     -   In den aufgerufenen Methoden-Body hineinspringen
 -   **Step Out**
-    -   Aktuelle Methode bis zum Ende ausführen und zurück zur
-        Aufrufer:in
+    -   Aktuellen Stack-Frame (laufender Aufruf einer Methode/Funktion)
+        bis zum Ende ausführen und zurück zum Aufrufer
 -   **Resume**
     -   Setze das Programm fort (bis zum nächsten Breakpoint oder bis
         zum Programmende - was von beidem als erstes auftritt)
 -   **Variables / Watches**
     -   Aktuelle Werte von Variablen und Ausdrücken ansehen und (bei
         Bedarf) ändern
+    -   Watches: können Variablen und komplexere Ausdrücke halten,
+        werden ganz oben in der Variablenliste angezeigt
+-   **Evaluate Expressions**
+    -   Ausdrücke im laufenden Programm auswerten, auch mit
+        Nebeneffekten
+    -   Ausdrücke können auch als "Watch" angelegt werden und bleiben
+        dauerhaft im Blick
 -   **Call Stack**
-    -   Liste der aktuell verschachtelten Methodenaufrufe
+    -   Liste der aktuell verschachtelten Methodenaufrufe (Stack Frames)
 
 Die Begriffe können je nach IDE (IntelliJ, Eclipse, VS Code, ...) leicht
 variieren.
@@ -111,6 +128,8 @@ variieren.
 ## Demo 1: Exception beim Median (Crash)
 
 ### Beispielmethode:
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/tooling/src/debugging/DebugDemo.java#L29">Beispiel: debugging.DebugDemo#median</a></p>
 
 ``` java
 static int median(List<Integer> numbers) {
@@ -161,6 +180,8 @@ behoben ist.
 ## Demo 2: Logikfehler bei der Summe (falsches Ergebnis)
 
 ### Beispielmethode:
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/tooling/src/debugging/DebugDemo.java#L19">Beispiel: debugging.DebugDemo#sumEvenNumbers</a></p>
 
 ``` java
 static int sumEvenNumbers(List<Integer> numbers) {
@@ -276,4 +297,4 @@ Danach erneut im Debug-Modus ausführen und die Werte von `i`, `n` und
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 83644c0 2026-05-23 debugging: add new screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 4e43215 2026-05-23 debugging: add bullet point for evaluate expressions<br></sub></sup></p></blockquote>

@@ -203,11 +203,15 @@ Der typische Lebenszyklus eines Observers sieht also so aus:
 > muss sich entsprechend eine eigene Referenz auf das beobachtete Objekt
 > halten, um von dort dann weitere Informationen erhalten zu können.
 >
-> Wir nutzen im Rahmen dieses Moduls in der Regel eine **praktischere
+> Wir nutzen im Rahmen dieses Moduls in der Regel eine **erweiterte
 > Variante**, bei der `update()` einen oder mehrere Parameter
-> mitbekommt, z.B. eine Referenz auf das `Observable` oder (meist
-> besser) direkt die relevanten Daten. Ein angepasstes Interface könnte
-> z.B. so aussehen:
+> mitbekommt, z.B.
+>
+> -   eine Referenz auf das `Observable`, oder (meist besser)
+> -   direkt die relevanten Daten.
+>
+> Ein angepasstes Interface für das obige Beispiel könnte beispielsweise
+> so aussehen, wenn wir eine Referenz auf das Observable übergeben:
 >
 > ``` java
 > public interface Observer {
@@ -215,7 +219,7 @@ Der typische Lebenszyklus eines Observers sieht also so aus:
 > }
 > ```
 >
-> Oder noch besser:
+> Oder noch besser, wir geben direkt die relevanten Daten mit:
 >
 > ``` java
 > public interface Observer {
@@ -403,4 +407,4 @@ Statusänderungen
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> ec3f40f 2026-05-23 observer: rework screencasts after student feedback<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 5aa48b5 2026-05-23 observer: improve wording: classic pattern vs. extended pattern<br></sub></sup></p></blockquote>

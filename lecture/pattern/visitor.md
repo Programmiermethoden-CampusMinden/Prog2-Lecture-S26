@@ -43,23 +43,23 @@
 >
 > In diesem Pattern spricht man von "Double-Dispatch":
 >
-> -   Zur Compile‑Zeit ist bei einem Aufruf wie `e.accept(v)` nur der
+> -   Zur Compile-Zeit ist bei einem Aufruf wie `e.accept(v)` nur der
 >     Obertyp `Expr` bekannt. Zur **Laufzeit** entscheidet der
 >     tatsächliche Typ von `e` (z.B. `AddExpr`), welche konkrete
->     `accept`‑Methode ausgeführt wird. -\> *erster Dispatch*:
+>     `accept`-Methode ausgeführt wird. -\> *erster Dispatch*:
 >     dynamischer Dispatch auf das **Element**.
-> -   In der jeweiligen `accept`‑Methode steht dann z.B.
+> -   In der jeweiligen `accept`-Methode steht dann z.B.
 >     `v.visit(this)`. Der **statische** Typ von `this` ist dort z.B.
->     `AddExpr`, dadurch ist zur Compile‑Zeit klar, welche
->     `visit`‑Überladung gemeint ist (`visit(AddExpr)`). Zur
+>     `AddExpr`, dadurch ist zur Compile-Zeit klar, welche
+>     `visit`-Überladung gemeint ist (`visit(AddExpr)`). Zur
 >     **Laufzeit** entscheidet der tatsächliche Typ von `v` (z.B.
 >     `EvalVisitor` vs. `PrintVisitor`), welche Implementierung dieser
->     `visit(AddExpr)`‑Methode aufgerufen wird. -\> *zweiter Dispatch*:
+>     `visit(AddExpr)`-Methode aufgerufen wird. -\> *zweiter Dispatch*:
 >     dynamischer Dispatch auf den **Visitor**.
 >
 > Zusammen: Die endgültige Methode ergibt sich aus dem Zusammenspiel des
-> Laufzeittyps des Elements (welche `accept`‑Methode) und des
-> Laufzeittyps des Visitors (welche `visit`‑Implementierung für den
+> Laufzeittyps des Elements (welche `accept`-Methode) und des
+> Laufzeittyps des Visitors (welche `visit`-Implementierung für den
 > konkreten Elementtyp).
 >
 > Das Pattern wird traditionell gern für die Traversierung von
@@ -150,7 +150,7 @@ Beim Parsen von "5\*4+3" würde dabei der folgende Parse-Tree entstehen:
 **Typische Einsatzgebiete**
 
 -   Dateisystem
--   GUI‑Komponentenbäume
+-   GUI-Komponentenbäume
 -   **Parsebäume** für Programme/Sprachen
 
 > [!TIP]
@@ -190,10 +190,10 @@ public class BinaryTreeNode {
 }
 ```
 
-**Allgemeine (n‑äre) Bäume (Kinderliste)**
+**Allgemeine (n-äre) Bäume (Kinderliste)**
 
 -   beliebig viele Kinder: Speicherung in einer Liste
--   typisch für: **Parsebäume / ASTs**, XML/HTML‑DOM, GUI‑Hierarchien,
+-   typisch für: **Parsebäume / ASTs**, XML/HTML-DOM, GUI-Hierarchien,
     ...
 
 ``` java
@@ -220,7 +220,7 @@ public class Leaf implements Tree {
 
 > [!TIP]
 >
-> Die ANTLR‑Parsebäume sind im Wesentlichen **allgemeine (n‑äre) Bäume
+> Die ANTLR-Parsebäume sind im Wesentlichen **allgemeine (n-äre) Bäume
 > mit Kinderliste**. Die Knoten enthalten typischerweise:
 >
 > -   Kontext für eine Grammatikregel (für innere Knoten), oder
@@ -232,18 +232,18 @@ public class Leaf implements Tree {
     -   Binäre Suchbäume (BST):
         -   Invariante: links $<$ Wert $<$ rechts
     -   Selbstbalancierende Bäume:
-        -   **AVL‑Bäume**
-        -   **Rot‑Schwarz‑Bäume**
--   **Mehrweg‑Suchbäume**
-    -   **B‑Bäume, B+-Bäume**
+        -   **AVL-Bäume**
+        -   **Rot-Schwarz-Bäume**
+-   **Mehrweg-Suchbäume**
+    -   **B-Bäume, B+-Bäume**
         -   mehrere Schlüssel und mehrere Kinder pro Knoten
 -   **Heaps**
-    -   Min‑Heap, Max‑Heap
+    -   Min-Heap, Max-Heap
     -   Grundlage für Prioritätswarteschlangen
 -   Einordnung:
     -   Diese Varianten optimieren v.a. **Laufzeiten** (Suchen,
         Einfügen, Löschen)
-    -   Für das **Visitor‑Pattern** heute wichtig:
+    -   Für das **Visitor-Pattern** heute wichtig:
         -   Wir brauchen "nur" eine Baumstruktur, über die wir
             systematisch laufen
         -   Ob der Baum balanciert ist oder nicht, ist für das
@@ -503,13 +503,73 @@ Vorteil, da man hier unterschiedliche Traversierungsarten haben möchte
 (Breitensuche vs. Tiefensuche, Pre-Order vs. Inorder vs. Post-Order,
 ...) und diese elegant in den Visitor verlagern kann.
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/visit/intrav/DemoExpr.java">Beispiel Traversierung intern (in den Knotenklassen): visitor.visit.intrav.DemoExpr</a></p>
+#### Beispiel: Externe Traversierung
+
+Bei der externen Traversierung liegt die Verantwortung für das Ablaufen
+der Datenstruktur beim Visitor. Im nachfolgenden Beispiel muss der
+Visitor zunächst die Kinder des `AddExpr` auswerten, bevor die
+Auswertung des Knotens selbst erfolgen kann (nur relevante Ausschnitte
+gezeigt):
+
+``` java
+public class AddExpr implements Expr {
+  private final Expr e1;
+  private final Expr e2;
+
+  @Override
+  public void accept(ExprVisitor v) {
+    v.visit(this);                      // akzeptiere Visitor zur Verarbeitung des Knotens
+  }
+}
+
+public class EvalVisitor implements ExprVisitor {
+  private final Stack<Integer> erg = new Stack<>();
+
+  @Override
+  public void visit(AddExpr e) {
+    e.getE2().accept(this);             // Traversierung im Visitor ("extern")
+    e.getE1().accept(this);
+    erg.push(erg.pop() + erg.pop());    // Verarbeitung des Knotens selbst
+  }
+}
+```
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/visit/extrav/DemoExpr.java">Beispiel Traversierung extern (im Visitor): visitor.visit.extrav.DemoExpr</a></p>
 
-### Implementierungsdetail 2: Überladene vs. unterschiedlich benannte `visit`‑Methoden
+#### Beispiel: Interne Traversierung
 
-Bisher haben wir das Visitor‑Interface so definiert:
+Bei der internen Traversierung liegt die Verantwortung für das Ablaufen
+der Datenstruktur bei der Datenstruktur selbst und nicht beim Visitor
+(nur relevante Ausschnitte gezeigt):
+
+``` java
+public class AddExpr implements Expr {
+  private final Expr e1;
+  private final Expr e2;
+
+  @Override
+  public void accept(ExprVisitor v) {
+    e2.accept(v);                       // Traversierung in Datenstruktur ("intern")
+    e1.accept(v);
+    v.visit(this);                      // akzeptiere Visitor zur Verarbeitung des Knotens
+  }
+}
+
+public class EvalVisitor implements ExprVisitor {
+  private final Stack<Integer> erg = new Stack<>();
+
+  @Override
+  public void visit(AddExpr e) {
+    erg.push(erg.pop() + erg.pop());    // Verarbeitung des Knotens selbst
+  }
+}
+```
+
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/pattern/src/visitor/visit/intrav/DemoExpr.java">Beispiel Traversierung intern (in den Knotenklassen): visitor.visit.intrav.DemoExpr</a></p>
+
+### Implementierungsdetail 2: Überladene vs. unterschiedlich benannte `visit`-Methoden
+
+Bisher haben wir das Visitor-Interface so definiert:
 
 ``` java
 public interface ExprVisitor {
@@ -520,7 +580,7 @@ public interface ExprVisitor {
 ```
 
 Hier wird **eine Methode** `visit(...)` mehrfach mit unterschiedlichen
-Parameter‑Typen überladen. Der Methodenname transportiert die *Aktion*
+Parameter-Typen überladen. Der Methodenname transportiert die *Aktion*
 ("besuche dieses Element"), der Parametertyp transportiert die
 *Variante* (welche konkrete Unterklasse von `Expr`).
 
@@ -536,19 +596,19 @@ public interface ExprVisitor {
 ```
 
 Hier haben die `visit`-Methoden **unterschiedliche Namen**. Technisch
-ist das aber immer noch das gleiche Visitor‑Pattern:
+ist das aber immer noch das gleiche Visitor-Pattern:
 
 -   Auf den besuchten Objekten gibt es weiterhin eine
-    `accept(...)`‑Methode.
+    `accept(...)`-Methode.
 -   Der Visitor hat pro konkretem Typ eine eigene `visit`-Methode (nur
     nicht mehr überladen).
--   Über `e.accept(v)` wird zuerst die passende `accept`‑Implementierung
+-   Über `e.accept(v)` wird zuerst die passende `accept`-Implementierung
     und darin dann die passende Visitormethode aufgerufen
-    (Double‑Dispatch‑Prinzip bleibt gleich).
+    (Double-Dispatch-Prinzip bleibt gleich).
 
-#### Vor‑ und Nachteile der beiden Varianten
+#### Vor- und Nachteile der beiden Varianten
 
-**Variante A**: Überladene `visit(...)`‑Methoden
+**Variante A**: Überladene `visit(...)`-Methoden
 
 ``` java
 void visit(NumExpr e);
@@ -579,12 +639,12 @@ void visitAddExpr(AddExpr e);
         in großen Grammatiken)
 -   Nachteile:
     -   etwas mehr Schreibarbeit
-    -   die Verbindung zum abstrakten Pattern ("eine `visit`‑Operation,
+    -   die Verbindung zum abstrakten Pattern ("eine `visit`-Operation,
         spezialisiert für jede Unterklasse") ist weniger direkt sichtbar
 
 > [!TIP]
 >
-> ANTLR generiert typischerweise Visitor‑Interfaces mit **eigenen Namen
+> ANTLR generiert typischerweise Visitor-Interfaces mit **eigenen Namen
 > pro Grammatikregel**, z.B.:
 >
 > ``` java
@@ -598,32 +658,39 @@ void visitAddExpr(AddExpr e);
 > Das entspricht genau der zweiten Variante oben. Wichtig ist für Sie:
 >
 > -   Beides sind gültige Implementierungen des **gleichen**
->     Visitor‑Patterns.
-> -   Das **Double‑Dispatch‑Prinzip** und die Trennung von Datenstruktur
+>     Visitor-Patterns.
+> -   Das **Double-Dispatch-Prinzip** und die Trennung von Datenstruktur
 >     (`Expr`) und Operationen (`Visitor`) bleiben unverändert.
-> -   Die Wahl der Namenskonvention ist eine Design‑Entscheidung bzw.
+> -   Die Wahl der Namenskonvention ist eine Design-Entscheidung bzw.
 >     durch das verwendete Tool (wie ANTLR) vorgegeben.
 
 ### Double-Dispatch
 
 > [!TIP]
 >
-> Im Visitor-Pattern spricht man oft von "**Double‑Dispatch**". Gemeint
-> ist damit, dass bei einem Aufruf wie
+> Im Visitor-Pattern spricht man oft von "**Double-Dispatch**". Gemeint
+> ist damit, dass bei Aufrufen wie
 >
 > ``` java
 > e.accept(v);
 > ```
 >
-> zwei verschiedene Typinformationen benutzt werden, um zur passenden
-> Methode zu gelangen:
+> und
 >
-> 1.  der tatsächliche Typ des besuchten Objekts (also von `e`), und
-> 2.  der tatsächliche Typ des Visitors (also von `v`).
+> ``` java
+> v.visit(this);
+> ```
+>
+> **zur Laufzeit** zwei verschiedene Typinformationen benutzt werden, um
+> zur passenden Methode zu gelangen:
+>
+> 1.  der tatsächliche (dynamische) Typ des besuchten Objekts (also von
+>     `e`), und
+> 2.  der tatsächliche (dynamische) Typ des Visitors (also von `v`).
 
 Schauen wir uns das Schritt für Schritt an.
 
-#### 1. Erster Dispatch: Auswahl der richtigen `accept`‑Methode
+#### 1. Erster Dispatch: Auswahl der richtigen `accept`-Methode
 
 Im Code steht z.B.:
 
@@ -637,9 +704,9 @@ e.accept(v);
 -   Der **statische Typ** von `e` ist `Expr`.
 -   Der **dynamische Typ** von `e` ist hier `AddExpr`.
 
-Zur **Compile‑Zeit** weiß der Compiler nur: "`e` ist irgendetwas vom Typ
-`Expr`". Zur **Laufzeit** sieht die JVM aber, dass `e` tatsächlich ein
-`AddExpr` ist und ruft deshalb die `accept`‑Methode von `AddExpr` auf:
+Zur **Compile-Zeit** weiß der Compiler nur: "`e` ist irgendetwas vom Typ
+`Expr`". Zur **Laufzeit** sieht die JVM dann, dass `e` tatsächlich ein
+`AddExpr` ist und ruft deshalb die `accept`-Methode von `AddExpr` auf:
 
 ``` java
 public class AddExpr implements Expr {
@@ -649,12 +716,12 @@ public class AddExpr implements Expr {
 }
 ```
 
-Das ist der **erste Dispatch**: Die konkrete `accept`‑Implementierung
+Das ist der **erste Dispatch**: Die konkrete `accept`-Implementierung
 wird anhand des **Laufzeittyps des Elements** (hier `AddExpr`) bestimmt.
 
-#### 2. Zweiter Dispatch: Auswahl der passenden `visit`‑Methode
+#### 2. Zweiter Dispatch: Auswahl der passenden `visit`-Methode
 
-Innerhalb von `AddExpr.accept` steht:
+Innerhalb von `AddExpr` steht:
 
 ``` java
 public void accept(ExprVisitor v) {
@@ -671,7 +738,7 @@ Damit passiert Folgendes:
 
 1.  Über den **dynamischen Typ des Visitors** (`EvalVisitor`) wird
     entschieden, welche Implementierung von `visit(AddExpr)` in der
-    Visitor‑Hierarchie aufgerufen wird (falls `EvalVisitor` diese
+    Visitor-Hierarchie aufgerufen wird (falls `EvalVisitor` diese
     Methode überschreibt, dann diese, sonst evtl. eine Implementierung
     in einer Oberklasse).
 2.  Welche **Überladung** von `visit(...)` gemeint ist
@@ -683,35 +750,117 @@ Damit passiert Folgendes:
 > [!IMPORTANT]
 >
 > Wichtig: In Java wird die Auswahl der passenden *Überladung*
-> (`visit(AddExpr)` vs. `visit(MulExpr)` ...) **zur Compile‑Zeit**
+> (`visit(AddExpr)` vs. `visit(MulExpr)` ...) **zur Compile-Zeit**
 > anhand des statischen Typs des Arguments getroffen - hier also anhand
-> des Typs `AddExpr` in der jeweiligen `accept`‑Methode. Zur Laufzeit
+> des Typs `AddExpr` in der jeweiligen `accept`-Methode. Zur Laufzeit
 > wird dann über den Typ des Visitors entschieden, welche konkrete
 > Implementierung dieser Methode ausgeführt wird.
 
 #### 3. Warum braucht das Pattern diesen Mechanismus?
 
-In den `accept()`‑Methoden der besuchten Klassen ist nur der gemeinsame
+In den `accept()`-Methoden der besuchten Klassen ist nur der gemeinsame
 Obertyp der Visitors bekannt (`ExprVisitor`). Das ist wichtig, weil Sie
 so später beliebig viele verschiedene konkrete Visitor-Klassen (z.B.
 `EvalVisitor`, `PrintVisitor`, `TypeCheckVisitor`, ...) ergänzen/nutzen
 können, ohne die Klassen der Datenstruktur noch einmal anpassen zu
 müssen.
 
-Das Visitor‑Pattern nutzt also zwei Stufen:
+Das Visitor-Pattern nutzt also zwei Stufen:
 
 1.  **Dynamischer Dispatch** auf das besuchte Objekt -\> "`e` ist zur
     Laufzeit ein `AddExpr`, also nutze `AddExpr.accept`."
 2.  **Auswahl der passenden `visit`-Methode** anhand
-    -   des **statischen Typs** des Elements in `accept`
-        (`visit(AddExpr e)`), und
     -   des **dynamischen Typs** des Visitors (`EvalVisitor`,
-        `PrintVisitor`, ...).
+        `PrintVisitor`, ...), und (zusätzlich wegen der überladenen
+        `visit()`-Methoden)
+    -   des **statischen Typs** des Elements in `accept`
+        (`visit(AddExpr e)`) (streng genommen kein Bestandteil des
+        Double Dispatch).
 
-Diese Kombination bezeichnet man im Kontext des Visitor‑Patterns als
-**Double‑Dispatch**: Die endgültige Methode entsteht aus dem
-Zusammenwirken beider Typen - des Typs des Elements und des Typs des
-Visitors.
+Diese Kombination der Auflösung zur Laufzeit bezeichnet man im Kontext
+des Visitor-Patterns als **Double-Dispatch**: Die endgültige Methode
+entsteht aus dem Zusammenwirken beider Typen - des Typs des Elements und
+des Typs des Visitors.
+
+#### Java: Overloading vs. Overriding
+
+In der Basisklasse für die Visitoren im obigen Beispiel haben wir drei
+**überladene** `visit(...)`-Methoden:
+
+``` java
+public interface ExprVisitor {
+  void visit(NumExpr e);
+  void visit(MulExpr e);
+  void visit(AddExpr e);
+}
+```
+
+Bei `v.visit(this)` werden deshalb *zwei verschiedene Mechanismen*
+aktiv - einer zur *Compilezeit*, einer zur *Laufzeit*.
+
+1.  **Überladen** (*Overloading*): Auswahl der Signatur zur
+    **Compilezeit**
+
+    Welche `visit(...)`-**Überladung** gemeint ist (also
+    `visit(NumExpr)`, `visit(MulExpr)`, `visit(AddExpr)`), entscheidet
+    Java zur **Compilezeit anhand der statischen Typen der Argumente**.
+
+    In der Methode der Klasse `AddExpr`:
+
+    ``` java
+    @Override
+    public void accept(ExprVisitor v) {
+        e2.accept(v);
+        e1.accept(v);
+        v.visit(this);
+    }
+    ```
+
+    ist `this` statisch vom Typ `AddExpr`, weil wir uns im Code der
+    Klasse `AddExpr` befinden. Daher wird bereits zur **Compilezeit**
+    aufgelöst: gemeint ist `visit(AddExpr e)`.
+
+    Wichtig: Hier wird *nicht* zur Laufzeit "nochmal geguckt", welcher
+    konkrete Typ `this` ist. Das ist beim Overloading nicht dynamisch.
+
+2.  **Überschreiben** (*Overriding*): Auswahl der Implementierung zur
+    **Laufzeit**
+
+    Welche Methode (aus welcher konkreten Implementierung) dann
+    tatsächlich ausgeführt wird, entscheidet sich zur Laufzeit über
+    **dynamisches Binden** anhand des dynamischen Typs von `v`.
+
+    Beispiel: Wenn `v` zur Laufzeit ein `PrettyPrintVisitor` ist, dann
+    wird zur Laufzeit dessen Implementierung von
+    `PrettyPrintVisitor.visit(AddExpr)` ausgeführt.
+
+    Zusammen mit der Auflösung von `e.accept(v)` (`AddExpr.accept`,
+    `MulExpr.accept`, ...) und `v.visit(this)`
+    (`PrettyPrintVisitor.visit`, `EvalVisitor.visit`, ...) zur Laufzeit
+    anhand der dynamischen Typen spricht man vom "Double Dispatch".
+
+> [!IMPORTANT]
+>
+> **Merksatz** (in Java sehr wichtig)
+>
+> -   Overloading (überladen): Auswahl der passenden Signatur zur
+>     Compilezeit
+> -   Overriding (überschreiben): Auswahl der konkreten Implementierung
+>     zur Laufzeit
+
+> [!TIP]
+>
+> Wenn wir haben:
+>
+> ``` java
+> Expr x = new AddExpr(...);
+> v.visit(x);
+> ```
+>
+> dann würde **nicht** `visit(AddExpr)` gewählt! `x` ist statisch nur
+> `Expr` ... Das würde sogar gar nicht kompilieren, da `ExprVisitor`
+> kein `visit(Expr)` hat. Genau deshalb macht man den "Umweg"
+> `x.accept(v)`.
 
 ### Hinweis I
 
@@ -942,4 +1091,4 @@ Klassenstruktur
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> e26860c 2026-05-23 visitor: rework all screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> d878733 2026-05-23 visitor: add slide overloading vs. overriding in java<br></sub></sup></p></blockquote>
