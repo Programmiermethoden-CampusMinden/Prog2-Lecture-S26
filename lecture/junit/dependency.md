@@ -59,4 +59,4 @@ TODO
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 16fc70d 2026-04-11 reformat markdown<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 3e0f8d8 2026-05-25 dependency injection: move to junit<br></sub></sup></p></blockquote>

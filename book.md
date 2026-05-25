@@ -87,7 +87,7 @@ der Lösung im jeweiligen Praktikum in der Abgabewoche.
 |  | 18\. | [Git3: Workflows](#id-c4b0283d56726aa5bcadb82cdd57653b6c8654a3); [RegExp](#id-cfd21c65be03a9536ad286c40c0f52ec3d376712); [Template-Method](#id-d65790dd2d165c56e13ec1cea6619359f6def01b) | [B03](#id-6c99b0278590e1866d400dbbb6fc3eeafad60e55) |
 |  | 25\. | **Feiertag** | **Feiertag** |
 | Juni | 01\. | [Visitor](#id-ff6c3f74c23480f2273b18c9777709c80ff62a7e); [ANTLR](#id-83d8235fd174219b3470528d945d3dd848c55ad3); [Debugging](#id-18ea2eadf0eb0b480224748543248ff96deb79cb) | [B04](#id-d392f8d0f4dd93faa938c9737b2317ba03f5aa12) |
-|  | 08\. | [JUnit2: Testfälle](#id-77793ee59748dfeaeef9cf17fee8754ae4b8fdf6), [JUnit3: Mocking](#id-b41adbc161f203df59258c2f719f8689c49108e8); [Dependency Injection](#id-11913b4c04e50a1d1269b5966a87e87d1d727a10), [Defaultmethoden](#id-83d9242997f09b086df2b42d7c636f083f0ab02e) | **Kein Praktikum (Parcoursprüfung BC)** |
+|  | 08\. | [JUnit2: Testfälle](#id-77793ee59748dfeaeef9cf17fee8754ae4b8fdf6), [JUnit3: Mocking](#id-b41adbc161f203df59258c2f719f8689c49108e8); [Dependency Injection](#id-321fbe0bffbf10c0a79fee22699d4d58fcdf163a), [Defaultmethoden](#id-83d9242997f09b086df2b42d7c636f083f0ab02e) | **Kein Praktikum (Parcoursprüfung BC)** |
 |  | 15\. | [Records](#id-152ec8405b8a75f125fcbd1f4f3125262de1b614), [Pattern Matching](#id-b97bf455cbca7e395e55b06a589bd6a34018b498), [Stream-API](#id-b16a41dd6bcae74097deb0d66f9b50762b8c0f40); [JUnit4: Property Testing](#id-6f2b911e8bd44898195f262b13bc44b5f1552e79) | [B05](#id-96a6e702ef5bbea0815334b0b819b91864e526c7) |
 |  | 22\. | [Generics1: Klassen/Methoden](#id-60c28f241488056134fe9fbda5f190e7b95c2109), [Generics2: Bounds & Wildcards](#id-527a99eb558795f85fc455275ae495d059c83c9c); [Command](#id-fa18d796f1346e2d468abc3703e53374e2005b7f); [Logging](#id-1ece2948a94e81007ac7bc47b446f7427b6014f3) | [B06](#id-f80f5e162e1aaa7ad98f24b776c109c056062b7c) |
 |  | 29\. | [Generics3: Type Erasure & Polymorphie](#id-5bc4d64bb6b6ada40444f817951b2775c3a1ec92), [Exceptions](#id-02580ddc2b10540e0114e08483e28b46e5dd9772), [Optional & Result](#id-bb5095c5a37b38bd48ac37be51964fb543342407) | [B07](#id-83476d78577cf7ca1cbc9b26afe056c03f1836fc) |
@@ -8616,6 +8616,63 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
 >
 > </details>
 
+<a id="id-321fbe0bffbf10c0a79fee22699d4d58fcdf163a"></a>
+
+#### Dependency Injection
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🎯 TL;DR</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>🎦 Videos</strong></summary>
+>
+> TODO
+>
+> </details>
+
+##### Packages
+
+TODO
+
+##### Wrap-Up
+
+TODO
+
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> TODO
+>
+> </details>
+
+> [!NOTE]
+>
+> <details >
+> <summary><strong>✅ Lernziele</strong></summary>
+>
+> -   k2: Ich kann den Einsatz von Packages in Java erklären
+>
+> </details>
+
+> [!IMPORTANT]
+>
+> <details open>
+> <summary><strong>🏅 Challenges</strong></summary>
+>
+> TODO
+>
+> </details>
+
 <a id="id-6f2b911e8bd44898195f262b13bc44b5f1552e79"></a>
 
 #### Property based Testing & Approval Testing
@@ -15227,63 +15284,6 @@ Lösung: `([A-Z][a-zA-Z]*)\s\1`
 >
 > </details>
 
-<a id="id-11913b4c04e50a1d1269b5966a87e87d1d727a10"></a>
-
-#### Dependency Injection
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🎯 TL;DR</strong></summary>
->
-> TODO
->
-> </details>
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>🎦 Videos</strong></summary>
->
-> TODO
->
-> </details>
-
-##### Packages
-
-TODO
-
-##### Wrap-Up
-
-TODO
-
-> [!TIP]
->
-> <details open>
-> <summary><strong>📖 Zum Nachlesen</strong></summary>
->
-> TODO
->
-> </details>
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>✅ Lernziele</strong></summary>
->
-> -   k2: Ich kann den Einsatz von Packages in Java erklären
->
-> </details>
-
-> [!IMPORTANT]
->
-> <details open>
-> <summary><strong>🏅 Challenges</strong></summary>
->
-> TODO
->
-> </details>
-
 <a id="id-60c28f241488056134fe9fbda5f190e7b95c2109"></a>
 
 #### Generics: Generische Klassen & Methoden
@@ -19545,9 +19545,313 @@ Folge‑Branches auf der jeweils aktuellen Basis aufsetzen.
 
 <a id="id-96a6e702ef5bbea0815334b0b819b91864e526c7"></a>
 
-### Blatt 05: ANTLR, Visitor, PrettyPrinter; ÄK&GW, Mocking
+### Blatt 05: ANTLR, Visitor; Äquivalenzklassen & Grenzwerte, Mocking
 
-Coming soon ...
+#### Zusammenfassung
+
+Auf diesem Blatt arbeiten Sie mit ANTLR und nutzen den generierten Lexer
+für das Syntaxhighlighting. Sie traversieren den Parse-Tree mit Hilfe
+des Visitor-Patterns und der generierten ANTLR-Basisklasse und geben
+eingelesenen Java-Sourcecode korrekt eingerückt wieder aus ("Pretty
+Printing"). Sie üben die Erstellung von Testfällen mit der
+Äquivalenzklassenbildung und Grenzwertanalyse. Sie üben den Einsatz mit
+Mockito.
+
+#### Aufgaben
+
+##### 1. ANTLR
+
+Betrachten Sie noch einmal das Java-Projekt zum
+[Syntax-Highlighting](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_syntaxhighlighting).
+
+> [!IMPORTANT]
+>
+> **Bitte aktualisieren Sie Ihren Fork und Ihre Workingcopy!**
+
+Sie finden im Package `highlighting.antlr` die Klasse
+`AntlrTokenCollector`, die die abstrakte Basisklasse zum
+Syntaxhighlighting (`SyntaxHighlighter`) erweitert. Außerdem finden Sie
+hier die Klasse `PrettyPrinterVisitor`, die die von ANTLR generierte
+Visitor-Klasse `MiniJavaBaseVisitor<Void>` erweitert.
+
+Im Projekt finden Sie ebenfalls eine fertige ANTLR-Grammatik, die zu
+Java-Code passt, und im `build.gradle` die *ready-to-use* Einbindung von
+ANTLR als Bibliothek. Bei jedem `./gradlew classes` oder `./gradlew run`
+o.ä. sollten im Build-Ordner `build/generated-src/antlr/main/` die
+generierten Klassen mit dem Package `highlighting/antlr/` erscheinen und
+in der IDE automatisch eingebunden werden.
+
+###### Aufgabe 1.1: Syntaxhighlighting mit dem `AntlrTokenCollector`
+
+Implementieren Sie in `AntlrTokenCollector` die Methode
+`List<HighlightRegion> collectMatches(String text)`. Nutzen Sie diesmal
+den generierten `highlighting.antlr.MiniJavaLexer`, um aus dem
+Eingabetext einen Token-Stream zu erzeugen, und wandeln Sie die Tokens
+anschließend in `HighlightRegion`-Objekte um.
+
+Überlegen Sie, ob und wie in diesem Fall noch Konflikte zwischen
+Regionen entstehen können und wie die beiden Hook-Methoden `normalize`
+und `resolveConflicts` aus der Oberklasse `AntlrTokenCollector` in
+diesem Fall aussehen müssen. Überschreiben Sie die Methoden entsprechend
+in `AntlrTokenCollector` (falls notwendig).
+
+Vergleichen Sie das so erzeugte Syntaxhighlighting mit den Varianten von
+[Blatt 04](#id-d392f8d0f4dd93faa938c9737b2317ba03f5aa12). Wo gibt es
+Unterschiede, was sind die Gründe dafür? Welche der Varianten ist
+aufwändiger in der Implementierung?
+
+###### Aufgabe 1.2: Visitoren mit ANTLR (Pretty Printing)
+
+Nutzen Sie die von ANTLR generierten Klassen zum einfachen "Pretty
+Printing" von MiniJava-Code: Sie sollen Programmcode so neu ausgeben,
+dass Einrückungen und Zeilenumbrüche konsistent sind.
+
+1.  Schritt 1: Parse-Tree erzeugen
+
+    Nutzen Sie die von ANTLR generierten Klassen für Lexer
+    `MiniJavaLexer` und Parser `MiniJavaParser`, um aus einem
+    eingegebenen MiniJava-Programm einen Parse-Tree vom Typ
+    `MiniJavaParser.CompilationUnitContext` zu erzeugen.
+
+2.  Schritt 2: Visitor für das Pretty Printing
+
+    Implementieren Sie die vier mit "TODO" markierten
+    `visitXxx`-Methoden in der Klasse
+    `highlighting.antlr.PrettyPrinterVisitor`:
+
+    -   `visitCompilationUnit`,
+    -   `visitClassBody`,
+    -   `visitBlock` und
+    -   `visitStatement`.
+
+    Dieser zustandsbehaftete Visitor soll den Parse-Tree traversieren
+    und das Ergebnis über die Hilfsmethode `result()` als `String` mit
+    dem neu formatierten MiniJava-Programm liefern.
+
+    Konzentrieren Sie sich auf die **Struktur** des Programms und nutzen
+    Sie zum Traversieren der Kinder bei Bedarf `visit(child)`. Eigene
+    `visit...()`-Methoden für weitere Regeln sind nicht erforderlich.
+
+    In der Klasse `PrettyPrinterVisitor` stehen Ihnen bereits
+    Hilfsmethoden zur Ausgabe zur Verfügung, insbesondere
+
+    -   `write(...)`, `writeln(...)`, `nl()` und `indent()` für die
+        strukturierte Ausgabe sowie
+    -   die Standard-Visitor-Mechanismen `visit(...)`,
+        `visitChildren(...)` und `visitTerminal(...)` (für die
+        Token-Ausgabe mit einer einfachen Leerzeichen-Heuristik).
+
+    Nutzen Sie diese vorhandenen Methoden; Sie müssen **keine** eigenen
+    Low-Level-Ausgabefunktionen schreiben.
+
+    Beachten Sie dabei folgende **Formatierungsregeln**:
+
+    1.  **Statements und Deklarationen**
+
+        Jedes Statement bzw. jede Deklaration, die mit `;` endet, soll
+        auf **einer eigenen Zeile** stehen. Dazu gehören insbesondere:
+
+        -   lokale Variablendeklarationen,
+        -   Felddeklarationen,
+        -   `return`-Statements,
+        -   Ausdrucks-Statements.
+
+    2.  **Blöcke**
+
+        -   Nach einer öffnenden geschweiften Klammer `{` (z.B.
+            Klassendefinition, Methodenrumpf, Block in `if`/`else` oder
+            `while`) folgt ein Zeilenumbruch.
+        -   Der Inhalt eines Blocks wird gegenüber der umgebenden
+            Struktur **um eine Stufe eingerückt**.
+        -   Die schließende Klammer `}` steht auf einer eigenen Zeile
+            und ist so eingerückt wie die zugehörige öffnende Struktur.
+
+    3.  **Leerzeichen und Einrückung**
+
+        -   Einrückung erfolgt nur mit Leerzeichen (keine Tabs).
+        -   Eine Begrenzung der Zeilenlänge ist nicht erforderlich.
+        -   Innerhalb einer Zeile (z.B. in Ausdrücken) können Sie den
+            Code weitgehend in der Originalreihenfolge ohne aufwändige
+            Optimierung der Leerzeichen ausgeben. Für viele Unterregeln
+            genügt `visit(child)`.
+
+    Es genügt also, Blöcke und Statements strukturiert einzurücken und
+    vernünftig zu trennen. Eine "perfekte" Formatierung von Ausdrücken
+    ist **nicht** erforderlich.
+
+3.  Schritt 3: Benutzung und Demonstration
+
+    -   Fragen Sie auf der Konsole nach der gewünschten Anzahl von
+        Leerzeichen pro Einrückstufe (z.B. `2`, `4` oder `8`).
+    -   Übergeben Sie diese Zahl an den Konstruktor
+        `PrettyPrinterVisitor(int indentWidth)` und verwenden Sie sie
+        zum Einrücken.
+    -   Geben Sie den von Ihrem Pretty-Printer erzeugten `String` z.B.
+        auf der Konsole aus.
+    -   Demonstrieren und dokumentieren Sie Ihre Lösung an mehreren
+        Beispielen mit unterschiedlicher Komplexität, z.B.:
+        -   einfache Klasse mit einem Feld und einer Methode,
+        -   Methoden mit `if`/`else` und `while`,
+        -   verschachtelte Blöcke.
+
+> [!TIP]
+>
+> Was beobachten Sie bei der Ausgabe Ihres Pretty-Printers? Wieso fehlen
+> bestimmte Teile aus dem Input?
+
+####### Optionale Erweiterungen
+
+Wenn Sie schon mit dem Pflichtteil gut zurechtkommen, können Sie Ihren
+Pretty-Printer **schrittweise erweitern**. Mögliche Ideen:
+
+-   Fügen Sie **eine Leerzeile** zwischen zwei Methodendefinitionen ein.
+
+-   Platzieren Sie `else` in `if`/`else`-Konstrukten direkt nach der
+    schließenden Klammer des `if`-Blocks, z.B.:
+
+    ``` java
+    if (condition) {
+        ...
+    } else {
+        ...
+    }
+    ```
+
+-   Sorgen Sie dafür, dass einfachere Ausdrücke etwas "schöner"
+    formatiert werden, z.B. genau ein Leerzeichen um Binäroperatoren
+    (`+`, `-`, `*`, `/`, `==`, `&&` usw.).
+
+Diese Erweiterungen sind **optional** und beeinflussen nicht die
+Bewertung des Pflichtteils, zeigen aber, dass Sie mit dem Parse-Tree und
+dem Visitor sicher umgehen können.
+
+####### Bonus für Fortgeschrittene
+
+Für alle, die sich weiter austoben möchten:
+
+1.  **Integration in den Editor**
+
+    Schaffen Sie es, den Pretty-Printer in den Editor
+    (`highlighting.ui.EditorUI`) zu integrieren, so dass der aktuell
+    gezeigte Code per Knopfdruck (oder Menüeintrag oder sogar bei
+    Änderung) neu formatiert wird?
+
+2.  **Mehr Sprachkonstrukte**
+
+    Erweitern Sie Ihren Pretty-Printer schrittweise so, dass er weitere
+    Teile der MiniJava-Grammatik behandelt, z.B.:
+
+    -   Annotationen (`@Annotation`),
+    -   `extends`- und `implements`-Listen in Klassenköpfen,
+    -   Formatierung von Parameter- und Argumentlisten.
+
+> [!IMPORTANT]
+>
+> Für alle Schritte in dieser Aufgabe:
+>
+> Es geht nur um die Ausgabe syntaktisch korrekter Java-Programme. Sie
+> brauchen sich um die Semantik (z.B. passende Typen wie etwa keine
+> Multiplikation von Strings mit Integern o.ä.) keine Gedanken machen!
+> Achten Sie auf die korrekten Einrücktiefen. Die Zeilenlänge spielt
+> hier keine Rolle, es wird einfach direkt nach jedem Statement
+> umgebrochen (bzw. wie bei den Kontrollstrukturen gezeigt).
+
+> [!TIP]
+>
+> Das Thema Pretty Printing ist interessant und kann recht schnell
+> ziemlich aufwändig werden. Sie finden im Paper ["A prettier
+> printer"](https://homepages.inf.ed.ac.uk/wadler/papers/prettier/prettier.pdf)
+> von Philip Wadler und im Blog ["The Hardest Program I've Ever
+> Written"](https://journal.stuffwithstuff.com/2015/09/08/the-hardest-program-ive-ever-written/)
+> von Bob Nystrom gut geschriebene Beiträge für eine tiefere
+> Beschäftigung mit der Materie.
+
+##### 2. Cycle Chronicles
+
+Forken Sie das ["Cycle
+Chronicles"](https://github.com/Programmiermethoden-CampusMinden/prog2_ybel_cyclechronicles)-Repo
+und erzeugen Sie sich eine lokale Arbeitskopie von Ihrem Fork.
+
+###### Aufgabe 2.1: Analyse der Äquivalenzklassen & Grenzwerte
+
+Die Methode `Shop#accept` dient zur Annahme eines neuen Auftrags eines
+Kunden.
+
+Neue Aufträge sollen nur unter bestimmten Bedingungen angenommen werden:
+
+-   Es darf sich nicht um ein E-Bike handeln.
+-   Es darf sich nicht um ein Gravel-Bike handeln.
+-   Der Kunde darf nicht noch andere offene Aufträge beim Shop haben (es
+    kann pro Kunden immer nur maximal einen offenen Auftrag in der
+    Warteschlange geben).
+-   Es sind aktuell höchstens vier andere offene Aufträge vorhanden (es
+    dürfen zu jeder Zeit maximal fünf offene Aufträge in der
+    Warteschlange sein).
+
+Der Rückgabewert der Methode signalisiert, ob der Auftrag angenommen
+wurde und in die Warteschlange der offenen Aufträge eingereiht wurde
+(`true`) oder ob er abgelehnt wurde (`false`).
+
+**Aufgaben**:
+
+1.  Erstellen Sie eine Äquivalenzklassenbildung und eine
+    Grenzwert-Analyse.
+2.  Erstellen Sie aus den ermittelten Äquivalenzklassen und Grenzwerten
+    konkrete Testfälle. (**Noch keine Implementierung!**)
+
+###### Aufgabe 2.2: Mocking I
+
+Implementieren Sie nun die in der vorigen Aufgabe ermittelten Testfälle
+für die Methode `Shop#accept` mit Hilfe von JUnit.
+
+Leider gibt es beim Ausführen vieler Ihrer JUnit-Testmethoden eine
+`UnsupportedOperationException`-Exception, da die Klasse `Order` bisher
+nur unvollständig implementiert ist: Es existieren praktisch nur die
+Methodensignaturen, der Aufruf der Methoden liefert nur eine
+`UnsupportedOperationException`.
+
+Setzen Sie aktiv Mocking mit Mockito ein, um Objekte der Klasse `Order`
+(und ggf. weiterer abhängiger Klassen) zu mocken, sodass Ihre
+JUnit-Tests für `Shop#accept` ausführbar werden. Begründen Sie die
+Anwendung von Mockito.
+
+> [!IMPORTANT]
+>
+> Die zu testende Methode `Shop#accept` soll in der vorliegenden
+> Implementierung im Test genutzt werden, d.h. sie darf nicht
+> "weg-gemockt" werden!
+
+> [!TIP]
+>
+> In der Gradle-Konfiguration der Vorgabe ist bereits JUnit und Mockito
+> vorkonfiguriert, d.h. die entsprechenden Abhängigkeiten werden durch
+> Gradle aufgelöst. Wenn Sie die Vorgaben als Gradle-Projekt in Ihrer
+> IDE öffnen, dann steht Ihnen dort auch die JUnit-Bibliothek
+> automatisch zur Verfügung. Mit `./gradlew test` können Sie Ihre
+> Testfälle ausführen.
+
+###### Bonus: Aufgabe 2.3: Mocking II
+
+Für Fortgeschrittene:
+
+Die Methoden `Shop#repair` und `Shop#deliver` sind auch noch nicht
+implementiert. Überlegen Sie sich, wie sich `Shop#repair` und
+`Shop#deliver` verhalten sollten und schreiben Sie auf Basis dieser
+Annahmen JUnit-Tests mit Mockito. Begründen Sie die Anwendung von
+Mockito.
+
+> [!TIP]
+>
+> Sie *müssen* hier keine keine Äquivalenzklassenbildung und
+> Grenzwertanalyse machen machen, können das aber natürlich gern tun.
+
+#### Bearbeitung und Abgabe
+
+-   Bearbeitung: Einzelbearbeitung
+-   Abgabe Post Mortem [im
+    ILIAS](https://www.hsbi.de/elearning/goto.php/exc/1664006): bis
+    **15. Juni, 08:00 Uhr**
+-   Vorstellung im Praktikum: 15./17. Juni
 
 <a id="id-f80f5e162e1aaa7ad98f24b776c109c056062b7c"></a>
 
@@ -20203,18 +20507,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 76b933b 2026-05-25 antlr: clarify inherited methods from base visitor<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 5d32bca 2026-05-25 dependency injection: fix broken link in readme<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

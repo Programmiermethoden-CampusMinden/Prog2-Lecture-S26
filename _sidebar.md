@@ -17,6 +17,7 @@
     - [Testen mit JUnit (JUnit-Basics)](lecture/junit/junit1-basics.md)
     - [Testfallermittlung: Wie viel und was muss man testen?](lecture/junit/junit2-testcases.md)
     - [Mocking mit Mockito](lecture/junit/junit3-mockito.md)
+    - [Dependency Injection](lecture/junit/dependency.md)
     - [Property based Testing & Approval Testing](lecture/junit/junit4-property.md)
   - **Modern Java: Funktionaler Stil und Stream-API**
     - [Lambda-Ausdrücke und funktionale Interfaces](lecture/java-modern/lambdas.md)
@@ -39,7 +40,6 @@
     - [Swing 6: Einführung in Graphics und Java 2D](lecture/gui/swing6-java2d.md)
   - **Fortgeschrittene Java-Themen und Umgang mit JVM**
     - [Reguläre Ausdrücke](lecture/java-classic/regexp.md)
-    - [Dependency Injection](lecture/java-classic/dependency.md)
     - [Generics: Generische Klassen & Methoden](lecture/java-classic/generics1-classes-methods.md)
     - [Generics: Bounds & Wildcards](lecture/java-classic/generics2-bounds-wildcards.md)
     - [Generics: Generics und Polymorphie](lecture/java-classic/generics3-polymorphism.md)
@@ -54,7 +54,7 @@
   - [Blatt 02: Git Branches, JUnit Basics; CI-Pipeline](homework/b02.md)
   - [Blatt 03: Methodenrefs, Lambdas, Observer](homework/b03.md)
   - [Blatt 04: RegEx, Template-Method; JUnit; PR](homework/b04.md)
-  - [Blatt 05: ANTLR, Visitor, PrettyPrinter; ÄK&GW, Mocking](homework/b05.md)
+  - [Blatt 05: ANTLR, Visitor; Äquivalenzklassen & Grenzwerte, Mocking](homework/b05.md)
   - [Blatt 06: Visitor vs. PatternMatching, Records](homework/b06.md)
   - [Blatt 07: Generics; Logging](homework/b07.md)
   - [Blatt 08: Command, Observer, Fehlermodell](homework/b08.md)
