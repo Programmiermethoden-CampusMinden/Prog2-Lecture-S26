@@ -513,23 +513,23 @@ Lektion [Visitor-Pattern](../pattern/visitor.md).
 ### ANTLR-Visitor:
 
 -   ANTLR generiert ein `MiniCalcVisitor<T>`-Interface und eine
-    `MiniCalcBaseVisitor<T>`-Basisklasse mit leeren
-    Standard-Implementierungen
+    `MiniCalcBaseVisitor<T>`-Basisklasse mit Standard-Implementierungen
 -   Jede Regel `xxx` in der Grammatik erzeugt:
     -   eine Kontext-Klasse `XxxContext`, und
-    -   eine Methode `T visitXxx(XxxContext ctx)`
+    -   eine `visitXxx`-Methode `T visitXxx(XxxContext ctx)`
 -   Jeder Knotentyp hat eine eigene `visitXxx`-Methode, z.B.:
     -   `T visitProg(MiniCalcParser.ProgContext ctx)`
     -   `T visitStmt(MiniCalcParser.StmtContext ctx)`
     -   `T visitExpr(MiniCalcParser.ExprContext ctx)`
 -   Aus der Basisklasse `AbstractParseTreeVisitor<T>` erbt jeder Visitor
-    die Hilfsmethoden `visit(ParseTree tree)` und
-    `visitChildren(RuleNode node)`
+    u.a. die Hilfsmethoden `visit(ParseTree tree)` und
+    `visitChildren(RuleNode node)`:
     -   `visit(ParseTree tree)` ist eine praktische Hilfsmethode, die
         für einen Knoten `tree` an `tree.accept(this)`delegiert
-    -   `visitChildren(RuleNode node)` ruft für alle Kinder eines
-        Knotens `node` die `visit`-Methode auf - das ist die
-        Defaultimplementierung im `MiniCalcBaseVisitor<T>`
+    -   `visitChildren(RuleNode node)` traversiert alle Kinder eines
+        Knotens `node`
+-   Defaultimplementierung im `MiniCalcBaseVisitor<T>`:
+    `T visitXxx(XxxContext ctx) { return visitChildren(ctx); }`
 
 ### Vorgehen:
 
@@ -881,4 +881,4 @@ Wie es weitergeht: Vom Parse-Baum zum Compiler
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> b161934 2026-05-23 antlr: add remarks regarding results of visitors<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 76b933b 2026-05-25 antlr: clarify inherited methods from base visitor<br></sub></sup></p></blockquote>
