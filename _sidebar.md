@@ -17,7 +17,6 @@
     - [Testen mit JUnit (JUnit-Basics)](lecture/junit/junit1-basics.md)
     - [Testfallermittlung: Wie viel und was muss man testen?](lecture/junit/junit2-testcases.md)
     - [Mocking mit Mockito](lecture/junit/junit3-mockito.md)
-    - [Dependency Injection](lecture/junit/dependency.md)
     - [Property based Testing & Approval Testing](lecture/junit/junit4-property.md)
   - **Modern Java: Funktionaler Stil und Stream-API**
     - [Lambda-Ausdrücke und funktionale Interfaces](lecture/java-modern/lambdas.md)
@@ -31,6 +30,7 @@
     - [Observer-Pattern](lecture/pattern/observer.md)
     - [Template-Method-Pattern](lecture/pattern/template-method.md)
     - [Visitor-Pattern](lecture/pattern/visitor.md)
+    - [Dependency Injection](lecture/pattern/dependency.md)
     - [Command-Pattern](lecture/pattern/command.md)
   - **Graphische Oberflächen mit Swing und Java2D**
     - [Swing 4: Events](lecture/gui/swing4-events.md)

@@ -83,7 +83,7 @@ der Lösung im jeweiligen Praktikum in der Abgabewoche.
 |  | 18\. | [Git3: Workflows](lecture/git/git3-workflows.md); [RegExp](lecture/java-classic/regexp.md); [Template-Method](lecture/pattern/template-method.md) | [B03](homework/b03.md) |
 |  | 25\. | **Feiertag** | **Feiertag** |
 | Juni | 01\. | [Visitor](lecture/pattern/visitor.md); [ANTLR](lecture/tooling/antlr.md); [Debugging](lecture/tooling/debugging.md) | [B04](homework/b04.md) |
-|  | 08\. | [JUnit2: Testfälle](lecture/junit/junit2-testcases.md), [JUnit3: Mocking](lecture/junit/junit3-mockito.md); [Dependency Injection](lecture/junit/dependency.md), [Defaultmethoden](lecture/java-modern/defaultmethods.md) | **Kein Praktikum (Parcoursprüfung BC)** |
+|  | 08\. | [JUnit2: Testfälle](lecture/junit/junit2-testcases.md), [JUnit3: Mocking](lecture/junit/junit3-mockito.md); [Dependency Injection](lecture/pattern/dependency.md), [Defaultmethoden](lecture/java-modern/defaultmethods.md) | **Kein Praktikum (Parcoursprüfung BC)** |
 |  | 15\. | [Records](lecture/java-modern/records.md), [Pattern Matching](lecture/java-modern/patternmatching.md), [Stream-API](lecture/java-modern/stream-api.md); [JUnit4: Property Testing](lecture/junit/junit4-property.md) | [B05](homework/b05.md) |
 |  | 22\. | [Generics1: Klassen/Methoden](lecture/java-classic/generics1-classes-methods.md), [Generics2: Bounds & Wildcards](lecture/java-classic/generics2-bounds-wildcards.md); [Command](lecture/pattern/command.md); [Logging](lecture/tooling/logging.md) | [B06](homework/b06.md) |
 |  | 29\. | [Generics3: Type Erasure & Polymorphie](lecture/java-classic/generics3-polymorphism.md), [Exceptions](lecture/java-classic/exceptions.md), [Optional & Result](lecture/java-modern/optional.md) | [B07](homework/b07.md) |
@@ -203,4 +203,4 @@ See the
 [credits](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/CREDITS.md)
 for a detailed list of contributing projects.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 5d32bca 2026-05-25 dependency injection: fix broken link in readme<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 8c42b1d 2026-05-26 dependency injection: add new lesson (#1118)<br></sub></sup></p></blockquote>
