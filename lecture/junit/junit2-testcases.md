@@ -290,7 +290,29 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 ## Wrap-Up
 
 -   Gründliches Testen ist ebenso viel Aufwand wie Coden
--   Äquivalenzklassenbildung und Grenzwertanalyse
+
+<!-- -->
+
+-   **Äquivalenzklassenbildung**:
+    -   Eingabebereiche (inkl. Objektzustand) in disjunkte gültige und
+        ungültige Äquivalenzklassen zerlegen
+    -   Alle Eingabewerte einer ÄK werden vom Testobjekt gleich
+        behandelt und führen zum gleichen Verhalten/Ergebnis
+
+<!-- -->
+
+-   **Grenzwertanalyse**: Für jede ÄK untere/obere Grenze und
+    angrenzende ungültige Werte zusätzlich testen (gültige/ungültige
+    Grenzwerte)
+
+<!-- -->
+
+-   **Testfallstrategie**:
+    -   **Positiv-Tests**: Kombination mehrerer gültiger ÄK in einem
+        Testfall erlaubt
+    -   **Negativ-Tests**: Pro Testfall **genau eine ungültige ÄK**,
+        alle anderen Parameter aus gültigen ÄK - diese gelten dabei noch
+        nicht als getestet
 
 > [!TIP]
 >
@@ -487,4 +509,4 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 77eea53 2026-04-11 junit: move to own folder (better pdf structure)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> ffa28c5 2026-05-27 junit2: use better wrap-up<br></sub></sup></p></blockquote>

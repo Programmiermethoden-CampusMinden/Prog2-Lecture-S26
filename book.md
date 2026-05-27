@@ -7658,7 +7658,29 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 ##### Wrap-Up
 
 -   Gründliches Testen ist ebenso viel Aufwand wie Coden
--   Äquivalenzklassenbildung und Grenzwertanalyse
+
+<!-- -->
+
+-   **Äquivalenzklassenbildung**:
+    -   Eingabebereiche (inkl. Objektzustand) in disjunkte gültige und
+        ungültige Äquivalenzklassen zerlegen
+    -   Alle Eingabewerte einer ÄK werden vom Testobjekt gleich
+        behandelt und führen zum gleichen Verhalten/Ergebnis
+
+<!-- -->
+
+-   **Grenzwertanalyse**: Für jede ÄK untere/obere Grenze und
+    angrenzende ungültige Werte zusätzlich testen (gültige/ungültige
+    Grenzwerte)
+
+<!-- -->
+
+-   **Testfallstrategie**:
+    -   **Positiv-Tests**: Kombination mehrerer gültiger ÄK in einem
+        Testfall erlaubt
+    -   **Negativ-Tests**: Pro Testfall **genau eine ungültige ÄK**,
+        alle anderen Parameter aus gültigen ÄK - diese gelten dabei noch
+        nicht als getestet
 
 > [!TIP]
 >
@@ -20988,18 +21010,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 8c42b1d 2026-05-26 dependency injection: add new lesson (#1118)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> ffa28c5 2026-05-27 junit2: use better wrap-up<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
