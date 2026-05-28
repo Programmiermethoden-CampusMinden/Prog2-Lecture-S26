@@ -37,10 +37,17 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Default-Methoden](https://youtu.be/qQ8BPkL9X5o)
-> -   [Demo Regel 1](https://youtu.be/gm6ttKlAEJc)
-> -   [Demo Regel 2](https://youtu.be/3j9i7iMVmMM)
-> -   [Demo Regel 3](https://youtu.be/J3gJnwz8Rf0)
+> Vorlesung \[[YT](https://youtu.be/MyWyaACCNx0)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-interfaces-default-methoden/9e4996b2a5454f2e5ac43e78d2302975)\]
+>
+> Demo:
+>
+> -   Demo Regel 1 \[[YT](https://youtu.be/U9VuBWEN2Jo)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-default-methoden-demo-regel-1/fabcf1f776332be2e4d60610f7e09d1b)\]
+> -   Demo Regel 2 \[[YT](https://youtu.be/h3C22pZTvss)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-default-methoden-demo-regel-2/ce049fff51743019e560ada17338a836)\]
+> -   Demo Regel 3 \[[YT](https://youtu.be/sasHrVFl4HE)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-default-methoden-demo-regel-3/c24c8c8abaa9f426619ab876b047b7d1)\]
 >
 > </details>
 
@@ -315,8 +322,11 @@ Seit Java8: Interfaces mit Implementierung: **Default-Methoden**
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Urma u. a. ([2014, Kap. 9](#ref-Urma2014))
+> Lesen Sie zu diesem Thema auch in den Oracle-Tutorials ["Default
+> Methods"](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html)
+> und ["Implementing an
+> Interface"](https://dev.java/learn/interfaces/examples/#default-methods)
+> nach.
 >
 > </details>
 
@@ -351,36 +361,8 @@ Seit Java8: Interfaces mit Implementierung: **Default-Methoden**
 
 ------------------------------------------------------------------------
 
-> [!NOTE]
->
-> <details >
-> <summary><strong>👀 Quellen</strong></summary>
->
-> <div id="refs" class="references csl-bib-body hanging-indent">
->
-> <div id="ref-Java-SE-Tutorial" class="csl-entry">
->
-> Oracle Corporation. 2024. „The Java Tutorials".
-> <https://docs.oracle.com/javase/tutorial/>.
->
-> </div>
->
-> <div id="ref-Urma2014" class="csl-entry">
->
-> Urma, R.-G., M. Fusco, und A. Mycroft. 2014. *Java 8 in Action:
-> Lambdas, Streams, and Functional-Style Programming*. Manning
-> Publications.
->
-> </div>
->
-> </div>
->
-> </details>
-
-------------------------------------------------------------------------
-
 <p align="center"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"  /></p>
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> e5a49df 2026-05-28 defaultmethods: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>

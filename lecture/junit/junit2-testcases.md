@@ -1,4 +1,4 @@
-# Testfallermittlung: Wie viel und was muss man testen?
+# JUnit2 Testfallermittlung: Wie viel und was muss man testen?
 
 > [!IMPORTANT]
 >
@@ -43,7 +43,8 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Testfallermittlung](https://youtu.be/AR1WWt4AFqI)
+> Vorlesung \[[YT](https://youtu.be/5Y_liQnxcPo)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-junit2-testfallermittlung-wie-viel-und-was-muss-man-testen/7dc965fb744d5165f20ae69552e35c35)\]
 >
 > </details>
 
@@ -319,13 +320,9 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   <span class="nocase">vogella GmbH</span>
->     ([2021](#ref-vogellaJUnit))
-> -   The JUnit Team ([2022](#ref-junit4))
-> -   Kleuker ([2019](#ref-Kleuker2019))
-> -   Osherove ([2014](#ref-Osherove2014))
-> -   Spillner und Linz ([2012](#ref-Spillner2012))
-> -   Thies u. a. ([o. J.](#ref-fernunihagenJunit))
+> Zum Nachlesen möchte ich Ihnen Kapitel 4 "Testfallerstellung mit
+> Äquivalenzklassen" im Buch meines Kollegen Stephan Kleuker ans Herz
+> legen: Kleuker ([2026](#ref-Kleuker2026)).
 >
 > </details>
 
@@ -464,38 +461,10 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 >
 > </div>
 >
-> <div id="ref-Osherove2014" class="csl-entry">
+> <div id="ref-Kleuker2026" class="csl-entry">
 >
-> Osherove, R. 2014. *The Art of Unit Testing*. Manning.
->
-> </div>
->
-> <div id="ref-Spillner2012" class="csl-entry">
->
-> Spillner, A., und T. Linz. 2012. *Basiswissen Softwaretest*. 5. Aufl.
-> Dpunkt.
->
-> </div>
->
-> <div id="ref-junit4" class="csl-entry">
->
-> The JUnit Team. 2022. „JUnit 5". <https://junit.org/>.
->
-> </div>
->
-> <div id="ref-fernunihagenJunit" class="csl-entry">
->
-> Thies, A., C. Noelke, und Ungerc. o. J. „Einführung in JUnit".
-> Fernuniversität in Hagen. Zugegriffen 14. April 2020.
-> <https://wiki.fernuni-hagen.de/eclipse/index.php/Einführung_in_JUnit>.
->
-> </div>
->
-> <div id="ref-vogellaJUnit" class="csl-entry">
->
-> <span class="nocase">vogella GmbH</span>. 2021. „JUnit 5 Tutorial -
-> Learn How to Write Unit Tests".
-> <https://www.vogella.com/tutorials/JUnit/article.html>.
+> Kleuker, S. 2026. *Qualitätssicherung durch Softwaretests*. Springer
+> Vieweg Wiesbaden. <https://doi.org/10.1007/978-3-658-50232-4>.
 >
 > </div>
 >
@@ -509,4 +478,4 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> ffa28c5 2026-05-27 junit2: use better wrap-up<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> db7538d 2026-05-28 junit2: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>

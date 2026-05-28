@@ -774,6 +774,9 @@ eine gute Einstiegshilfe über den hier vorgestellten Ausblick hinaus.
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
+> Hier einige nützliche Einsprungpunkte in die offizielle
+> Gradle-Dokumentation:
+>
 > -   ["Getting
 >     Started"](https://docs.gradle.org/current/userguide/getting_started.html)
 > -   ["Building Java Applications
@@ -826,4 +829,4 @@ eine gute Einstiegshilfe über den hier vorgestellten Ausblick hinaus.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 4e20e45 2026-05-13 gradle: wrap remarks in gh-alerts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> a70d2c2 2026-05-28 gradle: rework readings<br></sub></sup></p></blockquote>

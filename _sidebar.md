@@ -15,8 +15,8 @@
     - [Einführung in Docker](lecture/tooling/docker.md)
   - **Testen mit JUnit und Mockito**
     - [Testen mit JUnit (JUnit-Basics)](lecture/junit/junit1-basics.md)
-    - [Testfallermittlung: Wie viel und was muss man testen?](lecture/junit/junit2-testcases.md)
-    - [Mocking mit Mockito](lecture/junit/junit3-mockito.md)
+    - [JUnit2 Testfallermittlung: Wie viel und was muss man testen?](lecture/junit/junit2-testcases.md)
+    - [JUnit3: Mocking mit Mockito](lecture/junit/junit3-mockito.md)
     - [Property based Testing & Approval Testing](lecture/junit/junit4-property.md)
   - **Modern Java: Funktionaler Stil und Stream-API**
     - [Lambda-Ausdrücke und funktionale Interfaces](lecture/java-modern/lambdas.md)

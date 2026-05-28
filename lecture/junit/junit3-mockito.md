@@ -1,4 +1,4 @@
-# Mocking mit Mockito
+# JUnit3: Mocking mit Mockito
 
 > [!IMPORTANT]
 >
@@ -29,12 +29,21 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Mocking](https://youtu.be/8deFZKtjXSk)
-> -   [Demo Mocking: Stubs](https://youtu.be/WNEedC7PrVQ)
-> -   [Demo Mocking: Mocks](https://youtu.be/avUyYVePFCI)
-> -   [Demo Mocking: Spy](https://youtu.be/dj3pmOZfS_A)
-> -   [Demo Mocking: verify()](https://youtu.be/CPGqhyC8BjU)
-> -   [Demo Mocking: Matcher](https://youtu.be/JNouzOd0s-w)
+> Vorlesung \[[YT](https://youtu.be/M1dv5M9sjFE)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-junit3-mocking-mit-mockito/fa20f5401f05145170c1f4df1af2ef46)\]
+>
+> Demo:
+>
+> -   Demo Mocking: Stubs \[[YT](https://youtu.be/xj7-4_faxXA)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-mocking-demo-stubs/c0e1d8d3e6f070f5efd37b7e4aaa5317)\]
+> -   Demo Mocking: Mocks \[[YT](https://youtu.be/o0SwiRuutNA)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-mocking-demo-mocks/8a220db10ccdec4139b0e8fe8b6f1185)\]
+> -   Demo Mocking: Spy \[[YT](https://youtu.be/S6_bYfrSiqg)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-mocking-demo-spy/99bd32bb2cec08d25fec82ba41e3eece)\]
+> -   Demo Mocking: `verify()` \[[YT](https://youtu.be/96xav9QqEzE)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-mocking-demo-verify/7b40c56580399561d0a1de3bf8135efc)\]
+> -   Demo Mocking: Matcher \[[YT](https://youtu.be/3ta3eQZW28Q)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-mocking-demo-matcher/d66a9073299da8615f2379e4737e57e2)\]
 >
 > </details>
 
@@ -717,6 +726,17 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
     -   Auswerten, mit welchen Argumenten Methoden aufgerufen wurden
         (`anyString`)
 
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> Sie finden beispielsweise in den Baelding-Tutorials ["Mockito
+> Series"](https://www.baeldung.com/mockito-series) weitere
+> Informationen zum Thema Mockito.
+>
+> </details>
+
 > [!NOTE]
 >
 > <details >
@@ -726,8 +746,9 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
 >     und erklären
 > -   k3: Ich kann Mocks in Mockito anlegen und nutzen
 > -   k3: Ich kann Spies in Mockito anlegen und nutzen
-> -   k3: Ich kann die Interaktion mit Mocks/Spies über verify() prüfen
-> -   k3: Ich kann den ArgumentMatcher praktisch einsetzen
+> -   k3: Ich kann die Interaktion mit Mocks/Spies über `verify()`
+>     prüfen
+> -   k3: Ich kann den `ArgumentMatcher` praktisch einsetzen
 >
 > </details>
 
@@ -824,4 +845,4 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 5c73aca 2026-05-04 lecture: update versions (spotless, junit, checkstyle, ...) in gradle and maven config examples<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 9c422a2 2026-05-28 junit3: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>

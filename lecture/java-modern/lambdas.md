@@ -61,8 +61,8 @@
 >     \[[YT](https://youtu.be/gEmK8sDjBu0)\],
 >     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-funktionale-interfaces-selbst-definiert/9cf03bce9778161791bc04da6e55588d)\]
 > -   Vordefinierte funktionale Interfaces im JDK
->     \[[YT](https://youtu.be/Ed6yck5Gvwk)\],
->     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-vordefinierte-funktionale-interfaces-im-jdk/068208f0b3272fd18dbf092ff376bf76)\]
+>     \[[YT](https://youtu.be/5rYhsnPTGig)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-vordefinierte-funktionale-interfaces-im-jdk/731c225a980d6e875e15c2ee73683e3c)\]
 >
 > </details>
 
@@ -412,8 +412,10 @@ Lambda-Ausdruck stolpert:
 >
 > Lesen Sie zu diesem Thema auch in den Oracle-Tutorials ["Writing Your
 > First Lambda Expression"
-> (Oracle)](https://dev.java/learn/lambdas/first-lambdas/) und ["Using
-> Lambdas Expressions in Your Application"
+> (Oracle)](https://dev.java/learn/lambdas/first-lambdas/), ["When to
+> Use Nested Classes, Local Classes, Anonymous Classes, and Lambda
+> Expressions"](https://dev.java/learn/classes-objects/design-best-practices/)
+> und ["Using Lambdas Expressions in Your Application"
 > (Oracle)](https://dev.java/learn/lambdas/functional-interfaces/) nach.
 >
 > </details>
@@ -533,4 +535,4 @@ Lambda-Ausdruck stolpert:
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> fa4c33d 2026-04-27 lambda: rework readings<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 61721a6 2026-05-28 lambda: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>

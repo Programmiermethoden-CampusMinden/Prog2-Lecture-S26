@@ -40,7 +40,8 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/gEeDt-FmrGc)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-dependency-injection/f4f07da39b11d17bc4cbd6c5756592cf)\]
 >
 > </details>
 
@@ -454,8 +455,10 @@ Vorteile (insbesondere aus Testsicht):
 >
 > Auch interessant:
 >
-> -   https://www.digitalocean.com/community/tutorials/java-dependency-injection-design-pattern-example-tutorial
-> -   https://youtu.be/GATSXm7WAxU
+> -   [Java Dependency Injection: Design Pattern Tutorial
+>     (DigitalOcean)](https://www.digitalocean.com/community/tutorials/java-dependency-injection-design-pattern-example-tutorial)
+> -   [Dependency Injection Made Simple with Java Examples
+>     (Geekific)](https://youtu.be/GATSXm7WAxU)
 >
 > </details>
 
@@ -540,4 +543,4 @@ Vorteile (insbesondere aus Testsicht):
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 8c42b1d 2026-05-26 dependency injection: add new lesson (#1118)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 6e3d57c 2026-05-28 di: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>

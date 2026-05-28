@@ -44,8 +44,11 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Record-Klassen](https://youtu.be/5RMhdCsZL6Y)
-> -   [Demo Record-Klassen](https://youtu.be/jWBAXWH0MUc)
+> Vorlesung \[[YT](https://youtu.be/zpJUQf4A5JM)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-record-klassen/be8c6dda8d2a3cb873d1705a04fbcf00)\]
+>
+> Demo: \[[YT](https://youtu.be/8Yn1yNQBG2Q)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-record-klassen-demo/ba7e94145e4f7515334eaf7541807cea)\]
 >
 > </details>
 
@@ -217,15 +220,13 @@ deutlich verbessert.
 -   Konstruktoren und Methoden können ergänzt/überschrieben werden
 -   Keine Vererbung von Klassen möglich (kein `extends`)
 
-Schöne Doku: ["Using Record to Model Immutable
-Data"](https://dev.java/learn/using-record-to-model-immutable-data/).
-
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2026](#ref-LernJava))
+> Schöne Doku: ["Using Record to Model Immutable
+> Data"](https://dev.java/learn/records/).
 >
 > </details>
 
@@ -287,27 +288,8 @@ Data"](https://dev.java/learn/using-record-to-model-immutable-data/).
 
 ------------------------------------------------------------------------
 
-> [!NOTE]
->
-> <details >
-> <summary><strong>👀 Quellen</strong></summary>
->
-> <div id="refs" class="references csl-bib-body hanging-indent">
->
-> <div id="ref-LernJava" class="csl-entry">
->
-> Oracle Corporation. 2026. „Learn Java". <https://dev.java/learn/>.
->
-> </div>
->
-> </div>
->
-> </details>
-
-------------------------------------------------------------------------
-
 <p align="center"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"  /></p>
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> d625926 2026-05-28 records: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>

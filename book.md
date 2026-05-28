@@ -3429,6 +3429,9 @@ eine gute Einstiegshilfe über den hier vorgestellten Ausblick hinaus.
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
+> Hier einige nützliche Einsprungpunkte in die offizielle
+> Gradle-Dokumentation:
+>
 > -   ["Getting
 >     Started"](https://docs.gradle.org/current/userguide/getting_started.html)
 > -   ["Building Java Applications
@@ -7366,7 +7369,7 @@ JUnit als Framework für (Unit-) Tests
 
 <a id="id-77793ee59748dfeaeef9cf17fee8754ae4b8fdf6"></a>
 
-#### Testfallermittlung: Wie viel und was muss man testen?
+#### JUnit2 Testfallermittlung: Wie viel und was muss man testen?
 
 > [!IMPORTANT]
 >
@@ -7411,7 +7414,8 @@ JUnit als Framework für (Unit-) Tests
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Testfallermittlung](https://youtu.be/AR1WWt4AFqI)
+> Vorlesung \[[YT](https://youtu.be/5Y_liQnxcPo)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-junit2-testfallermittlung-wie-viel-und-was-muss-man-testen/7dc965fb744d5165f20ae69552e35c35)\]
 >
 > </details>
 
@@ -7687,13 +7691,9 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   <span class="nocase">vogella GmbH</span>
->     ([2021](#ref-vogellaJUnit))
-> -   The JUnit Team ([2022](#ref-junit4))
-> -   Kleuker ([2019](#ref-Kleuker2019))
-> -   Osherove ([2014](#ref-Osherove2014))
-> -   Spillner und Linz ([2012](#ref-Spillner2012))
-> -   Thies u. a. ([o. J.](#ref-fernunihagenJunit))
+> Zum Nachlesen möchte ich Ihnen Kapitel 4 "Testfallerstellung mit
+> Äquivalenzklassen" im Buch meines Kollegen Stephan Kleuker ans Herz
+> legen: Kleuker ([2026](#ref-Kleuker2026)).
 >
 > </details>
 
@@ -7818,7 +7818,7 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 
 <a id="id-b41adbc161f203df59258c2f719f8689c49108e8"></a>
 
-#### Mocking mit Mockito
+#### JUnit3: Mocking mit Mockito
 
 > [!IMPORTANT]
 >
@@ -7849,12 +7849,21 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Mocking](https://youtu.be/8deFZKtjXSk)
-> -   [Demo Mocking: Stubs](https://youtu.be/WNEedC7PrVQ)
-> -   [Demo Mocking: Mocks](https://youtu.be/avUyYVePFCI)
-> -   [Demo Mocking: Spy](https://youtu.be/dj3pmOZfS_A)
-> -   [Demo Mocking: verify()](https://youtu.be/CPGqhyC8BjU)
-> -   [Demo Mocking: Matcher](https://youtu.be/JNouzOd0s-w)
+> Vorlesung \[[YT](https://youtu.be/M1dv5M9sjFE)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-junit3-mocking-mit-mockito/fa20f5401f05145170c1f4df1af2ef46)\]
+>
+> Demo:
+>
+> -   Demo Mocking: Stubs \[[YT](https://youtu.be/xj7-4_faxXA)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-mocking-demo-stubs/c0e1d8d3e6f070f5efd37b7e4aaa5317)\]
+> -   Demo Mocking: Mocks \[[YT](https://youtu.be/o0SwiRuutNA)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-mocking-demo-mocks/8a220db10ccdec4139b0e8fe8b6f1185)\]
+> -   Demo Mocking: Spy \[[YT](https://youtu.be/S6_bYfrSiqg)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-mocking-demo-spy/99bd32bb2cec08d25fec82ba41e3eece)\]
+> -   Demo Mocking: `verify()` \[[YT](https://youtu.be/96xav9QqEzE)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-mocking-demo-verify/7b40c56580399561d0a1de3bf8135efc)\]
+> -   Demo Mocking: Matcher \[[YT](https://youtu.be/3ta3eQZW28Q)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-mocking-demo-matcher/d66a9073299da8615f2379e4737e57e2)\]
 >
 > </details>
 
@@ -8537,6 +8546,17 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
     -   Auswerten, mit welchen Argumenten Methoden aufgerufen wurden
         (`anyString`)
 
+> [!TIP]
+>
+> <details open>
+> <summary><strong>📖 Zum Nachlesen</strong></summary>
+>
+> Sie finden beispielsweise in den Baelding-Tutorials ["Mockito
+> Series"](https://www.baeldung.com/mockito-series) weitere
+> Informationen zum Thema Mockito.
+>
+> </details>
+
 > [!NOTE]
 >
 > <details >
@@ -8546,8 +8566,9 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
 >     und erklären
 > -   k3: Ich kann Mocks in Mockito anlegen und nutzen
 > -   k3: Ich kann Spies in Mockito anlegen und nutzen
-> -   k3: Ich kann die Interaktion mit Mocks/Spies über verify() prüfen
-> -   k3: Ich kann den ArgumentMatcher praktisch einsetzen
+> -   k3: Ich kann die Interaktion mit Mocks/Spies über `verify()`
+>     prüfen
+> -   k3: Ich kann den `ArgumentMatcher` praktisch einsetzen
 >
 > </details>
 
@@ -8768,8 +8789,8 @@ TODO
 >     \[[YT](https://youtu.be/gEmK8sDjBu0)\],
 >     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-funktionale-interfaces-selbst-definiert/9cf03bce9778161791bc04da6e55588d)\]
 > -   Vordefinierte funktionale Interfaces im JDK
->     \[[YT](https://youtu.be/Ed6yck5Gvwk)\],
->     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-vordefinierte-funktionale-interfaces-im-jdk/068208f0b3272fd18dbf092ff376bf76)\]
+>     \[[YT](https://youtu.be/5rYhsnPTGig)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-vordefinierte-funktionale-interfaces-im-jdk/731c225a980d6e875e15c2ee73683e3c)\]
 >
 > </details>
 
@@ -9119,8 +9140,10 @@ Lambda-Ausdruck stolpert:
 >
 > Lesen Sie zu diesem Thema auch in den Oracle-Tutorials ["Writing Your
 > First Lambda Expression"
-> (Oracle)](https://dev.java/learn/lambdas/first-lambdas/) und ["Using
-> Lambdas Expressions in Your Application"
+> (Oracle)](https://dev.java/learn/lambdas/first-lambdas/), ["When to
+> Use Nested Classes, Local Classes, Anonymous Classes, and Lambda
+> Expressions"](https://dev.java/learn/classes-objects/design-best-practices/)
+> und ["Using Lambdas Expressions in Your Application"
 > (Oracle)](https://dev.java/learn/lambdas/functional-interfaces/) nach.
 >
 > </details>
@@ -9653,10 +9676,17 @@ Seit Java8: **Methoden-Referenzen** statt anonymer Klassen
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Default-Methoden](https://youtu.be/qQ8BPkL9X5o)
-> -   [Demo Regel 1](https://youtu.be/gm6ttKlAEJc)
-> -   [Demo Regel 2](https://youtu.be/3j9i7iMVmMM)
-> -   [Demo Regel 3](https://youtu.be/J3gJnwz8Rf0)
+> Vorlesung \[[YT](https://youtu.be/MyWyaACCNx0)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-interfaces-default-methoden/9e4996b2a5454f2e5ac43e78d2302975)\]
+>
+> Demo:
+>
+> -   Demo Regel 1 \[[YT](https://youtu.be/U9VuBWEN2Jo)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-default-methoden-demo-regel-1/fabcf1f776332be2e4d60610f7e09d1b)\]
+> -   Demo Regel 2 \[[YT](https://youtu.be/h3C22pZTvss)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-default-methoden-demo-regel-2/ce049fff51743019e560ada17338a836)\]
+> -   Demo Regel 3 \[[YT](https://youtu.be/sasHrVFl4HE)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-default-methoden-demo-regel-3/c24c8c8abaa9f426619ab876b047b7d1)\]
 >
 > </details>
 
@@ -9931,8 +9961,11 @@ Seit Java8: Interfaces mit Implementierung: **Default-Methoden**
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Urma u. a. ([2014, Kap. 9](#ref-Urma2014))
+> Lesen Sie zu diesem Thema auch in den Oracle-Tutorials ["Default
+> Methods"](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html)
+> und ["Implementing an
+> Interface"](https://dev.java/learn/interfaces/examples/#default-methods)
+> nach.
 >
 > </details>
 
@@ -10013,8 +10046,11 @@ Seit Java8: Interfaces mit Implementierung: **Default-Methoden**
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Record-Klassen](https://youtu.be/5RMhdCsZL6Y)
-> -   [Demo Record-Klassen](https://youtu.be/jWBAXWH0MUc)
+> Vorlesung \[[YT](https://youtu.be/zpJUQf4A5JM)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-record-klassen/be8c6dda8d2a3cb873d1705a04fbcf00)\]
+>
+> Demo: \[[YT](https://youtu.be/8Yn1yNQBG2Q)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-record-klassen-demo/ba7e94145e4f7515334eaf7541807cea)\]
 >
 > </details>
 
@@ -10186,15 +10222,13 @@ deutlich verbessert.
 -   Konstruktoren und Methoden können ergänzt/überschrieben werden
 -   Keine Vererbung von Klassen möglich (kein `extends`)
 
-Schöne Doku: ["Using Record to Model Immutable
-Data"](https://dev.java/learn/using-record-to-model-immutable-data/).
-
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2026](#ref-LernJava))
+> Schöne Doku: ["Using Record to Model Immutable
+> Data"](https://dev.java/learn/records/).
 >
 > </details>
 
@@ -10363,10 +10397,16 @@ TODO
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Stream-API](https://youtu.be/zZMyk0u5hJk)
-> -   [Demo Stream-API](https://youtu.be/KBP72tCkBt8)
-> -   [Demo Vordefinierte funktionale Interfaces im
->     JDK](https://youtu.be/jzEw8IH8Mfc)
+> Vorlesung \[[YT](https://youtu.be/G6Ks_HDQDtQ)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-stream-api/26f9a785b774603807dfe90dcb5d8020)\]
+>
+> Demo:
+>
+> -   Demo Stream-API \[[YT](https://youtu.be/e9hR5NKf2qo)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-stream-api-demo/96eec03e28b165e12991724e65a5dccc)\]
+> -   Vordefinierte funktionale Interfaces im JDK
+>     \[[YT](https://youtu.be/5rYhsnPTGig)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-vordefinierte-funktionale-interfaces-im-jdk/731c225a980d6e875e15c2ee73683e3c)\]
 >
 > </details>
 
@@ -10753,17 +10793,14 @@ werden Daten **verarbeitet**)
 -   Intermediäre Operationen laufen erst bei Abschluss des Streams los
 -   Terminale Operation führt zur Verarbeitung und Abschluss des Streams
 
-Schöne Doku: ["The Stream API"](https://dev.java/learn/api/streams/),
-und auch ["Package
-java.util.stream"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/package-summary.html).
-
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2026](#ref-LernJava))
-> -   Ullenboom ([2021, 17.3--17.6](#ref-Ullenboom2021))
+> Schöne Doku: ["The Stream API"](https://dev.java/learn/api/streams/),
+> und auch ["Package
+> java.util.stream"](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html).
 >
 > </details>
 
@@ -10774,17 +10811,17 @@ java.util.stream"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/
 >
 > -   k2: Ich verstehe, dass Streams die Daten nicht sofort verarbeiten
 >     ('lazy' Verarbeitung)
-> -   k2: Ich verstehe, dass ich mit map() den Typ (und Inhalt) von
+> -   k2: Ich verstehe, dass ich mit `map()` den Typ (und Inhalt) von
 >     Objekten im Stream, aber nicht die Anzahl verändere
-> -   k2: Ich verstehe, dass ich mit filter() die Anzahl der Objekte im
->     Stream, aber nicht deren Typ (und Inhalt) verändere
+> -   k2: Ich verstehe, dass ich mit `filter()` die Anzahl der Objekte
+>     im Stream, aber nicht deren Typ (und Inhalt) verändere
 > -   k2: Ich verstehe, warum Streams nicht in Attributen gehalten oder
 >     als Parameter herumgereicht werden sollten
 > -   k3: Ich kann einen Stream erzeugen
 > -   k3: Ich kann verschiedene intermediäre Operationen verketten
 > -   k3: Ich kann mit einer terminalen Operation einen Stream
 >     abschließen und damit die Berechnung durchführen
-> -   k3: Ich kann flatMap() einsetzen
+> -   k3: Ich kann `flatMap()` einsetzen
 >
 > </details>
 
@@ -13209,7 +13246,8 @@ Klassenstruktur
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/gEeDt-FmrGc)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-dependency-injection/f4f07da39b11d17bc4cbd6c5756592cf)\]
 >
 > </details>
 
@@ -13623,8 +13661,10 @@ Vorteile (insbesondere aus Testsicht):
 >
 > Auch interessant:
 >
-> -   https://www.digitalocean.com/community/tutorials/java-dependency-injection-design-pattern-example-tutorial
-> -   https://youtu.be/GATSXm7WAxU
+> -   [Java Dependency Injection: Design Pattern Tutorial
+>     (DigitalOcean)](https://www.digitalocean.com/community/tutorials/java-dependency-injection-design-pattern-example-tutorial)
+> -   [Dependency Injection Made Simple with Java Examples
+>     (Geekific)](https://youtu.be/GATSXm7WAxU)
 >
 > </details>
 
@@ -20925,12 +20965,6 @@ public class MoreLogging {
 >
 > </div>
 >
-> <div id="ref-Osherove2014" class="csl-entry">
->
-> Osherove, R. 2014. *The Art of Unit Testing*. Manning.
->
-> </div>
->
 > <div id="ref-Parr2014" class="csl-entry">
 >
 > Parr, T. 2014. *The Definitive ANTLR 4 Reference*. Pragmatic
@@ -20946,48 +20980,11 @@ public class MoreLogging {
 >
 > </div>
 >
-> <div id="ref-Spillner2012" class="csl-entry">
->
-> Spillner, A., und T. Linz. 2012. *Basiswissen Softwaretest*. 5. Aufl.
-> Dpunkt.
->
-> </div>
->
-> <div id="ref-junit4" class="csl-entry">
->
-> The JUnit Team. 2022. „JUnit 5". <https://junit.org/>.
->
-> </div>
->
-> <div id="ref-fernunihagenJunit" class="csl-entry">
->
-> Thies, A., C. Noelke, und Ungerc. o. J. „Einführung in JUnit".
-> Fernuniversität in Hagen. Zugegriffen 14. April 2020.
-> <https://wiki.fernuni-hagen.de/eclipse/index.php/Einführung_in_JUnit>.
->
-> </div>
->
 > <div id="ref-Ullenboom2021" class="csl-entry">
 >
 > Ullenboom, C. 2021. *Java ist auch eine Insel*. 16. Aufl.
 > Rheinwerk-Verlag.
 > <https://openbook.rheinwerk-verlag.de/javainsel/index.html>.
->
-> </div>
->
-> <div id="ref-Urma2014" class="csl-entry">
->
-> Urma, R.-G., M. Fusco, und A. Mycroft. 2014. *Java 8 in Action:
-> Lambdas, Streams, and Functional-Style Programming*. Manning
-> Publications.
->
-> </div>
->
-> <div id="ref-vogellaJUnit" class="csl-entry">
->
-> <span class="nocase">vogella GmbH</span>. 2021. „JUnit 5 Tutorial -
-> Learn How to Write Unit Tests".
-> <https://www.vogella.com/tutorials/JUnit/article.html>.
 >
 > </div>
 >
@@ -21010,18 +21007,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> ffa28c5 2026-05-27 junit2: use better wrap-up<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 993d2de 2026-05-28 streams: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

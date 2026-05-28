@@ -48,10 +48,16 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Stream-API](https://youtu.be/zZMyk0u5hJk)
-> -   [Demo Stream-API](https://youtu.be/KBP72tCkBt8)
-> -   [Demo Vordefinierte funktionale Interfaces im
->     JDK](https://youtu.be/jzEw8IH8Mfc)
+> Vorlesung \[[YT](https://youtu.be/G6Ks_HDQDtQ)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-stream-api/26f9a785b774603807dfe90dcb5d8020)\]
+>
+> Demo:
+>
+> -   Demo Stream-API \[[YT](https://youtu.be/e9hR5NKf2qo)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-stream-api-demo/96eec03e28b165e12991724e65a5dccc)\]
+> -   Vordefinierte funktionale Interfaces im JDK
+>     \[[YT](https://youtu.be/5rYhsnPTGig)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-vordefinierte-funktionale-interfaces-im-jdk/731c225a980d6e875e15c2ee73683e3c)\]
 >
 > </details>
 
@@ -438,17 +444,14 @@ werden Daten **verarbeitet**)
 -   Intermediäre Operationen laufen erst bei Abschluss des Streams los
 -   Terminale Operation führt zur Verarbeitung und Abschluss des Streams
 
-Schöne Doku: ["The Stream API"](https://dev.java/learn/api/streams/),
-und auch ["Package
-java.util.stream"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/package-summary.html).
-
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2026](#ref-LernJava))
-> -   Ullenboom ([2021, 17.3--17.6](#ref-Ullenboom2021))
+> Schöne Doku: ["The Stream API"](https://dev.java/learn/api/streams/),
+> und auch ["Package
+> java.util.stream"](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html).
 >
 > </details>
 
@@ -459,17 +462,17 @@ java.util.stream"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/
 >
 > -   k2: Ich verstehe, dass Streams die Daten nicht sofort verarbeiten
 >     ('lazy' Verarbeitung)
-> -   k2: Ich verstehe, dass ich mit map() den Typ (und Inhalt) von
+> -   k2: Ich verstehe, dass ich mit `map()` den Typ (und Inhalt) von
 >     Objekten im Stream, aber nicht die Anzahl verändere
-> -   k2: Ich verstehe, dass ich mit filter() die Anzahl der Objekte im
->     Stream, aber nicht deren Typ (und Inhalt) verändere
+> -   k2: Ich verstehe, dass ich mit `filter()` die Anzahl der Objekte
+>     im Stream, aber nicht deren Typ (und Inhalt) verändere
 > -   k2: Ich verstehe, warum Streams nicht in Attributen gehalten oder
 >     als Parameter herumgereicht werden sollten
 > -   k3: Ich kann einen Stream erzeugen
 > -   k3: Ich kann verschiedene intermediäre Operationen verketten
 > -   k3: Ich kann mit einer terminalen Operation einen Stream
 >     abschließen und damit die Berechnung durchführen
-> -   k3: Ich kann flatMap() einsetzen
+> -   k3: Ich kann `flatMap()` einsetzen
 >
 > </details>
 
@@ -546,38 +549,11 @@ java.util.stream"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/
 
 ------------------------------------------------------------------------
 
-> [!NOTE]
->
-> <details >
-> <summary><strong>👀 Quellen</strong></summary>
->
-> <div id="refs" class="references csl-bib-body hanging-indent">
->
-> <div id="ref-LernJava" class="csl-entry">
->
-> Oracle Corporation. 2026. „Learn Java". <https://dev.java/learn/>.
->
-> </div>
->
-> <div id="ref-Ullenboom2021" class="csl-entry">
->
-> Ullenboom, C. 2021. *Java ist auch eine Insel*. 16. Aufl.
-> Rheinwerk-Verlag.
-> <https://openbook.rheinwerk-verlag.de/javainsel/index.html>.
->
-> </div>
->
-> </div>
->
-> </details>
-
-------------------------------------------------------------------------
-
 <p align="center"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"  /></p>
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 993d2de 2026-05-28 streams: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
