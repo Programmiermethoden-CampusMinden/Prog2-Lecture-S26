@@ -68,6 +68,11 @@ nutzen und uns dieses genauer anschauen.
 Alle Sitzungen online per Zoom (**Zugangsdaten siehe
 [ILIAS](https://www.hsbi.de/elearning/goto.php/crs/1634793)**).
 
+### Sprechstunde
+
+-   Dienstag, 10:00 - 11:00 Uhr
+-   Freitag, 10:00 - 11:00 Uhr
+
 ### Fahrplan
 
 Abgabe der Post Mortems jeweils **Montag bis 08:00 Uhr** im
@@ -203,4 +208,4 @@ See the
 [credits](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/CREDITS.md)
 for a detailed list of contributing projects.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 8c42b1d 2026-05-26 dependency injection: add new lesson (#1118)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 75370ce 2026-05-29 orga: add sprechstunde<br></sub></sup></p></blockquote>

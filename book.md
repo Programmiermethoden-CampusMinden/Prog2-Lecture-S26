@@ -72,6 +72,11 @@ nutzen und uns dieses genauer anschauen.
 Alle Sitzungen online per Zoom (**Zugangsdaten siehe
 [ILIAS](https://www.hsbi.de/elearning/goto.php/crs/1634793)**).
 
+#### Sprechstunde
+
+-   Dienstag, 10:00 - 11:00 Uhr
+-   Freitag, 10:00 - 11:00 Uhr
+
 #### Fahrplan
 
 Abgabe der Post Mortems jeweils **Montag bis 08:00 Uhr** im
@@ -21011,14 +21016,14 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 993d2de 2026-05-28 streams: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 75370ce 2026-05-29 orga: add sprechstunde<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
