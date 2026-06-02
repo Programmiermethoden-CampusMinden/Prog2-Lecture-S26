@@ -177,6 +177,7 @@ voneinander abgrenzen und unterscheiden zu können.
         testImplementation platform('org.junit:junit-bom:6.0.3')
         testImplementation 'org.junit.jupiter:junit-jupiter'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
         testImplementation 'org.mockito:mockito-core:5.23.0'
     }
     ```
@@ -210,6 +211,43 @@ voneinander abgrenzen und unterscheiden zu können.
         </dependency>
     </dependencies>
     ```
+
+<details>
+
+Seit Java 21 werden bestimmte
+[Einschränkungen](https://openjdk.org/jeps/451) auf Seiten der JVM
+implementiert, die aktuell zu einer Warnung beim Ausführen von Mockito
+führen und die in Zukunft möglicherweise das direkte Ausführen von
+Mockito komplett verhindern.
+
+In der [Dokumentation von
+Mockito](https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3)
+findet sich ein Hinweis, dass man `mockito-core` explizit als einen
+"Java Agent" konfigurieren sollte. Damit landet man bei der folgenden
+Ergänzung der Gradle-Konfiguration für Mockito (vgl. mit dem
+`dependencies`-Abschnitt oben):
+
+``` groovy
+configurations {
+    mockitoAgent
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:6.0.3')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    testImplementation 'org.mockito:mockito-core:5.23.0'
+    mockitoAgent('org.mockito:mockito-core:5.23.0') { transitive = false }
+}
+
+test {
+    useJUnitPlatform()
+    jvmArgs "-javaagent:${configurations.mockitoAgent.asPath}"
+}
+```
+
+</details>
 
 ## Manuell Stubs implementieren
 
@@ -845,4 +883,4 @@ public void testVerify_InteraktionenMitHilfeDesArgumentCaptor() {
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 9c422a2 2026-05-28 junit3: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 6943d2f 2026-06-02 mockito: add java agent configuration<br></sub></sup></p></blockquote>

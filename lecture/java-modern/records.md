@@ -96,9 +96,10 @@ public record StudiR(String name, int credits) {}
 Record-Klassen wurden in Java14 eingeführt und werden immer wieder in
 neuen Releases erweitert/ergänzt.
 
-Der kanonische Konstruktor hat das Aussehen wie die Record-Deklaration,
-im Beispiel also `public StudiR(String name, int credits)`. Dabei werden
-die Komponenten über eine Kopie der Werte initialisiert.
+Der **kanonische Konstruktor** hat das Aussehen wie die
+Record-Deklaration, im Beispiel also
+`public StudiR(String name, int credits)`. Dabei werden die Komponenten
+über eine Kopie der Werte initialisiert.
 
 Für die Komponenten werden automatisch private Attribute mit dem selben
 Namen angelegt.
@@ -112,12 +113,12 @@ Namen entsprechen denen der Komponenten, es fehlt also der übliche
 -   Records erweitern implizit die Klasse `java.lang.Record`: Keine
     andere Klassen mehr erweiterbar! (Interfaces kein Problem)
 
--   Record-Klassen sind implizit final
+-   Record-Klassen sind implizit `final`
 
 -   Keine weiteren (Instanz-) Attribute definierbar (nur die
     Komponenten)
 
--   Keine Setter definierbar für die Komponenten: Attribute sind final
+-   Keine Setter definierbar für die Komponenten: Attribute sind `final`
 
 -   Statische Attribute mit Initialisierung erlaubt
 
@@ -191,6 +192,82 @@ public record StudiT(String name, int credits) {
 
 Die Komponenten/Attribute sind aber `final` und können nicht über
 Methoden geändert werden!
+
+## Weitere Eigenschaften von Records
+
+Für Record-Klassen wird automatisch die Vergleichbarkeit implementiert,
+d.h. es wird automatisch eine passende Überschreibung für die von
+`Object` geerbten Methoden `equals` und `hashCode` erzeugt.
+
+Die folgende Record-Klasse `Position`
+
+``` java
+public record Position(int x, int y) {}
+```
+
+würde sich im traditionellen Java so als `class` formulieren lassen:
+
+``` java
+public final class Position {
+    private final int x;
+    private final int y;
+
+    public Position(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int x() {
+        return x;
+    }
+
+    public int y() {
+        return y;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (obj == null || obj.getClass() != this.getClass()) return false;
+        var that = (Position) obj;
+        return this.x == that.x && this.y == that.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+}
+```
+
+D.h. wir sparen uns durch die Deklaration als `record` ziemlich viel
+Boilerplate-Code und bekommen u.a. diese Dinge "geschenkt":
+
+-   Felder `x` und `y`
+-   Standardkonstruktor zum Setzen beider Felder
+-   Getter `x()` und `y()`
+-   Überschreibung für `equals`, welche die Objekt-IDs, den Typ der
+    Objekte und die Felder berücksichtigt
+-   Überschreibung für `hashCode`, welche die Felder der Klasse
+    berücksichtigt
+
+Dadurch funktioniert dann auch so etwas ohne Probleme:
+
+``` java
+List<Position> body;
+
+...
+
+public boolean occupies(Position position) {
+    return body.contains(position);
+}
+```
+
+Ohne korrekt überschriebenes `equals` würde sonst in der Liste bei
+`body.contains(position)` nur nach den Objekt-IDs verglichen, was in dem
+Fall ungünstig wäre - wir suchen ja nicht nur nach exakt dem selben
+Objekt, sondern allgemein nach einer identischen Position, also auch
+anderen Objekten mit identisch gesetzten Feldern `x` und `y`.
 
 ## Beispiel aus den Challenges
 
@@ -292,4 +369,4 @@ deutlich verbessert.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> d625926 2026-05-28 records: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 4ecb1ed 2026-06-02 records: add locksnakes position as example<br></sub></sup></p></blockquote>

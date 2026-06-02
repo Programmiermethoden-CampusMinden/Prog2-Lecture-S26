@@ -796,6 +796,17 @@ Wie es weitergeht: Vom Parse-Baum zum Compiler
 
 > [!TIP]
 >
+> Die gezeigten Beispiele (Grammatik, Visitor, Main-Klasse) sowie die
+> Einbindung von ANTLR in Ihre `build.gradle` finden Sie als **fertig
+> eingerichtetes Gradle-Projekt** im
+> [Haupt-Repo](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/tooling/src/antlr-demo).
+>
+> Importieren Sie den Ordner
+> [`antlr-demo`](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/tooling/src/antlr-demo)
+> als neues Gradle-Projekt in Ihre IDE.
+
+> [!TIP]
+>
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
@@ -881,4 +892,4 @@ Wie es weitergeht: Vom Parse-Baum zum Compiler
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 76b933b 2026-05-25 antlr: clarify inherited methods from base visitor<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> fb39920 2026-06-02 antlr: use simple link to demo project<br></sub></sup></p></blockquote>

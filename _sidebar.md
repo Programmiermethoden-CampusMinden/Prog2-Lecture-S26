@@ -23,7 +23,7 @@
     - [Methoden-Referenzen](lecture/java-modern/methodreferences.md)
     - [Interfaces: Default-Methoden](lecture/java-modern/defaultmethods.md)
     - [Record-Klassen](lecture/java-modern/records.md)
-    - [Sealed Classes & Pattern Matching](lecture/java-modern/patternmatching.md)
+    - [Sealed‑Typen & Pattern Matching](lecture/java-modern/patternmatching.md)
     - [Stream-API](lecture/java-modern/stream-api.md)
     - [Optional](lecture/java-modern/optional.md)
   - **Entwurfsmuster**
