@@ -37,8 +37,15 @@
 > Vorlesung \[[YT](https://youtu.be/06sG5gdasmw)\],
 > \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-einfhrung-in-antlr/46b1a5a3082d9095bdf88e06fc805762)\]
 >
-> Demo: \[[YT](https://youtu.be/DMvugCk86Jo)\],
-> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-antlr/aa234e8b5cbc2162c92965ca5485b277)\]
+> Demo:
+>
+> -   Beispiel zu Lexing & Parsing & Parse-Tree
+>     \[[YT](https://youtu.be/IcLw2IZR0UM)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-antlr-beispiel-zu-lexing-parsing-parse-tree/9862764d78d5f77ade58323f961ab708)\]
+> -   Live-Coding: Einbinden von ANTLR in Gradle, Arbeiten mit dem
+>     generierten Lexer und Parser und Programmieren eines Visitors
+>     \[[YT](https://youtu.be/DMvugCk86Jo)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-antlr/aa234e8b5cbc2162c92965ca5485b277)\]
 >
 > </details>
 
@@ -892,4 +899,4 @@ Wie es weitergeht: Vom Parse-Baum zum Compiler
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> fb39920 2026-06-02 antlr: use simple link to demo project<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> ca9f848 2026-06-03 antlr: add extra demo to demonstrate lexing and parsing on a small example<br></sub></sup></p></blockquote>

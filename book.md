@@ -4387,8 +4387,15 @@ Im Browser in den Repo-Einstellungen arbeiten:
 > Vorlesung \[[YT](https://youtu.be/06sG5gdasmw)\],
 > \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-einfhrung-in-antlr/46b1a5a3082d9095bdf88e06fc805762)\]
 >
-> Demo: \[[YT](https://youtu.be/DMvugCk86Jo)\],
-> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-antlr/aa234e8b5cbc2162c92965ca5485b277)\]
+> Demo:
+>
+> -   Beispiel zu Lexing & Parsing & Parse-Tree
+>     \[[YT](https://youtu.be/IcLw2IZR0UM)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-antlr-beispiel-zu-lexing-parsing-parse-tree/9862764d78d5f77ade58323f961ab708)\]
+> -   Live-Coding: Einbinden von ANTLR in Gradle, Arbeiten mit dem
+>     generierten Lexer und Parser und Programmieren eines Visitors
+>     \[[YT](https://youtu.be/DMvugCk86Jo)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-antlr/aa234e8b5cbc2162c92965ca5485b277)\]
 >
 > </details>
 
@@ -10443,7 +10450,7 @@ deutlich verbessert.
 > abgeschlossene Menge erlaubter Untertypen fest, sodass der Compiler
 > prüfen kann, ob ein `switch` wirklich alle Fälle abdeckt (*exhaustive
 > check*). Records modellieren reine Daten, und mit **Record-Patterns**
-> können Sie diese Daten direkt im `switch` de-konstruieren
+> können Sie diese Daten direkt im `switch` dekonstruieren
 > (`case Point(int x, int y) -> ...`), ohne explizite Getter-Aufrufe.
 >
 > Zusammen ermöglichen Ihnen `record` + `sealed` + Pattern Matching in
@@ -10795,11 +10802,11 @@ static int manhattan(Object o) {
 -   Im `switch` wird nach dem konkreten Typ von `o` geschaut:
     -   kein separates `instanceof` notwendig
     -   kein separater Cast notwendig
--   `case Point(int x, int y)` de-konstruiert das Record:
+-   `case Point(int x, int y)` dekonstruiert das Record:
     -   Verwendet implizit den (kanonischen) Konstruktor von `Point`
     -   Felder werden direkt in lokale Variablen gemappt
     -   Kein expliziter Getter-Aufruf mehr im Body nötig
--   Das De-Konstruieren klappt für Record-Typen auch im `instanceof`:
+-   Das Dekonstruieren klappt für Record-Typen auch im `instanceof`:
     `o instanceof Point(int x, int y)`
 -   Derzeit klappt das leider nur mit den **kanonischen Konstruktoren**
     der Record-Klassen!
@@ -10837,7 +10844,7 @@ static int manhattan(Object o) {
 
 > [!IMPORTANT]
 >
-> Record-Patterns de-konstruieren tatsächlich nur Records (also Klassen,
+> Record-Patterns dekonstruieren tatsächlich nur Records (also Klassen,
 > die mit `record` deklariert wurden)
 >
 > Für "normale" Klassen (klassisches `class`) gibt es noch keine
@@ -21586,18 +21593,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 4ecb1ed 2026-06-02 records: add locksnakes position as example<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> ca9f848 2026-06-03 antlr: add extra demo to demonstrate lexing and parsing on a small example<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

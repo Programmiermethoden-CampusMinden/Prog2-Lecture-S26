@@ -20,7 +20,7 @@
 > abgeschlossene Menge erlaubter Untertypen fest, sodass der Compiler
 > prüfen kann, ob ein `switch` wirklich alle Fälle abdeckt (*exhaustive
 > check*). Records modellieren reine Daten, und mit **Record-Patterns**
-> können Sie diese Daten direkt im `switch` de-konstruieren
+> können Sie diese Daten direkt im `switch` dekonstruieren
 > (`case Point(int x, int y) -> ...`), ohne explizite Getter-Aufrufe.
 >
 > Zusammen ermöglichen Ihnen `record` + `sealed` + Pattern Matching in
@@ -372,11 +372,11 @@ static int manhattan(Object o) {
 -   Im `switch` wird nach dem konkreten Typ von `o` geschaut:
     -   kein separates `instanceof` notwendig
     -   kein separater Cast notwendig
--   `case Point(int x, int y)` de-konstruiert das Record:
+-   `case Point(int x, int y)` dekonstruiert das Record:
     -   Verwendet implizit den (kanonischen) Konstruktor von `Point`
     -   Felder werden direkt in lokale Variablen gemappt
     -   Kein expliziter Getter-Aufruf mehr im Body nötig
--   Das De-Konstruieren klappt für Record-Typen auch im `instanceof`:
+-   Das Dekonstruieren klappt für Record-Typen auch im `instanceof`:
     `o instanceof Point(int x, int y)`
 -   Derzeit klappt das leider nur mit den **kanonischen Konstruktoren**
     der Record-Klassen!
@@ -414,7 +414,7 @@ static int manhattan(Object o) {
 
 > [!IMPORTANT]
 >
-> Record-Patterns de-konstruieren tatsächlich nur Records (also Klassen,
+> Record-Patterns dekonstruieren tatsächlich nur Records (also Klassen,
 > die mit `record` deklariert wurden)
 >
 > Für "normale" Klassen (klassisches `class`) gibt es noch keine
@@ -507,4 +507,4 @@ Für Datenhierarchien (z.B. `Expr`, `Shape`, `Command`) nutzen Sie heute:
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> a8856ad 2026-06-02 patternmatching: hide answer in details block<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 5ecbc80 2026-06-03 patternmatching: use dekonstruieren instead of de-konstruieren<br></sub></sup></p></blockquote>
