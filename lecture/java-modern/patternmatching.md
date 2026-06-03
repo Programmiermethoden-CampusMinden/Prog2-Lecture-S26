@@ -35,7 +35,8 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/EPYlfLpGx8U)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-sealedtypen-pattern-matching/b522d19630912bee3ac07b490ffb4a65)\]
 >
 > </details>
 
@@ -507,4 +508,4 @@ Für Datenhierarchien (z.B. `Expr`, `Shape`, `Command`) nutzen Sie heute:
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 5ecbc80 2026-06-03 patternmatching: use dekonstruieren instead of de-konstruieren<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 8adc0c3 2026-06-03 patternmatching: add new screencast<br></sub></sup></p></blockquote>

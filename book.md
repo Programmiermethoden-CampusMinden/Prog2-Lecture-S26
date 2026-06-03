@@ -10465,7 +10465,8 @@ deutlich verbessert.
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/EPYlfLpGx8U)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-sealedtypen-pattern-matching/b522d19630912bee3ac07b490ffb4a65)\]
 >
 > </details>
 
@@ -21593,18 +21594,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> ca9f848 2026-06-03 antlr: add extra demo to demonstrate lexing and parsing on a small example<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 8adc0c3 2026-06-03 patternmatching: add new screencast<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
