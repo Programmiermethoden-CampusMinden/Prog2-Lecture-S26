@@ -1,4 +1,4 @@
-# Property based Testing & Approval Testing
+# JUnit4: Property based Testing & Approval Testing
 
 > [!IMPORTANT]
 >
@@ -32,7 +32,8 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/vuvnmz58fIU)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-junit4-property-based-testing-approval-testing/6f97fdeb6ff90c7de8b5c6488baaf270)\]
 >
 > </details>
 
@@ -602,4 +603,4 @@ Spielart von "Random Testing".
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 481219a 2026-06-05 junit4: add link to example code<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> a8d89ce 2026-06-09 junit4: add new screencast<br></sub></sup></p></blockquote>
