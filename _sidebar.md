@@ -55,7 +55,7 @@
   - [Blatt 03: Methodenrefs, Lambdas, Observer](homework/b03.md)
   - [Blatt 04: RegEx, Template-Method; JUnit; PR](homework/b04.md)
   - [Blatt 05: ANTLR, Visitor; Äquivalenzklassen & Grenzwerte, Mocking](homework/b05.md)
-  - [Blatt 06: Visitor vs. PatternMatching, Records](homework/b06.md)
+  - [Blatt 06: Visitor vs. Pattern Matching, Records](homework/b06.md)
   - [Blatt 07: Generics; Logging](homework/b07.md)
   - [Blatt 08: Command, Observer, Fehlermodell](homework/b08.md)
 - **Organisatorisches**
