@@ -230,11 +230,11 @@ Verfügung ...
 
 <!-- -->
 
--   Mit Bounds kann man Typ-Parameter nach oben oder nach unten
-    einschränken (im Sinne einer Vererbungshierarchie)
-    -   `extends`: Der Typ-Parameter muss eine Unterklasse eines
-        bestimmten Typen sein
-    -   `super`: Der Typ-Parameter muss eine Oberklasse eines bestimmten
+-   Mit Bounds kann man Typ-Parameter/Wildcards nach oben oder nach
+    unten einschränken (im Sinne einer Vererbungshierarchie)
+    -   `extends`: Der Typ-Parameter bzw. die Wildcard muss eine
+        Unterklasse eines bestimmten Typen sein
+    -   `super`: Die Wildcard muss eine Oberklasse eines bestimmten
         Typen sein
 
 > [!TIP]
@@ -242,10 +242,12 @@ Verfügung ...
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Ullenboom ([2021, 11.3](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2026](#ref-LernJava))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Bloch ([2018](#ref-Bloch2018))
+> Lesen Sie zu diesem Thema auch in den Oracle-Tutorials
+> ["Wildcards"](https://docs.oracle.com/javase/tutorial/extra/generics/wildcards.html)
+> und ["More Fun with
+> Wildcards"](https://docs.oracle.com/javase/tutorial/extra/generics/morefun.html)
+> sowie im dev.java-Tutorial
+> ["Wildcards"](https://dev.java/learn/generics/wildcards/) nach.
 >
 > </details>
 
@@ -333,27 +335,6 @@ Verfügung ...
 >
 > </div>
 >
-> <div id="ref-Java-SE-Tutorial" class="csl-entry">
->
-> Oracle Corporation. 2024. „The Java Tutorials".
-> <https://docs.oracle.com/javase/tutorial/>.
->
-> </div>
->
-> <div id="ref-LernJava" class="csl-entry">
->
-> Oracle Corporation. 2026. „Learn Java". <https://dev.java/learn/>.
->
-> </div>
->
-> <div id="ref-Ullenboom2021" class="csl-entry">
->
-> Ullenboom, C. 2021. *Java ist auch eine Insel*. 16. Aufl.
-> Rheinwerk-Verlag.
-> <https://openbook.rheinwerk-verlag.de/javainsel/index.html>.
->
-> </div>
->
 > </div>
 >
 > </details>
@@ -364,4 +345,4 @@ Verfügung ...
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 4d4e5e1 2026-06-19 generics2: improve material, add further remarks<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> e4d98d8 2026-06-19 generics2: fix wrap-up slide<br></sub></sup></p></blockquote>

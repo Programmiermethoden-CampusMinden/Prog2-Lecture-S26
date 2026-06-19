@@ -11,7 +11,7 @@
 > (*Factory-Method-Pattern*) kann ein (neuer) Logger erzeugt werden,
 > dabei wird über den String-Parameter eine Logger-Hierarchie aufgebaut
 > analog zu den Java-Package-Strukturen. Der oberste Logger (der
-> "Root-Logger") hat den leeren Namen.
+> "Basis-Logger" bzw. "Root-Logger") hat den leeren Namen.
 >
 > Jeder Logger kann mit einem Log-Level (Klasse `Level`) eingestellt
 > werden; Log-Meldungen unterhalb des eingestellten Levels werden
@@ -30,7 +30,7 @@
 > Nachrichten, die durch Weiterleitung nach oben empfangen wurden,
 > werden nicht am Log-Level des empfangenden Loggers gemessen, sondern
 > akzeptiert und an die Handler des Loggers und (sofern nicht
-> deaktiviert) an den Elternlogger weitergereicht.
+> deaktiviert) an den Eltern-Logger weitergereicht.
 >
 > </details>
 
@@ -45,7 +45,7 @@
 > -   [Demo Logging: Handler und
 >     Formatter](https://youtu.be/dYOYA99EfrY)
 > -   [Demo Weiterleitung an den
->     Elternlogger](https://youtu.be/19Bki4IglWQ)
+>     Eltern-Logger](https://youtu.be/19Bki4IglWQ)
 >
 > </details>
 
@@ -54,12 +54,12 @@
 1.  Debugging
     -   Beeinflusst Code nicht
     -   Kann schnell komplex und umständlich werden
-    -   Sitzung transient - nicht wiederholbar
+    -   Sitzung transient - nicht reproduzierbar/speicherbar
 
 <!-- -->
 
-2.  "Poor-man's-debugging" (Ausgaben mit `System.out.println`)
-    -   Müssen irgendwann entfernt werden
+2.  "Poor-man's-debugging" (Ausgaben mit `IO.println`)
+    -   Müssen irgendwann vor Release/Produktivbetrieb entfernt werden
     -   Ausgabe nur auf einem Kanal (Konsole)
     -   Keine Filterung nach Problemgrad - keine Unterscheidung zwischen
         Warnungen, einfachen Informationen, ...
@@ -106,7 +106,7 @@ Logger l = Logger.getLogger(MyClass.class.getName());
     =\> Methode liefert bereits **vorhandenen Logger** mit diesem Namen
     (sonst neuen Logger)
 
--   **Best Practice**: Nutzung des voll-qualifizierten Klassennamen:
+-   **Best Practice**: Nutzung des vollqualifizierten Klassennamen:
     `MyClass.class.getName()`
 
     -   Leicht zu implementieren
@@ -143,7 +143,7 @@ public void log(Level level, String msg);
 
 ## Wichtigkeit von Logmeldungen: Stufen
 
--   `java.util.logger.Level` definiert 7 Stufen:
+-   `java.util.logging.Level` definiert 7 Stufen:
     -   `SEVERE`, `WARNING`, `INFO`, `CONFIG`, `FINE`, `FINER`, `FINEST`
         (von höchster zu niedrigster Prio)
     -   Zusätzlich `ALL` und `OFF`
@@ -204,6 +204,88 @@ angezeigt (ab `INFO` aufwärts)?!
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/tooling/src/logging/LoggingParent.java">Konsole: logging.LoggingParent; Tafel: Skizze Logger-Baum</a></p>
 
+## Ausgabe von Logmeldungen - revisited
+
+Bei genauerem Hinschauen auf die API von `java.util.logging` erkennt
+man, dass es die `log`-Funktion in zwei Varianten gibt: Einmal mit einem
+String (der Message) als Parameter, und einmal mit einem *Supplier*
+(funktionales Interface aus dem JDK):
+
+``` java
+public void log(Level level, String msg);
+public void log(Level level, Supplier<String> msgSupplier);
+```
+
+Das gilt auch für die meisten Convenience-Log-Funktionen:
+
+``` java
+public void warning(String msg)
+public void warning(Supplier<String> msgSupplier)
+
+public void info(String msg)
+public void info(Supplier<String> msgSupplier)
+```
+
+Damit kann man den Aufruf auch mit einem Lambda-Ausdruck gestalten:
+
+``` java
+import java.util.logging.Logger;
+Logger l = Logger.getLogger(MyClass.class.getName());
+
+l.info("Hello World");        // String
+l.info(() -> "Hello World");  // Supplier
+```
+
+Das Logging mit `java.util.logging` ist an sich bereits sehr effizient:
+Wenn bei einem Aufruf einer Log-Funktion die eingestellten Level beim
+Logger, den Handlern und den Elternloggern nicht erreicht werden, wird
+nichts ausgegeben. Um noch effizienter zu werden, kann man auch das
+Bauen der Message selbst davon abhängig machen, ob man sie wirklich
+braucht: Während bei der ersten Aufruf-Variante mit dem String-Parameter
+die Message bereits vor dem Aufruf der Log-Methode berechnet werden
+muss, wird sie in der zweiten Variante erst dann wirklich berechnet,
+wenn sie gebraucht wird. Wenn die Log-Methode tatsächlich loggen kann
+(die verschiedenen Level werden erreicht), dann und nur dann wertet sie
+den übergebenen Lambda-Ausdruck aus und erzeugt dabei die auszugebende
+Message. (Anmerkung: Im obigen Beispiel ist das egal, da der String
+ohnehin fest ist und stets bekannt/berechnet ist. Aber stellen Sie sich
+statt `"Hello World"` einen Funktionsaufruf vor, der mehr oder weniger
+aufwändig einen String produziert ...)
+
+## Best Practices
+
+-   Pro Klasse ein
+    `private static final Logger LOG = Logger.getLogger(MyClass.class.getName());`
+-   Keine Log-Ausgaben in Bibliotheken mit `System.out`/`System.err`,
+    sondern immer ein Logging-Framework verwenden
+-   Log-Meldungen:
+    -   Klar, kurz, technisch brauchbar ("Was ist passiert? Wo? Welche
+        Daten/IDs?")
+    -   Keine sensiblen Daten (Passwörter, Tokens, personenbezogene
+        Daten)
+-   Log-Level-Richtlinien:
+    -   `SEVERE`: Fehler, nach denen fachlich nicht sinnvoll
+        weitergearbeitet werden kann
+    -   `WARNING`: Unerwartete Situationen, aber das System läuft weiter
+    -   `INFO`: Wichtige Statusmeldungen
+    -   `CONFIG`: Konfigurationsdetails
+    -   `FINE`, `FINER`, `FINEST`: eher für detaillierte
+        Diagnose/Entwicklung
+
+Wir haben in den Beispielen den Logger immer mit `setLevel(...)` und
+`setUseParentHandlers(false)` etc. im Code konfiguriert. Es gibt aber -
+analog zu größeren Frameworks wie SLF4J - auch bei `java.util.logging`
+die Möglichkeit, die Konfiguration von außen über eine Properties-Datei
+vorzunehmen (`logging.properties`).
+
+> [!TIP]
+>
+> *Hinweis*: In vielen professionellen Projekten werden heute (für
+> flexible Konfiguration und bessere Integrationen) Logging-Frameworks
+> wie SLF4J mit Logback genutzt. Die hier vorgestellte Logik (Logger,
+> Level, Handler/Appender, Formatter/Layouts, Hierarchie) überträgt sich
+> jedoch nahezu 1:1 darauf.
+
 ## Wrap-Up
 
 -   Java Logging API im Paket `java.util.logging`
@@ -225,7 +307,9 @@ angezeigt (ab `INFO` aufwärts)?!
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2022, Kap. 8](#ref-JDK-Doc))
+> Lesen Sie in der Dokumentation von Oracle zu den JDK Core Libraries
+> nach: [Java Logging
+> Overview](https://docs.oracle.com/en/java/javase/25/core/java-logging-overview.html).
 >
 > </details>
 
@@ -234,8 +318,8 @@ angezeigt (ab `INFO` aufwärts)?!
 > <details >
 > <summary><strong>✅ Lernziele</strong></summary>
 >
-> -   k3: Ich kann die Java Logging API im Paket java.util.logging aktiv
->     einsetzen
+> -   k3: Ich kann die Java Logging API im Paket `java.util.logging`
+>     aktiv einsetzen
 > -   k3: Ich kann eigene Handler und Formatter schreiben
 >
 > </details>
@@ -281,29 +365,9 @@ angezeigt (ab `INFO` aufwärts)?!
 >
 > **Analyse eines Live-Beispiels aus dem Dungeon**
 >
-> Analysieren Sie die Konfiguration des Loggers im Dungeon-Projekt:
+> Analysieren Sie die Konfiguration des Loggings im Dungeon-Projekt:
 > [Dungeon-CampusMinden/Dungeon:
-> core/utils/logging/LoggerConfig.java](https://github.com/Dungeon-CampusMinden/Dungeon/blob/master/game/src/core/utils/logging/LoggerConfig.java).
->
-> </details>
-
-------------------------------------------------------------------------
-
-> [!NOTE]
->
-> <details >
-> <summary><strong>👀 Quellen</strong></summary>
->
-> <div id="refs" class="references csl-bib-body hanging-indent">
->
-> <div id="ref-JDK-Doc" class="csl-entry">
->
-> Oracle Corporation. 2022. „Java Core Libraries Developer Guide".
-> <https://docs.oracle.com/en/java/javase/17/core/index.html>.
->
-> </div>
->
-> </div>
+> core.utils.logging.DungeonLoggerConfig](https://github.com/Dungeon-CampusMinden/Dungeon/blob/master/dungeon/src/core/utils/logging/DungeonLoggerConfig.java).
 >
 > </details>
 
@@ -313,4 +377,4 @@ angezeigt (ab `INFO` aufwärts)?!
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 1892002 2026-04-11 move logging to tooling<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 9c71914 2026-06-19 logging: fix challenge<br></sub></sup></p></blockquote>

@@ -5532,7 +5532,7 @@ Danach erneut im Debug-Modus ausführen und die Werte von `i`, `n` und
 > (*Factory-Method-Pattern*) kann ein (neuer) Logger erzeugt werden,
 > dabei wird über den String-Parameter eine Logger-Hierarchie aufgebaut
 > analog zu den Java-Package-Strukturen. Der oberste Logger (der
-> "Root-Logger") hat den leeren Namen.
+> "Basis-Logger" bzw. "Root-Logger") hat den leeren Namen.
 >
 > Jeder Logger kann mit einem Log-Level (Klasse `Level`) eingestellt
 > werden; Log-Meldungen unterhalb des eingestellten Levels werden
@@ -5551,7 +5551,7 @@ Danach erneut im Debug-Modus ausführen und die Werte von `i`, `n` und
 > Nachrichten, die durch Weiterleitung nach oben empfangen wurden,
 > werden nicht am Log-Level des empfangenden Loggers gemessen, sondern
 > akzeptiert und an die Handler des Loggers und (sofern nicht
-> deaktiviert) an den Elternlogger weitergereicht.
+> deaktiviert) an den Eltern-Logger weitergereicht.
 >
 > </details>
 
@@ -5566,7 +5566,7 @@ Danach erneut im Debug-Modus ausführen und die Werte von `i`, `n` und
 > -   [Demo Logging: Handler und
 >     Formatter](https://youtu.be/dYOYA99EfrY)
 > -   [Demo Weiterleitung an den
->     Elternlogger](https://youtu.be/19Bki4IglWQ)
+>     Eltern-Logger](https://youtu.be/19Bki4IglWQ)
 >
 > </details>
 
@@ -5575,12 +5575,12 @@ Danach erneut im Debug-Modus ausführen und die Werte von `i`, `n` und
 1.  Debugging
     -   Beeinflusst Code nicht
     -   Kann schnell komplex und umständlich werden
-    -   Sitzung transient - nicht wiederholbar
+    -   Sitzung transient - nicht reproduzierbar/speicherbar
 
 <!-- -->
 
-2.  "Poor-man's-debugging" (Ausgaben mit `System.out.println`)
-    -   Müssen irgendwann entfernt werden
+2.  "Poor-man's-debugging" (Ausgaben mit `IO.println`)
+    -   Müssen irgendwann vor Release/Produktivbetrieb entfernt werden
     -   Ausgabe nur auf einem Kanal (Konsole)
     -   Keine Filterung nach Problemgrad - keine Unterscheidung zwischen
         Warnungen, einfachen Informationen, ...
@@ -5627,7 +5627,7 @@ Logger l = Logger.getLogger(MyClass.class.getName());
     =\> Methode liefert bereits **vorhandenen Logger** mit diesem Namen
     (sonst neuen Logger)
 
--   **Best Practice**: Nutzung des voll-qualifizierten Klassennamen:
+-   **Best Practice**: Nutzung des vollqualifizierten Klassennamen:
     `MyClass.class.getName()`
 
     -   Leicht zu implementieren
@@ -5664,7 +5664,7 @@ public void log(Level level, String msg);
 
 ##### Wichtigkeit von Logmeldungen: Stufen
 
--   `java.util.logger.Level` definiert 7 Stufen:
+-   `java.util.logging.Level` definiert 7 Stufen:
     -   `SEVERE`, `WARNING`, `INFO`, `CONFIG`, `FINE`, `FINER`, `FINEST`
         (von höchster zu niedrigster Prio)
     -   Zusätzlich `ALL` und `OFF`
@@ -5725,6 +5725,88 @@ angezeigt (ab `INFO` aufwärts)?!
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/tooling/src/logging/LoggingParent.java">Konsole: logging.LoggingParent; Tafel: Skizze Logger-Baum</a></p>
 
+##### Ausgabe von Logmeldungen - revisited
+
+Bei genauerem Hinschauen auf die API von `java.util.logging` erkennt
+man, dass es die `log`-Funktion in zwei Varianten gibt: Einmal mit einem
+String (der Message) als Parameter, und einmal mit einem *Supplier*
+(funktionales Interface aus dem JDK):
+
+``` java
+public void log(Level level, String msg);
+public void log(Level level, Supplier<String> msgSupplier);
+```
+
+Das gilt auch für die meisten Convenience-Log-Funktionen:
+
+``` java
+public void warning(String msg)
+public void warning(Supplier<String> msgSupplier)
+
+public void info(String msg)
+public void info(Supplier<String> msgSupplier)
+```
+
+Damit kann man den Aufruf auch mit einem Lambda-Ausdruck gestalten:
+
+``` java
+import java.util.logging.Logger;
+Logger l = Logger.getLogger(MyClass.class.getName());
+
+l.info("Hello World");        // String
+l.info(() -> "Hello World");  // Supplier
+```
+
+Das Logging mit `java.util.logging` ist an sich bereits sehr effizient:
+Wenn bei einem Aufruf einer Log-Funktion die eingestellten Level beim
+Logger, den Handlern und den Elternloggern nicht erreicht werden, wird
+nichts ausgegeben. Um noch effizienter zu werden, kann man auch das
+Bauen der Message selbst davon abhängig machen, ob man sie wirklich
+braucht: Während bei der ersten Aufruf-Variante mit dem String-Parameter
+die Message bereits vor dem Aufruf der Log-Methode berechnet werden
+muss, wird sie in der zweiten Variante erst dann wirklich berechnet,
+wenn sie gebraucht wird. Wenn die Log-Methode tatsächlich loggen kann
+(die verschiedenen Level werden erreicht), dann und nur dann wertet sie
+den übergebenen Lambda-Ausdruck aus und erzeugt dabei die auszugebende
+Message. (Anmerkung: Im obigen Beispiel ist das egal, da der String
+ohnehin fest ist und stets bekannt/berechnet ist. Aber stellen Sie sich
+statt `"Hello World"` einen Funktionsaufruf vor, der mehr oder weniger
+aufwändig einen String produziert ...)
+
+##### Best Practices
+
+-   Pro Klasse ein
+    `private static final Logger LOG = Logger.getLogger(MyClass.class.getName());`
+-   Keine Log-Ausgaben in Bibliotheken mit `System.out`/`System.err`,
+    sondern immer ein Logging-Framework verwenden
+-   Log-Meldungen:
+    -   Klar, kurz, technisch brauchbar ("Was ist passiert? Wo? Welche
+        Daten/IDs?")
+    -   Keine sensiblen Daten (Passwörter, Tokens, personenbezogene
+        Daten)
+-   Log-Level-Richtlinien:
+    -   `SEVERE`: Fehler, nach denen fachlich nicht sinnvoll
+        weitergearbeitet werden kann
+    -   `WARNING`: Unerwartete Situationen, aber das System läuft weiter
+    -   `INFO`: Wichtige Statusmeldungen
+    -   `CONFIG`: Konfigurationsdetails
+    -   `FINE`, `FINER`, `FINEST`: eher für detaillierte
+        Diagnose/Entwicklung
+
+Wir haben in den Beispielen den Logger immer mit `setLevel(...)` und
+`setUseParentHandlers(false)` etc. im Code konfiguriert. Es gibt aber -
+analog zu größeren Frameworks wie SLF4J - auch bei `java.util.logging`
+die Möglichkeit, die Konfiguration von außen über eine Properties-Datei
+vorzunehmen (`logging.properties`).
+
+> [!TIP]
+>
+> *Hinweis*: In vielen professionellen Projekten werden heute (für
+> flexible Konfiguration und bessere Integrationen) Logging-Frameworks
+> wie SLF4J mit Logback genutzt. Die hier vorgestellte Logik (Logger,
+> Level, Handler/Appender, Formatter/Layouts, Hierarchie) überträgt sich
+> jedoch nahezu 1:1 darauf.
+
 ##### Wrap-Up
 
 -   Java Logging API im Paket `java.util.logging`
@@ -5746,7 +5828,9 @@ angezeigt (ab `INFO` aufwärts)?!
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2022, Kap. 8](#ref-JDK-Doc))
+> Lesen Sie in der Dokumentation von Oracle zu den JDK Core Libraries
+> nach: [Java Logging
+> Overview](https://docs.oracle.com/en/java/javase/25/core/java-logging-overview.html).
 >
 > </details>
 
@@ -5755,8 +5839,8 @@ angezeigt (ab `INFO` aufwärts)?!
 > <details >
 > <summary><strong>✅ Lernziele</strong></summary>
 >
-> -   k3: Ich kann die Java Logging API im Paket java.util.logging aktiv
->     einsetzen
+> -   k3: Ich kann die Java Logging API im Paket `java.util.logging`
+>     aktiv einsetzen
 > -   k3: Ich kann eigene Handler und Formatter schreiben
 >
 > </details>
@@ -5802,9 +5886,9 @@ angezeigt (ab `INFO` aufwärts)?!
 >
 > **Analyse eines Live-Beispiels aus dem Dungeon**
 >
-> Analysieren Sie die Konfiguration des Loggers im Dungeon-Projekt:
+> Analysieren Sie die Konfiguration des Loggings im Dungeon-Projekt:
 > [Dungeon-CampusMinden/Dungeon:
-> core/utils/logging/LoggerConfig.java](https://github.com/Dungeon-CampusMinden/Dungeon/blob/master/game/src/core/utils/logging/LoggerConfig.java).
+> core.utils.logging.DungeonLoggerConfig](https://github.com/Dungeon-CampusMinden/Dungeon/blob/master/dungeon/src/core/utils/logging/DungeonLoggerConfig.java).
 >
 > </details>
 
@@ -14882,8 +14966,11 @@ Vorteile (insbesondere aus Testsicht):
 > Das **Command-Pattern** ist die objektorientierte Antwort auf
 > Callback-Funktionen: Man kapselt Befehle in einem Objekt.
 >
+> Ziel: Eingaben/Aktionen entkoppeln und konfigurierbar machen (und
+> optional "Undo").
+>
 > 1.  Die `Command`-Objekte haben eine Methode `execute()` und führen
->     dabei Aktion auf einem bzw. "ihrem" Receiver aus.
+>     dabei eine Aktion auf einem bzw. "ihrem" Receiver aus.
 >
 > 2.  `Receiver` sind Objekte, auf denen Aktionen ausgeführt werden, im
 >     Dungeon könnten dies etwa Hero, Monster, ... sein. Receiver müssen
@@ -14896,7 +14983,7 @@ Vorteile (insbesondere aus Testsicht):
 >     `Command`-Schnittstelle).
 >
 > 4.  Zusätzlich gibt es einen `Client`, der die anderen Akteure kennt
->     und alles zusammen baut.
+>     und alles zusammenbaut.
 >
 > </details>
 
@@ -14959,8 +15046,8 @@ public class InputHandler {
 }
 ```
 
-Die starre Zuordnung "Button : Aktion" wird aufgelöst und über
-Zwischenobjekte konfigurierbar gemacht.
+Die starre Zuordnung "Button : Aktion" wird durch das Command-Pattern
+aufgelöst und über Zwischenobjekte konfigurierbar gemacht.
 
 Für die Zwischenobjekte wird ein Typ `Command` eingeführt, der nur eine
 `execute()`-Methode hat. Für jede gewünschte Aktion wird eine Klasse
@@ -14984,22 +15071,22 @@ Im Command-Pattern gibt es vier beteiligte Parteien: Client, Receiver,
 Command und Invoker.
 
 Ein Command ist die objektorientierte Abstraktion eines Befehls. Es hat
-möglicherweise einen Zustand, und und kennt "seinen" Receiver und kann
-beim Aufruf der `execute()`-Methode eine vorher verabredete Methode auf
+möglicherweise einen Zustand, und kennt "seinen" Receiver und kann beim
+Aufruf der `execute()`-Methode eine vorher verabredete Methode auf
 diesem Receiver-Objekt ausführen.
 
 Ein Receiver ist eine Klasse, die Aktionen durchführen kann. Sie kennt
 die anderen Akteure nicht.
 
 Der Invoker (manchmal auch "Caller" genannt) ist eine Klasse, die
-Commands aggregiert und die die Commandos "ausführt", indem hier die
+Commands aggregiert und die die Kommandos "ausführt", indem hier die
 `execute()`-Methode aufgerufen wird. Diese Klasse kennt nur das
 `Command`-Interface und keine spezifischen Kommandos (also keine der
 Sub-Klassen). Es kann zusätzlich eine gewisse Buchführung übernehmen,
 etwa um eine Undo-Funktionalität zu realisieren.
 
-Der Client ist ein Programmteil, der ein Command-Objekt aufbaut und
-dabei einen passenden Receiver übergibt und der das Command-Objekt dann
+Der Client ist ein Programmteil, der die Command-Objekte aufbaut und
+dabei einen passenden Receiver übergibt und der die Command-Objekte dann
 zum Aufruf an den Invoker weiterreicht.
 
 In unserem Beispiel lassen sich die einzelnen Teile so sortieren:
@@ -15012,6 +15099,15 @@ In unserem Beispiel lassen sich die einzelnen Teile so sortieren:
 -   Command: `Jump` und `Move`
 -   Invoker: `InputHandler` (in der Methode `handleInput()`)
 
+> [!TIP]
+>
+> **Client** = die Stelle, wo verkabelt wird (z.B. `main`), **Invoker**
+> = Ausführen der Commands.
+>
+> Die Rollen dürfen in der Praxis zusammenfallen: Eine Klasse kann
+> mehrere Rollen übernehmen; hier in unserem Beispiel ist der
+> `InputHandler` zugleich `Client` und `Invoker`.
+
 ##### Undo
 
 Wir könnten das `Command`-Interface um ein paar Methoden erweitern:
@@ -15020,7 +15116,7 @@ Wir könnten das `Command`-Interface um ein paar Methoden erweitern:
 public interface Command {
     void execute();
     void undo();
-    Command newCommand(Entity e);
+    Command newCmd(Entity e);
 }
 ```
 
@@ -15034,19 +15130,19 @@ public class Move implements Command {
 
     public void execute() { oldX = e.getX();  oldY = e.getY();  x = oldX + 42;  y = oldY;  e.moveTo(x, y); }
     public void undo() { e.moveTo(oldX, oldY); }
-    public Command newCommand(Entity e) { return new Move(e); }
+    public Command newCmd(Entity e) { return new Move(e); }
 }
 
 public class InputHandler {
     private final Command wbutton;
     private final Command abutton;
-    private final Stack<Command> s = new Stack<>();
+    private final Deque<Command> s = new ArrayDeque<>();
 
     public void handleInput() {
         Entity e = getSelectedEntity();
         switch (keyPressed()) {
-            case BUTTON_W -> { s.push(wbutton.newCommand(e)); s.peek().execute(); }
-            case BUTTON_A -> { s.push(abutton.newCommand(e)); s.peek().execute(); }
+            case BUTTON_W -> { s.push(wbutton.newCmd(e)); s.peek().execute(); }
+            case BUTTON_A -> { s.push(abutton.newCmd(e)); s.peek().execute(); }
             case BUTTON_U -> s.pop().undo();
             case ...
             default -> { ... }
@@ -15072,16 +15168,41 @@ wieder auf diese Position verschieben. Da für jeden Move ein neues
 Objekt angelegt wird und dieses nur einmal benutzt wird, braucht man
 keine weitere Buchhaltung ...
 
+##### Abgrenzung zum Strategy-Pattern
+
+Beide Entwurfsmuster (Strategy-Pattern und Command-Pattern) kann man
+schnell verwechseln. Beide nutzen "irgendwie" Interfaces mit
+"irgendwelchen" Methoden ...
+
+**Strategy-Pattern**: Wir tauschen den Algorithmus aus, mit dem der
+Empfänger seine Aktion durchführt.
+
+**Command-Pattern**: Wir kapseln eine Aktion als Objekt. Dieses kann
+dann herumgereicht, gespeichert oder in eine Queue gesteckt werden. Es
+kann auch über eine undo-Fähigkeit verfügen, d.h. man kann die Aktion
+über das Objekt rückgängig machen.
+
+Das Command-Pattern ist besonders nützlich, wenn Sie Befehle speichern,
+loggen, replayen, undoen oder asynchron ausführen wollen. Im
+Zusammenhang mit JUnit lassen sich Commands einzeln testen, indem man
+beispielsweise den Receiver mockt.
+
 ##### Wrap-Up
 
-**Command-Pattern**: Kapsele Befehle in ein Objekt
+**Command-Pattern**: Kapselt Befehle als Objekte, um
 
--   `Command`-Objekte haben eine Methode `execute()` und führen darin
-    Aktion auf Receiver aus
+-   Aktionen entkoppelt und konfigurierbar zu machen,
+-   Undo/Redo-Funktionalität zu ermöglichen,
+-   Befehle zu speichern, zu loggen oder asynchron auszuführen.
+
+Aufbau:
+
+-   `Command`-Objekte haben eine Methode `execute()`, führen darin die
+    Aktion auf dem Receiver aus
 -   `Receiver` sind Objekte, auf denen Aktionen ausgeführt werden (Hero,
     Monster, ...)
 -   `Invoker` hat `Command`-Objekte und ruft darauf `execute()` auf
--   `Client` kennt alle und baut alles zusammen
+-   `Client` kennt alle Klassen und baut alles zusammen
 
 **Objektorientierte Antwort auf Callback-Funktionen**
 
@@ -15090,8 +15211,14 @@ keine weitere Buchhaltung ...
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Gamma u. a. ([2011](#ref-Gamma2011))
-> -   Nystrom ([2014, Kap. 2](#ref-Nystrom2014))
+> Auch wenn es für C++ geschrieben ist, lässt sich zum Thema
+> Command-Pattern das Kapitel 2 "Command" im Nystrom
+> ([2014](#ref-Nystrom2014)) sehr gut lesen. Der Verweis auf Gamma u. a.
+> ([2011](#ref-Gamma2011)) der ["Gang of
+> Four"](https://en.wikipedia.org/wiki/Design_Patterns) darf natürlich
+> nicht fehlen. Der
+> [refactoring.guru](https://refactoring.guru/design-patterns/command)
+> hat ebenfalls ein schönes Tutorial zum Command-Pattern.
 >
 > </details>
 
@@ -15101,8 +15228,7 @@ keine weitere Buchhaltung ...
 > <summary><strong>✅ Lernziele</strong></summary>
 >
 > -   k2: Ich kann den Aufbau des Command-Patterns erklären
-> -   k3: Ich kann das Command-Pattern auf konkrete Beispiele, etwa den
->     PM-Dungeon, anwenden
+> -   k3: Ich kann das Command-Pattern auf konkrete Beispiele anwenden
 >
 > </details>
 
@@ -15111,21 +15237,28 @@ keine weitere Buchhaltung ...
 > <details open>
 > <summary><strong>🏅 Challenges</strong></summary>
 >
-> Schreiben Sie für den `Dwarf` in den
-> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/pattern/src/challenges/command)
-> einen Controller, welcher das Command-Pattern verwendet.
+> **Command-Pattern im Restaurant**
 >
-> -   "W" führt Springen aus
-> -   "A" bewegt den Zwerg nach links
-> -   "D" bewegt den Zwerg nach rechts
-> -   "S" führt Ducken aus
+> **Problem**: In einem Restaurant gibt es folgende Rollen:
 >
-> Schreiben Sie zusätzlich für den `Cursor` einen Controller, welcher
-> das Command-Pattern mit Historie erfüllt (ebenfalls über die Tasten
-> "W", "A", "S" und "D").
+> -   Gast (bestellt Essen/Getränke)
+> -   Kellner (nimmt Bestellungen entgegen und leitet sie weiter)
+> -   Koch (bereitet Essen zu)
+> -   Barkeeper (mischt Getränke)
 >
-> Schreiben Sie eine Demo, um die Funktionalität Ihres Programmes zu
-> demonstrieren.
+> **Ziel**: Implementieren Sie das Command-Pattern für dieses Szenario.
+> Der Gast soll Bestellungen beim Kellner aufgeben, die dieser an den
+> Koch bzw. den Barkeeper weitergibt. Bestellungen sollen auch storniert
+> werden können.
+>
+> **Aufgabe**: Diskutieren Sie in 10 Minuten:
+>
+> -   Wie modellieren Sie die Rollen (Gast, Kellner, Koch, Barkeeper)?
+> -   Wie sieht das Command-Interface aus? Soll es `execute()` oder
+>     `execute(Receiver)` heißen?
+> -   Wie übergibt der Kellner den `Receiver` an das Command?
+> -   Wie implementieren Sie Undo/Redo?
+> -   Wie ist die Klassenstruktur (Wer kennt wen?)?
 >
 > </details>
 
@@ -17586,11 +17719,11 @@ Verfügung ...
 
 <!-- -->
 
--   Mit Bounds kann man Typ-Parameter nach oben oder nach unten
-    einschränken (im Sinne einer Vererbungshierarchie)
-    -   `extends`: Der Typ-Parameter muss eine Unterklasse eines
-        bestimmten Typen sein
-    -   `super`: Der Typ-Parameter muss eine Oberklasse eines bestimmten
+-   Mit Bounds kann man Typ-Parameter/Wildcards nach oben oder nach
+    unten einschränken (im Sinne einer Vererbungshierarchie)
+    -   `extends`: Der Typ-Parameter bzw. die Wildcard muss eine
+        Unterklasse eines bestimmten Typen sein
+    -   `super`: Die Wildcard muss eine Oberklasse eines bestimmten
         Typen sein
 
 > [!TIP]
@@ -17598,10 +17731,12 @@ Verfügung ...
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Ullenboom ([2021, 11.3](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2026](#ref-LernJava))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Bloch ([2018](#ref-Bloch2018))
+> Lesen Sie zu diesem Thema auch in den Oracle-Tutorials
+> ["Wildcards"](https://docs.oracle.com/javase/tutorial/extra/generics/wildcards.html)
+> und ["More Fun with
+> Wildcards"](https://docs.oracle.com/javase/tutorial/extra/generics/morefun.html)
+> sowie im dev.java-Tutorial
+> ["Wildcards"](https://dev.java/learn/generics/wildcards/) nach.
 >
 > </details>
 
@@ -22758,13 +22893,6 @@ public class MoreLogging {
 >
 > </div>
 >
-> <div id="ref-JDK-Doc" class="csl-entry">
->
-> Oracle Corporation. 2022. „Java Core Libraries Developer Guide".
-> <https://docs.oracle.com/en/java/javase/17/core/index.html>.
->
-> </div>
->
 > <div id="ref-Java-SE-Tutorial" class="csl-entry">
 >
 > Oracle Corporation. 2024. „The Java Tutorials".
@@ -22820,18 +22948,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 4d4e5e1 2026-06-19 generics2: improve material, add further remarks<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 4eb720d 2026-06-19 command: fix wrap-up slide<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

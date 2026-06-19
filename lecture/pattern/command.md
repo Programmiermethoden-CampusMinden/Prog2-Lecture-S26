@@ -8,8 +8,11 @@
 > Das **Command-Pattern** ist die objektorientierte Antwort auf
 > Callback-Funktionen: Man kapselt Befehle in einem Objekt.
 >
+> Ziel: Eingaben/Aktionen entkoppeln und konfigurierbar machen (und
+> optional "Undo").
+>
 > 1.  Die `Command`-Objekte haben eine Methode `execute()` und führen
->     dabei Aktion auf einem bzw. "ihrem" Receiver aus.
+>     dabei eine Aktion auf einem bzw. "ihrem" Receiver aus.
 >
 > 2.  `Receiver` sind Objekte, auf denen Aktionen ausgeführt werden, im
 >     Dungeon könnten dies etwa Hero, Monster, ... sein. Receiver müssen
@@ -22,7 +25,7 @@
 >     `Command`-Schnittstelle).
 >
 > 4.  Zusätzlich gibt es einen `Client`, der die anderen Akteure kennt
->     und alles zusammen baut.
+>     und alles zusammenbaut.
 >
 > </details>
 
@@ -85,8 +88,8 @@ public class InputHandler {
 }
 ```
 
-Die starre Zuordnung "Button : Aktion" wird aufgelöst und über
-Zwischenobjekte konfigurierbar gemacht.
+Die starre Zuordnung "Button : Aktion" wird durch das Command-Pattern
+aufgelöst und über Zwischenobjekte konfigurierbar gemacht.
 
 Für die Zwischenobjekte wird ein Typ `Command` eingeführt, der nur eine
 `execute()`-Methode hat. Für jede gewünschte Aktion wird eine Klasse
@@ -110,22 +113,22 @@ Im Command-Pattern gibt es vier beteiligte Parteien: Client, Receiver,
 Command und Invoker.
 
 Ein Command ist die objektorientierte Abstraktion eines Befehls. Es hat
-möglicherweise einen Zustand, und und kennt "seinen" Receiver und kann
-beim Aufruf der `execute()`-Methode eine vorher verabredete Methode auf
+möglicherweise einen Zustand, und kennt "seinen" Receiver und kann beim
+Aufruf der `execute()`-Methode eine vorher verabredete Methode auf
 diesem Receiver-Objekt ausführen.
 
 Ein Receiver ist eine Klasse, die Aktionen durchführen kann. Sie kennt
 die anderen Akteure nicht.
 
 Der Invoker (manchmal auch "Caller" genannt) ist eine Klasse, die
-Commands aggregiert und die die Commandos "ausführt", indem hier die
+Commands aggregiert und die die Kommandos "ausführt", indem hier die
 `execute()`-Methode aufgerufen wird. Diese Klasse kennt nur das
 `Command`-Interface und keine spezifischen Kommandos (also keine der
 Sub-Klassen). Es kann zusätzlich eine gewisse Buchführung übernehmen,
 etwa um eine Undo-Funktionalität zu realisieren.
 
-Der Client ist ein Programmteil, der ein Command-Objekt aufbaut und
-dabei einen passenden Receiver übergibt und der das Command-Objekt dann
+Der Client ist ein Programmteil, der die Command-Objekte aufbaut und
+dabei einen passenden Receiver übergibt und der die Command-Objekte dann
 zum Aufruf an den Invoker weiterreicht.
 
 In unserem Beispiel lassen sich die einzelnen Teile so sortieren:
@@ -138,6 +141,15 @@ In unserem Beispiel lassen sich die einzelnen Teile so sortieren:
 -   Command: `Jump` und `Move`
 -   Invoker: `InputHandler` (in der Methode `handleInput()`)
 
+> [!TIP]
+>
+> **Client** = die Stelle, wo verkabelt wird (z.B. `main`), **Invoker**
+> = Ausführen der Commands.
+>
+> Die Rollen dürfen in der Praxis zusammenfallen: Eine Klasse kann
+> mehrere Rollen übernehmen; hier in unserem Beispiel ist der
+> `InputHandler` zugleich `Client` und `Invoker`.
+
 ## Undo
 
 Wir könnten das `Command`-Interface um ein paar Methoden erweitern:
@@ -146,7 +158,7 @@ Wir könnten das `Command`-Interface um ein paar Methoden erweitern:
 public interface Command {
     void execute();
     void undo();
-    Command newCommand(Entity e);
+    Command newCmd(Entity e);
 }
 ```
 
@@ -160,19 +172,19 @@ public class Move implements Command {
 
     public void execute() { oldX = e.getX();  oldY = e.getY();  x = oldX + 42;  y = oldY;  e.moveTo(x, y); }
     public void undo() { e.moveTo(oldX, oldY); }
-    public Command newCommand(Entity e) { return new Move(e); }
+    public Command newCmd(Entity e) { return new Move(e); }
 }
 
 public class InputHandler {
     private final Command wbutton;
     private final Command abutton;
-    private final Stack<Command> s = new Stack<>();
+    private final Deque<Command> s = new ArrayDeque<>();
 
     public void handleInput() {
         Entity e = getSelectedEntity();
         switch (keyPressed()) {
-            case BUTTON_W -> { s.push(wbutton.newCommand(e)); s.peek().execute(); }
-            case BUTTON_A -> { s.push(abutton.newCommand(e)); s.peek().execute(); }
+            case BUTTON_W -> { s.push(wbutton.newCmd(e)); s.peek().execute(); }
+            case BUTTON_A -> { s.push(abutton.newCmd(e)); s.peek().execute(); }
             case BUTTON_U -> s.pop().undo();
             case ...
             default -> { ... }
@@ -198,16 +210,41 @@ wieder auf diese Position verschieben. Da für jeden Move ein neues
 Objekt angelegt wird und dieses nur einmal benutzt wird, braucht man
 keine weitere Buchhaltung ...
 
+## Abgrenzung zum Strategy-Pattern
+
+Beide Entwurfsmuster (Strategy-Pattern und Command-Pattern) kann man
+schnell verwechseln. Beide nutzen "irgendwie" Interfaces mit
+"irgendwelchen" Methoden ...
+
+**Strategy-Pattern**: Wir tauschen den Algorithmus aus, mit dem der
+Empfänger seine Aktion durchführt.
+
+**Command-Pattern**: Wir kapseln eine Aktion als Objekt. Dieses kann
+dann herumgereicht, gespeichert oder in eine Queue gesteckt werden. Es
+kann auch über eine undo-Fähigkeit verfügen, d.h. man kann die Aktion
+über das Objekt rückgängig machen.
+
+Das Command-Pattern ist besonders nützlich, wenn Sie Befehle speichern,
+loggen, replayen, undoen oder asynchron ausführen wollen. Im
+Zusammenhang mit JUnit lassen sich Commands einzeln testen, indem man
+beispielsweise den Receiver mockt.
+
 ## Wrap-Up
 
-**Command-Pattern**: Kapsele Befehle in ein Objekt
+**Command-Pattern**: Kapselt Befehle als Objekte, um
 
--   `Command`-Objekte haben eine Methode `execute()` und führen darin
-    Aktion auf Receiver aus
+-   Aktionen entkoppelt und konfigurierbar zu machen,
+-   Undo/Redo-Funktionalität zu ermöglichen,
+-   Befehle zu speichern, zu loggen oder asynchron auszuführen.
+
+Aufbau:
+
+-   `Command`-Objekte haben eine Methode `execute()`, führen darin die
+    Aktion auf dem Receiver aus
 -   `Receiver` sind Objekte, auf denen Aktionen ausgeführt werden (Hero,
     Monster, ...)
 -   `Invoker` hat `Command`-Objekte und ruft darauf `execute()` auf
--   `Client` kennt alle und baut alles zusammen
+-   `Client` kennt alle Klassen und baut alles zusammen
 
 **Objektorientierte Antwort auf Callback-Funktionen**
 
@@ -216,8 +253,14 @@ keine weitere Buchhaltung ...
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Gamma u. a. ([2011](#ref-Gamma2011))
-> -   Nystrom ([2014, Kap. 2](#ref-Nystrom2014))
+> Auch wenn es für C++ geschrieben ist, lässt sich zum Thema
+> Command-Pattern das Kapitel 2 "Command" im Nystrom
+> ([2014](#ref-Nystrom2014)) sehr gut lesen. Der Verweis auf Gamma u. a.
+> ([2011](#ref-Gamma2011)) der ["Gang of
+> Four"](https://en.wikipedia.org/wiki/Design_Patterns) darf natürlich
+> nicht fehlen. Der
+> [refactoring.guru](https://refactoring.guru/design-patterns/command)
+> hat ebenfalls ein schönes Tutorial zum Command-Pattern.
 >
 > </details>
 
@@ -227,8 +270,7 @@ keine weitere Buchhaltung ...
 > <summary><strong>✅ Lernziele</strong></summary>
 >
 > -   k2: Ich kann den Aufbau des Command-Patterns erklären
-> -   k3: Ich kann das Command-Pattern auf konkrete Beispiele, etwa den
->     PM-Dungeon, anwenden
+> -   k3: Ich kann das Command-Pattern auf konkrete Beispiele anwenden
 >
 > </details>
 
@@ -237,21 +279,28 @@ keine weitere Buchhaltung ...
 > <details open>
 > <summary><strong>🏅 Challenges</strong></summary>
 >
-> Schreiben Sie für den `Dwarf` in den
-> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/pattern/src/challenges/command)
-> einen Controller, welcher das Command-Pattern verwendet.
+> **Command-Pattern im Restaurant**
 >
-> -   "W" führt Springen aus
-> -   "A" bewegt den Zwerg nach links
-> -   "D" bewegt den Zwerg nach rechts
-> -   "S" führt Ducken aus
+> **Problem**: In einem Restaurant gibt es folgende Rollen:
 >
-> Schreiben Sie zusätzlich für den `Cursor` einen Controller, welcher
-> das Command-Pattern mit Historie erfüllt (ebenfalls über die Tasten
-> "W", "A", "S" und "D").
+> -   Gast (bestellt Essen/Getränke)
+> -   Kellner (nimmt Bestellungen entgegen und leitet sie weiter)
+> -   Koch (bereitet Essen zu)
+> -   Barkeeper (mischt Getränke)
 >
-> Schreiben Sie eine Demo, um die Funktionalität Ihres Programmes zu
-> demonstrieren.
+> **Ziel**: Implementieren Sie das Command-Pattern für dieses Szenario.
+> Der Gast soll Bestellungen beim Kellner aufgeben, die dieser an den
+> Koch bzw. den Barkeeper weitergibt. Bestellungen sollen auch storniert
+> werden können.
+>
+> **Aufgabe**: Diskutieren Sie in 10 Minuten:
+>
+> -   Wie modellieren Sie die Rollen (Gast, Kellner, Koch, Barkeeper)?
+> -   Wie sieht das Command-Interface aus? Soll es `execute()` oder
+>     `execute(Receiver)` heißen?
+> -   Wie übergibt der Kellner den `Receiver` an das Command?
+> -   Wie implementieren Sie Undo/Redo?
+> -   Wie ist die Klassenstruktur (Wer kennt wen?)?
 >
 > </details>
 
@@ -288,4 +337,4 @@ keine weitere Buchhaltung ...
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 4eb720d 2026-06-19 command: fix wrap-up slide<br></sub></sup></p></blockquote>
