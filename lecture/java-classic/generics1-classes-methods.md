@@ -1,4 +1,4 @@
-# Generics: Generische Klassen & Methoden
+# Generics1: Generische Klassen & Methoden
 
 > [!IMPORTANT]
 >
@@ -15,6 +15,8 @@
 > dem Klassennamen bzw. vor dem Rückgabetyp einer Methode:
 > `public class Stack<E> { }` und `public <T> T foo(T m) { }`.
 >
+> **Generics = Compile-Time-Typsicherheit**
+>
 > </details>
 
 > [!TIP]
@@ -29,30 +31,51 @@
 
 ## Generische Strukturen
 
+### Naive Verwendung des Vectors als "raw type"
+
 ``` java
 Vector speicher = new Vector();
 speicher.add(1); speicher.add(2); speicher.add(3);
-speicher.add("huhu");
+speicher.add("huhu");   // Laufzeitfehler
 
 int summe = 0;
 for (Object i : speicher) { summe += (Integer)i; }
 ```
 
-Problem: Nutzung des "*raw*" Typs `Vector` ist nicht typsicher!
+Hier nutzen wir den sogenannten **Raw Type** `Vector`: Die Klasse ist
+eigentlich generisch (`Vector<E>`), wir geben aber kein Typargument an.
+Dadurch gehen die Informationen über den Elementtyp verloren. Effektiv
+werden Elemente beim Auslesen als `Object` behandelt (und es entstehen
+Compiler-Warnungen).
 
--   Mögliche Fehler fallen erst zur Laufzeit und u.U. erst sehr spät
-    auf: Offenbar werden im obigen Beispiel `int`-Werte erwartet, d.h.
-    das Hinzufügen von `"huhu"` ist vermutlich ein Versehen (wird vom
-    Compiler aber nicht bemerkt)
+> [!IMPORTANT]
+>
+> **Problem**: Nutzung des "*raw*" Typs `Vector` ist nicht typsicher!
+
+-   Mögliche Fehler fallen erst zur Laufzeit und damit u.U. erst sehr
+    spät auf: Offenbar werden im obigen Beispiel `int`-Werte erwartet,
+    d.h. das Hinzufügen von `"huhu"` ist vermutlich ein Versehen (wird
+    vom Compiler aber nicht bemerkt)
 -   Die Iteration über `speicher` kann nur allgemein als `Object`
     erfolgen, d.h. in der Schleife muss auf den vermuteten/gewünschten
     Typ gecastet werden: Hier würde dann der String `"huhu"` Probleme
     zur Laufzeit machen
 
+> [!TIP]
+>
+> *Anmerkung*: `Vector` ist streng genommen historisch ("Legacy"). Die
+> Klasse ist für Multithreading/Nebenläufigkeit ausgelegt (Methoden sind
+> synchronisiert) und verursacht dadurch in klassischen nicht
+> nebenläufigen Programmen einen unnötigen Synchronisations-Overhead.
+> Nutzen Sie für neuen, nicht nebenläufigen Code meist lieber
+> `ArrayList`.
+
+### Korrekte Nutzung des Vectors als generischen Typ
+
 ``` java
 Vector<Integer> speicher = new Vector<Integer>();
 speicher.add(1); speicher.add(2); speicher.add(3);
-speicher.add("huhu");
+speicher.add("huhu");   // Compilerfehler
 
 int summe = 0;
 for (Integer i : speicher) { summe += i; }
@@ -65,6 +88,8 @@ Vorteile beim Einsatz von Generics:
 -   Keine Vererbungshierarchie nötig
 -   Nutzung ist typsicher, Casting unnötig
 -   Geht nur für Referenztypen
+    -   Für primitive Typen gibt es Wrapper (`Integer`, `Double`, ...)
+        und Auto-Boxing/-Unboxing
 -   Beispiel: Collections-API
 
 ## Generische Klassen/Interfaces definieren
@@ -74,7 +99,7 @@ Vorteile beim Einsatz von Generics:
     ``` java
     public class Stack<E> {
         public E push(E item) {
-            addElement(item);
+            ...
             return item;
         }
     }
@@ -82,7 +107,8 @@ Vorteile beim Einsatz von Generics:
 
     -   `Stack<E>` =\> Generische (parametrisierte) Klasse (auch:
         "*generischer Typ*")
-    -   `E` =\> Formaler Typ-Parameter (auch: "*Typ-Variable*")
+    -   `E` =\> Formaler Typ-Parameter (auch: "*Typ-Variable*") =\>
+        Platzhalter in der Definition (hier `E`)
 
 <!-- -->
 
@@ -92,7 +118,8 @@ Vorteile beim Einsatz von Generics:
     Stack<Integer> stack = new Stack<Integer>();
     ```
 
-    -   `Integer` =\> Typ-Parameter
+    -   `Integer` =\> Typ-Parameter =\> Typ-Argument/konkreter Typ beim
+        Nutzen (hier `String`)
     -   `Stack<Integer>` =\> Parametrisierter Typ
 
 ## Generische Klassen instantiieren
@@ -151,7 +178,7 @@ class PM<X, Y, Z> implements Fach<X, Z> {
 }
 
 class Studi<A,B> extends Person { ... }
-class Properties extends Hashtable<Object,Object> { ... }
+class MyProperties extends Hashtable<Object,Object> { ... }
 ```
 
 Auch Interfaces und abstrakte Klassen können parametrisierbar sein.
@@ -172,13 +199,27 @@ class Studi<T extends Mensch> {
     public void f(T t) { ... }
 }
 
-class Prof<T> extends Mensch { ... }
-
 class Tutor extends Studi<Mensch> {
     public void f(Mensch t) { ... }      // Ueberschreiben
     public void f(Tutor t) { ... }       // Ueberladen
 }
+
+class Prof<T> extends Mensch { ... }
 ```
+
+**Überschreiben** bedeutet, dass eine geerbte Methode in der Unterklasse
+neu definiert wird. In `Studi` gibt es die Methode `public void f(T t)`,
+die `Tutor` erbt. Da `Tutor extends Studi<Mensch>` gilt, wird `T` zu
+`Mensch` konkretisiert: `Tutor` erbt damit eine Methode mit der Signatur
+`public void f(Mensch t)` und definiert diese anschließend neu
+(überschreiben).
+
+**Überladen** bedeutet, eine Methode mit gleichem Namen zusätzlich mit
+anderer Parameterliste zu definieren (hier: `public void f(Tutor t)`).
+
+Überschreiben erfordert gleiche Parameterliste (nach Substitution) und
+kompatiblen Rückgabetyp; Überladen unterscheidet sich in der
+Parameterliste.
 
 ## Vorsicht: So geht es nicht!
 
@@ -228,7 +269,7 @@ class Fluppie<T> extends Wuppie<S> { ... }
 
 1.  Zuerst Suche nach exakt passender Methode,
 2.  danach passend mit Konvertierungen =\> Compiler sucht gemeinsame
-    Oberklasse in Typhierarchie
+    Oberklasse ("least upper bound") in Typhierarchie
 
 ### Beispiel
 
@@ -259,7 +300,7 @@ class Mensch {
         return m;
     }
 
-    // NICHT gleichzeitig erlaubt wg. Typ-Löschung (s.u.):
+    // NICHT gleichzeitig erlaubt wg. Typ-Löschung (siehe spätere Sitzung):
 /*
     public <T1, T2> T1 myst(T1 m, T2 n) {
         System.out.println("X#myst: T");
@@ -297,6 +338,12 @@ public class GenericMethods {
 
 ## Wrap-Up
 
+<div align="center">
+
+**Generics = Compile-Time-Typsicherheit**
+
+</div>
+
 -   Begriffe:
     -   Generischer Typ: `Stack<T>`
     -   Formaler Typ-Parameter: `T`
@@ -319,10 +366,14 @@ public class GenericMethods {
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Ullenboom ([2021, 11.1](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2026](#ref-LernJava))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Bloch ([2018](#ref-Bloch2018))
+> Lesen Sie zu diesem Thema auch in den Oracle-Tutorials ["Defining
+> Simple
+> Generics"](https://docs.oracle.com/javase/tutorial/extra/generics/simple.html)
+> und ["Generic
+> Methods"](https://docs.oracle.com/javase/tutorial/extra/generics/methods.html)
+> sowie in den dev.java-Tutorials ["Introducing
+> Generics"](https://dev.java/learn/generics/intro/) und ["Type
+> Inference"](https://dev.java/learn/generics/type-inference/) nach.
 >
 > </details>
 
@@ -342,48 +393,8 @@ public class GenericMethods {
 
 ------------------------------------------------------------------------
 
-> [!NOTE]
->
-> <details >
-> <summary><strong>👀 Quellen</strong></summary>
->
-> <div id="refs" class="references csl-bib-body hanging-indent">
->
-> <div id="ref-Bloch2018" class="csl-entry">
->
-> Bloch, J. 2018. *Effective Java*. 3. Aufl. Addison-Wesley.
->
-> </div>
->
-> <div id="ref-Java-SE-Tutorial" class="csl-entry">
->
-> Oracle Corporation. 2024. „The Java Tutorials".
-> <https://docs.oracle.com/javase/tutorial/>.
->
-> </div>
->
-> <div id="ref-LernJava" class="csl-entry">
->
-> Oracle Corporation. 2026. „Learn Java". <https://dev.java/learn/>.
->
-> </div>
->
-> <div id="ref-Ullenboom2021" class="csl-entry">
->
-> Ullenboom, C. 2021. *Java ist auch eine Insel*. 16. Aufl.
-> Rheinwerk-Verlag.
-> <https://openbook.rheinwerk-verlag.de/javainsel/index.html>.
->
-> </div>
->
-> </div>
->
-> </details>
-
-------------------------------------------------------------------------
-
 <p align="center"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"  /></p>
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> be8ad59 2026-04-11 generics: rename files<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 992680a 2026-06-19 generics: add lesson numbering to title<br></sub></sup></p></blockquote>

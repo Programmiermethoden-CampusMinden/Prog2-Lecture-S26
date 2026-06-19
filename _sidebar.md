@@ -40,9 +40,9 @@
     - [Swing 6: Einführung in Graphics und Java 2D](lecture/gui/swing6-java2d.md)
   - **Fortgeschrittene Java-Themen und Umgang mit JVM**
     - [Reguläre Ausdrücke](lecture/java-classic/regexp.md)
-    - [Generics: Generische Klassen & Methoden](lecture/java-classic/generics1-classes-methods.md)
-    - [Generics: Bounds & Wildcards](lecture/java-classic/generics2-bounds-wildcards.md)
-    - [Generics: Generics und Polymorphie](lecture/java-classic/generics3-polymorphism.md)
+    - [Generics1: Generische Klassen & Methoden](lecture/java-classic/generics1-classes-methods.md)
+    - [Generics2: Bounds & Wildcards](lecture/java-classic/generics2-bounds-wildcards.md)
+    - [Generics3: Generics und Polymorphie](lecture/java-classic/generics3-polymorphism.md)
     - [Exception-Handling](lecture/java-classic/exceptions.md)
   - **Clean Code - Smells, Rules, Refactoring**
     - [Code Smells](lecture/quality/smells.md)

@@ -16956,7 +16956,7 @@ Lösung: `([A-Z][a-zA-Z]*)\s\1`
 
 <a id="id-60c28f241488056134fe9fbda5f190e7b95c2109"></a>
 
-#### Generics: Generische Klassen & Methoden
+#### Generics1: Generische Klassen & Methoden
 
 > [!IMPORTANT]
 >
@@ -16973,6 +16973,8 @@ Lösung: `([A-Z][a-zA-Z]*)\s\1`
 > dem Klassennamen bzw. vor dem Rückgabetyp einer Methode:
 > `public class Stack<E> { }` und `public <T> T foo(T m) { }`.
 >
+> **Generics = Compile-Time-Typsicherheit**
+>
 > </details>
 
 > [!TIP]
@@ -16987,30 +16989,51 @@ Lösung: `([A-Z][a-zA-Z]*)\s\1`
 
 ##### Generische Strukturen
 
+###### Naive Verwendung des Vectors als "raw type"
+
 ``` java
 Vector speicher = new Vector();
 speicher.add(1); speicher.add(2); speicher.add(3);
-speicher.add("huhu");
+speicher.add("huhu");   // Laufzeitfehler
 
 int summe = 0;
 for (Object i : speicher) { summe += (Integer)i; }
 ```
 
-Problem: Nutzung des "*raw*" Typs `Vector` ist nicht typsicher!
+Hier nutzen wir den sogenannten **Raw Type** `Vector`: Die Klasse ist
+eigentlich generisch (`Vector<E>`), wir geben aber kein Typargument an.
+Dadurch gehen die Informationen über den Elementtyp verloren. Effektiv
+werden Elemente beim Auslesen als `Object` behandelt (und es entstehen
+Compiler-Warnungen).
 
--   Mögliche Fehler fallen erst zur Laufzeit und u.U. erst sehr spät
-    auf: Offenbar werden im obigen Beispiel `int`-Werte erwartet, d.h.
-    das Hinzufügen von `"huhu"` ist vermutlich ein Versehen (wird vom
-    Compiler aber nicht bemerkt)
+> [!IMPORTANT]
+>
+> **Problem**: Nutzung des "*raw*" Typs `Vector` ist nicht typsicher!
+
+-   Mögliche Fehler fallen erst zur Laufzeit und damit u.U. erst sehr
+    spät auf: Offenbar werden im obigen Beispiel `int`-Werte erwartet,
+    d.h. das Hinzufügen von `"huhu"` ist vermutlich ein Versehen (wird
+    vom Compiler aber nicht bemerkt)
 -   Die Iteration über `speicher` kann nur allgemein als `Object`
     erfolgen, d.h. in der Schleife muss auf den vermuteten/gewünschten
     Typ gecastet werden: Hier würde dann der String `"huhu"` Probleme
     zur Laufzeit machen
 
+> [!TIP]
+>
+> *Anmerkung*: `Vector` ist streng genommen historisch ("Legacy"). Die
+> Klasse ist für Multithreading/Nebenläufigkeit ausgelegt (Methoden sind
+> synchronisiert) und verursacht dadurch in klassischen nicht
+> nebenläufigen Programmen einen unnötigen Synchronisations-Overhead.
+> Nutzen Sie für neuen, nicht nebenläufigen Code meist lieber
+> `ArrayList`.
+
+###### Korrekte Nutzung des Vectors als generischen Typ
+
 ``` java
 Vector<Integer> speicher = new Vector<Integer>();
 speicher.add(1); speicher.add(2); speicher.add(3);
-speicher.add("huhu");
+speicher.add("huhu");   // Compilerfehler
 
 int summe = 0;
 for (Integer i : speicher) { summe += i; }
@@ -17023,6 +17046,8 @@ Vorteile beim Einsatz von Generics:
 -   Keine Vererbungshierarchie nötig
 -   Nutzung ist typsicher, Casting unnötig
 -   Geht nur für Referenztypen
+    -   Für primitive Typen gibt es Wrapper (`Integer`, `Double`, ...)
+        und Auto-Boxing/-Unboxing
 -   Beispiel: Collections-API
 
 ##### Generische Klassen/Interfaces definieren
@@ -17032,7 +17057,7 @@ Vorteile beim Einsatz von Generics:
     ``` java
     public class Stack<E> {
         public E push(E item) {
-            addElement(item);
+            ...
             return item;
         }
     }
@@ -17040,7 +17065,8 @@ Vorteile beim Einsatz von Generics:
 
     -   `Stack<E>` =\> Generische (parametrisierte) Klasse (auch:
         "*generischer Typ*")
-    -   `E` =\> Formaler Typ-Parameter (auch: "*Typ-Variable*")
+    -   `E` =\> Formaler Typ-Parameter (auch: "*Typ-Variable*") =\>
+        Platzhalter in der Definition (hier `E`)
 
 <!-- -->
 
@@ -17050,7 +17076,8 @@ Vorteile beim Einsatz von Generics:
     Stack<Integer> stack = new Stack<Integer>();
     ```
 
-    -   `Integer` =\> Typ-Parameter
+    -   `Integer` =\> Typ-Parameter =\> Typ-Argument/konkreter Typ beim
+        Nutzen (hier `String`)
     -   `Stack<Integer>` =\> Parametrisierter Typ
 
 ##### Generische Klassen instantiieren
@@ -17109,7 +17136,7 @@ class PM<X, Y, Z> implements Fach<X, Z> {
 }
 
 class Studi<A,B> extends Person { ... }
-class Properties extends Hashtable<Object,Object> { ... }
+class MyProperties extends Hashtable<Object,Object> { ... }
 ```
 
 Auch Interfaces und abstrakte Klassen können parametrisierbar sein.
@@ -17130,13 +17157,27 @@ class Studi<T extends Mensch> {
     public void f(T t) { ... }
 }
 
-class Prof<T> extends Mensch { ... }
-
 class Tutor extends Studi<Mensch> {
     public void f(Mensch t) { ... }      // Ueberschreiben
     public void f(Tutor t) { ... }       // Ueberladen
 }
+
+class Prof<T> extends Mensch { ... }
 ```
+
+**Überschreiben** bedeutet, dass eine geerbte Methode in der Unterklasse
+neu definiert wird. In `Studi` gibt es die Methode `public void f(T t)`,
+die `Tutor` erbt. Da `Tutor extends Studi<Mensch>` gilt, wird `T` zu
+`Mensch` konkretisiert: `Tutor` erbt damit eine Methode mit der Signatur
+`public void f(Mensch t)` und definiert diese anschließend neu
+(überschreiben).
+
+**Überladen** bedeutet, eine Methode mit gleichem Namen zusätzlich mit
+anderer Parameterliste zu definieren (hier: `public void f(Tutor t)`).
+
+Überschreiben erfordert gleiche Parameterliste (nach Substitution) und
+kompatiblen Rückgabetyp; Überladen unterscheidet sich in der
+Parameterliste.
 
 ##### Vorsicht: So geht es nicht!
 
@@ -17186,7 +17227,7 @@ class Fluppie<T> extends Wuppie<S> { ... }
 
 1.  Zuerst Suche nach exakt passender Methode,
 2.  danach passend mit Konvertierungen =\> Compiler sucht gemeinsame
-    Oberklasse in Typhierarchie
+    Oberklasse ("least upper bound") in Typhierarchie
 
 ###### Beispiel
 
@@ -17217,7 +17258,7 @@ class Mensch {
         return m;
     }
 
-    // NICHT gleichzeitig erlaubt wg. Typ-Löschung (s.u.):
+    // NICHT gleichzeitig erlaubt wg. Typ-Löschung (siehe spätere Sitzung):
 /*
     public <T1, T2> T1 myst(T1 m, T2 n) {
         System.out.println("X#myst: T");
@@ -17255,6 +17296,12 @@ public class GenericMethods {
 
 ##### Wrap-Up
 
+<div align="center">
+
+**Generics = Compile-Time-Typsicherheit**
+
+</div>
+
 -   Begriffe:
     -   Generischer Typ: `Stack<T>`
     -   Formaler Typ-Parameter: `T`
@@ -17277,10 +17324,14 @@ public class GenericMethods {
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Ullenboom ([2021, 11.1](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2026](#ref-LernJava))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
-> -   Bloch ([2018](#ref-Bloch2018))
+> Lesen Sie zu diesem Thema auch in den Oracle-Tutorials ["Defining
+> Simple
+> Generics"](https://docs.oracle.com/javase/tutorial/extra/generics/simple.html)
+> und ["Generic
+> Methods"](https://docs.oracle.com/javase/tutorial/extra/generics/methods.html)
+> sowie in den dev.java-Tutorials ["Introducing
+> Generics"](https://dev.java/learn/generics/intro/) und ["Type
+> Inference"](https://dev.java/learn/generics/type-inference/) nach.
 >
 > </details>
 
@@ -17300,27 +17351,28 @@ public class GenericMethods {
 
 <a id="id-527a99eb558795f85fc455275ae495d059c83c9c"></a>
 
-#### Generics: Bounds & Wildcards
+#### Generics2: Bounds & Wildcards
 
 > [!IMPORTANT]
 >
 > <details open>
 > <summary><strong>🎯 TL;DR</strong></summary>
 >
-> Typ-Variablen können weiter eingeschränkt werden, in dem man einen
-> verpflichtenden Ober- oder Untertyp angibt mit `extends` bzw. `super`.
-> Damit muss der später bei der Instantiierung verwendete Typ-Parameter
-> entweder die Oberklasse selbst sein oder davon ableiten (bei
-> `extends`) bzw. der Typ-Parameter muss eine Oberklasse der angegebenen
-> Schranke sein (`super`).
+> Typ-Parameter können durch **Bounds** eingeschränkt werden:
+> `<T extends ...>` bedeutet, dass der Typ-Parameter `T` nach oben
+> eingeschränkt wird ("upper bound"). Durch `extends`-Bounds kann in
+> einer Klasse bzw. Methode der Typ-Parameter so eingeschränkt werden,
+> dass alle Methoden des Obertyps verwendet werden können.
 >
-> Durch die Einschränkung mit `extends` können in der Klasse/Methode auf
-> der Typ-Variablen alle Methoden des angegebenen Obertyps verwendet
-> werden.
+> Ein **Wildcard** (`?`) steht für einen unbestimmten Typ. Ein
+> Wildcard-Typ hat keinen Namen / ist nicht benennbar und ist innerhalb
+> der Klasse/Methode nicht direkt zugreifbar. Wildcards können mit
+> `? extends ...` nach oben ("upper bound") oder `? super ...` nach
+> unten ("lower bound") eingeschränkt werden.
 >
-> Ein Wildcard (`?`) als Typ-Parameter steht für einen beliebigen Typ,
-> wobei die Typ-Variable keinen Namen bekommt und damit innerhalb der
-> Klasse/Methode nicht zugreifbar ist.
+> Bei `? extends Bound` muss der konkrete Typ die Schranke selbst oder
+> ein Subtyp davon sein. Bei `? super Bound` muss der konkrete Typ ein
+> Supertyp (Obertyp) der angegebenen Schranke sein.
 >
 > </details>
 
@@ -17348,15 +17400,27 @@ Cps<String> c;  // Fehler!!!
 
 -   Schlüsselwort `extends` gilt hier auch für Interfaces
 
--   Mehrere Interfaces: nach `extends` Klasse oder Interface, danach mit
-    "`&`" getrennt die restlichen Interfaces:
+-   Mehrere Interfaces: nach `extends` **eine** Klasse oder **ein**
+    Interface, danach mit "`&`" getrennt die restlichen Interfaces:
 
     ``` java
     class Cps<E extends KlasseOderInterface & I1 & I2 & I3> {}
     ```
 
-*Anmerkung*: Der Typ-Parameter ist analog auch mit `super` (nach unten)
-einschränkbar
+Falls eine Klasse einem gemeinsamen Obertyp folgen soll, können mehrere
+Bound-Typen durch `&` verbunden werden. Der erste Bound kann eine Klasse
+(z.B. `Number`) sein; alle weiteren Bound-Typen müssen Interfaces sein.
+Wenn kein Klassen-Bound existiert, können alle Bound-Typen Interfaces
+sein.
+
+> [!TIP]
+>
+> *Anmerkung*: Der Typ-Parameter ist analog auch mit `super` (nach
+> unten) einschränkbar. Das schauen wir uns im Zusammenhang mit
+> Vererbungsbeziehungen und Polymorphie im dritten Teil ["Generics3:
+> Generics und
+> Polymorphie"](#id-5bc4d64bb6b6ada40444f817951b2775c3a1ec92) noch
+> genauer an.
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/bounds/Cps.java">Beispiel bounds.Cps</a></p>
 
@@ -17382,14 +17446,60 @@ public class Wuppie {
     =\> Dadurch für Objekte in Liste `b` alle Methoden von `Number`
     nutzbar ...
 
+Die Wildcard `?` steht für einen unbekannten Typ. `List<?>` erlaubt
+`List`-Objekte jedes Typs, aber innerhalb der Methode kann man nicht
+sicher auf spezifische Eigenschaften des konkreten Typs zugreifen.
+`List<?>` ist also **nicht** eine "Liste von `Object`", sondern "Liste
+von unbekanntem Typ".
+
+-   Typvariable: "ich benenne den Typ und kann ihn mehrfach verwenden"
+-   Wildcard: "ich akzeptiere etwas Unbekanntes, kann es aber nicht
+    benennen"
+
+Mit `List<? extends A>` erlaubt man Listen von Elementen, die `A` oder
+eine Unterklasse von `A` sind (*kovariant*, siehe auch Diskussion in
+["Generics3: Generics und
+Polymorphie"](#id-5bc4d64bb6b6ada40444f817951b2775c3a1ec92)); man kann
+Elemente als `A` lesen/nutzen, aber nicht sicher als `A` hinzufügen
+(weil der echte Typ wg. des Wildcards unbekannt ist - es könnte ein
+beliebiger Untertyp von `A` sein).
+
 Weitere Eigenschaften:
 
 -   Durch Wildcard kein Zugriff auf den Typ
 -   Wildcard kann durch upper bound eingeschränkt werden
--   Geht nicht bei Klassen-/Interface-Definitionen
+-   Geht nicht bei Klassen-/Interface-Definitionen, hier wird eine
+    Typ-Variable benötigt
 
-Bloch ([2018](#ref-Bloch2018)): Nur für Parameter und nicht für
-Rückgabewerte nutzen!
+Weitere Beispiele:
+
+-   `List<?>` - Typ der Listenelemente unbekannt, nur Methoden von
+    `Object` nutzbar
+-   `List<? extends T>` - Typ der Listenelemente ist `T` oder eine
+    Unterklasse von `T`; Zugriff lesend mit den Methoden von `T` (außer
+    `null`), Schreiben nur eingeschränkt möglich (konkreter Typ unklar
+    wg. `?` - es könnte eine Unterklasse von `T` sein, und Schreiben von
+    Elementen vom Typ `T` würde (wenn es erlaubt wäre) dann zur Laufzeit
+    schief gehen - Java fängt das aber zur Compilezeit ab)
+-   `List<? super T>` - Typ der Listenelemente ist `T` oder eine
+    Oberklasse von `T`; Zugriff schreibend möglich mit Werten vom Typ
+    `T` und Untertypen, Lesen nur mit `Object` (der konkrete Typ samt
+    Schnittstelle ist unklar: es könnte eine beliebige Oberklasse von
+    `T` sein, die eine völlig unterschiedliche Schnittstelle als `T`
+    hat)
+
+=\> Das soll uns als erste Einführung von Bounds und Wildcards reichen.
+Wir werden überwiegend die `extends`-Bounds verwenden. Für eine genauere
+Diskussion von "Type Erasure" (TE) und "Producer extends, Consumer
+super" (PECS-Regel) sowie die Varianz-Diskussion siehe Lektion
+["Generics3: Generics und
+Polymorphie"](#id-5bc4d64bb6b6ada40444f817951b2775c3a1ec92).
+
+Bloch ([2018](#ref-Bloch2018)): Wildcards **meist** für Parameter;
+Rückgabewerte **möglichst** konkret typisieren.
+
+Generische Typen in Rückgabewerten sollten möglichst konkrete Typen oder
+Bounds verwenden, um Typ-Sicherheit zu wahren.
 
 ##### Hands-On: Ausgabe für generische Listen
 
@@ -17412,9 +17522,9 @@ public class X {
 }
 ```
 
-**Hinweis**: Dieses Beispiel beinhaltet auch Polymorphie bei/mit
-generischen Datentypen, bitte vorher auch das Video zum vierten Teil
-"Generics und Polymorphie" anschauen
+**Hinweis**: Dieses Beispiel berührt auch Polymorphie bei/mit
+generischen Datentypen, vgl. dritter Teil ["Generics und
+Polymorphie"](#id-5bc4d64bb6b6ada40444f817951b2775c3a1ec92) anschauen.
 
 ###### Erster Versuch (*A* und *B* und *main()* wie oben)
 
@@ -17426,7 +17536,7 @@ public class X {
 }
 ```
 
-=\> **So gehts nicht!** Eine `List<B>` ist **keine** `List<A>` (auch
+=\> **So geht's nicht!** Eine `List<B>` ist **keine** `List<A>` (auch
 wenn ein `B` ein `A` ist, vgl. spätere Sitzung zu Generics und Vererbung
 ...)!
 
@@ -17464,8 +17574,8 @@ public class X {
 Das ist die Lösung. Man erlaubt als Argument nur `List`-Objekte und
 fordert, dass sie mit `A` oder einer Unterklasse von `A` parametrisiert
 sind. D.h. in der Schleife kann man sich auf den gemeinsamen Obertyp `A`
-abstützen und hat dann auch wieder die `printInfo`-Methode zur Verfügung
-...
+abstützen und hat dann auch wieder die `printInfo`-Methode (von `A`) zur
+Verfügung ...
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/wildcards/v3">Konsole wildcards.v3.X</a></p>
 
@@ -17566,7 +17676,7 @@ abstützen und hat dann auch wieder die `printInfo`-Methode zur Verfügung
 
 <a id="id-5bc4d64bb6b6ada40444f817951b2775c3a1ec92"></a>
 
-#### Generics: Generics und Polymorphie
+#### Generics3: Generics und Polymorphie
 
 > [!IMPORTANT]
 >
@@ -22710,18 +22820,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> fe51f8b 2026-06-18 update b07 (S26: Generics, Sealed Types, Stream-API, Logging) (#1133)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 4d4e5e1 2026-06-19 generics2: improve material, add further remarks<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

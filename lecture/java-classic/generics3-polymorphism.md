@@ -1,4 +1,4 @@
-# Generics: Generics und Polymorphie
+# Generics3: Generics und Polymorphie
 
 > [!IMPORTANT]
 >
@@ -225,4 +225,4 @@ werden.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> be8ad59 2026-04-11 generics: rename files<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 992680a 2026-06-19 generics: add lesson numbering to title<br></sub></sup></p></blockquote>

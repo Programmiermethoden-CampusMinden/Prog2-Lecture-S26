@@ -1,24 +1,25 @@
-# Generics: Bounds & Wildcards
+# Generics2: Bounds & Wildcards
 
 > [!IMPORTANT]
 >
 > <details open>
 > <summary><strong>🎯 TL;DR</strong></summary>
 >
-> Typ-Variablen können weiter eingeschränkt werden, in dem man einen
-> verpflichtenden Ober- oder Untertyp angibt mit `extends` bzw. `super`.
-> Damit muss der später bei der Instantiierung verwendete Typ-Parameter
-> entweder die Oberklasse selbst sein oder davon ableiten (bei
-> `extends`) bzw. der Typ-Parameter muss eine Oberklasse der angegebenen
-> Schranke sein (`super`).
+> Typ-Parameter können durch **Bounds** eingeschränkt werden:
+> `<T extends ...>` bedeutet, dass der Typ-Parameter `T` nach oben
+> eingeschränkt wird ("upper bound"). Durch `extends`-Bounds kann in
+> einer Klasse bzw. Methode der Typ-Parameter so eingeschränkt werden,
+> dass alle Methoden des Obertyps verwendet werden können.
 >
-> Durch die Einschränkung mit `extends` können in der Klasse/Methode auf
-> der Typ-Variablen alle Methoden des angegebenen Obertyps verwendet
-> werden.
+> Ein **Wildcard** (`?`) steht für einen unbestimmten Typ. Ein
+> Wildcard-Typ hat keinen Namen / ist nicht benennbar und ist innerhalb
+> der Klasse/Methode nicht direkt zugreifbar. Wildcards können mit
+> `? extends ...` nach oben ("upper bound") oder `? super ...` nach
+> unten ("lower bound") eingeschränkt werden.
 >
-> Ein Wildcard (`?`) als Typ-Parameter steht für einen beliebigen Typ,
-> wobei die Typ-Variable keinen Namen bekommt und damit innerhalb der
-> Klasse/Methode nicht zugreifbar ist.
+> Bei `? extends Bound` muss der konkrete Typ die Schranke selbst oder
+> ein Subtyp davon sein. Bei `? super Bound` muss der konkrete Typ ein
+> Supertyp (Obertyp) der angegebenen Schranke sein.
 >
 > </details>
 
@@ -46,15 +47,26 @@ Cps<String> c;  // Fehler!!!
 
 -   Schlüsselwort `extends` gilt hier auch für Interfaces
 
--   Mehrere Interfaces: nach `extends` Klasse oder Interface, danach mit
-    "`&`" getrennt die restlichen Interfaces:
+-   Mehrere Interfaces: nach `extends` **eine** Klasse oder **ein**
+    Interface, danach mit "`&`" getrennt die restlichen Interfaces:
 
     ``` java
     class Cps<E extends KlasseOderInterface & I1 & I2 & I3> {}
     ```
 
-*Anmerkung*: Der Typ-Parameter ist analog auch mit `super` (nach unten)
-einschränkbar
+Falls eine Klasse einem gemeinsamen Obertyp folgen soll, können mehrere
+Bound-Typen durch `&` verbunden werden. Der erste Bound kann eine Klasse
+(z.B. `Number`) sein; alle weiteren Bound-Typen müssen Interfaces sein.
+Wenn kein Klassen-Bound existiert, können alle Bound-Typen Interfaces
+sein.
+
+> [!TIP]
+>
+> *Anmerkung*: Der Typ-Parameter ist analog auch mit `super` (nach
+> unten) einschränkbar. Das schauen wir uns im Zusammenhang mit
+> Vererbungsbeziehungen und Polymorphie im dritten Teil ["Generics3:
+> Generics und Polymorphie"](./generics3-polymorphism.md) noch genauer
+> an.
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/bounds/Cps.java">Beispiel bounds.Cps</a></p>
 
@@ -80,14 +92,58 @@ public class Wuppie {
     =\> Dadurch für Objekte in Liste `b` alle Methoden von `Number`
     nutzbar ...
 
+Die Wildcard `?` steht für einen unbekannten Typ. `List<?>` erlaubt
+`List`-Objekte jedes Typs, aber innerhalb der Methode kann man nicht
+sicher auf spezifische Eigenschaften des konkreten Typs zugreifen.
+`List<?>` ist also **nicht** eine "Liste von `Object`", sondern "Liste
+von unbekanntem Typ".
+
+-   Typvariable: "ich benenne den Typ und kann ihn mehrfach verwenden"
+-   Wildcard: "ich akzeptiere etwas Unbekanntes, kann es aber nicht
+    benennen"
+
+Mit `List<? extends A>` erlaubt man Listen von Elementen, die `A` oder
+eine Unterklasse von `A` sind (*kovariant*, siehe auch Diskussion in
+["Generics3: Generics und Polymorphie"](./generics3-polymorphism.md));
+man kann Elemente als `A` lesen/nutzen, aber nicht sicher als `A`
+hinzufügen (weil der echte Typ wg. des Wildcards unbekannt ist - es
+könnte ein beliebiger Untertyp von `A` sein).
+
 Weitere Eigenschaften:
 
 -   Durch Wildcard kein Zugriff auf den Typ
 -   Wildcard kann durch upper bound eingeschränkt werden
--   Geht nicht bei Klassen-/Interface-Definitionen
+-   Geht nicht bei Klassen-/Interface-Definitionen, hier wird eine
+    Typ-Variable benötigt
 
-Bloch ([2018](#ref-Bloch2018)): Nur für Parameter und nicht für
-Rückgabewerte nutzen!
+Weitere Beispiele:
+
+-   `List<?>` - Typ der Listenelemente unbekannt, nur Methoden von
+    `Object` nutzbar
+-   `List<? extends T>` - Typ der Listenelemente ist `T` oder eine
+    Unterklasse von `T`; Zugriff lesend mit den Methoden von `T` (außer
+    `null`), Schreiben nur eingeschränkt möglich (konkreter Typ unklar
+    wg. `?` - es könnte eine Unterklasse von `T` sein, und Schreiben von
+    Elementen vom Typ `T` würde (wenn es erlaubt wäre) dann zur Laufzeit
+    schief gehen - Java fängt das aber zur Compilezeit ab)
+-   `List<? super T>` - Typ der Listenelemente ist `T` oder eine
+    Oberklasse von `T`; Zugriff schreibend möglich mit Werten vom Typ
+    `T` und Untertypen, Lesen nur mit `Object` (der konkrete Typ samt
+    Schnittstelle ist unklar: es könnte eine beliebige Oberklasse von
+    `T` sein, die eine völlig unterschiedliche Schnittstelle als `T`
+    hat)
+
+=\> Das soll uns als erste Einführung von Bounds und Wildcards reichen.
+Wir werden überwiegend die `extends`-Bounds verwenden. Für eine genauere
+Diskussion von "Type Erasure" (TE) und "Producer extends, Consumer
+super" (PECS-Regel) sowie die Varianz-Diskussion siehe Lektion
+["Generics3: Generics und Polymorphie"](./generics3-polymorphism.md).
+
+Bloch ([2018](#ref-Bloch2018)): Wildcards **meist** für Parameter;
+Rückgabewerte **möglichst** konkret typisieren.
+
+Generische Typen in Rückgabewerten sollten möglichst konkrete Typen oder
+Bounds verwenden, um Typ-Sicherheit zu wahren.
 
 ## Hands-On: Ausgabe für generische Listen
 
@@ -110,9 +166,9 @@ public class X {
 }
 ```
 
-**Hinweis**: Dieses Beispiel beinhaltet auch Polymorphie bei/mit
-generischen Datentypen, bitte vorher auch das Video zum vierten Teil
-"Generics und Polymorphie" anschauen
+**Hinweis**: Dieses Beispiel berührt auch Polymorphie bei/mit
+generischen Datentypen, vgl. dritter Teil ["Generics und
+Polymorphie"](./generics3-polymorphism.md) anschauen.
 
 ### Erster Versuch (*A* und *B* und *main()* wie oben)
 
@@ -124,7 +180,7 @@ public class X {
 }
 ```
 
-=\> **So gehts nicht!** Eine `List<B>` ist **keine** `List<A>` (auch
+=\> **So geht's nicht!** Eine `List<B>` ist **keine** `List<A>` (auch
 wenn ein `B` ein `A` ist, vgl. spätere Sitzung zu Generics und Vererbung
 ...)!
 
@@ -162,8 +218,8 @@ public class X {
 Das ist die Lösung. Man erlaubt als Argument nur `List`-Objekte und
 fordert, dass sie mit `A` oder einer Unterklasse von `A` parametrisiert
 sind. D.h. in der Schleife kann man sich auf den gemeinsamen Obertyp `A`
-abstützen und hat dann auch wieder die `printInfo`-Methode zur Verfügung
-...
+abstützen und hat dann auch wieder die `printInfo`-Methode (von `A`) zur
+Verfügung ...
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/wildcards/v3">Konsole wildcards.v3.X</a></p>
 
@@ -308,4 +364,4 @@ abstützen und hat dann auch wieder die `printInfo`-Methode zur Verfügung
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> be8ad59 2026-04-11 generics: rename files<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 4d4e5e1 2026-06-19 generics2: improve material, add further remarks<br></sub></sup></p></blockquote>
