@@ -34,7 +34,8 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Command-Pattern](https://youtu.be/F7RJ7YCVMS4)
+> Vorlesung \[[YT](https://youtu.be/bvsmpVHKtNU)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-command-pattern/e3f939297cc131a7db2716c47d98491d)\]
 >
 > </details>
 
@@ -337,4 +338,4 @@ Aufbau:
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 4eb720d 2026-06-19 command: fix wrap-up slide<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 0ea68f6 2026-06-20 command: rework screencasts<br></sub></sup></p></blockquote>

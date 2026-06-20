@@ -5560,13 +5560,20 @@ Danach erneut im Debug-Modus ausführen und die Werte von `i`, `n` und
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Logging](https://youtu.be/_jYWJzr1rkA)
-> -   [Demo Logging (Überblick)](https://youtu.be/fWSc5A_CPL8)
-> -   [Demo Log-Level](https://youtu.be/0UUVQCVYNHo)
-> -   [Demo Logging: Handler und
->     Formatter](https://youtu.be/dYOYA99EfrY)
-> -   [Demo Weiterleitung an den
->     Eltern-Logger](https://youtu.be/19Bki4IglWQ)
+> Vorlesung \[[YT](https://youtu.be/aWayP0yztrs)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-logging/d6a401118a171270cd72651853eaaaf0)\]
+>
+> Demo:
+>
+> -   Logging (Überblick) \[[YT](https://youtu.be/SZVjKv_Li-0)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-logging-berblick/8df804d86f2d71adf5485520c01c9316)\]
+> -   Log-Level \[[YT](https://youtu.be/DqAgCsyzgAY)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-logging-log-level/69645259c2bad49c6a21b9f6a452d92a)\]
+> -   Handler und Formatter \[[YT](https://youtu.be/l3vCNtBBARc)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-logging-log-handler/4ee95e75c580e33d7987949a152922ee)\]
+> -   Weiterleitung an den Eltern-Logger
+>     \[[YT](https://youtu.be/3JsuOpdDIcg)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-logging-weiterleitung-an-eltern-logger/36b8346d36b0a7e381d3d5b7b77e368d)\]
 >
 > </details>
 
@@ -14992,7 +14999,8 @@ Vorteile (insbesondere aus Testsicht):
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Command-Pattern](https://youtu.be/F7RJ7YCVMS4)
+> Vorlesung \[[YT](https://youtu.be/bvsmpVHKtNU)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-command-pattern/e3f939297cc131a7db2716c47d98491d)\]
 >
 > </details>
 
@@ -17115,8 +17123,11 @@ Lösung: `([A-Z][a-zA-Z]*)\s\1`
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Generische Klassen & Methoden](https://youtu.be/k6MFPW-shh8)
-> -   [Demo Generische Methoden](https://youtu.be/ekXBXge6VvE)
+> Vorlesung \[[YT](https://youtu.be/zDphaqgkQ7o)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-generics1-generische-klassen-methoden/9b962d9dc71ad09eeb699d7d7530d121)\]
+>
+> Demo Generische Methoden \[[YT](https://youtu.be/qQubsV86ex4)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-generics-generische-methoden/2192f5afde0e931c75cf77a886cf4ea2)\]
 >
 > </details>
 
@@ -17514,8 +17525,11 @@ public class GenericMethods {
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Generics: Bounds & Wildcards](https://youtu.be/OV2vEn2EkWo)
-> -   [Demo Wildcards](https://youtu.be/D2hIicsho7I)
+> Vorlesung \[[YT](https://youtu.be/RldFHSKeRgk)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-generics2-bounds-wildcards/b7e0a752fa21c7176b7fad5a8636a780)\]
+>
+> Demo Wildcards \[[YT](https://youtu.be/vBi5wSMPJRI)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-generics-wildcards/c8a1c9525ec8bdd3b0811f31f63eb45d)\]
 >
 > </details>
 
@@ -22948,18 +22962,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 4eb720d 2026-06-19 command: fix wrap-up slide<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 0ea68f6 2026-06-20 command: rework screencasts<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
