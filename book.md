@@ -17504,9 +17504,9 @@ public class GenericMethods {
 >
 > Typ-Parameter können durch **Bounds** eingeschränkt werden:
 > `<T extends ...>` bedeutet, dass der Typ-Parameter `T` nach oben
-> eingeschränkt wird ("upper bound"). Durch `extends`-Bounds kann in
-> einer Klasse bzw. Methode der Typ-Parameter so eingeschränkt werden,
-> dass alle Methoden des Obertyps verwendet werden können.
+> eingeschränkt wird ("upper bound"). Durch `extends`-Bounds des
+> Typ-Parameters können in der generischen Klasse/Methode dann alle
+> Methoden der Schranke (Bound) verwendet werden.
 >
 > Ein **Wildcard** (`?`) steht für einen unbestimmten Typ. Ein
 > Wildcard-Typ hat keinen Namen / ist nicht benennbar und ist innerhalb
@@ -17514,9 +17514,10 @@ public class GenericMethods {
 > `? extends ...` nach oben ("upper bound") oder `? super ...` nach
 > unten ("lower bound") eingeschränkt werden.
 >
-> Bei `? extends Bound` muss der konkrete Typ die Schranke selbst oder
-> ein Subtyp davon sein. Bei `? super Bound` muss der konkrete Typ ein
-> Supertyp (Obertyp) der angegebenen Schranke sein.
+> Bei der Nutzung mit `? extends Bound` muss der konkrete Typ die
+> Schranke selbst oder ein Subtyp davon sein. Analog muss bei der
+> Nutzung mit `? super Bound` der konkrete Typ die Schranke selbst oder
+> ein Supertyp (Obertyp) der angegebenen Schranke sein.
 >
 > </details>
 
@@ -17554,7 +17555,7 @@ Cps<String> c;  // Fehler!!!
     class Cps<E extends KlasseOderInterface & I1 & I2 & I3> {}
     ```
 
-Falls eine Klasse einem gemeinsamen Obertyp folgen soll, können mehrere
+Falls eine Klasse mehreren Obertypen folgen soll, können mehrere
 Bound-Typen durch `&` verbunden werden. Der erste Bound kann eine Klasse
 (z.B. `Number`) sein; alle weiteren Bound-Typen müssen Interfaces sein.
 Wenn kein Klassen-Bound existiert, können alle Bound-Typen Interfaces
@@ -17562,12 +17563,9 @@ sein.
 
 > [!TIP]
 >
-> *Anmerkung*: Der Typ-Parameter ist analog auch mit `super` (nach
-> unten) einschränkbar. Das schauen wir uns im Zusammenhang mit
-> Vererbungsbeziehungen und Polymorphie im dritten Teil ["Generics3:
-> Generics und
-> Polymorphie"](#id-5bc4d64bb6b6ada40444f817951b2775c3a1ec92) noch
-> genauer an.
+> *Anmerkung*: Der Typ-Parameter ist **nur** mit `extends` nach oben
+> beschränkbar. Für die Wildcards gibt es zusätzlich auch noch die
+> Beschränkung mit `super` nach unten.
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/bounds/Cps.java">Beispiel bounds.Cps</a></p>
 
@@ -17596,8 +17594,8 @@ public class Wuppie {
 Die Wildcard `?` steht für einen unbekannten Typ. `List<?>` erlaubt
 `List`-Objekte jedes Typs, aber innerhalb der Methode kann man nicht
 sicher auf spezifische Eigenschaften des konkreten Typs zugreifen.
-`List<?>` ist also **nicht** eine "Liste von `Object`", sondern "Liste
-von unbekanntem Typ".
+**Wichtig**: `List<?>` ist also **nicht** eine "Liste von `Object`",
+sondern eine Liste von "unbekanntem Typ".
 
 -   Typvariable: "ich benenne den Typ und kann ihn mehrfach verwenden"
 -   Wildcard: "ich akzeptiere etwas Unbekanntes, kann es aber nicht
@@ -17607,14 +17605,15 @@ Mit `List<? extends A>` erlaubt man Listen von Elementen, die `A` oder
 eine Unterklasse von `A` sind (*kovariant*, siehe auch Diskussion in
 ["Generics3: Generics und
 Polymorphie"](#id-5bc4d64bb6b6ada40444f817951b2775c3a1ec92)); man kann
-Elemente als `A` lesen/nutzen, aber nicht sicher als `A` hinzufügen
-(weil der echte Typ wg. des Wildcards unbekannt ist - es könnte ein
-beliebiger Untertyp von `A` sein).
+Elemente als `A` lesen/nutzen, aber nicht sicher als `A` der Liste
+hinzufügen (weil der echte Typ wg. des Wildcards unbekannt ist - es
+könnte ein beliebiger Untertyp von `A` sein).
 
 Weitere Eigenschaften:
 
 -   Durch Wildcard kein Zugriff auf den Typ
--   Wildcard kann durch upper bound eingeschränkt werden
+-   Wildcard kann durch upper bound oder lower bound eingeschränkt
+    werden
 -   Geht nicht bei Klassen-/Interface-Definitionen, hier wird eine
     Typ-Variable benötigt
 
@@ -22962,18 +22961,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 0ea68f6 2026-06-20 command: rework screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 6a589fb 2026-06-20 generics: clarify bound on type parameters and wildcards<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
