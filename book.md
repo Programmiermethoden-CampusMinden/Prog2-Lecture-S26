@@ -18022,8 +18022,8 @@ werden.
 > Mit Hilfe von Exceptions lassen sich Fehlerfälle im Programmablauf
 > deklarieren und behandeln. Methoden können/müssen mit dem Keyword
 > `throws` gefolgt vom Namen der Exception deklarieren, dass sie im
-> Fehlerfall diese spezifische Exception werfen (und nicht selbst
-> behandeln).
+> Fehlerfall diese spezifische (checked) Exception werfen (und nicht
+> selbst behandeln).
 >
 > Zum Exception-Handling werden die Keywords `try`, `catch` und
 > `finally` verwendet. Dabei wird im `try`-Block der Code geschrieben,
@@ -18041,10 +18041,9 @@ werden.
 >
 > Unchecked Exceptions werden für Fehler in der Programmlogik verwendet,
 > etwa das Teilen durch 0 oder Index-Fehler. Sie deuten auf fehlerhafte
-> Programmierung, fehlerhafte Logik oder beispielsweise mangelhafte
-> Eingabeprüfung in. Unchecked Exceptions müssen nicht deklariert oder
-> behandelt werden. Unchecked Exceptions leiten von `RuntimeException`
-> ab.
+> Programmierung, fehlerhafte Logik oder mangelhafte Eingabeprüfung hin.
+> Unchecked Exceptions müssen nicht deklariert oder behandelt werden.
+> Unchecked Exceptions leiten von `RuntimeException` ab.
 >
 > Als Faustregel gilt: Wenn der Aufrufer sich von einer
 > Exception-Situation erholen kann, sollte man eine checked Exception
@@ -18059,50 +18058,75 @@ werden.
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Exceptions](https://youtu.be/k6EhexEvJDY)
+> TODO
 >
 > </details>
 
-##### Fehlerfälle in Java
+##### Was kann schiefgehen?
 
 ``` java
-int div(int a, int b) {
-    return a / b;
-}
-
-
-div(3, 0);
-```
-
-**Problem**: Programm wird abstürzen, da durch '0' geteilt wird ...
-
-##### Lösung?
-
-``` java
-Optional<Integer> div(int a, int b) {
-    if (b == 0) return Optional.empty();
-    return Optional.of(a / b);
-}
-
-
-Optional<Integer> x = div(3, 0);
-if (x.isPresent()) {
-    // do something
-} else {
-    // do something else
+public class ReciprocalCalculator {
+    public static double reciprocalFromFile(String fileName) throws IOException {
+        String content = Files.readString(Path.of(fileName));
+        int value = Integer.parseInt(content);
+        return 1.0 / value;
+    }
+    public static void main(String[] args) throws IOException {
+        double result = reciprocalFromFile("zahl.txt");
+        IO.println("Kehrwert: " + result);
+    }
 }
 ```
 
-**Probleme**:
+Fragen Sie sich: Was passiert, wenn:
 
--   Da `int` nicht `null` sein kann, muss ein `Integer` Objekt erzeugt
-    und zurückgegeben werden: Overhead wg. Auto-Boxing und -Unboxing!
--   Der Aufrufer muss auf `null` prüfen.
--   Es wird nicht kommuniziert, warum `null` zurückgegeben wird. Was ist
-    das Problem?
--   Was ist, wenn `null` ein gültiger Rückgabewert sein soll?
+-   die Datei nicht vorhanden ist?
+-   wenn die nötigen Leserechte auf der Datei nicht vorhanden sind?
+-   wenn in der Datei ein Text statt einer Zahl steht?
+-   wenn in der Datei die Zahl `0` steht?
 
-##### Vererbungsstruktur *Throwable*
+<details>
+
+-   `Files.readString(Path.of(fileName))` $\to$ `IOException`
+-   `Integer.parseInt(content)` $\to$ `NumberFormatException`
+-   `return 1.0 / value` $\to$ `ArithmeticException`
+
+`IOException` ist eine **checked** Exception, die in `Files.readString`
+deklariert wird. Folge: Diese Exception muss entweder gefangen werden
+oder in der `throws`-Klausel der Methode deklariert werden (würde dann
+beim Auftreten an den Aufrufer hochgereicht).
+
+`NumberFormatException` und `ArithmeticException` sind **unchecked**
+Exceptions. Diese können gefangen und behandelt werden, aber das
+Auftreten beruht i.d.R. auf Logik- oder Programmierfehlern, d.h. man
+weiss nicht so genau, ob und wo diese auftreten.
+
+</details>
+
+##### Begriffe
+
+-   **Checked Exceptions**
+    -   Müssen deklariert (`throws`) oder gefangen (`try`/`catch`)
+        werden
+    -   Vom Compiler überprüft
+    -   Beispiele: `IOException`, `FileNotFoundException`
+
+<!-- -->
+
+-   **Unchecked Exceptions**
+    -   Unterklassen von `RuntimeException`
+    -   Keine Pflicht zur Deklaration oder zum Fangen
+    -   Beispiele: `NullPointerException`, `IllegalArgumentException`,
+        `ArithmeticException`
+
+> [!IMPORTANT]
+>
+> **Merksatz**:
+>
+> -   Checked = *erwartbare* Fehlerquellen (z.B. I/O)
+> -   Unchecked = meist *Programmierfehler* / Logikfehler
+
+###### Throwable und Hierarchie von Exceptions und Errors (Ausschnitt)
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/exception_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/java-classic/images/exception.png" width="80%" /></picture></p>
 
@@ -18131,7 +18155,7 @@ if (x.isPresent()) {
         (`throws`) werden: Dies wird vom Compiler überprüft!
 -   "Unchecked" Exceptions:
     -   Logische Programmierfehler ("Versagen" des Programmcodes)
-        -   `IndexOutOfBoundException`
+        -   `IndexOutOfBoundsException`
         -   `NullPointerException`
         -   `ArithmeticException`
         -   `IllegalArgumentException`
@@ -18162,15 +18186,152 @@ Beispiele unchecked Exception:
     Programmlogik, von dem sich der Aufrufer nicht sinnvoll erholen
     kann.
 
-##### *Throws*
+##### Fangen und Behandeln von Exceptions mit *Try*-*Catch* oder *Throws*
+
+###### Variante A: Exception behandeln
 
 ``` java
-int div(int a, int b) throws ArithmeticException {
-    return a / b;
+public static void main(String[] args) {
+    try {
+        double result = reciprocalFromFile("zahl.txt");
+        IO.println("Kehrwert: " + result);
+    } catch (IOException e) {
+        System.err.println("Fehler beim Lesen der Datei: " + e.getMessage());
+    }
 }
 ```
 
-Alternativ:
+###### Variante B: Exception weiterreichen
+
+``` java
+public static void main(String[] args) throws IOException {
+    double result = reciprocalFromFile("zahl.txt");
+    IO.println("Kehrwert: " + result);
+}
+```
+
+-   Im `try` Block wird der Code ausgeführt, der einen Fehler werfen
+    könnte.
+-   Mit `catch` kann eine Exception gefangen und im `catch` Block
+    behandelt werden.
+-   Wenn man die *checked* `IOException`-Exception nicht
+    fangen/behandlen möchte, muss die Methode entsprechend
+    gekennzeichnet werden.
+
+> [!IMPORTANT]
+>
+> **Anmerkung**: Das bloße Ausgeben des Stacktrace via
+> `e.printStackTrace()` ist noch **kein sinnvolles Exception-Handling**!
+> Hier sollte auf die jeweilige Situation eingegangen werden und
+> versucht werden, den Fehler zu beheben oder dem Aufrufer geeignet zu
+> melden!
+
+##### *Try* und mehrstufiges *Catch*
+
+``` java
+public static void main(String[] args) {
+    try {
+        double result = reciprocalFromFile("zahl.txt");
+        IO.println("Kehrwert: " + result);
+    } catch (FileNotFoundException e) {
+        System.err.println("Dateifehler: " + e.getMessage());
+    } catch (NumberFormatException e) {
+        System.err.println("Die Datei enthält keine gültige ganze Zahl.");
+    } catch (ArithmeticException e) {
+        System.err.println("Division durch 0 ist nicht erlaubt.");
+    }
+}
+```
+
+Eine im `try`-Block auftretende Exception wird der Reihe nach mit den
+`catch`-Blöcken gematcht (vergleichbar mit `switch case`).
+
+> [!IMPORTANT]
+>
+> **Wichtig**: Dabei muss die Vererbungshierarchie beachtet werden. Die
+> spezialisierteste Klasse muss ganz oben stehen, die allgemeinste
+> Klasse als letztes. Sonst wird eine Exception u.U. zu früh in einem
+> nicht dafür gedachten `catch`-Zweig aufgefangen.
+
+> [!IMPORTANT]
+>
+> **Wichtig**: Wenn eine Exception nicht durch die `catch`-Zweige
+> aufgefangen wird, dann wird sie an den Aufrufer weiter geleitet. Im
+> Beispiel würde eine `IOException` nicht durch die `catch`-Zweige
+> gefangen (`NumberFormatException` und `ArithmeticException` sind im
+> falschen Vererbungszweig, und `FileNotFoundException` ist spezieller
+> als `IOException`) und entsprechend an den Aufrufer weiter gereicht.
+> Da es sich obendrein um eine checked Exception handelt, müsste man
+> diese per `throws IOException` an der Methode deklarieren.
+
+> [!TIP]
+>
+> **Hinweis**: Nur `IOException` ist *checked*. `NumberFormatException`
+> und `ArithmeticException` sind *unchecked* - Fangen ist optional, aber
+> oft sinnvoll.
+
+##### *Finally* und Aufräumen
+
+``` java
+BufferedReader reader = null;
+try {
+    reader = new BufferedReader(new FileReader(fileName));
+    return reader.readLine();
+} finally {
+    if (reader != null)  reader.close();
+}
+```
+
+Der `finally` Block wird sowohl im Fehlerfall als auch im Normalfall
+aufgerufen. Dies wird beispielsweise für Aufräumarbeiten genutzt, etwa
+zum Schließen von Verbindungen oder Input-Streams.
+
+> [!TIP]
+>
+> **Hinweis**: `finally` wird auch dann ausgeführt, wenn im `try` ein
+> `return` steht.
+
+##### Freigeben von Ressourcen: *Try*-with-Resources
+
+###### Problem bisher
+
+Mit `try`-`finally` müssen wir Ressourcen **manuell** schließen:
+
+``` java
+BufferedReader reader = null;
+try {
+    reader = new BufferedReader(new FileReader(fileName));
+    return reader.readLine();
+} finally {
+    if (reader != null)  reader.close();
+}
+```
+
+###### Lösung: `try-with-resources`
+
+``` java
+try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+    return reader.readLine();
+} // reader wird hier automatisch geschlossen
+```
+
+Im `try`-Statement können ein oder mehrere Ressourcen deklariert werden,
+die am Ende sicher geschlossen werden. Diese Ressourcen müssen
+`java.io.Closeable` oder `java.lang.AutoCloseable` implementieren.
+
+Java schließt die Ressourcen **automatisch** am Ende des Blocks, egal ob
+eine Exception geworfen wurde oder nicht. Vorteil: Weniger Boilerplate,
+weniger Fehlerquellen (z.B. vergessenes `close()` o.ä.).
+
+> [!TIP]
+>
+> Seit Java 9 kann man auch *bereits deklarierte* (und geöffnete)
+> Ressourcen im `try`-Kopf referenzieren und damit automatisch schließen
+> lassen.
+
+##### Werfen von Exceptions mit *Throws*
+
+Man auch selbst aktiv Exceptions "werfen":
 
 ``` java
 int div(int a, int b) throws IllegalArgumentException {
@@ -18179,163 +18340,70 @@ int div(int a, int b) throws IllegalArgumentException {
 }
 ```
 
-Exception können an an den Aufrufer weitergeleitet werden oder selbst
-geworfen werden.
-
-Wenn wie im ersten Beispiel bei einer Operation eine Exception entsteht
-und nicht gefangen wird, dann wird sie automatisch an den Aufrufer
-weitergeleitet. Dies wird über die `throws`-Klausel deutlich gemacht
-(Keyword `throws` plus den/die Namen der Exception(s), angefügt an die
-Methodensignatur). Bei unchecked Exceptions *kann* man das tun, bei
-checked Exceptions *muss* man dies tun.
-
-Wenn man wie im zweiten Beispiel selbst eine neue Exception werfen will,
-erzeugt man mit `new` ein neues Objekt der gewünschten Exception und
-"wirft" diese mit `throw`. Auch diese Exception kann man dann entweder
-selbst fangen und bearbeiten (siehe nächste Folie) oder an den Aufrufer
-weiterleiten und dies dann entsprechend über die `throws`-Klausel
-deklarieren: nicht gefangene checked Exceptions *müssen* deklariert
-werden, nicht gefangene unchecked Exceptions *können* deklariert werden.
+Wenn man aktiv eine neue Exception werfen will, erzeugt man mit `new`
+ein neues Objekt der gewünschten Exception und "wirft" diese mit
+`throw`. Auch diese selbst geworfene Exception kann man dann entweder
+selbst fangen und bearbeiten oder an den Aufrufer weiterleiten und dies
+dann entsprechend über die `throws`-Klausel deklarieren: nicht gefangene
+checked Exceptions *müssen* deklariert werden, nicht gefangene unchecked
+Exceptions *können* deklariert werden.
 
 Wenn mehrere Exceptions an den Aufrufer weitergeleitet werden, werden
 sie in der `throws`-Klausel mit Komma getrennt:
 `throws Exception1, Exception2, Exception3`.
 
-**Anmerkung**: In beiden obigen Beispielen wurde zur Verdeutlichung,
-dass die Methode `div()` eine Exception wirft, diese per
-`throws`-Klausel deklariert. Da es sich bei den beiden Beispielen aber
-jeweils um **unchecked Exceptions** handelt, ist dies im obigen Beispiel
-*nicht notwendig*. Der Aufrufer *muss* auch nicht ein passendes
-Exception-Handling einsetzen!
+##### Anti-Beispiele und Best Practices
 
-Wenn wir stattdessen eine **checked Exception** werfen würden oder in
-`div()` eine Methode aufrufen würden, die eine checked Exception
-deklariert hat, *muss* diese checked Exception entweder in `div()`
-gefangen und bearbeitet werden oder aber per `throws`-Klausel deklariert
-werden. Im letzteren Fall *muss* dann der Aufrufer analog damit umgehen
-(fangen oder selbst auch deklarieren). **Dies wird vom Compiler
-geprüft!**
-
-##### *Try*-*Catch*
-
-``` java
-int a = getUserInput();
-int b = getUserInput();
-
-try {
-    div(a, b);
-} catch (IllegalArgumentException e) {
-    e.printStackTrace(); // Wird im Fehlerfall aufgerufen
-}
-
-// hier geht es normal weiter
-```
-
--   Im `try` Block wird der Code ausgeführt, der einen Fehler werfen
-    könnte.
--   Mit `catch` kann eine Exception gefangen und im `catch` Block
-    behandelt werden.
-
-**Anmerkung**: Das bloße Ausgeben des Stacktrace via
-`e.printStackTrace()` ist noch **kein sinnvolles Exception-Handling**!
-Hier sollte auf die jeweilige Situation eingegangen werden und versucht
-werden, den Fehler zu beheben oder dem Aufrufer geeignet zu melden!
-
-##### *Try* und mehrstufiges *Catch*
+###### Anti-Beispiel 1: Leerer catch-Block
 
 ``` java
 try {
-    someMethod(a, b, c);
-} catch (IllegalArgumentException iae) {
-    iae.printStackTrace();
-} catch (FileNotFoundException | NullPointerException e) {
-    e.printStackTrace();
+    double result = reciprocalFromFile("zahl.txt");
+} catch (IOException e) {
+    // nichts... oder e.printStackTrace()
 }
 ```
 
-Eine im `try`-Block auftretende Exception wird der Reihe nach mit den
-`catch`-Blöcken gematcht (vergleichbar mit `switch case`).
+Problem: Fehler wird "verschluckt" $\to$ Debugging-Hölle. Der Stacktrace
+(wird gern von IDEs automatisch eingefügt) ist auch nur bedingt
+hilfreich.
 
-**Wichtig**: Dabei muss die Vererbungshierarchie beachtet werden. Die
-spezialisierteste Klasse muss ganz oben stehen, die allgemeinste Klasse
-als letztes. Sonst wird eine Exception u.U. zu früh in einem nicht dafür
-gedachten `catch`-Zweig aufgefangen.
-
-**Wichtig**: Wenn eine Exception nicht durch die `catch`-Zweige
-aufgefangen wird, dann wird sie an den Aufrufer weiter geleitet. Im
-Beispiel würde eine `IOException` nicht durch die `catch`-Zweige
-gefangen (`IllegalArgumentException` und `NullPointerException` sind im
-falschen Vererbungszweig, und `FileNotFoundException` ist spezieller als
-`IOException`) und entsprechend an den Aufrufer weiter gereicht. Da es
-sich obendrein um eine checked Exception handelt, müsste man diese per
-`throws IOException` an der Methode deklarieren.
-
-##### *Finally*
+###### Anti-Beispiel 2: Zu allgemein fangen
 
 ``` java
-Scanner myScanner = new Scanner(System.in);
-
 try {
-    return 5 / myScanner.nextInt();
-} catch (InputMismatchException ime) {
-    ime.printStackTrace();
-} finally {
-    // wird immer aufgerufen
-    myScanner.close();
+    double result = reciprocalFromFile("zahl.txt");
+} catch (Exception e) {
+    System.err.println("Irgendetwas ist schiefgegangen.");
 }
 ```
 
-Der `finally` Block wird sowohl im Fehlerfall als auch im Normalfall
-aufgerufen. Dies wird beispielsweise für Aufräumarbeiten genutzt, etwa
-zum Schließen von Verbindungen oder Input-Streams.
+Problem: Fängt auch Programmierfehler (z.B. `NullPointerException`), die
+Sie gar nicht "heilen" sollten. Besser: So spezifisch wie möglich
+fangen.
 
-##### *Try*-with-Resources
+###### Best Practices: Fehlerbilder bewusst aufgreifen
 
-``` java
-try (Scanner myScanner = new Scanner(System.in)) {
-    return 5 / myScanner.nextInt();
-} catch (InputMismatchException ime) {
-    ime.printStackTrace();
-}
-```
+Wenn Sie im Code `catch (Exception e)` sehen, sollte bei Ihnen ein Alarm
+losgehen.
 
-Im `try`-Statement können Ressourcen deklariert werden, die am Ende
-sicher geschlossen werden. Diese Ressourcen müssen `java.io.Closeable`
-implementieren.
+##### Stilfrage A: Wann checked, wann unchecked
 
-##### Eigene Exceptions
+###### "Checked" Exceptions
 
-``` java
-// Checked Exception
-public class MyCheckedException extends Exception {
-    public MyCheckedException(String errorMessage) {
-        super(errorMessage);
-    }
-}
-```
+-   Für erwartbare Fehlerfälle, deren Ursprung nicht im Programm selbst
+    liegt
+-   Aufrufer kann sich von der Exception erholen
 
-``` java
-// Unchecked Exception
-public class MyUncheckedException extends RuntimeException {
-    public MyUncheckedException(String errorMessage) {
-        super(errorMessage);
-    }
-}
-```
+###### "Unchecked" Exceptions
 
-Eigene Exceptions können durch Spezialisierung anderer Exception-Klassen
-realisiert werden. Dabei kann man direkt von `Exception` oder
-`RuntimeException` ableiten oder bei Bedarf von spezialisierteren
-Exception-Klassen.
+-   Logische Programmierfehler ("Versagen" des Programmcodes)
+-   Aufrufer kann sich von der Exception vermutlich nicht erholen
 
-Wenn die eigene Exception in der Vererbungshierarchie unter
-`RuntimeException` steht, handelt es sich um eine *unchecked Exception*,
-sonst um eine *checked Exception*.
+Vergleiche ["Unchecked Exceptions --- The
+Controversy"](https://dev.java/learn/exceptions/unchecked-exception-controversy/).
 
-In der Benutzung (werfen, fangen, deklarieren) verhalten sich eigene
-Exception-Klassen wie die Exceptions aus dem JDK.
-
-##### Stilfrage: Wie viel Code im *Try*?
+##### Vertiefung: Stilfrage B: Wie viel Code im *Try*?
 
 ``` java
 int getFirstLineAsInt(String pathToFile) {
@@ -18347,11 +18415,11 @@ int getFirstLineAsInt(String pathToFile) {
 }
 ```
 
-<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/exceptions/HowMuchTry.java">Zeigen: exceptions.HowMuchTry</a></p>
+<p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/exceptions/HowMuchTry.java">Demo: exceptions.HowMuchTry</a></p>
 
 Hier lassen sich verschiedene "Ausbaustufen" unterscheiden.
 
-###### Handling an den Aufrufer übergeben
+###### 1. Handling an den Aufrufer übergeben
 
 ``` java
 int getFirstLineAsIntV1(String pathToFile) throws FileNotFoundException, IOException {
@@ -18373,7 +18441,7 @@ die `FileNotFoundException` (vom `FileReader`) und die `IOException`
 `IOException` ist, reicht es aus, lediglich die `IOException` zu
 deklarieren.
 
-###### Jede Exception einzeln fangen und bearbeiten
+###### 2. Jede Exception einzeln fangen und bearbeiten
 
 ``` java
 int getFirstLineAsIntV2(String pathToFile) {
@@ -18422,7 +18490,7 @@ schreiben oder sehen, ist das ein Anzeichen, dass auf dieser Ebene nicht
 sinnvoll mit dem Fehler umgegangen werden kann und dass man ihn besser
 an den Aufrufer weiter reichen sollte (siehe nächste Folie).
 
-###### Funktionaler Teil in gemeinsames *Try* und mehrstufiges *Catch*
+###### 3. Funktionaler Teil in gemeinsames *Try* und mehrstufiges *Catch*
 
 ``` java
 int getFirstLineAsIntV3(String pathToFile) {
@@ -18453,7 +18521,7 @@ Funktionalität so leichter erkennbar.
 Beispiel. Entweder man macht hier sinnvollere Dinge, oder man überlässt
 dem Aufrufer die Reaktion auf den Fehler.
 
-##### Stilfrage: Wo fange ich die Exception?
+##### Vertiefung: Stilfrage C: Wo fange ich die Exception?
 
 ``` java
 private static void methode1(int x) throws IOException {
@@ -18486,51 +18554,63 @@ Letztlich scheint es eine gute Idee zu sein, eine Exception so nah wie
 möglich am Ursprung der Fehlerursache zu behandeln. Man sollte sich
 dabei die Frage stellen: Wo kann ich sinnvoll auf den Fehler reagieren?
 
-##### Stilfrage: Wann checked, wann unchecked
+##### Vertiefung: Eigene Exceptions definieren
 
-###### "Checked" Exceptions
+``` java
+// Checked Exception
+public class MyCheckedException extends Exception {
+    public MyCheckedException(String errorMessage) {
+        super(errorMessage);
+    }
+}
+```
 
--   Für erwartbare Fehlerfälle, deren Ursprung nicht im Programm selbst
-    liegt
--   Aufrufer kann sich von der Exception erholen
+``` java
+// Unchecked Exception
+public class MyUncheckedException extends RuntimeException {
+    public MyUncheckedException(String errorMessage) {
+        super(errorMessage);
+    }
+}
+```
 
-###### "Unchecked" Exceptions
+Eigene Exceptions können durch Spezialisierung anderer Exception-Klassen
+realisiert werden. Dabei kann man direkt von `Exception` oder
+`RuntimeException` ableiten oder bei Bedarf von spezialisierteren
+Exception-Klassen.
 
--   Logische Programmierfehler ("Versagen" des Programmcodes)
--   Aufrufer kann sich von der Exception vermutlich nicht erholen
+Wenn die eigene Exception in der Vererbungshierarchie unter
+`RuntimeException` steht, handelt es sich um eine *unchecked Exception*,
+sonst um eine *checked Exception*.
 
-Vergleiche ["Unchecked Exceptions --- The
-Controversy"](https://dev.java/learn/exceptions/unchecked-exception-controversy/).
+In der Benutzung (werfen, fangen, deklarieren) verhalten sich eigene
+Exception-Klassen wie die Exceptions aus dem JDK.
 
 ##### Wrap-Up
 
--   `Error` und `Exception`: System vs. Programm
--   Checked und unchecked Exceptions: `Exception` vs. `RuntimeException`
+-   Exceptions trennen **Normalfall** und **Fehlerfall** im
+    Kontrollfluss
 
 <!-- -->
 
--   `try`: Versuche Code auszuführen
--   `catch`: Verhalten im Fehlerfall
--   `finally`: Verhalten im Erfolgs- und Fehlerfall
+-   Checked vs. Unchecked:
+    -   Checked = behandeln oder deklarieren
+    -   Unchecked = keine Pflicht, aber bewusst einsetzen
 
 <!-- -->
 
--   `throw`: Wirft eine Exception
--   `throws`: Deklariert eine Exception an Methode
-
-<!-- -->
-
--   Eigene Exceptions durch Ableiten von anderen Exceptions (werden je
-    nach Vererbungshierarchie automatisch checked oder unchecked)
+-   `try`-`catch`-`finally`:
+    -   `try`: "gefährlicher" Code
+    -   `catch`: definierte Reaktion
+    -   `finally`: Aufräumarbeiten
 
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2026](#ref-LernJava))
-> -   Ullenboom ([2021, Kap. 8](#ref-Ullenboom2021))
-> -   Oracle Corporation ([2024](#ref-Java-SE-Tutorial))
+> Lesen Sie zu diesem Thema auch in den dev.java-Tutorials von Oracle
+> ["Exceptions"](https://dev.java/learn/exceptions/) nach.
 >
 > </details>
 
@@ -18539,10 +18619,13 @@ Controversy"](https://dev.java/learn/exceptions/unchecked-exception-controversy/
 > <details >
 > <summary><strong>✅ Lernziele</strong></summary>
 >
-> -   k2: Unterschied zwischen Error und Exception
-> -   k2: Unterschied zwischen checked und unchecked Exceptions
-> -   k3: Umgang mit Exceptions
-> -   k3: Eigene Exceptions schreiben
+> -   k2: Ich kann erklären, warum wir in Java Exceptions brauchen
+> -   k2: Ich kann typische Fehler beim Exception-Handling erkennen
+> -   k2: Ich kann zwischen checked und unchecked Exceptions
+>     unterscheiden
+> -   k3: Ich kann mit `try`/`catch`/`finally` und `throws` gezielt
+>     einsetzen
+> -   k3: Ich kann eigene Exceptions definieren
 >
 > </details>
 
@@ -18551,56 +18634,85 @@ Controversy"](https://dev.java/learn/exceptions/unchecked-exception-controversy/
 > <details open>
 > <summary><strong>🏅 Challenges</strong></summary>
 >
-> Betrachten Sie die
-> [Vorgaben](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/java-classic/src/challenges/exceptions).
+> **Diskussion**
 >
-> **Verbessern Sie das Exception-Handling**
+> 1.  Wo im System (UI, Service, Datenzugriff) sollten Sie
+>     typischerweise Exceptions fangen?
+> 2.  Wo lassen Sie sie bewusst "nach oben durchlaufen"?
 >
-> Im package `better_try_catch` finden Sie die Klasse
-> `BetterTryCatchMain`, in der verschiedene Methoden der Klasse
-> `MyFunctions` aufgerufen werden.
+> **Mini-Aufgabe**
 >
-> Erklären Sie, warum das dort implementierte Exception-Handling nicht
-> gut ist und verbessern Sie es.
+> Implementieren Sie
 >
-> **Checked vs. unckecked Exceptions**
+> ``` java
+> public static double safeReciprocalFromFile(String fileName) {
+>     // ...
+> }
+> ```
 >
-> Erklären Sie den Unterschied zwischen checked und unchecked
-> Exceptions.
+> Anforderungen:
 >
-> Im Folgenden werden verschiedene Exceptions beschrieben. Erklären Sie,
-> ob diese jeweils "checked" oder "unchecked" sein sollten.
+> -   Bei Dateifehlern: Rückgabewert `Double.NaN`
+> -   Bei ungültiger Zahl: Rückgabewert `0.0`
+> -   Bei Division durch 0: Rückgabewert `Double.POSITIVE_INFINITY`
 >
-> -   `IntNotBetweenException` soll geworfen werden, wenn ein
->     Integer-Parameter nicht im definierten Wertebereich liegt.
-> -   `NoPicturesFoundException` soll geworfen werden, wenn in einem
->     übergebenen Verzeichnis keine Bilddateien gefunden werden konnten.
-> -   `NotAPrimeNumberException` soll geworfen werden, wenn eine vom
->     User eingegebene Zahl keine Primzahl ist.
+> Frage: Welche Exceptions fangen Sie? Welche lassen Sie durchlaufen?
 >
-> **Freigeben von Ressourcen**
+> **Mini-Quizz**:
 >
-> Im Package `finally_resources` finden Sie die Klasse `MyResource`.
+> 1.  Erläutern Sie in 1-2 Sätzen den Unterschied zwischen **checked**
+>     und **unchecked** Exceptions in Java.
 >
-> Rufen Sie die Methode `MyResource#doSomething` auf, im Anschluss
-> müssen Sie **immer** die Methode `MyResource#close` aufrufen.
+> 2.  Nennen Sie je **zwei Beispiele** für checked bzw. unchecked
+>     Exceptions.
 >
-> 1.  Zeigen Sie den Aufruf mit `try-catch-finally`.
-> 2.  Verändern Sie die Vorgaben so, dass Sie den Aufruf mit der
->     "try-with-resources"-Technik ausführen können.
+> 3.  Was macht der Compiler?
 >
-> **Where to catch?**
+>     ``` java
+>     public static String readFileContent(String fileName) {
+>         return Files.readString(Path.of(fileName));
+>     }
+>     ```
 >
-> Erklären Sie, wann und wo eine Exception gefangen und bearbeitet
-> werden sollte.
+>     -   kompiliert ohne Warnungen/Fehler
+>     -   Compilerfehler (falls ja, welche?)
+>     -   Laufzeitfehler (aber kein Compilerfehler)
+>     -   Compiler fügt automatisch `try`-`catch` hinzu
 >
-> Im Package `where_to_catch` finden Sie die Klasse `JustThrow`. Alle
-> Methoden in der Klasse werfen aufkommende Exceptions bis zur `main`
-> hoch.
+> 4.  catch-Struktur beurteilen
 >
-> Verändern Sie die Vorgaben so, dass die Exceptions an den passenden
-> Stellen gefangen und sinnvoll bearbeitet werden. Begründen Sie Ihre
-> Entscheidungen.
+>     ``` java
+>     try {
+>         double result = reciprocalFromFile("zahl.txt");
+>         System.out.println(result);
+>     } catch (IOException e) {
+>         System.err.println("I/O-Fehler");
+>     } catch (Exception e) {
+>         System.err.println("Allgemeiner Fehler");
+>     }
+>     ```
+>
+>     -   Welche Exceptions werden vom zweiten `catch`-Block noch
+>         erfasst?
+>     -   Diskutieren Sie kurz: Ist das aus Ihrer Sicht eine gute Idee?
+>         Warum / warum nicht?
+>
+> 5.  Designentscheidung
+>
+>     Sie haben eine Methode in einer Bibliothek:
+>
+>     ``` java
+>     public static double divide(int a, int b) {
+>         return a / b;
+>     }
+>     ```
+>
+>     Diskutieren Sie:
+>
+>     -   Würden Sie hier eine eigene checked Exception (z.B.
+>         `DivisionByZeroException`) einführen?
+>     -   Oder vertrauen Sie auf die bestehende `ArithmeticException`
+>         (unchecked)?
 >
 > </details>
 
@@ -22962,7 +23074,7 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 **Exceptions:**
 
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
@@ -22970,9 +23082,9 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 6a589fb 2026-06-20 generics: clarify bound on type parameters and wildcards<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 9ca1803 2026-06-22 exceptions: rework complete lesson (#1135)<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
