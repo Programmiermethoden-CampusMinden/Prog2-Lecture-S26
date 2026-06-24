@@ -261,7 +261,7 @@ wiederholen.
     -   Überlegen Sie sich, was zu einem Themengebiet im Rahmen einer
         Prüfung möglich ist und (wie) gefragt werden könnte :)
 
-<div align="center">
+<div data-align="center">
 
 **Können vor Kennen :-)**
 

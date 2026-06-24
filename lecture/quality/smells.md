@@ -127,7 +127,7 @@ für tatsächliche Probleme deutlich erhöht.
 
 Und weil es so wichtig ist, hier gleich noch einmal:
 
-<div align="center">
+<div data-align="center">
 
 **Stinkender Code führt zu möglichen (späteren) Problemen.**
 

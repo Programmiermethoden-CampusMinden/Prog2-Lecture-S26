@@ -45,7 +45,7 @@
 
 ## Automatisieren von Arbeitsabläufen
 
-<div align="center">
+<div data-align="center">
 
 Works on my machine ...
 

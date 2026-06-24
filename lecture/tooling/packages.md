@@ -128,7 +128,7 @@ In Java dienen Packages mehreren Zielen:
 
 ## Konventionen
 
-<div align="center">
+<div data-align="center">
 
     de.hsbi.prog2.wuppie
 

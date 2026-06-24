@@ -774,7 +774,7 @@ bietet über `git restore` hinaus weitere Anwendungsmöglichkeiten.
 
 ##### Wann und wie committen?
 
-<div align="center">
+<div data-align="center">
 
 **Jeder Commit stellt einen Rücksetzpunkt dar!**
 
@@ -869,7 +869,7 @@ Vom Aufbau her hat eine E-Mail auch eine Summary und dann den
 eigentlichen Inhalt ... Erklären Sie das **"WARUM"** der Änderung! (Das
 "WER", "WAS", "WANN" wird bereits automatisch von Git aufgezeichnet ...)
 
-<div align="center">
+<div data-align="center">
 
 **Lesen (und beachten) Sie unbedingt auch ["How to Write a Git Commit
 Message"](https://cbea.ms/git-commit/)!**
@@ -1885,7 +1885,7 @@ Dateisystem)**
 
 ##### Worktree anlegen
 
-<div align="center">
+<div data-align="center">
 
 `git worktree add <path> <branch>`
 
@@ -1945,7 +1945,7 @@ vermeiden.
 
 ##### Worktree löschen
 
-<div align="center">
+<div data-align="center">
 
 `git worktree remove <worktree>`
 
@@ -2705,7 +2705,7 @@ gibt es "*Merge-Requests*" (MR). Bei Github gibt es "*Pull-Requests*"
 
 ##### Automatisieren von Arbeitsabläufen
 
-<div align="center">
+<div data-align="center">
 
 Works on my machine ...
 
@@ -3615,7 +3615,7 @@ In Java dienen Packages mehreren Zielen:
 
 ##### Konventionen
 
-<div align="center">
+<div data-align="center">
 
     de.hsbi.prog2.wuppie
 
@@ -12116,7 +12116,7 @@ werden Daten **verarbeitet**)
 
 <a id="id-bb5095c5a37b38bd48ac37be51964fb543342407"></a>
 
-#### Optional
+#### Fehlerbehandlung mit Optional und Result
 
 > [!IMPORTANT]
 >
@@ -12137,9 +12137,10 @@ werden Daten **verarbeitet**)
 > Man kann Optionals prüfen mit `isEmpty()` und `ifPresent()` und dann
 > direkt mit `ifPresent()`, `orElse()` und `orElseThrow()` auf den
 > verpackten Wert zugreifen. Besser ist aber der Zugriff über die
-> Stream-API von `Optional`: `map()`, `filter`, `flatMap()`, ... Dabei
-> gibt es keine terminalen Operationen - es handelt sich ja auch nicht
-> um einen Stream, nur die Optik erinnert daran.
+> stream-ähnlichen Methoden von `Optional`: `map()`, `filter`,
+> `flatMap()`, ... Dabei gibt es keine terminalen Operationen - es
+> handelt sich ja auch nicht um einen Stream, nur die Optik erinnert
+> daran.
 >
 > `Optional` ist vor allem für Rückgabewerte gedacht, die den Fall "kein
 > Wert vorhanden" einschließen sollen. Attribute, Parameter und
@@ -12151,6 +12152,14 @@ werden Daten **verarbeitet**)
 > Unerwartetes passiert ist. Liefern Sie **niemals** `null` zurück, wenn
 > der Rückgabetyp der Methode ein `Optional` ist!
 >
+> `Result<E,R>` kapselt entweder ein erfolgreiches Ergebnis `R` oder
+> einen Fehler `E` und macht damit im Typ explizit sichtbar, dass und
+> welche Fehler auftreten können. Im Unterschied zu `Optional<T>`, das
+> nur zwischen "Wert da" und "kein Wert" unterscheidet, erlaubt
+> `Result<E,R>` die genaue Modellierung und Weitergabe von
+> Fehlersituationen und lässt sich mit `map`/`flatMap` sehr elegant
+> ähnlich wie ein Stream verketten.
+>
 > </details>
 
 > [!TIP]
@@ -12158,14 +12167,12 @@ werden Daten **verarbeitet**)
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Optional](https://youtu.be/JDG_hUSBfSA)
-> -   [Demo Optional](https://youtu.be/vL2c0iB4uSk)
-> -   [Demo Optional: Beispiel aus der Praxis im
->     PM-Dungeon](https://youtu.be/vyN-vOV9_CU)
+> TODO
+> <!-- -   [VL Optional](https://youtu.be/JDG_hUSBfSA) -   [Demo Optional](https://youtu.be/vL2c0iB4uSk) -   [Demo Optional: Beispiel aus der Praxis im PM-Dungeon](https://youtu.be/vyN-vOV9_CU) -->
 >
 > </details>
 
-##### Motivation
+##### `Optional<T>` - "Vielleicht gibt es einen Wert"
 
 ``` java
 public class LSF {
@@ -12173,7 +12180,6 @@ public class LSF {
 
     public Studi getBestStudi() {
         if (sl == null) return null;  // Fehler: Es gibt noch keine Sammlung
-
         Studi best = null;
         for (Studi s : sl) {
             if (best == null) best = s;
@@ -12182,35 +12188,41 @@ public class LSF {
         return best;
     }
 }
-
 public static void main(String... args) {
-    LSF lsf = new LSF();
-
-    Studi best = lsf.getBestStudi();
+    LSF lsf = new LSF();  Studi best = lsf.getBestStudi();
     if (best != null) {
         String name = best.name();
-        if (name != null) {
-            // mach was mit dem Namen ...
-        }
+        if (name != null) { /* mach was mit dem Namen ... */ }
     }
 }
 ```
 
 ###### Problem: `null` wird an (zu) vielen Stellen genutzt
 
+`null` wird sehr gern für diese Situationen genutzt (Aufzählung nicht
+vollständig):
+
 -   Es gibt keinen Wert ("not found")
 -   Felder wurden (noch) nicht initialisiert
 -   Es ist ein Problem oder etwas Unerwartetes aufgetreten
 
-=\> Parameter und Rückgabewerte müssen stets auf `null` geprüft werden
-(oder Annotationen wie `@NotNull` eingesetzt werden ...)
+Problem: `null` ist "unsichtbar" im Typ (Rückgabetyp, Parametertyp,
+...)!
+
+=\> Parameter und Rückgabewerte müssen **stets** auf `null` geprüft
+werden (oder Annotationen wie `@NotNull` eingesetzt werden ...)
 
 ###### Lösung
+
+`Optional<T>` bedeutet: Entweder ein Wert vom Typ `T` oder kein Wert
+(`empty`). Damit wird im Typ signalisiert, dass es möglicherweise keine
+Werte gibt und dass die Nutzenden sich mit diesem Fall aktiv auseinander
+setzen müssen.
 
 -   `Optional<T>` für Rückgabewerte, die "kein Wert vorhanden" mit
     einschließen (statt `null` bei Abwesenheit von Werten)
 -   `@NotNull`/`@Nullable` für Parameter einsetzen (oder separate
-    Prüfung)
+    Prüfung mit `Objects.requireNonNull()`)
 -   Exceptions werfen in Fällen, wo ein Problem aufgetreten ist
 
 ###### Anmerkungen
@@ -12299,10 +12311,12 @@ gezwungen, den Rückgabewert vor der Verwendung zu untersuchen.
 Prüfungen notwendig und den Code dadurch schwerer lesbar und
 fehleranfälliger! `null` wird als (unvollständige) Initialisierung und
 als Rückgabewert und für den Fehlerfall genutzt, zusätzlich ist die
-Semantik von `null` nicht immer klar.** (*Anmerkung*: Der Gebrauch von
-`null` hat nicht wirklich etwas mit "der Natur eines ECS" zu tun. Die
-Methode wurde mittlerweile komplett überarbeitet und ist in der hier
-gezeigten Form glücklicherweise nicht mehr zu finden.)
+Semantik von `null` nicht immer klar.**
+
+(*Anmerkung*: Der Gebrauch von `null` hat nicht wirklich etwas mit "der
+Natur eines ECS" zu tun. Die Methode wurde mittlerweile komplett
+überarbeitet und ist in der hier gezeigten Form glücklicherweise nicht
+mehr zu finden.)
 
 Entsprechend hat sich in diesem
 [Review](https://github.com/Dungeon-CampusMinden/Dungeon/pull/128#pullrequestreview-1254025874)
@@ -12333,8 +12347,10 @@ selten sinnvoll.
 
 Stattdessen sollte stets `Optional.ofNullable()` verwendet werden.
 
-**`null` kann nicht nicht in `Optional<T>` verpackt werden!** (Das wäre
-dann eben `Optional.empty()`.)
+> [!IMPORTANT]
+>
+> **`null` kann nicht in `Optional<T>` verpackt werden!** (Das wäre dann
+> eben `Optional.empty()`.)
 
 ##### LSF liefert jetzt *Optional* zurück
 
@@ -12342,9 +12358,9 @@ dann eben `Optional.empty()`.)
 public class LSF {
     private Set<Studi> sl;
 
-    public Optional<Studi> getBestStudi() throws NullPointerException {
+    public Optional<Studi> getBestStudi() throws IllegalStateException {
         // Fehler: Es gibt noch keine Sammlung
-        if (sl == null) throw new NullPointerException("There ain't any collection");
+        if (sl == null) throw new IllegalStateException("There ain't any collection");
 
         Studi best = null;
         for (Studi s : sl) {
@@ -12378,19 +12394,21 @@ reagieren.
 
 In Java gibt es die Methode `Optional#isEmpty()`, die einen Boolean
 zurückliefert und prüft, ob es sich um ein leeres `Optional` handelt
-oder ob hier ein Wert "verpackt" ist.
+oder ob hier ein Wert "verpackt" ist. Die Methode `Optional#isPresent()`
+hat die invertierte Semantik.
 
 Für den direkten Zugriff auf die Werte gibt es die Methoden
 `Optional#orElseThrow()` und `Optional#orElse()`. Damit kann man auf den
 verpackten Wert zugreifen, oder es wird eine Exception geworfen bzw. ein
 Ersatzwert geliefert.
 
-Zusätzlich gibt es `Optional#isPresent()`, die als Parameter ein
+Zusätzlich gibt es `Optional#ifPresent()`, die als Parameter ein
 `java.util.function.Consumer` erwartet, also ein funktionales Interface
-mit einer Methode `void accept(T)`, die das Objekt verarbeitet.
+mit einer Methode `void accept(T)`, die das Objekt verarbeitet (sofern
+vorhanden).
 
 ``` java
-Studi best;
+Studi best, anne;
 
 // Testen und dann verwenden
 if (!lsf.getBestStudi().isEmpty()) {
@@ -12411,12 +12429,15 @@ best = lsf.getBestStudi().orElseThrow();
 ```
 
 Es gibt noch eine Methode `get()`, die so verhält wie `orElseThrow()`.
-Da man diese Methode vom Namen her schnell mit einem Getter verwechselt,
-ist sie mittlerweile *deprecated*.
+Vom Namen her wirkt sie wie ein "normaler Getter", deshalb ist sie
+leicht zu missbrauchen (Aufruf ohne vorherige Prüfung). Verwenden Sie
+besser explizit `orElseThrow()` bzw. `orElse(...)`.
 
-*Anmerkung*: Da `getBestStudi()` eine `NullPointerException` werfen
-kann, sollte der Aufruf möglicherweise in ein `try/catch` verpackt
-werden. Dito für `orElseThrow()`.
+> [!TIP]
+>
+> *Anmerkung*: Da `getBestStudi()` eine `NullPointerException` werfen
+> kann (vgl. Implementierung am Anfang), sollte der Aufruf
+> möglicherweise in ein `try/catch` verpackt werden.
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/optional/traditional/Demo.java">Beispiel: optional.traditional.Demo</a></p>
 
@@ -12425,19 +12446,19 @@ werden. Dito für `orElseThrow()`.
 ``` java
 public class LSF {
     ...
-    public Optional<Studi> getBestStudi() throws NullPointerException {
-        if (sl == null) throw new NullPointerException("There ain't any collection");
+    public Optional<Studi> getBestStudi() throws IllegalStateException {
+        if (sl == null) throw new IllegalStateException("There ain't any collection");
         return sl.stream()
                  .sorted((s1, s2) -> s2.credits() - s1.credits())
-                 .findFirst();
+                 .findFirst();  // Optional<Studi>
     }
 }
 
 
 public static void main(String... args) {
     ...
-    String name = lsf.getBestStudi()
-                     .map(Studi::name)
+    String name = lsf.getBestStudi()    // Optional<Studi>
+                     .map(Studi::name)  // Optional<String>
                      .orElseThrow();
 }
 ```
@@ -12484,8 +12505,10 @@ sein.
 1.  Nutze `Optional` nur als Rückgabe für "kein Wert vorhanden"
 
     `Optional` ist nicht als Ersatz für eine `null`-Prüfung o.ä.
-    gedacht, sondern als Repräsentation, um auch ein "kein Wert
-    vorhanden" zurückliefern zu können.
+    gedacht, sondern als Repräsentation, um auch ein legitimes "kein
+    Wert vorhanden" zurückliefern zu können.
+
+    **Wichtig**: Nicht als Ersatz für eine Exception o.ä. missbrauchen!
 
 <!-- -->
 
@@ -12505,9 +12528,12 @@ sein.
     keinen Grund, dies mit einer Fallunterscheidung selbst erledigen zu
     wollen.
 
-    Bevorzugen Sie `Optional.ofNullable()` vor einer manuellen
-    Fallunterscheidung und dem entsprechenden Einsatz von
-    `Optional.of()` und `Optional.empty()`.
+    Beim Erzeugen von Optionals aus vorhandenen Werten verwenden Sie in
+    der Regel `Optional.ofNullable(...)` statt selbst
+    `if (x == null) ... Optional.empty() ... Optional.of(x)` zu
+    formulieren. Für Rückgabewerte, bei denen klar ist "hier gibt es
+    gerade keinen Wert", ist `return Optional.empty();` natürlich
+    sinnvoll.
 
 4.  Erzeuge keine `Optional` als Ersatz für die Prüfung auf `null`
 
@@ -12528,54 +12554,566 @@ sein.
     Aus einem ähnlichen Grund sollten Sie auch in Sammlungen keine
     `Optional` speichern!
 
-6.  Vermeide den direkten Zugriff (`ifPresent()`, `orElseThrow()` ...)
+6.  Vermeiden Sie Muster wie
+    `if (opt.isPresent()) { T v = opt.get(); ... }`.
+
+    Häufig sieht man (leider) das folgende Muster:
+
+    ``` java
+    if (opt.isPresent()) {
+        T v = opt.get();
+        // ...
+    }
+    ```
 
     Der direkte Zugriff auf ein `Optional` entspricht dem Prüfen auf
     `null` und dann dem Auspacken. Dies ist nicht nur Overhead, sondern
     auch schlechter lesbar.
 
     Vermeiden Sie den direkten Zugriff und nutzen Sie `Optional` mit den
-    Stream-Methoden. So ist dies von den Designern gedacht.
+    Stream-Methoden `map`/`flatMap`/`filter` und am Ende der
+    Verarbeitungskette `orElse(...)` oder `orElseThrow(...)`. So ist
+    dies von den Designern gedacht.
 
-##### Interessante Links
+> [!IMPORTANT]
+>
+> `Optional<T>` für (normale) Abwesenheit eines Wertes, nicht für Fehler
+> mit Erklärung!
 
--   ["Using Optionals"](https://dev.java/learn/api/streams/optionals/)
--   ["What You Might Not Know About
-    Optional"](https://medium.com/javarevisited/what-you-might-not-know-about-optional-7238e3c05f63)
--   ["Experienced Developers Use These 7 Java Optional Tips to Remove
-    Code
-    Clutter"](https://medium.com/javarevisited/experienced-developers-use-these-7-java-optional-tips-to-remove-code-clutter-6e8b1a639861)
--   ["Code Smells:
-    Null"](https://blog.jetbrains.com/idea/2017/08/code-smells-null/)
--   ["Class
-    Optional"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html)
+##### Was ist das Problem mit Exceptions?
 
-##### Wrap-Up
+``` java
+public static int parsePort(String input) {
+    int port = Integer.parseInt(input);
+    if (port < 1024 || port > 65535) {
+        throw new IllegalArgumentException("Port out of range");
+    }
+    return port;
+}
+```
 
-`Optional` als Rückgabe für "kein Wert vorhanden"
+**Problempunkte**:
 
--   `Optional.ofNullable()`: Erzeugen eines `Optional`
-    -   Entweder Objekt "verpackt" (Argument != `null`)
-    -   Oder `Optional.empty()` (Argument == `null`)
--   Prüfen mit `isEmpty()` und `ifPresent()`
--   Direkter Zugriff mit `ifPresent()`, `orElse()` und `orElseThrow()`
--   Stream-API: `map()`, `filter()`, `flatMap()`, ...
+1.  Fehler sind "unsichtbar" im Typ
+
+    Aus dem Typ `int parsePort(String)` sehen Sie nicht, dass hier ein
+    Fehlerfall möglich ist. Sie müssen Javadoc, Doku oder Implementation
+    lesen.
+
+    Selbst bei checked-Exceptions hat sich leider oft die Praxis
+    verbreitet, diese zu fangen und einfach als `RunTimeException` neu
+    zu werfen. Damit spart man sich das "lästige" `throws` an der
+    Methode ... Der einzige Vorteil(?) daran ist, dass dann alle
+    Exceptions auf unchecked Exceptions zurückgeführt werden und der
+    Code lesbarer wird (keine erzwungenen `try`/`catch`mehr). Trotzdem:
+    Keine gute Praxis!
+
+2.  Verstreute Fehlerbehandlung
+
+    `try`/`catch` oft weit entfernt vom Ort, an dem der Fehler entstehen
+    kann. Gefahr, Exceptions zu "verschlucken" oder zu "vergessen".
+
+**Gibt es eine Möglichkeit, Fehler so zu modellieren, dass sie im Typ
+sichtbar sind?**
+
+Wir könnten überlegen, ein `Optional<Integer>` als Ergebnis zu liefern:
+Wenn es einen Fehler gab, dann haben wir nur ein `Optional.empty()`:
+
+``` java
+public static Optional<Integer> parsePort(String input) {
+    int port = Integer.parseInt(input);
+    if (port < 1024 || port > 65535) {
+        return Optional.empty();
+    }
+    return Optional.of(port);
+}
+```
+
+Damit hätten wir hier aber nicht wirklich etwas gewonnen:
+
+1.  `Integer.parseInt(input)` kann immer noch eine
+    `NumberFormatException` liefern, die der Aufrufer fangen müsste
+2.  Im Fehlerfall (Ports außerhalb des Bereichs) bekommen wir zwar nun
+    ein `Optional.empty()`, wissen aber nicht *warum*
+3.  Das Handling auf der Aufrufer-Seite wird zu einem etwas
+    umständlichen `ifPresentOrElse` (Port vorhanden oder Reaktion auf
+    falsche Portnummer)
+
+=\> Wir haben hier **nicht** den Fall, dass wir "kein Ergebnis" (keinen
+Port) als normales Ergebnis haben können. Stattdessen missbrauchen wir
+`Optional<T>`, was uns tatsächlich nicht wirklich weiter hilft.
+`Optional<T>` trägt keinerlei Information mit sich, warum es zu
+`Optional.empty()` gekommen ist.
+
+> [!TIP]
+>
+> **Merke:** `Optional<T>` eignet sich schlecht für Fälle, in denen Sie
+> die Art des Fehlers unterscheiden wollen. Dafür brauchen Sie einen
+> **Fehlertyp** $\to$ `Result<E,R>`.
+
+##### `Result<E,R>`: Fehler als Datentyp modellieren
+
+Wir wollen das Ergebnis und den Fehler in einem gemeinsamen Typ kapseln.
+Dazu können wir uns einen generischen Typ `Result<E,R>` definieren, der
+entweder ein Ergebnis vom Typ `R` mit sich führt oder einen Fehler vom
+Typ `E` (samt Informationen über den Fehler).
+
+``` java
+public sealed interface Result<E, R> permits Result.Ok, Result.Err {
+
+    record Ok<E, R>(R value) implements Result<E, R> {}
+    record Err<E, R>(E error) implements Result<E, R> {}
+
+    static <E, R> Result<E, R> ok(R value)  {  return new Ok<>(value);  }
+    static <E, R> Result<E, R> err(E error) {  return new Err<>(error);  }
+}
+```
+
+Der Typ `Result<E,R>` wird als sealed Typ definiert mit exakt zwei
+Ausprägungen:
+
+-   `Ok<E, R>`: kapselt das normale Ergebnis, welches über `value()`
+    abrufbar ist
+-   `Err<E, R>`: kapselt den Fehlerfall, welcher über `error()` abrufbar
+    ist
+
+Die statischen Hilfsmethoden `ok(R value)` und `err(E error)` sind
+lediglich Convenience-Methoden, um die Ergebnisse leichter erzeugen zu
+können.
+
+##### Umbau unseres Beispiels auf `Result<E,R>`
+
+Jetzt können wir uns einen Typ für unsere Fehler definieren und unser
+Beispiel umbauen:
+
+``` java
+public enum PortError {
+    NOT_A_NUMBER,
+    OUT_OF_RANGE
+}
+```
+
+``` java
+public static Result<PortError, Integer> parsePort(String input) {
+    try {
+        int port = Integer.parseInt(input);
+        if (port < 1024 || port > 65535) {
+            return Result.err(PortError.OUT_OF_RANGE);
+        }
+        return Result.ok(port);
+    } catch (NumberFormatException e) {
+        return Result.err(PortError.NOT_A_NUMBER);
+    }
+}
+```
+
+In der Methode haben wir zwei Stellen, wo ein Fehler auftreten kann: das
+`Integer.parseInt(input)` kann eine `NumberFormatException` werfen, und
+der Port könnte außerhalb des zulässigen Bereichs liegen. Zur
+Modellierung unseres Fehler bauen wir uns ein Enum, welches genau diese
+beiden Fälle über Konstanten repräsentiert. Im Fehlerfall geben wir dann
+ein `Err(ENUMKONSTANTE)` zurück (über die Convenience-Methode
+`Result.err()`), und im Erfolgsfall müssen wir unseren Port in ein `Ok`
+kapseln und nutzen hier die Convenience-Methode `Result.ok()`.
+
+##### Handling auf Aufrufer-Seite
+
+``` java
+public static void foo(String input) {
+    Result<PortError, Integer> result = PortParser.parsePort(input);
+
+    switch (result) {
+        case Result.Ok<PortError, Integer> ok -> {
+            int port = ok.value();
+            IO.println("Starte Server auf Port " + port);
+        }
+        case Result.Err<PortError, Integer> err -> handleError(err.error());
+    }
+}
+
+private static void handleError(PortError err) {
+    switch (err) {
+        case NOT_A_NUMBER -> System.err.println("Eingabe ist keine Zahl.");
+        case OUT_OF_RANGE -> System.err.println("Port muss zwischen 1024 und 65535 liegen.");
+    }
+}
+```
+
+Der Fehlertyp ist jetzt Teil des Methodentyps:
+`Result<PortError, Integer>` $\to$ klar sichtbar, welche Art Fehler
+vorkommen kann. Auf der Aufruferseite kann man elegant Pattern Matching
+einsetzen, und durch die sealed Hierarchie wird auch ein `default`-Zweig
+unnötig. Kein `throws` mehr nötig, kein versehentliches "Durchrutschen"
+von Exceptions, und die aufrufenden Methoden müssen entscheiden, was mit
+`Err` passiert.
+
+> [!TIP]
+>
+> **Exkurs für Fortgeschrittene**: Das kann man noch ein wenig ausbauen
+> und in die Stream-Verarbeitung einbinden ...
+>
+> ###### Schritt 1: Szenario erweitern
+>
+> Erweitern wir unser Szenario von oben um einige Verarbeitungsstufen:
+>
+> ``` java
+> public int parsePort(String input) throws NumberFormatException, IllegalArgumentException {
+>     int port = Integer.parseInt(input);
+>     if (port < 1024 || port > 65535) {
+>         throw new IllegalArgumentException("Port out of range");
+>     }
+>     return port;
+> }
+>
+> public Socket openSocket(int port) throws IOException {
+>     return new Socket("localhost", port);
+> }
+>
+> public String sendHello(Socket socket) throws IOException {
+>     socket.getOutputStream().write("HELLO".getBytes());
+>     byte[] buffer = new byte[1024];
+>     int n = socket.getInputStream().read(buffer);
+>     return new String(buffer, 0, n);
+> }
+> ```
+>
+> Das würde zusammengebaut mit traditionellem Exception-Handling
+> irgendwie so aussehen:
+>
+> ``` java
+> public void connectToServerAndPrintAnswer(String userInput) {
+>     try {
+>         int port = parsePort(userInput);
+>         Socket socket = openSocket(port);
+>         String response = sendHello(socket);
+>         IO.println("Antwort: " + response);
+>     } catch (NumberFormatException e) {
+>         System.err.println("Port ist keine Zahl.");
+>     } catch (IllegalArgumentException e) {
+>         System.err.println("Ungültiger Portbereich.");
+>     } catch (IOException e) {
+>         System.err.println("Netzwerkfehler: " + e.getMessage());
+>     }
+> }
+> ```
+>
+> ###### Schritt 2: Umbauen auf `Result<E,R>`
+>
+> Wir haben drei verschiedene Fehlersituationen im erweiterten Szenario.
+> Diese können wir über ein Enum modellieren:
+>
+> ``` java
+> public enum ConnectionError {
+>     INVALID_PORT_FORMAT,
+>     PORT_OUT_OF_RANGE,
+>     NETWORK_ERROR
+> }
+> ```
+>
+> Nun können wir hingehen und die drei Hilfsfunktionen `parsePort`,
+> `openSocket` und `sendHello` auf passende `Result<E,R>` umbauen:
+>
+> ``` java
+> public Result<ConnectionError, Integer> parsePort(String input) {
+>     try {
+>         int port = Integer.parseInt(input);
+>         if (port < 1024 || port > 65535) {
+>             return Result.err(ConnectionError.PORT_OUT_OF_RANGE);
+>         }
+>         return Result.ok(port);
+>     } catch (NumberFormatException e) {
+>         return Result.err(ConnectionError.INVALID_PORT_FORMAT);
+>     }
+> }
+>
+> public Result<ConnectionError, Socket> openSocket(int port) {
+>     try {
+>         Socket socket = new Socket("localhost", port);
+>         return Result.ok(socket);
+>     } catch (IOException e) {
+>         return Result.err(ConnectionError.NETWORK_ERROR);
+>     }
+> }
+>
+> public Result<ConnectionError, String> sendHello(Socket socket) {
+>     try {
+>         socket.getOutputStream().write("HELLO".getBytes());
+>         byte[] buffer = new byte[1024];
+>         int n = socket.getInputStream().read(buffer);
+>         return Result.ok(new String(buffer, 0, n));
+>     } catch (IOException e) {
+>         return Result.err(ConnectionError.NETWORK_ERROR);
+>     }
+> }
+> ```
+>
+> Bitte beachten Sie die unterschiedlichen Rückgabe-Typen: Wir haben
+> immer unseren `ConnectionError` als Fehlertyp dabei, aber der
+> Ergebnistyp unterscheidet sich von Funktion zu Funktion: `Integer`,
+> `Socket`, `String`. Das wird jetzt "interessant" beim Zusammenbauen
+> und Aufrufen:
+>
+> ``` java
+> public void connectToServerAndPrintAnswer(String userInput) {
+>     Result<ConnectionError, Integer> port = parsePort(userInput);
+>     switch (port) {
+>         case Result.Ok<ConnectionError, Integer> okp -> {
+>             Result<ConnectionError, Socket> socket = openSocket(okp.value());
+>             switch (socket) {
+>                 case Result.Ok<ConnectionError, Socket> oks -> {
+>                     Result<ConnectionError, String> response = sendHello(oks.value());
+>                     switch (response) {
+>                         case Result.Ok<ConnectionError, String> okr -> IO.println("Antwort: " + okr.value());
+>                         case Result.Err<ConnectionError, String> errr -> handleError(errr.error());
+>                     }
+>                 }
+>                 case Result.Err<ConnectionError, Socket> errs -> handleError(errs.error());
+>             }
+>         }
+>         case Result.Err<ConnectionError, Integer> errp -> handleError(errp.error());
+>     }
+> }
+>
+> private static void handleError(ConnectionError err) {
+>     switch (err) {
+>         case INVALID_PORT_FORMAT -> System.err.println("Port ist keine Zahl.");
+>         case PORT_OUT_OF_RANGE -> System.err.println("Port muss zwischen 1024 und 65535 liegen.");
+>         case NETWORK_ERROR -> System.err.println("Netzwerkfehler (keine Message)");
+>     }
+> }
+> ```
+>
+> Wir bekommen bei jedem Aufruf ein anderes
+> `Result<ConnectionError, T>`. Mit Pattern Matching und `switch`/`case`
+> kann das halbwegs elegant auseinander nehmen, und da der Error-Typ
+> überall gleich ist, reicht uns eine gemeinsame Funktion für den
+> Fehlerfall.
+>
+> Huh. Das funktioniert. Lesbar ist aber anders ...
+>
+> ###### Schritt 3: Blick in die Java Stream-API
+>
+> Unser Problem ist, dass jede der drei Funktionen ein anderes
+> `Result<ConnectionError, T>` zurückliefert. Bevor wir jeweils die
+> nächste Funktion aufrufen können (im Erfolgsfall), müssen wir das
+> `Ok<ConnectionError, T>` auspacken und den Wert vom Typ `T` in die
+> nächste Funktion übergeben. Im Fehlerfall haben wir ein
+> `Err<ConnectionError, T>`, packen den Fehlerwert vom Typ
+> `ConnectionError` aus, erzeugen die Reaktion (hier nur eine simple
+> Ausgabe) und brechen die weitere Verarbeitung ab.
+>
+> Unsere drei Hilfsfunktionen `parsePort`, `openSocket` und `sendHello`
+> haben in der ersten Version (mit traditionellen Exceptions) eine
+> Abbildung `T` $\to$ `R` implementiert (mit passenden Typen). In der
+> zweiten Version wurden daraus Abbildungen `T` $\to$
+> `Result<ConnectionError, R>`.
+>
+> Aus der Java Stream-API kennen wir die beiden Funktionen `map` und
+> `flatMap`, die auf einem `Stream<T>` arbeiten:
+>
+> 1.  `<R> Stream<R> map(Function<? super T, ? extends R> mapper)` ist
+>     eine Funktion, mit einer übergebenen Funktion `mapper`: `T` $\to$
+>     `R` über die Elemente des `Stream<T>` iteriert und für jedes
+>     Element die `mapper`-Funktion aufruft, d.h. aus Elementen vom Typ
+>     `T` werden neue Elemente vom Typ `R` erzeugt. Diese werden in den
+>     Stream gelegt, so dass wir im Ergebnis einen `Stream<R>` zurück
+>     erhalten.
+>
+> 2.  `<R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper)`
+>     ist analog zu `map` eine Funktion, die über alle Elemente des
+>     `Stream<T>` läuft und auf jedes Element vom Typ `T` die
+>     `mapper`-Funktion anwendet. Diesmal erzeugt `mapper` aber nicht
+>     einfach ein "normales" Ergebnis vom Typ `R`, sondern gibt selbst
+>     ein `Stream<? extends R>` zurück, d.h. `mapper`: `T` $\to$
+>     `Stream<? extends R>`. Die `flatMap`-Funktion muss entsprechend
+>     das Ergebnis der `mapper`-Funktion "auspacken" und in das eigene
+>     Ergebnis "umverpacken", um wir im Ergebnis einen `Stream<R>`
+>     bekommen.
+>
+> Wenn wir jetzt `Stream` mit `Result` ersetzen und `T` mit den
+> jeweiligen Eingabetypen unserer Hilfsfunktionen, haben wir
+>
+> -   `Function<? super String, ? extends Result<ConnectionError, Integer>> parsePort`
+> -   `Function<? super Integer, ? extends Result<ConnectionError, Socket>> openSocket`
+> -   `Function<? super Socket, ? extends Result<ConnectionError, String>> sendHello`
+>
+> =\> Was wir brauchen, ist eine Art `flatMap` für unser `Result<E,R>`!
+>
+> (Ja, wir bauen uns hier eine Art Monade in Java nach ...)
+>
+> ###### Schritt 4: Ergänzen von `map` und `flatMap` in `Result<E,R>`
+>
+> ``` java
+> public sealed interface Result<E, R> permits Result.Ok, Result.Err {
+>
+>     record Ok<E, R>(R value) implements Result<E, R> {}
+>     record Err<E, R>(E error) implements Result<E, R> {}
+>
+>     static <E, R> Result<E, R> ok(R value)  {  return new Ok<>(value);  }
+>     static <E, R> Result<E, R> err(E error) {  return new Err<>(error);  }
+>
+>     // ---------- Functor: apply function R -> B ----------
+>     default <B> Result<E, B> map(Function<? super R, ? extends B> f) {
+>         // return flatMap(a -> Result.ok(f.apply(a)));  // für Fortgeschrittene: das würde reichen ...
+>         return switch (this) {
+>             case Ok<E, R> ok -> Result.ok(f.apply(ok.value));
+>             case Err<E, R> e -> Result.err(e.error);
+>         };
+>     }
+>
+>     // ---------- Monad: apply function R -> Result<E,B> ----------
+>     default <B> Result<E, B> flatMap(Function<? super R, ? extends Result<E, B>> f) {
+>         return switch (this) {
+>             case Ok<E, R> ok -> f.apply(ok.value);
+>             case Err<E, R> e -> Result.err(e.error);
+>         };
+>     }
+>
+>     // ---------- unwrap like in Optional<T> ----------
+>     default R orElseThrow(Function<? super E, ? extends RuntimeException> f) {
+>         return switch (this) {
+>             case Ok<E, R> ok -> ok.value;
+>             case Err<E, R> e -> throw f.apply(e.error);
+>         };
+>     }
+>
+>     default R orElse(R fallback) {
+>         return switch (this) {
+>             case Ok<E, R> ok -> ok.value;
+>             case Err<E, R> _ -> fallback;
+>         };
+>     }
+> }
+> ```
+>
+> Die `map`-Funktion nimmt eine Funktion `f`: `R` $\to$ `B` entgegen. Im
+> Erfolgsfall (d.h. `map` arbeitet auf einem `Ok`), packen wir den Wert
+> mit `value()` aus, wenden die Funktion darauf an und verpacken das
+> Ergebnis in ein `Ok` und liefern das zurück. Im Fehlerfall (`Err`)
+> geben wir einfach unseren Fehlerwert neu verpackt zurück - d.h. es
+> wird nichts weiter berechnet. (*Anmerkung*: Man könnte diese
+> Implementierung der `map`-Funktion auf ein einfaches
+> `return flatMap(a -> Result.ok(f.apply(a)));` zurückführen. Warum?)
+>
+> `flatMap` übernimmt die ganze Arbeit. Im Fehlerfall geben wir einfach
+> unseren Fehlerwert neu verpackt zurück - d.h. es wird nichts weiter
+> berechnet. Das Umverpacken ist ausschließlich notwendig, um den
+> Typ-Signaturen zu genügen. Im Erfolgsfall holen wir mit `value()` den
+> Wert vom Typ `R` heraus, wenden die übergebene Funktion
+> `Function<? super R, ? extends Result<E, B>>` an und bekommen ein
+> `Result<E, B>` zurück, welches wir direkt zurückgeben können.
+>
+> Zusätzlich habe ich zwei Funktionen definiert, die sich analog zu den
+> `orElse`-Methoden von `Optional<T>` verhalten.
+>
+> ###### Schritt 5: Vereinfachen der Aufrufkette
+>
+> Was wir gesucht haben, war `flatMap`: Jede der drei Hilfsfunktionen
+> `parsePort`, `openSocket` und `sendHello` ist eine Abbildung `T` $\to$
+> `Result<ConnectionError, R>`. D.h. wir müssen nach dem Aufruf einer
+> solchen Funktion die weitere Berechnung "kurzschließen", wenn es ein
+> `Err` ist. Im `Ok`-Fall packen wir den Wert aus und übergeben ihn an
+> die nächste Funktion.
+>
+> ``` java
+> public void runWithResult(String userInput) {
+>     Result<ConnectionError, String> result =
+>             parsePort(userInput)        // Result<ConnectionError, Integer>
+>             .flatMap(this::openSocket)  // Result<ConnectionError, Socket>
+>             .flatMap(this::sendHello);  // Result<ConnectionError, String>
+>
+>     switch (result) {
+>         case Result.Ok<ConnectionError, String> ok -> IO.println("Antwort: " + ok.value());
+>         case Result.Err<ConnectionError, String> err -> handleError(err.error());
+>     }
+> }
+> ```
+>
+> In einem weiteren Schritt könnte man auch den verwendeten Fehler-Typ
+> ergänzen, so dass man die Message aus dem `try`/`catch` mit
+> hochreichen kann ...
+>
+> Das Konzept nennt sich "Monade" und ist in der funktionalen
+> Programmierung seit langer Zeit bekannt und wird erfolgreich
+> angewendet. Man sieht an den Typen, dass es hier entweder einen Wert
+> oder einen Fehler geben kann. Die Fehlerbehandlung mit `try`/`catch`
+> erfolgt an der Stelle, wo der Fehler auftritt. Die Aufrufer können ein
+> `try`/`catch` nicht "vergessen", sondern müssen dank der Signatur
+> reagieren. Man braucht als Aufrufer kein umständliches `try`/`catch`
+> mehr, welches den Kontrollfluss ändert; das Bearbeiten von "guten
+> Werten" und "Fehlern" ist vereinheitlicht. Dank `map` und `flatMap`
+> und `orElse` lassen sich die Aufrufe elegant verketten, mit
+> identischer Funktionalität wie in der ersten Variante.
+
+##### Diskussion
+
+-   Wann sind Exceptions sinnvoll?
+    -   Unerwartete, außergewöhnliche oder technische Fehler
+    -   "Defensive" Fehlerfälle: I/O‑Fehler, Netzwerk weg, Datenbank
+        down
+
+    *"Ich habe nicht erwartet, dass das passiert."*
 
 <!-- -->
 
--   Attribute, Parameter und Sammlungen: nicht `Optional` nutzen
--   Kein Ersatz für `null`-Prüfung!
+-   Wann Result/Optional?
+    -   `Optional` für "Wert fehlt, aber es ist kein Fehler"
+    -   `Result` für erwartbare, domänenspezifische Fehlerfälle mit
+        Bedeutung
+    -   Validierungsfehler, Suchergebnisse nicht gefunden, ungültige
+        User‑Eingaben
 
-Schöne Doku: ["Using
-Optionals"](https://dev.java/learn/api/streams/optionals/).
+    *"Das gehört zum normalen Verhalten meiner Funktion."*
+
+In funktionalen Sprachen wie Haskell, Scala oder auch Rust sind solche
+Typen (`Maybe`, `Option`, `Result`) schon lange Standard. In Java müssen
+wir sie uns selber bauen bzw. bewusst einsetzen.
+
+##### Wrap-Up
+
+1.  `Optional<T>`:
+    -   Vermeidet `null` und `NullPointerException`
+    -   Macht normale "kein Wert"-Fälle im Typ sichtbar
+    -   Nicht als universeller Ersatz für jedes `null`, sondern vor
+        allem als Rückgabewert
+    -   Bietet mit `map`, `flatMap`, `orElse*`, `ifPresent` bequeme
+        Werkzeuge, in die Stream-API integriert
+
+<!-- -->
+
+2.  `Result<E, R>` (oder ähnliche Typen):
+    -   Modelliert Erfolg **oder** Fehler explizit
+    -   Typ zeigt: Funktion kann ein Ergebnis oder einen Fehler liefern
+    -   Vereinfacht Testing: Kein `try`/`catch` nötig, Fehler sind nur
+        Daten
+    -   Mit `map` und `flatMap` lassen sich Pipelines elegant schreiben
+
+<!-- -->
+
+3.  Designentscheidungen: Fragen Sie sich: Ist dies ein normaler
+    Fehlerfall?
+    -   Ja $\to$ `Optional`/`Result`
+    -   Nein $\to$ Exception
 
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Oracle Corporation ([2026](#ref-LernJava))
-> -   Ullenboom ([2021, 12.6](#ref-Ullenboom2021))
+> Lesen Sie zu diesem Thema im Dev.java-Tutorial von Oracle ["Using
+> Optionals"](https://dev.java/learn/api/streams/optionals/) nach.
+>
+> Weitere interessante Links:
+>
+> -   ["What You Might Not Know About
+>     Optional"](https://medium.com/javarevisited/what-you-might-not-know-about-optional-7238e3c05f63)
+> -   ["Experienced Developers Use These 7 Java Optional Tips to Remove
+>     Code
+>     Clutter"](https://medium.com/javarevisited/experienced-developers-use-these-7-java-optional-tips-to-remove-code-clutter-6e8b1a639861)
+> -   ["Code Smells:
+>     Null"](https://blog.jetbrains.com/idea/2017/08/code-smells-null/)
+> -   ["Class
+>     Optional"](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html)
 >
 > </details>
 
@@ -12586,13 +13124,15 @@ Optionals"](https://dev.java/learn/api/streams/optionals/).
 >
 > -   k2: Ich kann erklären, warum Optionals vor allem für Rückgabewerte
 >     gedacht sind
-> -   k2: Ich kann erklären, warum kein null zurückgeliefert werden
->     darf, wenn der Rückgabetyp ein Optional\<T\> ist
-> -   k3: Ich kann (ggf. leere) Optionals mit Optional.ofNullable()
+> -   k2: Ich kann erklären, warum kein `null` zurückgeliefert werden
+>     darf, wenn der Rückgabetyp ein `Optional<T>` ist
+> -   k3: Ich kann (ggf. leere) Optionals mit `Optional.ofNullable()`
 >     erzeugen
 > -   k3: Ich kann auf Optionals klassisch über die direkten
 >     Hilfsmethoden der Klasse zugreifen
 > -   k3: Ich kann auf Optionals elegant per Stream-API zugreifen
+> -   k3: Ich kann Fehlerzustände über das Typsystem mit `Result<E,R>`
+>     modellieren
 >
 > </details>
 
@@ -13725,7 +14265,7 @@ Das fängt an, sich zu wiederholen. Wir implementieren immer wieder
 Und wir müssen für *jede* Erweiterung immer *alle* Expression-Klassen
 anpassen!
 
-<div align="center">
+<div data-align="center">
 
 **Das geht besser!**
 
@@ -14519,7 +15059,7 @@ Wichtige Beobachtung:
 
 Begriffsklärung:
 
-<div align="center">
+<div data-align="center">
 
 Eine **Dependency** (Abhängigkeit) ist ein Objekt, das eine Klasse
 **benötigt**, um ihre Aufgabe zu erfüllen.
@@ -16311,7 +16851,7 @@ Objekt vom Typ `Graphics` stellt graphischen Kontext dar
 `Graphics2D` beherrscht zusätzliche Methoden zum Beeinflussen des
 Renderings
 
-<div align="center">
+<div data-align="center">
 
 =\> **Methode überschreiben und auf der GUI malen**
 
@@ -16966,7 +17506,7 @@ eines Matches auf die Gruppen zugreifen.
 
 Matche zwei Ziffern, gefolgt von den selben zwei Ziffern
 
-<div align="center">
+<div data-align="center">
 
 `(\d\d)\1`
 
@@ -17075,7 +17615,7 @@ Lösung: `([A-Z][a-zA-Z]*)\s\1`
 > überprüft, ob der eingegebene String eine nach dem folgenden Schema
 > gebildete EMail-Adresse ist:
 >
-> <div align="center">
+> <div data-align="center">
 >
 > `name@firma.domain`
 >
@@ -17440,7 +17980,7 @@ public class GenericMethods {
 
 ##### Wrap-Up
 
-<div align="center">
+<div data-align="center">
 
 **Generics = Compile-Time-Typsicherheit**
 
@@ -17571,7 +18111,7 @@ sein.
 
 ##### Wildcards: Dieser Typ ist mir nicht so wichtig
 
-<div align="center">
+<div data-align="center">
 
 Wildcard mit "`?`" =\> steht für unbestimmten Typ
 
@@ -18075,7 +18615,7 @@ Beide Aspekte zusammen betrachtet:
 -   Wenn beides passieren soll $\to$ konkrete Typvariable, etwa
     `List<T>`
 
-<div align="center">
+<div data-align="center">
 
 **PECS: Producer Extends, Consumer Super**
 
@@ -18229,7 +18769,7 @@ class Cps {
 
 ##### Folgen der Typ-Löschung: *new*
 
-<div align="center">
+<div data-align="center">
 
 `new` mit parametrisierten Klassen ist nicht erlaubt!
 
@@ -18253,7 +18793,7 @@ und Verhalten, die der Cast-Typ eigentlich mitbringt ...
 
 ##### Folgen der Typ-Löschung: *static*
 
-<div align="center">
+<div data-align="center">
 
 `static` mit generischen Typen ist nicht erlaubt!
 
@@ -18283,7 +18823,7 @@ class Fach<T> {
 
 ##### Folgen der Typ-Löschung: *instanceof*
 
-<div align="center">
+<div data-align="center">
 
 `instanceof` mit parametrisierten Klassen ist nicht erlaubt!
 
@@ -18317,7 +18857,7 @@ void printType(Fach p) {
 
 ##### Folgen der Typ-Löschung: *.class*
 
-<div align="center">
+<div data-align="center">
 
 `.class` mit parametrisierten Klassen ist nicht erlaubt!
 
@@ -18463,7 +19003,7 @@ Typ-Löschung bei generischen Typen entfernt werden.
 
 ##### Wrap-Up
 
-<div align="center">
+<div data-align="center">
 
 **Generics gibt es nur im Compiler, Arrays gibt es auch in der JVM mit
 vollem Typwissen.**
@@ -19422,7 +19962,7 @@ für tatsächliche Probleme deutlich erhöht.
 
 Und weil es so wichtig ist, hier gleich noch einmal:
 
-<div align="center">
+<div data-align="center">
 
 **Stinkender Code führt zu möglichen (späteren) Problemen.**
 
@@ -20497,7 +21037,7 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
     Nutzen Sie die (neuen) Erkenntnisse, um den Code leichter
     verständlich zu gestalten.
 
-<div align="center">
+<div data-align="center">
 
 > "Three strikes and you refactor."
 >
@@ -23327,7 +23867,7 @@ wiederholen.
     -   Überlegen Sie sich, was zu einem Themengebiet im Rahmen einer
         Prüfung möglich ist und (wie) gefragt werden könnte :)
 
-<div align="center">
+<div data-align="center">
 
 **Können vor Kennen :-)**
 
@@ -23589,12 +24129,6 @@ public class MoreLogging {
 >
 > </div>
 >
-> <div id="ref-LernJava" class="csl-entry">
->
-> Oracle Corporation. 2026. „Learn Java". <https://dev.java/learn/>.
->
-> </div>
->
 > <div id="ref-Parr2014" class="csl-entry">
 >
 > Parr, T. 2014. *The Definitive ANTLR 4 Reference*. Pragmatic
@@ -23637,18 +24171,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 3784262 2026-06-24 generics3: improve image scaling<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> b30ae99 2026-06-24 optional: fix typos in code snippets<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

@@ -87,7 +87,7 @@ Dateisystem)**
 
 ## Worktree anlegen
 
-<div align="center">
+<div data-align="center">
 
 `git worktree add <path> <branch>`
 
@@ -147,7 +147,7 @@ vermeiden.
 
 ## Worktree löschen
 
-<div align="center">
+<div data-align="center">
 
 `git worktree remove <worktree>`
 

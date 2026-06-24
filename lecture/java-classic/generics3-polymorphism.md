@@ -249,7 +249,7 @@ Beide Aspekte zusammen betrachtet:
 -   Wenn beides passieren soll $\to$ konkrete Typvariable, etwa
     `List<T>`
 
-<div align="center">
+<div data-align="center">
 
 **PECS: Producer Extends, Consumer Super**
 
@@ -403,7 +403,7 @@ class Cps {
 
 ## Folgen der Typ-Löschung: *new*
 
-<div align="center">
+<div data-align="center">
 
 `new` mit parametrisierten Klassen ist nicht erlaubt!
 
@@ -427,7 +427,7 @@ und Verhalten, die der Cast-Typ eigentlich mitbringt ...
 
 ## Folgen der Typ-Löschung: *static*
 
-<div align="center">
+<div data-align="center">
 
 `static` mit generischen Typen ist nicht erlaubt!
 
@@ -457,7 +457,7 @@ class Fach<T> {
 
 ## Folgen der Typ-Löschung: *instanceof*
 
-<div align="center">
+<div data-align="center">
 
 `instanceof` mit parametrisierten Klassen ist nicht erlaubt!
 
@@ -491,7 +491,7 @@ void printType(Fach p) {
 
 ## Folgen der Typ-Löschung: *.class*
 
-<div align="center">
+<div data-align="center">
 
 `.class` mit parametrisierten Klassen ist nicht erlaubt!
 
@@ -637,7 +637,7 @@ Typ-Löschung bei generischen Typen entfernt werden.
 
 ## Wrap-Up
 
-<div align="center">
+<div data-align="center">
 
 **Generics gibt es nur im Compiler, Arrays gibt es auch in der JVM mit
 vollem Typwissen.**

@@ -362,7 +362,7 @@ eines Matches auf die Gruppen zugreifen.
 
 Matche zwei Ziffern, gefolgt von den selben zwei Ziffern
 
-<div align="center">
+<div data-align="center">
 
 `(\d\d)\1`
 
@@ -471,7 +471,7 @@ Lösung: `([A-Z][a-zA-Z]*)\s\1`
 > überprüft, ob der eingegebene String eine nach dem folgenden Schema
 > gebildete EMail-Adresse ist:
 >
-> <div align="center">
+> <div data-align="center">
 >
 > `name@firma.domain`
 >

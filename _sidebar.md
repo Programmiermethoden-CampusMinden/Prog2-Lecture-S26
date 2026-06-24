@@ -25,7 +25,7 @@
     - [Record-Klassen](lecture/java-modern/records.md)
     - [Sealed‑Typen & Pattern Matching](lecture/java-modern/patternmatching.md)
     - [Stream-API](lecture/java-modern/stream-api.md)
-    - [Optional](lecture/java-modern/optional.md)
+    - [Fehlerbehandlung mit Optional und Result](lecture/java-modern/optional.md)
   - **Entwurfsmuster**
     - [Observer-Pattern](lecture/pattern/observer.md)
     - [Template-Method-Pattern](lecture/pattern/template-method.md)

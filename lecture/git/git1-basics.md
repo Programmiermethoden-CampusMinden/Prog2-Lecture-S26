@@ -550,7 +550,7 @@ bietet über `git restore` hinaus weitere Anwendungsmöglichkeiten.
 
 ## Wann und wie committen?
 
-<div align="center">
+<div data-align="center">
 
 **Jeder Commit stellt einen Rücksetzpunkt dar!**
 
@@ -645,7 +645,7 @@ Vom Aufbau her hat eine E-Mail auch eine Summary und dann den
 eigentlichen Inhalt ... Erklären Sie das **"WARUM"** der Änderung! (Das
 "WER", "WAS", "WANN" wird bereits automatisch von Git aufgezeichnet ...)
 
-<div align="center">
+<div data-align="center">
 
 **Lesen (und beachten) Sie unbedingt auch ["How to Write a Git Commit
 Message"](https://cbea.ms/git-commit/)!**

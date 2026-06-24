@@ -88,7 +88,7 @@ Objekt vom Typ `Graphics` stellt graphischen Kontext dar
 `Graphics2D` beherrscht zusätzliche Methoden zum Beeinflussen des
 Renderings
 
-<div align="center">
+<div data-align="center">
 
 =\> **Methode überschreiben und auf der GUI malen**
 

@@ -74,7 +74,7 @@ sein.
 
 ## Wildcards: Dieser Typ ist mir nicht so wichtig
 
-<div align="center">
+<div data-align="center">
 
 Wildcard mit "`?`" =\> steht für unbestimmten Typ
 

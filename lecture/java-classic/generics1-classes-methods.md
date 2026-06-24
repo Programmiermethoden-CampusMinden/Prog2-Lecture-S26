@@ -341,7 +341,7 @@ public class GenericMethods {
 
 ## Wrap-Up
 
-<div align="center">
+<div data-align="center">
 
 **Generics = Compile-Time-Typsicherheit**
 

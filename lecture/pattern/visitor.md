@@ -370,7 +370,7 @@ Das fängt an, sich zu wiederholen. Wir implementieren immer wieder
 Und wir müssen für *jede* Erweiterung immer *alle* Expression-Klassen
 anpassen!
 
-<div align="center">
+<div data-align="center">
 
 **Das geht besser!**
 

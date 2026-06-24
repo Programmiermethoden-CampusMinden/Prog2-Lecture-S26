@@ -95,7 +95,7 @@ Wichtige Beobachtung:
 
 Begriffsklärung:
 
-<div align="center">
+<div data-align="center">
 
 Eine **Dependency** (Abhängigkeit) ist ein Objekt, das eine Klasse
 **benötigt**, um ihre Aufgabe zu erfüllen.
