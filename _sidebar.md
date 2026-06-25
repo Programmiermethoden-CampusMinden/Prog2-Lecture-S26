@@ -57,6 +57,6 @@
   - [Blatt 05: ANTLR, Visitor; Äquivalenzklassen & Grenzwerte, Mocking](homework/b05.md)
   - [Blatt 06: Visitor vs. Pattern Matching, Records](homework/b06.md)
   - [Blatt 07: Generics, Sealed Types, Stream-API, Logging](homework/b07.md)
-  - [Blatt 08: Command, Observer, Fehlermodell](homework/b08.md)
+  - [Blatt 08: Command, Optional, Fehlermodell](homework/b08.md)
 - **Organisatorisches**
   - [Prüfungsvorbereitung](admin/exams.md)
