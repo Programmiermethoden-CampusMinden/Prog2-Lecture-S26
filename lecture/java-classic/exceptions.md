@@ -376,7 +376,17 @@ fangen.
 ### Best Practices: Fehlerbilder bewusst aufgreifen
 
 Wenn Sie im Code `catch (Exception e)` sehen, sollte bei Ihnen ein Alarm
-losgehen.
+losgehen. Damit fangen Sie zwar "alles", aber Sie können nicht mehr
+gezielt und spezifisch auf einen bestimmten Fehler reagieren. Außerdem
+verdecken Sie Fehler, an die Sie vielleicht gar nicht gedacht haben.
+
+1.  Fangen Sie immer möglichst präzise die Fehler, die Sie erwarten.
+2.  Behandeln Sie die Fehler möglichst früh (sofern das möglich ist).
+    Wenn eine Behandlung nicht möglich/sinnvoll ist, reichen Sie die
+    Exception "hoch" an den Aufrufer.
+3.  Wenn Sie Exceptions nicht fangen oder selbst welche werfen,
+    deklarieren Sie das möglichst (auch für unchecked Exceptions) an
+    Ihrer Methode.
 
 ## Stilfrage A: Wann checked, wann unchecked
 
@@ -713,4 +723,4 @@ Exception-Klassen wie die Exceptions aus dem JDK.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 9ca1803 2026-06-22 exceptions: rework complete lesson (#1135)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 0a4633c 2026-06-26 exceptions: improve formatting (slides)<br></sub></sup></p></blockquote>

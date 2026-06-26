@@ -556,8 +556,8 @@ oa[0] = new Double(2.0);  // Laufzeitfehler
 -   Arrays besitzen Typinformationen über gespeicherte Elemente
 -   Prüfung auf Typ-Kompatibilität zur **Laufzeit** (nicht
     Kompilierzeit!)
--   Arrays sind **kovariant**: `String[]  <:  Object[]` wg. \`String \<:
-    Object\`\`
+-   Arrays sind **kovariant**: `String[]  <:  Object[]` wg.
+    `String <: Object`
 
 Im Vergleich sind generische Typen **nicht reifiziert** (engl. *not
 reified*) - die Typ-Parameter existieren nur zur **Compile-Time** und
@@ -756,4 +756,4 @@ vollem Typwissen.**
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 3784262 2026-06-24 generics3: improve image scaling<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> d568250 2026-06-26 generics3: fix inline code typo<br></sub></sup></p></blockquote>

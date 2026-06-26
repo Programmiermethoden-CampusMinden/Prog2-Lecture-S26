@@ -458,8 +458,8 @@ sein.
 
 > [!IMPORTANT]
 >
-> `Optional<T>` für (normale) Abwesenheit eines Wertes, nicht für Fehler
-> mit Erklärung!
+> **`Optional<T>` für (normale) Abwesenheit eines Wertes, nicht für
+> Fehler mit Erklärung!**
 
 ## Was ist das Problem mit Exceptions?
 
@@ -1100,4 +1100,4 @@ wir sie uns selber bauen bzw. bewusst einsetzen.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> b30ae99 2026-06-24 optional: fix typos in code snippets<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 999f045 2026-06-26 optional: improve formatting (slides)<br></sub></sup></p></blockquote>

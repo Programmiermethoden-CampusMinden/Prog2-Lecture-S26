@@ -12577,8 +12577,8 @@ sein.
 
 > [!IMPORTANT]
 >
-> `Optional<T>` für (normale) Abwesenheit eines Wertes, nicht für Fehler
-> mit Erklärung!
+> **`Optional<T>` für (normale) Abwesenheit eines Wertes, nicht für
+> Fehler mit Erklärung!**
 
 ##### Was ist das Problem mit Exceptions?
 
@@ -18922,8 +18922,8 @@ oa[0] = new Double(2.0);  // Laufzeitfehler
 -   Arrays besitzen Typinformationen über gespeicherte Elemente
 -   Prüfung auf Typ-Kompatibilität zur **Laufzeit** (nicht
     Kompilierzeit!)
--   Arrays sind **kovariant**: `String[]  <:  Object[]` wg. \`String \<:
-    Object\`\`
+-   Arrays sind **kovariant**: `String[]  <:  Object[]` wg.
+    `String <: Object`
 
 Im Vergleich sind generische Typen **nicht reifiziert** (engl. *not
 reified*) - die Typ-Parameter existieren nur zur **Compile-Time** und
@@ -19496,7 +19496,17 @@ fangen.
 ###### Best Practices: Fehlerbilder bewusst aufgreifen
 
 Wenn Sie im Code `catch (Exception e)` sehen, sollte bei Ihnen ein Alarm
-losgehen.
+losgehen. Damit fangen Sie zwar "alles", aber Sie können nicht mehr
+gezielt und spezifisch auf einen bestimmten Fehler reagieren. Außerdem
+verdecken Sie Fehler, an die Sie vielleicht gar nicht gedacht haben.
+
+1.  Fangen Sie immer möglichst präzise die Fehler, die Sie erwarten.
+2.  Behandeln Sie die Fehler möglichst früh (sofern das möglich ist).
+    Wenn eine Behandlung nicht möglich/sinnvoll ist, reichen Sie die
+    Exception "hoch" an den Aufrufer.
+3.  Wenn Sie Exceptions nicht fangen oder selbst welche werfen,
+    deklarieren Sie das möglichst (auch für unchecked Exceptions) an
+    Ihrer Methode.
 
 ##### Stilfrage A: Wann checked, wann unchecked
 
@@ -24392,18 +24402,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> b7b56f4 2026-06-25 update b08 (S26: Command, Optional, Fehlermodell) (#1139)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 999f045 2026-06-26 optional: improve formatting (slides)<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
