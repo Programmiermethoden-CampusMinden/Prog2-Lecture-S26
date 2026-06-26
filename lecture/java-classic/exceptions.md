@@ -49,7 +49,8 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/HcFAUI6s3LE)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-exception-handling/25b98aa13064a150caf1a5898e458a32)\]
 >
 > </details>
 
@@ -723,4 +724,4 @@ Exception-Klassen wie die Exceptions aus dem JDK.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 0a4633c 2026-06-26 exceptions: improve formatting (slides)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> a5659af 2026-06-26 exceptions: rework screencasts<br></sub></sup></p></blockquote>

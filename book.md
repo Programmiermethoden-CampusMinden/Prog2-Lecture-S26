@@ -12167,8 +12167,16 @@ werden Daten **verarbeitet**)
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
-> <!-- -   [VL Optional](https://youtu.be/JDG_hUSBfSA) -   [Demo Optional](https://youtu.be/vL2c0iB4uSk) -   [Demo Optional: Beispiel aus der Praxis im PM-Dungeon](https://youtu.be/vyN-vOV9_CU) -->
+> Vorlesung \[[YT](https://youtu.be/HMbWJ_cvR8I)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-fehlerbehandlung-mit-optional-und-result/b386ba6b8006b8415e668be4d0825480)\]
+>
+> Demo:
+>
+> -   Demo Optional \[[YT](https://youtu.be/3IdPRSQrPW4)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-optional/cffe41b5b0fa0e7c51024d79eda0803f)\]
+> -   Diskussion `null` vs. `Optional` am Beispiel PM-Dungeon
+>     \[[YT](https://youtu.be/RbAEejDjjyI)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-diskussion-null-vs-optional-am-beispiel-pm-dungeon/e2af1b2b37efd4074248066d142448e2)\]
 >
 > </details>
 
@@ -18396,7 +18404,8 @@ Verfügung ...
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/4rZgxI_ACRs)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-generics3-generics-und-polymorphie/bc977054a6a3491cd50e18e29b7b56bb)\]
 >
 > </details>
 
@@ -19169,7 +19178,8 @@ vollem Typwissen.**
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/HcFAUI6s3LE)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-exception-handling/25b98aa13064a150caf1a5898e458a32)\]
 >
 > </details>
 
@@ -24404,16 +24414,16 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 -   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 999f045 2026-06-26 optional: improve formatting (slides)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> c77d41b 2026-06-26 generics3: rework screencasts<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

@@ -30,7 +30,8 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/4rZgxI_ACRs)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-generics3-generics-und-polymorphie/bc977054a6a3491cd50e18e29b7b56bb)\]
 >
 > </details>
 
@@ -756,4 +757,4 @@ vollem Typwissen.**
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> d568250 2026-06-26 generics3: fix inline code typo<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> c77d41b 2026-06-26 generics3: rework screencasts<br></sub></sup></p></blockquote>

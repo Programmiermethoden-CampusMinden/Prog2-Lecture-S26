@@ -49,7 +49,16 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> TODO
+> Vorlesung \[[YT](https://youtu.be/HMbWJ_cvR8I)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-fehlerbehandlung-mit-optional-und-result/b386ba6b8006b8415e668be4d0825480)\]
+>
+> Demo:
+>
+> -   Demo Optional \[[YT](https://youtu.be/3IdPRSQrPW4)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-optional/cffe41b5b0fa0e7c51024d79eda0803f)\]
+> -   Diskussion `null` vs. `Optional` am Beispiel PM-Dungeon
+>     \[[YT](https://youtu.be/RbAEejDjjyI)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-diskussion-null-vs-optional-am-beispiel-pm-dungeon/e2af1b2b37efd4074248066d142448e2)\]
 >
 > </details>
 
@@ -1100,4 +1109,4 @@ wir sie uns selber bauen bzw. bewusst einsetzen.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 999f045 2026-06-26 optional: improve formatting (slides)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> d1bbf0e 2026-06-26 optional: rework screencasts<br></sub></sup></p></blockquote>
