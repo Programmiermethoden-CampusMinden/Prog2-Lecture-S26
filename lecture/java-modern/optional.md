@@ -959,6 +959,16 @@ In funktionalen Sprachen wie Haskell, Scala oder auch Rust sind solche
 Typen (`Maybe`, `Option`, `Result`) schon lange Standard. In Java müssen
 wir sie uns selber bauen bzw. bewusst einsetzen.
 
+> [!IMPORTANT]
+>
+> Exceptions führen einen zweiten Kontrollfluss ein. Das kann schnell zu
+> unübersichtlichen Strukturen und Abläufen führen.
+>
+> Exceptions passen nicht zu moderner Verarbeitung mit der Stream-API
+> und Lambda-Ausdrücken oder Methodenreferenzen.
+>
+> Nutzen Sie (wenn möglich) `Optional` und `Result`.
+
 ## Wrap-Up
 
 1.  `Optional<T>`:
@@ -1109,4 +1119,4 @@ wir sie uns selber bauen bzw. bewusst einsetzen.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> d1bbf0e 2026-06-26 optional: rework screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 72c2375 2026-06-29 optional: add discussion<br></sub></sup></p></blockquote>

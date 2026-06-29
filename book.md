@@ -13077,6 +13077,16 @@ In funktionalen Sprachen wie Haskell, Scala oder auch Rust sind solche
 Typen (`Maybe`, `Option`, `Result`) schon lange Standard. In Java müssen
 wir sie uns selber bauen bzw. bewusst einsetzen.
 
+> [!IMPORTANT]
+>
+> Exceptions führen einen zweiten Kontrollfluss ein. Das kann schnell zu
+> unübersichtlichen Strukturen und Abläufen führen.
+>
+> Exceptions passen nicht zu moderner Verarbeitung mit der Stream-API
+> und Lambda-Ausdrücken oder Methodenreferenzen.
+>
+> Nutzen Sie (wenn möglich) `Optional` und `Result`.
+
 ##### Wrap-Up
 
 1.  `Optional<T>`:
@@ -19720,7 +19730,7 @@ Exception-Klassen wie die Exceptions aus dem JDK.
 ##### Wrap-Up
 
 -   Exceptions trennen **Normalfall** und **Fehlerfall** im
-    Kontrollfluss
+    *Kontrollfluss*
 
 <!-- -->
 
@@ -19734,6 +19744,14 @@ Exception-Klassen wie die Exceptions aus dem JDK.
     -   `try`: "gefährlicher" Code
     -   `catch`: definierte Reaktion
     -   `finally`: Aufräumarbeiten
+
+> [!IMPORTANT]
+>
+> Exceptions führen einen zweiten Kontrollfluss ein. Das kann schnell zu
+> unübersichtlichen Strukturen und Abläufen führen.
+>
+> Exceptions passen nicht zu moderner Verarbeitung mit der Stream-API
+> und Lambda-Ausdrücken oder Methodenreferenzen.
 
 > [!TIP]
 >
@@ -24412,18 +24430,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> c77d41b 2026-06-26 generics3: rework screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 72c2375 2026-06-29 optional: add discussion<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

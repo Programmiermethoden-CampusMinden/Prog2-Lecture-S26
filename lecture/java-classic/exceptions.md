@@ -591,7 +591,7 @@ Exception-Klassen wie die Exceptions aus dem JDK.
 ## Wrap-Up
 
 -   Exceptions trennen **Normalfall** und **Fehlerfall** im
-    Kontrollfluss
+    *Kontrollfluss*
 
 <!-- -->
 
@@ -605,6 +605,14 @@ Exception-Klassen wie die Exceptions aus dem JDK.
     -   `try`: "gefährlicher" Code
     -   `catch`: definierte Reaktion
     -   `finally`: Aufräumarbeiten
+
+> [!IMPORTANT]
+>
+> Exceptions führen einen zweiten Kontrollfluss ein. Das kann schnell zu
+> unübersichtlichen Strukturen und Abläufen führen.
+>
+> Exceptions passen nicht zu moderner Verarbeitung mit der Stream-API
+> und Lambda-Ausdrücken oder Methodenreferenzen.
 
 > [!TIP]
 >
@@ -724,4 +732,4 @@ Exception-Klassen wie die Exceptions aus dem JDK.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> a5659af 2026-06-26 exceptions: rework screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 8d9d8a7 2026-06-29 exceptions: add discussion<br></sub></sup></p></blockquote>
