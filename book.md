@@ -5921,9 +5921,11 @@ vorzunehmen (`logging.properties`).
 > Erzeugen eines Images) im Projekt verteilen. Tatsächlich ist es nicht
 > unüblich, ein Dockerfile in das Projekt-Repo mit einzuchecken.
 >
-> Durch Container hat man allerdings im Gegensatz zu herkömmlichen VMs
-> keinen Sicherheitsgewinn, da die im Container laufende Software ja
-> direkt auf dem Host-Betriebssystem ausgeführt wird.
+> Im Gegensatz zu herkömmlichen VMs bieten Container keine starke
+> zusätzliche Sicherheitsschicht, da die im Container laufende Software
+> direkt im Kernel des Host-Betriebssystems ausgeführt wird. Container
+> isolieren Prozesse voneinander, sind aber keine vollwertigen
+> "Sandboxes" wie separate VMs.
 >
 > Es gibt auf DockerHub fertige Images, die man sich ziehen und starten
 > kann. Ein solches gestartetes Image nennt sich dann Container und
@@ -5954,11 +5956,19 @@ vorzunehmen (`logging.properties`).
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Einführung in Docker](https://youtu.be/yERVMfUAano)
-> -   [Demo Container in der Konsole](https://youtu.be/LE_QcHqUg9Y)
-> -   [Demo GitLab CI/CD und Docker](https://youtu.be/3Tj3lhcoKro)
-> -   [Demo GitHub Actions und Docker](https://youtu.be/jrxoax2fPRI)
-> -   [Demo VSCode und Docker](https://youtu.be/Rs1W_rXkoNM)
+> Vorlesung \[[YT](https://youtu.be/Q-kBGUasT1U)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-einfhrung-in-docker/9b15db5b76ffd7510f4ce2db8d3aeb36)\]
+>
+> Demo:
+>
+> -   Container in der Konsole \[[YT](https://youtu.be/pbEheqQRVTU)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-dockercontainer-in-der-konsole/4357644d6aa8c4be98330a8e5daf3ebe)\]
+> -   GitHub Actions und Docker \[[YT](https://youtu.be/8uXzAQpD3zo)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-github-actions-und-docker/5a8447a533a3d23589ea9f80a0f2ae79)\]
+> -   GitLab CI/CD und Docker \[[YT](https://youtu.be/DqcCTQguZT4)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-gitlab-cicd-und-docker/6efe5c6910cba7078b5acd8ce06cec11)\]
+> -   VSCode und Docker \[[YT](https://youtu.be/EwGvsU1xLug)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-vscode-und-docker/8110bd7f85925bac316cf27ea4c05fa1)\]
 >
 > </details>
 
@@ -6042,12 +6052,29 @@ Linux-Host benötigt wird (für Windows wird mittlerweile der Linux-Layer
 hochgefahren, mittlerweile wird aber eine eigene schlanke
 Virtualisierung eingesetzt). Außerdem steht im Container üblicherweise
 kein graphisches Benutzerinterface zur Verfügung. Da die Prozesse direkt
-im Host-Betriebssystem laufen, stellen Container keine
+im Host-Betriebssystem laufen, stellen Container keine wirkliche
 Sicherheitsschicht ("Sandboxen") dar!
 
 In allen Fällen muss die Hardwarearchitektur beachtet werden: Auf einer
 Intel-Maschine können normalerweise keine VMs/Container basierend auf
 ARM-Architektur ausgeführt werden und umgekehrt.
+
+> [!TIP]
+>
+> -   Container bieten **Isolation**, aber keine starke
+>     **Sicherheitsgrenze** wie eine vollwertige VM.
+> -   Praktisch heißt das:
+>     -   Ja, ein Container-Prozess kann nicht "einfach so" andere
+>         Host-Prozesse sehen (namespaces etc.).
+>     -   Aber: Wenn der Container-Prozess ausbricht (Kernel-Lücke,
+>         Docker-Misskonfiguration, `--privileged` etc.), ist der Host
+>         direkt betroffen.
+>
+> **Durch Container entsteht im Vergleich zu herkömmlichen VMs keine
+> starke zusätzliche Sicherheitsschicht: Die Prozesse laufen im Kernel
+> des Host-Systems. Container isolieren Prozesse zwar voneinander
+> (namespaces, cgroups), sind aber keine harte Sandbox wie eine
+> eigenständige VM.**
 
 ##### Getting started
 
@@ -6063,11 +6090,18 @@ ARM-Architektur ausgeführt werden und umgekehrt.
 
 -   **Docker-File**: Beschreibungsdatei, wie Docker ein Image erzeugen
     soll.
--   **Image**: Enthält die Dinge, die lt. dem Docker-File in das Image
-    gepackt werden sollen. Kann gestartet werden und erzeugt damit einen
-    Container.
+-   **Image**: Enthält die read-only Schichten, die lt. dem Docker-File
+    in das Image gepackt werden sollen. Liegen als Dateien auf dem Host.
+    Kann gestartet werden und erzeugt damit einen Container.
 -   **Container**: Ein laufendes Images (genauer: eine laufende Instanz
-    eines Images). Kann dann auch zusätzliche Daten enthalten.
+    eines Images + Schreib-Layer + Metadaten). Kann dann auch
+    zusätzliche Daten enthalten.
+
+> [!TIP]
+>
+> Ein Container basiert auf einem Image. Das Image liegt als Dateien
+> vor, der Container selbst ist eine laufende Instanz + zusätzlicher
+> Schreib-Layer.
 
 ###### Beispiele
 
@@ -6097,18 +6131,33 @@ ausgeführt wird. Häufig erlauben Images aber auch, beim Start ein
 bestimmtes auszuführendes Programm anzugeben. Im obigen Beispiel ist das
 `/bin/sh`, also eine Shell ...
 
-    docker pull openjdk:latest
-    docker run  --rm  -v "$PWD":/data -w /data  openjdk:latest  javac Hello.java
-    docker run  --rm  -v "$PWD":/data -w /data  openjdk:latest  java Hello
+    docker pull eclipse-temurin:latest
+    docker run  --rm  -v "$PWD":/data -w /data  eclipse-temurin:latest  javac Hello.java
+    docker run  --rm  -v "$PWD":/data -w /data  eclipse-temurin:latest  java Hello
 
 Auch für Java gibt es vordefinierte Images mit einem JDK. Das Tag
 "`latest`" zeigt dabei auf die letzte stabile Version des
-`openjdk`-Images. Üblicherweise wird "`latest`" von den Entwicklern
-immer wieder weiter geschoben, d.h. auch bei anderen Images gibt es ein
-"`latest`"-Tag. Gleichzeitig ist es die Default-Einstellung für die
-Docker-Befehle, d.h. es kann auch weggelassen werden:
-`docker run openjdk:latest` und `docker run openjdk` sind gleichwertig.
-Alternativ kann man hier auch hier wieder eine konkrete Version angeben.
+`eclipse-temurin`-Images. Üblicherweise wird "`latest`" von den
+Entwicklern immer wieder weiter geschoben, d.h. auch bei anderen Images
+gibt es ein "`latest`"-Tag. Gleichzeitig ist es die Default-Einstellung
+für die Docker-Befehle, d.h. es kann auch weggelassen werden:
+`docker run eclipse-temurin:latest` und `docker run eclipse-temurin`
+sind gleichwertig. Alternativ (und besser!) kann man hier auch hier
+wieder eine konkrete Version angeben.
+
+> [!TIP]
+>
+> In CI/CD-Pipelines sollte man `latest` möglichst vermeiden, weil sich
+> das Image unbemerkt ändern kann. Besser: eine konkrete Version taggen
+> (z.B. `eclipse-temurin:25.0.3_9-jdk-ubi10-minimal`).
+
+> [!IMPORTANT]
+>
+> Früher gab es offizielle `openjdk`-Images auf Docker Hub. Diese sind
+> inzwischen *deprecated* und werden nicht mehr gepflegt. Stattdessen
+> nutzen wir hier die offiziellen Eclipse-Temurin-Images
+> (`eclipse-temurin:<version>`), die aktuelle OpenJDK-Builds
+> bereitstellen.
 
 Über die Option `-v` wird ein Ordner auf dem Host (hier durch `"$PWD"`
 dynamisch ermittelt) in den Container eingebunden ("gemountet"), hier
@@ -6197,7 +6246,7 @@ Software enthält.
 
 ``` yaml
 default:
-    image: openjdk:17
+    image: eclipse-temurin:25-jdk
 
 job1:
     stage: build
@@ -6211,12 +6260,13 @@ job1:
 In den Gitlab-CI-Pipelines (analog wie in den GitHub-Actions) kann man
 Docker-Container für die Ausführung der Pipeline nutzen.
 
-Mit `image: openjdk:17` wird das Docker-Image `openjdk:17` vom DockerHub
-geladen und durch den Runner für die Stages als Container ausgeführt.
-Die Aktionen im `script`-Teil, wie beispielsweise `javac Hello.java`
-werden vom Runner an die Standard-Eingabe der Shell des Containers
-gesendet. Im Prinzip entspricht das dem Aufruf auf dem lokalen Rechner:
-`docker run openjdk:17 javac Hello.java`.
+Mit `image: eclipse-temurin:25-jdk` wird das Docker-Image
+`eclipse-temurin:25-jdk` vom DockerHub geladen und durch den Runner für
+die Stages als Container ausgeführt. Die Aktionen im `script`-Teil, wie
+beispielsweise `javac Hello.java` werden vom Runner an die
+Standard-Eingabe der Shell des Containers gesendet. Im Prinzip
+entspricht das dem Aufruf auf dem lokalen Rechner:
+`docker run eclipse-temurin:25-jdk javac Hello.java`.
 
 <p align="right"><a href="https://youtu.be/3Tj3lhcoKro">Demo: GitLab CI/CD und Docker</a></p>
 
@@ -6232,9 +6282,9 @@ on:
 jobs:
     job1:
         runs-on: ubuntu-latest
-        container: docker://openjdk:17
+        container: eclipse-temurin:25-jdk
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v7
             - run: java -version
             - run: javac Hello.java
             - run: java Hello
@@ -6247,43 +6297,99 @@ https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container
 In den GitHub-Actions kann man Docker-Container für die Ausführung der
 Pipeline nutzen.
 
-Mit `docker://openjdk:17` wird das Docker-Image `openjdk:17` vom
-DockerHub geladen und auf dem Ubuntu-Runner als Container ausgeführt.
-Die Aktionen im `steps`-Teil, wie beispielsweise `javac Hello.java`
-werden vom Runner an die Standard-Eingabe der Shell des Containers
-gesendet. Im Prinzip entspricht das dem Aufruf auf dem lokalen Rechner:
-`docker run openjdk:17 javac Hello.java`.
+Mit `container: eclipse-temurin:25-jdk` wird das Docker-Image
+`eclipse-temurin:25-jdk` vom DockerHub geladen und auf dem Ubuntu-Runner
+als Container ausgeführt. Die Aktionen im `steps`-Teil, wie
+beispielsweise `javac Hello.java` werden vom Runner an die
+Standard-Eingabe der Shell des Containers gesendet. Im Prinzip
+entspricht das dem Aufruf auf dem lokalen Rechner:
+`docker run eclipse-temurin:25-jdk javac Hello.java`.
 
 <p align="right"><a href="https://youtu.be/jrxoax2fPRI">Demo: GitHub Actions und Docker</a></p>
 
-##### VSCode und das Plugin "Remote - Containers"
+##### Bonus/Ausblick: VSCode und DevContainers (früher "Remote - Containers")
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote.png" width="80%" /></picture></p>
 
-1.  VSCode (Host): Plugin "Remote - Containers" installieren
-2.  Docker (Host): Container starten mit Workspace gemountet
-3.  VSCode (Host): Attach to Container =\> neues Fenster (Container)
-4.  VSCode (Container): Plugin "Java Extension Pack" installieren
-5.  VSCode (Container): Dateien editieren, kompilieren, debuggen, ...
+1.  VSCode (Host): DevContainers Extension installieren installieren
+2.  VSCode (Host): Projektordner öffnen und eine
+    DevContainer-Konfiguration hinzufügen
+3.  VSCode (Host): "Reopen in Container" =\> neues Fenster (Container)
+4.  VSCode (Container): Java-Extensions (z.B. "Java Extension Pack")
+    installieren lassen
+5.  VSCode (Container): Dateien editieren, kompilieren, debuggen, testen
+    ...
 
-Mit Visual Studio Code (VSC) kann man über SSH oder in einem Container
-arbeiten. Dazu installiert man sich VSC lokal auf dem Host und
-installiert dort das Plugin "Remote - Containers". VSC kann darüber
-vordefinierte Docker-Images herunterladen und darin arbeiten oder man
-kann alternativ einen Container selbst starten und diesen mit VSC
-verbinden ("attachen").
+Mit Visual Studio Code (VSCode) können Sie direkt **in einem Container**
+entwickeln. Dazu installieren Sie sich VSCode lokal auf dem Host und
+dort die Extension "Dev Containers" (sie ist Teil des "Remote
+Development"-Pakets).
 
-Beim Verbinden öffnet VSC ein neues Fenster, welches mit dem Container
-verbunden ist. Nun kann man in diesem neuen Fenster ganz normal
-arbeiten, allerdings werden alle Dinge in dem Container erledigt. Man
-öffnet also Dateien in diesem Container, editiert sie im Container,
-übersetzt und testet im Container und nutzt dabei die im Container
-installierten Tools. Sogar die entsprechenden VSC-Plugins kann man im
-Container installieren.
+Für ein Projekt gehen Sie typischerweise so vor:
 
-Damit benötigt man auf einem Host eigentlich nur noch VSC und Docker,
-aber keine Java-Tools o.ä. und kann diese über einen im Projekt
-definierten Container (über ein mit versioniertes Dockerfile) nutzen.
+-   Sie öffnen den Projektordner in VSCode.
+-   Über die Command Palette (z.B. `F1`) wählen Sie "**Dev Containers:
+    Add Dev Container Configuration File ...**" und fügen eine
+    Konfiguration hinzu (entweder aus einem Java-Template oder als
+    eigene `devcontainer.json`).
+-   VSCode legt dann im Projekt den Ordner `.devcontainer/` mit einer
+    `devcontainer.json` (und ggf. einem Dockerfile) an.
+-   Anschließend können Sie den Befehl "**Reopen in Container**"
+    auswählen. VSCode baut und startet den Container automatisch und
+    öffnet ein neues VS-Code-Fenster, das mit diesem Dev Container
+    verbunden ist.
+
+In diesem neuen Fenster arbeiten Sie ganz normal, aber **alle Aktionen**
+(Editieren, Kompilieren, Testen, Debuggen, Tools, Extensions) **laufen
+im Container**. Sie öffnen also Dateien im Container, übersetzen und
+testen dort, und nutzen die im Container installierten Tools. Über die
+Dev-Container-Konfiguration können sogar VSCode-Extensions direkt im
+Container installiert werden.
+
+Damit benötigen Sie auf dem Host eigentlich nur noch VSCode und Docker
+(oder Podman), aber keine lokalen Java-Tools o.ä. mehr. Die gesamte
+Entwicklungsumgebung (JDK-Version, Build-Tools, Java-Extensions in
+VSCode, zusätzliche Pakete) ist über die DevContainer-Konfiguration im
+Projekt definiert und versioniert.
+
+> [!TIP]
+>
+> **Beispiel: Dev Container für Java 25 mit Temurin**
+>
+> Ein typischer, schlanker DevContainer für ein Java‑Projekt mit OpenJDK
+> 25 (Temurin) könnte z.B. so aussehen:
+>
+> ``` json
+> // .devcontainer/devcontainer.json
+> {
+>     "name": "Java 25 DevContainer",
+>     "image": "eclipse-temurin:25-jdk",
+>     "workspaceFolder": "/workspace",
+>     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+>
+>     "customizations": {
+>         "vscode": {
+>             "extensions": [
+>                 "vscjava.vscode-java-pack"
+>             ]
+>         }
+>     }
+> }
+> ```
+>
+> Erläuterungen dazu:
+>
+> -   `"image": "eclipse-temurin:25-jdk"` nutzt ein Docker-Image mit
+>     einem OpenJDK‑25‑Build von Eclipse Temurin.
+> -   `"workspaceFolder": "/workspace"` und `"workspaceMount": "..."`
+>     binden den lokalen Projektordner in den Container unter
+>     `/workspace` ein. Das ist der Ordner, in dem Sie im Container
+>     arbeiten.
+> -   Unter `"customizations.vscode.extensions"` wird das Java Extension
+>     Pack automatisiert im Container installiert. Beim ersten Start des
+>     DevContainers sorgt VSCode dafür, dass diese Extensions in der
+>     Container-Instanz von VSCode zur Verfügung stehen
+>     (Sprache‑Support, Debugging, Test‑Integration, ...).
 
 *Anmerkung*: IntelliJ kann remote nur debuggen, d.h. das Editieren,
 Übersetzen, Testen läuft lokal auf dem Host (und benötigt dort den
@@ -6304,35 +6410,34 @@ so dass die Dateien entsprechend zur Verfügung stehen:
 docker run -it --name code-server -p 127.0.0.1:8080:8080 -v "$HOME/.config:/home/coder/.config" -v "$PWD:/home/coder/project" codercom/code-server:latest
 ```
 
-Auf diesem Konzept setzt auch der kommerzielle Service [GitHub
-Codespaces](https://github.com/features/codespaces) von GitHub auf.
+Auf diesem Konzept setzt auch der kommerzielle Service [**GitHub
+Codespaces**](https://github.com/features/codespaces) von GitHub auf.
+
+> [!TIP]
+>
+> Diese Entwicklung hat in den letzten Jahren Fahrt aufgenommen und ist
+> mittlerweile unter dem Namen "DevContainer" (besser) bekannt:
+>
+> -   Die Extension heißt "Dev Containers" (bzw. ist Teil des "Remote
+>     Development"-Pakets)
+> -   Der zentrale Begriff ist der "Dev Container" bzw. die
+>     Konfiguration über eine `devcontainer.json`
+> -   Im VS-Code-UI finden Sie z.B.:
+>     -   "Open Folder in Container ..."
+>     -   "Add Dev Container Configuration File ..."
+>     -   "Reopen in Container"
+>
+> Dazu gibt es auch das eigenständige Projekt:
+>
+> https://containers.dev/
+> https://code.visualstudio.com/docs/devcontainers/containers
 
 <p align="right"><a href="https://youtu.be/Rs1W_rXkoNM">Demo: VSCode und Docker</a></p>
-
-##### Link-Sammlung
-
--   [Wikipedia: Docker](https://en.wikipedia.org/wiki/Docker_(software))
--   [Wikipedia: Virtuelle
-    Maschinen](https://en.wikipedia.org/wiki/Virtual_machine)
--   [Docker: Überblick,
-    Container](https://www.docker.com/resources/what-container)
--   [Docker: HowTo](https://docs.docker.com/get-started/)
--   [DockerHub: Suche nach fertigen
-    Images](https://hub.docker.com/search?q=&type=image)
--   [Docker und Java](https://docs.docker.com/language/java/)
--   [Dockerfiles: Best
-    Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
--   [Gitlab,
-    Docker](http://git03-ifm-min.ad.hsbi.de/help/ci/docker/using_docker_images.md#overriding-the-entrypoint-of-an-image)
--   [VSCode: Entwickeln in
-    Docker-Containern](https://code.visualstudio.com/docs/remote/containers)
--   Nickoloff ([2019](#ref-DockerInAction)) und Miell und Sayers
-    ([2019](#ref-DockerInPractice))
 
 ##### Wrap-Up
 
 -   Schlanke Virtualisierung mit Containern (kein eigenes OS)
--   *Kein* Sandbox-Effekt
+-   *Kein* echter Sandbox-Effekt
 
 <!-- -->
 
@@ -6346,8 +6451,26 @@ Codespaces](https://github.com/features/codespaces) von GitHub auf.
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Ullenboom ([2021](#ref-Ullenboom2021))
-> -   Inden ([2013](#ref-Inden2013))
+> **Link-Sammlung**
+>
+> -   [Wikipedia:
+>     Docker](https://en.wikipedia.org/wiki/Docker_(software))
+> -   [Wikipedia: Virtuelle
+>     Maschinen](https://en.wikipedia.org/wiki/Virtual_machine)
+> -   [Docker: Überblick,
+>     Container](https://www.docker.com/resources/what-container)
+> -   [Docker: HowTo](https://docs.docker.com/get-started/)
+> -   [DockerHub: Suche nach fertigen
+>     Images](https://hub.docker.com/search?q=&type=image)
+> -   [Docker und Java](https://docs.docker.com/language/java/)
+> -   [Dockerfiles: Best
+>     Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+> -   [Gitlab,
+>     Docker](http://git03-ifm-min.ad.hsbi.de/help/ci/docker/using_docker_images.md#overriding-the-entrypoint-of-an-image)
+> -   [VSCode: Entwickeln in
+>     Docker-Containern](https://code.visualstudio.com/docs/remote/containers)
+> -   Nickoloff ([2019](#ref-DockerInAction)) und Miell und Sayers
+>     ([2019](#ref-DockerInPractice))
 >
 > </details>
 
@@ -6359,13 +6482,12 @@ Codespaces](https://github.com/features/codespaces) von GitHub auf.
 > -   k2: Ich kann zwischen Containern und VMs unterscheiden
 > -   k1: Ich kenne typische Einsatzgebiete für Container
 > -   k2: Ich verstehe, dass Container als abgeschottete Prozesse auf
->     dem Host laufen - kein Sandbox-Effekt
+>     dem Host laufen - kein echter Sandbox-Effekt
 > -   k3: Ich kann Container von DockerHub ziehen
 > -   k3: Ich kann Container starten
 > -   k3: Ich kann eigene Container definieren und bauen
 > -   k3: Ich kann Container in GitLab CI/CD und/oder GitHub Actions
 >     einsetzen
-> -   k3: Ich kann VSCode mit Containern einsetzen
 >
 > </details>
 
@@ -20074,11 +20196,16 @@ Exception-Klassen wie die Exceptions aus dem JDK.
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Code Smells](https://youtu.be/ALDuLxm71tg)
+> Vorlesung \[[YT](https://youtu.be/gec7VnlFbLg)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-code-smells/5f811598f9fb5b081be3dda9b9ba3a20)\]
 >
 > </details>
 
 ##### Code Smells: Ist das Code oder kann das weg?
+
+In dieser Sitzung geht es nicht um Fehler im Sinne von "Programm stürzt
+ab", sondern um strukturelle Probleme, die die Wartbarkeit
+verschlechtern.
 
 ``` java
 class checker {
@@ -20104,28 +20231,27 @@ for(i=0;i<10;i++) // fuer alle i
     } }}   }
 ```
 
-Der Code im obigen Beispiel lässt sich möglicherweise kompilieren. Und
-möglicherweise tut er sogar das, was er tun soll.
+Der Code im obigen Beispiel ist bewusst überzogen und nicht vollständig
+korrekt. Er lässt sich möglicherweise kompilieren. Und möglicherweise
+tut er sogar das, was er tun soll.
 
 Dennoch: **Der Code "stinkt"** (zeigt **Code Smells**):
 
--   Nichtbeachtung üblicher Konventionen (Coding Rules)
--   Schlechte Kommentare
--   Auskommentierter Code
--   Fehlende Datenkapselung
--   Zweifelhafte Namen
--   Duplizierter Code
--   "Langer" Code: Lange Methoden, Klassen, Parameterlisten, tief
-    verschachtelte `if/then`-Bedingungen, ...
--   Feature Neid
--   `switch/case` oder `if/else` statt Polymorphie
--   Globale Variablen, lokale Variablen als Attribut
--   Magic Numbers
+-   Oberflächliche Smells: Formatierung, schlechte Kommentare, schlechte
+    Namen, auskommentierter Code
+-   Struktur-Smells: duplizierter Code, lange Methoden/Klassen, lange
+    Parameterlisten, tiefe Verschachtelung
+-   OO‑Smells: fehlende Kapselung, Feature Neid, globale Variablen,
+    Magic Numbers
 
 Diese Liste enthält die häufigsten "Smells" und ließe sich noch beliebig
 fortsetzen. Schauen Sie mal in die unten angegebene Literatur :-)
 
 **Stinkender Code führt zu möglichen (späteren) Problemen.**
+
+Diese Smells (z.B. "duplizierter Code") werden wir in der
+[Refactoring‑Sitzung](#id-d5584aa5535595f1fb5da2daccb6110c719a3c59) mit
+Techniken wie "Extract Method" etc. angehen.
 
 ##### Was ist guter ("sauberer") Code ("Clean Code")?
 
@@ -20201,6 +20327,11 @@ traut und stattdessen die Änderungen als weiteren "Erker" einfach dran
 pappt. Seit es, weil man keine Lust hat, Zeit in ordentliche Arbeit zu
 investieren, weil der Code ja eh schon schlecht ist ... Das wird mit der
 Zeit nicht besser ...
+
+> [!TIP]
+>
+> In Code-Basen sind "eingeworfene Fenster" z.B. auskommentierter Code,
+> wilde Formatierung, ungenutzte Variablen.
 
 <p align="right"><a href="https://en.wikipedia.org/wiki/Broken_windows_theory">“Broken Windows” Phänomen</a></p>
 
@@ -20396,7 +20527,7 @@ Kopierter/duplizierter Code ist problematisch:
 -   Große Dateien verleiten (auch mangels Übersichtlichkeit) dazu, neuen
     Code ebenfalls schluderig zu gliedern
 
-###### Langer Code deutet auch auf eine Verletzung des Prinzips der Single Responsibility hin
+###### Langer Code deutet auch auf eine Verletzung des Prinzips der Single Responsibility hin (engl. Single Responsibility Principle (SRP))
 
 -   Klassen fassen evtl. nicht zusammengehörende Dinge zusammen
 
@@ -20442,18 +20573,39 @@ Kopierter/duplizierter Code ist problematisch:
     Circle makeCircle(Point center, int radius);  // besser!
     ```
 
-##### Code Smells: Feature Neid
+    Damit verwandt sind "Primitive Obsession": überall `int`, `String`
+    statt eigener und passenderer Typen (`PhoneNumber`, `Ects`,
+    `Address`, o.ä.), und "Data Clumps": immer wieder dieselben
+    Parametergruppen (`x`, `y`, `radius` statt `Point center`).
+
+###### Problem: Passende Abstraktionsebene finden
+
+Smell: Schlecht gewählte Abstraktionsebene
+
+Wenn eine Methode 20 Zeilen Implementation mit vielen Details enthält
+(also passend zur Faustregel der Länge einer Methode ist), aber
+aufrufende Methoden kaum lesbar sind, weil sie 6-8 dieser
+Low‑Level‑Methoden minutengenau orchestrieren.
+
+##### Code Smells: Fehlender Umgang mit Fehlerfällen
+
+-   Ignorieren von Fehlersituationen (z.B. `null`-Rückgaben, leere
+    Listen)
+-   Mischen von Geschäftslogik und Fehlerbehandlung so, dass nichts mehr
+    lesbar ist
+
+##### Code Smells: Feature Neid (engl. Feature Envy)
 
 ``` java
 public class CreditsCalculator {
     public ECTS calculateEcts(Student s) {
         int semester = s.getSemester();
         int workload = s.getCurrentWorkload();
-        int nrModuls = s.getNumberOfModuls();
+        int nrModules = s.getNumberOfModuls();
         int total = Math.min(30, workload);
         int extra = Math.max(0, total - 30);
         if (semester < 5) {
-             extra = extra * nrModuls;
+             extra = extra * nrModules;
         }
         return new ECTS(total + extra);
     }
@@ -20464,13 +20616,6 @@ public class CreditsCalculator {
     der Klassen!
 -   Methode `CreditsCalculator#calculateEcts()` "möchte" eigentlich in
     `Student` sein ...
-
-##### Weiterführende Links
-
--   ["Foundations: Clean Code" (The Odin
-    Project)](https://www.theodinproject.com/lessons/foundations-clean-code)
--   ["Documentation Best Practices" (Google
-    Styleguide)](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md)
 
 ##### Wrap-Up
 
@@ -20506,9 +20651,14 @@ public class CreditsCalculator {
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Martin ([2009](#ref-Martin2009))
-> -   Passig und Jander ([2013](#ref-Passig2013))
-> -   Inden ([2013, Kap. 10](#ref-Inden2013))
+> Gute Werke zum Nachlesen sind Martin ([2009](#ref-Martin2009)) (ein
+> Klassiker) und Passig und Jander ([2013](#ref-Passig2013)). Im
+> Odin-Project hat man sich viele Gedanken gemacht: ["Foundations: Clean
+> Code" (The Odin
+> Project)](https://www.theodinproject.com/lessons/foundations-clean-code),
+> und Google hat einen vielbeachteten Style-Guide für Java geschrieben:
+> ["Documentation Best Practices" (Google
+> Styleguide)](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md)
 >
 > </details>
 
@@ -20522,7 +20672,7 @@ public class CreditsCalculator {
 > -   k3: Ich kann typische Code Smells erkennen und vermeiden
 > -   k3: Ich kann leicht lesbaren von schwer lesbarem Code
 >     unterscheiden
-> -   k3: Ich kann Programmierprinzipien anwenden, um den Code sauberer
+> -   k34 Ich kann Programmierprinzipien anwenden, um den Code sauberer
 >     zu gestalten
 > -   k3: Ich kann sinnvolle Kommentare schreiben
 >
@@ -20579,12 +20729,6 @@ public class CreditsCalculator {
 > ist **SpotBugs**, welches sich in den Build-Prozess einbinden lässt
 > und über 400 typische problematische Muster im Code erkennt.
 >
-> Für die Praktika in der Veranstaltung Programmiermethoden wird der
-> Google Java Style oder AOSP genutzt. Für die passende
-> Checkstyle-Konfiguration wird eine minimale
-> [checkstyle.xml](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/checkstyle.xml)
-> bereitgestellt (vgl. Folie "Konfiguration für das PM-Praktikum").
->
 > </details>
 
 > [!TIP]
@@ -20592,12 +20736,20 @@ public class CreditsCalculator {
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Coding Conventions](https://youtu.be/nLAEak6Fwfk)
-> -   [Demo Formatter und Spotless](https://youtu.be/oCMwyDrPkFI)
-> -   [Demo Checkstyle](https://youtu.be/NR070ZimbH4)
-> -   [Demo Checkstyle: Konfiguration mit
->     Eclipse-CS](https://youtu.be/0ny6e6CNTF8)
-> -   [Demo SpotBugs](https://youtu.be/tSczcf_EOwI)
+> Vorlesung \[[YT](https://youtu.be/8jUMpkbbDPk)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-coding-conventions-und-metriken/d4eec4f5538590e2ad83f5324f02589c)\]
+>
+> Demo:
+>
+> -   Formatter und Spotless \[[YT](https://youtu.be/3brrZQa2gi8)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-coding-conventions-demo-formatter-und-spotless/2416a54b9c4fe66112f38fcbf54153d9)\]
+> -   Checkstyle \[[YT](https://youtu.be/L9b5dFiP8e8)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-coding-conventions-demo-checkstyle/b3554999ed7060d3c7bc604e5c64eae7)\]
+> -   Checkstyle-Konfiguration mit Eclipse-CS erzeugen
+>     \[[YT](https://youtu.be/KRaLblV1SQ0)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-coding-conventions-demo-checkstyleeclipse-cs-konfiguration/af64dcefa7646ab35cc24e42fa20c0f8)\]
+> -   SpotBugs \[[YT](https://youtu.be/fQCfP9whNRk)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-coding-conventions-demo-spotbugs/b202ee5329369fecec4b678c2f66045e)\]
 >
 > </details>
 
@@ -20619,6 +20771,15 @@ Conventions](https://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
 [Google Java Style](https://google.github.io/styleguide/javaguide.html),
 [AOSP Java Code Style for
 Contributors](https://source.android.com/docs/setup/contribute/code-style)
+
+Das Thema Tabs vs. Spaces ist in Java nicht so extrem wichtig wie in
+Python, dennoch sollte in einem Projekt ein einheitlicher Standard
+verfolgt werden. Hilfreich ist hier Toolunterstützung über eine im
+Projekt mit versionierte `.editorconfig`, welche über ein Plugin in der
+IDE gelesen wird und beim Speichern von Dateien dann angewendet wird.
+Das Projekt [EditorConfig](https://editorconfig.org) bietet eine
+Erklärung für das Dateiformat und Links zu zahlreichen Plugins für IDEs
+und Editoren.
 
 ##### Beispiel nach Google Java Style/AOSP formatiert
 
@@ -20646,7 +20807,7 @@ public class MyWuppieStudi implements Comparable<MyWuppieStudi> {
 
     @Override
     public int compareTo(MyWuppieStudi o) {
-        return lastName.compareTo(lastName);
+        return lastName.compareTo(o.lastName);
     }
 }
 ```
@@ -20701,7 +20862,7 @@ Sie können den Code manuell formatieren, oder aber (sinnvollerweise)
     ``` groovy
     plugins {
         id "java"
-        id "com.diffplug.spotless" version "8.4.0"
+        id "com.diffplug.spotless" version "8.7.0"
     }
 
     spotless {
@@ -20714,6 +20875,12 @@ Sie können den Code manuell formatieren, oder aber (sinnvollerweise)
 
     Prüfen mit `./gradlew spotlessCheck` (Teil von `./gradlew check`)
     und Formatieren mit `./gradlew spotlessApply`
+
+> [!IMPORTANT]
+>
+> Die Versionsnummern in den Beispielen sind Momentaufnahmen. In eigenen
+> Projekten bitte immer die aktuelle empfohlene Version aus der
+> offiziellen Doku nachschlagen.
 
 ###### Einstellungen der IDE's
 
@@ -20780,10 +20947,11 @@ zurück. Mit Metriken kann man beispielsweise die Einhaltung der Coding
 Rules (Formate, ...) prüfen, aber auch die Einhaltung verschiedener
 Regeln des objektorientierten Programmierens.
 
-###### Beispiele für wichtige Metriken (jeweils Max-Werte für PM)
+###### Beispiele für wichtige Metriken (jeweils Max-Werte für PR2)
 
-Die folgenden Metriken und deren Maximal-Werte sind gute Erfahrungswerte
-aus der Praxis und helfen, den Code Smell "Langer Code" (vgl. ["Code
+Die folgenden Metriken und deren Maximal-Werte sind gute
+**Erfahrungswerte** aus der Praxis und helfen, den Code Smell "Langer
+Code" (vgl. ["Code
 Smells"](#id-41be9b68119185a3c165c600670ba548b3bf2cfd)) zu erkennen und
 damit zu vermeiden. Über die Metriken *BEC*, *McCabe* und *DAC* wird
 auch die Einhaltung elementarer Programmierregeln gemessen.
@@ -20794,25 +20962,31 @@ auch die Einhaltung elementarer Programmierregeln gemessen.
 -   **Anzahl der Methoden** pro Klasse: 10
 -   **Parameter** pro Methode: 3
 -   **BEC** (*Boolean Expression Complexity*) Anzahl boolescher
-    Ausdrücke in `if` etc.: 3
+    Ausdrücke in `if` etc.: 3 (Anzahl von Verknüpfungen mit `&&` bzw.
+    `||`: `if (a && b && c)` hat eine BEC von 3)
 -   **McCabe** (*Cyclomatic Complexity*)
     -   Anzahl der möglichen Verzweigungen (Pfade) pro Methode + 1
     -   1-4 gut, 5-7 noch OK
 -   **DAC** (*Class Data Abstraction Coupling*)
-    -   Anzahl der genutzten (instantiierten) "Fremdklassen"
+    -   Anzahl verschiedener Fremdtypen, die eine Klasse verwendet (z.B.
+        als Attribute, Parameter, lokale Variablen) - Hohe Werte
+        bedeuten: Die Klasse "kennt" sehr viele andere Klassen $\to$
+        starke Kopplung.
     -   Werte kleiner 7 werden i.A. als normal betrachtet
 
-Die obigen Grenzwerte sind typische Standardwerte, die sich in der
-Praxis allgemein bewährt haben (vergleiche u.a. ([Martin
-2009](#ref-Martin2009)) oder auch in [AOSP: Write short
-methods](https://source.android.com/docs/setup/contribute/code-style#write-short-methods)
-und [AOSP: Limit line
-length](https://source.android.com/docs/setup/contribute/code-style#limit-line-length)).
-
-Dennoch sind das keine absoluten Werte an sich. Ein Übertreten der
-Grenzen ist ein **Hinweis** darauf, dass **höchstwahrscheinlich** etwas
-nicht stimmt, muss aber im konkreten Fall hinterfragt und diskutiert und
-begründet werden!
+> [!IMPORTANT]
+>
+> Die obigen Grenzwerte sind typische **Standardwerte**, die sich in der
+> Praxis allgemein bewährt haben (vergleiche u.a. ([Martin
+> 2009](#ref-Martin2009)) oder auch in [AOSP: Write short
+> methods](https://source.android.com/docs/setup/contribute/code-style#write-short-methods)
+> und [AOSP: Limit line
+> length](https://source.android.com/docs/setup/contribute/code-style#limit-line-length)).
+>
+> Dennoch sind das keine absoluten Werte an sich. Ein Übertreten der
+> Grenzen ist ein **Hinweis** darauf, dass **höchstwahrscheinlich**
+> etwas nicht stimmt, muss aber im konkreten Fall hinterfragt und
+> diskutiert und begründet werden!
 
 ###### Metriken im Beispiel von oben
 
@@ -20841,7 +21015,7 @@ Beispiel *nicht* bei DAC mitgezählt/angezeigt.
 
 =\> Verweis auf LV Softwareengineering
 
-##### Tool-Support: Checkstyle
+##### Stil & Metriken: Checkstyle
 
 Metriken und die Einhaltung von Coding-Conventions werden
 sinnvollerweise nicht manuell, sondern durch diverse Tools erfasst, etwa
@@ -20876,7 +21050,7 @@ mit.
 
     checkstyle {
         configFile file('checkstyle.xml')
-        toolVersion '13.4.2'
+        toolVersion '13.7.0'
     }
     ```
 
@@ -20886,6 +21060,12 @@ mit.
         (Default) bzw. mit der obigen Konfiguration direkt im
         Projektordner
     -   Report: `<projectDir>/build/reports/checkstyle/main.html`
+
+> [!IMPORTANT]
+>
+> Die Versionsnummern in den Beispielen sind Momentaufnahmen. In eigenen
+> Projekten bitte immer die aktuelle empfohlene Version aus der
+> offiziellen Doku nachschlagen.
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/checkstyle/">Demo: IntelliJ, Checkstyle/Gradle</a></p>
 
@@ -20971,7 +21151,7 @@ Alternativen/Ergänzungen: beispielsweise
     ``` groovy
     plugins {
         id "java"
-        id "com.github.spotbugs" version "6.5.4"
+        id "com.github.spotbugs" version "6.5.8"
     }
     spotbugs {
         ignoreFailures = true
@@ -20981,11 +21161,17 @@ Alternativen/Ergänzungen: beispielsweise
 
     Prüfen mit `./gradlew spotbugsMain` (in `./gradlew check`)
 
+> [!IMPORTANT]
+>
+> Die Versionsnummern in den Beispielen sind Momentaufnahmen. In eigenen
+> Projekten bitte immer die aktuelle empfohlene Version aus der
+> offiziellen Doku nachschlagen.
+
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/spotbugs/">Demo: SpotBugs/Gradle</a></p>
 
-##### Konfiguration für das PM-Praktikum (Format, Metriken, Checkstyle, SpotBugs)
+##### Konfiguration für das PR2-Praktikum (Format, Metriken, Checkstyle, SpotBugs)
 
-Im PM-Praktikum beachten wir die obigen Coding Conventions und Metriken
+Im PR2-Praktikum beachten wir die obigen Coding Conventions und Metriken
 mit den dort definierten Grenzwerten. Diese sind bereits in der bereit
 gestellten Minimal-Konfiguration für Checkstyle (s.u.) konfiguriert.
 
@@ -21096,6 +21282,22 @@ gehen allerdings über den Google Java Style hinaus.
 Setzen Sie zusätzlich **SpotBugs** mit ein. Ihre Lösungen dürfen keine
 Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 
+##### Coding Conventions: Einige zentrale Grundsätze
+
+###### Kommentieren vs. sauberen Code schreiben
+
+-   Kommentare ersetzen keinen guten Code
+-   Kommentare erklären **Warum**, nicht *Was* (Das "Was" steht im Code
+    selbst)
+-   Keine "Selbstbeschreibungen" wie `x++;  // erhöht x um 1`
+
+###### Typische Regeln für den Einstieg
+
+-   Keine "magischen Zahlen" $\to$ Konstanten (UPPER_SNAKE_CASE)
+-   Methoden sollten eine klar erkennbare Aufgabe haben (Verweis auf
+    Single Responsibility)
+-   Möglichst wenige `public`-Member, Kapselung betonen
+
 ##### Wrap-Up
 
 -   Code entsteht nicht zum Selbstzweck =\> Regeln nötig!
@@ -21105,8 +21307,6 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
         -   Leerzeichen, Einrückung, Klammern
         -   Zeilenlänge, Umbrüche
         -   Kommentare
-
-    -   Formatieren mit **Spotless**
 
     -   Prinzipien des objektorientierten Programmierens (vgl. ["Code
         Smells"](#id-41be9b68119185a3c165c600670ba548b3bf2cfd))
@@ -21119,21 +21319,28 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 
 <!-- -->
 
--   Metriken: Einhaltung von Regeln in Zahlen ausdrücken
--   Prüfung manuell durch Code Reviews oder durch Tools wie
-    **Checkstyle** oder **SpotBugs**
--   Definition des
-    ["PM-Styles"](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/checkstyle.xml)
-    (siehe Folie "Konfiguration für das PM-Praktikum")
+-   Formatieren mit **Spotless**
+-   Stil & Metriken: Prüfung manuell durch Code Reviews oder durch Tools
+    wie **Checkstyle**
+-   Bugs & Anti-Pattern: Prüfung manuell durch Code Reviews oder durch
+    Tools wie **SpotBugs**
 
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Martin ([2009](#ref-Martin2009))
-> -   Inden ([2013, Kap. 13](#ref-Inden2013))
-> -   Google Open Source ([2022](#ref-googlestyleguide))
+> Der Klassiker zu diesem Thema ist sicher Martin
+> ([2009](#ref-Martin2009)).
+>
+> **Wichtig**: Bitte nicht als "Gesetz" betrachten, sondern als starke
+> *Empfehlung*. Die formulierten Grenzwerte sollten zumindest zum
+> Nachdenken über das eigene Tun anregen.
+>
+> Der [Google Java
+> Style](https://google.github.io/styleguide/javaguide.html) ist
+> ebenfalls ein guter Startpunkt, da viele Java-Projekte diesen Standard
+> anwenden und es eine relativ gute Tooling-Unterstützung gibt.
 >
 > </details>
 
@@ -21175,7 +21382,7 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 > nutzen. Es stehen verschiedene Methoden zur Verfügung, die nicht
 > unbedingt einheitlich benannt sein müssen oder in jeder IDE vorkommen.
 > Zu den häufig genutzten Methoden zählen *Rename*, *Extract*, *Move*
-> und *Push Up/Pull Down*.
+> und *Pull Up/Push Down*.
 >
 > </details>
 
@@ -21184,12 +21391,21 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Refactoring](https://youtu.be/n0RaQ_Qve0Y)
-> -   [Demo Refactoring: Rename](https://youtu.be/zZ2RGKRBVz4)
-> -   [Demo Refactoring: Encapsulate](https://youtu.be/PR4mEjBl_No)
-> -   [Demo Refactoring: Extract Method](https://youtu.be/4VbxgqZ68ng)
-> -   [Demo Refactoring: Move Method](https://youtu.be/Wr92Oboh05E)
-> -   [Demo Refactoring: Pull up](https://youtu.be/t24c88RshL8)
+> Vorlesung \[[YT](https://youtu.be/v1rFf_szb4w)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring/e443d2643d1fbc10e4d1c2a257ccc4c8)\]
+>
+> Demo:
+>
+> -   Rename \[[YT](https://youtu.be/E8yg9sXo-l8)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring-demo-rename/011c2ac19ff4850db6c9278342878ecd)\]
+> -   Encapsulate \[[YT](https://youtu.be/7FHWg61vihM)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring-demo-encapsulate/ebe1131e6e2446d4b21ee8f58c430a8f)\]
+> -   Extract Method \[[YT](https://youtu.be/ILEh-OI46us)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring-demo-extract-method/9f73f3c4230ab85fcffab220a1bd1622)\]
+> -   Move Method \[[YT](https://youtu.be/o-MR_nPokJM)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring-demo-move-method/4e94e7d4435a92257722df4effb088aa)\]
+> -   Pull up \[[YT](https://youtu.be/3hfHbv4FkLY)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring-demo-pull-up/449937f8c6a9202349b53a19a3e54caa)\]
 >
 > </details>
 
@@ -21218,6 +21434,12 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
         Umbenennungen oder Verschiebungen von Elementen innerhalb der
         Software)
 -   Ziel: Verbesserung von Verständlichkeit und Änderbarkeit
+
+> [!TIP]
+>
+> *Anmerkung*: In der Praxis können natürlich Bugfix + Refactoring in
+> einem Pull-Request zusammen auftreten, wenn das inhaltlich sinnvoll
+> ist, aber begrifflich sollten wir es trennen.
 
 ##### Anzeichen, dass Refactoring jetzt eine gute Idee wäre
 
@@ -21281,7 +21503,7 @@ sinnvoll ist.
 
 <!-- -->
 
-3.  Haben Sie die fragliche Codestelle auch wirklich verstanden?!
+3.  **Haben Sie die fragliche Codestelle auch wirklich verstanden?!**
 
 ##### Vorgehen beim Refactoring
 
@@ -21319,6 +21541,13 @@ Fehler gemacht).
     =\> Nächster Refactoring-Schritt erst, wenn alle Tests wieder "grün"
 
 -   Versionskontrolle nutzen: **Jeden** Schritt **einzeln** committen
+
+> [!TIP]
+>
+> Refactoring ist nicht: Alles neu schreiben.
+>
+> Refactoring ist: Viele kleine, zielgerichtete, durch Tests
+> abgesicherte Umbauten an der Struktur (nicht Funktion).
 
 ##### Refactoring-Methode: Rename Method/Class/Field
 
@@ -21383,7 +21612,7 @@ int getCps() { return cps; }
 void setCps(int cps) {  this.cps = cps;  }
 
 public void printDetails() {
-    System.out.println("credits: " + getCps());
+    System.out.println("Credits: " + getCps());
 }
 ```
 
@@ -21542,7 +21771,7 @@ public class Studi extends Person {
 
 ##### Wrap-Up
 
-Behebung von **Bad Smells** durch **Refactoring**
+Behebung von **Code Smells** durch **Refactoring**
 
 =\> Änderung der inneren Struktur ohne Beeinflussung des äußeren
 Verhaltens
@@ -21551,7 +21780,7 @@ Verhaltens
 -   Immer nur kleine Schritte machen
 -   Nach jedem Schritt Testsuite laufen lassen
 -   Katalog von Maßnahmen, beispielsweise *Rename*, *Extract*, *Move*,
-    *Push Up/Pull Down*, ...
+    *Pull Up/Push Down*, ...
 -   Unterstützung durch IDEs wie Eclipse, Idea, ...
 
 > [!TIP]
@@ -21559,8 +21788,9 @@ Verhaltens
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Fowler ([2011](#ref-Fowler2011))
-> -   Inden ([2013, Kap. 11](#ref-Inden2013))
+> Zum Thema Refactoring gibt es den Klassiker Fowler
+> ([2011](#ref-Fowler2011)), aber auch gute Tutorial-Seiten wie
+> [Refactoring Guru](https://refactoring.guru/refactoring).
 >
 > </details>
 
@@ -21578,7 +21808,7 @@ Verhaltens
 > -   k2: Ich habe verstanden, dass 'Refactoring' bedeutet: Nur die
 >     innere Struktur ändern, nicht das von außen sichtbare Verhalten!
 > -   k3: Ich kann die wichtigsten Refactoring-Methoden anwenden:
->     Rename, Extract, Move, Push Up/Pull Down
+>     Rename, Extract, Move, Pull Up/Push Down
 >
 > </details>
 
@@ -21593,7 +21823,7 @@ Verhaltens
 > [java/](https://github.com/emilybache/Theatrical-Players-Refactoring-Kata/tree/main/java)
 > einige Klassen mit unübersichtlichem und schlecht strukturierten Code.
 >
-> Welche *Bad Smells* können Sie hier identifizieren?
+> Welche *Code Smells* können Sie hier identifizieren?
 >
 > Beheben Sie die Smells durch die *schrittweise Anwendung* von den aus
 > der Vorlesung bekannten Refactoring-Methoden. Denken Sie auch daran,
@@ -24518,12 +24748,6 @@ public class MoreLogging {
 >
 > </div>
 >
-> <div id="ref-Inden2013" class="csl-entry">
->
-> Inden, M. 2013. *Der Weg zum Java-Profi*. 2. Aufl. Dpunkt.verlag.
->
-> </div>
->
 > <div id="ref-Kleuker2019" class="csl-entry">
 >
 > Kleuker, S. 2019. *Qualitätssicherung durch Softwaretests*. Springer
@@ -24606,18 +24830,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
--   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   ["A Note About Git Commit
     Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
+-   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 30295fe 2026-06-29 optional: improve slide formatting<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 5207d85 2026-06-29 docker: update section on devcontainers<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

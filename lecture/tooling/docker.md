@@ -18,9 +18,11 @@
 > Erzeugen eines Images) im Projekt verteilen. Tatsächlich ist es nicht
 > unüblich, ein Dockerfile in das Projekt-Repo mit einzuchecken.
 >
-> Durch Container hat man allerdings im Gegensatz zu herkömmlichen VMs
-> keinen Sicherheitsgewinn, da die im Container laufende Software ja
-> direkt auf dem Host-Betriebssystem ausgeführt wird.
+> Im Gegensatz zu herkömmlichen VMs bieten Container keine starke
+> zusätzliche Sicherheitsschicht, da die im Container laufende Software
+> direkt im Kernel des Host-Betriebssystems ausgeführt wird. Container
+> isolieren Prozesse voneinander, sind aber keine vollwertigen
+> "Sandboxes" wie separate VMs.
 >
 > Es gibt auf DockerHub fertige Images, die man sich ziehen und starten
 > kann. Ein solches gestartetes Image nennt sich dann Container und
@@ -51,11 +53,19 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Einführung in Docker](https://youtu.be/yERVMfUAano)
-> -   [Demo Container in der Konsole](https://youtu.be/LE_QcHqUg9Y)
-> -   [Demo GitLab CI/CD und Docker](https://youtu.be/3Tj3lhcoKro)
-> -   [Demo GitHub Actions und Docker](https://youtu.be/jrxoax2fPRI)
-> -   [Demo VSCode und Docker](https://youtu.be/Rs1W_rXkoNM)
+> Vorlesung \[[YT](https://youtu.be/Q-kBGUasT1U)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-einfhrung-in-docker/9b15db5b76ffd7510f4ce2db8d3aeb36)\]
+>
+> Demo:
+>
+> -   Container in der Konsole \[[YT](https://youtu.be/pbEheqQRVTU)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-dockercontainer-in-der-konsole/4357644d6aa8c4be98330a8e5daf3ebe)\]
+> -   GitHub Actions und Docker \[[YT](https://youtu.be/8uXzAQpD3zo)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-github-actions-und-docker/5a8447a533a3d23589ea9f80a0f2ae79)\]
+> -   GitLab CI/CD und Docker \[[YT](https://youtu.be/DqcCTQguZT4)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-gitlab-cicd-und-docker/6efe5c6910cba7078b5acd8ce06cec11)\]
+> -   VSCode und Docker \[[YT](https://youtu.be/EwGvsU1xLug)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-demo-vscode-und-docker/8110bd7f85925bac316cf27ea4c05fa1)\]
 >
 > </details>
 
@@ -139,12 +149,29 @@ Linux-Host benötigt wird (für Windows wird mittlerweile der Linux-Layer
 hochgefahren, mittlerweile wird aber eine eigene schlanke
 Virtualisierung eingesetzt). Außerdem steht im Container üblicherweise
 kein graphisches Benutzerinterface zur Verfügung. Da die Prozesse direkt
-im Host-Betriebssystem laufen, stellen Container keine
+im Host-Betriebssystem laufen, stellen Container keine wirkliche
 Sicherheitsschicht ("Sandboxen") dar!
 
 In allen Fällen muss die Hardwarearchitektur beachtet werden: Auf einer
 Intel-Maschine können normalerweise keine VMs/Container basierend auf
 ARM-Architektur ausgeführt werden und umgekehrt.
+
+> [!TIP]
+>
+> -   Container bieten **Isolation**, aber keine starke
+>     **Sicherheitsgrenze** wie eine vollwertige VM.
+> -   Praktisch heißt das:
+>     -   Ja, ein Container-Prozess kann nicht "einfach so" andere
+>         Host-Prozesse sehen (namespaces etc.).
+>     -   Aber: Wenn der Container-Prozess ausbricht (Kernel-Lücke,
+>         Docker-Misskonfiguration, `--privileged` etc.), ist der Host
+>         direkt betroffen.
+>
+> **Durch Container entsteht im Vergleich zu herkömmlichen VMs keine
+> starke zusätzliche Sicherheitsschicht: Die Prozesse laufen im Kernel
+> des Host-Systems. Container isolieren Prozesse zwar voneinander
+> (namespaces, cgroups), sind aber keine harte Sandbox wie eine
+> eigenständige VM.**
 
 ## Getting started
 
@@ -160,11 +187,18 @@ ARM-Architektur ausgeführt werden und umgekehrt.
 
 -   **Docker-File**: Beschreibungsdatei, wie Docker ein Image erzeugen
     soll.
--   **Image**: Enthält die Dinge, die lt. dem Docker-File in das Image
-    gepackt werden sollen. Kann gestartet werden und erzeugt damit einen
-    Container.
+-   **Image**: Enthält die read-only Schichten, die lt. dem Docker-File
+    in das Image gepackt werden sollen. Liegen als Dateien auf dem Host.
+    Kann gestartet werden und erzeugt damit einen Container.
 -   **Container**: Ein laufendes Images (genauer: eine laufende Instanz
-    eines Images). Kann dann auch zusätzliche Daten enthalten.
+    eines Images + Schreib-Layer + Metadaten). Kann dann auch
+    zusätzliche Daten enthalten.
+
+> [!TIP]
+>
+> Ein Container basiert auf einem Image. Das Image liegt als Dateien
+> vor, der Container selbst ist eine laufende Instanz + zusätzlicher
+> Schreib-Layer.
 
 ### Beispiele
 
@@ -194,18 +228,33 @@ ausgeführt wird. Häufig erlauben Images aber auch, beim Start ein
 bestimmtes auszuführendes Programm anzugeben. Im obigen Beispiel ist das
 `/bin/sh`, also eine Shell ...
 
-    docker pull openjdk:latest
-    docker run  --rm  -v "$PWD":/data -w /data  openjdk:latest  javac Hello.java
-    docker run  --rm  -v "$PWD":/data -w /data  openjdk:latest  java Hello
+    docker pull eclipse-temurin:latest
+    docker run  --rm  -v "$PWD":/data -w /data  eclipse-temurin:latest  javac Hello.java
+    docker run  --rm  -v "$PWD":/data -w /data  eclipse-temurin:latest  java Hello
 
 Auch für Java gibt es vordefinierte Images mit einem JDK. Das Tag
 "`latest`" zeigt dabei auf die letzte stabile Version des
-`openjdk`-Images. Üblicherweise wird "`latest`" von den Entwicklern
-immer wieder weiter geschoben, d.h. auch bei anderen Images gibt es ein
-"`latest`"-Tag. Gleichzeitig ist es die Default-Einstellung für die
-Docker-Befehle, d.h. es kann auch weggelassen werden:
-`docker run openjdk:latest` und `docker run openjdk` sind gleichwertig.
-Alternativ kann man hier auch hier wieder eine konkrete Version angeben.
+`eclipse-temurin`-Images. Üblicherweise wird "`latest`" von den
+Entwicklern immer wieder weiter geschoben, d.h. auch bei anderen Images
+gibt es ein "`latest`"-Tag. Gleichzeitig ist es die Default-Einstellung
+für die Docker-Befehle, d.h. es kann auch weggelassen werden:
+`docker run eclipse-temurin:latest` und `docker run eclipse-temurin`
+sind gleichwertig. Alternativ (und besser!) kann man hier auch hier
+wieder eine konkrete Version angeben.
+
+> [!TIP]
+>
+> In CI/CD-Pipelines sollte man `latest` möglichst vermeiden, weil sich
+> das Image unbemerkt ändern kann. Besser: eine konkrete Version taggen
+> (z.B. `eclipse-temurin:25.0.3_9-jdk-ubi10-minimal`).
+
+> [!IMPORTANT]
+>
+> Früher gab es offizielle `openjdk`-Images auf Docker Hub. Diese sind
+> inzwischen *deprecated* und werden nicht mehr gepflegt. Stattdessen
+> nutzen wir hier die offiziellen Eclipse-Temurin-Images
+> (`eclipse-temurin:<version>`), die aktuelle OpenJDK-Builds
+> bereitstellen.
 
 Über die Option `-v` wird ein Ordner auf dem Host (hier durch `"$PWD"`
 dynamisch ermittelt) in den Container eingebunden ("gemountet"), hier
@@ -294,7 +343,7 @@ Software enthält.
 
 ``` yaml
 default:
-    image: openjdk:17
+    image: eclipse-temurin:25-jdk
 
 job1:
     stage: build
@@ -308,12 +357,13 @@ job1:
 In den Gitlab-CI-Pipelines (analog wie in den GitHub-Actions) kann man
 Docker-Container für die Ausführung der Pipeline nutzen.
 
-Mit `image: openjdk:17` wird das Docker-Image `openjdk:17` vom DockerHub
-geladen und durch den Runner für die Stages als Container ausgeführt.
-Die Aktionen im `script`-Teil, wie beispielsweise `javac Hello.java`
-werden vom Runner an die Standard-Eingabe der Shell des Containers
-gesendet. Im Prinzip entspricht das dem Aufruf auf dem lokalen Rechner:
-`docker run openjdk:17 javac Hello.java`.
+Mit `image: eclipse-temurin:25-jdk` wird das Docker-Image
+`eclipse-temurin:25-jdk` vom DockerHub geladen und durch den Runner für
+die Stages als Container ausgeführt. Die Aktionen im `script`-Teil, wie
+beispielsweise `javac Hello.java` werden vom Runner an die
+Standard-Eingabe der Shell des Containers gesendet. Im Prinzip
+entspricht das dem Aufruf auf dem lokalen Rechner:
+`docker run eclipse-temurin:25-jdk javac Hello.java`.
 
 <p align="right"><a href="https://youtu.be/3Tj3lhcoKro">Demo: GitLab CI/CD und Docker</a></p>
 
@@ -329,9 +379,9 @@ on:
 jobs:
     job1:
         runs-on: ubuntu-latest
-        container: docker://openjdk:17
+        container: eclipse-temurin:25-jdk
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v7
             - run: java -version
             - run: javac Hello.java
             - run: java Hello
@@ -344,43 +394,99 @@ https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container
 In den GitHub-Actions kann man Docker-Container für die Ausführung der
 Pipeline nutzen.
 
-Mit `docker://openjdk:17` wird das Docker-Image `openjdk:17` vom
-DockerHub geladen und auf dem Ubuntu-Runner als Container ausgeführt.
-Die Aktionen im `steps`-Teil, wie beispielsweise `javac Hello.java`
-werden vom Runner an die Standard-Eingabe der Shell des Containers
-gesendet. Im Prinzip entspricht das dem Aufruf auf dem lokalen Rechner:
-`docker run openjdk:17 javac Hello.java`.
+Mit `container: eclipse-temurin:25-jdk` wird das Docker-Image
+`eclipse-temurin:25-jdk` vom DockerHub geladen und auf dem Ubuntu-Runner
+als Container ausgeführt. Die Aktionen im `steps`-Teil, wie
+beispielsweise `javac Hello.java` werden vom Runner an die
+Standard-Eingabe der Shell des Containers gesendet. Im Prinzip
+entspricht das dem Aufruf auf dem lokalen Rechner:
+`docker run eclipse-temurin:25-jdk javac Hello.java`.
 
 <p align="right"><a href="https://youtu.be/jrxoax2fPRI">Demo: GitHub Actions und Docker</a></p>
 
-## VSCode und das Plugin "Remote - Containers"
+## Bonus/Ausblick: VSCode und DevContainers (früher "Remote - Containers")
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote_inv.png" /><img src="https://raw.githubusercontent.com/Programmiermethoden-CampusMinden/Prog2-Lecture/_s26/lecture/tooling/images/vscode-remote.png" width="80%" /></picture></p>
 
-1.  VSCode (Host): Plugin "Remote - Containers" installieren
-2.  Docker (Host): Container starten mit Workspace gemountet
-3.  VSCode (Host): Attach to Container =\> neues Fenster (Container)
-4.  VSCode (Container): Plugin "Java Extension Pack" installieren
-5.  VSCode (Container): Dateien editieren, kompilieren, debuggen, ...
+1.  VSCode (Host): DevContainers Extension installieren installieren
+2.  VSCode (Host): Projektordner öffnen und eine
+    DevContainer-Konfiguration hinzufügen
+3.  VSCode (Host): "Reopen in Container" =\> neues Fenster (Container)
+4.  VSCode (Container): Java-Extensions (z.B. "Java Extension Pack")
+    installieren lassen
+5.  VSCode (Container): Dateien editieren, kompilieren, debuggen, testen
+    ...
 
-Mit Visual Studio Code (VSC) kann man über SSH oder in einem Container
-arbeiten. Dazu installiert man sich VSC lokal auf dem Host und
-installiert dort das Plugin "Remote - Containers". VSC kann darüber
-vordefinierte Docker-Images herunterladen und darin arbeiten oder man
-kann alternativ einen Container selbst starten und diesen mit VSC
-verbinden ("attachen").
+Mit Visual Studio Code (VSCode) können Sie direkt **in einem Container**
+entwickeln. Dazu installieren Sie sich VSCode lokal auf dem Host und
+dort die Extension "Dev Containers" (sie ist Teil des "Remote
+Development"-Pakets).
 
-Beim Verbinden öffnet VSC ein neues Fenster, welches mit dem Container
-verbunden ist. Nun kann man in diesem neuen Fenster ganz normal
-arbeiten, allerdings werden alle Dinge in dem Container erledigt. Man
-öffnet also Dateien in diesem Container, editiert sie im Container,
-übersetzt und testet im Container und nutzt dabei die im Container
-installierten Tools. Sogar die entsprechenden VSC-Plugins kann man im
-Container installieren.
+Für ein Projekt gehen Sie typischerweise so vor:
 
-Damit benötigt man auf einem Host eigentlich nur noch VSC und Docker,
-aber keine Java-Tools o.ä. und kann diese über einen im Projekt
-definierten Container (über ein mit versioniertes Dockerfile) nutzen.
+-   Sie öffnen den Projektordner in VSCode.
+-   Über die Command Palette (z.B. `F1`) wählen Sie "**Dev Containers:
+    Add Dev Container Configuration File ...**" und fügen eine
+    Konfiguration hinzu (entweder aus einem Java-Template oder als
+    eigene `devcontainer.json`).
+-   VSCode legt dann im Projekt den Ordner `.devcontainer/` mit einer
+    `devcontainer.json` (und ggf. einem Dockerfile) an.
+-   Anschließend können Sie den Befehl "**Reopen in Container**"
+    auswählen. VSCode baut und startet den Container automatisch und
+    öffnet ein neues VS-Code-Fenster, das mit diesem Dev Container
+    verbunden ist.
+
+In diesem neuen Fenster arbeiten Sie ganz normal, aber **alle Aktionen**
+(Editieren, Kompilieren, Testen, Debuggen, Tools, Extensions) **laufen
+im Container**. Sie öffnen also Dateien im Container, übersetzen und
+testen dort, und nutzen die im Container installierten Tools. Über die
+Dev-Container-Konfiguration können sogar VSCode-Extensions direkt im
+Container installiert werden.
+
+Damit benötigen Sie auf dem Host eigentlich nur noch VSCode und Docker
+(oder Podman), aber keine lokalen Java-Tools o.ä. mehr. Die gesamte
+Entwicklungsumgebung (JDK-Version, Build-Tools, Java-Extensions in
+VSCode, zusätzliche Pakete) ist über die DevContainer-Konfiguration im
+Projekt definiert und versioniert.
+
+> [!TIP]
+>
+> **Beispiel: Dev Container für Java 25 mit Temurin**
+>
+> Ein typischer, schlanker DevContainer für ein Java‑Projekt mit OpenJDK
+> 25 (Temurin) könnte z.B. so aussehen:
+>
+> ``` json
+> // .devcontainer/devcontainer.json
+> {
+>     "name": "Java 25 DevContainer",
+>     "image": "eclipse-temurin:25-jdk",
+>     "workspaceFolder": "/workspace",
+>     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+>
+>     "customizations": {
+>         "vscode": {
+>             "extensions": [
+>                 "vscjava.vscode-java-pack"
+>             ]
+>         }
+>     }
+> }
+> ```
+>
+> Erläuterungen dazu:
+>
+> -   `"image": "eclipse-temurin:25-jdk"` nutzt ein Docker-Image mit
+>     einem OpenJDK‑25‑Build von Eclipse Temurin.
+> -   `"workspaceFolder": "/workspace"` und `"workspaceMount": "..."`
+>     binden den lokalen Projektordner in den Container unter
+>     `/workspace` ein. Das ist der Ordner, in dem Sie im Container
+>     arbeiten.
+> -   Unter `"customizations.vscode.extensions"` wird das Java Extension
+>     Pack automatisiert im Container installiert. Beim ersten Start des
+>     DevContainers sorgt VSCode dafür, dass diese Extensions in der
+>     Container-Instanz von VSCode zur Verfügung stehen
+>     (Sprache‑Support, Debugging, Test‑Integration, ...).
 
 *Anmerkung*: IntelliJ kann remote nur debuggen, d.h. das Editieren,
 Übersetzen, Testen läuft lokal auf dem Host (und benötigt dort den
@@ -401,35 +507,34 @@ so dass die Dateien entsprechend zur Verfügung stehen:
 docker run -it --name code-server -p 127.0.0.1:8080:8080 -v "$HOME/.config:/home/coder/.config" -v "$PWD:/home/coder/project" codercom/code-server:latest
 ```
 
-Auf diesem Konzept setzt auch der kommerzielle Service [GitHub
-Codespaces](https://github.com/features/codespaces) von GitHub auf.
+Auf diesem Konzept setzt auch der kommerzielle Service [**GitHub
+Codespaces**](https://github.com/features/codespaces) von GitHub auf.
+
+> [!TIP]
+>
+> Diese Entwicklung hat in den letzten Jahren Fahrt aufgenommen und ist
+> mittlerweile unter dem Namen "DevContainer" (besser) bekannt:
+>
+> -   Die Extension heißt "Dev Containers" (bzw. ist Teil des "Remote
+>     Development"-Pakets)
+> -   Der zentrale Begriff ist der "Dev Container" bzw. die
+>     Konfiguration über eine `devcontainer.json`
+> -   Im VS-Code-UI finden Sie z.B.:
+>     -   "Open Folder in Container ..."
+>     -   "Add Dev Container Configuration File ..."
+>     -   "Reopen in Container"
+>
+> Dazu gibt es auch das eigenständige Projekt:
+>
+> https://containers.dev/
+> https://code.visualstudio.com/docs/devcontainers/containers
 
 <p align="right"><a href="https://youtu.be/Rs1W_rXkoNM">Demo: VSCode und Docker</a></p>
-
-## Link-Sammlung
-
--   [Wikipedia: Docker](https://en.wikipedia.org/wiki/Docker_(software))
--   [Wikipedia: Virtuelle
-    Maschinen](https://en.wikipedia.org/wiki/Virtual_machine)
--   [Docker: Überblick,
-    Container](https://www.docker.com/resources/what-container)
--   [Docker: HowTo](https://docs.docker.com/get-started/)
--   [DockerHub: Suche nach fertigen
-    Images](https://hub.docker.com/search?q=&type=image)
--   [Docker und Java](https://docs.docker.com/language/java/)
--   [Dockerfiles: Best
-    Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
--   [Gitlab,
-    Docker](http://git03-ifm-min.ad.hsbi.de/help/ci/docker/using_docker_images.md#overriding-the-entrypoint-of-an-image)
--   [VSCode: Entwickeln in
-    Docker-Containern](https://code.visualstudio.com/docs/remote/containers)
--   Nickoloff ([2019](#ref-DockerInAction)) und Miell und Sayers
-    ([2019](#ref-DockerInPractice))
 
 ## Wrap-Up
 
 -   Schlanke Virtualisierung mit Containern (kein eigenes OS)
--   *Kein* Sandbox-Effekt
+-   *Kein* echter Sandbox-Effekt
 
 <!-- -->
 
@@ -443,8 +548,26 @@ Codespaces](https://github.com/features/codespaces) von GitHub auf.
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Ullenboom ([2021](#ref-Ullenboom2021))
-> -   Inden ([2013](#ref-Inden2013))
+> **Link-Sammlung**
+>
+> -   [Wikipedia:
+>     Docker](https://en.wikipedia.org/wiki/Docker_(software))
+> -   [Wikipedia: Virtuelle
+>     Maschinen](https://en.wikipedia.org/wiki/Virtual_machine)
+> -   [Docker: Überblick,
+>     Container](https://www.docker.com/resources/what-container)
+> -   [Docker: HowTo](https://docs.docker.com/get-started/)
+> -   [DockerHub: Suche nach fertigen
+>     Images](https://hub.docker.com/search?q=&type=image)
+> -   [Docker und Java](https://docs.docker.com/language/java/)
+> -   [Dockerfiles: Best
+>     Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+> -   [Gitlab,
+>     Docker](http://git03-ifm-min.ad.hsbi.de/help/ci/docker/using_docker_images.md#overriding-the-entrypoint-of-an-image)
+> -   [VSCode: Entwickeln in
+>     Docker-Containern](https://code.visualstudio.com/docs/remote/containers)
+> -   Nickoloff ([2019](#ref-DockerInAction)) und Miell und Sayers
+>     ([2019](#ref-DockerInPractice))
 >
 > </details>
 
@@ -456,13 +579,12 @@ Codespaces](https://github.com/features/codespaces) von GitHub auf.
 > -   k2: Ich kann zwischen Containern und VMs unterscheiden
 > -   k1: Ich kenne typische Einsatzgebiete für Container
 > -   k2: Ich verstehe, dass Container als abgeschottete Prozesse auf
->     dem Host laufen - kein Sandbox-Effekt
+>     dem Host laufen - kein echter Sandbox-Effekt
 > -   k3: Ich kann Container von DockerHub ziehen
 > -   k3: Ich kann Container starten
 > -   k3: Ich kann eigene Container definieren und bauen
 > -   k3: Ich kann Container in GitLab CI/CD und/oder GitHub Actions
 >     einsetzen
-> -   k3: Ich kann VSCode mit Containern einsetzen
 >
 > </details>
 
@@ -474,12 +596,6 @@ Codespaces](https://github.com/features/codespaces) von GitHub auf.
 > <summary><strong>👀 Quellen</strong></summary>
 >
 > <div id="refs" class="references csl-bib-body hanging-indent">
->
-> <div id="ref-Inden2013" class="csl-entry">
->
-> Inden, M. 2013. *Der Weg zum Java-Profi*. 2. Aufl. Dpunkt.verlag.
->
-> </div>
 >
 > <div id="ref-DockerInPractice" class="csl-entry">
 >
@@ -494,14 +610,6 @@ Codespaces](https://github.com/features/codespaces) von GitHub auf.
 >
 > </div>
 >
-> <div id="ref-Ullenboom2021" class="csl-entry">
->
-> Ullenboom, C. 2021. *Java ist auch eine Insel*. 16. Aufl.
-> Rheinwerk-Verlag.
-> <https://openbook.rheinwerk-verlag.de/javainsel/index.html>.
->
-> </div>
->
 > </div>
 >
 > </details>
@@ -512,4 +620,4 @@ Codespaces](https://github.com/features/codespaces) von GitHub auf.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> d6e2707 2026-04-11 tooling: fix paths after renaming of folder<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 5207d85 2026-06-29 docker: update section on devcontainers<br></sub></sup></p></blockquote>

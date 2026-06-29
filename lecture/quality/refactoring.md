@@ -20,7 +20,7 @@
 > nutzen. Es stehen verschiedene Methoden zur Verfügung, die nicht
 > unbedingt einheitlich benannt sein müssen oder in jeder IDE vorkommen.
 > Zu den häufig genutzten Methoden zählen *Rename*, *Extract*, *Move*
-> und *Push Up/Pull Down*.
+> und *Pull Up/Push Down*.
 >
 > </details>
 
@@ -29,12 +29,21 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Refactoring](https://youtu.be/n0RaQ_Qve0Y)
-> -   [Demo Refactoring: Rename](https://youtu.be/zZ2RGKRBVz4)
-> -   [Demo Refactoring: Encapsulate](https://youtu.be/PR4mEjBl_No)
-> -   [Demo Refactoring: Extract Method](https://youtu.be/4VbxgqZ68ng)
-> -   [Demo Refactoring: Move Method](https://youtu.be/Wr92Oboh05E)
-> -   [Demo Refactoring: Pull up](https://youtu.be/t24c88RshL8)
+> Vorlesung \[[YT](https://youtu.be/v1rFf_szb4w)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring/e443d2643d1fbc10e4d1c2a257ccc4c8)\]
+>
+> Demo:
+>
+> -   Rename \[[YT](https://youtu.be/E8yg9sXo-l8)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring-demo-rename/011c2ac19ff4850db6c9278342878ecd)\]
+> -   Encapsulate \[[YT](https://youtu.be/7FHWg61vihM)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring-demo-encapsulate/ebe1131e6e2446d4b21ee8f58c430a8f)\]
+> -   Extract Method \[[YT](https://youtu.be/ILEh-OI46us)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring-demo-extract-method/9f73f3c4230ab85fcffab220a1bd1622)\]
+> -   Move Method \[[YT](https://youtu.be/o-MR_nPokJM)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring-demo-move-method/4e94e7d4435a92257722df4effb088aa)\]
+> -   Pull up \[[YT](https://youtu.be/3hfHbv4FkLY)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-refactoring-demo-pull-up/449937f8c6a9202349b53a19a3e54caa)\]
 >
 > </details>
 
@@ -63,6 +72,12 @@
         Umbenennungen oder Verschiebungen von Elementen innerhalb der
         Software)
 -   Ziel: Verbesserung von Verständlichkeit und Änderbarkeit
+
+> [!TIP]
+>
+> *Anmerkung*: In der Praxis können natürlich Bugfix + Refactoring in
+> einem Pull-Request zusammen auftreten, wenn das inhaltlich sinnvoll
+> ist, aber begrifflich sollten wir es trennen.
 
 ## Anzeichen, dass Refactoring jetzt eine gute Idee wäre
 
@@ -126,7 +141,7 @@ sinnvoll ist.
 
 <!-- -->
 
-3.  Haben Sie die fragliche Codestelle auch wirklich verstanden?!
+3.  **Haben Sie die fragliche Codestelle auch wirklich verstanden?!**
 
 ## Vorgehen beim Refactoring
 
@@ -164,6 +179,13 @@ Fehler gemacht).
     =\> Nächster Refactoring-Schritt erst, wenn alle Tests wieder "grün"
 
 -   Versionskontrolle nutzen: **Jeden** Schritt **einzeln** committen
+
+> [!TIP]
+>
+> Refactoring ist nicht: Alles neu schreiben.
+>
+> Refactoring ist: Viele kleine, zielgerichtete, durch Tests
+> abgesicherte Umbauten an der Struktur (nicht Funktion).
 
 ## Refactoring-Methode: Rename Method/Class/Field
 
@@ -228,7 +250,7 @@ int getCps() { return cps; }
 void setCps(int cps) {  this.cps = cps;  }
 
 public void printDetails() {
-    System.out.println("credits: " + getCps());
+    System.out.println("Credits: " + getCps());
 }
 ```
 
@@ -387,7 +409,7 @@ public class Studi extends Person {
 
 ## Wrap-Up
 
-Behebung von **Bad Smells** durch **Refactoring**
+Behebung von **Code Smells** durch **Refactoring**
 
 =\> Änderung der inneren Struktur ohne Beeinflussung des äußeren
 Verhaltens
@@ -396,7 +418,7 @@ Verhaltens
 -   Immer nur kleine Schritte machen
 -   Nach jedem Schritt Testsuite laufen lassen
 -   Katalog von Maßnahmen, beispielsweise *Rename*, *Extract*, *Move*,
-    *Push Up/Pull Down*, ...
+    *Pull Up/Push Down*, ...
 -   Unterstützung durch IDEs wie Eclipse, Idea, ...
 
 > [!TIP]
@@ -404,8 +426,9 @@ Verhaltens
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Fowler ([2011](#ref-Fowler2011))
-> -   Inden ([2013, Kap. 11](#ref-Inden2013))
+> Zum Thema Refactoring gibt es den Klassiker Fowler
+> ([2011](#ref-Fowler2011)), aber auch gute Tutorial-Seiten wie
+> [Refactoring Guru](https://refactoring.guru/refactoring).
 >
 > </details>
 
@@ -423,7 +446,7 @@ Verhaltens
 > -   k2: Ich habe verstanden, dass 'Refactoring' bedeutet: Nur die
 >     innere Struktur ändern, nicht das von außen sichtbare Verhalten!
 > -   k3: Ich kann die wichtigsten Refactoring-Methoden anwenden:
->     Rename, Extract, Move, Push Up/Pull Down
+>     Rename, Extract, Move, Pull Up/Push Down
 >
 > </details>
 
@@ -438,7 +461,7 @@ Verhaltens
 > [java/](https://github.com/emilybache/Theatrical-Players-Refactoring-Kata/tree/main/java)
 > einige Klassen mit unübersichtlichem und schlecht strukturierten Code.
 >
-> Welche *Bad Smells* können Sie hier identifizieren?
+> Welche *Code Smells* können Sie hier identifizieren?
 >
 > Beheben Sie die Smells durch die *schrittweise Anwendung* von den aus
 > der Vorlesung bekannten Refactoring-Methoden. Denken Sie auch daran,
@@ -511,12 +534,6 @@ Verhaltens
 >
 > </div>
 >
-> <div id="ref-Inden2013" class="csl-entry">
->
-> Inden, M. 2013. *Der Weg zum Java-Profi*. 2. Aufl. Dpunkt.verlag.
->
-> </div>
->
 > <div id="ref-Passig2013" class="csl-entry">
 >
 > Passig, K., und J. Jander. 2013. *Weniger schlecht programmieren*.
@@ -543,4 +560,4 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 8c34ed6 2025-08-22 tooling: rename origin to credits<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 7a3d015 2026-06-29 refactoring: rework readings<br></sub></sup></p></blockquote>

@@ -47,12 +47,6 @@
 > ist **SpotBugs**, welches sich in den Build-Prozess einbinden lässt
 > und über 400 typische problematische Muster im Code erkennt.
 >
-> Für die Praktika in der Veranstaltung Programmiermethoden wird der
-> Google Java Style oder AOSP genutzt. Für die passende
-> Checkstyle-Konfiguration wird eine minimale
-> [checkstyle.xml](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/checkstyle.xml)
-> bereitgestellt (vgl. Folie "Konfiguration für das PM-Praktikum").
->
 > </details>
 
 > [!TIP]
@@ -60,12 +54,20 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Coding Conventions](https://youtu.be/nLAEak6Fwfk)
-> -   [Demo Formatter und Spotless](https://youtu.be/oCMwyDrPkFI)
-> -   [Demo Checkstyle](https://youtu.be/NR070ZimbH4)
-> -   [Demo Checkstyle: Konfiguration mit
->     Eclipse-CS](https://youtu.be/0ny6e6CNTF8)
-> -   [Demo SpotBugs](https://youtu.be/tSczcf_EOwI)
+> Vorlesung \[[YT](https://youtu.be/8jUMpkbbDPk)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-coding-conventions-und-metriken/d4eec4f5538590e2ad83f5324f02589c)\]
+>
+> Demo:
+>
+> -   Formatter und Spotless \[[YT](https://youtu.be/3brrZQa2gi8)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-coding-conventions-demo-formatter-und-spotless/2416a54b9c4fe66112f38fcbf54153d9)\]
+> -   Checkstyle \[[YT](https://youtu.be/L9b5dFiP8e8)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-coding-conventions-demo-checkstyle/b3554999ed7060d3c7bc604e5c64eae7)\]
+> -   Checkstyle-Konfiguration mit Eclipse-CS erzeugen
+>     \[[YT](https://youtu.be/KRaLblV1SQ0)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-coding-conventions-demo-checkstyleeclipse-cs-konfiguration/af64dcefa7646ab35cc24e42fa20c0f8)\]
+> -   SpotBugs \[[YT](https://youtu.be/fQCfP9whNRk)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-coding-conventions-demo-spotbugs/b202ee5329369fecec4b678c2f66045e)\]
 >
 > </details>
 
@@ -87,6 +89,15 @@ Conventions](https://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
 [Google Java Style](https://google.github.io/styleguide/javaguide.html),
 [AOSP Java Code Style for
 Contributors](https://source.android.com/docs/setup/contribute/code-style)
+
+Das Thema Tabs vs. Spaces ist in Java nicht so extrem wichtig wie in
+Python, dennoch sollte in einem Projekt ein einheitlicher Standard
+verfolgt werden. Hilfreich ist hier Toolunterstützung über eine im
+Projekt mit versionierte `.editorconfig`, welche über ein Plugin in der
+IDE gelesen wird und beim Speichern von Dateien dann angewendet wird.
+Das Projekt [EditorConfig](https://editorconfig.org) bietet eine
+Erklärung für das Dateiformat und Links zu zahlreichen Plugins für IDEs
+und Editoren.
 
 ## Beispiel nach Google Java Style/AOSP formatiert
 
@@ -114,7 +125,7 @@ public class MyWuppieStudi implements Comparable<MyWuppieStudi> {
 
     @Override
     public int compareTo(MyWuppieStudi o) {
-        return lastName.compareTo(lastName);
+        return lastName.compareTo(o.lastName);
     }
 }
 ```
@@ -169,7 +180,7 @@ Sie können den Code manuell formatieren, oder aber (sinnvollerweise)
     ``` groovy
     plugins {
         id "java"
-        id "com.diffplug.spotless" version "8.4.0"
+        id "com.diffplug.spotless" version "8.7.0"
     }
 
     spotless {
@@ -182,6 +193,12 @@ Sie können den Code manuell formatieren, oder aber (sinnvollerweise)
 
     Prüfen mit `./gradlew spotlessCheck` (Teil von `./gradlew check`)
     und Formatieren mit `./gradlew spotlessApply`
+
+> [!IMPORTANT]
+>
+> Die Versionsnummern in den Beispielen sind Momentaufnahmen. In eigenen
+> Projekten bitte immer die aktuelle empfohlene Version aus der
+> offiziellen Doku nachschlagen.
 
 ### Einstellungen der IDE's
 
@@ -248,13 +265,13 @@ zurück. Mit Metriken kann man beispielsweise die Einhaltung der Coding
 Rules (Formate, ...) prüfen, aber auch die Einhaltung verschiedener
 Regeln des objektorientierten Programmierens.
 
-### Beispiele für wichtige Metriken (jeweils Max-Werte für PM)
+### Beispiele für wichtige Metriken (jeweils Max-Werte für PR2)
 
-Die folgenden Metriken und deren Maximal-Werte sind gute Erfahrungswerte
-aus der Praxis und helfen, den Code Smell "Langer Code" (vgl. ["Code
-Smells"](./smells.md)) zu erkennen und damit zu vermeiden. Über die
-Metriken *BEC*, *McCabe* und *DAC* wird auch die Einhaltung elementarer
-Programmierregeln gemessen.
+Die folgenden Metriken und deren Maximal-Werte sind gute
+**Erfahrungswerte** aus der Praxis und helfen, den Code Smell "Langer
+Code" (vgl. ["Code Smells"](./smells.md)) zu erkennen und damit zu
+vermeiden. Über die Metriken *BEC*, *McCabe* und *DAC* wird auch die
+Einhaltung elementarer Programmierregeln gemessen.
 
 -   **NCSS** (*Non Commenting Source Statements*)
     -   Zeilen pro Methode: 40; pro Klasse: 250; pro Datei: 300
@@ -262,25 +279,31 @@ Programmierregeln gemessen.
 -   **Anzahl der Methoden** pro Klasse: 10
 -   **Parameter** pro Methode: 3
 -   **BEC** (*Boolean Expression Complexity*) Anzahl boolescher
-    Ausdrücke in `if` etc.: 3
+    Ausdrücke in `if` etc.: 3 (Anzahl von Verknüpfungen mit `&&` bzw.
+    `||`: `if (a && b && c)` hat eine BEC von 3)
 -   **McCabe** (*Cyclomatic Complexity*)
     -   Anzahl der möglichen Verzweigungen (Pfade) pro Methode + 1
     -   1-4 gut, 5-7 noch OK
 -   **DAC** (*Class Data Abstraction Coupling*)
-    -   Anzahl der genutzten (instantiierten) "Fremdklassen"
+    -   Anzahl verschiedener Fremdtypen, die eine Klasse verwendet (z.B.
+        als Attribute, Parameter, lokale Variablen) - Hohe Werte
+        bedeuten: Die Klasse "kennt" sehr viele andere Klassen $\to$
+        starke Kopplung.
     -   Werte kleiner 7 werden i.A. als normal betrachtet
 
-Die obigen Grenzwerte sind typische Standardwerte, die sich in der
-Praxis allgemein bewährt haben (vergleiche u.a. ([Martin
-2009](#ref-Martin2009)) oder auch in [AOSP: Write short
-methods](https://source.android.com/docs/setup/contribute/code-style#write-short-methods)
-und [AOSP: Limit line
-length](https://source.android.com/docs/setup/contribute/code-style#limit-line-length)).
-
-Dennoch sind das keine absoluten Werte an sich. Ein Übertreten der
-Grenzen ist ein **Hinweis** darauf, dass **höchstwahrscheinlich** etwas
-nicht stimmt, muss aber im konkreten Fall hinterfragt und diskutiert und
-begründet werden!
+> [!IMPORTANT]
+>
+> Die obigen Grenzwerte sind typische **Standardwerte**, die sich in der
+> Praxis allgemein bewährt haben (vergleiche u.a. ([Martin
+> 2009](#ref-Martin2009)) oder auch in [AOSP: Write short
+> methods](https://source.android.com/docs/setup/contribute/code-style#write-short-methods)
+> und [AOSP: Limit line
+> length](https://source.android.com/docs/setup/contribute/code-style#limit-line-length)).
+>
+> Dennoch sind das keine absoluten Werte an sich. Ein Übertreten der
+> Grenzen ist ein **Hinweis** darauf, dass **höchstwahrscheinlich**
+> etwas nicht stimmt, muss aber im konkreten Fall hinterfragt und
+> diskutiert und begründet werden!
 
 ### Metriken im Beispiel von oben
 
@@ -309,7 +332,7 @@ Beispiel *nicht* bei DAC mitgezählt/angezeigt.
 
 =\> Verweis auf LV Softwareengineering
 
-## Tool-Support: Checkstyle
+## Stil & Metriken: Checkstyle
 
 Metriken und die Einhaltung von Coding-Conventions werden
 sinnvollerweise nicht manuell, sondern durch diverse Tools erfasst, etwa
@@ -344,7 +367,7 @@ mit.
 
     checkstyle {
         configFile file('checkstyle.xml')
-        toolVersion '13.4.2'
+        toolVersion '13.7.0'
     }
     ```
 
@@ -354,6 +377,12 @@ mit.
         (Default) bzw. mit der obigen Konfiguration direkt im
         Projektordner
     -   Report: `<projectDir>/build/reports/checkstyle/main.html`
+
+> [!IMPORTANT]
+>
+> Die Versionsnummern in den Beispielen sind Momentaufnahmen. In eigenen
+> Projekten bitte immer die aktuelle empfohlene Version aus der
+> offiziellen Doku nachschlagen.
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/checkstyle/">Demo: IntelliJ, Checkstyle/Gradle</a></p>
 
@@ -439,7 +468,7 @@ Alternativen/Ergänzungen: beispielsweise
     ``` groovy
     plugins {
         id "java"
-        id "com.github.spotbugs" version "6.5.4"
+        id "com.github.spotbugs" version "6.5.8"
     }
     spotbugs {
         ignoreFailures = true
@@ -449,11 +478,17 @@ Alternativen/Ergänzungen: beispielsweise
 
     Prüfen mit `./gradlew spotbugsMain` (in `./gradlew check`)
 
+> [!IMPORTANT]
+>
+> Die Versionsnummern in den Beispielen sind Momentaufnahmen. In eigenen
+> Projekten bitte immer die aktuelle empfohlene Version aus der
+> offiziellen Doku nachschlagen.
+
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/spotbugs/">Demo: SpotBugs/Gradle</a></p>
 
-## Konfiguration für das PM-Praktikum (Format, Metriken, Checkstyle, SpotBugs)
+## Konfiguration für das PR2-Praktikum (Format, Metriken, Checkstyle, SpotBugs)
 
-Im PM-Praktikum beachten wir die obigen Coding Conventions und Metriken
+Im PR2-Praktikum beachten wir die obigen Coding Conventions und Metriken
 mit den dort definierten Grenzwerten. Diese sind bereits in der bereit
 gestellten Minimal-Konfiguration für Checkstyle (s.u.) konfiguriert.
 
@@ -564,6 +599,22 @@ gehen allerdings über den Google Java Style hinaus.
 Setzen Sie zusätzlich **SpotBugs** mit ein. Ihre Lösungen dürfen keine
 Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 
+## Coding Conventions: Einige zentrale Grundsätze
+
+### Kommentieren vs. sauberen Code schreiben
+
+-   Kommentare ersetzen keinen guten Code
+-   Kommentare erklären **Warum**, nicht *Was* (Das "Was" steht im Code
+    selbst)
+-   Keine "Selbstbeschreibungen" wie `x++;  // erhöht x um 1`
+
+### Typische Regeln für den Einstieg
+
+-   Keine "magischen Zahlen" $\to$ Konstanten (UPPER_SNAKE_CASE)
+-   Methoden sollten eine klar erkennbare Aufgabe haben (Verweis auf
+    Single Responsibility)
+-   Möglichst wenige `public`-Member, Kapselung betonen
+
 ## Wrap-Up
 
 -   Code entsteht nicht zum Selbstzweck =\> Regeln nötig!
@@ -573,8 +624,6 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
         -   Leerzeichen, Einrückung, Klammern
         -   Zeilenlänge, Umbrüche
         -   Kommentare
-
-    -   Formatieren mit **Spotless**
 
     -   Prinzipien des objektorientierten Programmierens (vgl. ["Code
         Smells"](./smells.md))
@@ -587,21 +636,28 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 
 <!-- -->
 
--   Metriken: Einhaltung von Regeln in Zahlen ausdrücken
--   Prüfung manuell durch Code Reviews oder durch Tools wie
-    **Checkstyle** oder **SpotBugs**
--   Definition des
-    ["PM-Styles"](https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/tree/master/lecture/quality/src/checkstyle.xml)
-    (siehe Folie "Konfiguration für das PM-Praktikum")
+-   Formatieren mit **Spotless**
+-   Stil & Metriken: Prüfung manuell durch Code Reviews oder durch Tools
+    wie **Checkstyle**
+-   Bugs & Anti-Pattern: Prüfung manuell durch Code Reviews oder durch
+    Tools wie **SpotBugs**
 
 > [!TIP]
 >
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Martin ([2009](#ref-Martin2009))
-> -   Inden ([2013, Kap. 13](#ref-Inden2013))
-> -   Google Open Source ([2022](#ref-googlestyleguide))
+> Der Klassiker zu diesem Thema ist sicher Martin
+> ([2009](#ref-Martin2009)).
+>
+> **Wichtig**: Bitte nicht als "Gesetz" betrachten, sondern als starke
+> *Empfehlung*. Die formulierten Grenzwerte sollten zumindest zum
+> Nachdenken über das eigene Tun anregen.
+>
+> Der [Google Java
+> Style](https://google.github.io/styleguide/javaguide.html) ist
+> ebenfalls ein guter Startpunkt, da viele Java-Projekte diesen Standard
+> anwenden und es eine relativ gute Tooling-Unterstützung gibt.
 >
 > </details>
 
@@ -628,19 +684,6 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 >
 > <div id="refs" class="references csl-bib-body hanging-indent">
 >
-> <div id="ref-googlestyleguide" class="csl-entry">
->
-> Google Open Source. 2022. „Google Java Style Guide".
-> <https://google.github.io/styleguide/javaguide.html>.
->
-> </div>
->
-> <div id="ref-Inden2013" class="csl-entry">
->
-> Inden, M. 2013. *Der Weg zum Java-Profi*. 2. Aufl. Dpunkt.verlag.
->
-> </div>
->
 > <div id="ref-Martin2009" class="csl-entry">
 >
 > Martin, R. 2009. *Clean Code*. Mitp.
@@ -657,4 +700,4 @@ Warnungen oder Fehler beinhalten, die SpotBugs melden würde.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 0914fc3 2026-05-13 lecture: update tooling versions throughout all examples and lessions<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 06d7520 2026-06-29 codingrules: rework readings<br></sub></sup></p></blockquote>

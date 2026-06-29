@@ -25,11 +25,16 @@
 > <details open>
 > <summary><strong>🎦 Videos</strong></summary>
 >
-> -   [VL Code Smells](https://youtu.be/ALDuLxm71tg)
+> Vorlesung \[[YT](https://youtu.be/gec7VnlFbLg)\],
+> \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-code-smells/5f811598f9fb5b081be3dda9b9ba3a20)\]
 >
 > </details>
 
 ## Code Smells: Ist das Code oder kann das weg?
+
+In dieser Sitzung geht es nicht um Fehler im Sinne von "Programm stürzt
+ab", sondern um strukturelle Probleme, die die Wartbarkeit
+verschlechtern.
 
 ``` java
 class checker {
@@ -55,28 +60,27 @@ for(i=0;i<10;i++) // fuer alle i
     } }}   }
 ```
 
-Der Code im obigen Beispiel lässt sich möglicherweise kompilieren. Und
-möglicherweise tut er sogar das, was er tun soll.
+Der Code im obigen Beispiel ist bewusst überzogen und nicht vollständig
+korrekt. Er lässt sich möglicherweise kompilieren. Und möglicherweise
+tut er sogar das, was er tun soll.
 
 Dennoch: **Der Code "stinkt"** (zeigt **Code Smells**):
 
--   Nichtbeachtung üblicher Konventionen (Coding Rules)
--   Schlechte Kommentare
--   Auskommentierter Code
--   Fehlende Datenkapselung
--   Zweifelhafte Namen
--   Duplizierter Code
--   "Langer" Code: Lange Methoden, Klassen, Parameterlisten, tief
-    verschachtelte `if/then`-Bedingungen, ...
--   Feature Neid
--   `switch/case` oder `if/else` statt Polymorphie
--   Globale Variablen, lokale Variablen als Attribut
--   Magic Numbers
+-   Oberflächliche Smells: Formatierung, schlechte Kommentare, schlechte
+    Namen, auskommentierter Code
+-   Struktur-Smells: duplizierter Code, lange Methoden/Klassen, lange
+    Parameterlisten, tiefe Verschachtelung
+-   OO‑Smells: fehlende Kapselung, Feature Neid, globale Variablen,
+    Magic Numbers
 
 Diese Liste enthält die häufigsten "Smells" und ließe sich noch beliebig
 fortsetzen. Schauen Sie mal in die unten angegebene Literatur :-)
 
 **Stinkender Code führt zu möglichen (späteren) Problemen.**
+
+Diese Smells (z.B. "duplizierter Code") werden wir in der
+[Refactoring‑Sitzung](./refactoring.md) mit Techniken wie "Extract
+Method" etc. angehen.
 
 ## Was ist guter ("sauberer") Code ("Clean Code")?
 
@@ -152,6 +156,11 @@ traut und stattdessen die Änderungen als weiteren "Erker" einfach dran
 pappt. Seit es, weil man keine Lust hat, Zeit in ordentliche Arbeit zu
 investieren, weil der Code ja eh schon schlecht ist ... Das wird mit der
 Zeit nicht besser ...
+
+> [!TIP]
+>
+> In Code-Basen sind "eingeworfene Fenster" z.B. auskommentierter Code,
+> wilde Formatierung, ungenutzte Variablen.
 
 <p align="right"><a href="https://en.wikipedia.org/wiki/Broken_windows_theory">“Broken Windows” Phänomen</a></p>
 
@@ -347,7 +356,7 @@ Kopierter/duplizierter Code ist problematisch:
 -   Große Dateien verleiten (auch mangels Übersichtlichkeit) dazu, neuen
     Code ebenfalls schluderig zu gliedern
 
-### Langer Code deutet auch auf eine Verletzung des Prinzips der Single Responsibility hin
+### Langer Code deutet auch auf eine Verletzung des Prinzips der Single Responsibility hin (engl. Single Responsibility Principle (SRP))
 
 -   Klassen fassen evtl. nicht zusammengehörende Dinge zusammen
 
@@ -393,18 +402,39 @@ Kopierter/duplizierter Code ist problematisch:
     Circle makeCircle(Point center, int radius);  // besser!
     ```
 
-## Code Smells: Feature Neid
+    Damit verwandt sind "Primitive Obsession": überall `int`, `String`
+    statt eigener und passenderer Typen (`PhoneNumber`, `Ects`,
+    `Address`, o.ä.), und "Data Clumps": immer wieder dieselben
+    Parametergruppen (`x`, `y`, `radius` statt `Point center`).
+
+### Problem: Passende Abstraktionsebene finden
+
+Smell: Schlecht gewählte Abstraktionsebene
+
+Wenn eine Methode 20 Zeilen Implementation mit vielen Details enthält
+(also passend zur Faustregel der Länge einer Methode ist), aber
+aufrufende Methoden kaum lesbar sind, weil sie 6-8 dieser
+Low‑Level‑Methoden minutengenau orchestrieren.
+
+## Code Smells: Fehlender Umgang mit Fehlerfällen
+
+-   Ignorieren von Fehlersituationen (z.B. `null`-Rückgaben, leere
+    Listen)
+-   Mischen von Geschäftslogik und Fehlerbehandlung so, dass nichts mehr
+    lesbar ist
+
+## Code Smells: Feature Neid (engl. Feature Envy)
 
 ``` java
 public class CreditsCalculator {
     public ECTS calculateEcts(Student s) {
         int semester = s.getSemester();
         int workload = s.getCurrentWorkload();
-        int nrModuls = s.getNumberOfModuls();
+        int nrModules = s.getNumberOfModuls();
         int total = Math.min(30, workload);
         int extra = Math.max(0, total - 30);
         if (semester < 5) {
-             extra = extra * nrModuls;
+             extra = extra * nrModules;
         }
         return new ECTS(total + extra);
     }
@@ -415,13 +445,6 @@ public class CreditsCalculator {
     der Klassen!
 -   Methode `CreditsCalculator#calculateEcts()` "möchte" eigentlich in
     `Student` sein ...
-
-## Weiterführende Links
-
--   ["Foundations: Clean Code" (The Odin
-    Project)](https://www.theodinproject.com/lessons/foundations-clean-code)
--   ["Documentation Best Practices" (Google
-    Styleguide)](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md)
 
 ## Wrap-Up
 
@@ -457,9 +480,14 @@ public class CreditsCalculator {
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Martin ([2009](#ref-Martin2009))
-> -   Passig und Jander ([2013](#ref-Passig2013))
-> -   Inden ([2013, Kap. 10](#ref-Inden2013))
+> Gute Werke zum Nachlesen sind Martin ([2009](#ref-Martin2009)) (ein
+> Klassiker) und Passig und Jander ([2013](#ref-Passig2013)). Im
+> Odin-Project hat man sich viele Gedanken gemacht: ["Foundations: Clean
+> Code" (The Odin
+> Project)](https://www.theodinproject.com/lessons/foundations-clean-code),
+> und Google hat einen vielbeachteten Style-Guide für Java geschrieben:
+> ["Documentation Best Practices" (Google
+> Styleguide)](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md)
 >
 > </details>
 
@@ -473,7 +501,7 @@ public class CreditsCalculator {
 > -   k3: Ich kann typische Code Smells erkennen und vermeiden
 > -   k3: Ich kann leicht lesbaren von schwer lesbarem Code
 >     unterscheiden
-> -   k3: Ich kann Programmierprinzipien anwenden, um den Code sauberer
+> -   k34 Ich kann Programmierprinzipien anwenden, um den Code sauberer
 >     zu gestalten
 > -   k3: Ich kann sinnvolle Kommentare schreiben
 >
@@ -491,12 +519,6 @@ public class CreditsCalculator {
 > <div id="ref-Fowler2011" class="csl-entry">
 >
 > Fowler, M. 2011. *Refactoring*. Addison-Wesley.
->
-> </div>
->
-> <div id="ref-Inden2013" class="csl-entry">
->
-> Inden, M. 2013. *Der Weg zum Java-Profi*. 2. Aufl. Dpunkt.verlag.
 >
 > </div>
 >
@@ -527,4 +549,4 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 8c34ed6 2025-08-22 tooling: rename origin to credits<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 479c921 2026-06-29 smells: add some more smells<br></sub></sup></p></blockquote>
