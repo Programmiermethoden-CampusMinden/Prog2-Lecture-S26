@@ -273,7 +273,7 @@ sollte man dies bei der Äquivalenzklassenbildung berücksichtigen: Die ÄK
 sind in diesem Fall in Bezug auf die Kombinationen zu bilden!
 
 Schauen Sie sich dazu das Beispiel im Kleuker
-([2019](#ref-Kleuker2019)), Abschnitt "4.3 Analyse abhängiger Parameter"
+([2026](#ref-Kleuker2026)), Abschnitt "4.3 Analyse abhängiger Parameter"
 an.
 
 Die einfache ÄK-Bildung würde in diesem Fall versagen, da die
@@ -285,7 +285,7 @@ objektorientierter Programmierung. Die Eingabewerte und der
 Objektzustand müssen dann *gemeinsam* bei der ÄK-Bildung betrachtet
 werden!
 
-Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
+Vergleiche Kleuker ([2026](#ref-Kleuker2026)), Abschnitt "4.4
 Äquivalenzklassen und Objektorientierung".
 
 ## Wrap-Up
@@ -454,13 +454,6 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 >
 > <div id="refs" class="references csl-bib-body hanging-indent">
 >
-> <div id="ref-Kleuker2019" class="csl-entry">
->
-> Kleuker, S. 2019. *Qualitätssicherung durch Softwaretests*. Springer
-> Vieweg. <https://doi.org/10.1007/978-3-658-24886-4>.
->
-> </div>
->
 > <div id="ref-Kleuker2026" class="csl-entry">
 >
 > Kleuker, S. 2026. *Qualitätssicherung durch Softwaretests*. Springer
@@ -478,4 +471,4 @@ Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> db7538d 2026-05-28 junit2: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 8fb56b7 2026-07-01 junit2: update to newest kleuker book<br></sub></sup></p></blockquote>

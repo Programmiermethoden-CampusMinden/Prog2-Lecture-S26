@@ -337,8 +337,8 @@ keine Generics mehr!**
 
 > [!TIP]
 >
-> **Hinweis**: In C++ ist man den anderen möglichen Weg gegangen und
-> erzeugt für jede Instantiierung die passende Klasse.
+> In C++ ist man den anderen möglichen Weg gegangen und erzeugt für jede
+> Instantiierung die passende Klasse.
 
 **Beispiel**: Aus dem folgenden harmlosen Code-Fragment:
 
@@ -569,8 +569,6 @@ eingefügt).
 
 > [!TIP]
 >
-> Hintergrund:
->
 > Arrays gab es bereits sehr früh, Generics wurden erst viel später
 > nachträglich hinzugefügt (in Java 5). Bei Arrays fand man das
 > Verhalten damals natürlich und pragmatisch (trotz der
@@ -757,4 +755,4 @@ vollem Typwissen.**
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> c77d41b 2026-06-26 generics3: rework screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> cd1b3bd 2026-07-01 generics3: fix alert boxes<br></sub></sup></p></blockquote>

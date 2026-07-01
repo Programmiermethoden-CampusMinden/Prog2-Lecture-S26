@@ -181,24 +181,24 @@ Durchführung wiederholbarer Tests
 
 > [!TIP]
 >
-> *Anmerkung*: Wie der Name schon sagt, ist das Framework für Modultests
+> Wie der Name schon sagt, ist das Framework für Modultests
 > ("Unit-Tests") gedacht. Man kann damit aber auch prima auf anderen
 > Teststufen arbeiten und beispielsweise Systemtests definieren.
 
 > [!CAUTION]
 >
-> *Wichtig*: In dieser Lehrveranstaltung besprechen wir JUnit am
-> Beispiel **JUnit 6**. **Sofern nicht explizit etwas anderes vermerkt
-> ist, meint die Angabe "JUnit" immer "JUnit (Version 6.x)".**
+> In dieser Lehrveranstaltung besprechen wir JUnit am Beispiel **JUnit
+> 6**. **Sofern nicht explizit etwas anderes vermerkt ist, meint die
+> Angabe "JUnit" immer "JUnit (Version 6.x)".**
 
 > [!TIP]
 >
-> *Anmerkung*: Mit JUnit 3 sollte definitiv nicht mehr aktiv gearbeitet
-> werden, d.h. insbesondere keine neuen Tests mehr erstellt werden, da
-> diese Version nicht mehr weiterentwickelt wird. Es kann sein, dass
-> Ihnen in Produktivumgebungen noch häufig Testsuiten in JUnit 4
-> begegnen - achten Sie dort auf die verwendeten Annotationen, die sich
-> teilweise leicht von der modernen Variante unterscheiden.
+> Mit JUnit 3 sollte definitiv nicht mehr aktiv gearbeitet werden, d.h.
+> insbesondere keine neuen Tests mehr erstellt werden, da diese Version
+> nicht mehr weiterentwickelt wird. Es kann sein, dass Ihnen in
+> Produktivumgebungen noch häufig Testsuiten in JUnit 4 begegnen -
+> achten Sie dort auf die verwendeten Annotationen, die sich teilweise
+> leicht von der modernen Variante unterscheiden.
 
 ## Einbinden von JUnit (Gradle)
 
@@ -459,9 +459,9 @@ beim Start über die IDE oder Gradle ...
 
 > [!WARNING]
 >
-> Wichtig: Die Assertions sind per Default deaktiviert und müssen erst
-> manuell aktiviert werden. Außerdem wird bei Verletzung der Bedingung
-> eine *unchecked exception* (ein Error) geworfen, der auf einen nicht
+> Die Assertions sind per Default deaktiviert und müssen erst manuell
+> aktiviert werden. Außerdem wird bei Verletzung der Bedingung eine
+> *unchecked exception* (ein Error) geworfen, der auf einen nicht
 > korrigierbaren Programmzustand hindeutet.
 >
 > 1.  Nutzen Sie das Java-`assert` deshalb nicht als Ersatz für das
@@ -1137,4 +1137,4 @@ JUnit als Framework für (Unit-) Tests
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> fc06bcf 2026-05-15 junit1: make it clear that junit means junit 6.x<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 9259e1c 2026-07-01 junit1: fix alert boxes<br></sub></sup></p></blockquote>

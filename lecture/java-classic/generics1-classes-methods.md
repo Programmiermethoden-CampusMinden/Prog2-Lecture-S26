@@ -66,8 +66,8 @@ Compiler-Warnungen).
 
 > [!TIP]
 >
-> *Anmerkung*: `Vector` ist streng genommen historisch ("Legacy"). Die
-> Klasse ist für Multithreading/Nebenläufigkeit ausgelegt (Methoden sind
+> `Vector` ist streng genommen historisch ("Legacy"). Die Klasse ist für
+> Multithreading/Nebenläufigkeit ausgelegt (Methoden sind
 > synchronisiert) und verursacht dadurch in klassischen nicht
 > nebenläufigen Programmen einen unnötigen Synchronisations-Overhead.
 > Nutzen Sie für neuen, nicht nebenläufigen Code meist lieber
@@ -400,4 +400,4 @@ public class GenericMethods {
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> c3a20bf 2026-06-20 generics1: rework screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 0383ab9 2026-07-01 generics1: fix alert boxes<br></sub></sup></p></blockquote>

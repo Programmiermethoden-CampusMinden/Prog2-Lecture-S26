@@ -195,14 +195,13 @@ public interface GradeService {
 
 > [!TIP]
 >
-> *Anmerkung*: Ein `double` zur Repräsentation einer Note zu nehmen ist
-> ... nicht sooo toll. Hier sollte man sich besser was anderes
-> überlegen, beispielsweise ein Enum oder etwas anderes. Ein `double`
-> kann zwar technisch auch die typischen Noten-Werte wie "1.3" halten,
-> aber eben auch noch viele andere Werte, die wir hier nicht haben
-> wollen. Um also später unnötige Checks und Operationen zu vermeiden,
-> sollte man den Datentyp `Grade` lieber vernünftig modellieren (Enum
-> o.ä.).
+> Ein `double` zur Repräsentation einer Note zu nehmen ist ... nicht
+> sooo toll. Hier sollte man sich besser was anderes überlegen,
+> beispielsweise ein Enum oder etwas anderes. Ein `double` kann zwar
+> technisch auch die typischen Noten-Werte wie "1.3" halten, aber eben
+> auch noch viele andere Werte, die wir hier nicht haben wollen. Um also
+> später unnötige Checks und Operationen zu vermeiden, sollte man den
+> Datentyp `Grade` lieber vernünftig modellieren (Enum o.ä.).
 >
 > Das `double` habe ich hier im Beispielszenario nur genommen, um nicht
 > unnötig von den wesentlichen Details abzulenken!
@@ -281,13 +280,13 @@ Vorteile:
 
 > [!TIP]
 >
-> **Anmerkung**: Die Übergabe eines konkreten `GradeService`-Objekts im
-> Konstruktor funktioniert technisch und löst unser Kopplungsproblem
-> ausreichend gut. Man darf sich aber schon die Frage stellen, ob ein
-> `Student` wirklich ein festes Feld für einen `GradeService` haben
-> muss, oder ob man das nicht einfach jeweils dynamisch beim Aufruf der
-> Methode `Student#printGradeFor` mitgeben könnte ... Auch das wäre
-> "Dependency Injection" (nur eben keine "Konstruktor-Injektion").
+> Die Übergabe eines konkreten `GradeService`-Objekts im Konstruktor
+> funktioniert technisch und löst unser Kopplungsproblem ausreichend
+> gut. Man darf sich aber schon die Frage stellen, ob ein `Student`
+> wirklich ein festes Feld für einen `GradeService` haben muss, oder ob
+> man das nicht einfach jeweils dynamisch beim Aufruf der Methode
+> `Student#printGradeFor` mitgeben könnte ... Auch das wäre "Dependency
+> Injection" (nur eben keine "Konstruktor-Injektion").
 
 ## Schritt 3: Verdrahtung im "Composition Root"
 
@@ -543,4 +542,4 @@ Vorteile (insbesondere aus Testsicht):
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 6e3d57c 2026-05-28 di: rework screencasts (hsbi version)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> d718c4e 2026-07-01 dependency: fix alert boxes<br></sub></sup></p></blockquote>

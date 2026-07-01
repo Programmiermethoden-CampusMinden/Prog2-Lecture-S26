@@ -117,8 +117,8 @@ public int setDate(int date) {
         Element veraltet ist und möglicherweise mit der nächsten Version
         o.ä. entfernt wird. (siehe nächste Folie)
 
-=\> Dies sind die Basis-Regeln aus dem populären Google-Java-Style
-([Google Open Source 2022](#ref-googlestyleguide)).
+=\> Dies sind die Basis-Regeln aus dem populären
+[Google-Java-Style](https://google.github.io/styleguide/javaguide.html).
 
 ## Veraltete Elemente
 
@@ -194,9 +194,7 @@ sein sollte. Versuchen Sie, dieses zu erreichen!
 Etwas technisch, aber ebenfalls sehr lesenswert ist der Style-Guide für
 Java-Software [How to Write Doc Comments for the Javadoc
 Tool](https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html)
-von
-
-1.  
+von Oracle.
 
 ## Wrap-Up
 
@@ -217,9 +215,9 @@ von
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Ullenboom ([2021, 23.4](#ref-Ullenboom2021))
-> -   Google Open Source ([2022, Kap. 7](#ref-googlestyleguide))
-> -   1
+> Schauen Sie sich den
+> [Google-Java-Style](https://google.github.io/styleguide/javaguide.html)
+> an. Dieser ist sehr ausführlich dokumentiert.
 >
 > </details>
 
@@ -263,36 +261,8 @@ von
 
 ------------------------------------------------------------------------
 
-> [!NOTE]
->
-> <details >
-> <summary><strong>👀 Quellen</strong></summary>
->
-> <div id="refs" class="references csl-bib-body hanging-indent">
->
-> <div id="ref-googlestyleguide" class="csl-entry">
->
-> Google Open Source. 2022. „Google Java Style Guide".
-> <https://google.github.io/styleguide/javaguide.html>.
->
-> </div>
->
-> <div id="ref-Ullenboom2021" class="csl-entry">
->
-> Ullenboom, C. 2021. *Java ist auch eine Insel*. 16. Aufl.
-> Rheinwerk-Verlag.
-> <https://openbook.rheinwerk-verlag.de/javainsel/index.html>.
->
-> </div>
->
-> </div>
->
-> </details>
-
-------------------------------------------------------------------------
-
 <p align="center"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"  /></p>
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 95a02cf 2025-08-09 markdown: switch to leaner yaml header (#1037)<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 07adf33 2026-07-01 javadoc: update readings<br></sub></sup></p></blockquote>

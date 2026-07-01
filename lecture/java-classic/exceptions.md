@@ -212,11 +212,10 @@ public static void main(String[] args) throws IOException {
 
 > [!IMPORTANT]
 >
-> **Anmerkung**: Das bloße Ausgeben des Stacktrace via
-> `e.printStackTrace()` ist noch **kein sinnvolles Exception-Handling**!
-> Hier sollte auf die jeweilige Situation eingegangen werden und
-> versucht werden, den Fehler zu beheben oder dem Aufrufer geeignet zu
-> melden!
+> Das bloße Ausgeben des Stacktrace via `e.printStackTrace()` ist noch
+> **kein sinnvolles Exception-Handling**! Hier sollte auf die jeweilige
+> Situation eingegangen werden und versucht werden, den Fehler zu
+> beheben oder dem Aufrufer geeignet zu melden!
 
 ## *Try* und mehrstufiges *Catch*
 
@@ -240,27 +239,27 @@ Eine im `try`-Block auftretende Exception wird der Reihe nach mit den
 
 > [!IMPORTANT]
 >
-> **Wichtig**: Dabei muss die Vererbungshierarchie beachtet werden. Die
+> Dabei muss die Vererbungshierarchie beachtet werden. Die
 > spezialisierteste Klasse muss ganz oben stehen, die allgemeinste
 > Klasse als letztes. Sonst wird eine Exception u.U. zu früh in einem
 > nicht dafür gedachten `catch`-Zweig aufgefangen.
 
 > [!IMPORTANT]
 >
-> **Wichtig**: Wenn eine Exception nicht durch die `catch`-Zweige
-> aufgefangen wird, dann wird sie an den Aufrufer weiter geleitet. Im
-> Beispiel würde eine `IOException` nicht durch die `catch`-Zweige
-> gefangen (`NumberFormatException` und `ArithmeticException` sind im
-> falschen Vererbungszweig, und `FileNotFoundException` ist spezieller
-> als `IOException`) und entsprechend an den Aufrufer weiter gereicht.
-> Da es sich obendrein um eine checked Exception handelt, müsste man
-> diese per `throws IOException` an der Methode deklarieren.
+> Wenn eine Exception nicht durch die `catch`-Zweige aufgefangen wird,
+> dann wird sie an den Aufrufer weiter geleitet. Im Beispiel würde eine
+> `IOException` nicht durch die `catch`-Zweige gefangen
+> (`NumberFormatException` und `ArithmeticException` sind im falschen
+> Vererbungszweig, und `FileNotFoundException` ist spezieller als
+> `IOException`) und entsprechend an den Aufrufer weiter gereicht. Da es
+> sich obendrein um eine checked Exception handelt, müsste man diese per
+> `throws IOException` an der Methode deklarieren.
 
 > [!TIP]
 >
-> **Hinweis**: Nur `IOException` ist *checked*. `NumberFormatException`
-> und `ArithmeticException` sind *unchecked* - Fangen ist optional, aber
-> oft sinnvoll.
+> Nur `IOException` ist *checked*. `NumberFormatException` und
+> `ArithmeticException` sind *unchecked* - Fangen ist optional, aber oft
+> sinnvoll.
 
 ## *Finally* und Aufräumen
 
@@ -280,8 +279,7 @@ zum Schließen von Verbindungen oder Input-Streams.
 
 > [!TIP]
 >
-> **Hinweis**: `finally` wird auch dann ausgeführt, wenn im `try` ein
-> `return` steht.
+> `finally` wird auch dann ausgeführt, wenn im `try` ein `return` steht.
 
 ## Freigeben von Ressourcen: *Try*-with-Resources
 
@@ -732,4 +730,4 @@ Exception-Klassen wie die Exceptions aus dem JDK.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 8d9d8a7 2026-06-29 exceptions: add discussion<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> adc6e50 2026-07-01 exceptions: fix alert boxes<br></sub></sup></p></blockquote>

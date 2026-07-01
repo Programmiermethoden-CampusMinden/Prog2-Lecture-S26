@@ -3234,27 +3234,27 @@ Wrappers einem fest installierten Gradle vorzuziehen!
 
 > [!IMPORTANT]
 >
-> **Wichtig**: Oft findet sich im `.gitignore` der Eintrag `*.jar`, d.h.
-> Jar-Files werden üblicherweise als generierte Binärdateien nicht mit
-> ins Repo eingecheckt. Dadurch wird aber auch der Gradle-Wrapper oft
-> vergessen, und beim Build in der CI-Pipeline schlägt das dann fehl.
-> Entweder definieren Sie für `gradle/wrapper/gradle-wrapper.jar` eine
-> Ausnahme im `.gitignore`, oder fügen Sie den Wrapper mit Hilfe des
-> Force-Flags der Versionskontrolle hinzu:
+> Oft findet sich im `.gitignore` der Eintrag `*.jar`, d.h. Jar-Files
+> werden üblicherweise als generierte Binärdateien nicht mit ins Repo
+> eingecheckt. Dadurch wird aber auch der Gradle-Wrapper oft vergessen,
+> und beim Build in der CI-Pipeline schlägt das dann fehl. Entweder
+> definieren Sie für `gradle/wrapper/gradle-wrapper.jar` eine Ausnahme
+> im `.gitignore`, oder fügen Sie den Wrapper mit Hilfe des Force-Flags
+> der Versionskontrolle hinzu:
 > `git add  -f  gradle/wrapper/gradle-wrapper.jar`.
 
 > [!CAUTION]
 >
-> **Wichtig** (Windows-User): Der Gradle-Wrapper `gradlew` muss
-> ausführbar sein! Wenn Sie auf einem POSIX-System arbeiten (Linux,
-> macOS, BSD), dann wird das `x`-Bit (Unix-Executable-Bit) bereits beim
-> Initialisieren des Projekts durch `gradle init` oder über IntelliJ
-> automatisch korrekt gesetzt und bei einem `git add` mit ins Repo
-> eingecheckt. Windows und Windows-Dateisysteme kennen das
-> Unix-Executable-Bit nicht, deshalb muss man hier manuell nacharbeiten
-> und das Shell-Skript einmalig mit dem gesetzten `x`-Bit im Git-Repo
-> einchecken: `git add --chmod=+x gradlew`. Alternativ arbeiten Sie auf
-> Ihrem Windows-Rechner einfach in einer WSL-Umgebung und damit in einem
+> **Windows-User**: Der Gradle-Wrapper `gradlew` muss ausführbar sein!
+> Wenn Sie auf einem POSIX-System arbeiten (Linux, macOS, BSD), dann
+> wird das `x`-Bit (Unix-Executable-Bit) bereits beim Initialisieren des
+> Projekts durch `gradle init` oder über IntelliJ automatisch korrekt
+> gesetzt und bei einem `git add` mit ins Repo eingecheckt. Windows und
+> Windows-Dateisysteme kennen das Unix-Executable-Bit nicht, deshalb
+> muss man hier manuell nacharbeiten und das Shell-Skript einmalig mit
+> dem gesetzten `x`-Bit im Git-Repo einchecken:
+> `git add --chmod=+x gradlew`. Alternativ arbeiten Sie auf Ihrem
+> Windows-Rechner einfach in einer WSL-Umgebung und damit in einem
 > virtualisierten Linux.
 
 ##### Ausblick: Maven
@@ -4422,10 +4422,10 @@ beispielsweise Python, C++, CSharp, JavaScript, Go, ...
 
 > [!IMPORTANT]
 >
-> **Wichtig**: Man kann ANTLR als eigenständiges Tool installieren
-> und/oder über das Gradle-Plugin nutzen und/oder das IntelliJ-Plugin
-> einsetzen. Wir gehen hier den Weg über das Gradle-Plugin, d.h. es gibt
-> keinen (guten) Grund für eine "richtige" Installation von ANTLR.
+> Man kann ANTLR als eigenständiges Tool installieren und/oder über das
+> Gradle-Plugin nutzen und/oder das IntelliJ-Plugin einsetzen. Wir gehen
+> hier den Weg über das Gradle-Plugin, d.h. es gibt keinen (guten) Grund
+> für eine "richtige" Installation von ANTLR.
 
 Einordnung ins Curriculum: Wir betrachten jetzt im 2. Semester nur die
 rein praktische Nutzung als Bibliothek. Später im 3. Semester werden wir
@@ -4553,9 +4553,9 @@ Präfix `Foo` kommt von der betrachteten Grammatik, diese würde hier also
 
 > [!TIP]
 >
-> Wichtig: Diese Gradle-Konfiguration müssen Sie sich nicht im Detail
-> merken. Nutzen Sie sie in diesem Kurs als Template und passen Sie sie
-> bei Bedarf an.
+> Diese Gradle-Konfiguration müssen Sie sich nicht im Detail merken.
+> Nutzen Sie sie in diesem Kurs als Template und passen Sie sie bei
+> Bedarf an.
 
 ##### Beispielgrammatik
 
@@ -4684,12 +4684,11 @@ Ende der Eingabe kennzeichnet.
 
 > [!NOTE]
 >
-> Wichtig: Der gesamte Eingabetext muss so in gültige Token überführt
-> werden können, dass jede Zeichenposition zu einem Token gehört. Wenn
-> der Lexer auf Zeichen stösst, die zu keiner der definierten
-> Token-Regeln passen, meldet er einen Fehler (über seine
-> Error-Listener) und je nach Konfiguration kann dies auch zu einer
-> Exception führen.
+> Der gesamte Eingabetext muss so in gültige Token überführt werden
+> können, dass jede Zeichenposition zu einem Token gehört. Wenn der
+> Lexer auf Zeichen stösst, die zu keiner der definierten Token-Regeln
+> passen, meldet er einen Fehler (über seine Error-Listener) und je nach
+> Konfiguration kann dies auch zu einer Exception führen.
 
 ##### Minimaler Java-Code: Text -\> Baum
 
@@ -4964,102 +4963,99 @@ Lektion [Visitor-Pattern](#id-ff6c3f74c23480f2273b18c9777709c80ff62a7e).
     abfragen und dann mit `ctx.getChild(i)` gezielt auf ein Kind
     zugreifen (Indexbereich `0` bis `getChildCount() - 1`).
 
-> [!IMPORTANT]
->
-> ###### Visitor-Rückgaben und Aggregation in ANTLR vs. zustandsbehaftete Visitoren
->
-> Wir nutzen hier in Prog2 einfach einen **zustandsbehafteten Visitor**:
-> Die `visitXYZ`-Methoden arbeiten mit einer internen
-> **Hilfsdatenstruktur** wie `Stack`, `Map` oder `StringBuilder` (oder
-> andere, abhängig vom Ziel) und schreiben ihre Ergebnisse dort hinein.
-> Das ist leicht zu verstehen und man muss sich nicht darum kümmern, wie
-> ANTLR Ergebnisse aus Kindknoten zusammenführt.
->
-> Sie überschreiben die `visitXYZ`-Methoden für Knoten, die Ausgaben
-> erzeugen sollen (z.B. `prog`, `stmt`, `expr`). Andere Regeln können
-> unüberschrieben bleiben, solange Sie in Ihren überschriebenen Methoden
-> die notwendigen Kinder mit `visit(...)` (oder `visitChildren(...)`)
-> weiter besuchen.
->
-> Beispiel: Pretty-Printing für arithmetische Ausdrücke mit
-> `StringBuilder` (einfach und robust):
->
-> ``` java
-> class PrettyPrinterState extends MiniCalcBaseVisitor<Void> {
->   private final StringBuilder out = new StringBuilder();
->
->   // hier fehlt noch visitProg für korrekte Zeilenumbrüche zw. den Statements
->   // hier fehlt noch visitExpr für eine "schöne" Formatierung der Expressions
->
->   @Override
->   public Void visitStmt(MiniCalcParser.StmtContext ctx) {
->     if (ctx.ID() != null) {             // stmt  : ID '=' expr ';'
->       out.append(ctx.ID().getText()).append(" = ");
->       visit(ctx.expr());
->       out.append(";");
->     } else {                            // stmt  : expr ';'
->       visit(ctx.expr());
->       out.append(";");
->     }
->     return null;
->   }
->
->   public String result() {
->     return out.toString();              // Zugriff auf das Ergebnis
->   }
-> }
-> ```
->
-> Für Fortgeschrittene: Man kann auch mit Rückgabewerten arbeiten und
-> die Standardlogik aus `AbstractParseTreeVisitor` nutzen. Dann ist
-> wichtig zu wissen: `visitChildren()` sammelt die Ergebnisse der Kinder
-> über eine *interne Aggregation*. Wenn man will, dass wirklich alle
-> Kind-Ergebnisse korrekt zusammenkommen (zum Beispiel bei `String`),
-> muss man in der eigenen Visitor-Klasse normalerweise `defaultResult()`
-> und `aggregateResult()` geeignet überschreiben.
->
-> Vorsicht: Ein häufiges Problem beim Rückgabe-Visitor ist das "Teile
-> verschlucken". In `AbstractParseTreeVisitor` ist die
-> Standardaggregation so ausgelegt, dass oft nur ein Teilergebnis
-> weitergegeben wird (typisch: das letzte Nicht-Default-Ergebnis).
-> Deshalb muss man für `String` meist `defaultResult()` und
-> `aggregateResult()` überschreiben, damit wirklich wie gewünscht in
-> allen Fällen konkateniert wird.
->
-> Beispiel für Fortgeschrittene: Pretty-Printing für arithmetische
-> Ausdrücke mit ANTLR-Aggregation mit Typ-Variablen/Rückgabetyp `String`
-> (mehr "Magie", aber sauber):
->
-> ``` java
-> class PrettyVisitorAggregation extends MiniCalcBaseVisitor<String> {
->   @Override protected String defaultResult() {
->     return "";
->   }
->
->   @Override
->   protected String aggregateResult(String aggregate, String nextResult) {
->     return aggregate + nextResult;
->   }
->
->   // hier fehlt noch visitProg für korrekte Zeilenumbrüche zw. den Statements
->   // hier fehlt noch visitExpr für eine "schöne" Formatierung der Expressions
->
->   @Override
->   public String visitStmt(MiniCalcParser.StmtContext ctx) {
->     if (ctx.ID() != null)               // stmt  : ID '=' expr ';'
->       return ctx.ID().getText() + " = " + visit(ctx.expr()) + ";\n";
->     else                                // stmt  : expr ';'
->       return visit(ctx.expr()) + ";\n";
->   }
->
->   // Ergebnis über den Rückgabetyp - keine Hilfsmethode und interne Hilfsdatenstruktur notwendig
-> }
-> ```
->
-> Merke: `StringBuilder` ist oft die beste Wahl für den Einstieg. Die
-> eingebaute Aggregation ist praktisch, aber nur dann gut nutzbar, wenn
-> man die Sammellogik (`defaultResult`/`aggregateResult`) passend
-> definiert.
+###### Hinweis: Visitor-Rückgaben und Aggregation in ANTLR vs. zustandsbehaftete Visitoren
+
+Wir nutzen hier in Prog2 einfach einen **zustandsbehafteten Visitor**:
+Die `visitXYZ`-Methoden arbeiten mit einer internen
+**Hilfsdatenstruktur** wie `Stack`, `Map` oder `StringBuilder` (oder
+andere, abhängig vom Ziel) und schreiben ihre Ergebnisse dort hinein.
+Das ist leicht zu verstehen und man muss sich nicht darum kümmern, wie
+ANTLR Ergebnisse aus Kindknoten zusammenführt.
+
+Sie überschreiben die `visitXYZ`-Methoden für Knoten, die Ausgaben
+erzeugen sollen (z.B. `prog`, `stmt`, `expr`). Andere Regeln können
+unüberschrieben bleiben, solange Sie in Ihren überschriebenen Methoden
+die notwendigen Kinder mit `visit(...)` (oder `visitChildren(...)`)
+weiter besuchen.
+
+Beispiel: Pretty-Printing für arithmetische Ausdrücke mit
+`StringBuilder` (einfach und robust):
+
+``` java
+class PrettyPrinterState extends MiniCalcBaseVisitor<Void> {
+  private final StringBuilder out = new StringBuilder();
+
+  // hier fehlt noch visitProg für korrekte Zeilenumbrüche zw. den Statements
+  // hier fehlt noch visitExpr für eine "schöne" Formatierung der Expressions
+
+  @Override
+  public Void visitStmt(MiniCalcParser.StmtContext ctx) {
+    if (ctx.ID() != null) {             // stmt  : ID '=' expr ';'
+      out.append(ctx.ID().getText()).append(" = ");
+      visit(ctx.expr());
+      out.append(";");
+    } else {                            // stmt  : expr ';'
+      visit(ctx.expr());
+      out.append(";");
+    }
+    return null;
+  }
+
+  public String result() {
+    return out.toString();              // Zugriff auf das Ergebnis
+  }
+}
+```
+
+Für Fortgeschrittene: Man kann auch mit Rückgabewerten arbeiten und die
+Standardlogik aus `AbstractParseTreeVisitor` nutzen. Dann ist wichtig zu
+wissen: `visitChildren()` sammelt die Ergebnisse der Kinder über eine
+*interne Aggregation*. Wenn man will, dass wirklich alle Kind-Ergebnisse
+korrekt zusammenkommen (zum Beispiel bei `String`), muss man in der
+eigenen Visitor-Klasse normalerweise `defaultResult()` und
+`aggregateResult()` geeignet überschreiben.
+
+Vorsicht: Ein häufiges Problem beim Rückgabe-Visitor ist das "Teile
+verschlucken". In `AbstractParseTreeVisitor` ist die Standardaggregation
+so ausgelegt, dass oft nur ein Teilergebnis weitergegeben wird (typisch:
+das letzte Nicht-Default-Ergebnis). Deshalb muss man für `String` meist
+`defaultResult()` und `aggregateResult()` überschreiben, damit wirklich
+wie gewünscht in allen Fällen konkateniert wird.
+
+Beispiel für Fortgeschrittene: Pretty-Printing für arithmetische
+Ausdrücke mit ANTLR-Aggregation mit Typ-Variablen/Rückgabetyp `String`
+(mehr "Magie", aber sauberer):
+
+``` java
+class PrettyVisitorAggregation extends MiniCalcBaseVisitor<String> {
+  @Override protected String defaultResult() {
+    return "";
+  }
+
+  @Override
+  protected String aggregateResult(String aggregate, String nextResult) {
+    return aggregate + nextResult;
+  }
+
+  // hier fehlt noch visitProg für korrekte Zeilenumbrüche zw. den Statements
+  // hier fehlt noch visitExpr für eine "schöne" Formatierung der Expressions
+
+  @Override
+  public String visitStmt(MiniCalcParser.StmtContext ctx) {
+    if (ctx.ID() != null)               // stmt  : ID '=' expr ';'
+      return ctx.ID().getText() + " = " + visit(ctx.expr()) + ";\n";
+    else                                // stmt  : expr ';'
+      return visit(ctx.expr()) + ";\n";
+  }
+
+  // Ergebnis über den Rückgabetyp - keine Hilfsmethode und interne Hilfsdatenstruktur notwendig
+}
+```
+
+Merke: `StringBuilder` ist oft die beste Wahl für den Einstieg. Die
+eingebaute Aggregation ist praktisch, aber nur dann gut nutzbar, wenn
+man die Sammellogik (`defaultResult`/`aggregateResult`) passend
+definiert.
 
 ##### Ausblick: Pattern Matching auf Bäumen (neuere Java-Versionen)
 
@@ -5808,11 +5804,11 @@ vorzunehmen (`logging.properties`).
 
 > [!TIP]
 >
-> *Hinweis*: In vielen professionellen Projekten werden heute (für
-> flexible Konfiguration und bessere Integrationen) Logging-Frameworks
-> wie SLF4J mit Logback genutzt. Die hier vorgestellte Logik (Logger,
-> Level, Handler/Appender, Formatter/Layouts, Hierarchie) überträgt sich
-> jedoch nahezu 1:1 darauf.
+> In vielen professionellen Projekten werden heute (für flexible
+> Konfiguration und bessere Integrationen) Logging-Frameworks wie SLF4J
+> mit Logback genutzt. Die hier vorgestellte Logik (Logger, Level,
+> Handler/Appender, Formatter/Layouts, Hierarchie) überträgt sich jedoch
+> nahezu 1:1 darauf.
 
 ##### Wrap-Up
 
@@ -6429,8 +6425,8 @@ Codespaces**](https://github.com/features/codespaces) von GitHub auf.
 >
 > Dazu gibt es auch das eigenständige Projekt:
 >
-> https://containers.dev/
-> https://code.visualstudio.com/docs/devcontainers/containers
+> [containers.dev](https://containers.dev/) und
+> [code.visualstudio.com/docs/devcontainers/containers](https://code.visualstudio.com/docs/devcontainers/containers)
 
 <p align="right"><a href="https://youtu.be/Rs1W_rXkoNM">Demo: VSCode und Docker</a></p>
 
@@ -6469,8 +6465,6 @@ Codespaces**](https://github.com/features/codespaces) von GitHub auf.
 >     Docker](http://git03-ifm-min.ad.hsbi.de/help/ci/docker/using_docker_images.md#overriding-the-entrypoint-of-an-image)
 > -   [VSCode: Entwickeln in
 >     Docker-Containern](https://code.visualstudio.com/docs/remote/containers)
-> -   Nickoloff ([2019](#ref-DockerInAction)) und Miell und Sayers
->     ([2019](#ref-DockerInPractice))
 >
 > </details>
 
@@ -6680,24 +6674,24 @@ Durchführung wiederholbarer Tests
 
 > [!TIP]
 >
-> *Anmerkung*: Wie der Name schon sagt, ist das Framework für Modultests
+> Wie der Name schon sagt, ist das Framework für Modultests
 > ("Unit-Tests") gedacht. Man kann damit aber auch prima auf anderen
 > Teststufen arbeiten und beispielsweise Systemtests definieren.
 
 > [!CAUTION]
 >
-> *Wichtig*: In dieser Lehrveranstaltung besprechen wir JUnit am
-> Beispiel **JUnit 6**. **Sofern nicht explizit etwas anderes vermerkt
-> ist, meint die Angabe "JUnit" immer "JUnit (Version 6.x)".**
+> In dieser Lehrveranstaltung besprechen wir JUnit am Beispiel **JUnit
+> 6**. **Sofern nicht explizit etwas anderes vermerkt ist, meint die
+> Angabe "JUnit" immer "JUnit (Version 6.x)".**
 
 > [!TIP]
 >
-> *Anmerkung*: Mit JUnit 3 sollte definitiv nicht mehr aktiv gearbeitet
-> werden, d.h. insbesondere keine neuen Tests mehr erstellt werden, da
-> diese Version nicht mehr weiterentwickelt wird. Es kann sein, dass
-> Ihnen in Produktivumgebungen noch häufig Testsuiten in JUnit 4
-> begegnen - achten Sie dort auf die verwendeten Annotationen, die sich
-> teilweise leicht von der modernen Variante unterscheiden.
+> Mit JUnit 3 sollte definitiv nicht mehr aktiv gearbeitet werden, d.h.
+> insbesondere keine neuen Tests mehr erstellt werden, da diese Version
+> nicht mehr weiterentwickelt wird. Es kann sein, dass Ihnen in
+> Produktivumgebungen noch häufig Testsuiten in JUnit 4 begegnen -
+> achten Sie dort auf die verwendeten Annotationen, die sich teilweise
+> leicht von der modernen Variante unterscheiden.
 
 ##### Einbinden von JUnit (Gradle)
 
@@ -6958,9 +6952,9 @@ beim Start über die IDE oder Gradle ...
 
 > [!WARNING]
 >
-> Wichtig: Die Assertions sind per Default deaktiviert und müssen erst
-> manuell aktiviert werden. Außerdem wird bei Verletzung der Bedingung
-> eine *unchecked exception* (ein Error) geworfen, der auf einen nicht
+> Die Assertions sind per Default deaktiviert und müssen erst manuell
+> aktiviert werden. Außerdem wird bei Verletzung der Bedingung eine
+> *unchecked exception* (ein Error) geworfen, der auf einen nicht
 > korrigierbaren Programmzustand hindeutet.
 >
 > 1.  Nutzen Sie das Java-`assert` deshalb nicht als Ersatz für das
@@ -7880,7 +7874,7 @@ sollte man dies bei der Äquivalenzklassenbildung berücksichtigen: Die ÄK
 sind in diesem Fall in Bezug auf die Kombinationen zu bilden!
 
 Schauen Sie sich dazu das Beispiel im Kleuker
-([2019](#ref-Kleuker2019)), Abschnitt "4.3 Analyse abhängiger Parameter"
+([2026](#ref-Kleuker2026)), Abschnitt "4.3 Analyse abhängiger Parameter"
 an.
 
 Die einfache ÄK-Bildung würde in diesem Fall versagen, da die
@@ -7892,7 +7886,7 @@ objektorientierter Programmierung. Die Eingabewerte und der
 Objektzustand müssen dann *gemeinsam* bei der ÄK-Bildung betrachtet
 werden!
 
-Vergleiche Kleuker ([2019](#ref-Kleuker2019)), Abschnitt "4.4
+Vergleiche Kleuker ([2026](#ref-Kleuker2026)), Abschnitt "4.4
 Äquivalenzklassen und Objektorientierung".
 
 ##### Wrap-Up
@@ -12565,9 +12559,9 @@ besser explizit `orElseThrow()` bzw. `orElse(...)`.
 
 > [!TIP]
 >
-> *Anmerkung*: Da `getBestStudi()` eine `NullPointerException` werfen
-> kann (vgl. Implementierung am Anfang), sollte der Aufruf
-> möglicherweise in ein `try/catch` verpackt werden.
+> Da `getBestStudi()` eine `NullPointerException` werfen kann (vgl.
+> Implementierung am Anfang), sollte der Aufruf möglicherweise in ein
+> `try/catch` verpackt werden.
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/optional/traditional/Demo.java">Beispiel: optional.traditional.Demo</a></p>
 
@@ -13725,20 +13719,19 @@ Der typische Lebenszyklus eines Observers sieht also so aus:
 
 > [!TIP]
 >
-> **Hinweis**: Im obigen Beispiel wurde für die Observer eine Liste
-> verwendet: `List<Observer> observers`. Je nach Anwendungsfall kann das
-> aber auch eine andere Datenstruktur sein - beispielsweise könnte man
-> mit einer Menge (`Set`) vermeiden, dass sich Observer mehrfach
-> registrieren können. Der verwendete Datentyp hängt nicht am
-> Observer-Pattern!
+> Im obigen Beispiel wurde für die Observer eine Liste verwendet:
+> `List<Observer> observers`. Je nach Anwendungsfall kann das aber auch
+> eine andere Datenstruktur sein - beispielsweise könnte man mit einer
+> Menge (`Set`) vermeiden, dass sich Observer mehrfach registrieren
+> können. Der verwendete Datentyp hängt nicht am Observer-Pattern!
 
 > [!IMPORTANT]
 >
-> **Wichtig**: In der Standarddefinition des Observer-Patterns nach
-> ([Gamma u. a. 2011](#ref-Gamma2011)) werden beim Aufruf der Methode
-> `update()` **keine Werte** an die Observer mitgegeben. Jeder Observer
-> muss sich entsprechend eine eigene Referenz auf das beobachtete Objekt
-> halten, um von dort dann weitere Informationen erhalten zu können.
+> In der Standarddefinition des Observer-Patterns nach ([Gamma u. a.
+> 2011](#ref-Gamma2011)) werden beim Aufruf der Methode `update()`
+> **keine Werte** an die Observer mitgegeben. Jeder Observer muss sich
+> entsprechend eine eigene Referenz auf das beobachtete Objekt halten,
+> um von dort dann weitere Informationen erhalten zu können.
 >
 > Wir nutzen im Rahmen dieses Moduls in der Regel eine **erweiterte
 > Variante**, bei der `update()` einen oder mehrere Parameter
@@ -13792,10 +13785,10 @@ Der typische Lebenszyklus eines Observers sieht also so aus:
 
 > [!TIP]
 >
-> **Hinweis**: Es gibt in der Java-Standardbibliothek (`java.util`)
-> bereits die Klassen `Observer` und `Observable`, die aber als
-> "deprecated" gekennzeichnet sind. Sinnvollerweise nutzen Sie nicht
-> diese vorgegebene Variante, sondern implementieren Ihre eigenen
+> Es gibt in der Java-Standardbibliothek (`java.util`) bereits die
+> Klassen `Observer` und `Observable`, die aber als "deprecated"
+> gekennzeichnet sind. Sinnvollerweise nutzen Sie nicht diese
+> vorgegebene Variante, sondern implementieren Ihre eigenen
 > Interfaces/Klassen, wenn Sie das Observer-Pattern einsetzen wollen!
 
 ##### Wrap-Up
@@ -14320,7 +14313,7 @@ Beim Parsen von "5\*4+3" würde dabei der folgende Parse-Tree entstehen:
 
 > [!TIP]
 >
-> Anmerkung: Wer genau hinschaut und sich schon die
+> Wer genau hinschaut und sich schon die
 > [ANTLR-Session](#id-83d8235fd174219b3470528d945d3dd848c55ad3)
 > angeschaut hat, wird merken, dass dieser Baum tatsächlich *kein*
 > Parse-Tree von ANTRL basierend auf der Grammatik ist. Hier habe ich
@@ -14960,12 +14953,12 @@ Damit passiert Folgendes:
 
 > [!IMPORTANT]
 >
-> Wichtig: In Java wird die Auswahl der passenden *Überladung*
-> (`visit(AddExpr)` vs. `visit(MulExpr)` ...) **zur Compile-Zeit**
-> anhand des statischen Typs des Arguments getroffen - hier also anhand
-> des Typs `AddExpr` in der jeweiligen `accept`-Methode. Zur Laufzeit
-> wird dann über den Typ des Visitors entschieden, welche konkrete
-> Implementierung dieser Methode ausgeführt wird.
+> In Java wird die Auswahl der passenden *Überladung* (`visit(AddExpr)`
+> vs. `visit(MulExpr)` ...) **zur Compile-Zeit** anhand des statischen
+> Typs des Arguments getroffen - hier also anhand des Typs `AddExpr` in
+> der jeweiligen `accept`-Methode. Zur Laufzeit wird dann über den Typ
+> des Visitors entschieden, welche konkrete Implementierung dieser
+> Methode ausgeführt wird.
 
 ####### 3. Warum braucht das Pattern diesen Mechanismus?
 
@@ -15475,14 +15468,13 @@ public interface GradeService {
 
 > [!TIP]
 >
-> *Anmerkung*: Ein `double` zur Repräsentation einer Note zu nehmen ist
-> ... nicht sooo toll. Hier sollte man sich besser was anderes
-> überlegen, beispielsweise ein Enum oder etwas anderes. Ein `double`
-> kann zwar technisch auch die typischen Noten-Werte wie "1.3" halten,
-> aber eben auch noch viele andere Werte, die wir hier nicht haben
-> wollen. Um also später unnötige Checks und Operationen zu vermeiden,
-> sollte man den Datentyp `Grade` lieber vernünftig modellieren (Enum
-> o.ä.).
+> Ein `double` zur Repräsentation einer Note zu nehmen ist ... nicht
+> sooo toll. Hier sollte man sich besser was anderes überlegen,
+> beispielsweise ein Enum oder etwas anderes. Ein `double` kann zwar
+> technisch auch die typischen Noten-Werte wie "1.3" halten, aber eben
+> auch noch viele andere Werte, die wir hier nicht haben wollen. Um also
+> später unnötige Checks und Operationen zu vermeiden, sollte man den
+> Datentyp `Grade` lieber vernünftig modellieren (Enum o.ä.).
 >
 > Das `double` habe ich hier im Beispielszenario nur genommen, um nicht
 > unnötig von den wesentlichen Details abzulenken!
@@ -15561,13 +15553,13 @@ Vorteile:
 
 > [!TIP]
 >
-> **Anmerkung**: Die Übergabe eines konkreten `GradeService`-Objekts im
-> Konstruktor funktioniert technisch und löst unser Kopplungsproblem
-> ausreichend gut. Man darf sich aber schon die Frage stellen, ob ein
-> `Student` wirklich ein festes Feld für einen `GradeService` haben
-> muss, oder ob man das nicht einfach jeweils dynamisch beim Aufruf der
-> Methode `Student#printGradeFor` mitgeben könnte ... Auch das wäre
-> "Dependency Injection" (nur eben keine "Konstruktor-Injektion").
+> Die Übergabe eines konkreten `GradeService`-Objekts im Konstruktor
+> funktioniert technisch und löst unser Kopplungsproblem ausreichend
+> gut. Man darf sich aber schon die Frage stellen, ob ein `Student`
+> wirklich ein festes Feld für einen `GradeService` haben muss, oder ob
+> man das nicht einfach jeweils dynamisch beim Aufruf der Methode
+> `Student#printGradeFor` mitgeben könnte ... Auch das wäre "Dependency
+> Injection" (nur eben keine "Konstruktor-Injektion").
 
 ##### Schritt 3: Verdrahtung im "Composition Root"
 
@@ -18021,8 +18013,8 @@ Compiler-Warnungen).
 
 > [!TIP]
 >
-> *Anmerkung*: `Vector` ist streng genommen historisch ("Legacy"). Die
-> Klasse ist für Multithreading/Nebenläufigkeit ausgelegt (Methoden sind
+> `Vector` ist streng genommen historisch ("Legacy"). Die Klasse ist für
+> Multithreading/Nebenläufigkeit ausgelegt (Methoden sind
 > synchronisiert) und verursacht dadurch in klassischen nicht
 > nebenläufigen Programmen einen unnötigen Synchronisations-Overhead.
 > Nutzen Sie für neuen, nicht nebenläufigen Code meist lieber
@@ -18419,9 +18411,9 @@ sein.
 
 > [!TIP]
 >
-> *Anmerkung*: Der Typ-Parameter ist **nur** mit `extends` nach oben
-> beschränkbar. Für die Wildcards gibt es zusätzlich auch noch die
-> Beschränkung mit `super` nach unten.
+> Der Typ-Parameter ist **nur** mit `extends` nach oben beschränkbar.
+> Für die Wildcards gibt es zusätzlich auch noch die Beschränkung mit
+> `super` nach unten.
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/bounds/Cps.java">Beispiel bounds.Cps</a></p>
 
@@ -19019,8 +19011,8 @@ keine Generics mehr!**
 
 > [!TIP]
 >
-> **Hinweis**: In C++ ist man den anderen möglichen Weg gegangen und
-> erzeugt für jede Instantiierung die passende Klasse.
+> In C++ ist man den anderen möglichen Weg gegangen und erzeugt für jede
+> Instantiierung die passende Klasse.
 
 **Beispiel**: Aus dem folgenden harmlosen Code-Fragment:
 
@@ -19250,8 +19242,6 @@ notwendige Casts, vom Compiler nach dem Type-Check automatisch
 eingefügt).
 
 > [!TIP]
->
-> Hintergrund:
 >
 > Arrays gab es bereits sehr früh, Generics wurden erst viel später
 > nachträglich hinzugefügt (in Java 5). Bei Arrays fand man das
@@ -19649,11 +19639,10 @@ public static void main(String[] args) throws IOException {
 
 > [!IMPORTANT]
 >
-> **Anmerkung**: Das bloße Ausgeben des Stacktrace via
-> `e.printStackTrace()` ist noch **kein sinnvolles Exception-Handling**!
-> Hier sollte auf die jeweilige Situation eingegangen werden und
-> versucht werden, den Fehler zu beheben oder dem Aufrufer geeignet zu
-> melden!
+> Das bloße Ausgeben des Stacktrace via `e.printStackTrace()` ist noch
+> **kein sinnvolles Exception-Handling**! Hier sollte auf die jeweilige
+> Situation eingegangen werden und versucht werden, den Fehler zu
+> beheben oder dem Aufrufer geeignet zu melden!
 
 ##### *Try* und mehrstufiges *Catch*
 
@@ -19677,27 +19666,27 @@ Eine im `try`-Block auftretende Exception wird der Reihe nach mit den
 
 > [!IMPORTANT]
 >
-> **Wichtig**: Dabei muss die Vererbungshierarchie beachtet werden. Die
+> Dabei muss die Vererbungshierarchie beachtet werden. Die
 > spezialisierteste Klasse muss ganz oben stehen, die allgemeinste
 > Klasse als letztes. Sonst wird eine Exception u.U. zu früh in einem
 > nicht dafür gedachten `catch`-Zweig aufgefangen.
 
 > [!IMPORTANT]
 >
-> **Wichtig**: Wenn eine Exception nicht durch die `catch`-Zweige
-> aufgefangen wird, dann wird sie an den Aufrufer weiter geleitet. Im
-> Beispiel würde eine `IOException` nicht durch die `catch`-Zweige
-> gefangen (`NumberFormatException` und `ArithmeticException` sind im
-> falschen Vererbungszweig, und `FileNotFoundException` ist spezieller
-> als `IOException`) und entsprechend an den Aufrufer weiter gereicht.
-> Da es sich obendrein um eine checked Exception handelt, müsste man
-> diese per `throws IOException` an der Methode deklarieren.
+> Wenn eine Exception nicht durch die `catch`-Zweige aufgefangen wird,
+> dann wird sie an den Aufrufer weiter geleitet. Im Beispiel würde eine
+> `IOException` nicht durch die `catch`-Zweige gefangen
+> (`NumberFormatException` und `ArithmeticException` sind im falschen
+> Vererbungszweig, und `FileNotFoundException` ist spezieller als
+> `IOException`) und entsprechend an den Aufrufer weiter gereicht. Da es
+> sich obendrein um eine checked Exception handelt, müsste man diese per
+> `throws IOException` an der Methode deklarieren.
 
 > [!TIP]
 >
-> **Hinweis**: Nur `IOException` ist *checked*. `NumberFormatException`
-> und `ArithmeticException` sind *unchecked* - Fangen ist optional, aber
-> oft sinnvoll.
+> Nur `IOException` ist *checked*. `NumberFormatException` und
+> `ArithmeticException` sind *unchecked* - Fangen ist optional, aber oft
+> sinnvoll.
 
 ##### *Finally* und Aufräumen
 
@@ -19717,8 +19706,7 @@ zum Schließen von Verbindungen oder Input-Streams.
 
 > [!TIP]
 >
-> **Hinweis**: `finally` wird auch dann ausgeführt, wenn im `try` ein
-> `return` steht.
+> `finally` wird auch dann ausgeführt, wenn im `try` ein `return` steht.
 
 ##### Freigeben von Ressourcen: *Try*-with-Resources
 
@@ -22002,8 +21990,8 @@ public int setDate(int date) {
         Element veraltet ist und möglicherweise mit der nächsten Version
         o.ä. entfernt wird. (siehe nächste Folie)
 
-=\> Dies sind die Basis-Regeln aus dem populären Google-Java-Style
-([Google Open Source 2022](#ref-googlestyleguide)).
+=\> Dies sind die Basis-Regeln aus dem populären
+[Google-Java-Style](https://google.github.io/styleguide/javaguide.html).
 
 ##### Veraltete Elemente
 
@@ -22079,9 +22067,7 @@ sein sollte. Versuchen Sie, dieses zu erreichen!
 Etwas technisch, aber ebenfalls sehr lesenswert ist der Style-Guide für
 Java-Software [How to Write Doc Comments for the Javadoc
 Tool](https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html)
-von
-
-1.  
+von Oracle.
 
 ##### Wrap-Up
 
@@ -22102,9 +22088,9 @@ von
 > <details open>
 > <summary><strong>📖 Zum Nachlesen</strong></summary>
 >
-> -   Ullenboom ([2021, 23.4](#ref-Ullenboom2021))
-> -   Google Open Source ([2022, Kap. 7](#ref-googlestyleguide))
-> -   1
+> Schauen Sie sich den
+> [Google-Java-Style](https://google.github.io/styleguide/javaguide.html)
+> an. Dieser ist sehr ausführlich dokumentiert.
 >
 > </details>
 
@@ -22277,7 +22263,7 @@ gemacht ist, können Sie jederzeit auf eine andere IDE wechseln.
 
 > [!CAUTION]
 >
-> Windows-User: Im Programmierumfeld, insbesondere für Source- und
+> **Windows-User**: Im Programmierumfeld, insbesondere für Source- und
 > Konfigurations-Dateien, ist das Encoding **UTF-8** de facto Standard.
 > D.h. wenn Sie beispielsweise ein Repo klonen, werden die Dateien im
 > UTF-8-Encoding heruntergeladen. Sorgen Sie in den Einstellungen Ihrer
@@ -23692,7 +23678,7 @@ farblich hervorgehoben.
 
 > [!IMPORTANT]
 >
-> **Wichtig**: Die Filterung in der Filter-App wird über den
+> Die Filterung in der Filter-App wird über den
 > `filter.ast.eval.Evaluator` realisiert und funktioniert deshalb erst,
 > wenn Sie den AST-Builder `filter.ast.builder.AstBuilderPattern`
 > implementiert haben.
@@ -23735,7 +23721,7 @@ noch mit Leben.
 
 > [!TIP]
 >
-> *Hinweis*: Implementieren Sie wie in der Vorlesung gezeigt einen
+> Implementieren Sie wie in der Vorlesung gezeigt einen
 > zustandsbehafteten Visitor. Sie arbeiten entsprechend aktiv mit
 > mehreren Stacks, beispielsweise `Deque<Expr>` und `Deque<Value>`.
 > Prinzipiell ist der Ablauf pro Knoten ungefähr dieser: Sie besuchen
@@ -23883,16 +23869,15 @@ als Attribut.
 
 > [!IMPORTANT]
 >
-> **Hinweis**: Nutzen Sie `permits` in Ihren `sealed`-Deklarationen so,
-> dass nur die von Ihnen gewünschten Implementierungen erlaubt sind.
+> Nutzen Sie `permits` in Ihren `sealed`-Deklarationen so, dass nur die
+> von Ihnen gewünschten Implementierungen erlaubt sind.
 
 > [!TIP]
 >
-> **Hinweis**: Da wir hier keine Java-Module verwenden, müssen alle
-> Klassen und Interfaces, die in einer `sealed`-Hierarchie über
-> `permits` verbunden sind, im gleichen Package liegen, z.B.
-> `zoo.animal`. Unterpakete wie `zoo.animal.birds` sind deshalb für
-> `sealed` hier nicht möglich.
+> Da wir hier keine Java-Module verwenden, müssen alle Klassen und
+> Interfaces, die in einer `sealed`-Hierarchie über `permits` verbunden
+> sind, im gleichen Package liegen, z.B. `zoo.animal`. Unterpakete wie
+> `zoo.animal.birds` sind deshalb für `sealed` hier nicht möglich.
 
 ###### Aufgabe 1.2: Generische Gehege definieren als generische Klassen
 
@@ -24741,20 +24726,6 @@ public class MoreLogging {
 >
 > </div>
 >
-> <div id="ref-googlestyleguide" class="csl-entry">
->
-> Google Open Source. 2022. „Google Java Style Guide".
-> <https://google.github.io/styleguide/javaguide.html>.
->
-> </div>
->
-> <div id="ref-Kleuker2019" class="csl-entry">
->
-> Kleuker, S. 2019. *Qualitätssicherung durch Softwaretests*. Springer
-> Vieweg. <https://doi.org/10.1007/978-3-658-24886-4>.
->
-> </div>
->
 > <div id="ref-Kleuker2026" class="csl-entry">
 >
 > Kleuker, S. 2026. *Qualitätssicherung durch Softwaretests*. Springer
@@ -24765,19 +24736,6 @@ public class MoreLogging {
 > <div id="ref-Martin2009" class="csl-entry">
 >
 > Martin, R. 2009. *Clean Code*. Mitp.
->
-> </div>
->
-> <div id="ref-DockerInPractice" class="csl-entry">
->
-> Miell, I., und A. H. Sayers. 2019. *Docker in Practice*. Manning
-> Publications.
->
-> </div>
->
-> <div id="ref-DockerInAction" class="csl-entry">
->
-> Nickoloff, D. 2019. *Docker in Action*. Manning Publications.
 >
 > </div>
 >
@@ -24803,14 +24761,6 @@ public class MoreLogging {
 >
 > </div>
 >
-> <div id="ref-Ullenboom2021" class="csl-entry">
->
-> Ullenboom, C. 2021. *Java ist auch eine Insel*. 16. Aufl.
-> Rheinwerk-Verlag.
-> <https://openbook.rheinwerk-verlag.de/javainsel/index.html>.
->
-> </div>
->
 > <div id="ref-SWEGoogle" class="csl-entry">
 >
 > Winters, T., T. Manshreck, und H. Wright. 2020. *Software Engineering
@@ -24831,17 +24781,17 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 **Exceptions:**
 
 -   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 5207d85 2026-06-29 docker: update section on devcontainers<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> d156a4d 2026-07-01 docker: remove books (outdated)<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm

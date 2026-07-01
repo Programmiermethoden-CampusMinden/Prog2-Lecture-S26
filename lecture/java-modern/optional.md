@@ -325,9 +325,9 @@ besser explizit `orElseThrow()` bzw. `orElse(...)`.
 
 > [!TIP]
 >
-> *Anmerkung*: Da `getBestStudi()` eine `NullPointerException` werfen
-> kann (vgl. Implementierung am Anfang), sollte der Aufruf
-> möglicherweise in ein `try/catch` verpackt werden.
+> Da `getBestStudi()` eine `NullPointerException` werfen kann (vgl.
+> Implementierung am Anfang), sollte der Aufruf möglicherweise in ein
+> `try/catch` verpackt werden.
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-modern/src/optional/traditional/Demo.java">Beispiel: optional.traditional.Demo</a></p>
 
@@ -1295,4 +1295,4 @@ Dadurch:
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 30295fe 2026-06-29 optional: improve slide formatting<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 4711c23 2026-07-01 optional: fix alert boxes<br></sub></sup></p></blockquote>

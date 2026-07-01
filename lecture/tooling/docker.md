@@ -526,8 +526,8 @@ Codespaces**](https://github.com/features/codespaces) von GitHub auf.
 >
 > Dazu gibt es auch das eigenständige Projekt:
 >
-> https://containers.dev/
-> https://code.visualstudio.com/docs/devcontainers/containers
+> [containers.dev](https://containers.dev/) und
+> [code.visualstudio.com/docs/devcontainers/containers](https://code.visualstudio.com/docs/devcontainers/containers)
 
 <p align="right"><a href="https://youtu.be/Rs1W_rXkoNM">Demo: VSCode und Docker</a></p>
 
@@ -566,8 +566,6 @@ Codespaces**](https://github.com/features/codespaces) von GitHub auf.
 >     Docker](http://git03-ifm-min.ad.hsbi.de/help/ci/docker/using_docker_images.md#overriding-the-entrypoint-of-an-image)
 > -   [VSCode: Entwickeln in
 >     Docker-Containern](https://code.visualstudio.com/docs/remote/containers)
-> -   Nickoloff ([2019](#ref-DockerInAction)) und Miell und Sayers
->     ([2019](#ref-DockerInPractice))
 >
 > </details>
 
@@ -590,34 +588,8 @@ Codespaces**](https://github.com/features/codespaces) von GitHub auf.
 
 ------------------------------------------------------------------------
 
-> [!NOTE]
->
-> <details >
-> <summary><strong>👀 Quellen</strong></summary>
->
-> <div id="refs" class="references csl-bib-body hanging-indent">
->
-> <div id="ref-DockerInPractice" class="csl-entry">
->
-> Miell, I., und A. H. Sayers. 2019. *Docker in Practice*. Manning
-> Publications.
->
-> </div>
->
-> <div id="ref-DockerInAction" class="csl-entry">
->
-> Nickoloff, D. 2019. *Docker in Action*. Manning Publications.
->
-> </div>
->
-> </div>
->
-> </details>
-
-------------------------------------------------------------------------
-
 <p align="center"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png"  /></p>
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 5207d85 2026-06-29 docker: update section on devcontainers<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> d156a4d 2026-07-01 docker: remove books (outdated)<br></sub></sup></p></blockquote>

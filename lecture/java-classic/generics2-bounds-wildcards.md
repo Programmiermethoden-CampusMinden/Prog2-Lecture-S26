@@ -66,9 +66,9 @@ sein.
 
 > [!TIP]
 >
-> *Anmerkung*: Der Typ-Parameter ist **nur** mit `extends` nach oben
-> beschränkbar. Für die Wildcards gibt es zusätzlich auch noch die
-> Beschränkung mit `super` nach unten.
+> Der Typ-Parameter ist **nur** mit `extends` nach oben beschränkbar.
+> Für die Wildcards gibt es zusätzlich auch noch die Beschränkung mit
+> `super` nach unten.
 
 <p align="right"><a href="https://github.com/Programmiermethoden-CampusMinden/Prog2-Lecture/blob/master/lecture/java-classic/src/bounds/Cps.java">Beispiel bounds.Cps</a></p>
 
@@ -348,4 +348,4 @@ Verfügung ...
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 6a589fb 2026-06-20 generics: clarify bound on type parameters and wildcards<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> ca5dbc4 2026-07-01 generics2: fix alert boxes<br></sub></sup></p></blockquote>

@@ -188,20 +188,19 @@ Der typische Lebenszyklus eines Observers sieht also so aus:
 
 > [!TIP]
 >
-> **Hinweis**: Im obigen Beispiel wurde für die Observer eine Liste
-> verwendet: `List<Observer> observers`. Je nach Anwendungsfall kann das
-> aber auch eine andere Datenstruktur sein - beispielsweise könnte man
-> mit einer Menge (`Set`) vermeiden, dass sich Observer mehrfach
-> registrieren können. Der verwendete Datentyp hängt nicht am
-> Observer-Pattern!
+> Im obigen Beispiel wurde für die Observer eine Liste verwendet:
+> `List<Observer> observers`. Je nach Anwendungsfall kann das aber auch
+> eine andere Datenstruktur sein - beispielsweise könnte man mit einer
+> Menge (`Set`) vermeiden, dass sich Observer mehrfach registrieren
+> können. Der verwendete Datentyp hängt nicht am Observer-Pattern!
 
 > [!IMPORTANT]
 >
-> **Wichtig**: In der Standarddefinition des Observer-Patterns nach
-> ([Gamma u. a. 2011](#ref-Gamma2011)) werden beim Aufruf der Methode
-> `update()` **keine Werte** an die Observer mitgegeben. Jeder Observer
-> muss sich entsprechend eine eigene Referenz auf das beobachtete Objekt
-> halten, um von dort dann weitere Informationen erhalten zu können.
+> In der Standarddefinition des Observer-Patterns nach ([Gamma u. a.
+> 2011](#ref-Gamma2011)) werden beim Aufruf der Methode `update()`
+> **keine Werte** an die Observer mitgegeben. Jeder Observer muss sich
+> entsprechend eine eigene Referenz auf das beobachtete Objekt halten,
+> um von dort dann weitere Informationen erhalten zu können.
 >
 > Wir nutzen im Rahmen dieses Moduls in der Regel eine **erweiterte
 > Variante**, bei der `update()` einen oder mehrere Parameter
@@ -255,10 +254,10 @@ Der typische Lebenszyklus eines Observers sieht also so aus:
 
 > [!TIP]
 >
-> **Hinweis**: Es gibt in der Java-Standardbibliothek (`java.util`)
-> bereits die Klassen `Observer` und `Observable`, die aber als
-> "deprecated" gekennzeichnet sind. Sinnvollerweise nutzen Sie nicht
-> diese vorgegebene Variante, sondern implementieren Ihre eigenen
+> Es gibt in der Java-Standardbibliothek (`java.util`) bereits die
+> Klassen `Observer` und `Observable`, die aber als "deprecated"
+> gekennzeichnet sind. Sinnvollerweise nutzen Sie nicht diese
+> vorgegebene Variante, sondern implementieren Ihre eigenen
 > Interfaces/Klassen, wenn Sie das Observer-Pattern einsetzen wollen!
 
 ## Wrap-Up
@@ -407,4 +406,4 @@ Statusänderungen
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 5aa48b5 2026-05-23 observer: improve wording: classic pattern vs. extended pattern<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> a8b0ec0 2026-07-01 observer: fix alert boxes<br></sub></sup></p></blockquote>

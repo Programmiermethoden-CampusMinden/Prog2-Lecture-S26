@@ -72,10 +72,10 @@ beispielsweise Python, C++, CSharp, JavaScript, Go, ...
 
 > [!IMPORTANT]
 >
-> **Wichtig**: Man kann ANTLR als eigenständiges Tool installieren
-> und/oder über das Gradle-Plugin nutzen und/oder das IntelliJ-Plugin
-> einsetzen. Wir gehen hier den Weg über das Gradle-Plugin, d.h. es gibt
-> keinen (guten) Grund für eine "richtige" Installation von ANTLR.
+> Man kann ANTLR als eigenständiges Tool installieren und/oder über das
+> Gradle-Plugin nutzen und/oder das IntelliJ-Plugin einsetzen. Wir gehen
+> hier den Weg über das Gradle-Plugin, d.h. es gibt keinen (guten) Grund
+> für eine "richtige" Installation von ANTLR.
 
 Einordnung ins Curriculum: Wir betrachten jetzt im 2. Semester nur die
 rein praktische Nutzung als Bibliothek. Später im 3. Semester werden wir
@@ -203,9 +203,9 @@ Präfix `Foo` kommt von der betrachteten Grammatik, diese würde hier also
 
 > [!TIP]
 >
-> Wichtig: Diese Gradle-Konfiguration müssen Sie sich nicht im Detail
-> merken. Nutzen Sie sie in diesem Kurs als Template und passen Sie sie
-> bei Bedarf an.
+> Diese Gradle-Konfiguration müssen Sie sich nicht im Detail merken.
+> Nutzen Sie sie in diesem Kurs als Template und passen Sie sie bei
+> Bedarf an.
 
 ## Beispielgrammatik
 
@@ -334,12 +334,11 @@ Ende der Eingabe kennzeichnet.
 
 > [!NOTE]
 >
-> Wichtig: Der gesamte Eingabetext muss so in gültige Token überführt
-> werden können, dass jede Zeichenposition zu einem Token gehört. Wenn
-> der Lexer auf Zeichen stösst, die zu keiner der definierten
-> Token-Regeln passen, meldet er einen Fehler (über seine
-> Error-Listener) und je nach Konfiguration kann dies auch zu einer
-> Exception führen.
+> Der gesamte Eingabetext muss so in gültige Token überführt werden
+> können, dass jede Zeichenposition zu einem Token gehört. Wenn der
+> Lexer auf Zeichen stösst, die zu keiner der definierten Token-Regeln
+> passen, meldet er einen Fehler (über seine Error-Listener) und je nach
+> Konfiguration kann dies auch zu einer Exception führen.
 
 ## Minimaler Java-Code: Text -\> Baum
 
@@ -614,102 +613,99 @@ Lektion [Visitor-Pattern](../pattern/visitor.md).
     abfragen und dann mit `ctx.getChild(i)` gezielt auf ein Kind
     zugreifen (Indexbereich `0` bis `getChildCount() - 1`).
 
-> [!IMPORTANT]
->
-> ### Visitor-Rückgaben und Aggregation in ANTLR vs. zustandsbehaftete Visitoren
->
-> Wir nutzen hier in Prog2 einfach einen **zustandsbehafteten Visitor**:
-> Die `visitXYZ`-Methoden arbeiten mit einer internen
-> **Hilfsdatenstruktur** wie `Stack`, `Map` oder `StringBuilder` (oder
-> andere, abhängig vom Ziel) und schreiben ihre Ergebnisse dort hinein.
-> Das ist leicht zu verstehen und man muss sich nicht darum kümmern, wie
-> ANTLR Ergebnisse aus Kindknoten zusammenführt.
->
-> Sie überschreiben die `visitXYZ`-Methoden für Knoten, die Ausgaben
-> erzeugen sollen (z.B. `prog`, `stmt`, `expr`). Andere Regeln können
-> unüberschrieben bleiben, solange Sie in Ihren überschriebenen Methoden
-> die notwendigen Kinder mit `visit(...)` (oder `visitChildren(...)`)
-> weiter besuchen.
->
-> Beispiel: Pretty-Printing für arithmetische Ausdrücke mit
-> `StringBuilder` (einfach und robust):
->
-> ``` java
-> class PrettyPrinterState extends MiniCalcBaseVisitor<Void> {
->   private final StringBuilder out = new StringBuilder();
->
->   // hier fehlt noch visitProg für korrekte Zeilenumbrüche zw. den Statements
->   // hier fehlt noch visitExpr für eine "schöne" Formatierung der Expressions
->
->   @Override
->   public Void visitStmt(MiniCalcParser.StmtContext ctx) {
->     if (ctx.ID() != null) {             // stmt  : ID '=' expr ';'
->       out.append(ctx.ID().getText()).append(" = ");
->       visit(ctx.expr());
->       out.append(";");
->     } else {                            // stmt  : expr ';'
->       visit(ctx.expr());
->       out.append(";");
->     }
->     return null;
->   }
->
->   public String result() {
->     return out.toString();              // Zugriff auf das Ergebnis
->   }
-> }
-> ```
->
-> Für Fortgeschrittene: Man kann auch mit Rückgabewerten arbeiten und
-> die Standardlogik aus `AbstractParseTreeVisitor` nutzen. Dann ist
-> wichtig zu wissen: `visitChildren()` sammelt die Ergebnisse der Kinder
-> über eine *interne Aggregation*. Wenn man will, dass wirklich alle
-> Kind-Ergebnisse korrekt zusammenkommen (zum Beispiel bei `String`),
-> muss man in der eigenen Visitor-Klasse normalerweise `defaultResult()`
-> und `aggregateResult()` geeignet überschreiben.
->
-> Vorsicht: Ein häufiges Problem beim Rückgabe-Visitor ist das "Teile
-> verschlucken". In `AbstractParseTreeVisitor` ist die
-> Standardaggregation so ausgelegt, dass oft nur ein Teilergebnis
-> weitergegeben wird (typisch: das letzte Nicht-Default-Ergebnis).
-> Deshalb muss man für `String` meist `defaultResult()` und
-> `aggregateResult()` überschreiben, damit wirklich wie gewünscht in
-> allen Fällen konkateniert wird.
->
-> Beispiel für Fortgeschrittene: Pretty-Printing für arithmetische
-> Ausdrücke mit ANTLR-Aggregation mit Typ-Variablen/Rückgabetyp `String`
-> (mehr "Magie", aber sauber):
->
-> ``` java
-> class PrettyVisitorAggregation extends MiniCalcBaseVisitor<String> {
->   @Override protected String defaultResult() {
->     return "";
->   }
->
->   @Override
->   protected String aggregateResult(String aggregate, String nextResult) {
->     return aggregate + nextResult;
->   }
->
->   // hier fehlt noch visitProg für korrekte Zeilenumbrüche zw. den Statements
->   // hier fehlt noch visitExpr für eine "schöne" Formatierung der Expressions
->
->   @Override
->   public String visitStmt(MiniCalcParser.StmtContext ctx) {
->     if (ctx.ID() != null)               // stmt  : ID '=' expr ';'
->       return ctx.ID().getText() + " = " + visit(ctx.expr()) + ";\n";
->     else                                // stmt  : expr ';'
->       return visit(ctx.expr()) + ";\n";
->   }
->
->   // Ergebnis über den Rückgabetyp - keine Hilfsmethode und interne Hilfsdatenstruktur notwendig
-> }
-> ```
->
-> Merke: `StringBuilder` ist oft die beste Wahl für den Einstieg. Die
-> eingebaute Aggregation ist praktisch, aber nur dann gut nutzbar, wenn
-> man die Sammellogik (`defaultResult`/`aggregateResult`) passend
-> definiert.
+### Hinweis: Visitor-Rückgaben und Aggregation in ANTLR vs. zustandsbehaftete Visitoren
+
+Wir nutzen hier in Prog2 einfach einen **zustandsbehafteten Visitor**:
+Die `visitXYZ`-Methoden arbeiten mit einer internen
+**Hilfsdatenstruktur** wie `Stack`, `Map` oder `StringBuilder` (oder
+andere, abhängig vom Ziel) und schreiben ihre Ergebnisse dort hinein.
+Das ist leicht zu verstehen und man muss sich nicht darum kümmern, wie
+ANTLR Ergebnisse aus Kindknoten zusammenführt.
+
+Sie überschreiben die `visitXYZ`-Methoden für Knoten, die Ausgaben
+erzeugen sollen (z.B. `prog`, `stmt`, `expr`). Andere Regeln können
+unüberschrieben bleiben, solange Sie in Ihren überschriebenen Methoden
+die notwendigen Kinder mit `visit(...)` (oder `visitChildren(...)`)
+weiter besuchen.
+
+Beispiel: Pretty-Printing für arithmetische Ausdrücke mit
+`StringBuilder` (einfach und robust):
+
+``` java
+class PrettyPrinterState extends MiniCalcBaseVisitor<Void> {
+  private final StringBuilder out = new StringBuilder();
+
+  // hier fehlt noch visitProg für korrekte Zeilenumbrüche zw. den Statements
+  // hier fehlt noch visitExpr für eine "schöne" Formatierung der Expressions
+
+  @Override
+  public Void visitStmt(MiniCalcParser.StmtContext ctx) {
+    if (ctx.ID() != null) {             // stmt  : ID '=' expr ';'
+      out.append(ctx.ID().getText()).append(" = ");
+      visit(ctx.expr());
+      out.append(";");
+    } else {                            // stmt  : expr ';'
+      visit(ctx.expr());
+      out.append(";");
+    }
+    return null;
+  }
+
+  public String result() {
+    return out.toString();              // Zugriff auf das Ergebnis
+  }
+}
+```
+
+Für Fortgeschrittene: Man kann auch mit Rückgabewerten arbeiten und die
+Standardlogik aus `AbstractParseTreeVisitor` nutzen. Dann ist wichtig zu
+wissen: `visitChildren()` sammelt die Ergebnisse der Kinder über eine
+*interne Aggregation*. Wenn man will, dass wirklich alle Kind-Ergebnisse
+korrekt zusammenkommen (zum Beispiel bei `String`), muss man in der
+eigenen Visitor-Klasse normalerweise `defaultResult()` und
+`aggregateResult()` geeignet überschreiben.
+
+Vorsicht: Ein häufiges Problem beim Rückgabe-Visitor ist das "Teile
+verschlucken". In `AbstractParseTreeVisitor` ist die Standardaggregation
+so ausgelegt, dass oft nur ein Teilergebnis weitergegeben wird (typisch:
+das letzte Nicht-Default-Ergebnis). Deshalb muss man für `String` meist
+`defaultResult()` und `aggregateResult()` überschreiben, damit wirklich
+wie gewünscht in allen Fällen konkateniert wird.
+
+Beispiel für Fortgeschrittene: Pretty-Printing für arithmetische
+Ausdrücke mit ANTLR-Aggregation mit Typ-Variablen/Rückgabetyp `String`
+(mehr "Magie", aber sauberer):
+
+``` java
+class PrettyVisitorAggregation extends MiniCalcBaseVisitor<String> {
+  @Override protected String defaultResult() {
+    return "";
+  }
+
+  @Override
+  protected String aggregateResult(String aggregate, String nextResult) {
+    return aggregate + nextResult;
+  }
+
+  // hier fehlt noch visitProg für korrekte Zeilenumbrüche zw. den Statements
+  // hier fehlt noch visitExpr für eine "schöne" Formatierung der Expressions
+
+  @Override
+  public String visitStmt(MiniCalcParser.StmtContext ctx) {
+    if (ctx.ID() != null)               // stmt  : ID '=' expr ';'
+      return ctx.ID().getText() + " = " + visit(ctx.expr()) + ";\n";
+    else                                // stmt  : expr ';'
+      return visit(ctx.expr()) + ";\n";
+  }
+
+  // Ergebnis über den Rückgabetyp - keine Hilfsmethode und interne Hilfsdatenstruktur notwendig
+}
+```
+
+Merke: `StringBuilder` ist oft die beste Wahl für den Einstieg. Die
+eingebaute Aggregation ist praktisch, aber nur dann gut nutzbar, wenn
+man die Sammellogik (`defaultResult`/`aggregateResult`) passend
+definiert.
 
 ## Ausblick: Pattern Matching auf Bäumen (neuere Java-Versionen)
 
@@ -899,4 +895,4 @@ Wie es weitergeht: Vom Parse-Baum zum Compiler
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> ca9f848 2026-06-03 antlr: add extra demo to demonstrate lexing and parsing on a small example<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 44971f0 2026-07-01 antlr: fix alert boxes<br></sub></sup></p></blockquote>

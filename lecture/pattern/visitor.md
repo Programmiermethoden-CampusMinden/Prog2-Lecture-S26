@@ -110,7 +110,7 @@ Beim Parsen von "5\*4+3" würde dabei der folgende Parse-Tree entstehen:
 
 > [!TIP]
 >
-> Anmerkung: Wer genau hinschaut und sich schon die
+> Wer genau hinschaut und sich schon die
 > [ANTLR-Session](../tooling/antlr.md) angeschaut hat, wird merken, dass
 > dieser Baum tatsächlich *kein* Parse-Tree von ANTRL basierend auf der
 > Grammatik ist. Hier habe ich schon etwas vorgearbeitet und den
@@ -749,12 +749,12 @@ Damit passiert Folgendes:
 
 > [!IMPORTANT]
 >
-> Wichtig: In Java wird die Auswahl der passenden *Überladung*
-> (`visit(AddExpr)` vs. `visit(MulExpr)` ...) **zur Compile-Zeit**
-> anhand des statischen Typs des Arguments getroffen - hier also anhand
-> des Typs `AddExpr` in der jeweiligen `accept`-Methode. Zur Laufzeit
-> wird dann über den Typ des Visitors entschieden, welche konkrete
-> Implementierung dieser Methode ausgeführt wird.
+> In Java wird die Auswahl der passenden *Überladung* (`visit(AddExpr)`
+> vs. `visit(MulExpr)` ...) **zur Compile-Zeit** anhand des statischen
+> Typs des Arguments getroffen - hier also anhand des Typs `AddExpr` in
+> der jeweiligen `accept`-Methode. Zur Laufzeit wird dann über den Typ
+> des Visitors entschieden, welche konkrete Implementierung dieser
+> Methode ausgeführt wird.
 
 #### 3. Warum braucht das Pattern diesen Mechanismus?
 
@@ -1091,4 +1091,4 @@ Klassenstruktur
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> d878733 2026-05-23 visitor: add slide overloading vs. overriding in java<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 536047d 2026-07-01 visitor: fix alert boxes<br></sub></sup></p></blockquote>

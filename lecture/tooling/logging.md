@@ -287,11 +287,11 @@ vorzunehmen (`logging.properties`).
 
 > [!TIP]
 >
-> *Hinweis*: In vielen professionellen Projekten werden heute (für
-> flexible Konfiguration und bessere Integrationen) Logging-Frameworks
-> wie SLF4J mit Logback genutzt. Die hier vorgestellte Logik (Logger,
-> Level, Handler/Appender, Formatter/Layouts, Hierarchie) überträgt sich
-> jedoch nahezu 1:1 darauf.
+> In vielen professionellen Projekten werden heute (für flexible
+> Konfiguration und bessere Integrationen) Logging-Frameworks wie SLF4J
+> mit Logback genutzt. Die hier vorgestellte Logik (Logger, Level,
+> Handler/Appender, Formatter/Layouts, Hierarchie) überträgt sich jedoch
+> nahezu 1:1 darauf.
 
 ## Wrap-Up
 
@@ -384,4 +384,4 @@ vorzunehmen (`logging.properties`).
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 86c2f47 2026-06-20 logging: rework screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> 110f8c8 2026-07-01 logging: fix alert boxes<br></sub></sup></p></blockquote>
