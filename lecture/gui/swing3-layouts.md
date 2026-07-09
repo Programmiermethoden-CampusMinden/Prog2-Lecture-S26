@@ -156,14 +156,14 @@ bzw. `setVgap()` eingestellt werden.
 -   Zusätzlich `GridBagConstraints`: Verhalten bei Größenveränderungen
 
 | Constraint | Bedeutung |
-|:--------------|:--------------------------------------------------------|
+|:------------------------|:----------------------------------------------|
 | `gridx` | **Spalte** für Komponente (linke obere Ecke) |
 | `gridy` | **Zeile** für Komponente (linke obere Ecke) |
 | `gridwidth` | **Anzahl der Spalten** für Komponente |
 | `gridheight` | **Anzahl der Zeilen** für Komponente |
 | `fill` | Vergrößert **Komponente** in Richtung: `NONE`, `HORIZONTAL`, `VERTICAL`, `BOTH` |
-| `weightx` | Platz in x-Richtung wird unter den **Grid-Slots** entsprechend ihrem "Gewicht" aufgeteilt |
-| `weighty` | Platz in y-Richtung wird unter den **Grid-Slots** entsprechend ihrem "Gewicht" aufgeteilt |
+| `weightx` | Platz in x-Richtung unter **Grid-Slots** nach "Gewicht" aufteilen |
+| `weighty` | Platz in y-Richtung unter **Grid-Slots** nach "Gewicht" aufteilen |
 
 Beim Hinzufügen einer Komponente wird eine Instanz der Klasse
 `GridBagConstraints` mitgegeben. Diese definiert, wie die Komponente in
@@ -295,4 +295,4 @@ wird der neue Platz unter den Slots gemäß ihren Gewichten aufgeteilt.
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 66a8ed5 2026-04-27 swing3: rework readings<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> d67e2f8 2026-07-09 swing3: fix internal formatting<br></sub></sup></p></blockquote>

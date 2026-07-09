@@ -557,7 +557,7 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 
 <blockquote><p><sup><sub><strong>Last modified:</strong> 7a3d015 2026-06-29 refactoring: rework readings<br></sub></sup></p></blockquote>
