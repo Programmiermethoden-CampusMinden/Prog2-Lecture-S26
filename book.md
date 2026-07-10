@@ -24289,7 +24289,7 @@ im `CommandManager` erfolgt.
 >
 > Es wird keines der behandelten Themen ausgeschlossen, allerdings
 > eignen sich manche Themen etwas besser für Klausurfragen als andere
-> ;-)
+> ...
 >
 > </details>
 
@@ -24304,6 +24304,8 @@ im `CommandManager` erfolgt.
 >         \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-prfungsvorbereitung-fragendemo/51dbc795071ecf07dabb595a946f519d)\]
 >     -   [**Fragetypen-Demo** im
 >         ILIAS](https://www.hsbi.de/elearning/goto.php/tst/1352273)
+> 2.  Hinweise zur Prüfung: \[[YT](https://youtu.be/Oi3Y_tnIlJg)\],
+>     \[[HSBI](https://www.hsbi.de/medienportal/video/pr2-prfungsvorbereitung-hinweise-zur-prfung/7d6462b1b7257c84392184c91743a2e5)\]
 >
 > </details>
 
@@ -24616,18 +24618,18 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 **Exceptions:**
 
+-   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
+-   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
 -   "*Any fool...*": ([Fowler 2011](#ref-Fowler2011), p. 15)
--   ["A Note About Git Commit
-    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 -   ["356:
     Refactoring"](http://altlasten.lutz.donnerhacke.de/mitarb/lutz/usenet/Fachbegriffe.der.Informatik.html#356)
     by [Andreas Bogk](mailto:andreas@andreas.org) on Lutz Donnerhacke:
     "Fachbegriffe der Informatik"
--   "*Three strikes...*": ([Fowler 2011](#ref-Fowler2011), p. 58)
--   "*Refactoring*": ([Fowler 2011](#ref-Fowler2011), p. 53)
+-   ["A Note About Git Commit
+    Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    by [Tim Pope](https://tpo.pe/) on tbaggery.com
 
-<blockquote><p><sup><sub><strong>Last modified:</strong> 9c868b2 2026-07-09 tdd: rework screencasts<br></sub></sup></p></blockquote>
+<blockquote><p><sup><sub><strong>Last modified:</strong> c2e62f7 2026-07-10 exams: add screencasts (advice for exam preparation)<br></sub></sup></p></blockquote>
 
 [^1]: Anmerkung: Das obige Beispiel dient als Überblick gebräuchlicher
     terminaler Operationen, es ist nicht als lauffähiges Programm
